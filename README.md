@@ -48,7 +48,7 @@ Octicons includes a stylesheet specifically for [Rails 4/Sprockets][sprockets].
   }
   ```
 
-3. `cd` into `ventor/assets` and run `bower install`. The Octicons styles will be downloaded to *vender/assets/bower_components/octicons*.
+3. `cd` into `vendor/assets` and run `bower install`. The Octicons styles will be downloaded to *vendor/assets/bower_components/octicons*.
 
 4. Open your config/application.rb, and add this line inside your Application:
 
@@ -97,7 +97,7 @@ Octicons operates similarly to [Semver](http://semver.org/) with the following v
 
 - Major: Breaking changes — removed icons, markup changes, unicode switches, css renames, icon redesigns
 - Minor: Non-breaking changes — new icons, new aliases, minor icon changes
-- Patch: Unnoticable tweaks — slight visual changes, package updates
+- Patch: Unnoticeable tweaks — slight visual changes, package updates
 
 
 [octicons]: http://octicons.github.com
