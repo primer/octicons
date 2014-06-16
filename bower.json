@@ -3,7 +3,6 @@
   "description": "GitHub's icon font",
   "version": "2.0.0",
   "license": "SIL OFL 1.1, MIT",
-  "private": true,
   "homepage": "http://octicons.github.com",
   "authors": [
     "GitHub <support@github.com>"
