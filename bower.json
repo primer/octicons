@@ -1,7 +1,6 @@
 {
   "name": "octicons",
   "description": "GitHub's icon font",
-  "version": "2.0.1",
   "license": "SIL OFL 1.1, MIT",
   "homepage": "http://octicons.github.com",
   "authors": [
