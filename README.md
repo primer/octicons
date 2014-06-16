@@ -12,7 +12,7 @@ This is the [Bower][bower] package for [GitHub Octicons][octicons].
   {
     "name": "my_great_project",
     "dependencies": {
-      "octicons": "git@github.com:github/octicons.git"
+      "octicons": "2.0.0"
     }
   }
   ```
@@ -43,7 +43,7 @@ Octicons includes a stylesheet specifically for [Rails 4/Sprockets][sprockets].
   {
     "name": "my_great_project",
     "dependencies": {
-      "octicons": "git@github.com:github/octicons.git"
+      "octicons": "2.0.0"
     }
   }
   ```
