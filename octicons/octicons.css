@@ -53,10 +53,10 @@
 .octicon-calendar:before { content: '\f068'} /*  */
 .octicon-check:before { content: '\f03a'} /*  */
 .octicon-checklist:before { content: '\f076'} /*  */
+.octicon-chevron-up:before { content: '\f0a2'} /*  */
 .octicon-chevron-down:before { content: '\f0a3'} /*  */
 .octicon-chevron-left:before { content: '\f0a4'} /*  */
 .octicon-chevron-right:before { content: '\f078'} /*  */
-.octicon-chevron-up:before { content: '\f0a2'} /*  */
 .octicon-circle-slash:before { content: '\f084'} /*  */
 .octicon-circuit-board:before { content: '\f0d6'} /*  */
 .octicon-clippy:before { content: '\f035'} /*  */
