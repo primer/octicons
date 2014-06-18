@@ -90,6 +90,12 @@ Octicons includes a stylesheet specifically for [Rails 4/Sprockets][sprockets].
     text-align: center;
   }
   ```
+
+### Resources
+
+- [Octicon generator](http://octicons.github.com/) - create a custom set of Octicons for use in your project
+- Read why [icon fonts are awesome](http://css-tricks.com/examples/IconFont/)
+- How to compose your [HTML for icon font usage](http://css-tricks.com/html-for-icon-font-usage/)
   
 ## Why can't I see the characters in Font Book??
 
