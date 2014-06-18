@@ -1,1 +1,1 @@
-Note: This directory contains several versions of Octicons for different purposes. If you want to use Octicons for your own project, it's best to use the generator at [octicons.github.com](http://octicons.github.com/).
+If you intend to install Octicons locally, install `octicons-local.ttf`. It should appear as “github-octicons” in your font list. It is specially designed not to conflict with GitHub's web fonts.
