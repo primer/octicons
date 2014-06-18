@@ -1,3 +1,38 @@
+@import "variables.less";
+@import "path.less";
+@import "core.less";
+@import "icons.less";
+
+@octicon-font-path: ".";
+@octicon-version:    "2.0.2";
+
+@font-face {
+  font-family: 'octicons';
+  src: ~"url('@{octicon-font-path}/octicons.eot?#iefix&v=@{octicon-version}') format('embedded-opentype')",
+       ~"url('@{octicon-font-path}/octicons.woff?v=@{octicon-version}') format('woff')",
+       ~"url('@{octicon-font-path}/octicons.ttf?v=@{octicon-version}') format('truetype')",
+       ~"url('@{octicon-font-path}/octicons.svg?v=@{octicon-version}#octicons') format('svg')";
+  font-weight: normal;
+  font-style: normal;
+}
+
+.octicon {
+  display: inline-block;
+  font: normal normal 16px octicons;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.mega-octicon {
+  display: inline-block;
+  font: normal normal 32px octicons;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .octicon-alert:before { content: '\f02d'}
 .octicon-alignment-align:before { content: '\f08a'}
 .octicon-alignment-aligned-to:before { content: '\f08e'}
