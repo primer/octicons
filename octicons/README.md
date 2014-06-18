@@ -1,0 +1,1 @@
+Note: This directory contains several versions of Octicons for different purposes. If you want to use Octicons for your own project, it's best to use the generator at [octicons.github.com](http://octicons.github.com/).
