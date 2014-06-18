@@ -90,6 +90,12 @@ Octicons includes a stylesheet specifically for [Rails 4/Sprockets][sprockets].
     text-align: center;
   }
   ```
+  
+## Why can't I see the characters in Font Book??
+
+Give this a try, you should be all set:
+
+![](http://cl.ly/image/2r1B1F2l3Q0D/content#png)
 
 ## Versions
 
