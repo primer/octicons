@@ -93,7 +93,7 @@ Octicons includes a stylesheet specifically for [Rails 4/Sprockets][sprockets].
 
 ### Resources
 
-- [Octicon generator](http://octicons.github.com/) - create a custom set of Octicons for use in your project
+- [octicons.github.com](http://octicons.github.com/) - the Octicons website
 - Read why [icon fonts are awesome](http://css-tricks.com/examples/IconFont/)
 - How to compose your [HTML for icon font usage](http://css-tricks.com/html-for-icon-font-usage/)
   
