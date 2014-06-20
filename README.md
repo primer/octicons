@@ -80,7 +80,13 @@ Octicons includes a stylesheet specifically for [Rails 4/Sprockets][sprockets].
 
 ## Best practices
 
-- Octicons look best in sizes that are multiples of 16px.
+- Octicons look best in sizes that are multiples of 16px. You can update the size using the `font-size` CSS property. For example:
+
+  ``` css
+  .octicon {
+    font-size: 32px;
+  }
+  ```
 
 - Octicons are not monospaced. This lets them work well next to type, but it means they won’t stack nicely by default. If you intend to stack octicons, such as in navigation, you will want to add some CSS to make them the same width, and centered. For example:
 
