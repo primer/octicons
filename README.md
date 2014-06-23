@@ -109,6 +109,10 @@ Give this a try, you should be all set:
 
 ![](http://cl.ly/image/2r1B1F2l3Q0D/content#png)
 
+## FAQ
+
+Check out [issues with the FAQ label](https://github.com/github/octicons/issues?q=is%3Aclosed+is%3Aissue+label%3AFAQ).
+
 ## Versions
 
 Octicons operates similarly to [Semver](http://semver.org/) with the following version convention:
