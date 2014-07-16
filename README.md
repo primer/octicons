@@ -56,11 +56,11 @@ Octicons includes a stylesheet specifically for [Rails 4/Sprockets][sprockets].
   config.assets.precompile += %w(*.svg *.eot *.woff *.ttf)
   ```
 
-5. In your application stylesheet, require `octicons`:
+5. In your application stylesheet, require `sprockets-octicons`:
 
   ``` css
   /*
-  = require octicons
+  = require sprockets-octicons
   */
   ```
 
