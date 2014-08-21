@@ -15,15 +15,15 @@
 
 */
 .octicon, .mega-octicon {
-    font: normal normal 16px/1 octicons;
-    display: inline-block;
-    text-decoration: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  font: normal normal 16px/1 octicons;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .mega-octicon { font-size: 32px; }
 
