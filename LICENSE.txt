@@ -1,4 +1,4 @@
-(c) 2012-2014 GitHub
+(c) 2012-2015 GitHub
 
 When using the GitHub logos, be sure to follow the GitHub logo guidelines (https://github.com/logos)
 
