@@ -109,6 +109,29 @@ Give this a try, you should be all set:
 
 ![](http://cl.ly/image/2r1B1F2l3Q0D/content#png)
 
+
+## Octicons for iOS/Swift
+
+1. Drag and Drop octicons.ttf to your project
+	- Copy to the destination folder
+	- Add the file to your current target
+	![](http://cl.ly/ZqAG/download/Capture%20d%E2%80%99%C3%A9cran%202015-02-18%20%C3%A0%2015.41.57.png)
+2. In info.plist, add the font provided by the application
+	![](http://cl.ly/ZqPs/download/Capture%20d%E2%80%99%C3%A9cran%202015-02-18%20%C3%A0%2015.42.40.png)
+
+3. Copy the ios/Octicons.swift file to your project
+
+### Swift Example usage
+```
+	let label = UILabel()
+	label.font = UIFont.octicon(14.0)
+	label.text = Octicon.Alert
+	
+	let button = UIButton()
+	button.titleLabel?.font = UIFont.octicon(20.0)
+	button.setTitle(Octicon.PlaybackPlay, forState: .Normal)
+```
+
 ## FAQ
 
 Check out [issues with the FAQ label](https://github.com/github/octicons/issues?q=is%3Aclosed+is%3Aissue+label%3AFAQ).
