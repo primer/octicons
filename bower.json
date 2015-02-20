@@ -7,11 +7,11 @@
     "GitHub <support@github.com>"
   ],
   "main": [
-    "octicons/sprockets-octicons.scss",
-    "octicons/octicons.eot",
-    "octicons/octicons.svg",
-    "octicons/octicons.ttf",
-    "octicons/octicons.woff"
+    "octicons/css/sprockets-octicons.scss",
+    "octicons/fonts/octicons.eot",
+    "octicons/fonts/octicons.svg",
+    "octicons/fonts/octicons.ttf",
+    "octicons/fonts/octicons.woff"
   ],
   "keywords": [
     "GitHub",
