@@ -1,12 +1,9 @@
-$octicons-font-path: "." !default;
-$octicons-version:   "d06ce002ddd442d23cd70c22b9373bd4d73fa109";
-
 @font-face {
   font-family: 'octicons';
-  src: url('#{$octicons-font-path}/octicons.eot?#iefix&v=#{$octicons-version}') format('embedded-opentype'),
-       url('#{$octicons-font-path}/octicons.woff?v=#{$octicons-version}') format('woff'),
-       url('#{$octicons-font-path}/octicons.ttf?v=#{$octicons-version}') format('truetype'),
-       url('#{$octicons-font-path}/octicons.svg?v=#{$octicons-version}#octicons') format('svg');
+  src: font-url('octicons.eot?#iefix') format('embedded-opentype'),
+       font-url('octicons.woff') format('woff'),
+       font-url('octicons.ttf') format('truetype'),
+       font-url('octicons.svg#octicons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
