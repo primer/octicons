@@ -15,7 +15,7 @@
     "icon font"
   ],
   "author": "GitHub <support@github.com>",
-  "license": "SIL OFL 1.1, MIT",
+  "license": "(OFL-1.1 OR MIT)",
   "bugs": {
     "url": "https://github.com/github/octicons/issues"
   },
