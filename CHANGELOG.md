@@ -1,4 +1,33 @@
-### 3.0.0
+### 3.1.0 (August 13, 2015)
+
+Adds
+
+- `shield`
+
+This thickens stroke widths slightly on the following icons:
+
+- `circle-slash`
+- `clock`
+- `cloud-upload`
+- `cloud-download`
+- `dashboard`
+- `info`
+- `issue-closed`
+- `issue`
+- `issue-reopened`
+- `history`
+- `question`
+- `search`
+
+Fills `comment-discussion`
+
+Thickens `x` to match `checkmark`
+
+### 3.0.1 (August 10, 2015)
+
+Some files were missing in `3.0.0`
+
+### 3.0.0 (August 10, 2015)
 
 Removes
 
