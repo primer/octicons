@@ -80,7 +80,7 @@ Octicons includes a stylesheet specifically for [Rails 4/Sprockets][sprockets].
   
 ## Installing locally
 
-The easiest way to install Octicons locally is with Homebrew. Simply run the following commands:
+It's easy to install octicons locally if you have [Homebrew](http://brew.sh/) installed. Simply run the following commands:
 
 ```
 brew tap "caskroom/fonts"
