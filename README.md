@@ -83,6 +83,7 @@ Octicons includes a stylesheet specifically for [Rails 4/Sprockets][sprockets].
 It's easy to install octicons locally if you have [Homebrew](http://brew.sh/) installed. Simply run the following commands:
 
 ```
+brew install caskroom/cask/brew-cask
 brew tap "caskroom/fonts"
 brew cask install "font-octicons"
 ```
