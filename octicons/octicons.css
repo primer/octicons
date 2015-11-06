@@ -40,6 +40,7 @@
 .octicon-microscope:before,
 .octicon-beaker:before { content: '\f0dd'} /*  */
 .octicon-bell:before { content: '\f0de'} /*  */
+.octicon-bold:before { content: '\f0e2'} /*  */
 .octicon-book:before { content: '\f007'} /*  */
 .octicon-bookmark:before { content: '\f07b'} /*  */
 .octicon-briefcase:before { content: '\f0d3'} /*  */
@@ -120,6 +121,7 @@
 .octicon-issue-closed:before { content: '\f028'} /*  */
 .octicon-issue-opened:before { content: '\f026'} /*  */
 .octicon-issue-reopened:before { content: '\f027'} /*  */
+.octicon-italic:before { content: '\f0e4'} /*  */
 .octicon-jersey:before { content: '\f019'} /*  */
 .octicon-key:before { content: '\f049'} /*  */
 .octicon-keyboard:before { content: '\f00d'} /*  */
@@ -180,8 +182,6 @@
 .octicon-rocket:before { content: '\f033'} /*  */
 .octicon-rss:before { content: '\f034'} /*  */
 .octicon-ruby:before { content: '\f047'} /*  */
-.octicon-screen-full:before { content: '\f066'} /*  */
-.octicon-screen-normal:before { content: '\f067'} /*  */
 .octicon-search-save:before,
 .octicon-search:before { content: '\f02e'} /*  */
 .octicon-server:before { content: '\f097'} /*  */
@@ -201,8 +201,10 @@
 .octicon-tag-remove:before,
 .octicon-tag-add:before,
 .octicon-tag:before { content: '\f015'} /*  */
+.octicon-tasklist:before { content: '\f0e5'} /*  */
 .octicon-telescope:before { content: '\f088'} /*  */
 .octicon-terminal:before { content: '\f0c8'} /*  */
+.octicon-text-size:before { content: '\f0e3'} /*  */
 .octicon-three-bars:before { content: '\f05e'} /*  */
 .octicon-thumbsdown:before { content: '\f0db'} /*  */
 .octicon-thumbsup:before { content: '\f0da'} /*  */

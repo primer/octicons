@@ -1,3 +1,27 @@
+### 3.2.0 (November 6, 2015)
+
+Adds:
+
+- `bold`
+- `text-size`
+- `italic`
+- `tasklist`
+
+It also normalizes some styling in:
+
+- `list-unordered`
+- `list-ordered`
+- `quote`
+- `mention`
+- `bookmark`
+- `threebars`
+
+Removes
+
+- `screen-normal`
+- `screen-full`
+
+
 ### 3.1.0 (August 13, 2015)
 
 Adds
