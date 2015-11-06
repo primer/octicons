@@ -78,6 +78,16 @@ Octicons includes a stylesheet specifically for [Rails 4/Sprockets][sprockets].
   end
   ```
 
+## Installing locally
+
+It's easy to install octicons locally if you have [Homebrew](http://brew.sh/) installed. Simply run the following commands:
+
+```
+brew install caskroom/cask/brew-cask
+brew tap "caskroom/fonts"
+brew cask install "font-octicons"
+```
+
 ## Best practices
 
 - Octicons look best in sizes that are multiples of 16px. You can update the size using the `font-size` CSS property. For example:
@@ -102,7 +112,8 @@ Octicons includes a stylesheet specifically for [Rails 4/Sprockets][sprockets].
 - [octicons.github.com](http://octicons.github.com/) - the Octicons website
 - Read why [icon fonts are awesome](http://css-tricks.com/examples/IconFont/)
 - How to compose your [HTML for icon font usage](http://css-tricks.com/html-for-icon-font-usage/)
-  
+- [sketch-octicons](https://github.com/JuanitoFatas/sketch-octicons) - Octicons icons as Sketch Symbols
+
 ## Why can't I see the characters in Font Book??
 
 Give this a try, you should be all set:
