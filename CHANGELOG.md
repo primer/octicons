@@ -1,3 +1,34 @@
+### 3.4.0 (January 22, 2016)
+
+Adds:
+
+- `verified`
+- `smiley`
+
+Removes:
+
+- `color-mode`
+
+Refines:
+
+- `primitive-dot`
+- `horizontal-rule`
+- `triangle-down`
+- `triangle-up`
+- `triangle-left`
+- `triangle-right`
+- `globe`
+- `flame`
+- `comment-discussion`
+
+### 3.3.0 (November 12, 2015)
+
+Adds:
+
+- `logo-gist`
+
+Resizes all our SVG to be 16x16 instead of 1024x1024
+
 ### 3.2.0 (November 6, 2015)
 
 Adds:
