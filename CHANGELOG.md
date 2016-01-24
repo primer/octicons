@@ -1,3 +1,12 @@
+### 3.4.1 (January 24, 2016)
+
+This includes various SVG viewport refinements.
+
+Refines:
+
+- `thumbs-down`
+- `logo-github`
+
 ### 3.4.0 (January 22, 2016)
 
 Adds:
