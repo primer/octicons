@@ -1,5 +1,5 @@
 $octicons-font-path: "." !default;
-$octicons-version:   "83cf61c381c06806e0a3925d1a13c772b25161d2";
+$octicons-version:   "22dab811a5aa6c7ae0f71074a3480b993f7ef79b";
 
 @font-face {
   font-family: 'octicons';
@@ -216,6 +216,7 @@ $octicons-version:   "83cf61c381c06806e0a3925d1a13c772b25161d2";
 .octicon-triangle-up:before { content: '\f0aa'} /*  */
 .octicon-unfold:before { content: '\f039'} /*  */
 .octicon-unmute:before { content: '\f0ba'} /*  */
+.octicon-unverified:before { content: '\f0e8'} /*  */
 .octicon-verified:before { content: '\f0e6'} /*  */
 .octicon-versions:before { content: '\f064'} /*  */
 .octicon-watch:before { content: '\f0e0'} /*  */

@@ -1,3 +1,13 @@
+### 3.5.0 (February 12, 2016)
+
+Adds:
+
+- `unverified`
+
+Refines:
+
+- `verified`
+
 ### 3.4.1 (January 24, 2016)
 
 This includes various SVG viewport refinements.
