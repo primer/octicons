@@ -28,7 +28,7 @@ This is the [Bower][bower] package for [GitHub Octicons][octicons].
 4. Simply use an icon in your HTML page:
 
   ``` html
-  <span class="octicon octicon-microscope"></span>
+  <span class="octicon octicon-alert"></span>
   ```
 
 ## Installing locally
