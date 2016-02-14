@@ -22,60 +22,13 @@ This is the [Bower][bower] package for [GitHub Octicons][octicons].
 4. Link to the `octicons.css` stylesheet in the `<head>` of your `<html>` page:
 
   ``` html
-  <link rel="stylesheet" href="bower_components/octicons/octicons/octicons.css">
+  <link rel="stylesheet" href="bower_components/octicons/dist/font/octicons.css">
   ```
 
 4. Simply use an icon in your HTML page:
 
   ``` html
   <span class="octicon octicon-microscope"></span>
-  ```
-
-### Rails' asset pipeline
-
-Octicons includes a stylesheet specifically for [Rails 4/Sprockets][sprockets].
-
-1. Create a new file called *vendor/assets/bower.json* (if you don't have one already).
-
-2. Add a new line for the Octicon dependency, pointing to the correct repository:
-
-  ``` json
-  {
-    "name": "my_great_project",
-    "dependencies": {
-      "octicons": "*"
-    }
-  }
-  ```
-
-3. `cd` into `vendor/assets` and run `bower install`. The Octicons styles will be downloaded to *vendor/assets/bower_components/octicons*.
-
-4. Open your config/application.rb, and add this line inside your Application:
-
-  ``` ruby
-  config.assets.precompile += %w(*.svg *.eot *.woff *.ttf)
-  ```
-
-5. In your application stylesheet, require `sprockets-octicons`:
-
-  ``` css
-  /*
-  = require sprockets-octicons
-  */
-  ```
-
-6. Simply use an icon in your HTML page:
-
-  ``` html
-  <span class="octicon octicon-flame"></span>
-  ```
-
-7. If you want a view helper, add something like this to *app/helpers/application_helper.rb*:
-
-  ``` ruby
-  def octicon(code)
-    content_tag :span, '', :class => "octicon octicon-#{code.to_s.dasherize}"
-  end
   ```
 
 ## Installing locally

@@ -1,6 +1,6 @@
 {
   "name": "octicons",
-  "description": "GitHub's icon font",
+  "description": "GitHub's icons",
   "license": [
     "OFL-1.1",
     "MIT"
@@ -10,11 +10,7 @@
     "GitHub <support@github.com>"
   ],
   "main": [
-    "octicons/sprockets-octicons.scss",
-    "octicons/octicons.eot",
-    "octicons/octicons.svg",
-    "octicons/octicons.ttf",
-    "octicons/octicons.woff"
+    "dist/"
   ],
   "keywords": [
     "GitHub",

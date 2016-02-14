@@ -1,0 +1,4 @@
+#!/bin/sh
+
+brew install ttfautohint fontforge --with-python
+npm install

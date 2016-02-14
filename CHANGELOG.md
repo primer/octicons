@@ -1,3 +1,9 @@
+### 4.0.0 (??)
+
+Adds:
+
+- Whole new grunt build system including svg sprite sheet.
+
 ### 3.5.0 (February 12, 2016)
 
 Adds:
