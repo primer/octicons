@@ -1,0 +1,6 @@
+markdown: redcarpet
+highlighter: pygments
+source: docs
+sass:
+  sass_dir: css
+  style: :compressed

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{ site.name | capitalize }}</title>
+    {% include _opengraph_metadata.html %}
+    {% include _twitter_summary_card_metadata.html %}
+    <link rel="stylesheet" href="{{ site.baseurl }}/octicons-logos/octicons-logos.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/components/octicons/octicons.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/application.css">
+    <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico"/>
+    <script type="text/javascript" src="{{ site.baseurl }}/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="{{ site.baseurl }}/js/ZeroClipboard.min.js"></script>
+    <script type="text/javascript" src="{{ site.baseurl }}/js/application.js"></script>
+  </head>
+  <body{% if page.pageName %} class="{{ page.pageName }}"{% endif %}>
+    <div class="footer-push">
+      <header>
+        <div class="wrapper">
+          <a href="{{ site.baseurl }}/" class="logo">
+            <span class="mega-octicon octicon-logo-github"></span>
+            <span class="octicon-logo octicon-logo-octicons"></span>
+          </a>
+
+          {% if site.disableSearch == true %}
+            <span class="tooltipped tooltipped-s" aria-label="Search disabled to improve site regeneration speed">
+              <input type="text" placeholder="Search disabled" size="30"></input>
+            </span>
+          {% else %}
+            {% include search.html %}
+          {% endif %}
+
+          <span class="header-actions">
+            <a href="{{ site.baseurl }}/usage">Usage</a>
+            <a href="https://github.com/github/octicons/releases/">Release notes</a>
+            <a href="https://github.com/github/octicons/" class="octicon octicon-mark-github"></a>
+          </span>
+        </div>
+      </header>
+
+      {{ content }}
+
+      <div class="footer-pad"></div>
+    </div>
+    <section class="footer">
+      <div class="wrapper">
+        <span class="made-with-heart">
+          <span class="octicon octicon-pencil"></span> with <span class="octicon octicon-heart"></span> by <a href="https://github.com" class="octicon octicon-logo-github"></a>
+        </span>
+      </div>
+    </section>
+
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-3769691-64']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

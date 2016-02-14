@@ -1,0 +1,473 @@
+// Use the standard, but classy, `.button` for form actions and primary
+// page actions. These are used extensively around the site.
+//
+// :hover               - Buttons love hover states.
+// :active              - Buttons love active states.
+// :disabled            - For when you shouldn't be able to click on it.
+// .disabled            - Same as the disabled pseudo-class.
+// .primary             - For the main form action, use whenever creating something.
+// .primary:hover       - Hover state fo primary buttons.
+// .primary:active      - A brief moment of polish when the button is pressed.
+// .primary:disabled    - Even primary buttons have a down state.
+// .primary.disabled    - Same as the disabled pseudo-class.
+// .danger              - For potentially bad or destructive actions.
+// .danger:hover        - Hover state for danger buttons.
+// .danger:active       - Depressed danger button.
+// .danger:disabled     - Disabled danger button.
+// .danger.disabled     - Same as the disabled pseudo-class.
+// .blue                - Actions related to merges.
+// .blue:hover          - Hover state for merge buttons.
+// .blue:active         - Depressed blue button.
+// .blue:disabled       - Disabled blue button.
+// .blue.disabled       - Same as the disabled pseudo-class.
+// .dark-grey           - Alternate button.
+// .dark-grey:hover     - Hover state for alternate buttons.
+// .dark-grey:active    - Depressed alternate button.
+// .dark-grey:disabled  - Disabled alternate button.
+// .dark-grey.disabled  - Same as the disabled pseudo-class.
+//
+// Styleguide 1.1
+.button,
+.minibutton {
+  position: relative;
+  display: inline-block;
+  padding: 7px 12px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #333;
+  text-shadow: 0 1px 0 rgba(255,255,255,.9);
+  white-space: nowrap;
+  @include gradient(#fcfcfc, #eee);
+  border-radius: 3px;
+  border: 1px solid #d5d5d5;
+  vertical-align: middle;
+  cursor: pointer;
+  @include user-select(none);
+  -webkit-appearance: none; // Corrects inability to style clickable `input` types in iOS.
+
+  &:focus {
+    outline: none;
+    text-decoration: none;
+    border-color: #51a7e8;
+    box-shadow: 0 0 5px rgba(81,167,232,.5);
+  }
+
+  &:hover,
+  &:active,
+  &.zeroclipboard-is-hover,
+  &.zeroclipboard-is-active {
+    text-decoration: none;
+    @include gradient(#eee, #ddd);
+    border-color: #ccc;
+  }
+
+  &:active,
+  &.selected,
+  &.selected:hover,
+  &.zeroclipboard-is-active {
+    background-color: #dcdcdc;
+    background-image: none;
+    border-color: #b5b5b5;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,.15);
+  }
+
+  &:disabled,
+  &.disabled {
+    &,
+    &:hover {
+      color: rgba(102,102,102,.5);
+      text-shadow: 0 1px 0 rgba(255,255,255,.9);
+      background-image: none;
+      background-color: rgba(229,229,229,.5);
+      border-color: rgba(197,197,197,.5);
+      cursor: default;
+      box-shadow: none;
+    }
+  }
+
+  // Green primary button
+  &.primary {
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    @include gradient(#8add6d, #60b044);
+    border-color: darken(#60b044, 2%);
+
+    &:hover {
+      color: #fff;
+      @include gradient(darken(#8add6d, 5%), darken(#60b044, 5%));
+      border-color: #4a993e;
+    }
+
+    &:active,
+    &.selected {
+      background-color: darken(#60b044, 5%);
+      background-image: none;
+      border-color: darken(#4a993e, 5%);
+    }
+
+    &:disabled,
+    &.disabled {
+      &, &:hover {
+        color: #fefefe;
+        text-shadow: 0 -1px 0 rgba(39,39,39,0.25);
+        @include gradient(#c3ecb4, #add39f);
+        border-color: #b9dcac #b9dcac #a7c89b;
+      }
+    }
+  }
+
+  // Red danger button
+  &.danger {
+    color: #900;
+
+    &:hover {
+      color: #fff;
+      text-shadow: 0px -1px 0 rgba(0,0,0,.3);
+      @include gradient(#dc5f59, #b33630);
+      border-color: #cd504a;
+    }
+
+    &:active,
+    &.selected {
+      color: #fff;
+      background-color: #b33630;
+      background-image: none;
+      border-color: darken(#cd504a, 15%);
+    }
+
+    &:disabled,
+    &.disabled {
+      &, &:hover {
+        color: #cb7f7f;
+        text-shadow: 0 1px 0 rgba(255,255,255,.9);
+        @include gradient(#fefefe, #efefef);
+        border-color: #e1e1e1;
+      }
+    }
+  }
+
+  // Blue button
+  &.blue {
+    &, &:hover {
+      color: #fff;
+      text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+      @include gradient(#599bcd, #3072b3);
+      border-color: #2a65a0;
+    }
+    &:hover,
+    &:active {
+      border-color: #2a65a0;
+    }
+    &:active,
+    &.selected {
+      background-color: #3072b3;
+      background-image: none;
+      border-color: darken(#2a65a0, 5%);
+      box-shadow: inset 0 3px 5px rgba(0,0,0,.15);
+    }
+    &:disabled,
+    &.disabled {
+      &, &:hover {
+        color: #fefefe;
+        @include gradient(#abcce5, #97b8d8);
+        border-color: #94b1cf;
+      }
+      background-position: 0 0;
+    }
+  }
+
+  &.dark-grey {
+    &, &:hover {
+      color: #fff;
+      text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+      @include gradient(#8c8c8c, #6d6d6d);
+      border: 1px solid #707070;
+      border-bottom-color: #595959;
+    }
+    &:hover,
+    &:active,
+    &.selected {
+      border-color: #585858;
+    }
+    &:active,
+    &.selected {
+      background-color: #545454;
+      background-image: none;
+      border-color: darken(#545454, 5%);
+      box-shadow: inset 0 3px 5px rgba(0,0,0,.15);
+    }
+    &:disabled,
+    &.disabled {
+      &, &:hover {
+        color: #fefefe;
+        @include gradient(#c4c4c4, #b5b5b5);
+        border-color: #ababab;
+      }
+      background-position: 0 0;
+    }
+  }
+
+  &.with-count {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    float: left;
+  }
+
+}
+
+// Position images inside buttons correctly
+.button img {
+  position: relative;
+  top: -1px;
+  margin-right: 3px;
+  vertical-align: middle;
+}
+
+// Improve octicons in buttons
+.button > .octicon {
+  vertical-align: middle;
+  margin-top: -1px;
+}
+
+
+// Minibuttons are our general action-style buttons. Generally they link to a
+// new page, popup, or activate some piece of the page. They are usually not
+// used to submit forms. Also see the `minibutton` rails helper.
+//
+// :hover            - The hover state.
+// :active           - The active state.
+// .selected         - A permenantly depressed minibutton, useful for toggles.
+// :disabled         - A disabled button.
+// .disabled         - Same as pseudo class.
+// .primary           - For the main form action, use whenever creating something.
+// .primary:hover     - Hover state fo primary buttons.
+// .primary:active    - A brief moment of polish when the button is pressed.
+// .danger           - This button might do something bad.
+// .danger:hover     - This button might do something bad.
+// .danger:active    - A depressed danger button.
+// .blue             - A nice blue button, for places like merge button confirm box.
+// .dark-grey        - A dark grey button for places like the delete branch (w/ unmerged commits) box.
+//
+// Styleguide 1.2
+.minibutton {
+  padding: 0 10px;
+  line-height: 24px;
+  box-shadow: none;
+
+  &:hover {
+    .octicon-device-desktop:before {
+      background-position: -18px 0;
+    }
+  }
+
+  i {
+    font-weight: 500;
+    font-style: normal;
+    opacity: .6;
+  }
+
+  code {
+    line-height: 22px;
+  }
+}
+
+
+// Full-width button.
+//
+// No styleguide reference.
+.button-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+  @include box-sizing(border-box);
+}
+
+
+// Link button. For when you want the appearance of a link, but the
+// behavior of a button. Ideal for avoiding `href="#"`.
+//
+// No styleguide reference.
+.button-link {
+  display: inline;
+  padding: 0;
+  font-size: inherit;
+  color: $brand-linkBlue;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  @include user-select(none);
+  -webkit-appearance: none; // Corrects inability to style clickable `input` types in iOS.
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+// I have no idea.
+input[type=text] + .minibutton{ margin-left: 5px; }
+
+
+
+// Minibuttons with an icon.
+//
+// .octicon-tools           - Admin.
+// .octicon-eye-watch         - Watch.
+// .octicon-star             - Star.
+// .octicon-cloud-download         - Download.
+// .octicon-pencil             - Edit.
+// .octicon-person-follow           - Follow.
+// .octicon-person-remove   - Unfollow.
+// .octicon-git-pull-request     - Pull Request.
+// .octicon-git-branch             - Fork.
+// .octicon-log-out           - Leave.
+// .octicon-diff             - To the compare view!
+// .octicon-mail-reply            - Reply.
+// .octicon-arrow-left         - Back.
+// .octicon-arrow-right        - Forward.
+// .octicon-device-desktop          - Microsoft.
+// .octicon-device-desktop              - Mac.
+//
+// Styleguide 1.2.1
+.minibutton {
+  .octicon {
+    vertical-align: middle;
+    margin-top: -1px;
+    margin-right: 6px;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: color 0 ease-in;
+    transition: none;
+  }
+  &.zeroclipboard-button .octicon {
+    margin-right: 0;
+  }
+  &.empty-icon .octicon {
+    margin-right: 0;
+  }
+}
+
+
+// Use `.hidden-text-expander` to indicate and expand hidden text.
+//
+// .inline - button will display inline rather than block
+//
+// Styleguide 1.2.4
+.hidden-text-expander {
+  display: block;
+
+  &.inline {
+    display: inline-block;
+    line-height: 0;
+    margin-left: 5px;
+    position: relative;
+    top: -1px;
+  }
+
+  a {
+    background: #ddd;
+    color: #555;
+    padding: 0 5px;
+    line-height: 6px;
+    height: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    vertical-align: middle;
+    display: inline-block;
+    border-radius: 1px;
+    text-decoration: none;
+
+    &:hover {
+      background-color: #ccc;
+      text-decoration: none;
+    }
+
+    &:active {
+      background-color: #4183C4;
+      color: #fff;
+    }
+  }
+}
+
+
+
+// A container that is used for social bubbles counts.
+//
+// .social-count - social count bubble number
+//
+// Styleguide 1.2.5
+.social-count {
+  padding: 0 7px 0;
+  font-size: 11px;
+  font-weight: bold;
+  float: left;
+  background-color: #fff;
+  line-height: 24px;
+  color: $brand-darkGrey;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  border-left: 0;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+
+  &:hover {
+    color: $brand-linkBlue;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+
+// A button group is a series of buttons laid out next to each other, all part
+// of one visual button, but separated by rules to be separate. Inside each group
+// are either `.button`s or `.minibutton`s as immediate children. No extra markup is
+// required, and they work with any button modifier class.
+//
+// Styleguide 1.4
+.button-group {
+  display: inline-block;
+  @include clearfix();
+  vertical-align: middle;
+
+  .button,
+  .minibutton {
+    position: relative;
+    float: left;
+    border-radius: 0;
+    &:first-child {
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+    &:last-child {
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+    // Bring any button into forefront for proper borders given negative margin below
+    &:hover,
+    &:focus,
+    &:active,
+    &.selected {
+      z-index: 2;
+    }
+  }
+
+  // Tuck buttons into one another to prevent double border
+  .button + .button,
+  .minibutton + .minibutton {
+    margin-left: -1px;
+    box-shadow: inset 1px 0 0 rgba(255,255,255,.2);
+    &:hover {
+      box-shadow: none;
+    }
+    &:active, &.selected {
+      box-shadow: inset 0 3px 5px rgba(0,0,0,.15)
+    }
+  }
+}
+// Proper spacing for multiple button groups (a la, gollum editor)
+.button-group + .button-group,
+.button-group + .button,
+.button-group + .minibutton {
+  margin-left: 5px;
+}

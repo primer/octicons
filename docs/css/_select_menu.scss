@@ -1,0 +1,205 @@
+// List item that indicates there is nothing to show as a result of the filtering
+//
+// Shown in styleguide 13.1.4 and 13.1.6
+.select-menu-no-results {
+  padding: 9px;
+  display: none;
+  cursor: auto;
+  color: #999;
+
+  .no-results & {
+    display: block;
+  }
+}
+
+// Box that contains the select-menu list and filters
+//
+// Shown in styleguide 13.1
+.select-menu-modal {
+  position: relative;
+  width: 300px;
+  margin-top: 4px;
+  margin-bottom: 20px; // prevent popovers at bottom of page from touching edge
+  overflow: hidden;
+  font-size: 12px;
+  color: #666;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: 5px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, .25);
+}
+
+// You can combine text filtering and tabs within a select-menu
+//
+// Styleguide 13.1.6
+
+// List of items within the select-menu
+//
+// Shown in styleguide 13.1
+.select-menu-list {
+  max-height: 400px;
+  overflow: auto;
+  position: relative;
+
+  &.select-menu-tab-bucket {
+    display: none;
+
+    &.selected { display: block; }
+  }
+}
+
+// List item within the select-menu.
+//
+// Shown in styleguide 13.1
+.select-menu-item {
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  overflow: hidden;
+  color: inherit;
+
+  &:hover { text-decoration: none; }
+
+  &.wide {
+    .select-menu-item-icon {
+      width: auto;
+      display: inline-block;
+    }
+    .select-menu-item-text { display: inline-block; }
+  }
+
+  &.select-menu-item-template { display: none; }
+
+  &.select-menu-clear-item { display: none; }
+
+  &.disabled,
+  &.disabled.selected {
+    color: #999;
+
+    .select-menu-item-gravatar { opacity: .5; }
+  }
+
+  .octicon {
+    vertical-align: middle;
+  }
+
+  input[type="radio"] { display: none; }
+
+  .select-menu-item-icon {
+    display: table-cell;
+    vertical-align: top;
+    padding: 9px 0 8px 8px;
+    width: 24px;
+    text-align: center;
+  }
+
+  &.navigation-focus,
+  &.navigation-focus.selected,
+  &.navigation-focus.select-menu-action {
+    background-color: $brand-linkBlue;
+    color: #fff;
+
+    & > .octicon { color: #fff; }
+
+    .text-danger,
+    .description {
+      color: #fff;
+    }
+  }
+
+  & > .octicon-dash {
+    display: none;
+  }
+
+  &.indeterminate {
+    & > .octicon-check { display: none; }
+
+    & > .octicon-dash { display: table-cell; }
+  }
+
+  &.select-menu-action,
+  &.selected {
+    color: #333;
+
+    .description { color: #666; }
+
+    & > .octicon { color: #333; }
+  }
+
+  &.select-menu-action .select-menu-item-text {
+    font-weight: bold;
+  }
+
+  .select-menu[data-multiple] &:active { background-color: transparent !important; }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .hidden-select-button-text { display: none; }
+
+  .css-truncate-target {
+    display: table-cell;
+    max-width: 100%;
+  }
+}
+
+// Round the corners of the last menu items, only if the menu item
+// list is the last item.
+.select-menu-item.last-visible,
+.select-menu-list:last-child .select-menu-item:last-child {
+  border-bottom: 0;
+  border-radius: 0 0 3px 3px;
+}
+
+// Text of the list picker item. This content is grouped for positioning purposes.
+//
+// Shown in styleguide 13.1
+.select-menu-item-text {
+  display: table-cell;
+  vertical-align: top;
+  padding: 8px 0 8px 8px;
+  text-align: left;
+
+  &:first-child { margin-left: 5px; }
+
+  .description {
+    color: #999;
+    font-size: 12px;
+    max-width: 265px;
+    display: block;
+    margin-top: 3px;
+  }
+
+  h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  h4 .description {
+    font-weight: normal;
+    display: inline;
+  }
+}
+
+// Covers all elements on the page to block interaction
+//
+// No styleguide reference
+.modal-backdrop {
+  display: none;
+  @include user-select(none);
+
+  body.menu-active & {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+  }
+}

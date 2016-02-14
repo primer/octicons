@@ -1,0 +1,22 @@
+<div class="search js-search">
+  <input class="js-search-field js-autofocus" type="text" placeholder="Search Octicons" size="30"></input>
+  <div class="search-results js-results">
+    <div class="select-menu-modal-holder">
+      <div class="select-menu-modal">
+        <div class="select-menu-list js-search-result-list">
+
+          {% for icon in site.posts reversed %}
+          <a class="select-menu-item {% if icon.layout contains 'wide' %} wide{% endif %} js-search-result" href="/icon/{{ icon.css }}" data-name="{{ icon.css }}" data-keywords="{{ icon.keywords }}">
+            <span class="select-menu-item-icon octicon octicon-{{ icon.css }}"></span>
+            <div class="select-menu-item-text">{{ icon.css }}</div>
+          </a> <!-- /.select-menu-item -->
+          {% endfor %}
+
+          <div class="select-menu-no-results">No icons found</div>
+        </div>
+      </div> <!-- /.select-menu-modal -->
+    </div> <!-- /.select-menu-modal-holder -->
+  </div>
+</div>
+
+<div class="modal-backdrop js-modal-backdrop"></div>

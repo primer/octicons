@@ -1,0 +1,21 @@
+{% capture logo %}{% if page.css contains 'logo' %}true{% endif %}{% endcapture %}
+
+<div class="shadow-wrap js-preview-switcher">
+  <div class="preview-background">
+    <div class="icon-preview">
+      <span class="mega-octicon octicon-{{ page.css }}"></span>
+    </div>
+  </div>
+
+  {% include grid.html %}
+
+  <ul class="preview-switcher">
+    <a href="#" class="is-selected js-view-mode">dark</a>
+    | <a href="#" data-class="light" class="js-view-mode">light</a>
+    {% if logo != 'true' %}| <a href="#" class="js-view-mode" data-class="grid">grid</a>{% endif %}
+  </ul>
+</div><!-- /.shadow-wrap -->
+
+{% if page.css contains 'github' %}
+<p class="legal">When using GitHub logos, be sure to follow the <a href="https://github.com/logos">logo usage guidelines</a>.</p>
+{% endif %}

@@ -1,0 +1,264 @@
+.octicon, .mega-octicon {
+  color: #111;
+}
+
+.icon-list {
+  list-style-type: none;
+  padding-left: 0;
+  overflow: hidden;
+  margin-right: -10px;
+  margin-top: 20px;
+
+  li {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    float: left;
+    background-color: #fff;
+  }
+
+  a {
+    display: block;
+    border: 1px solid #ddd;
+    padding: 17px;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 0;
+    color: #333;
+    outline: none;
+
+    &:hover, &.zeroclipboard-is-hover {
+      box-shadow: 0 0 10px rgba(#000, .1);
+    }
+  }
+
+  .is-hidden {
+    display: none;
+  }
+}
+
+.shadow-wrap {
+  box-shadow: 0 0 5px rgba(#000, .1);
+  border-radius: 3px;
+  position: relative;
+  border: 1px solid #ddd;
+
+  &.light {
+    .preview-background {
+      background-color: #333;
+      border-color: #000;
+    }
+
+    .mega-octicon {
+      color: #fff;
+    }
+
+    .icon-preview {
+      background-color: #000;
+    }
+  }
+
+  &.grid {
+    .pixel-grid {
+      display: block;
+    }
+
+    .icon-preview {
+      background-color: #fafafa;
+    }
+  }
+}
+
+.icon-preview {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: #f3f3f3;
+
+  .mega-octicon {
+    font-size: 256px;
+  }
+}
+
+.preview-background {
+  background-color: #fff;
+  padding: 16px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.preview-switcher {
+  font-size: 13px;
+  padding-left: 0;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  background-color: #fefefe;
+  border-top: 1px solid #eee;
+  color: #aaa;
+
+  a {
+    padding: 0 5px;
+    font-weight: bold;
+    color: #aaa;
+
+    &.is-selected {
+      color: #666;
+    }
+  }
+}
+
+.pixel-grid {
+  display: none;
+  border-radius: 3px;
+  width: 290px;
+  height: 290px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &.preview {
+    border: 1px solid rgba($brand-orange, .3);
+
+    .h-grid {
+      border-bottom: 1px solid rgba($brand-orange, .3);
+    }
+
+    .v-grid {
+      border-right: 1px solid rgba($brand-orange, .3);
+    }
+  }
+
+  .plane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 288px;
+    width: 288px;
+    padding: 16px;
+  }
+
+  .h-grid {
+    display: block;
+    border-bottom: 1px solid rgba($brand-linkBlue, .5);
+    height: 8px;
+
+    &:nth-child(2n+1) { border-bottom-color: rgba(#ccc, .4); }
+
+    &:last-child { border: 0; }
+  }
+
+  .v-grid {
+    display: block;
+    border-right: 1px solid rgba($brand-linkBlue, .5);
+    width: 8px;
+    height: 100%;
+    float: left;
+
+    &:nth-child(2n+1) { border-right-color: rgba(#ccc, .4); }
+
+    &:last-child { border: 0; }
+  }
+
+  .key {
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    position: absolute;
+    font-size: 10px;
+    height: 18px;
+    line-height: 16px;
+
+
+
+    .key-blue {
+      color: $brand-linkBlue;
+      display: inline-block;
+      height: 7px;
+      width: 7px;
+      position: relative;
+    }
+
+    .key-grey {
+      color: #ccc;
+      display: inline-block;
+      height: 7px;
+      width: 7px;
+      position: relative;
+
+      .v-grid, .h-grid {
+        border-color: #999;
+      }
+    }
+
+    .v-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      border-right: 1px solid $brand-linkBlue;
+      width: 4px;
+      height: 100%;
+    }
+
+    .h-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      border-bottom: 1px solid $brand-linkBlue;
+      height: 4px;
+      width: 100%;
+    }
+  }
+}
+
+.more-mega {
+  font-size: 64px;
+}
+
+.really-more-mega {
+  font-size: 128px;
+}
+
+.icon-name {
+  margin-top: 0;
+  line-height: 1;
+}
+
+.sizes {
+  height: 137px;
+
+  .octicon, .mega-octicon {
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+}
+
+.copypasta {
+
+  .octicon {
+    margin-right: 0;
+    margin-top: -4px;
+  }
+
+  .minibutton {
+    padding: 0 5px;
+  }
+}
+
+.code-snippet {
+  .comment {
+    color: #aaa;
+  }
+}
+
+.legal {
+  color: #999;
+  font-size: 14px;
+  margin-top: 25px;
+  margin-bottom: 30px;
+}

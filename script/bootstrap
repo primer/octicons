@@ -1,4 +1,5 @@
 #!/bin/sh
 
 brew install ttfautohint fontforge --with-python
+bundle install
 npm install

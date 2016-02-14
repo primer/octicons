@@ -1,0 +1,59 @@
+---
+layout: default
+pageName: index
+---
+
+<section class="show-off">
+  <div class="wrapper">
+    <div class="columns">
+      <div class="column third">
+        <span class="js-showoff-icon">
+          <div class="mega-octicon octicon-eye"></div>
+        </span>
+      </div>
+      <div class="column third">
+        <span class="js-showoff-icon">
+          <div class="mega-octicon octicon-mark-github"></div>
+        </span>
+      </div>
+      <div class="column third">
+        <span class="js-showoff-icon">
+          <div class="mega-octicon octicon-code"></div>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="wrapper">
+    <div class="unit whole lead">
+      <p>Your project. GitHub's icons.</p>
+    </div>
+
+    <div class="download">
+      <a class="button blue" href="https://github.com/github/octicons/releases/download/{{ site.version }}/octicons.zip" onclick="_gaq.push(['_trackEvent', 'Download', '{{ site.version }}'])">Download Octicons</a>
+      <p class="version">
+        {{ site.version }}
+      </p>
+    </div>
+
+    <hr>
+  </div>
+</section>
+
+<section>
+  <div class="wrapper">
+
+    <ul class="icon-list js-icon-list">
+      {% for icon in site.posts reversed %}
+      <li class="js-icon-item" data-name="octicon-{{ icon.css }}">
+        <a href="{{ site.baseurl }}/icon/{{ icon.css }}" class="js-zc-conditional"  data-clipboard-text="{{ icon.character }}">
+          <span class="mega-octicon octicon-{{ icon.css }}" style="min-width: {{ icon.uiWidth }}px;"></span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+
+  </div>
+</section>

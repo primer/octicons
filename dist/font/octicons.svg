@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 <metadata>
-Created by FontForge 20150913 at Sun Feb 14 09:20:13 2016
+Created by FontForge 20150913 at Sun Feb 14 16:56:50 2016
  By Jon Rohan
 </metadata>
 <defs>
@@ -15,7 +15,7 @@ Created by FontForge 20150913 at Sun Feb 14 09:20:13 2016
     panose-1="2 0 5 9 0 0 0 0 0 0"
     ascent="448"
     descent="-64"
-    bbox="-0.454545 0 153 448"
+    bbox="-0.454545 0 507.5 448"
     underline-thickness="25"
     underline-position="-76"
     unicode-range="U+F101-F1A7"
@@ -29,7 +29,7 @@ d="M17 0v341h136v-341h-136zM34 17h102v307h-102v-307z" />
     <glyph glyph-name="nonmarkingreturn" 
  />
     <glyph glyph-name="uniF101" unicode="&#xf101;" 
-d="M16 436q0 -1 -0.5 -1.5l-0.5 -0.5h-14l-0.5 0.5t-0.5 1.5l7 11q0 1 1 1t1 -1zM9 436v2h-2v-2h2zM9 439v4h-2v-4h2z" />
+d="M503 48q9 -16 0 -32t-28 -16h-438q-18 0 -28 16q-9 16 0 32l219 383q9 16 28 16t28 -16zM288 64v64h-64v-64h64zM288 160v128h-64v-128h64z" />
     <glyph glyph-name="uniF102" unicode="&#xf102;" 
 d="M7 441h3l-5 -6l-5 6h3v4h4v-4z" />
     <glyph glyph-name="uniF103" unicode="&#xf103;" 
