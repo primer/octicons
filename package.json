@@ -21,6 +21,9 @@
   "bugs": {
     "url": "https://github.com/github/octicons/issues"
   },
+  "files": [
+    "dist"
+  ],
   "homepage": "https://octicons.github.com",
   "devDependencies": {
     "grunt": "^0.4.5",
