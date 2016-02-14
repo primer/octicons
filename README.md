@@ -31,6 +31,14 @@ This is the [Bower][bower] package for [GitHub Octicons][octicons].
   <span class="octicon octicon-alert"></span>
   ```
 
+## Building Octicons
+
+All the files you need will be in the `/dist/` directory already, but if you've made changes and need to regenerate, follow these steps:
+
+1. Open the Octicons directory in Terminal
+2. Run the command `script/bootstrap`. This will install any necessary dependencies for generating the Octicons font and SVGs.
+3. Run the command `grunt`. Running the grunt task will actually generate the font and SVGs, placing them in the `/dist/` directory.
+
 ## Installing locally
 
 It's easy to install octicons locally if you have [Homebrew](http://brew.sh/) installed. Simply run the following commands:
