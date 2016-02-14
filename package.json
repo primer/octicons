@@ -3,6 +3,7 @@
   "version": "3.5.0",
   "description": "GitHub's icon font",
   "main": "README.md",
+  "style": "octicons/octicons.css",
   "repository": {
     "type": "git",
     "url": "https://github.com/github/octicons.git"
