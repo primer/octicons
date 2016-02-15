@@ -37,6 +37,10 @@ module.exports = function(grunt) {
       options: {
         font: "octicons",
         types: 'eot,woff,woff2,ttf,svg',
+        fontHeight: 96,
+        normalize: false,
+        ascent: 84,
+        descent: 12,
         htmlDemo: false,
         templateOptions: {
             baseClass: 'octicon',
