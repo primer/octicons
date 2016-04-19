@@ -42,6 +42,7 @@ module.exports = function(grunt) {
         ascent: 84,
         descent: 12,
         htmlDemo: false,
+        codepointsFile: 'src/codepoints.json',
         templateOptions: {
             baseClass: 'octicon',
             classPrefix: 'octicon-',
