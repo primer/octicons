@@ -1,7 +1,7 @@
 {
   "name": "octicons",
   "version": "4.0.0",
-  "description": "A scalable icon font handcrafted with <3 by GitHub.",
+  "description": "A scalable set of icons handcrafted with <3 by GitHub.",
   "main": "README.md",
   "repository": {
     "type": "git",
