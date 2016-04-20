@@ -1,3 +1,1 @@
-<svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-  <path d="M2 5h4v1H2v-1z m0 3h4v-1H2v1z m0 2h4v-1H2v1z m11-5H9v1h4v-1z m0 2H9v1h4v-1z m0 2H9v1h4v-1z m2-6v9c0 0.55-0.45 1-1 1H8.5l-1 1-1-1H1c-0.55 0-1-0.45-1-1V3c0-0.55 0.45-1 1-1h5.5l1 1 1-1h5.5c0.55 0 1 0.45 1 1z m-8 0.5l-0.5-0.5H1v9h6V3.5z m7-0.5H8.5l-0.5 0.5v8.5h6V3z" />
-</svg>
+<svg id="Current" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><defs><style>.cls-1{fill:#010101;}</style></defs><title>octicons-master</title><path class="cls-1" d="M2,5H6V6H2V5ZM2,8H6V7H2V8Zm0,2H6V9H2v1ZM13,5H9V6h4V5Zm0,2H9V8h4V7Zm0,2H9v1h4V9Zm2-6v9a1,1,0,0,1-1,1H8.5l-1,1-1-1H1a1,1,0,0,1-1-1V3A1,1,0,0,1,1,2H6.5l1,1,1-1H14A1,1,0,0,1,15,3ZM7,3.5L6.5,3H1v9H7V3.5ZM14,3H8.5L8,3.5V12h6V3Z"/></svg>
