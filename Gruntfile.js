@@ -16,6 +16,31 @@ module.exports = function(grunt) {
       }
     },
 
+    svgmin: {
+			dist: {
+				options: {
+					plugins: [
+            {removeTitle: true},
+            {removeStyleElement: true},
+            {removeAttrs: { attrs: ['id', 'class', 'data-name'] }},
+            {removeEmptyContainers: true},
+            {sortAttrs: true},
+            {removeUselessDefs: true},
+            {removeEmptyText: true},
+            {removeEditorsNSData: true},
+            {removeEmptyAttrs: true},
+            {removeHiddenElems: true}
+					]
+				},
+        files: [{
+          expand: true,
+          cwd: 'src/svg',
+          src: ['*.svg'],
+          dest: 'dist/svg/icons'
+        }]
+			}
+		},
+
     svg_sprite: {
       octicons: {
         expand      : true,
@@ -77,13 +102,6 @@ module.exports = function(grunt) {
     copy: {
       svg: {
         files: [
-          {
-            expand: true,
-            src: ['src/svg/*'],
-            dest: 'dist/svg/icons/',
-            filter: "isFile",
-            flatten: true
-          },
           {
             expand: true,
             src: ['src/styles/_svg-octicons.scss'],
@@ -165,6 +183,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-svg-sprite');
   grunt.loadNpmTasks('grunt-webfont');
+  grunt.loadNpmTasks('grunt-svgmin');
 
   // octicons.github.com tasks
   grunt.registerTask('pre-site', ['default', 'copy:site']);
@@ -173,7 +192,7 @@ module.exports = function(grunt) {
 
   // build tasks
   grunt.registerTask('font', ['clean:font', 'webfont']);
-  grunt.registerTask('svg',  ['clean:svg', 'svg_sprite', 'copy:svg']);
+  grunt.registerTask('svg',  ['clean:svg', 'svgmin', 'svg_sprite', 'copy:svg']);
 
   // default task, build /dist/
   grunt.registerTask('default', [ 'svg', 'font', 'postcss']);
