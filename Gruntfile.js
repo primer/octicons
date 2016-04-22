@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 					plugins: [
             {removeTitle: true},
             {removeStyleElement: true},
-            {removeAttrs: { attrs: ['id', 'class', 'data-name'] }},
+            {removeAttrs: { attrs: ['id', 'class', 'data-name', 'fill', 'fill-rule'] }},
             {removeEmptyContainers: true},
             {sortAttrs: true},
             {removeUselessDefs: true},
