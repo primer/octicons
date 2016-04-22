@@ -18,8 +18,8 @@ module.exports = function(grunt) {
 
     svgmin: {
 			dist: {
-				options: {
-					plugins: [
+        options: {
+          plugins: [
             {removeTitle: true},
             {removeStyleElement: true},
             {removeAttrs: { attrs: ['id', 'class', 'data-name', 'fill', 'fill-rule'] }},
@@ -30,27 +30,27 @@ module.exports = function(grunt) {
             {removeEditorsNSData: true},
             {removeEmptyAttrs: true},
             {removeHiddenElems: true}
-					]
-				},
+          ]
+        },
         files: [{
           expand: true,
           cwd: 'src/svg',
           src: ['*.svg'],
           dest: 'dist/svg/icons'
         }]
-			}
-		},
+      }
+    },
 
     svg_sprite: {
       octicons: {
-        expand      : true,
-        cwd         : 'src/svg',
-        src         : ['*.svg'],
-        dest        : 'dist/svg',
-        options     : {
-          mode      : {
-            symbol  : {
-              dest  : "",
+        expand: true,
+        cwd: 'src/svg',
+        src: ['*.svg'],
+        dest: 'dist/svg',
+        options: {
+          mode: {
+            symbol: {
+              dest: "",
               sprite: "sprite.octicons.svg"
             }
           }
@@ -69,9 +69,9 @@ module.exports = function(grunt) {
         htmlDemo: false,
         codepointsFile: 'src/codepoints.json',
         templateOptions: {
-            baseClass: 'octicon',
-            classPrefix: 'octicon-',
-            mixinPrefix: 'octicon-'
+          baseClass: 'octicon',
+          classPrefix: 'octicon-',
+          mixinPrefix: 'octicon-'
         }
       },
       octicons_css: {
@@ -192,7 +192,7 @@ module.exports = function(grunt) {
 
   // build tasks
   grunt.registerTask('font', ['clean:font', 'webfont']);
-  grunt.registerTask('svg',  ['clean:svg', 'svgmin', 'svg_sprite', 'copy:svg']);
+  grunt.registerTask('svg', ['clean:svg', 'svgmin', 'svg_sprite', 'copy:svg']);
 
   // default task, build /dist/
   grunt.registerTask('default', [ 'svg', 'font', 'postcss']);
