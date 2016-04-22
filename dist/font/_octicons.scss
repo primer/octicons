@@ -1,12 +1,12 @@
 
 @font-face {
 	font-family:"octicons";
-	src:url("octicons.eot?79473a754c6a642241a8c918645c4cbf");
+	src:url("octicons.eot?33d60fb688856c839d7f16ea002f1b28");
 	src:url("octicons.eot?#iefix") format("embedded-opentype"),
-		url("octicons.woff2?79473a754c6a642241a8c918645c4cbf") format("woff2"),
-		url("octicons.woff?79473a754c6a642241a8c918645c4cbf") format("woff"),
-		url("octicons.ttf?79473a754c6a642241a8c918645c4cbf") format("truetype"),
-		url("octicons.svg?79473a754c6a642241a8c918645c4cbf#octicons") format("svg");
+		url("octicons.woff2?33d60fb688856c839d7f16ea002f1b28") format("woff2"),
+		url("octicons.woff?33d60fb688856c839d7f16ea002f1b28") format("woff"),
+		url("octicons.ttf?33d60fb688856c839d7f16ea002f1b28") format("truetype"),
+		url("octicons.svg?33d60fb688856c839d7f16ea002f1b28#octicons") format("svg");
 	font-weight:normal;
 	font-style:normal;
 }
@@ -130,6 +130,8 @@
 
 .octicon-diff:before { content:"\f04d"; }
 
+.octicon-ellipses:before { content:"\f101"; }
+
 .octicon-ellipsis:before { content:"\f09a"; }
 
 .octicon-eye:before { content:"\f04e"; }
@@ -153,6 +155,8 @@
 .octicon-file-text:before { content:"\f011"; }
 
 .octicon-file-zip:before { content:"\f013"; }
+
+.octicon-file:before { content:"\f102"; }
 
 .octicon-flame:before { content:"\f0d2"; }
 

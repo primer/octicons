@@ -1,3 +1,12 @@
-<svg height="16" width="12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 16">
-  <path d="M11.2 4c-0.52-0.63-1.25-0.95-2.2-1-0.97 0-1.69 0.42-2.2 1s-0.78 0.92-0.8 1c-0.02-0.08-0.28-0.42-0.8-1s-1.17-1-2.2-1c-0.95 0.05-1.69 0.38-2.2 1-0.52 0.61-0.78 1.28-0.8 2 0 0.52 0.09 1.52 0.67 2.67s2.34 2.94 5.33 5.33c2.98-2.39 4.77-4.17 5.34-5.33s0.66-2.17 0.66-2.67c-0.02-0.72-0.28-1.39-0.8-2.02z" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="12px" height="16px" viewBox="0 0 12 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7.1 (28215) - http://www.bohemiancoding.com/sketch -->
+    <title>heart</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Octicons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="heart" fill="#000000">
+            <path d="M11.2,3 C10.68,2.37 9.95,2.05 9,2 C8.03,2 7.31,2.42 6.8,3 C6.29,3.58 6.02,3.92 6,4 C5.98,3.92 5.72,3.58 5.2,3 C4.68,2.42 4.03,2 3,2 C2.05,2.05 1.31,2.38 0.8,3 C0.28,3.61 0.02,4.28 0,5 C0,5.52 0.09,6.52 0.67,7.67 C1.25,8.82 3.01,10.61 6,13 C8.98,10.61 10.77,8.83 11.34,7.67 C11.91,6.51 12,5.5 12,5 C11.98,4.28 11.72,3.61 11.2,2.98 L11.2,3 Z" id="Shape"></path>
+        </g>
+    </g>
 </svg>
