@@ -172,8 +172,19 @@ module.exports = function(grunt) {
           branch: 'gh-pages'
         }
       }
-    }
+    },
 
+    cssmin: {
+      target: {
+        files: [{
+          expand: true,
+          cwd: 'dist/font',
+          src: ['*.css', '!*.min.css'],
+          dest: 'dist/font',
+          ext: '.min.css'
+        }]
+      }
+    }
   });
 
   grunt.loadNpmTasks('grunt-build-control');
@@ -184,6 +195,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-svg-sprite');
   grunt.loadNpmTasks('grunt-webfont');
   grunt.loadNpmTasks('grunt-svgmin');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   // octicons.github.com tasks
   grunt.registerTask('pre-site', ['default', 'copy:site']);
@@ -195,5 +207,5 @@ module.exports = function(grunt) {
   grunt.registerTask('svg', ['clean:svg', 'svgmin', 'svg_sprite', 'copy:svg']);
 
   // default task, build /dist/
-  grunt.registerTask('default', [ 'svg', 'font', 'postcss']);
+  grunt.registerTask('default', [ 'svg', 'font', 'postcss', 'cssmin']);
 };
