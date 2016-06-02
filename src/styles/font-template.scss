@@ -1,13 +1,13 @@
 <% if (fontfaceStyles) { %>
 <% if (fontSrc1 && embed.length) { %>
 @font-face {
-	font-family:"<%= fontBaseName %>";
+	font-family:"<%= fontFamilyName %>";
 	src:<%= fontSrc1 %>;
 	font-weight:normal;
 	font-style:normal;
 }
 <% } %>@font-face {
-	font-family:"<%= fontBaseName %>";<% if (fontSrc1) { %>
+	font-family:"<%= fontFamilyName %>";<% if (fontSrc1) { %>
 	src:<%= fontSrc1 %>;<% }%>
 	src:<%= fontSrc2 %>;
 	font-weight:normal;
@@ -22,7 +22,7 @@
 
 */
 .octicon, .mega-octicon {
-  font: normal normal normal 16px/1 <%= fontBaseName %>;
+  font: normal normal normal 16px/1 <%= fontFamilyName %>;
   display: inline-block;
   text-decoration: none;
   text-rendering: auto;

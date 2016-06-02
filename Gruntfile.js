@@ -60,7 +60,8 @@ module.exports = function(grunt) {
 
     webfont: {
       options: {
-        font: "Octicons",
+        font: "octicons",
+        fontFamilyName: "Octicons",
         types: 'eot,woff,woff2,ttf,svg',
         fontHeight: 96,
         normalize: false,

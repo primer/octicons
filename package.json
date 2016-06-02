@@ -36,6 +36,6 @@
     "grunt-svg-sprite": "^1.2.19",
     "grunt-svg2png": "^0.2.7",
     "grunt-svgmin": "^3.2.0",
-    "grunt-webfont": "^1.1.1"
+    "grunt-webfont": "^1.4.0"
   }
 }
