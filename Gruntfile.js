@@ -169,7 +169,7 @@ module.exports = function(grunt) {
       },
       pages: {
         options: {
-          remote: 'git@github.com:github/octicons.git',
+          remote: 'git@github.com:primer/octicons.git',
           branch: 'gh-pages'
         }
       }
