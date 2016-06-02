@@ -5,7 +5,7 @@
   "main": "README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/github/octicons.git"
+    "url": "https://github.com/primer/octicons.git"
   },
   "keywords": [
     "GitHub",
@@ -19,7 +19,7 @@
   "author": "GitHub <support@github.com>",
   "license": "(OFL-1.1 AND MIT)",
   "bugs": {
-    "url": "https://github.com/github/octicons/issues"
+    "url": "https://github.com/primer/octicons/issues"
   },
   "files": [
     "dist"
