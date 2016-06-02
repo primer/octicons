@@ -1,12 +1,12 @@
 
 @font-face {
-	font-family:"octicons";
-	src:url("octicons.eot?e37b6298ad0b16d744596a744665780c");
-	src:url("octicons.eot?#iefix") format("embedded-opentype"),
-		url("octicons.woff2?e37b6298ad0b16d744596a744665780c") format("woff2"),
-		url("octicons.woff?e37b6298ad0b16d744596a744665780c") format("woff"),
-		url("octicons.ttf?e37b6298ad0b16d744596a744665780c") format("truetype"),
-		url("octicons.svg?e37b6298ad0b16d744596a744665780c#octicons") format("svg");
+	font-family:"Octicons";
+	src:url("Octicons.eot?a1135676c44f95a1a4f8ce93a16dd949");
+	src:url("Octicons.eot?#iefix") format("embedded-opentype"),
+		url("Octicons.woff2?a1135676c44f95a1a4f8ce93a16dd949") format("woff2"),
+		url("Octicons.woff?a1135676c44f95a1a4f8ce93a16dd949") format("woff"),
+		url("Octicons.ttf?a1135676c44f95a1a4f8ce93a16dd949") format("truetype"),
+		url("Octicons.svg?a1135676c44f95a1a4f8ce93a16dd949#Octicons") format("svg");
 	font-weight:normal;
 	font-style:normal;
 }
@@ -19,7 +19,7 @@
 
 */
 .octicon, .mega-octicon {
-  font: normal normal normal 16px/1 octicons;
+  font: normal normal normal 16px/1 Octicons;
   display: inline-block;
   text-decoration: none;
   text-rendering: auto;
@@ -370,5 +370,3 @@
 
 .octicon-zap:before { content:"\26a1"; }
 
-
-/*# sourceMappingURL=octicons.css.map */

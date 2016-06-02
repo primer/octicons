@@ -17,7 +17,7 @@ module.exports = function(grunt) {
     },
 
     svgmin: {
-			dist: {
+      dist: {
         options: {
           plugins: [
             {removeTitle: true},
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
 
     webfont: {
       options: {
-        font: "octicons",
+        font: "Octicons",
         types: 'eot,woff,woff2,ttf,svg',
         fontHeight: 96,
         normalize: false,

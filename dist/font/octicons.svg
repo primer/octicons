@@ -2,13 +2,13 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 <metadata>
-Created by FontForge 20150913 at Mon Apr 25 11:25:04 2016
+Created by FontForge 20150913 at Wed Jun  1 19:12:17 2016
  By Aaron Shekey
 </metadata>
 <defs>
-<font id="octicons" horiz-adv-x="96" >
+<font id="Octicons" horiz-adv-x="96" >
   <font-face 
-    font-family="octicons"
+    font-family="Octicons"
     font-weight="400"
     font-stretch="normal"
     units-per-em="96"
