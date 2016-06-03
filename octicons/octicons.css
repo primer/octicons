@@ -24,6 +24,7 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  speak: none;
   user-select: none;
 }
 .mega-octicon { font-size: 32px; }
