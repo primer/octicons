@@ -105,7 +105,7 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            src: ['src/styles/_svg-octicons.scss'],
+            src: ['src/styles/_svg-octicons.scss', 'src/styles/octicons.css'],
             dest: 'dist/svg/',
             filter: "isFile",
             flatten: true
@@ -176,12 +176,21 @@ module.exports = function(grunt) {
     },
 
     cssmin: {
-      target: {
+      font: {
         files: [{
           expand: true,
           cwd: 'dist/font',
           src: ['*.css', '!*.min.css'],
           dest: 'dist/font',
+          ext: '.min.css'
+        }]
+      },
+      svg: {
+        files: [{
+          expand: true,
+          cwd: 'dist/svg',
+          src: ['*.css', '!*.min.css'],
+          dest: 'dist/svg',
           ext: '.min.css'
         }]
       }
