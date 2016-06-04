@@ -1,3 +1,12 @@
-<svg height="16" width="8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 16">
-  <path d="M7 6H1c-0.55 0-1 0.45-1 1v5h2v3c0 0.55 0.45 1 1 1h2c0.55 0 1-0.45 1-1V12h2V7c0-0.55-0.45-1-1-1z m0 5h-1V9h-1v6H3V9h-1v2H1V7h6v4z m0-8C7 1.34 5.66 0 4 0S1 1.34 1 3s1.34 3 3 3 3-1.34 3-3zM4 5c-1.11 0-2-0.89-2-2S2.89 1 4 1s2 0.89 2 2-0.89 2-2 2z" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="8px" height="16px" viewBox="0 0 8 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7.1 (28215) - http://www.bohemiancoding.com/sketch -->
+    <title>person</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Octicons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="person" fill="#000000">
+            <path d="M7,6 L1,6 C0.45,6 0,6.45 0,7 L0,12 L2,12 L2,15 C2,15.55 2.45,16 3,16 L5,16 C5.55,16 6,15.55 6,15 L6,12 L8,12 L8,7 C8,6.45 7.55,6 7,6 L7,6 Z M7,11 L6,11 L6,9 L5,9 L5,15 L3,15 L3,9 L2,9 L2,11 L1,11 L1,7 L7,7 L7,11 L7,11 Z M7,3 C7,1.34 5.66,0 4,0 C2.34,0 1,1.34 1,3 C1,4.66 2.34,6 4,6 C5.66,6 7,4.66 7,3 L7,3 Z M4,5 C2.89,5 2,4.11 2,3 C2,1.89 2.89,1 4,1 C5.11,1 6,1.89 6,3 C6,4.11 5.11,5 4,5 L4,5 Z" id="Shape"></path>
+        </g>
+    </g>
 </svg>

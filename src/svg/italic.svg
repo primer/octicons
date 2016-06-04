@@ -1,3 +1,12 @@
-<svg height="16" width="6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 16">
-  <path d="M2.81 5h1.98L3 14H1l1.81-9z m0.36-2.7c0-0.7 0.58-1.3 1.33-1.3 0.56 0 1.13 0.38 1.13 1.03 0 0.75-0.59 1.3-1.33 1.3-0.58 0-1.13-0.38-1.13-1.03z" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="6px" height="16px" viewBox="0 0 6 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7.1 (28215) - http://www.bohemiancoding.com/sketch -->
+    <title>italic</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Octicons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="italic" fill="#000000">
+            <path d="M2.81,6 L4.79,6 L3,15 L1,15 L2.81,6 L2.81,6 Z M3.17,3.3 C3.17,2.6 3.75,2 4.5,2 C5.06,2 5.63,2.38 5.63,3.03 C5.63,3.78 5.04,4.33 4.3,4.33 C3.72,4.33 3.17,3.95 3.17,3.3 L3.17,3.3 Z" id="Shape"></path>
+        </g>
+    </g>
 </svg>

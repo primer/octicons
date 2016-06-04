@@ -1,0 +1,1 @@
+{"version":3,"sources":["octicons.css"],"names":[],"mappings":"AAAA,eAAe;AACf;EACE,sBAAsB;EACtB,yBAAyB;EACzB,mBAAmB;CACpB","file":"octicons.css","sourcesContent":["/* SVG icons */\n.octicon {\n  display: inline-block;\n  vertical-align: text-top;\n  fill: currentColor;\n}\n"]}
