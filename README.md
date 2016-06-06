@@ -22,7 +22,7 @@ $ npm install --save octicons
 The source files included are written in [Sass][sass] (`scss`) You can simply point your sass `include-path` at your `node_modules` directory and import it like this.
 
 ```scss
-@import "primer-utilities/index.scss";
+@import "octicons/index.scss";
 ```
 
 ## Documentation
