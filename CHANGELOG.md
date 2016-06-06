@@ -4,6 +4,10 @@ Adds:
 
 - Installation docs https://github.com/primer/octicons/pull/94
 
+Fixes:
+
+- Revert license back to SPDX standard
+
 ### 4.0.0 (June 6, 2016)
 
 Adds:
