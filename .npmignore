@@ -1,0 +1,5 @@
+.github
+.travis.yml
+Gruntfile.js
+script
+lib/*.sketch
