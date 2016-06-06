@@ -28,7 +28,7 @@ The source files included are written in [Sass][sass] (`scss`) You can simply po
 
 1. Open the [Sketch document][sketch-document] in `/lib/`. Each icon exists as an artboard within our master Sketch document. If you’re adding an icon, duplicate one of the artboards and add your shapes to it. Be sure to give your artboard a name that makes sense.
 2. Once you’re happy with your icon set, choose File > Export…
-3. Choose all the artboards you'd like to export and then press “Export”
+3. Choose all the artboards you’d like to export and then press “Export”
 4. Export to `/lib/svg/`
 
 You’ll next need to build your Octicons.
