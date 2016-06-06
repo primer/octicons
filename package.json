@@ -16,8 +16,11 @@
     "svg",
     "octicons"
   ],
-  "author": "GitHub <support@github.com>",
-  "license": "(OFL-1.1 AND MIT)",
+  "author": "GitHub Inc.",
+  "license": [
+    "OFL-1.1",
+    "MIT"
+  ],
   "bugs": {
     "url": "https://github.com/primer/octicons/issues"
   },
