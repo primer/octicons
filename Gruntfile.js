@@ -136,45 +136,6 @@ module.exports = function(grunt) {
       ]
     },
 
-    jekyll: {
-      options: {
-        bundleExec: true,
-        src: 'docs/',
-        config: '_config.yml',
-        raw: 'version: v<%= pkg.version %>\n'+
-             'name: <%= pkg.name %>\n' +
-             'description: <%= pkg.description %>',
-        watch: false
-      },
-      dist: {
-        options: {
-          dest: '_site'
-        }
-      },
-      serve: {
-        options: {
-          serve: true,
-          dest: '_site',
-          drafts: true
-        }
-      }
-    },
-
-    buildcontrol: {
-      options: {
-        dir: '_site',
-        commit: true,
-        push: true,
-        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
-      },
-      pages: {
-        options: {
-          remote: 'git@github.com:primer/octicons.git',
-          branch: 'gh-pages'
-        }
-      }
-    },
-
     cssmin: {
       font: {
         files: [{
@@ -197,20 +158,13 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-build-control');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-jekyll');
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-svg-sprite');
   grunt.loadNpmTasks('grunt-webfont');
   grunt.loadNpmTasks('grunt-svgmin');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-
-  // octicons.github.com tasks
-  grunt.registerTask('pre-site', ['default', 'copy:site']);
-  grunt.registerTask('serve', ['pre-site', 'jekyll:serve']);
-  grunt.registerTask('publish', ['pre-site', 'jekyll:dist', 'buildcontrol']);
 
   // build tasks
   grunt.registerTask('font', ['clean:font', 'webfont']);
