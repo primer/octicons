@@ -1,33 +1,28 @@
 {
-  "name": "octicons",
   "version": "4.0.0",
+  "name": "octicons",
   "description": "A scalable set of icons handcrafted with <3 by GitHub.",
-  "main": "README.md",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/primer/octicons.git"
-  },
-  "keywords": [
-    "GitHub",
-    "icons",
-    "font",
-    "web font",
-    "icon font",
-    "svg",
-    "octicons"
-  ],
+  "homepage": "https://octicons.github.com",
   "author": "GitHub Inc.",
   "license": [
     "OFL-1.1",
     "MIT"
   ],
+  "style": "index.scss",
+  "files": [
+    "index.scss",
+    "lib",
+    "build"
+  ],
+  "repository": "https://github.com/primer/octicons.git",
   "bugs": {
     "url": "https://github.com/primer/octicons/issues"
   },
-  "files": [
-    "build"
-  ],
-  "homepage": "https://octicons.github.com",
+  "scripts": {
+    "setup": "script/bootstrap",
+    "build": "npm run setup && grunt",
+    "test": "npm run build"
+  },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "grunt": "^0.4.5",
@@ -38,5 +33,14 @@
     "grunt-svg-sprite": "^1.2.19",
     "grunt-svgmin": "^3.2.0",
     "grunt-webfont": "^1.4.0"
-  }
+  },
+  "keywords": [
+    "GitHub",
+    "icons",
+    "font",
+    "web font",
+    "icon font",
+    "svg",
+    "octicons"
+  ]
 }
