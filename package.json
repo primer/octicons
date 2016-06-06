@@ -21,7 +21,7 @@
   "scripts": {
     "setup": "script/bootstrap",
     "build": "npm run setup && grunt",
-    "test": "npm run build"
+    "test": ""
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
