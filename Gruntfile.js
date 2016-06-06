@@ -45,7 +45,7 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'src/svg',
+          cwd: 'lib/svg',
           src: ['*.svg'],
           dest: 'build/svg'
         }]
@@ -55,7 +55,7 @@ module.exports = function(grunt) {
     svg_sprite: {
       octicons: {
         expand: true,
-        cwd: 'src/svg',
+        cwd: 'lib/svg',
         src: ['*.svg'],
         dest: 'build/',
         options: {
@@ -79,34 +79,27 @@ module.exports = function(grunt) {
         ascent: 84,
         descent: 12,
         htmlDemo: false,
-        codepointsFile: 'src/codepoints.json',
+        codepointsFile: 'lib/font/codepoints.json',
         templateOptions: {
           baseClass: 'octicon',
           classPrefix: 'octicon-',
-          mixinPrefix: 'octicon-'
+          mixinPrefix: 'octicon-',
+          fontFamilyName: "Octicons"
         }
       },
       octicons_css: {
-        src: 'src/svg/*.svg',
+        src: 'lib/svg/*.svg',
         dest: 'build/font',
         options: {
-          template: 'src/styles/font-template.css'
+          template: 'lib/font/template.css'
         }
       },
       octicons_scss: {
-        src: 'src/svg/*.svg',
+        src: 'lib/svg/*.svg',
         dest: 'build/font',
         options: {
           stylesheet: 'scss',
-          template: 'src/styles/font-template.scss'
-        }
-      },
-      octicons_less: {
-        src: 'src/svg/*.svg',
-        dest: 'dist/font',
-        options: {
-          stylesheet: 'less',
-          template: 'src/styles/font-template.less'
+          template: 'lib/font/template.scss'
         }
       }
     },
@@ -134,27 +127,6 @@ module.exports = function(grunt) {
         'build/sprite.octicons.svg',
         'build/octicons.*'
       ]
-    },
-
-    cssmin: {
-      font: {
-        files: [{
-          expand: true,
-          cwd: 'dist/font',
-          src: ['*.css', '!*.min.css'],
-          dest: 'dist/font',
-          ext: '.min.css'
-        }]
-      },
-      svg: {
-        files: [{
-          expand: true,
-          cwd: 'dist/svg',
-          src: ['*.css', '!*.min.css'],
-          dest: 'dist/svg',
-          ext: '.min.css'
-        }]
-      }
     }
   });
 
@@ -164,12 +136,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-svg-sprite');
   grunt.loadNpmTasks('grunt-webfont');
   grunt.loadNpmTasks('grunt-svgmin');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-cssnano');
 
   // build tasks
   grunt.registerTask('font', ['clean:font', 'webfont']);
   grunt.registerTask('svg', ['clean:svg', 'svgmin', 'svg_sprite', 'copy:svg']);
 
   // default task, build /dist/
-  grunt.registerTask('default', [ 'svg', 'font', 'postcss', 'cssmin']);
+  grunt.registerTask('default', [ 'svg', 'font', 'postcss', 'cssnano']);
 };

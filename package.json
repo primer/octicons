@@ -25,7 +25,7 @@
     "url": "https://github.com/primer/octicons/issues"
   },
   "files": [
-    "dist"
+    "build"
   ],
   "homepage": "https://octicons.github.com",
   "devDependencies": {
