@@ -3,11 +3,9 @@ node_js:
   - '5'
 
 deploy:
-  - provider: npm
-    email: ${NPM_EMAIL}
-    api_key: ${NPM_API_KEY}
-  - provider: rubygems
-    api_key: ${RUBYGEMS_API_KEY}
+  provider: npm
+  email: ${NPM_EMAIL}
+  api_key: ${NPM_API_KEY}
   skip_cleanup: true
   on:
     branch: master
