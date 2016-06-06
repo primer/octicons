@@ -1,7 +1,6 @@
 # GitHub Octicons
 
 [![NPM version](https://img.shields.io/npm/v/octicons.svg)](https://www.npmjs.org/package/octicons)
-[![Gem version](https://img.shields.io/gem/v/octicons.svg)](https://rubygems.org/gems/octicons)
 [![Build Status](https://travis-ci.org/primer/octicons.svg?branch=master)](https://travis-ci.org/primer/octicons)
 
 > Octicons are a scalable set of icons handcrafted with <3 by GitHub.
@@ -34,3 +33,9 @@ The source files included are written in [Sass][sass] (`scss`) You can simply po
 _Code License:_ [MIT](./LICENSE) &copy; [GitHub](https://github.com/)
 
 _Font License:_ [SIL OFL 1.1](./LICENSE) &copy; [GitHub](https://github.com/)
+
+[primer]: https://github.com/primer/primer
+[docs]: http://primercss.io/
+[npm]: https://www.npmjs.com/
+[install-npm]: https://docs.npmjs.com/getting-started/installing-node
+[sass]: http://sass-lang.com/
