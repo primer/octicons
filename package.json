@@ -1,23 +1,46 @@
 {
-  "name": "octicons",
   "version": "3.5.0",
-  "description": "GitHub's icon font",
-  "main": "README.md",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/github/octicons.git"
+  "name": "octicons",
+  "description": "A scalable set of icons handcrafted with <3 by GitHub.",
+  "homepage": "https://octicons.github.com",
+  "author": "GitHub Inc.",
+  "license": [
+    "OFL-1.1",
+    "MIT"
+  ],
+  "style": "index.scss",
+  "files": [
+    "index.scss",
+    "lib",
+    "build"
+  ],
+  "repository": "https://github.com/primer/octicons.git",
+  "bugs": {
+    "url": "https://github.com/primer/octicons/issues"
+  },
+  "scripts": {
+    "setup": "script/bootstrap",
+    "build": "npm run setup && grunt",
+    "test": "npm run build"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.7.0",
+    "grunt-cssnano": "^2.1.0",
+    "grunt-postcss": "^0.7.1",
+    "grunt-sass": "^1.2.0",
+    "grunt-svg-sprite": "^1.2.19",
+    "grunt-svgmin": "^3.2.0",
+    "grunt-webfont": "^1.4.0"
   },
   "keywords": [
     "GitHub",
     "icons",
     "font",
     "web font",
-    "icon font"
-  ],
-  "author": "GitHub <support@github.com>",
-  "license": "(OFL-1.1 AND MIT)",
-  "bugs": {
-    "url": "https://github.com/github/octicons/issues"
-  },
-  "homepage": "https://octicons.github.com"
+    "icon font",
+    "svg",
+    "octicons"
+  ]
 }

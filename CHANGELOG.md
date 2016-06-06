@@ -1,3 +1,21 @@
+### HEAD
+
+Adds:
+
+- Whole new grunt build system including svg sprite sheet.
+- adding css min https://github.com/primer/octicons/pull/60
+- adding woff2 format https://github.com/primer/octicons/issues/3
+- creates spritesheet of svg files https://github.com/primer/octicons/issues/88
+
+Removes:
+
+- Bower support
+
+Fixes:
+
+- all svg icons include viewBox https://github.com/primer/octicons/issues/87
+- license in package.json https://github.com/primer/octicons/issues/85
+
 ### 3.5.0 (February 12, 2016)
 
 Adds:
