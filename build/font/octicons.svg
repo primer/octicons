@@ -2,8 +2,8 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 <metadata>
-Created by FontForge 20150913 at Mon Jun  6 09:31:57 2016
- By Jon Rohan
+Created by FontForge 20150913 at Mon Jun  6 15:28:17 2016
+ By Aaron Shekey
 </metadata>
 <defs>
 <font id="octicons" horiz-adv-x="96" >
@@ -372,7 +372,7 @@ q4 5 12 11.5t10 8.5q9 10 3 26z" />
     <glyph glyph-name="briefcase" unicode="&#xf0d3;" 
 d="M54 60h24q6 0 6 -6v-48q0 -6 -6 -6h-72q-6 0 -6 6v48q0 6 6 6h24v6q0 6 6 6h12q6 0 6 -6v-6zM36 66v-6h12v6h-12zM78 30v24h-6v-18h-60v18h-6v-24h30v-6h12v6h30z" />
     <glyph glyph-name="plug" unicode="&#xf0d4;" 
-d="M84 42h-24v-18h24v-6h-24v-12h-12v6h-12q-9 0 -12 12l-6 6q-12 0 -12 -12v-12h-6v12q0 7 5.5 12.5t12.5 5.5l6 6q2 12 12 12h12v6h12v-12h24v-6z" />
+d="M84 48h-24v-18h24v-6h-24v-12h-12v6h-12q-9 0 -12 12l-6 6q-12 0 -12 -12v-12h-6v12q0 7 5.5 12.5t12.5 5.5l6 6q2 12 12 12h12v6h12v-12h24v-6z" />
     <glyph glyph-name="circuit-board" unicode="&#xf0d6;" 
 d="M18 54q0 6 6 6t6 -6t-6 -6t-6 6zM66 54q0 -6 -6 -6t-6 6t6 6t6 -6zM66 18q0 -6 -6 -6t-6 6t6 6t6 -6zM78 78q6 0 6 -6v-72q0 -6 -6 -6h-54l18 18h7q3 -7 11 -7q6 0 10 5t2 11q-1 7 -9 9q-9 2 -14 -6h-13l-30 -30q-6 0 -6 6v72q0 6 6 6h12v-13q-9 -4 -6 -14q2 -7 9 -9
 q9 -3 14 6h14q3 -7 11 -7q6 0 10 5t2 11q-1 7 -9 9q-9 2 -14 -6h-14q-2 3 -5 5v13h48z" />
@@ -410,8 +410,8 @@ d="M92 30h-46q-4 0 -4 6t4 6h46q4 0 4 -6t-4 -6zM58 60q-4 0 -4 6t4 6h34q4 0 4 -6t-
 d="M94 42q5 -6 0 -12l-6 -8q-2 -2 -2 -4l-2 -11q0 -7 -8 -8l-10 -1q-2 0 -4 -2l-8 -6q-6 -5 -12 0l-8 6q-2 2 -4 2l-11 2q-7 0 -8 8l-1 10q0 2 -2 4l-6 8q-5 6 0 12l6 8q2 2 2 4l2 11q0 7 8 8l10 1q2 0 4 2l8 6q6 5 12 0l8 -6q2 -2 4 -2l11 -2q7 0 8 -8l1 -10q0 -2 2 -4z
 M39 12l39 39l-9 9l-30 -30l-12 12l-9 -9z" />
     <glyph glyph-name="smiley" unicode="&#xf0e7;" 
-d="M48 84q20 0 34 -14t14 -34t-14 -34t-34 -14t-34 14t-14 34t14 34t34 14zM76.5 7.5q5.5 5.5 9 12.5t3.5 16t-3.5 16t-9 12.5t-12.5 9t-16 3.5t-16 -3.5t-12.5 -9t-9 -12.5t-3.5 -16t3.5 -16t9 -12.5t12.5 -9t16 -3.5t16 3.5t12.5 9zM24 49v4q0 7 7 7h4q7 0 7 -7v-4
-q0 -7 -7 -7h-4q-7 0 -7 7zM54 49v4q0 7 7 7h4q7 0 7 -7v-4q0 -7 -7 -7h-4q-7 0 -7 7zM78 24q-7 -18 -30 -18t-30 18q-2 6 4 6h52q6 0 4 -6z" />
+d="M48 84q20 0 34 -14t14 -34t-14 -34t-34 -14t-34 14t-14 34t14 34t34 14zM76.5 7.5q5.5 5.5 9 12.5t3.5 16t-3.5 16t-9 12.5t-12.5 9t-16 3.5t-16 -3.5t-12.5 -9t-9 -12.5t-3.5 -16t3.5 -16t9 -12.5t12.5 -9t16 -3.5t16 3.5t12.5 9zM24 43v4q0 7 7 7h4q7 0 7 -7v-4
+q0 -7 -7 -7h-4q-7 0 -7 7zM54 43v4q0 7 7 7h4q7 0 7 -7v-4q0 -7 -7 -7h-4q-7 0 -7 7zM78 24q-7 -18 -30 -18t-30 18q-2 6 4 6h52q6 0 4 -6z" />
     <glyph glyph-name="unverified" unicode="&#xf0e8;" 
 d="M94 42q5 -6 0 -12l-6 -8q-2 -2 -2 -4l-2 -11q0 -7 -8 -8l-10 -1q-2 0 -4 -2l-8 -6q-6 -5 -12 0l-8 6q-2 2 -4 2l-11 2q-7 0 -8 8l-1 10q0 2 -2 4l-6 8q-5 6 0 12l6 8q2 2 2 4l2 11q0 7 8 8l10 1q2 0 4 2l8 6q6 5 12 0l8 -6q2 -2 4 -2l11 -2q7 0 8 -8l1 -10q0 -2 2 -4z
 M54 15v6q0 3 -3 3h-6q-3 0 -3 -3v-6q0 -3 3 -3h6q3 0 3 3zM63 44q1 1 1 4t-1 5t-3 4l-6 2t-7 1q-3 0 -6 -1t-5.5 -2.5t-3.5 -3.5q-2 -3 -2 -5h12q0 1 1 2l1 1l1 1h2q3 0 4 -1t1 -4q0 -1 -1 -3t-3 -3t-3 -2.5t-1 -2.5q-1 -2 -1 -3v-3h10v2t1 1q0 1 1 2t1 2l4 2q0 1 1.5 2.5
@@ -420,6 +420,12 @@ t1.5 2.5z" />
 d="M66 54q6 0 6 -6v-24q0 -6 -6 -6h-60q-6 0 -6 6v24q0 6 6 6h60zM24 30v12h-12v-12h12zM42 30v12h-12v-12h12zM60 30v12h-12v-12h12z" />
     <glyph glyph-name="file" unicode="&#xf102;" 
 d="M36 54h-24v6h24v-6zM12 36v6h42v-6h-42zM12 24v6h42v-6h-42zM12 12v6h42v-6h-42zM72 57v-57q0 -6 -6 -6h-60q-6 0 -6 6v72q0 6 6 6h45zM66 54l-18 18h-42v-72h60v54z" />
+    <glyph glyph-name="grabber" unicode="&#xf103;" 
+d="M48 60v-6h-48v6h48zM0 36v6h48v-6h-48zM0 18v6h48v-6h-48z" />
+    <glyph glyph-name="plus-small" unicode="&#xf104;" 
+d="M24 42h18v-6h-18v-18h-6v18h-18v6h18v18h6v-18z" />
+    <glyph glyph-name="reply" unicode="&#xf105;" 
+d="M36 63q20 -2 34 -16.5t14 -43.5q-16 36 -48 36v-21l-33 33l33 33v-21z" />
     <glyph glyph-name="device-desktop" unicode="&#xf27c;" 
 d="M90 72q6 0 6 -6v-54q0 -6 -6 -6h-32q3 -7 14 -12h-48q11 5 14 12h-32q-6 0 -6 6v54q0 6 6 6h84zM90 18v48h-84v-48h84z" />
   </font>
