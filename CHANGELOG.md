@@ -2,6 +2,12 @@
 
 Adds:
 
+- Installation docs https://github.com/primer/octicons/pull/94
+
+### 4.0.0 (June 6, 2016)
+
+Adds:
+
 - Whole new grunt build system including svg sprite sheet.
 - adding css min https://github.com/primer/octicons/pull/60
 - adding woff2 format https://github.com/primer/octicons/issues/3

@@ -24,9 +24,22 @@ The source files included are written in [Sass][sass] (`scss`) You can simply po
 @import "octicons/index.scss";
 ```
 
-## Documentation
+## Changing, adding, or deleting icons
 
+1. Open the [Sketch document][sketch-document] in `/lib/`. Each icon exists as an artboard within our master Sketch document. If you’re adding an icon, duplicate one of the artboards and add your shapes to it. Be sure to give your artboard a name that makes sense.
+2. Once you’re happy with your icon set, choose File > Export…
+3. Choose all the artboards you'd like to export and then press “Export”
+4. Export to `/lib/svg/`
 
+You’ll next need to build your Octicons.
+
+## Building Octicons
+
+All the files you need will be in the `/build/` directory already, but if you’ve made changes to the `/lib/` directory and need to regenerate, follow these steps:
+
+1. Open the Octicons directory in Terminal
+2. Run the command `script/bootstrap`. This will install any necessary dependencies for generating the Octicons font and SVGs.
+3. Run the command `grunt`. Running the grunt task will generate the font and SVGs, placing them in the `/build/` directory.
 
 ## License
 
@@ -39,3 +52,4 @@ _Font License:_ [SIL OFL 1.1](./LICENSE) &copy; [GitHub](https://github.com/)
 [npm]: https://www.npmjs.com/
 [install-npm]: https://docs.npmjs.com/getting-started/installing-node
 [sass]: http://sass-lang.com/
+[sketch-document]: https://github.com/primer/octicons/blob/master/lib/octicons-master.sketch
