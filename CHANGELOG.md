@@ -1,8 +1,18 @@
-### HEAD
+### 4.1.0 (June 6, 2016)
 
 Adds:
 
 - Installation docs https://github.com/primer/octicons/pull/94
+- `grabber`
+- `plus-small`
+
+Modifies:
+
+- `smiley`
+
+Refines:
+
+- Renames `mail-reply` to `reply` and refines its shape.
 
 ### 4.0.0 (June 6, 2016)
 
