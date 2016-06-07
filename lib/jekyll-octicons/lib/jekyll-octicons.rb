@@ -12,7 +12,7 @@ module Jekyll
 
     def render(context)
       return nil if @options[:symbol].nil?
-      Octicons::Octicon.new(@options).to_svg
+      ::Octicons::Octicon.new(@options).to_svg
     end
 
     private
