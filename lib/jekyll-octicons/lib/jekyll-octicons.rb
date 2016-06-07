@@ -1,6 +1,6 @@
-require 'active_support/core_ext/hash'
 require 'octicons'
 require 'jekyll-octicons/version'
+require 'liquid'
 
 module Jekyll
   class Octicons < Liquid::Tag
