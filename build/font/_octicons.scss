@@ -1,12 +1,12 @@
 
 @font-face {
 	font-family:"Octicons";
-	src:url("octicons.eot?c3075d1c1638e14b47f314802bf8aee0");
+	src:url("octicons.eot?89624517212bc6232de6d7b6c801ca91");
 	src:url("octicons.eot?#iefix") format("embedded-opentype"),
-		url("octicons.woff2?c3075d1c1638e14b47f314802bf8aee0") format("woff2"),
-		url("octicons.woff?c3075d1c1638e14b47f314802bf8aee0") format("woff"),
-		url("octicons.ttf?c3075d1c1638e14b47f314802bf8aee0") format("truetype"),
-		url("octicons.svg?c3075d1c1638e14b47f314802bf8aee0#octicons") format("svg");
+		url("octicons.woff2?89624517212bc6232de6d7b6c801ca91") format("woff2"),
+		url("octicons.woff?89624517212bc6232de6d7b6c801ca91") format("woff"),
+		url("octicons.ttf?89624517212bc6232de6d7b6c801ca91") format("truetype"),
+		url("octicons.svg?89624517212bc6232de6d7b6c801ca91#octicons") format("svg");
 	font-weight:normal;
 	font-style:normal;
 }
@@ -181,6 +181,8 @@
 
 .octicon-globe:before { content:"\f0b6"; }
 
+.octicon-grabber:before { content:"\f103"; }
+
 .octicon-graph:before { content:"\f043"; }
 
 .octicon-heart:before { content:"\2665"; }
@@ -271,6 +273,8 @@
 
 .octicon-plug:before { content:"\f0d4"; }
 
+.octicon-plus-small:before { content:"\f104"; }
+
 .octicon-plus:before { content:"\f05d"; }
 
 .octicon-primitive-dot:before { content:"\f052"; }
@@ -284,6 +288,8 @@
 .octicon-quote:before { content:"\f063"; }
 
 .octicon-radio-tower:before { content:"\f030"; }
+
+.octicon-reply:before { content:"\f105"; }
 
 .octicon-repo-clone:before { content:"\f04c"; }
 
