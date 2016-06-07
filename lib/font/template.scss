@@ -32,6 +32,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+	speak: none;
 }
 .mega-octicon { font-size: 32px; }
 <% if (iconsStyles) { for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>
