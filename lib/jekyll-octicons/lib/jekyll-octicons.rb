@@ -4,10 +4,18 @@ require 'liquid'
 
 module Jekyll
   class Octicons < Liquid::Tag
+    # Syntax for the octicon symbol
+    Syntax = /\A(#{Liquid::VariableSignature}+)/
 
-    def initialize(tag_name, options, tokens)
+    # Copied from Liquid::TagAttributes to allow dashes in tag names:
+    #
+    #   {% octicon alert area-label:"Hello World!" %}
+    #
+    TagAttributes = /([\w-]+)\s*\:\s*(#{Liquid::QuotedFragment})/o
+
+    def initialize(tag_name, markup, options)
       super
-      @options = string_to_hash(options)
+      @options = string_to_hash(markup)
     end
 
     def render(context)
@@ -18,14 +26,18 @@ module Jekyll
     private
 
     # Create a ruby hash from a string passed by the jekyll tag
-    def string_to_hash(options)
-      Hash[options.split(",").map do |s|
-        s.gsub(/[:\"']/,"").split("=>").map.with_index do |e, i|
-          e.strip!
-          e = e.to_sym if i == 0
-          e
+    def string_to_hash(markup)
+      options = {}
+
+      if match = markup.match(Syntax)
+        options[:symbol] = match[1]
+
+        markup.scan(TagAttributes) do |key, value|
+          options[key.to_sym] = value.gsub(/\A"|"\z/, '')
         end
-      end]
+      end
+
+      options
     end
   end
 end

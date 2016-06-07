@@ -25,7 +25,7 @@ This jekyll liquid tag, is a plugin that will let you easily include svg [octico
 3. Use this tag in your jekyll templates
 
     ```
-    {% octicon :symbol => "alert", :size => "large", :class => "right left", :'aria-label' => "hi" %}
+    {% octicon alert size:large class:"right left" aria-label:hi %}
     ```
 
 ## Documentation
