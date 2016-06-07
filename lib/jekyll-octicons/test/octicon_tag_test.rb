@@ -3,18 +3,20 @@ require_relative "./helper"
 describe Jekyll::Octicons do
   describe "parsing" do
     it "parses the tag options" do
-      template = parse('{% octicon :symbol => "logo-github", :size => "large" %}')
+      template = parse('{% octicon logo-github size:large class:"left right" aria-label:hi %}')
       node = template.root.nodelist[0]
       assert node
       assert node.instance_of?(Jekyll::Octicons)
       assert_equal "logo-github", node.options[:symbol]
       assert_equal "large", node.options[:size]
+      assert_equal "left right", node.options[:class]
+      assert_equal "hi", node.options[:"aria-label"]
     end
   end
 
   describe "rendering" do
     it "renders the svg" do
-      output = render('{% octicon :symbol => "logo-github", :size => "large" %}')
+      output = render('{% octicon logo-github size:large %}')
       assert_match /<svg.*octicon-logo-github.*height="32"/, output
     end
 
