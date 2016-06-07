@@ -1,4 +1,5 @@
 require 'octicons'
+require 'jekyll-octicons/version'
 require 'liquid'
 require 'jekyll/liquid_extensions'
 
