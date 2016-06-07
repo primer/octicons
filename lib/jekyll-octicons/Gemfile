@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'octicons', :git => "https://github.com/primer/octicons_gem.git"
+gem 'octicons'
 
 group :development, :test do
   gem 'rake'
