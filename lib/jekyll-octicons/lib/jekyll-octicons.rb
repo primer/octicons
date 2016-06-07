@@ -1,11 +1,16 @@
 require 'octicons'
-require 'jekyll-octicons/version'
 require 'liquid'
+require 'jekyll/liquid_extensions'
 
 module Jekyll
   class Octicons < Liquid::Tag
+    include Jekyll::LiquidExtensions
+
     # Syntax for the octicon symbol
     Syntax = /\A(#{Liquid::VariableSignature}+)/
+
+    # For interpoaltion, look for liquid variables
+    Variable = /\{\{\s*([\w]+\.?[\w]*)\s*\}\}/i
 
     # Copied from Liquid::TagAttributes to allow dashes in tag names:
     #
@@ -15,10 +20,14 @@ module Jekyll
 
     def initialize(tag_name, markup, options)
       super
+      @markup = markup
       @options = string_to_hash(markup)
     end
 
     def render(context)
+      @markup.scan Variable do |variable|
+        @options = string_to_hash(@markup.gsub(Variable, lookup_variable(context, variable.first)))
+      end
       return nil if @options[:symbol].nil?
       ::Octicons::Octicon.new(@options).to_svg
     end
