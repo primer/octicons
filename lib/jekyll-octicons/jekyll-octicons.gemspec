@@ -1,7 +1,7 @@
 require File.expand_path('../lib/jekyll-octicons/version', __FILE__)
 
 Gem::Specification.new do |s|
-  s.name        = "octicons"
+  s.name        = "jekyll-octicons"
   s.version     = Jekyll::Octicons::VERSION
   s.summary     = "Octicons jekyll liquid tag"
   s.description = "A jekyll liquid plugin that makes including svg Octicons simple."
