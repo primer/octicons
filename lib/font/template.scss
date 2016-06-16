@@ -1,17 +1,19 @@
+$octicons-font-path: "./" !default;
+
 <% if (fontfaceStyles) { %>
 <% if (fontSrc1 && embed.length) { %>
 @font-face {
-	font-family:"<%= fontFamilyName %>";
-	src:<%= fontSrc1 %>;
-	font-weight:normal;
-	font-style:normal;
+  font-family:"<%= fontFamilyName %>";
+  src:<%= fontSrc1.replace(/url\("/gi, "url(\"#{$octicons-font-path}") %>;
+  font-weight:normal;
+  font-style:normal;
 }
 <% } %>@font-face {
-	font-family:"<%= fontFamilyName %>";<% if (fontSrc1) { %>
-	src:<%= fontSrc1 %>;<% }%>
-	src:<%= fontSrc2 %>;
-	font-weight:normal;
-	font-style:normal;
+  font-family:"<%= fontFamilyName %>";<% if (fontSrc1) { %>
+  src:<%= fontSrc1.replace(/url\("/gi, "url(\"#{$octicons-font-path}") %>;<% }%>
+  src:<%= fontSrc2.replace(/url\("/gi, "url(\"#{$octicons-font-path}") %>;
+  font-weight:normal;
+  font-style:normal;
 }
 <% } %>
 
@@ -32,7 +34,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-	speak: none;
+  speak: none;
 }
 .mega-octicon { font-size: 32px; }
 <% if (iconsStyles) { for (var glyphIdx = 0; glyphIdx < glyphs.length; glyphIdx++) { %>

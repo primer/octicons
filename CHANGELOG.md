@@ -1,3 +1,9 @@
+### HEAD
+
+Fixes:
+
+- Putting the `$octicons-font-path` back in the scss file.
+
 ### 4.1.0 (June 6, 2016)
 
 Adds:
