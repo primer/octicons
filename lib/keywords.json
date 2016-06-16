@@ -82,7 +82,7 @@
   },
   "bold": {
     "keywords": [
-      ""
+      "bold"
     ]
   },
   "book": {
@@ -446,17 +446,21 @@
   },
   "gist": {
     "keywords": [
-      ""
+      "gist",
+      "github"
     ]
   },
   "gist-secret": {
     "keywords": [
-      ""
+      "gist",
+      "secret",
+      "private"
     ]
   },
   "git-branch": {
     "keywords": [
-      ""
+      "branch",
+      "git"
     ]
   },
   "git-commit": {
@@ -554,7 +558,9 @@
   },
   "italic": {
     "keywords": [
-      ""
+      "font",
+      "italic",
+      "style"
     ]
   },
   "jersey": {
@@ -582,7 +588,8 @@
   },
   "law": {
     "keywords": [
-      ""
+      "legal",
+      "bill"
     ]
   },
   "light-bulb": {
@@ -637,7 +644,8 @@
   },
   "logo-gist": {
     "keywords": [
-      ""
+      "logo",
+      "gist"
     ]
   },
   "logo-github": {
@@ -699,7 +707,9 @@
   },
   "mortar-board": {
     "keywords": [
-      ""
+      "education",
+      "learn",
+      "teach"
     ]
   },
   "mute": {
@@ -901,8 +911,8 @@
   },
   "shield": {
     "keywords": [
-      "protect,",
-      "shield,",
+      "protect",
+      "shield",
       "lock"
     ]
   },
@@ -963,7 +973,7 @@
   },
   "tasklist": {
     "keywords": [
-      ""
+      "todo"
     ]
   },
   "telescope": {
@@ -984,7 +994,9 @@
   },
   "text-size": {
     "keywords": [
-      ""
+      "font",
+      "size",
+      "text"
     ]
   },
   "three-bars": {
@@ -1068,14 +1080,14 @@
   },
   "unverified": {
     "keywords": [
-      "insecure,",
+      "insecure",
       "untrusted"
     ]
   },
   "verified": {
     "keywords": [
-      "trusted,",
-      "secure,",
+      "trusted",
+      "secure",
       "trustworthy"
     ]
   },
@@ -1086,7 +1098,7 @@
   },
   "watch": {
     "keywords": [
-      "wait,",
+      "wait",
       "hourglass"
     ]
   },
