@@ -6,8 +6,10 @@
   "author": "GitHub Inc.",
   "license": "(OFL-1.1 OR MIT)",
   "style": "index.scss",
+  "main": "index.js",
   "files": [
     "index.scss",
+    "index.js",
     "lib",
     "build"
   ],
@@ -18,10 +20,11 @@
   "scripts": {
     "setup": "script/bootstrap",
     "build": "npm run setup && grunt",
-    "test": ""
+    "test": "ava --verbose \"test/**/*.js\""
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
+    "ava": "^0.15.2",
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.7.0",
     "grunt-cssnano": "^2.1.0",
