@@ -1,14 +1,16 @@
+$octicons-font-path: "./" !default;
+
 
 @font-face {
-	font-family:"Octicons";
-	src:url("octicons.eot?89624517212bc6232de6d7b6c801ca91");
-	src:url("octicons.eot?#iefix") format("embedded-opentype"),
-		url("octicons.woff2?89624517212bc6232de6d7b6c801ca91") format("woff2"),
-		url("octicons.woff?89624517212bc6232de6d7b6c801ca91") format("woff"),
-		url("octicons.ttf?89624517212bc6232de6d7b6c801ca91") format("truetype"),
-		url("octicons.svg?89624517212bc6232de6d7b6c801ca91#octicons") format("svg");
-	font-weight:normal;
-	font-style:normal;
+  font-family:"Octicons";
+  src:url("#{$octicons-font-path}octicons.eot?c0c33aeb9e311df3a64b40895eb56c03");
+  src:url("#{$octicons-font-path}octicons.eot?#iefix") format("embedded-opentype"),
+		url("#{$octicons-font-path}octicons.woff2?c0c33aeb9e311df3a64b40895eb56c03") format("woff2"),
+		url("#{$octicons-font-path}octicons.woff?c0c33aeb9e311df3a64b40895eb56c03") format("woff"),
+		url("#{$octicons-font-path}octicons.ttf?c0c33aeb9e311df3a64b40895eb56c03") format("truetype"),
+		url("#{$octicons-font-path}octicons.svg?c0c33aeb9e311df3a64b40895eb56c03#octicons") format("svg");
+  font-weight:normal;
+  font-style:normal;
 }
 
 
@@ -28,6 +30,7 @@
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  speak: none;
 }
 .mega-octicon { font-size: 32px; }
 
