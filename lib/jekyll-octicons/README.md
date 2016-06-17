@@ -36,9 +36,15 @@ For a full list of options available, see the [octicons_gem documentation](https
 
 ## License
 
-_Code License:_ [MIT](./LICENSE) &copy; [GitHub](https://github.com/)
+(c) 2012-2016 GitHub, Inc.
 
-_Font License:_ [SIL OFL 1.1](./LICENSE) &copy; [GitHub](https://github.com/)
+When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
+
+_Font License:_ [SIL OFL 1.1](http://scripts.sil.org/OFL)  
+Applies to all font files and SVG files
+
+_Code License:_ [MIT](./LICENSE)  
+Applies to all other files
 
 [octicons]: https://github.com/primer/octicons
 [octicons-docs]: https://octicons.github.com/
