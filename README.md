@@ -43,9 +43,15 @@ All the files you need will be in the `/build/` directory already, but if you’
 
 ## License
 
-_Code License:_ [MIT](./LICENSE) &copy; [GitHub](https://github.com/)
+(c) 2012-2016 GitHub, Inc.
 
-_Font License:_ [SIL OFL 1.1](./LICENSE) &copy; [GitHub](https://github.com/)
+When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
+
+_Font License:_ [SIL OFL 1.1](http://scripts.sil.org/OFL)  
+Applies to all font files and SVG files
+
+_Code License:_ [MIT](./LICENSE)  
+Applies to all other files
 
 [primer]: https://github.com/primer/primer
 [docs]: http://primercss.io/
