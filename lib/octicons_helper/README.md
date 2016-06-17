@@ -18,7 +18,7 @@ This rails helper let's you easily include svg [octicons][octicons] in your rail
 3. Use this tag in your erbs
 
     ```rb
-    <%= octicon "alert", :size => "large",  :class => "right left", :"aria-label" => "hi" %>
+    <%= octicon "alert", :height => 32,  :class => "right left", :"aria-label" => "hi" %>
     ```
 
 The minimum CSS you'll need in your rails app is in the [octicons][octicons] repository. You can also npm install that package and include `build/octicons.css` in your styles.

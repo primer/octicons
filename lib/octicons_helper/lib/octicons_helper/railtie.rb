@@ -1,4 +1,3 @@
-require "octicons_helper/helper"
 require "rails"
 
 module OcticonsHelper
