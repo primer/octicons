@@ -3,7 +3,7 @@
 [![Gem version](https://img.shields.io/gem/v/octicons_helper.svg)](https://rubygems.org/gems/octicons_helper)
 [![Build Status](https://travis-ci.org/primer/octicons_helper.svg?branch=master)](https://travis-ci.org/primer/octicons_helper)
 
-> A rails helper that injects Octicon svg into the page
+> A rails helper that inlines SVG octicons
 
 This rails helper let's you easily include svg [octicons][octicons] in your rails apps.
 
