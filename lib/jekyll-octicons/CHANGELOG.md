@@ -1,5 +1,10 @@
 # HEAD
 
+# 2.0.0
+
+- Updating octicons gem version to 2.0.0
+- Drops support for `size:"large"` [#8](option https://github.com/primer/octicons_gem/pull/8)
+
 # 1.1.0
 
 - Added: Interpoaltion of variables in liquid tag
