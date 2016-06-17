@@ -1,0 +1,1146 @@
+{
+  "alert": {
+    "keywords": [
+      "warning",
+      "triangle",
+      "exclamation",
+      "point"
+    ]
+  },
+  "arrow-down": {
+    "keywords": [
+      "point",
+      "direction"
+    ]
+  },
+  "arrow-left": {
+    "keywords": [
+      "point",
+      "direction"
+    ]
+  },
+  "arrow-right": {
+    "keywords": [
+      "point",
+      "direction"
+    ]
+  },
+  "arrow-small-down": {
+    "keywords": [
+      "point",
+      "direction"
+    ]
+  },
+  "arrow-small-left": {
+    "keywords": [
+      "point",
+      "direction",
+      "little",
+      "tiny"
+    ]
+  },
+  "arrow-small-right": {
+    "keywords": [
+      "point",
+      "direction",
+      "little",
+      "tiny"
+    ]
+  },
+  "arrow-small-up": {
+    "keywords": [
+      "point",
+      "direction",
+      "little",
+      "tiny"
+    ]
+  },
+  "arrow-up": {
+    "keywords": [
+      "point",
+      "direction"
+    ]
+  },
+  "beaker": {
+    "keywords": [
+      "experiment",
+      "labs",
+      "experimental",
+      "feature",
+      "test",
+      "science",
+      "education",
+      "study",
+      "development",
+      "testing"
+    ]
+  },
+  "bell": {
+    "keywords": [
+      "notification"
+    ]
+  },
+  "bold": {
+    "keywords": [
+      "bold"
+    ]
+  },
+  "book": {
+    "keywords": [
+      "book",
+      "journal",
+      "wiki",
+      "readme"
+    ]
+  },
+  "bookmark": {
+    "keywords": [
+      "tabbard"
+    ]
+  },
+  "briefcase": {
+    "keywords": [
+      "suitcase",
+      "business"
+    ]
+  },
+  "broadcast": {
+    "keywords": [
+      "rss",
+      "radio",
+      "signal"
+    ]
+  },
+  "browser": {
+    "keywords": [
+      "window",
+      "web"
+    ]
+  },
+  "bug": {
+    "keywords": [
+      "insect"
+    ]
+  },
+  "calendar": {
+    "keywords": [
+      "time",
+      "day",
+      "month",
+      "year"
+    ]
+  },
+  "check": {
+    "keywords": [
+      "mark",
+      "yes",
+      "confirm",
+      "accept",
+      "ok",
+      "success"
+    ]
+  },
+  "checklist": {
+    "keywords": [
+      "todo"
+    ]
+  },
+  "chevron-down": {
+    "keywords": [
+      "triangle",
+      "arrow"
+    ]
+  },
+  "chevron-left": {
+    "keywords": [
+      "triangle",
+      "arrow"
+    ]
+  },
+  "chevron-right": {
+    "keywords": [
+      "triangle",
+      "arrow"
+    ]
+  },
+  "chevron-up": {
+    "keywords": [
+      "triangle",
+      "arrow"
+    ]
+  },
+  "circle-slash": {
+    "keywords": [
+      "no",
+      "deny",
+      "fail",
+      "failure",
+      "error",
+      "bad"
+    ]
+  },
+  "circuit-board": {
+    "keywords": [
+      "developer",
+      "hardware",
+      "electricity"
+    ]
+  },
+  "clippy": {
+    "keywords": [
+      "copy",
+      "paste",
+      "save",
+      "capture"
+    ]
+  },
+  "clock": {
+    "keywords": [
+      "time",
+      "hour",
+      "minute",
+      "second"
+    ]
+  },
+  "cloud-download": {
+    "keywords": [
+      "save",
+      "install",
+      "get"
+    ]
+  },
+  "cloud-upload": {
+    "keywords": [
+      "put",
+      "export"
+    ]
+  },
+  "code": {
+    "keywords": [
+      "brackets"
+    ]
+  },
+  "comment": {
+    "keywords": [
+      "speak",
+      "bubble"
+    ]
+  },
+  "comment-discussion": {
+    "keywords": [
+      "converse",
+      "talk"
+    ]
+  },
+  "credit-card": {
+    "keywords": [
+      "money",
+      "billing",
+      "payments",
+      "transactions"
+    ]
+  },
+  "dash": {
+    "keywords": [
+      "hyphen",
+      "range"
+    ]
+  },
+  "dashboard": {
+    "keywords": [
+      "speed",
+      "dial"
+    ]
+  },
+  "database": {
+    "keywords": [
+      "disks",
+      "data"
+    ]
+  },
+  "desktop-download": {
+    "keywords": [
+      "clone",
+      "download"
+    ]
+  },
+  "device-camera": {
+    "keywords": [
+      "photo",
+      "picture",
+      "image",
+      "snapshot"
+    ]
+  },
+  "device-camera-video": {
+    "keywords": [
+      "watch",
+      "view",
+      "media",
+      "stream"
+    ]
+  },
+  "device-desktop": {
+    "keywords": [
+      "computer",
+      "monitor"
+    ]
+  },
+  "device-mobile": {
+    "keywords": [
+      "phone",
+      "iphone",
+      "cellphone"
+    ]
+  },
+  "diff": {
+    "keywords": [
+      "difference",
+      "changes",
+      "compare"
+    ]
+  },
+  "diff-added": {
+    "keywords": [
+      "new",
+      "addition"
+    ]
+  },
+  "diff-ignored": {
+    "keywords": [
+      "slash"
+    ]
+  },
+  "diff-modified": {
+    "keywords": [
+      "dot",
+      "changed",
+      "updated"
+    ]
+  },
+  "diff-removed": {
+    "keywords": [
+      "deleted",
+      "subtracted",
+      "dash"
+    ]
+  },
+  "diff-renamed": {
+    "keywords": [
+      "moved",
+      "arrow"
+    ]
+  },
+  "ellipsis": {
+    "keywords": [
+      "read",
+      "more",
+      "hidden",
+      "expand"
+    ]
+  },
+  "eye": {
+    "keywords": [
+      "look",
+      "watch",
+      "see"
+    ]
+  },
+  "file-binary": {
+    "keywords": [
+      "image",
+      "video",
+      "word",
+      "powerpoint",
+      "excel"
+    ]
+  },
+  "file-code": {
+    "keywords": [
+      "text",
+      "javascript",
+      "html",
+      "css",
+      "php",
+      "ruby",
+      "coffeescript",
+      "sass",
+      "scss"
+    ]
+  },
+  "file-directory": {
+    "keywords": [
+      "folder"
+    ]
+  },
+  "file-media": {
+    "keywords": [
+      "image",
+      "video",
+      "audio"
+    ]
+  },
+  "file-pdf": {
+    "keywords": [
+      "adobe"
+    ]
+  },
+  "file-submodule": {
+    "keywords": [
+      "folder"
+    ]
+  },
+  "file-symlink-directory": {
+    "keywords": [
+      "folder",
+      "subfolder",
+      "link",
+      "alias"
+    ]
+  },
+  "file-symlink-file": {
+    "keywords": [
+      "link",
+      "alias"
+    ]
+  },
+  "file-text": {
+    "keywords": [
+      "document"
+    ]
+  },
+  "file-zip": {
+    "keywords": [
+      "compress",
+      "archive"
+    ]
+  },
+  "flame": {
+    "keywords": [
+      "fire",
+      "hot",
+      "burn",
+      "trending"
+    ]
+  },
+  "fold": {
+    "keywords": [
+      "unfold",
+      "hide",
+      "collapse"
+    ]
+  },
+  "gear": {
+    "keywords": [
+      "settings"
+    ]
+  },
+  "gift": {
+    "keywords": [
+      "package",
+      "present",
+      "skill",
+      "craft",
+      "freebie"
+    ]
+  },
+  "gist": {
+    "keywords": [
+      "gist",
+      "github"
+    ]
+  },
+  "gist-secret": {
+    "keywords": [
+      "gist",
+      "secret",
+      "private"
+    ]
+  },
+  "git-branch": {
+    "keywords": [
+      "branch",
+      "git"
+    ]
+  },
+  "git-commit": {
+    "keywords": [
+      "save"
+    ]
+  },
+  "git-compare": {
+    "keywords": [
+      "difference",
+      "changes"
+    ]
+  },
+  "git-merge": {
+    "keywords": [
+      "join"
+    ]
+  },
+  "git-pull-request": {
+    "keywords": [
+      "review"
+    ]
+  },
+  "globe": {
+    "keywords": [
+      "world"
+    ]
+  },
+  "graph": {
+    "keywords": [
+      "trend",
+      "stats",
+      "statistics"
+    ]
+  },
+  "heart": {
+    "keywords": [
+      "love"
+    ]
+  },
+  "history": {
+    "keywords": [
+      "time",
+      "past",
+      "revert",
+      "back"
+    ]
+  },
+  "home": {
+    "keywords": [
+      "welcome",
+      "index",
+      "house",
+      "building"
+    ]
+  },
+  "horizontal-rule": {
+    "keywords": [
+      "hr"
+    ]
+  },
+  "hubot": {
+    "keywords": [
+      "robot"
+    ]
+  },
+  "inbox": {
+    "keywords": [
+      "mail",
+      "todo",
+      "new",
+      "messages"
+    ]
+  },
+  "info": {
+    "keywords": [
+      "help"
+    ]
+  },
+  "issue-closed": {
+    "keywords": [
+      "done",
+      "complete"
+    ]
+  },
+  "issue-opened": {
+    "keywords": [
+      "new"
+    ]
+  },
+  "issue-reopened": {
+    "keywords": [
+      "regression"
+    ]
+  },
+  "italic": {
+    "keywords": [
+      "font",
+      "italic",
+      "style"
+    ]
+  },
+  "jersey": {
+    "keywords": [
+      "team",
+      "game",
+      "basketball"
+    ]
+  },
+  "key": {
+    "keywords": [
+      "key",
+      "lock",
+      "secure",
+      "safe"
+    ]
+  },
+  "keyboard": {
+    "keywords": [
+      "type",
+      "keys",
+      "write",
+      "shortcuts"
+    ]
+  },
+  "law": {
+    "keywords": [
+      "legal",
+      "bill"
+    ]
+  },
+  "light-bulb": {
+    "keywords": [
+      "idea"
+    ]
+  },
+  "link": {
+    "keywords": [
+      "connect",
+      "hyperlink"
+    ]
+  },
+  "link-external": {
+    "keywords": [
+      "out",
+      "see",
+      "more",
+      "go",
+      "to"
+    ]
+  },
+  "list-ordered": {
+    "keywords": [
+      "numbers",
+      "tasks",
+      "todo",
+      "items"
+    ]
+  },
+  "list-unordered": {
+    "keywords": [
+      "bullet",
+      "point",
+      "tasks",
+      "todo",
+      "items"
+    ]
+  },
+  "location": {
+    "keywords": [
+      "here",
+      "marker"
+    ]
+  },
+  "lock": {
+    "keywords": [
+      "secure",
+      "safe",
+      "protected"
+    ]
+  },
+  "logo-gist": {
+    "keywords": [
+      "logo",
+      "gist"
+    ]
+  },
+  "logo-github": {
+    "keywords": [
+      "brand"
+    ]
+  },
+  "mail": {
+    "keywords": [
+      "email",
+      "unread"
+    ]
+  },
+  "mail-read": {
+    "keywords": [
+      "email",
+      "open"
+    ]
+  },
+  "mail-reply": {
+    "keywords": [
+      "email"
+    ]
+  },
+  "mark-github": {
+    "keywords": [
+      "octocat"
+    ]
+  },
+  "markdown": {
+    "keywords": [
+      "markup",
+      "style"
+    ]
+  },
+  "megaphone": {
+    "keywords": [
+      "bullhorn",
+      "loud",
+      "shout",
+      "broadcast"
+    ]
+  },
+  "mention": {
+    "keywords": [
+      "at",
+      "ping"
+    ]
+  },
+  "milestone": {
+    "keywords": [
+      "marker"
+    ]
+  },
+  "mirror": {
+    "keywords": [
+      "reflect"
+    ]
+  },
+  "mortar-board": {
+    "keywords": [
+      "education",
+      "learn",
+      "teach"
+    ]
+  },
+  "mute": {
+    "keywords": [
+      "quiet",
+      "sound",
+      "audio",
+      "turn",
+      "off"
+    ]
+  },
+  "no-newline": {
+    "keywords": [
+      "return"
+    ]
+  },
+  "octoface": {
+    "keywords": [
+      "octocat"
+    ]
+  },
+  "organization": {
+    "keywords": [
+      "people",
+      "group",
+      "team"
+    ]
+  },
+  "package": {
+    "keywords": [
+      "box",
+      "ship"
+    ]
+  },
+  "paintcan": {
+    "keywords": [
+      "style",
+      "theme",
+      "art",
+      "color"
+    ]
+  },
+  "pencil": {
+    "keywords": [
+      "edit",
+      "change",
+      "update",
+      "write"
+    ]
+  },
+  "person": {
+    "keywords": [
+      "people",
+      "man",
+      "woman",
+      "human"
+    ]
+  },
+  "pin": {
+    "keywords": [
+      "people",
+      "save",
+      "star",
+      "bookmark"
+    ]
+  },
+  "plug": {
+    "keywords": [
+      "hook",
+      "webhook"
+    ]
+  },
+  "plus": {
+    "keywords": [
+      "add",
+      "new",
+      "more"
+    ]
+  },
+  "plus-small": {
+    "keywords": [
+      "add",
+      "new",
+      "more",
+      "small"
+    ]
+  },
+  "primitive-dot": {
+    "keywords": [
+      "circle"
+    ]
+  },
+  "primitive-square": {
+    "keywords": [
+      "box"
+    ]
+  },
+  "pulse": {
+    "keywords": [
+      "graph",
+      "trend",
+      "line"
+    ]
+  },
+  "question": {
+    "keywords": [
+      "help",
+      "explain"
+    ]
+  },
+  "quote": {
+    "keywords": [
+      "quotation"
+    ]
+  },
+  "radio-tower": {
+    "keywords": [
+      "broadcast"
+    ]
+  },
+  "repo": {
+    "keywords": [
+      "book",
+      "journal"
+    ]
+  },
+  "repo-clone": {
+    "keywords": [
+      "book",
+      "journal"
+    ]
+  },
+  "repo-force-push": {
+    "keywords": [
+      "book",
+      "journal",
+      "put"
+    ]
+  },
+  "repo-forked": {
+    "keywords": [
+      "book",
+      "journal",
+      "copy"
+    ]
+  },
+  "repo-pull": {
+    "keywords": [
+      "book",
+      "journal",
+      "get"
+    ]
+  },
+  "repo-push": {
+    "keywords": [
+      "book",
+      "journal",
+      "put"
+    ]
+  },
+  "rocket": {
+    "keywords": [
+      "staff",
+      "stafftools",
+      "blast",
+      "off",
+      "space"
+    ]
+  },
+  "rss": {
+    "keywords": [
+      "broadcast",
+      "feed"
+    ]
+  },
+  "ruby": {
+    "keywords": [
+      "code"
+    ]
+  },
+  "search": {
+    "keywords": [
+      "magnifying",
+      "glass"
+    ]
+  },
+  "server": {
+    "keywords": [
+      "computers",
+      "racks",
+      "ops"
+    ]
+  },
+  "settings": {
+    "keywords": [
+      "sliders",
+      "filters"
+    ]
+  },
+  "shield": {
+    "keywords": [
+      "protect",
+      "shield",
+      "lock"
+    ]
+  },
+  "sign-in": {
+    "keywords": [
+      "door",
+      "arrow",
+      "direction",
+      "enter"
+    ]
+  },
+  "sign-out": {
+    "keywords": [
+      "door",
+      "arrow",
+      "direction",
+      "leave"
+    ]
+  },
+  "smiley": {
+    "keywords": [
+      "emoji",
+      "smile",
+      "mood",
+      "emotion"
+    ]
+  },
+  "squirrel": {
+    "keywords": [
+      "ship",
+      "shipit"
+    ]
+  },
+  "star": {
+    "keywords": [
+      "save",
+      "remember",
+      "like"
+    ]
+  },
+  "stop": {
+    "keywords": [
+      "block",
+      "spam"
+    ]
+  },
+  "sync": {
+    "keywords": [
+      "cycle",
+      "refresh",
+      "loop"
+    ]
+  },
+  "tag": {
+    "keywords": [
+      "release"
+    ]
+  },
+  "tasklist": {
+    "keywords": [
+      "todo"
+    ]
+  },
+  "telescope": {
+    "keywords": [
+      "science",
+      "space",
+      "look",
+      "view",
+      "explore"
+    ]
+  },
+  "terminal": {
+    "keywords": [
+      "code",
+      "ops",
+      "shell"
+    ]
+  },
+  "text-size": {
+    "keywords": [
+      "font",
+      "size",
+      "text"
+    ]
+  },
+  "three-bars": {
+    "keywords": [
+      "hamburger"
+    ]
+  },
+  "thumbsdown": {
+    "keywords": [
+      "thumb",
+      "thumbsdown",
+      "rejected"
+    ]
+  },
+  "thumbsup": {
+    "keywords": [
+      "thumb",
+      "thumbsup",
+      "prop",
+      "ship"
+    ]
+  },
+  "tools": {
+    "keywords": [
+      "screwdriver",
+      "wrench",
+      "settings"
+    ]
+  },
+  "trashcan": {
+    "keywords": [
+      "garbage",
+      "rubbish",
+      "recycle",
+      "delete"
+    ]
+  },
+  "triangle-down": {
+    "keywords": [
+      "arrow",
+      "point",
+      "direction"
+    ]
+  },
+  "triangle-left": {
+    "keywords": [
+      "arrow",
+      "point",
+      "direction"
+    ]
+  },
+  "triangle-right": {
+    "keywords": [
+      "arrow",
+      "point",
+      "direction"
+    ]
+  },
+  "triangle-up": {
+    "keywords": [
+      "arrow",
+      "point",
+      "direction"
+    ]
+  },
+  "unfold": {
+    "keywords": [
+      "expand",
+      "open",
+      "reveal"
+    ]
+  },
+  "unmute": {
+    "keywords": [
+      "loud",
+      "volume",
+      "audio",
+      "sound",
+      "play"
+    ]
+  },
+  "unverified": {
+    "keywords": [
+      "insecure",
+      "untrusted"
+    ]
+  },
+  "verified": {
+    "keywords": [
+      "trusted",
+      "secure",
+      "trustworthy"
+    ]
+  },
+  "versions": {
+    "keywords": [
+      "history"
+    ]
+  },
+  "watch": {
+    "keywords": [
+      "wait",
+      "hourglass"
+    ]
+  },
+  "x": {
+    "keywords": [
+      "remove",
+      "close",
+      "delete"
+    ]
+  },
+  "zap": {
+    "keywords": [
+      "electricity",
+      "lightning",
+      "props",
+      "like",
+      "star",
+      "save"
+    ]
+  },
+  "ellipses": {
+    "keywords": [
+      "dot",
+      "more"
+    ]
+  },
+  "file": {
+    "keywords": [
+      "file"
+    ]
+  },
+  "grabber": {
+    "keywords": [
+      "mover",
+      "drap",
+      "drop"
+    ]
+  },
+  "reply": {
+    "keywords": [
+      "reply all",
+      "back"
+    ]
+  }
+}
