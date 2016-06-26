@@ -2,8 +2,8 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 <metadata>
-Created by FontForge 20150913 at Thu Jun 16 08:21:11 2016
- By Jon Rohan
+Created by FontForge 20150913 at Sun Jun 26 12:18:01 2016
+ By Aaron Shekey
 </metadata>
 <defs>
 <font id="octicons" horiz-adv-x="96" >
@@ -403,7 +403,7 @@ d="M6 72h23q26 0 26 -18q0 -12 -10 -15v-1q14 -3 14 -17q0 -21 -28 -21h-25v72zM28 4
     <glyph glyph-name="text-size" unicode="&#xf0e3;" 
 d="M73 36l-8 28h-1l-8 -28h17zM30 30q-5 19 -6 22l-6 -22h12zM92 9h-12l-5 18h-21l-6 -18h-12l-3 13h-18l-3 -13h-12l18 51h13l12 -33l15 46h13z" />
     <glyph glyph-name="italic" unicode="&#xf0e4;" 
-d="M17 48h12l-11 -54h-12zM19 64q0 8 8 8q7 0 7 -6q0 -8 -8 -8q-7 0 -7 6z" />
+d="M17 54h12l-11 -54h-12zM19 70q0 8 8 8q7 0 7 -6q0 -8 -8 -8q-7 0 -7 6z" />
     <glyph glyph-name="tasklist" unicode="&#xf0e5;" 
 d="M92 30h-46q-4 0 -4 6t4 6h46q4 0 4 -6t-4 -6zM58 60q-4 0 -4 6t4 6h34q4 0 4 -6t-4 -6h-34zM0 61l8 7l10 -9l25 25l8 -8l-33 -33zM46 12h46q4 0 4 -6t-4 -6h-46q-4 0 -4 6t4 6z" />
     <glyph glyph-name="verified" unicode="&#xf0e6;" 
