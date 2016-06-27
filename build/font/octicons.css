@@ -1,12 +1,12 @@
 
 @font-face {
   font-family:"Octicons";
-  src:url("octicons.eot?5e5746b1afa34d378ebe1091967df505");
+  src:url("octicons.eot?c6935cfd69750cd4cf710ea9246dad63");
   src:url("octicons.eot?#iefix") format("embedded-opentype"),
-		url("octicons.woff2?5e5746b1afa34d378ebe1091967df505") format("woff2"),
-		url("octicons.woff?5e5746b1afa34d378ebe1091967df505") format("woff"),
-		url("octicons.ttf?5e5746b1afa34d378ebe1091967df505") format("truetype"),
-		url("octicons.svg?5e5746b1afa34d378ebe1091967df505#octicons") format("svg");
+		url("octicons.woff2?c6935cfd69750cd4cf710ea9246dad63") format("woff2"),
+		url("octicons.woff?c6935cfd69750cd4cf710ea9246dad63") format("woff"),
+		url("octicons.ttf?c6935cfd69750cd4cf710ea9246dad63") format("truetype"),
+		url("octicons.svg?c6935cfd69750cd4cf710ea9246dad63#octicons") format("svg");
   font-weight:normal;
   font-style:normal;
 }
