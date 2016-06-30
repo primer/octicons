@@ -27,7 +27,6 @@ module.exports = function(grunt) {
 
     cssnano: {
       options: {
-        sourcemap: true
       },
       dist: {
         files: {
