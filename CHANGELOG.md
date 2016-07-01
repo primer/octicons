@@ -4,6 +4,10 @@ Adds:
 
 - Keywords.json file that has an index of all octicons with alias names
 
+Fixes:
+
+- Removing inline sourcemap from `min` versions of css.
+
 ### 4.1.1 (June 16, 2016)
 
 Fixes:
