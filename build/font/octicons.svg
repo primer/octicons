@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 <metadata>
-Created by FontForge 20150913 at Mon Jun 27 16:42:54 2016
+Created by FontForge 20150913 at Sun Jul 10 17:31:00 2016
  By Aaron Shekey
 </metadata>
 <defs>
@@ -83,7 +83,7 @@ d="M78 60q6 0 6 -6v-48q0 -6 -6 -6h-72q-6 0 -6 6v60q0 6 6 6h30q6 0 6 -6v-6h36zM36
     <glyph glyph-name="file-submodule" unicode="&#xf017;" 
 d="M60 42v-6h24v-30q0 -6 -6 -6h-54v42h36zM54 30v6h-24v-6h24zM78 60q6 0 6 -6v-12h-18q0 6 -6 6h-36q-6 0 -6 -6v-42h-12q-6 0 -6 6v60q0 6 6 6h30q6 0 6 -6v-6h36zM36 60v6h-30v-6h30z" />
     <glyph glyph-name="person" unicode="&#xf018;" 
-d="M55 34q13 8 11 24q-1 8 -7 13.5t-14 6.5q-11 1 -19 -6t-8 -18q0 -13 11 -20q-12 -4 -20.5 -13.5t-8.5 -20.5q0 -6 7 -6h70q7 0 7 6q0 11 -8.5 20.5t-20.5 13.5v0z" />
+d="M72 6v-6q0 -6 -6 -6h-60q-6 0 -6 6v6q0 7 6 12.5t12 8.5l6 3v6q-6 4 -6 24q1 18 18 18t18 -18q0 -20 -6 -24v-6l6 -3q6 -3 12 -8.5t6 -12.5v0z" />
     <glyph glyph-name="jersey" unicode="&#xf019;" 
 d="M27 48h12l3 -3v-30l-3 -3h-12l-3 3v30zM36 18v24h-6v-24h6zM73.5 61.5q1.5 -12.5 10.5 -13.5v-54q0 -2 -2 -4t-4 -2h-66q-2 0 -4 2t-2 4v54q9 1 10 14q2 12 2 22h18q0 -2 2 -4t7 -2t7 2t2 4h18q0 -10 1.5 -22.5zM78 -6v48q-7 5 -10 16q-2 7 -2 20h-6q0 -7 -3 -12
 q-3 -6 -12 -6t-12 6q-3 5 -3 12h-6q0 -14 -2 -22q-2 -9 -10 -14v-48h66zM51 48h12l3 -3v-30l-3 -3h-12l-3 3v30zM60 18v24h-6v-24h6z" />
@@ -136,9 +136,7 @@ q-6 0 -6 6t-6 6t-6 -6t-6 -6h-6q-6 0 -6 -6z" />
     <glyph glyph-name="sign-in" unicode="&#xf036;" 
 d="M42 44v-32h24v24h6v-24q0 -6 -6 -6h-24v-18l-33 16q-3 2 -3 6v68q0 6 6 6h54q6 0 6 -6v-18h-6v18h-48l24 -12v-14l18 14v-12h24v-12h-24v-12z" />
     <glyph glyph-name="organization" unicode="&#xf037;" 
-d="M28 54q-3 -6 -10 -6q-12 0 -12 12t12 12q3 0 6 -2q4 14 18 14t18 -14q3 2 6 2q12 0 12 -12t-12 -12q-7 0 -10 6q-6 -6 -14 -6t-14 6zM60 63q-1 -1 -1 -3q0 -7 7 -7t7 7t-7 7q-4 0 -6 -4zM42 78q-5 0 -8.5 -3.5t-3.5 -8.5t3.5 -8.5t8.5 -3.5t8.5 3.5t3.5 8.5t-3.5 8.5
-t-8.5 3.5zM18 53q7 0 7 7q0 2 -1 3q-2 4 -6 4q-7 0 -7 -7t7 -7zM78 48q6 0 6 -6v-18q0 -6 -6 -6v-12q0 -6 -6 -6h-6q-6 0 -6 6v6h-6v-18q0 -6 -6 -6h-12q-6 0 -6 6v18h-6v-6q0 -6 -6 -6h-6q-6 0 -6 6v12q-6 0 -6 6v18q0 6 6 6h72zM18 6v36h-12v-18h6v-18h6zM60 18v24h-36
-v-24h6v12h6v-36h12v36h6v-12h6zM78 24v18h-12v-36h6v18h6z" />
+d="M96 6q0 -6 -6 -6h-42q-6 0 -6 6h-36q-6 0 -6 6q0 7 4.5 13t9.5 9l4 2q1 2 0 6q-6 5 -6 18q0 18 15 18t15 -18q0 -13 -6 -18v-6q9 -4 15 -13l9 7q1 2 0 6l-1 1q-5 4 -5 17q0 18 15 18t15 -18q0 -7 -0.5 -10.5t-1.5 -4.5t-4 -3v-6q18 -8 18 -24v0z" />
     <glyph glyph-name="device-mobile" unicode="&#xf038;" 
 d="M54 84q6 0 6 -6v-84q0 -6 -6 -6h-48q-6 0 -6 6v84q0 6 6 6h48zM30 -8q8 0 8 8t-8 8t-8 -8t8 -8zM54 12v60h-48v-60h48z" />
     <glyph glyph-name="unfold" unicode="&#xf039;" 
