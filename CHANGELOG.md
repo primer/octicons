@@ -1,4 +1,15 @@
-### HEAD
+### 4.3.0
+
+Fixes:
+
+- Vertical alignment on `italic`
+
+Modifies:
+
+- `person`
+- `organization`
+
+### 4.2.1
 
 Fixes:
 
