@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 <metadata>
-Created by FontForge 20150913 at Sun Jul 10 17:32:15 2016
+Created by FontForge 20150913 at Mon Jul 11 10:23:33 2016
  By Aaron Shekey
 </metadata>
 <defs>
@@ -83,7 +83,7 @@ d="M78 60q6 0 6 -6v-48q0 -6 -6 -6h-72q-6 0 -6 6v60q0 6 6 6h30q6 0 6 -6v-6h36zM36
     <glyph glyph-name="file-submodule" unicode="&#xf017;" 
 d="M60 42v-6h24v-30q0 -6 -6 -6h-54v42h36zM54 30v6h-24v-6h24zM78 60q6 0 6 -6v-12h-18q0 6 -6 6h-36q-6 0 -6 -6v-42h-12q-6 0 -6 6v60q0 6 6 6h30q6 0 6 -6v-6h36zM36 60v6h-30v-6h30z" />
     <glyph glyph-name="person" unicode="&#xf018;" 
-d="M72 6v-6q0 -6 -6 -6h-60q-6 0 -6 6v6q0 7 6 12.5t12 8.5l6 3v6q-6 4 -6 24q1 18 18 18t18 -18q0 -20 -6 -24v-6l6 -3q6 -3 12 -8.5t6 -12.5v0z" />
+d="M72 0q0 -6 -6 -6h-60q-6 0 -6 6v6q0 7 6 13t12 9l6 2q1 2 0 6q-6 4 -6 24q1 18 18 18t18 -18q0 -20 -6 -24v-6q24 -8 24 -24v-6z" />
     <glyph glyph-name="jersey" unicode="&#xf019;" 
 d="M27 48h12l3 -3v-30l-3 -3h-12l-3 3v30zM36 18v24h-6v-24h6zM73.5 61.5q1.5 -12.5 10.5 -13.5v-54q0 -2 -2 -4t-4 -2h-66q-2 0 -4 2t-2 4v54q9 1 10 14q2 12 2 22h18q0 -2 2 -4t7 -2t7 2t2 4h18q0 -10 1.5 -22.5zM78 -6v48q-7 5 -10 16q-2 7 -2 20h-6q0 -7 -3 -12
 q-3 -6 -12 -6t-12 6q-3 5 -3 12h-6q0 -14 -2 -22q-2 -9 -10 -14v-48h66zM51 48h12l3 -3v-30l-3 -3h-12l-3 3v30zM60 18v24h-6v-24h6z" />
