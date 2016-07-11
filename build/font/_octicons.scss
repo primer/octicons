@@ -3,12 +3,12 @@ $octicons-font-path: "./" !default;
 
 @font-face {
   font-family:"Octicons";
-  src:url("#{$octicons-font-path}octicons.eot?64873e5939f116eb5b60c35bfed0de2f");
+  src:url("#{$octicons-font-path}octicons.eot?9a80b0fcce5ace0475f72ac5567f9158");
   src:url("#{$octicons-font-path}octicons.eot?#iefix") format("embedded-opentype"),
-		url("#{$octicons-font-path}octicons.woff2?64873e5939f116eb5b60c35bfed0de2f") format("woff2"),
-		url("#{$octicons-font-path}octicons.woff?64873e5939f116eb5b60c35bfed0de2f") format("woff"),
-		url("#{$octicons-font-path}octicons.ttf?64873e5939f116eb5b60c35bfed0de2f") format("truetype"),
-		url("#{$octicons-font-path}octicons.svg?64873e5939f116eb5b60c35bfed0de2f#octicons") format("svg");
+		url("#{$octicons-font-path}octicons.woff2?9a80b0fcce5ace0475f72ac5567f9158") format("woff2"),
+		url("#{$octicons-font-path}octicons.woff?9a80b0fcce5ace0475f72ac5567f9158") format("woff"),
+		url("#{$octicons-font-path}octicons.ttf?9a80b0fcce5ace0475f72ac5567f9158") format("truetype"),
+		url("#{$octicons-font-path}octicons.svg?9a80b0fcce5ace0475f72ac5567f9158#octicons") format("svg");
   font-weight:normal;
   font-style:normal;
 }
@@ -377,4 +377,3 @@ $octicons-font-path: "./" !default;
 .octicon-x:before { content:"\f081"; }
 
 .octicon-zap:before { content:"\26a1"; }
-
