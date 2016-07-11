@@ -43,7 +43,7 @@ All the files you need will be in the `/build/` directory already, but if you’
 
 ## Publishing
 
-If you have access to publish this repository, these are the steps to publishing. In you need access, contact [#design-systems](https://github.slack.com/archives/design-systems).
+If you have access to publish this repository, these are the steps to publishing. If you need access, contact [#design-systems](https://github.slack.com/archives/design-systems).
 
 1. Update the [CHANGELOG.md](./CHANGELOG.md) with relevant version number and any updates made to the repository.
 2. `npm version <newversion>` Run [npm version](https://docs.npmjs.com/cli/version) inputing the relevant version type. The versioning is [semver](http://semver.org/), so version appropriately based on what has changed.
