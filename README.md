@@ -41,6 +41,15 @@ All the files you need will be in the `/build/` directory already, but if you’
 2. Run the command `script/bootstrap`. This will install any necessary dependencies for generating the Octicons font and SVGs.
 3. Run the command `grunt`. Running the grunt task will generate the font and SVGs, placing them in the `/build/` directory.
 
+## Publishing
+
+If you have access to publish this repository, these are the steps to publishing. In you need access, contact [#design-systems](https://github.slack.com/archives/design-systems).
+
+1. Update the [CHANGELOG.md](./CHANGELOG.md) with relevant version number and any updates made to the repository.
+2. `npm version <newversion>` Run [npm version](https://docs.npmjs.com/cli/version) inputing the relevant version type. The versioning is [semver](http://semver.org/), so version appropriately based on what has changed.
+3. `npm publish` This will publish the new version to npmjs.org
+4. `git push && git push --tags` Push all these changes to origin.
+
 ## License
 
 (c) 2012-2016 GitHub, Inc.
