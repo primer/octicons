@@ -34,6 +34,18 @@ The minimum CSS you'll need in your jekyll site is in the [octicons][octicons] r
 
 For a full list of options available, see the [octicons_gem documentation](https://github.com/primer/octicons_gem#documentation)
 
+## Publishing
+
+If you have access to publish this repository, these are the steps to publishing. If you need access, contact [#design-systems](https://github.slack.com/archives/design-systems).
+
+**Before publishing** This repository relies on the data from [octicons_gem](https://github.com/primer/octicons_gem). To update to the most recent version, you'll need to run `npm run update`
+
+1. Update the [CHANGELOG.md](./CHANGELOG.md) with relevant version number and any updates made to the repository.
+2. Update the version in [version.rb](https://github.com/primer/jekyll-octicons/blob/master/lib/jekyll-octicons/version.rb) using the relevant version. The versioning is [semver](http://semver.org/), so version appropriately based on what has changed.
+3. `npm version <newversion>` Use the same version that you added in step 2.
+4. `npm run ship` This will build the gem and publish it to rubygems.
+5. `git push && git push --tags` Push all these changes to origin.
+
 ## License
 
 (c) 2012-2016 GitHub, Inc.
