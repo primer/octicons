@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "name": "octicons_helper",
+  "version": "2.0.0",
+  "description": "A rails helper that makes including svg Octicons simple.",
+  "scripts": {
+    "update": "bundle update octicons",
+    "test": "rake test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/primer/octicons_helper.git"
+  },
+  "author": "GitHub Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/primer/octicons_helper/issues"
+  },
+  "homepage": "https://github.com/primer/octicons_helper#readme"
+}
