@@ -4,7 +4,7 @@
   "version": "2.1.0",
   "description": "A rails helper that makes including svg Octicons simple.",
   "scripts": {
-    "ship": "gem build octicons_helper.gemspec && gem push octicons_helper-*.gem",
+    "ship": "rm *.gem && gem build octicons_helper.gemspec && gem push octicons_helper-*.gem",
     "update": "bundle update octicons",
     "test": "rake test"
   },
