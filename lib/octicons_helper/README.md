@@ -34,7 +34,7 @@ If you have access to publish this repository, these are the steps to publishing
 **Before publishing** This repository relies on the data from [octicons_gem](https://github.com/primer/octicons_gem). To update to the most recent version, you'll need to run `npm run update`
 
 1. Update the [CHANGELOG.md](./CHANGELOG.md) with relevant version number and any updates made to the repository.
-2. Update the version in [version.rb](https://github.com/primer/octicons_gem/blob/master/lib/octicons/version.rb) using the relevant version. The versioning is [semver](http://semver.org/), so version appropriately based on what has changed.
+2. Update the version in [version.rb](https://github.com/primer/octicons_helper/blob/master/lib/octicons_helper/version.rb) using the relevant version. The versioning is [semver](http://semver.org/), so version appropriately based on what has changed.
 3. `npm version <newversion>` Use the same version that you added in step 2.
 4. `npm run ship` This will build the gem and publish it to rubygems.
 5. `git push && git push --tags` Push all these changes to origin.
