@@ -1,3 +1,6 @@
+var fs = require("fs")
+var path = require("path")
+
 module.exports = function(grunt) {
 
   grunt.initConfig({
@@ -139,5 +142,18 @@ module.exports = function(grunt) {
   grunt.registerTask('svg', ['clean:svg', 'svgmin', 'svg_sprite']);
 
   // default task, build /dist/
-  grunt.registerTask('default', [ 'svg', 'font', 'css']);
+  grunt.registerTask('default', [ 'svg', 'font', 'css', 'svg_json']);
+
+  grunt.registerTask('svg_json', 'create a json object with all minimized svg', function() {
+    var result = {}
+    var files = fs.readdirSync("./build/svg/")
+
+    files.forEach(function(file) {
+      var svg = fs.readFileSync(path.resolve("./build/svg", file))
+      var key = path.basename(file, ".svg")
+      result[key] = svg.toString()
+    })
+
+    fs.writeFileSync("build/svg.json", JSON.stringify(result));
+  })
 };

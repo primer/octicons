@@ -1,3 +1,9 @@
+### HEAD
+
+Adds:
+
+- svg.json file that is accessible from node require
+
 ### 4.3.0
 
 Fixes:
