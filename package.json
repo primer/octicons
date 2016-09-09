@@ -19,7 +19,8 @@
   },
   "scripts": {
     "build": "grunt",
-    "test": "ava --verbose \"test/**/*.js\""
+    "prepublish": "npm run build",
+    "test": "npm run build && ava --verbose \"test/**/*.js\""
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
