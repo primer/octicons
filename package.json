@@ -18,9 +18,9 @@
     "url": "https://github.com/primer/octicons/issues"
   },
   "scripts": {
-    "setup": "script/bootstrap",
-    "build": "npm run setup && grunt",
-    "test": "ava --verbose \"test/**/*.js\""
+    "build": "grunt",
+    "prepublish": "npm run build",
+    "test": "npm run build && ava --verbose \"test/**/*.js\""
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
