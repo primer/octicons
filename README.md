@@ -38,8 +38,8 @@ You’ll next need to build your Octicons.
 All the files you need will be in the `/build/` directory already, but if you’ve made changes to the `/lib/` directory and need to regenerate, follow these steps:
 
 1. Open the Octicons directory in Terminal
-2. Run the command `script/bootstrap`. This will install any necessary dependencies for generating the Octicons font and SVGs.
-3. Run the command `grunt`. Running the grunt task will generate the font and SVGs, placing them in the `/build/` directory.
+2. `npm install` to install all dependencies for the project.
+3. Run the command `npm run build`. This will run the grunt task to build the SVGs, placing them in the `/build/` directory.
 
 ## Publishing
 
@@ -56,8 +56,8 @@ If you have access to publish this repository, these are the steps to publishing
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 
-_Font License:_ [SIL OFL 1.1](http://scripts.sil.org/OFL)  
-Applies to all font files and SVG files
+_SVG License:_ [SIL OFL 1.1](http://scripts.sil.org/OFL)  
+Applies to all SVG files
 
 _Code License:_ [MIT](./LICENSE)  
 Applies to all other files

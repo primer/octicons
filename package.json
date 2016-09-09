@@ -18,8 +18,7 @@
     "url": "https://github.com/primer/octicons/issues"
   },
   "scripts": {
-    "setup": "script/bootstrap",
-    "build": "npm run setup && grunt",
+    "build": "grunt",
     "test": "ava --verbose \"test/**/*.js\""
   },
   "devDependencies": {
@@ -31,15 +30,11 @@
     "grunt-postcss": "^0.8.0",
     "grunt-sass": "^1.2.0",
     "grunt-svg-sprite": "^1.2.19",
-    "grunt-svgmin": "^3.2.0",
-    "grunt-webfont": "^1.4.0"
+    "grunt-svgmin": "^3.2.0"
   },
   "keywords": [
     "GitHub",
     "icons",
-    "font",
-    "web font",
-    "icon font",
     "svg",
     "octicons"
   ]
