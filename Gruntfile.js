@@ -7,30 +7,8 @@ module.exports = function(grunt) {
 
     pkg: grunt.file.readJSON('package.json'),
 
-    sass: {
-      options: {
-      },
-      dist: {
-        files: {
-          'build/octicons.css': 'index.scss'
-        }
-      }
-    },
-
-    postcss: {
-      options: {
-        processors: [
-          require('autoprefixer')({ browsers: '> 5%' })
-        ]
-      },
-      build: {
-        src: 'build/**/*.*css'
-      }
-    },
-
     cssnano: {
-      options: {
-      },
+      options: {},
       dist: {
         files: {
           'build/octicons.min.css': 'build/octicons.css'
@@ -81,24 +59,28 @@ module.exports = function(grunt) {
     },
 
     clean: {
-      svg: [
-        'build/svg/*',
-        'build/sprite.octicons.svg',
-        'build/octicons.*'
+      build: [
+        'build/*'
       ]
+    },
+
+    copy: {
+      css: {
+        src: "lib/octicons.css",
+        dest: "build/octicons.css"
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-postcss');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-svg-sprite');
   grunt.loadNpmTasks('grunt-svgmin');
   grunt.loadNpmTasks('grunt-cssnano');
-  grunt.loadNpmTasks('grunt-sass');
 
   // build tasks
-  grunt.registerTask('css',  ['sass', 'postcss', 'cssnano']);
-  grunt.registerTask('svg', ['clean:svg', 'svgmin', 'svg_sprite']);
+  grunt.registerTask('css',  ['copy', 'cssnano']);
+  grunt.registerTask('svg', ['clean', 'svgmin', 'svg_sprite']);
 
   // default task, build /dist/
   grunt.registerTask('default', [ 'svg', 'css', 'svg_json']);

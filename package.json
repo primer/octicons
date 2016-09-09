@@ -5,10 +5,9 @@
   "homepage": "https://octicons.github.com",
   "author": "GitHub Inc.",
   "license": "(OFL-1.1 OR MIT)",
-  "style": "index.scss",
+  "style": "build/octicons.css",
   "main": "index.js",
   "files": [
-    "index.scss",
     "index.js",
     "lib",
     "build"
@@ -27,9 +26,8 @@
     "ava": "^0.16.0",
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0",
     "grunt-cssnano": "^2.1.0",
-    "grunt-postcss": "^0.8.0",
-    "grunt-sass": "^1.2.0",
     "grunt-svg-sprite": "^1.2.19",
     "grunt-svgmin": "^3.2.0"
   },
