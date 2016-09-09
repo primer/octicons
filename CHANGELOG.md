@@ -1,5 +1,13 @@
 ### HEAD
 
+### 5.0.0
+
+Removes:
+
+- Deprecating support for the webfont
+
+### 4.4.0
+
 Adds:
 
 - svg.json file that is accessible from node require
