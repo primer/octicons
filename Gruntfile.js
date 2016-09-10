@@ -83,18 +83,23 @@ module.exports = function(grunt) {
   grunt.registerTask('svg', ['clean', 'svgmin', 'svg_sprite']);
 
   // default task, build /dist/
-  grunt.registerTask('default', [ 'svg', 'css', 'svg_json']);
+  grunt.registerTask('default', [ 'svg', 'css', 'json:svg']);
 
-  grunt.registerTask('svg_json', 'create a json object with all minimized svg', function() {
-    var result = {}
+  grunt.registerTask('json:svg', 'add svg string to data.json build', function() {
     var files = fs.readdirSync("./build/svg/")
+    var data = JSON.parse(fs.readFileSync("./lib/data.json"))
 
     files.forEach(function(file) {
       var svg = fs.readFileSync(path.resolve("./build/svg", file))
       var key = path.basename(file, ".svg")
-      result[key] = svg.toString()
+      if (data[key]) {
+        var raw = svg.toString()
+        data[key].path = /<path.+\/>/g.exec(raw)[0]
+        data[key].height = /height="(\d+)"/g.exec(raw)[1]
+        data[key].width = /width="(\d+)"/g.exec(raw)[1]
+      }
     })
 
-    fs.writeFileSync("build/svg.json", JSON.stringify(result));
+    fs.writeFileSync("build/data.json", JSON.stringify(data));
   })
 };

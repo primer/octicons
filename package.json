@@ -9,7 +9,6 @@
   "main": "index.js",
   "files": [
     "index.js",
-    "lib",
     "build"
   ],
   "repository": "https://github.com/primer/octicons.git",

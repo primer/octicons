@@ -18,11 +18,109 @@ $ npm install --save octicons
 
 ## Usage
 
-The source files included are written in [Sass][sass] (`scss`) You can simply point your sass `include-path` at your `node_modules` directory and import it like this.
+For all the usages, we recommend using the CSS located in `./build/octicons.css`. This is some simple CSS to normalize the icons and inherit colors.
 
-```scss
-@import "octicons/index.scss";
+### Node
+
+After installing `npm install octicons` you can access the icons like this.
+
+```js
+var octicons = require("octicons")
+console.log(octicons.alert)
+// { keywords: [ 'warning', 'triangle', 'exclamation', 'point' ], svg: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"/></svg>' }
 ```
+
+There will be a key for every icon, with `keywords` and `svg`.
+
+#### `octicons.alert.symbol`
+
+Returns the string of the symbol name
+
+```js
+octicons.x.symbol
+// "x"
+```
+
+#### `octicons.person.path`
+
+Path returns the string representation of the path of the icon.
+
+```js
+octicons.x.path
+// <path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path>
+```
+
+#### `octicons.issue.options`
+
+This is a json object of all the `options` that will be added to the output tag.
+
+```js
+octicons.x.options
+// { version: '1.1', width: '12', height: '16', viewBox: '0 0 12 16', class: 'octicon octicon-x', 'aria-hidden': 'true' }
+```
+
+#### `octicons.alert.width`
+
+Width is the icon's true width. Based on the svg view box width. _Note, this doesn't change if you scale it up with size options, it only is the natural width of the icon_
+
+#### `octicons.alert.height`
+
+Height is the icon's true height. Based on the svg view box height. _Note, this doesn't change if you scale it up with size options, it only is the natural height of the icon_
+
+#### `keywords`
+
+Returns an array of keywords for the icon. The data [comes from the octicons repository](https://github.com/primer/octicons/blob/master/lib/data.json). Consider contributing more aliases for the icons.
+
+```js
+octicons.x.keywords
+// ["remove", "close", "delete"]
+```
+
+#### `octicons.alert.toSVG()`
+
+Returns a string of the svg tag
+
+```js
+octicons.x.toSVG()
+// <svg version="1.1" width="12" height="16" viewBox="0 0 12 16" class="octicon octicon-x" aria-hidden="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+```
+
+The `.toSVG()` method accepts an optional `options` object. This is used to add CSS classnames, a11y options, and sizing.
+
+##### class
+
+Add more CSS classes to the `<svg>` tag.
+
+```js
+octicons.x.toSVG({ "class": "close" })
+// <svg version="1.1" width="12" height="16" viewBox="0 0 12 16" class="octicon octicon-x close" aria-hidden="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+```
+
+##### aria-label
+
+Add accessibility `aria-label` to the icon.
+
+```js
+octicons.x.toSVG({ "aria-label": "Close the window" })
+// <svg version="1.1" width="12" height="16" viewBox="0 0 12 16" class="octicon octicon-x" aria-label="Close the window" role="img"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+```
+
+##### width & height
+
+Size the SVG icon larger using `width` & `height` independently or together.
+
+```js
+octicons.x.toSVG({ "width": "" })
+// <svg version="1.1" width="12" height="16" viewBox="0 0 12 16" class="octicon octicon-x" aria-hidden="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+```
+
+### Ruby
+
+If your environment is Ruby on Rails, we have a [octicons_helper](https://github.com/primer/octicons_helper) gem available that renders SVG in your page. The octicons_helper uses the [octicons_gem](https://github.com/primer/octicons_gem) to do the computing and reading of the SVG files.
+
+### Jekyll
+
+For jekyll, there's a [jekyll-octicons](https://github.com/primer/jekyll-octicons) plugin available. This works exactly like the octicons_helper.
 
 ## Changing, adding, or deleting icons
 
