@@ -7,6 +7,7 @@
 
 ## Install
 
+**NOTE:** The compiled files are located in `/build/`. This directory is located in the published npm package. Which means you can access it when you `npm install octicons`. You can also build this directory by following the [building octicons directions](#building-octicons). The files in the `/lib/` directory are the raw source files and are not compiled or optimized.
 
 #### NPM
 
