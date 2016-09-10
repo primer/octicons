@@ -331,6 +331,12 @@
       "arrow"
     ]
   },
+  "ellipses": {
+    "keywords": [
+      "dot",
+      "more"
+    ]
+  },
   "ellipsis": {
     "keywords": [
       "read",
@@ -344,6 +350,11 @@
       "look",
       "watch",
       "see"
+    ]
+  },
+  "file": {
+    "keywords": [
+      "file"
     ]
   },
   "file-binary": {
@@ -487,6 +498,13 @@
   "globe": {
     "keywords": [
       "world"
+    ]
+  },
+  "grabber": {
+    "keywords": [
+      "mover",
+      "drap",
+      "drop"
     ]
   },
   "graph": {
@@ -830,6 +848,12 @@
       "broadcast"
     ]
   },
+  "reply": {
+    "keywords": [
+      "reply all",
+      "back"
+    ]
+  },
   "repo": {
     "keywords": [
       "book",
@@ -1117,30 +1141,6 @@
       "like",
       "star",
       "save"
-    ]
-  },
-  "ellipses": {
-    "keywords": [
-      "dot",
-      "more"
-    ]
-  },
-  "file": {
-    "keywords": [
-      "file"
-    ]
-  },
-  "grabber": {
-    "keywords": [
-      "mover",
-      "drap",
-      "drop"
-    ]
-  },
-  "reply": {
-    "keywords": [
-      "reply all",
-      "back"
     ]
   }
 }
