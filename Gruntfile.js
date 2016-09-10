@@ -1,6 +1,5 @@
 var fs = require("fs")
 var path = require("path")
-var octicons = require("./index.js")
 
 module.exports = function(grunt) {
 
@@ -47,6 +46,7 @@ module.exports = function(grunt) {
         includeTitleElement: false,
         inheritviewbox: true,
         includedemo: function(arg) {
+          var octicons = require("./index.js")
 
           var icons = function() {
             var result = []
