@@ -21,6 +21,10 @@ $ npm install --save octicons
 
 For all the usages, we recommend using the CSS located in `./build/octicons.css`. This is some simple CSS to normalize the icons and inherit colors.
 
+### Spritesheet
+
+With a [SVG sprite icon system](https://css-tricks.com/svg-sprites-use-better-icon-fonts/) you can include the sprite sheet located `./build/sprite.octicons.svg` after you [build the icons](#building-octicons) or from the npm package. There is a demo of how to use the spritesheet in the build directory also.
+
 ### Node
 
 After installing `npm install octicons` you can access the icons like this.
@@ -123,8 +127,17 @@ octicons.x.toSVG({ "aria-label": "Close the window" })
 Size the SVG icon larger using `width` & `height` independently or together.
 
 ```js
-octicons.x.toSVG({ "width": "" })
-// <svg version="1.1" width="12" height="16" viewBox="0 0 12 16" class="octicon octicon-x" aria-hidden="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+octicons.x.toSVG({ "width": 45 })
+// <svg version="1.1" width="45" height="60" viewBox="0 0 12 16" class="octicon octicon-x" aria-hidden="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+```
+
+#### `octicons.alert.toSVGUse()`
+
+Returns a string of the svg tag with the `<use>` tag, for use with the spritesheet located in the /build/ directory.
+
+```js
+octicons.x.toSVGUse()
+// <svg version="1.1" width="12" height="16" viewBox="0 0 12 16" class="octicon octicon-x" aria-hidden="true"><use xlink:href="#x" /></svg>
 ```
 
 ### Ruby
