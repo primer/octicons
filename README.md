@@ -21,6 +21,10 @@ $ npm install --save octicons
 
 For all the usages, we recommend using the CSS located in `./build/octicons.css`. This is some simple CSS to normalize the icons and inherit colors.
 
+### Spritesheet
+
+With a [SVG sprite icon system](https://css-tricks.com/svg-sprites-use-better-icon-fonts/) you can include the sprite sheet located `./build/sprite.octicons.svg` after you [build the icons](#building-octicons) or from the npm package. There is a demo of how to use the spritesheet in the build directory also.
+
 ### Node
 
 After installing `npm install octicons` you can access the icons like this.
