@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="20px" height="32px" viewBox="0 0 20 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>m/arrow-down</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Octicons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="m/arrow-down" fill="#020302">
+            <path d="M13.9968673,14 L13.9968673,7 C13.9968673,6.448 13.5488673,6 12.9968673,6 L6.99286728,6 C6.44286728,6 5.99686728,6.446 5.99686728,6.996 L5.99686728,14 L2.13186728,14 C1.28386728,14 0.820867278,14.989 1.36386728,15.64 L9.42086728,25.309 C9.72086728,25.668 10.2728673,25.668 10.5728673,25.309 L18.6298673,15.64 C19.1728673,14.989 18.7098673,14 17.8618673,14 L13.9968673,14 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

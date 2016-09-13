@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="20px" height="32px" viewBox="0 0 20 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>m/arrow-left</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Octicons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="m/arrow-left" fill="#020302">
+            <path d="M11.99825,19.9968674 L18.99825,19.9968674 C19.55025,19.9968674 19.99825,19.5488674 19.99825,18.9968674 L19.99825,12.9968674 C19.99825,12.4448674 19.55025,11.9968674 18.99825,11.9968674 L11.99825,11.9968674 L11.99825,8.1318674 C11.99825,7.2838674 11.00925,6.8208674 10.35825,7.3638674 L0.689249987,15.4208674 C0.330249987,15.7208674 0.330249987,16.2728674 0.689249987,16.5728674 L10.35825,24.6298674 C11.00925,25.1728674 11.99825,24.7098674 11.99825,23.8618674 L11.99825,19.9968674 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>
