@@ -28,7 +28,7 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-cssnano": "^2.1.0",
     "grunt-svgmin": "^3.2.0",
-    "grunt-svgstore": "^1.0.0"
+    "svgstore": "^1.1.0"
   },
   "keywords": [
     "GitHub",

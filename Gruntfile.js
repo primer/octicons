@@ -36,7 +36,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'lib/svg',
-          src: ['*.svg'],
+          src: ['**/*.svg'],
           dest: 'build/svg'
         }]
       }
@@ -69,17 +69,21 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [ 'svg', 'css', 'json:svg', 'svgstore']);
 
   grunt.registerTask('json:svg', 'add svg string to data.json build', function() {
-    var files = fs.readdirSync("./build/svg/")
+    var files = grunt.file.glob.sync("./build/svg/**/*.svg")
     var data = JSON.parse(fs.readFileSync("./lib/data.json"))
 
     files.forEach(function(file) {
-      var svg = fs.readFileSync(path.resolve("./build/svg", file))
+      var svg = fs.readFileSync(path.resolve(file))
       var key = path.basename(file, ".svg")
+      var size = path.basename(path.dirname(file))
       if (data[key]) {
         var raw = svg.toString()
-        data[key].path = /<path.+\/>/g.exec(raw)[0]
-        data[key].height = /height="(\d+)"/g.exec(raw)[1]
-        data[key].width = /width="(\d+)"/g.exec(raw)[1]
+        data[key].svg = data[key].svg ? data[key].svg : {}
+        data[key].svg[size] = {
+          path: /<path.+\/>/g.exec(raw)[0],
+          height: /height="(\d+)"/g.exec(raw)[1],
+          width: /width="(\d+)"/g.exec(raw)[1]
+        }
       }
     })
 
