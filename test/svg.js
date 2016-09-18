@@ -2,7 +2,7 @@ import test from 'ava';
 import octicons from '../';
 import fs from 'fs';
 
-const octiconsLib = fs.readdirSync("../lib/svg/");
+const octiconsLib = fs.readdirSync("../lib/svg/16/");
 
 test('Octicons have svg', t => {
   t.truthy(octicons, "Didn't find any octicons.");
@@ -17,9 +17,9 @@ test('Octicons have default html attributes', t => {
     var svg = octicons[point].toSVG()
     t.regex(svg, /version="1\.1"/, 'The octicon "' + point + '" doesn\'t have the version attribute')
     t.regex(svg, /aria\-hidden="true"/, 'The octicon "' + point + '" doesn\'t have the aria-hidden attribute')
-    t.regex(svg, new RegExp("width=\"" + octicons[point].width + "\""), 'The octicon "' + point + '" doesn\'t have the width attribute')
-    t.regex(svg, new RegExp("height=\"" + octicons[point].height + "\""), 'The octicon "' + point + '" doesn\'t have the height attribute')
-    t.regex(svg, new RegExp("viewBox=\"0 0 " + octicons[point].width + " " + octicons[point].height + "\""), 'The octicon "' + point + '" doesn\'t have the viewBox attribute')
+    t.regex(svg, new RegExp("width=\"" + octicons[point].svg["16"].width + "\""), 'The octicon "' + point + '" doesn\'t have the width attribute')
+    t.regex(svg, new RegExp("height=\"" + octicons[point].svg["16"].height + "\""), 'The octicon "' + point + '" doesn\'t have the height attribute')
+    t.regex(svg, new RegExp("viewBox=\"0 0 " + octicons[point].svg["16"].width + " " + octicons[point].svg["16"].height + "\""), 'The octicon "' + point + '" doesn\'t have the viewBox attribute')
     t.regex(svg, new RegExp("class=\"octicon octicon-" + octicons[point].symbol + "\""), 'The octicon "' + point + '" doesn\'t have the class attribute')
   })
 });

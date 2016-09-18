@@ -78,11 +78,17 @@ Object.keys(data).forEach(function(key) {
 
   // Function to return an SVG object
   data[key].toSVG = function(options) {
+    if (options == undefined) {
+      options = {}
+    }
     return "<svg " + htmlAttributes(data[key], options) + ">" + data[key].svg[closestSize(options["height"])].path + "</svg>"
   }
 
   // Function to return an SVG object with a use, assuming you use the svg sprite
   data[key].toSVGUse = function(options) {
+    if (options == undefined) {
+      options = {}
+    }
     var computedSize = closestSize(options["height"])
     return "<svg " + htmlAttributes(data[key], options) + "><use xlink:href=\"#" + key + "-" + computedSize + "\" /></svg>"
   }
