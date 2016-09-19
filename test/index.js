@@ -2,7 +2,7 @@ import test from 'ava';
 import octicons from '../';
 import fs from 'fs';
 
-const octiconsLib = fs.readdirSync("../lib/svg/");
+const octiconsLib = fs.readdirSync("../lib/svg/16/");
 
 test('Octicons are loaded', t => {
   t.truthy(octicons, "Didn't find any octicons.");
