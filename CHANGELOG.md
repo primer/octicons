@@ -1,4 +1,13 @@
-### HEAD
+### 4.5.0
+
+Adds:
+
+- `project`
+- `note`
+- `screen-full`
+- `screen-normal`
+
+### 4.4.0
 
 Adds:
 
