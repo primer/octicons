@@ -170,5 +170,9 @@
     "file": 61698,
     "grabber": 61699,
     "plus-small": 61700,
-    "reply": 61701
+    "reply": 61701,
+    "note": 61702,
+    "project": 61703,
+    "screen-full": 61704,
+    "screen-normal": 61705
 }

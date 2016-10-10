@@ -3,12 +3,12 @@ $octicons-font-path: "./" !default;
 
 @font-face {
   font-family:"Octicons";
-  src:url("#{$octicons-font-path}octicons.eot?9a80b0fcce5ace0475f72ac5567f9158");
+  src:url("#{$octicons-font-path}octicons.eot?0f6ae88d414df2cbd0d82ab8a0ebe78c");
   src:url("#{$octicons-font-path}octicons.eot?#iefix") format("embedded-opentype"),
-		url("#{$octicons-font-path}octicons.woff2?9a80b0fcce5ace0475f72ac5567f9158") format("woff2"),
-		url("#{$octicons-font-path}octicons.woff?9a80b0fcce5ace0475f72ac5567f9158") format("woff"),
-		url("#{$octicons-font-path}octicons.ttf?9a80b0fcce5ace0475f72ac5567f9158") format("truetype"),
-		url("#{$octicons-font-path}octicons.svg?9a80b0fcce5ace0475f72ac5567f9158#octicons") format("svg");
+		url("#{$octicons-font-path}octicons.woff2?0f6ae88d414df2cbd0d82ab8a0ebe78c") format("woff2"),
+		url("#{$octicons-font-path}octicons.woff?0f6ae88d414df2cbd0d82ab8a0ebe78c") format("woff"),
+		url("#{$octicons-font-path}octicons.ttf?0f6ae88d414df2cbd0d82ab8a0ebe78c") format("truetype"),
+		url("#{$octicons-font-path}octicons.svg?0f6ae88d414df2cbd0d82ab8a0ebe78c#octicons") format("svg");
   font-weight:normal;
   font-style:normal;
 }
@@ -260,6 +260,8 @@ $octicons-font-path: "./" !default;
 
 .octicon-no-newline:before { content:"\f09c"; }
 
+.octicon-note:before { content:"\f106"; }
+
 .octicon-octoface:before { content:"\f008"; }
 
 .octicon-organization:before { content:"\f037"; }
@@ -283,6 +285,8 @@ $octicons-font-path: "./" !default;
 .octicon-primitive-dot:before { content:"\f052"; }
 
 .octicon-primitive-square:before { content:"\f053"; }
+
+.octicon-project:before { content:"\f107"; }
 
 .octicon-pulse:before { content:"\f085"; }
 
@@ -311,6 +315,10 @@ $octicons-font-path: "./" !default;
 .octicon-rss:before { content:"\f034"; }
 
 .octicon-ruby:before { content:"\f047"; }
+
+.octicon-screen-full:before { content:"\f108"; }
+
+.octicon-screen-normal:before { content:"\f109"; }
 
 .octicon-search:before { content:"\f02e"; }
 

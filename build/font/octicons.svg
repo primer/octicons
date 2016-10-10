@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 <metadata>
-Created by FontForge 20150913 at Mon Jul 11 12:02:11 2016
+Created by FontForge 20150913 at Mon Oct 10 10:29:28 2016
  By Aaron Shekey
 </metadata>
 <defs>
@@ -423,6 +423,14 @@ d="M48 60v-6h-48v6h48zM0 36v6h48v-6h-48zM0 18v6h48v-6h-48z" />
 d="M24 42h18v-6h-18v-18h-6v18h-18v6h18v18h6v-18z" />
     <glyph glyph-name="reply" unicode="&#xf105;" 
 d="M36 63q20 -2 34 -16.5t14 -43.5q-16 36 -48 36v-21l-33 33l33 33v-21z" />
+    <glyph glyph-name="note" unicode="&#xf106;" 
+d="M18 24v6h24v-6h-24zM18 36v6h36v-6h-36zM18 48v6h48v-6h-48zM78 12v54h-72v-54h72zM6 72h72q6 0 6 -6v-54q0 -6 -6 -6h-72q-6 0 -6 6v54q0 6 6 6z" />
+    <glyph glyph-name="project" unicode="&#xf107;" 
+d="M60 12v60h18v-60h-18zM36 24v48h18v-48h-18zM12 0v72h18v-72h-18zM6 -6h78v84h-78v-84zM84 84q6 0 6 -6v-84q0 -6 -6 -6h-78q-6 0 -6 6v84q0 6 6 6h78z" />
+    <glyph glyph-name="screen-full" unicode="&#xf108;" 
+d="M78 24h6v-18q0 -6 -6 -6h-18v6h18v18zM6 24v-18h18v-6h-18q-6 0 -6 6v18h6zM6 66v-18h-6v18q0 6 6 6h18v-6h-18zM12 60h60v-48h-60v48zM24 24h36v24h-36v-24zM60 72h18q6 0 6 -6v-18h-6v18h-18v6z" />
+    <glyph glyph-name="screen-normal" unicode="&#xf109;" 
+d="M12 60h-12v6h12v12h6v-12q0 -6 -6 -6zM12 12q6 0 6 -6v-12h-6v12h-12v6h12zM66 24q0 -6 -6 -6h-36q-6 0 -6 6v24q0 6 6 6h36q6 0 6 -6v-24zM54 42h-24v-12h24v12zM66 6q0 6 6 6h12v-6h-12v-12h-6v12zM72 66h12v-6h-12q-6 0 -6 6v12h6v-12z" />
     <glyph glyph-name="device-desktop" unicode="&#xf27c;" 
 d="M90 72q6 0 6 -6v-54q0 -6 -6 -6h-32q3 -7 14 -12h-48q11 5 14 12h-32q-6 0 -6 6v54q0 6 6 6h84zM90 18v48h-84v-48h84z" />
   </font>
