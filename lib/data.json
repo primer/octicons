@@ -744,6 +744,13 @@
       "return"
     ]
   },
+  "note": {
+    "keywords": [
+      "card",
+      "paper",
+      "ticket"
+    ]
+  },
   "octoface": {
     "keywords": [
       "octocat"
@@ -823,6 +830,14 @@
   "primitive-square": {
     "keywords": [
       "box"
+    ]
+  },
+  "project": {
+    "keywords": [
+      "board",
+      "kanban",
+      "columns",
+      "scrum"
     ]
   },
   "pulse": {
@@ -912,6 +927,19 @@
   "ruby": {
     "keywords": [
       "code"
+    ]
+  },
+  "screen-full": {
+    "keywords": [
+      "fullscreen",
+      "expand"
+    ]
+  },
+  "screen-normal": {
+    "keywords": [
+      "fullscreen",
+      "expand",
+      "exit"
     ]
   },
   "search": {
