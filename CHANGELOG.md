@@ -8,10 +8,14 @@ Adds:
 - `note`
 - `screen-full`
 - `screen-normal`
+- More node.js api endpoints for accessing icons https://github.com/primer/octicons/pull/120
+- Creating a spritesheet demo https://github.com/primer/octicons/pull/121
 
 Removes:
 
-- Deprecating support for the webfont
+- Deprecating support for the webfont https://github.com/primer/octicons/pull/117
+- Stop checking `/build/` directory into repository https://github.com/primer/octicons/pull/118
+- Removing sass as a dependency https://github.com/primer/octicons/pull/119
 
 ### 4.4.0
 
