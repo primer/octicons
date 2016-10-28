@@ -2,6 +2,13 @@
 
 ### 5.0.0
 
+Adds:
+
+- `project`
+- `note`
+- `screen-full`
+- `screen-normal`
+
 Removes:
 
 - Deprecating support for the webfont
