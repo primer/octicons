@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "jekyll-octicons",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A jekyll liquid plugin that makes including svg Octicons simple.",
   "scripts": {
     "ship": "gem build jekyll-octicons.gemspec && gem push jekyll-octicons-*.gem",
