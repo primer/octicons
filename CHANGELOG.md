@@ -1,5 +1,11 @@
 ### HEAD
 
+### 5.0.1
+
+Fixes:
+
+- projects icon renders as a block, using `fill-rule` fixes it
+
 ### 5.0.0
 
 Adds:
