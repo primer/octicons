@@ -1,3 +1,7 @@
+# 3.0.1
+
+- Updating octicons gem to 3.0.1
+
 # 2.1.0
 
 - Updating octicons gem to 2.1.0
