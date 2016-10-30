@@ -1,5 +1,9 @@
 # HEAD
 
+# 3.0.1
+
+- Updating octicons gem version to 3.0.1
+
 # 3.0.0
 
 - Updating octicons gem version to 3.0.0
