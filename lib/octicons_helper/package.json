@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "octicons_helper",
-  "version": "2.1.0",
+  "version": "3.0.1",
   "description": "A rails helper that makes including svg Octicons simple.",
   "scripts": {
     "ship": "rm *.gem && gem build octicons_helper.gemspec && gem push octicons_helper-*.gem",
