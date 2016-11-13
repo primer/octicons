@@ -1,29 +1,29 @@
 # GitHub Octicons
 
-[![NPM version](https://img.shields.io/npm/v/octicons.svg)](https://www.npmjs.org/package/octicons)
+[![npm version](https://img.shields.io/npm/v/octicons.svg)](https://www.npmjs.org/package/octicons)
 [![Build Status](https://travis-ci.org/primer/octicons.svg?branch=master)](https://travis-ci.org/primer/octicons)
 
 > Octicons are a scalable set of icons handcrafted with <3 by GitHub.
 
 ## Install
 
-**NOTE:** The compiled files are located in `/build/`. This directory is located in the published npm package. Which means you can access it when you `npm install octicons`. You can also build this directory by following the [building octicons directions](#building-octicons). The files in the `/lib/` directory are the raw source files and are not compiled or optimized.
+**NOTE:** The compiled files are located in `build/`. This directory is located in the published npm package. Which means you can access it when you `npm install octicons`. You can also build this directory by following the [building octicons directions](#building-octicons). The files in the `lib/` directory are the raw source files and are not compiled or optimized.
 
-#### NPM
+#### npm
 
 This repository is distributed with [npm][npm]. After [installing npm][install-npm], you can install `octicons` with this command.
 
 ```
-$ npm install --save octicons
+$ npm install octicons --save
 ```
 
 ## Usage
 
-For all the usages, we recommend using the CSS located in `./build/octicons.css`. This is some simple CSS to normalize the icons and inherit colors.
+For all the usages, we recommend using the CSS located in `build/octicons.css`. This is some simple CSS to normalize the icons and inherit colors.
 
 ### Spritesheet
 
-With a [SVG sprite icon system](https://css-tricks.com/svg-sprites-use-better-icon-fonts/) you can include the sprite sheet located `./build/sprite.octicons.svg` after you [build the icons](#building-octicons) or from the npm package. There is a demo of how to use the spritesheet in the build directory also.
+With an [SVG sprite icon system](https://css-tricks.com/svg-sprites-use-better-icon-fonts/) you can include the sprite sheet located `build/sprite.octicons.svg` after you [build the icons](#building-octicons) or from the npm package. There is a demo of how to use the spritesheet in the `build/` directory also.
 
 ### Node
 
@@ -51,7 +51,7 @@ There will be a key for every icon, with `keywords` and `svg`.
 
 #### `octicons.alert.symbol`
 
-Returns the string of the symbol name
+Returns the string of the symbol name, same as the key for that icon.
 
 ```js
 octicons.x.symbol
@@ -60,7 +60,7 @@ octicons.x.symbol
 
 #### `octicons.person.path`
 
-Path returns the string representation of the path of the icon.
+Returns the string representation of the path of the icon.
 
 ```js
 octicons.x.path
@@ -69,7 +69,7 @@ octicons.x.path
 
 #### `octicons.issue.options`
 
-This is a json object of all the `options` that will be added to the output tag.
+This is an object of all the attributes that will be added to the output tag.
 
 ```js
 octicons.x.options
@@ -78,15 +78,15 @@ octicons.x.options
 
 #### `octicons.alert.width`
 
-Width is the icon's true width. Based on the svg view box width. _Note, this doesn't change if you scale it up with size options, it only is the natural width of the icon_
+Returns the icon's true width, based on the svg view box width. _Note, this doesn't change if you scale it up with size options, it only is the natural width of the icon._
 
 #### `octicons.alert.height`
 
-Height is the icon's true height. Based on the svg view box height. _Note, this doesn't change if you scale it up with size options, it only is the natural height of the icon_
+Returns the icon's true height, based on the svg view box height. _Note, this doesn't change if you scale it up with size options, it only is the natural height of the icon._
 
 #### `keywords`
 
-Returns an array of keywords for the icon. The data [comes from the octicons repository](https://github.com/primer/octicons/blob/master/lib/data.json). Consider contributing more aliases for the icons.
+Returns an array of keywords for the icon. The data [comes from `lib/data.json`](https://github.com/primer/octicons/blob/master/lib/data.json). Consider contributing more aliases for the icons.
 
 ```js
 octicons.x.keywords
@@ -95,7 +95,7 @@ octicons.x.keywords
 
 #### `octicons.alert.toSVG()`
 
-Returns a string of the svg tag
+Returns a string of the `<svg>` tag.
 
 ```js
 octicons.x.toSVG()
@@ -133,7 +133,7 @@ octicons.x.toSVG({ "width": 45 })
 
 #### `octicons.alert.toSVGUse()`
 
-Returns a string of the svg tag with the `<use>` tag, for use with the spritesheet located in the /build/ directory.
+Returns a string of the svg tag with the `<use>` tag, for use with the spritesheet located in the `build/` directory.
 
 ```js
 octicons.x.toSVGUse()
@@ -142,7 +142,7 @@ octicons.x.toSVGUse()
 
 ### Ruby
 
-If your environment is Ruby on Rails, we have a [octicons_helper](https://github.com/primer/octicons_helper) gem available that renders SVG in your page. The octicons_helper uses the [octicons_gem](https://github.com/primer/octicons_gem) to do the computing and reading of the SVG files.
+If your environment is Ruby on Rails, we have an [octicons_helper](https://github.com/primer/octicons_helper) gem available that renders SVG in your page. The octicons_helper uses the [octicons_gem](https://github.com/primer/octicons_gem) to do the computing and reading of the SVG files.
 
 ### Jekyll
 
@@ -150,20 +150,20 @@ For jekyll, there's a [jekyll-octicons](https://github.com/primer/jekyll-octicon
 
 ## Changing, adding, or deleting icons
 
-1. Open the [Sketch document][sketch-document] in `/lib/`. Each icon exists as an artboard within our master Sketch document. If you’re adding an icon, duplicate one of the artboards and add your shapes to it. Be sure to give your artboard a name that makes sense.
+1. Open the [Sketch document][sketch-document] in `lib/`. Each icon exists as an artboard within our master Sketch document. If you’re adding an icon, duplicate one of the artboards and add your shapes to it. Be sure to give your artboard a name that makes sense.
 2. Once you’re happy with your icon set, choose File > Export…
 3. Choose all the artboards you’d like to export and then press “Export”
-4. Export to `/lib/svg/`
+4. Export to `lib/svg/`
 
 You’ll next need to build your Octicons.
 
 ## Building Octicons
 
-All the files you need will be in the `/build/` directory already, but if you’ve made changes to the `/lib/` directory and need to regenerate, follow these steps:
+All the files you need will be in the `build/` directory already, but if you’ve made changes to the `lib/` directory and need to regenerate, follow these steps:
 
 1. Open the Octicons directory in Terminal
 2. `npm install` to install all dependencies for the project.
-3. Run the command `npm run build`. This will run the grunt task to build the SVGs, placing them in the `/build/` directory.
+3. Run the command `npm run build`. This will run the grunt task to build the SVGs, placing them in the `build/` directory.
 
 ## Publishing
 
