@@ -47,7 +47,7 @@ octicons.alert
 //   toSVG: [Function] }
 ```
 
-There will be a key for every icon, with `keywords` and `svg`.
+There will be a key for every icon, with [`toSVG`](#octiconsalerttosvg) and other properties.
 
 #### `octicons.alert.symbol`
 
