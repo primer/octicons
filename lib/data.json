@@ -1,4 +1,11 @@
 {
+  "a11y": {
+    "keywords": [
+      "a11y",
+      "accessibility",
+      "universal access"
+    ]
+  },
   "alert": {
     "keywords": [
       "warning",
