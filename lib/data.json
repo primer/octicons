@@ -331,14 +331,9 @@
       "arrow"
     ]
   },
-  "ellipses": {
-    "keywords": [
-      "dot",
-      "more"
-    ]
-  },
   "ellipsis": {
     "keywords": [
+      "dot",
       "read",
       "more",
       "hidden",

@@ -1,5 +1,9 @@
 ### HEAD
 
+Removes:
+
+- Removing a duplicate ellipsis icon from
+
 ### 5.0.1
 
 Fixes:
