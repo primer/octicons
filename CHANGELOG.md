@@ -1,8 +1,14 @@
 ### HEAD
 
+### 6.0.0
+
+Added:
+
+- `kebab-horizontal` and `kebab-vertical` icons
+
 Removes:
 
-- Removing a duplicate ellipsis icon from
+- Removing a duplicate `ellipses` icon from the set. Use `ellipsis` instead.
 
 ### 5.0.1
 
