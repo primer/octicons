@@ -5,6 +5,7 @@
 Added:
 
 - `kebab-horizontal` and `kebab-vertical` icons
+- Polyfill for the `Object.assign` function
 
 Removes:
 
