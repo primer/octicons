@@ -35,5 +35,8 @@
     "icons",
     "svg",
     "octicons"
-  ]
+  ],
+  "dependencies": {
+    "object-assign": "^4.1.1"
+  }
 }
