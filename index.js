@@ -1,11 +1,12 @@
 var data = require('./build/data.json')
+var objectAssign = require('object-assign')
 
 Object.keys(data).forEach(function(key) {
 
   // Returns a string representation of html attributes
   var htmlAttributes = function(icon, options) {
     var attributes = []
-    var attrObj = Object.assign({}, data[key].options, options)
+    var attrObj = objectAssign({}, data[key].options, options)
 
     // If the user passed in options
     if (options) {
