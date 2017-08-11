@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/primer/octicons_gem#readme",
   "dependencies": {
-    "octicons": "^6.0.0"
+    "octicons": "^6.0.1"
   }
 }
