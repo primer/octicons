@@ -1,5 +1,11 @@
 ### HEAD
 
+### 6.0.1
+
+Fixes:
+
+- Typo `kebab-veritcal` becomes `kebab-vertical`
+
 ### 6.0.0
 
 Added:
