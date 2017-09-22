@@ -37,6 +37,10 @@
     "octicons"
   ],
   "dependencies": {
-    "object-assign": "^4.1.1"
+    "chalk": "^2.1.0",
+    "express": "^4.15.4",
+    "get-port": "^3.2.0",
+    "object-assign": "^4.1.1",
+    "pify": "^3.0.0"
   }
 }
