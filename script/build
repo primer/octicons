@@ -7,7 +7,8 @@ if ! [ -x "$(command -v sketchtool)" ]; then
 fi
 
 # Clear the build dir
-rm -rf **/build/
+rm -rf build
+rm -rf lib/**/build
 
 # Export svg slices from sketch document
 sketchtool export slices octicons-master.sketch --output=build/svg/
