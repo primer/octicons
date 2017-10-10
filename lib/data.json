@@ -410,11 +410,6 @@
       "alias"
     ]
   },
-  "file-text": {
-    "keywords": [
-      "document"
-    ]
-  },
   "file-zip": {
     "keywords": [
       "compress",
@@ -692,11 +687,6 @@
     "keywords": [
       "email",
       "open"
-    ]
-  },
-  "mail-reply": {
-    "keywords": [
-      "email"
     ]
   },
   "mark-github": {
