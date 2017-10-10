@@ -1,0 +1,23 @@
+#!/bin/bash
+set -e
+
+if ! [ -x "$(command -v sketchtool)" ]; then
+  # Install sketchtool in /usr/bin
+  /Applications/Sketch.app/Contents/Resources/sketchtool/install.sh
+fi
+
+# Clear the build dir
+rm -rf **/build/
+
+# Export svg slices from sketch document
+sketchtool export slices octicons-master.sketch --output=build/svg/
+
+# Export pngs
+sketchtool export slices octicons-master.sketch --output=build/png/ --formats="png,pdf,eps"
+
+# Minify the svg
+svgo -f build/svg/ --config='{"plugins":[{"removeTitle": true},{"removeStyleElement": true},{"removeAttrs": { "attrs": ["id", "class", "data-name", "fill"] }},{"removeEmptyContainers": true},{"sortAttrs": true},{"removeUselessDefs": true},{"removeEmptyText": true},{"removeEditorsNSData": true},{"removeEmptyAttrs": true},{"removeHiddenElems": true}]}'
+
+./script/build-json
+
+cp -R build lib/octicons_node/

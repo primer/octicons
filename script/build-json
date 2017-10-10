@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+const fs = require("fs")
+const path = require("path")
+
+var files = fs.readdirSync("./build/svg/")
+var data = JSON.parse(fs.readFileSync("./lib/data.json"))
+
+files.forEach(function(file) {
+  var svg = fs.readFileSync(path.resolve("./build/svg", file))
+  var key = path.basename(file, ".svg")
+  if (data[key]) {
+    var raw = svg.toString()
+    data[key].path = /<svg.+>(.+)<\/svg>/g.exec(raw)[1]
+    data[key].height = /height="(\d+)"/g.exec(raw)[1]
+    data[key].width = /width="(\d+)"/g.exec(raw)[1]
+  }
+})
+
+fs.writeFileSync("build/data.json", JSON.stringify(data));
