@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "build": "script/build",
-    "test": "ava tests/js/svg.js"
+    "test": "npm run build && ava tests/js/svg.js"
   },
   "devDependencies": {
     "ava": "^0.22.0",
