@@ -1,0 +1,40 @@
+{
+  "version": "6.0.1",
+  "name": "octicons",
+  "description": "A scalable set of icons handcrafted with <3 by GitHub.",
+  "homepage": "https://octicons.github.com",
+  "author": "GitHub Inc.",
+  "license": "MIT",
+  "style": "index.css",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "build"
+  ],
+  "repository": "https://github.com/primer/octicons.git",
+  "bugs": {
+    "url": "https://github.com/primer/octicons/issues"
+  },
+  "scripts": {
+    "build": "grunt",
+    "prepublish": "npm run build",
+    "test": "npm run build && ava --verbose \"test/**/*.js\""
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-cssnano": "^2.1.0",
+    "grunt-svgstore": "^1.0.0"
+  },
+  "keywords": [
+    "GitHub",
+    "icons",
+    "svg",
+    "octicons"
+  ],
+  "dependencies": {
+    "object-assign": "^4.1.1"
+  }
+}
