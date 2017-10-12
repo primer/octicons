@@ -3,7 +3,7 @@
   "version": "4.0.2",
   "description": "A jekyll liquid plugin that makes including svg Octicons simple.",
   "scripts": {
-    "postversion": "../../script/rubyversion ./lib/jekyll-octicons/version.rb",
+    "version": "../../script/rubyversion ./lib/jekyll-octicons/version.rb",
     "postinstall": "bundle install --path ../vendor/bundle",
     "ship": "gem build jekyll-octicons.gemspec && gem push jekyll-octicons-*.gem",
     "test": "rubocop && rake"
