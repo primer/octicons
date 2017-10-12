@@ -2,3 +2,5 @@
 set -e
 version=$(jq -r .version package.json)
 perl -pi -e "s/VERSION = \"[^\"]+\"/VERSION = \"${version}\"/" $1
+
+git add $1
