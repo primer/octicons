@@ -17,3 +17,4 @@ $(npm bin)/svgo -f build/svg/ --config='{"plugins":[{"removeTitle": true},{"remo
 ./script/build-json
 
 cp -R build lib/octicons_node/
+cp -R build lib/octicons_gem/

@@ -4,9 +4,8 @@
   "version": "4.0.2",
   "description": "",
   "scripts": {
-    "data": "cp -f node_modules/octicons/build/data.json lib",
-    "svg": "cp -f node_modules/octicons/build/sprite.octicons.svg lib",
-    "update": "npm install octicons && npm run svg && npm run data",
+    "postinstall": "bundle install",
+    "prepare": "cp -f ./build/data.json ./lib/",
     "ship": "gem build octicons.gemspec && gem push octicons-*.gem",
     "test": "rake"
   },
@@ -21,6 +20,5 @@
   },
   "homepage": "https://github.com/primer/octicons_gem#readme",
   "dependencies": {
-    "octicons": "^6.0.1"
   }
 }

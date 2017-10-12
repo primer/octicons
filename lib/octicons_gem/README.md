@@ -103,25 +103,6 @@ icon.to_svg
 # <svg class="octicon octicon-x" viewBox="0 0 16 16" width="16" height="16" version="1.1" "aria-hidden"="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg>
 ```
 
-##### `to_svg_use`
-
-Returns a string of the svg tag
-
-```rb
-icon = Octicons::Octicon.new("x")
-icon.to_svg_use
-# <svg class="octicon octicon-x" viewBox="0 0 16 16" width="16" height="16" version="1.1" "aria-hidden"="true"><use xlink:href="#x" /></svg>
-```
-
-##### `sprite_sheet`
-
-The Octicons class has a method that will output the svg sprite sheet that you can inline in your app.
-
-```rb
-Octicons.sprite_sheet
-# <svg xmlns="http://www.w3.org/2000/svg"><symbol viewBox="0 0 16 16" id="alert">...</svg>
-```
-
 ## Publishing
 
 If you have access to publish this repository, these are the steps to publishing. If you need access, contact [#design-systems](https://github.slack.com/archives/design-systems).

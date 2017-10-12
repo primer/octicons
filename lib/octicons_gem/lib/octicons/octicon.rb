@@ -31,12 +31,6 @@ module Octicons
       "<svg #{html_attributes}>#{@path}</svg>"
     end
 
-    # Returns a string representing a <svg> use tag
-    # For use with spritesheets
-    def to_svg_use
-      "<svg #{html_attributes}><use xlink:href=\"##{@symbol}\" /></svg>"
-    end
-
     private
 
     def html_attributes

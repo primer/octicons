@@ -31,11 +31,6 @@ describe Octicons::Octicon do
     assert_equal 16, icon.height
   end
 
-  it "has proper use format" do
-    icon = octicon("x")
-    assert_includes icon.to_svg_use, "<use xlink:href=\"#x\" />"
-  end
-
   describe "viewBox" do
     it "always has a viewBox" do
       icon = octicon("x")

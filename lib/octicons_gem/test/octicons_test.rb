@@ -10,10 +10,4 @@ describe Octicons do
     assert x_icon["height"]
     assert x_icon["width"]
   end
-
-  it "loads the spritesheet" do
-    assert_includes Octicons.sprite_sheet, "<symbol"
-    assert_includes Octicons.sprite_sheet, "<svg"
-    assert_includes Octicons.sprite_sheet, "xmlns=\"http://www.w3.org/2000/svg\" style=\"width:0;height:0;visibility:hidden;\""
-  end
 end
