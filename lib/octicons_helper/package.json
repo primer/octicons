@@ -1,6 +1,6 @@
 {
   "name": "octicons_helper",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "A rails helper that makes including svg Octicons simple.",
   "scripts": {
     "version": "../../script/rubyversion ./lib/octicons_helper/version.rb",
