@@ -6,3 +6,5 @@ package-lock.json
 lib/octicons_gem/lib/data.json
 *.gem
 *.lock
+.bundle
+lib/vendor
