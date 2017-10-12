@@ -5,6 +5,9 @@ set -e
 rm -rf build
 rm -rf lib/**/build
 
+# Clear old gems
+rm -f lib/**/*.gem
+
 # Export svg slices from sketch document
 sketchtool export slices octicons-master.sketch --output=build/svg/
 
