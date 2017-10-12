@@ -16,17 +16,10 @@
     "url": "https://github.com/primer/octicons/issues"
   },
   "scripts": {
-    "build": "grunt",
     "prepublish": "npm run build",
     "test": "npm run build && ava --verbose \"test/**/*.js\""
   },
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
-    "grunt": "^1.0.1",
-    "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-cssnano": "^2.1.0",
-    "grunt-svgstore": "^1.0.0"
   },
   "keywords": [
     "GitHub",
