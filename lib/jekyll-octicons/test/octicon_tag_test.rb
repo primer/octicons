@@ -3,17 +3,14 @@ require_relative "./helper"
 describe Jekyll::Octicons do
   describe "parsing" do
     it "parses the tag options" do
-      template = parse('{% octicon logo-github height:32 class:"left right" aria-label:hi %}')
-      node = template.root.nodelist.last
-      assert node
-      assert node.instance_of?(Jekyll::Octicons)
-      assert_equal "32", node.options[:height]
-      assert_equal "left right", node.options[:class]
-      assert_equal "hi", node.options[:"aria-label"]
+      output = render("{% octicon logo-github height:32 class:\"left right\" aria-label:hi %}")
+      assert_match /height="32"/, output
+      assert_match /class="[^"]+ left right/, output
+      assert_match /aria-label="hi"/, output
     end
 
     it "parses interpoaltion of variables" do
-      template = render('{% assign symbol = "logo-github" %}{% octicon {{ symbol }} %}')
+      template = render("{% assign symbol = \"logo-github\" %}{% octicon {{ symbol }} %}")
       assert_match /<svg.*octicon-logo-github.*/, template
     end
   end

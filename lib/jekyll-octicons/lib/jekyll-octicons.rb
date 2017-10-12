@@ -1,3 +1,4 @@
+# rubocop:disable Naming/FileName
 require "octicons"
 require "jekyll-octicons/version"
 require "liquid"
@@ -22,6 +23,7 @@ module Jekyll
     def initialize(tag_name, markup, options)
       super
       @markup = markup
+
       # If there's interpoaltion going on, we need to do this in render
       prepare(markup) unless match = markup.match(Variable)
     end
