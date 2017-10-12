@@ -6,7 +6,7 @@
   },
   "devDependencies": {
     "ava": "^0.22.0",
-    "lerna": "^2.4.0",
+    "lerna": "2.4.0",
     "svgo": "^0.7.2"
   }
 }
