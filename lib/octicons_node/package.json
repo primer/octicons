@@ -5,10 +5,11 @@
   "homepage": "https://octicons.github.com",
   "author": "GitHub Inc.",
   "license": "MIT",
-  "style": "index.css",
+  "style": "index.scss",
   "main": "index.js",
   "files": [
     "index.js",
+    "index.scss",
     "build"
   ],
   "repository": "https://github.com/primer/octicons.git",
@@ -16,8 +17,8 @@
     "url": "https://github.com/primer/octicons/issues"
   },
   "scripts": {
-    "prepublish": "npm run build",
-    "test": "npm run build && ava --verbose \"test/**/*.js\""
+    "prepare": "cp index.scss build/build.css",
+    "test": "ava --verbose 'tests/*.js'"
   },
   "devDependencies": {
   },
