@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+version=$(jq -r .version package.json)
+perl -pi -e "s/VERSION = \"[^\"]+\"/VERSION = \"${version}\"/" lib/octicons/version.rb

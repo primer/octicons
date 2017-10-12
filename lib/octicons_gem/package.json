@@ -1,24 +1,21 @@
 {
-  "private": true,
   "name": "octicons_gem",
   "version": "4.0.2",
-  "description": "",
+  "description": "Don't install",
   "scripts": {
     "postinstall": "bundle install",
     "prepare": "cp -f ./build/data.json ./lib/",
-    "ship": "gem build octicons.gemspec && gem push octicons-*.gem",
+    "postversion": "script/postversion",
+    "postpublish": "gem build octicons.gemspec && echo gem push octicons-*.gem",
     "test": "rake"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/primer/octicons_gem.git"
+    "url": "git+https://github.com/primer/octicons.git"
   },
-  "author": "",
+  "author": "GitHub, Inc.",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/primer/octicons_gem/issues"
-  },
-  "homepage": "https://github.com/primer/octicons_gem#readme",
+  "homepage": "https://github.com/primer/octicons",
   "dependencies": {
   }
 }
