@@ -1,9 +1,0 @@
-language: ruby
-rvm:
-  - 2.2
-
-deploy:
-  provider: rubygems
-  api_key: ${RUBYGEMS_API_KEY}
-  on:
-    tags: true

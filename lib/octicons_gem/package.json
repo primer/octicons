@@ -3,7 +3,7 @@
   "version": "4.0.2",
   "description": "Don't install",
   "scripts": {
-    "postinstall": "bundle install",
+    "postinstall": "bundle install --path ../vendor/bundle",
     "prepare": "cp -f ./build/data.json ./lib/",
     "postversion": "script/postversion",
     "postpublish": "gem build octicons.gemspec && echo gem push octicons-*.gem",

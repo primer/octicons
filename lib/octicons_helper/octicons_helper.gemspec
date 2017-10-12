@@ -13,6 +13,6 @@ Gem::Specification.new do |s|
 
   s.require_paths = ["lib"]
 
-  s.add_dependency "octicons", "~> 0"
-  s.add_dependency "rails", "~> 0"
+  s.add_dependency "octicons"
+  s.add_dependency "rails"
 end

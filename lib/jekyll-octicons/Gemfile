@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'octicons', '~> 4.0'
+gem 'octicons'
 
 group :development, :test do
   gem 'rake'
