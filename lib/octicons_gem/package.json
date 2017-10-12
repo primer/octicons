@@ -7,7 +7,7 @@
     "prepare": "cp -f ./build/data.json ./lib/",
     "postversion": "script/postversion",
     "postpublish": "gem build octicons.gemspec && echo gem push octicons-*.gem",
-    "test": "rake"
+    "test": "rubocop && rake"
   },
   "repository": {
     "type": "git",

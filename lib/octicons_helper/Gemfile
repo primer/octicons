@@ -1,11 +1,11 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 gemspec
 
-gem 'octicons', '4.0.1'
-gem 'rails'
+gem "octicons", "4.0.1"
+gem "rails"
 
 group :development, :test do
-  gem 'rake'
-  gem 'minitest'
+  gem "minitest"
+  gem "rake"
 end

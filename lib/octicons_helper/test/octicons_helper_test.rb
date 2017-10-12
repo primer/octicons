@@ -15,7 +15,7 @@ describe OcticonsHelper do
     end
 
     it "adds html attributes to output" do
-      assert_match /foo="bar"/, octicon("alert", :foo => "bar")
+      assert_match /foo="bar"/, octicon("alert", foo: "bar")
     end
   end
 end

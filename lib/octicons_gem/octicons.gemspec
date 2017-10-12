@@ -1,4 +1,4 @@
-require File.expand_path('../lib/octicons/version', __FILE__)
+require File.expand_path("../lib/octicons/version", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "octicons"
@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.description = "A package that distributes Octicons in a gem"
   s.authors     = ["GitHub Inc."]
   s.email       = ["support@github.com"]
-  s.files       = Dir['{lib}/**/*'] + ['LICENSE', 'README.md']
+  s.files       = Dir["{lib}/**/*"] + ["LICENSE", "README.md"]
   s.homepage    = "https://github.com/primer/octicons_gem"
   s.license     = "MIT"
   s.add_dependency "nokogiri", ">= 1.6.3.1"

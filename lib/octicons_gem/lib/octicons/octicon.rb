@@ -15,9 +15,9 @@ module Octicons
 
         @options = options
         @options.merge!({
-          :class   => classes,
-          :viewBox => viewbox,
-          :version => "1.1"
+          class:   classes,
+          viewBox: viewbox,
+          version: "1.1"
         })
         @options.merge!(size)
         @options.merge!(a11y)
@@ -64,8 +64,8 @@ module Octicons
     # determine the height and width of the octicon based on :size option
     def size
       size = {
-        :width => @width,
-        :height => @height
+        width:  @width,
+        height: @height
       }
 
       # Specific size

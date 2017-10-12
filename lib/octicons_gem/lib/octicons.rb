@@ -3,5 +3,6 @@ require "octicons/octicon"
 require "json"
 
 module Octicons
-  OCTICON_SYMBOLS = JSON.parse(File.read(File.join(File.dirname(__FILE__), "data.json"))).freeze
+  file_data = File.read(File.join(File.dirname(__FILE__), "data.json"))
+  OCTICON_SYMBOLS = JSON.parse(file_data).freeze
 end
