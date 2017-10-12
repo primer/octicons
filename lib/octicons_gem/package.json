@@ -5,7 +5,7 @@
   "scripts": {
     "postinstall": "bundle install --path ../vendor/bundle",
     "prepare": "cp -f ./build/data.json ./lib/",
-    "postversion": "script/postversion",
+    "postversion": "../../script/rubyversion ./lib/octicons/version.rb",
     "postpublish": "gem build octicons.gemspec && echo gem push octicons-*.gem",
     "test": "rubocop && rake"
   },
