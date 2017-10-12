@@ -1,7 +1,7 @@
-require 'octicons'
-require 'jekyll-octicons/version'
-require 'liquid'
-require 'jekyll/liquid_extensions'
+require "octicons"
+require "jekyll-octicons/version"
+require "liquid"
+require "jekyll/liquid_extensions"
 
 module Jekyll
   class Octicons < Liquid::Tag
@@ -59,7 +59,7 @@ module Jekyll
 
       if match = markup.match(Syntax)
         markup.scan(TagAttributes) do |key, value|
-          options[key.to_sym] = value.gsub(/\A"|"\z/, '')
+          options[key.to_sym] = value.gsub(/\A"|"\z/, "")
         end
       end
 
@@ -68,4 +68,4 @@ module Jekyll
   end
 end
 
-Liquid::Template.register_tag('octicon', Jekyll::Octicons)
+Liquid::Template.register_tag("octicon", Jekyll::Octicons)

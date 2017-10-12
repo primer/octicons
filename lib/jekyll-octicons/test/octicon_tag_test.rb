@@ -20,13 +20,13 @@ describe Jekyll::Octicons do
 
   describe "rendering" do
     it "renders the svg" do
-      output = render('{% octicon logo-github height:32 %}')
+      output = render("{% octicon logo-github height:32 %}")
       assert_match /<svg.*octicon-logo-github.*/, output
       assert_match /<svg.*width="90".*/, output
     end
 
     it "renders nothing without a symbol" do
-      assert_equal "", render('{% octicon %}')
+      assert_equal "", render("{% octicon %}")
     end
   end
 end

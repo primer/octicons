@@ -1,4 +1,4 @@
-require File.expand_path('../lib/jekyll-octicons/version', __FILE__)
+require File.expand_path("../lib/jekyll-octicons/version", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "jekyll-octicons"
@@ -7,12 +7,12 @@ Gem::Specification.new do |s|
   s.description = "A jekyll liquid plugin that makes including svg Octicons simple."
   s.authors     = ["GitHub Inc."]
   s.email       = ["support@github.com"]
-  s.files       = Dir['{lib}/**/*'] + ['LICENSE', 'README.md']
+  s.files       = Dir["{lib}/**/*"] + ["LICENSE", "README.md"]
   s.homepage    = "https://github.com/primer/jekyll-octicons"
   s.license     = "MIT"
 
-  s.require_paths = ['lib']
+  s.require_paths = ["lib"]
 
-  s.add_dependency 'jekyll', '~> 3.1'
-  s.add_dependency 'octicons'
+  s.add_dependency "jekyll", "~> 3.1"
+  s.add_dependency "octicons"
 end
