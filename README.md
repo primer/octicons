@@ -20,3 +20,9 @@ This repository is a repository containing other packages. Each of them are in t
 | **[octicons](/lib/octicons_gem)** <br />Ruby gem with Ruby API | [![Gem version](https://img.shields.io/gem/v/octicons.svg)](https://rubygems.org/gems/octicons) |
 | [octicons_helper](/lib/octicons_helper)<br />Rails helper for using octicons|  [![Gem version](https://img.shields.io/gem/v/octicons_helper.svg)](https://rubygems.org/gems/octicons_helper) |
 | [jekyll-octicons](/lib/jekyll-octicons)<br />Jekyll plugin for using octicons | [![Gem version](https://img.shields.io/gem/v/jekyll-octicons.svg)](https://rubygems.org/gems/jekyll-octicons) |
+
+## License
+
+(c) 2012-2017 GitHub, Inc.
+
+[MIT](./LICENSE)
