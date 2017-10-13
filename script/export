@@ -12,4 +12,4 @@ sketchtool export slices octicons-master.sketch --output=$outdir
 # sketchtool export slices octicons-master.sketch --output=build/png/ --formats="png,pdf,eps"
 
 # Minify the svg
-$(npm bin)/svgo -f $outdir
+$(npm bin)/svgo -f $outdir --config=$(dirname $0)/../.svgo.yml
