@@ -9,7 +9,7 @@ rm -rf lib/**/build
 rm -f lib/**/*.gem
 
 ./script/export
-./script/build-json
+# ./script/build-json
 
 cp -R build lib/octicons_node/
 cp -R build lib/octicons_gem/
