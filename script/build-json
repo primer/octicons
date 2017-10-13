@@ -16,4 +16,4 @@ files.forEach(function(file) {
   }
 })
 
-fs.writeFileSync("build/data.json", JSON.stringify(data));
+fs.writeFileSync("build/data.json", JSON.stringify(data))
