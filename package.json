@@ -11,6 +11,20 @@
       "git add lib"
     ]
   },
+  "keywords": [
+    "GitHub",
+    "icons",
+    "svg",
+    "octicons"
+  ],
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "express": "^4.15.4",
+    "get-port": "^3.2.0",
+    "object-assign": "^4.1.1",
+    "pify": "^3.0.0",
+    "sharp": "^0.18.4"
+  },
   "devDependencies": {
     "ava": "^0.22.0",
     "husky": "^0.14.3",
