@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+dest=${1?You must provide an output directory}
+mkdir -p $dest
+src=$(dirname $0)/../lib/svg
+if ! [ -d $src ]; then
+  echo "$src doesn't exist; exporting..."
+  $(dirname $0)/export
+fi
+cp -r $src $dest

@@ -1,5 +1,15 @@
 ### HEAD
 
+### Octicons_node 7.0.0
+
+- Removing `text-file` and `main-reply` icons. Use `file` and `reply` respectively.
+- Removing spritesheet calls and `toSVGUse` method.
+
+### Octicons_gem 5.0.4
+
+- Removing `text-file` and `main-reply` icons. Use `file` and `reply` respectively.
+- Removing spritesheet calls and `to_svg_use` method.
+
 ### 6.0.1
 
 Fixes:

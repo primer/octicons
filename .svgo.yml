@@ -1,0 +1,16 @@
+plugins:
+  - removeTitle: true
+  - removeStyleElement: true
+  - removeAttrs:
+      attrs: 
+        - id
+        - class
+        - data-name
+        - fill
+  - removeEmptyContainers: true
+  - sortAttrs: true
+  - removeUselessDefs: true
+  - removeEmptyText: true
+  - removeEditorsNSData: true
+  - removeEmptyAttrs: true
+  - removeHiddenElems: true

@@ -1,3 +1,7 @@
 language: node_js
 node_js:
-  - '5'
+  - 8
+
+before_script:
+  # XXX this is a fix for nokogiri building on Travis
+  - npm run bootstrap

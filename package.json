@@ -1,42 +1,21 @@
 {
-  "version": "6.0.1",
-  "name": "octicons",
-  "description": "A scalable set of icons handcrafted with <3 by GitHub.",
-  "homepage": "https://octicons.github.com",
-  "author": "GitHub Inc.",
-  "license": "(OFL-1.1 OR MIT)",
-  "style": "build/octicons.css",
-  "main": "index.js",
-  "files": [
-    "index.js",
-    "build"
-  ],
-  "repository": "https://github.com/primer/octicons.git",
-  "bugs": {
-    "url": "https://github.com/primer/octicons/issues"
-  },
+  "private": true,
   "scripts": {
-    "build": "grunt",
-    "prepublish": "npm run build",
-    "test": "npm run build && ava --verbose \"test/**/*.js\""
+    "bootstrap": "lerna bootstrap",
+    "test": "ava tests/svg.js && lerna run test",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "octicons-master.sketch": [
+      "script/export",
+      "git add lib"
+    ]
   },
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
-    "ava": "^0.16.0",
-    "grunt": "^1.0.1",
-    "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-cssnano": "^2.1.0",
-    "grunt-svgmin": "^4.0.0",
-    "grunt-svgstore": "^1.0.0"
-  },
-  "keywords": [
-    "GitHub",
-    "icons",
-    "svg",
-    "octicons"
-  ],
-  "dependencies": {
-    "object-assign": "^4.1.1"
+    "ava": "^0.22.0",
+    "husky": "^0.14.3",
+    "lerna": "2.4.0",
+    "lint-staged": "^4.2.3",
+    "svgo": "^0.7.2"
   }
 }
