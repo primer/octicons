@@ -4,5 +4,5 @@ node_js:
 
 before_script:
   # XXX this is a fix for nokogiri building on Travis
-  - cd lib/octicons_helper; bundle config build.nokogiri --use-system-libraries
+  - pushd lib/octicons_helper; bundle config build.nokogiri --use-system-libraries; popd
   - npm run bootstrap
