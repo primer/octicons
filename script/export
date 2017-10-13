@@ -1,11 +1,15 @@
 #!/bin/bash
 set -e
 
+outdir=lib/svg
+rm -r $outdir
+mkdir -p $outdir
+
 # Export svg slices from sketch document
-sketchtool export slices octicons-master.sketch --output=build/svg/
+sketchtool export slices octicons-master.sketch --output=$outdir
 
 # Export pngs
 # sketchtool export slices octicons-master.sketch --output=build/png/ --formats="png,pdf,eps"
 
 # Minify the svg
-$(npm bin)/svgo -f build/svg/ --config='{"plugins":[{"removeTitle": true},{"removeStyleElement": true},{"removeAttrs": { "attrs": ["id", "class", "data-name", "fill"] }},{"removeEmptyContainers": true},{"sortAttrs": true},{"removeUselessDefs": true},{"removeEmptyText": true},{"removeEditorsNSData": true},{"removeEmptyAttrs": true},{"removeHiddenElems": true}]}'
+$(npm bin)/svgo -f $outdir
