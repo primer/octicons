@@ -2,7 +2,7 @@
 set -e
 
 outdir=lib/svg
-rm -r $outdir
+rm -rf $outdir
 mkdir -p $outdir
 
 # Export svg slices from sketch document
