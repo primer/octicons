@@ -1,11 +1,8 @@
 #!/bin/bash
 set -e
 
-$(npm bin)/lerna clean
+files="lib/**/build lib/**/*.gem lib/**/.bundle node_modules lib/**/node_modules lib/**/lib/data.json"
 
-# files="**.log lib/**/build lib/**/.bundle node_modules lib/**/node_modules/ **/vendor *.lock **/package-lock.json"
-#
-# for file in ${files}; do
-#   for paths in $()
-#   rm -rf ${file}
-# done
+for file in ${files}; do
+  rm -rf ${file}
+done
