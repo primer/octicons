@@ -2,12 +2,6 @@
 set -e
 
 npm i
-
-if ! [ -x "$(command -v sketchtool)" ]; then
-  # Install sketchtool in /usr/bin
-  /Applications/Sketch.app/Contents/Resources/sketchtool/install.sh
-fi
-
+script/install-sketchtool
 script/build
-
 npm run bootstrap

@@ -1,0 +1,19 @@
+#!/bin/bash
+set -e
+if ! [ -x "$(command -v sketchtool)" ]; then
+  installed=0
+  for path in /Applications ~/Applications; do
+    installer=$path/Sketch.app/Contents/Resources/sketchtool/install.sh
+    if [ -x $installer ]; then
+      $installer
+      installed=1
+      break
+    else
+      echo "no sketchtool installer: $installer"
+    fi
+  done
+  if [ $installed != 1 ]; then
+    echo "Unable to find sketchtool/install.sh!"
+    exit 1
+  fi
+fi
