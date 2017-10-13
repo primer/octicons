@@ -3,5 +3,5 @@ set -e
 
 npm i
 script/install-sketchtool
-script/build
+# script/build
 npm run bootstrap
