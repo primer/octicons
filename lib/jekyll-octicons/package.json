@@ -1,6 +1,6 @@
 {
   "name": "jekyll-octicons",
-  "version": "4.0.6",
+  "version": "4.0.7",
   "description": "A jekyll liquid plugin that makes including svg Octicons simple.",
   "scripts": {
     "version": "../../script/rubyversion ./lib/jekyll-octicons/version.rb",
