@@ -7,7 +7,7 @@
     "prepare": "../../script/build-json ./lib",
     "version": "../../script/rubyversion ./lib/octicons/version.rb",
     "prepublishOnly": "gem build octicons.gemspec && gem push octicons-$npm_package_version.gem",
-    "test": "rubocop && rake"
+    "test": "bundle exec rubocop && bundle exec rake"
   },
   "repository": {
     "type": "git",

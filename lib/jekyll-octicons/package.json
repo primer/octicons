@@ -6,7 +6,7 @@
     "version": "../../script/rubyversion ./lib/jekyll-octicons/version.rb",
     "postinstall": "bundle install",
     "prepublishOnly": "gem build jekyll-octicons.gemspec && gem push jekyll-octicons-$npm_package_version.gem",
-    "test": "rubocop && rake"
+    "test": "bundle exec rubocop && bundle exec rake"
   },
   "repository": {
     "type": "git",

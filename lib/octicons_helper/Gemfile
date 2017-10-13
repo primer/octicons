@@ -8,4 +8,6 @@ gem "rails"
 group :development, :test do
   gem "minitest"
   gem "rake"
+  gem "rubocop"
+  gem "rubocop-github"
 end
