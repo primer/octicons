@@ -1,8 +1,8 @@
 import test from 'ava';
 import fs from 'fs';
 
-const libs = fs.readdirSync("./build/svg/");
-const data = JSON.parse(fs.readFileSync("./build/data.json"))
+const libs = fs.readdirSync("./lib/svg/");
+const data = JSON.parse(fs.readFileSync("./lib/data.json"))
 
 test('Octicons are loaded', t => {
   t.truthy(libs, "Didn't find any octicons.");

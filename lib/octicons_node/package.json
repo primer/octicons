@@ -17,7 +17,7 @@
     "url": "https://github.com/primer/octicons/issues"
   },
   "scripts": {
-    "prepare": "../../build-svg ./build && ../../script/build-json ./build && cp index.scss build/build.css",
+    "prepare": "../../script/build-svg ./build && ../../script/build-json ./build && cp index.scss build/build.css",
     "test": "ava --verbose 'tests/*.js'"
   },
   "keywords": [
