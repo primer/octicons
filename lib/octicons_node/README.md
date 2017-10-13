@@ -163,7 +163,7 @@ If you have access to publish this repository, these are the steps to publishing
 
 ## License
 
-(c) 2012-2016 GitHub, Inc.
+(c) 2012-2017 GitHub, Inc.
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 
