@@ -1,8 +1,8 @@
 language: node_js
 node_js:
-  - 7
+  - 8
 
 before_script:
   # XXX this is a fix for nokogiri building on Travis
   - cd lib/octicons_helper; bundle config build.nokogiri --use-system-libraries
-  - lerna bootstrap
+  - npm run bootstrap
