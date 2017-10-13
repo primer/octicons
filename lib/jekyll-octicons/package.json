@@ -1,0 +1,21 @@
+{
+  "name": "jekyll-octicons",
+  "version": "4.0.7",
+  "description": "A jekyll liquid plugin that makes including svg Octicons simple.",
+  "scripts": {
+    "version": "../../script/rubyversion ./lib/jekyll-octicons/version.rb",
+    "postinstall": "bundle install --path vendor/bundle",
+    "prepublishOnly": "gem build jekyll-octicons.gemspec && gem push jekyll-octicons-$npm_package_version.gem",
+    "test": "bundle exec rubocop && bundle exec rake"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/primer/octicons_helper.git"
+  },
+  "author": "GitHub Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/primer/octicons_helper/issues"
+  },
+  "homepage": "https://github.com/primer/octicons_helper#readme"
+}

@@ -1,4 +1,10 @@
 node_modules
 .DS_Store
-build
+build/
 *.log
+package-lock.json
+lib/octicons_gem/lib/data.json
+*.gem
+*.lock
+.bundle
+vendor

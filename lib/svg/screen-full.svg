@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="14px" height="16px" viewBox="0 0 14 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
-    <title>screen-full</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Octicons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="screen-full" fill="#000000">
-            <path d="M13,10 L14,10 L14,13 C14,13.546875 13.546875,14 13,14 L10,14 L10,13 L13,13 L13,10 L13,10 L13,10 Z M1,10 L0,10 L0,13 C0,13.546875 0.453125,14 1,14 L4,14 L4,13 L1,13 L1,10 L1,10 L1,10 Z M1,3 L4,3 L4,2 L1,2 C0.453125,2 0,2.453125 0,3 L0,6 L1,6 L1,3 L1,3 L1,3 Z M2,4 L12,4 L12,12 L2,12 L2,4 L2,4 L2,4 Z M4,10 L10,10 L10,6 L4,6 L4,10 L4,10 L4,10 Z M10,2 L10,3 L13,3 L13,6 L14,6 L14,3 C14,2.453125 13.546875,2 13,2 L10,2 L10,2 Z" id="Shape"></path>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M13 10h1v3c0 .547-.453 1-1 1h-3v-1h3v-3zM1 10H0v3c0 .547.453 1 1 1h3v-1H1v-3zm0-7h3V2H1c-.547 0-1 .453-1 1v3h1V3zm1 1h10v8H2V4zm2 6h6V6H4v4zm6-8v1h3v3h1V3c0-.547-.453-1-1-1h-3z"/></svg>

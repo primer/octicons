@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+
+outdir=lib/svg
+rm -rf $outdir
+mkdir -p $outdir
+
+# Export svg slices from sketch document
+sketchtool export slices octicons-master.sketch --output=$outdir
+
+# Minify the svg
+$(npm bin)/svgo -f $outdir --config=$(dirname $0)/../.svgo.yml

@@ -1,0 +1,19 @@
+{
+  "name": "octicons_gem",
+  "version": "5.0.5",
+  "description": "Don't install",
+  "scripts": {
+    "postinstall": "bundle install --path vendor/bundle",
+    "prepare": "../../script/build-json ./lib",
+    "version": "../../script/rubyversion ./lib/octicons/version.rb",
+    "prepublishOnly": "gem build octicons.gemspec && gem push octicons-$npm_package_version.gem",
+    "test": "bundle exec rubocop && bundle exec rake"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/primer/octicons.git"
+  },
+  "author": "GitHub, Inc.",
+  "license": "MIT",
+  "homepage": "https://github.com/primer/octicons"
+}

@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+const fs = require("fs")
+const path = require("path")
+
+let [outdir, ...args] = process.argv.slice(2)
+if (!outdir) {
+  console.error("Expected output directory in positional arguments")
+  process.exit(1)
+}
+
+const libdir = path.resolve(__dirname, "../lib")
+const svgdir = path.join(libdir, "svg")
+
+const files = fs.readdirSync(svgdir)
+const data = JSON.parse(fs.readFileSync(path.join(libdir, "data.json")))
+
+files.forEach(function(file) {
+  const filename = path.join(svgdir, file)
+  const svg = fs.readFileSync(filename, "utf8")
+  const key = path.basename(file, ".svg")
+  if (data[key]) {
+    data[key].path = /<svg.+>(.+)<\/svg>/g.exec(svg)[1]
+    data[key].height = /height="(\d+)"/g.exec(svg)[1]
+    data[key].width = /width="(\d+)"/g.exec(svg)[1]
+  }
+})
+
+fs.writeFileSync(path.join(outdir, "data.json"), JSON.stringify(data), "utf8")
