@@ -19,7 +19,7 @@ $ npm install octicons --save
 
 ## Usage
 
-For all the usages, we recommend using the CSS located in `build/octicons.css`. This is some simple CSS to normalize the icons and inherit colors.
+For all the usages, we recommend using the CSS located in `build/build.css`. This is some simple CSS to normalize the icons and inherit colors.
 
 ### Node
 
@@ -126,40 +126,6 @@ Size the SVG icon larger using `width` & `height` independently or together.
 octicons.x.toSVG({ "width": 45 })
 // <svg version="1.1" width="45" height="60" viewBox="0 0 12 16" class="octicon octicon-x" aria-hidden="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
 ```
-
-### Ruby
-
-If your environment is Ruby on Rails, we have an [octicons_helper](https://github.com/primer/octicons_helper) gem available that renders SVG in your page. The octicons_helper uses the [octicons_gem](https://github.com/primer/octicons_gem) to do the computing and reading of the SVG files.
-
-### Jekyll
-
-For jekyll, there's a [jekyll-octicons](https://github.com/primer/jekyll-octicons) plugin available. This works exactly like the octicons_helper.
-
-## Changing, adding, or deleting icons
-
-1. Open the [Sketch document][sketch-document] in `lib/`. Each icon exists as an artboard within our master Sketch document. If you’re adding an icon, duplicate one of the artboards and add your shapes to it. Be sure to give your artboard a name that makes sense.
-2. Once you’re happy with your icon set, choose File > Export…
-3. Choose all the artboards you’d like to export and then press “Export”
-4. Export to `lib/svg/`
-
-You’ll next need to build your Octicons.
-
-## Building Octicons
-
-All the files you need will be in the `build/` directory already, but if you’ve made changes to the `lib/` directory and need to regenerate, follow these steps:
-
-1. Open the Octicons directory in Terminal
-2. `npm install` to install all dependencies for the project.
-3. Run the command `npm run build`. This will run the grunt task to build the SVGs, placing them in the `build/` directory.
-
-## Publishing
-
-If you have access to publish this repository, these are the steps to publishing. If you need access, contact [#design-systems](https://github.slack.com/archives/design-systems).
-
-1. Update the [CHANGELOG.md](./CHANGELOG.md) with relevant version number and any updates made to the repository.
-2. `npm version <newversion>` Run [npm version](https://docs.npmjs.com/cli/version) inputing the relevant version type. The versioning is [semver](http://semver.org/), so version appropriately based on what has changed.
-3. `npm publish` This will publish the new version to npmjs.org
-4. `git push && git push --tags` Push all these changes to origin.
 
 ## License
 

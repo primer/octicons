@@ -25,4 +25,7 @@ This repository is a repository containing other packages. Each of them are in t
 
 (c) 2012-2017 GitHub, Inc.
 
-[MIT](./LICENSE)
+When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
+
+_Code License:_ [MIT](./LICENSE)  
+Applies to all other files
