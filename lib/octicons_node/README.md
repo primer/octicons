@@ -82,7 +82,7 @@ Returns the icon's true height, based on the svg view box height. _Note, this do
 
 #### `keywords`
 
-Returns an array of keywords for the icon. The data [comes from `lib/data.json`](https://github.com/primer/octicons/blob/master/lib/data.json). Consider contributing more aliases for the icons.
+Returns an array of keywords for the icon. The data comes from the [data file in lib](../data.json). Consider contributing more aliases for the icons.
 
 ```js
 octicons.x.keywords
