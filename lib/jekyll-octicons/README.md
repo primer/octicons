@@ -1,7 +1,7 @@
 # Octicons jekyll tag
 
 [![Gem version](https://img.shields.io/gem/v/jekyll-octicons.svg)](https://rubygems.org/gems/jekyll-octicons)
-[![Build Status](https://travis-ci.org/primer/jekyll-octicons.svg?branch=master)](https://travis-ci.org/primer/jekyll-octicons)
+[![Build Status](https://travis-ci.org/primer/octicons.svg?branch=master)](https://travis-ci.org/primer/octicons)
 
 > A liquid jekyll tag that injects Octicon svg into the page
 
