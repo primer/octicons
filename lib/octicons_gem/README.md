@@ -103,14 +103,17 @@ icon.to_svg
 # <svg class="octicon octicon-x" viewBox="0 0 16 16" width="16" height="16" version="1.1" "aria-hidden"="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg>
 ```
 
+## Documentation
+
+For a full list of options available, see the [octicons_gem documentation](../octicons_gem/#documentation)
+
 ## License
 
 (c) 2012-2017 GitHub, Inc.
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 
-_Code License:_ [MIT](./LICENSE)  
-Applies to all other files
+[MIT](./LICENSE)  
 
 [octicons]: https://github.com/primer/octicons
 [octicons-docs]: https://octicons.github.com/

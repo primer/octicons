@@ -5,7 +5,7 @@
 
 > A rails helper that inlines SVG octicons
 
-This rails helper let's you easily include svg [octicons][octicons] in your rails apps.
+This rails helper let's you easily include svg [octicons][octicons-docs] in your rails apps.
 
 ## Install
 
@@ -21,9 +21,11 @@ This rails helper let's you easily include svg [octicons][octicons] in your rail
     <%= octicon "alert", :height => 32,  :class => "right left", :"aria-label" => "hi" %>
     ```
 
+We recommend including the CSS in the [octicons_node](../octicons_node/) module. You can also npm install that package and include `build/build.css` in your styles.
+
 ## Documentation
 
-For a full list of options available, see the [octicons_gem documentation](https://github.com/primer/octicons_gem#documentation)
+For a full list of options available, see the [octicons_gem documentation](../octicons_gem/#documentation)
 
 ## License
 
@@ -31,8 +33,7 @@ For a full list of options available, see the [octicons_gem documentation](https
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 
-_Code License:_ [MIT](./LICENSE)  
-Applies to all other files
+[MIT](./LICENSE)  
 
 [octicons]: https://github.com/primer/octicons
 [octicons-docs]: https://octicons.github.com/

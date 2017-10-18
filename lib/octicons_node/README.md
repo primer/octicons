@@ -133,11 +133,7 @@ octicons.x.toSVG({ "width": 45 })
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 
-_SVG License:_ [SIL OFL 1.1](http://scripts.sil.org/OFL)  
-Applies to all SVG files
-
-_Code License:_ [MIT](./LICENSE)  
-Applies to all other files
+[MIT](./LICENSE)  
 
 [primer]: https://github.com/primer/primer
 [docs]: http://primercss.io/
