@@ -13,7 +13,7 @@ to configure the icon's attributes.
     octicons = "0.1"
     ```
 
-2. Add this to your main.rs or lib.rs ``
+2. Add the crate to your `main.rs` or `lib.rs`
 
     ```rust
     extern crate octicons;
@@ -27,13 +27,15 @@ to configure the icon's attributes.
             .xmlns(Some("http://www.w3.org/2000/svg"))
             .width(32)
             .height(32)
-            .color(Some("#ff0"))
+            .fill(Some("#ff0"))
             .aria_label(Some("hi"))
             .class(Some("right left"))
     );
     ```
 
 ## Documentation
+
+Crate documentation can be found at [docs.rs/octicons/](https://docs.rs/octicons)
 
 
 ## Publishing
@@ -42,7 +44,7 @@ If you have access to publish this repository, these are the steps to publishing
 
 **Before publishing** This package relies on the data from [octicons](https://github.com/primer/octicons). To update to the most recent version, you'll need to run `make prepare`
 
-1. Update the [CHANGELOG.md](./CHANGELOG.md) with relevant version number and any updates made to the repository.
+1. Update the [CHANGELOG.md](../../CHANGELOG.md) with relevant version number and any updates made to the repository.
 2. Update the version in [Cargo.toml]() using the relevant version. The versioning is [semver](http://semver.org/), so version appropriately based on what has changed.
 3. `cargo package --allow-dirty` Allow including the svg files needed by the build.rs
 4. `cargo publish` This will build the crate and publish it to crate.io.
