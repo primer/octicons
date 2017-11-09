@@ -1,0 +1,14 @@
+[package]
+name = "octicons"
+version = "0.1.0"
+authors = ["YetAnotherMinion <yam@thinkalexandria.com>"]
+license = "MIT"
+categories = ["gui", "web-programming" ]
+keywords = ["octicons", "icons" ]
+description = "A scalable set of icons handcrafted with <3 by GitHub ported for use in Rust."
+
+[build-dependencies]
+svgparser = "0.5"
+quote = "0.3"
+
+[dependencies]
