@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/primer/octicons_helper.git"
+    "url": "git+https://github.com/primer/octicons.git"
   },
   "author": "GitHub Inc.",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/primer/octicons_helper/issues"
+    "url": "https://github.com/primer/octicons/issues"
   },
-  "homepage": "https://github.com/primer/octicons_helper#readme"
+  "homepage": "https://github.com/primer/octicons#readme"
 }
