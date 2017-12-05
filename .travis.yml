@@ -1,7 +1,15 @@
 language: node_js
 node_js:
   - 8
-
 before_script:
   # XXX this is a fix for nokogiri building on Travis
-  - npm run bootstrap
+  - 'npm run bootstrap'
+notifications:
+  webhooks:
+    urls:
+      - 'https://www.travisbuddy.com/'
+    on_success: never
+    on_failure: always
+    on_start: never
+    on_cancel: never
+    on_error: never
