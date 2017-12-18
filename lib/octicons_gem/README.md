@@ -1,7 +1,7 @@
 # Octicons gem
 
 [![Gem version](https://img.shields.io/gem/v/octicons.svg)](https://rubygems.org/gems/octicons)
-[![Build Status](https://travis-ci.org/primer/octicons_gem.svg?branch=master)](https://travis-ci.org/primer/octicons_gem)
+[![Build Status](https://travis-ci.org/primer/octicons.svg?branch=master)](https://travis-ci.org/primer/octicons)
 
 > Octicons gem to distribute octicons svg
 
@@ -83,7 +83,7 @@ Height is the icon's true height. Based on the svg view box height. _Note, this 
 
 ##### `keywords`
 
-Returns an array of keywords for the icon. The data [comes from the octicons repository](https://github.com/primer/octicons/blob/master/lib/keywords.json). Consider contributing more aliases for the icons.
+Returns an array of keywords for the icon. The data comes from the [data file in lib](../data.json). Consider contributing more aliases for the icons.
 
 ```rb
 icon = Octicons::Octicon.new("x")
@@ -103,17 +103,9 @@ icon.to_svg
 # <svg class="octicon octicon-x" viewBox="0 0 16 16" width="16" height="16" version="1.1" "aria-hidden"="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg>
 ```
 
-## Publishing
+## Documentation
 
-If you have access to publish this repository, these are the steps to publishing. If you need access, contact [#design-systems](https://github.slack.com/archives/design-systems).
-
-**Before publishing** This repository relies on the data from [octicons][]. To update to the most recent version, you'll need to run `npm run update`
-
-1. Update the [CHANGELOG.md](./CHANGELOG.md) with relevant version number and any updates made to the repository.
-2. Update the version in [version.rb](https://github.com/primer/octicons_gem/blob/master/lib/octicons/version.rb) using the relevant version. The versioning is [semver](http://semver.org/), so version appropriately based on what has changed.
-3. `npm version <newversion>` Use the same version that you added in step 2.
-4. `npm run ship` This will build the gem and publish it to rubygems.
-5. `git push && git push --tags` Push all these changes to origin.
+For a full list of options available, see the [octicons_gem documentation](../octicons_gem/#documentation)
 
 ## License
 
@@ -121,11 +113,7 @@ If you have access to publish this repository, these are the steps to publishing
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 
-_Font License:_ [SIL OFL 1.1](http://scripts.sil.org/OFL)  
-Applies to all font files and SVG files
-
-_Code License:_ [MIT](./LICENSE)  
-Applies to all other files
+[MIT](./LICENSE)  
 
 [octicons]: https://github.com/primer/octicons
 [octicons-docs]: https://octicons.github.com/

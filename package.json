@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "test": "ava tests/svg.js && lerna run test",
+    "test": "ava tests/*.js && lerna run test",
     "precommit": "lint-staged"
   },
   "lint-staged": {
