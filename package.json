@@ -3,7 +3,8 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "test": "ava tests/*.js && lerna run test",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "alpha-release": "script/clean && $(npm bin)/lerna publish --npm-tag=alpha --canary --exact --skip-git"
   },
   "lint-staged": {
     "octicons-master.sketch": [
