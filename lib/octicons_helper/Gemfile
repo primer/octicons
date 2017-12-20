@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gemspec
 
-gem "octicons", "5.0.5"
+gem "octicons", "5.1.0-alpha.ade0aeca"
 gem "rails"
 
 group :development, :test do

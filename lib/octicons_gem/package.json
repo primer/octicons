@@ -1,12 +1,12 @@
 {
   "name": "octicons_gem",
-  "version": "5.0.5",
+  "version": "5.1.0-alpha.ade0aeca",
   "description": "Don't install",
   "scripts": {
     "postinstall": "bundle install --path vendor/bundle",
     "prepare": "../../script/build-json ./lib",
     "version": "../../script/rubyversion ./lib/octicons/version.rb",
-    "prepublishOnly": "gem build octicons.gemspec && gem push octicons-${npm_package_version}.gem",
+    "prepublishOnly": "gem build octicons.gemspec && gem push octicons-*.gem",
     "test": "bundle exec rubocop && bundle exec rake"
   },
   "repository": {
