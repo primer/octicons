@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/primer/octicons/issues"
   },
-  "homepage": "https://github.com/primer/octicons#readme"
+  "homepage": "https://github.com/primer/octicons#readme",
+  "dependencies": {
+    "octicons_gem": "5.0.5"
+  }
 }
