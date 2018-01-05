@@ -129,7 +129,7 @@ octicons.x.toSVG({ "width": 45 })
 
 ## License
 
-(c) 2012-2017 GitHub, Inc.
+(c) GitHub, Inc.
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 

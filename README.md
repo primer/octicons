@@ -23,7 +23,7 @@ This repository is a repository containing other packages. Each of them are in t
 
 ## License
 
-(c) 2012-2017 GitHub, Inc.
+(c) GitHub, Inc.
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 

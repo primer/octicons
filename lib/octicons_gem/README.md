@@ -109,7 +109,7 @@ For a full list of options available, see the [octicons_gem documentation](../oc
 
 ## License
 
-(c) 2012-2017 GitHub, Inc.
+(c) GitHub, Inc.
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 
