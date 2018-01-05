@@ -2,8 +2,9 @@
 set -e
 
 octicons_v=$(jq -r .dependencies.octicons_gem package.json)
+new_version=$(echo $npm_package_version | sed -e 's/-alpha/.pre/g')
 
-perl -pi -e "s/VERSION = \"[^\"]+\"/VERSION = \"${npm_package_version}\"/" ./lib/**/version.rb
+perl -pi -e "s/VERSION = \"[^\"]+\"/VERSION = \"${new_version}\"/" ./lib/**/version.rb
 perl -pi -e "s/\"octicons\", \"[^\"]+\"/\"octicons\", \"${octicons_v}\"/" ./Gemfile ./*.gemspec
 
 git add ./lib/**/version.rb ./Gemfile ./*.gemspec
