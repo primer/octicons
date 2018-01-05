@@ -4,7 +4,7 @@
     "bootstrap": "lerna bootstrap",
     "test": "ava tests/*.js && lerna run test",
     "precommit": "lint-staged",
-    "alpha-release": "script/clean && $(npm bin)/lerna publish --npm-tag=alpha --canary --exact --skip-git",
+    "alpha-release": "script/clean && $(npm bin)/lerna publish --npm-tag=alpha --canary=pre --exact --skip-git",
     "release": "script/clean && $(npm bin)/lerna publish --exact --since \"v$(npm info octicons version)\""
   },
   "lint-staged": {
