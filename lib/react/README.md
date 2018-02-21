@@ -8,16 +8,16 @@
 ## Install
 
 ```
-$ npm install @primer/react-octicons --save
+$ npm install @github/octicons-react --save
 ```
 
 ## Usage
 
-The entire library will be available when importing `@primer/react-octicons`. Specifying the [icon you want to use][octicons], by supplying the `name=""` to the component.
+The entire library will be available when importing `@github/octicons-react`. Specifying the [icon you want to use][octicons], by supplying the `name=""` to the component.
 
 ```js
 // Example usage
-import Octicon from "@primer/react-octicons"
+import Octicon from "@github/octicons-react"
 
 const AlertIcon = <Octicon name="alert" />
 ```
@@ -28,7 +28,7 @@ You have the option to add accessibility information to the icon using `aria-lab
 
 ```js
 // Example usage
-import Octicon from "@primer/react-octicons"
+import Octicon from "@github/octicons-react"
 
 const PlusIcon = <Octicon name="plus" ariaLabel="Add new item" />
 ```
@@ -36,11 +36,11 @@ const PlusIcon = <Octicon name="plus" ariaLabel="Add new item" />
 
 ##### width & height
 
-You can change the dimensions of the icon by setting `width` and/or `height`. We recommended you supply **only the `height`**, because this will then calculate the appropriate width based on the viewBox size.
+You can change the dimensions of the icon by setting `width` and/or `height`. We recommended you supply **only the height**, because this will then calculate the appropriate width based on the viewBox size.
 
 ```js
 // Example usage
-import Octicon from "@primer/react-octicons"
+import Octicon from "@github/octicons-react"
 
 const BiggestLogo = <Octicon name="logo-github" height="500" />
 ```
