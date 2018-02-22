@@ -1,0 +1,3 @@
+{
+  "extends": ["plugin:github/es6", "plugin:github/react"]
+}

@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "test": "ava tests/*.js && lerna run test",
+    "lint": "$(npm bin)/lerna exec npm run lint",
+    "test": "npm run lint && ava tests/*.js && lerna run test",
     "precommit": "lint-staged",
     "alpha-release": "script/clean && $(npm bin)/lerna publish --npm-tag=alpha --canary --exact --skip-git",
     "release": "script/clean && $(npm bin)/lerna publish --exact --since \"v$(npm info octicons version)\""
