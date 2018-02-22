@@ -5,10 +5,14 @@
   "homepage": "https://octicons.github.com",
   "author": "GitHub Inc.",
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "build/index.js",
   "repository": "https://github.com/primer/octicons.git",
+  "files": [
+    "index.js",
+    "build"
+  ],
   "scripts": {
-    "build": "$(npm bin)/babel index.js -d dist",
+    "build": "$(npm bin)/babel index.js -d build",
     "prepare": "npm run build"
   },
   "bugs": {
