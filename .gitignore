@@ -8,3 +8,4 @@ lib/octicons_gem/lib/data.json
 *.lock
 .bundle
 vendor
+lib/react/dist

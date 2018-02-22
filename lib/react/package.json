@@ -1,12 +1,16 @@
 {
   "name": "@github/octicons-react",
-  "version": "1.1.0-alpha.542d2f63",
+  "version": "0.1.0",
   "description": "A scalable set of icons handcrafted with <3 by GitHub.",
   "homepage": "https://octicons.github.com",
   "author": "GitHub Inc.",
   "license": "MIT",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": "https://github.com/primer/octicons.git",
+  "scripts": {
+    "build": "$(npm bin)/babel index.js -d dist",
+    "prepare": "npm run build"
+  },
   "bugs": {
     "url": "https://github.com/primer/octicons/issues"
   },
@@ -32,6 +36,7 @@
     "react": "^16.2.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1"
   }
