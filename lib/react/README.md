@@ -34,15 +34,21 @@ const PlusIcon = <Octicon name="plus" ariaLabel="Add new item" />
 ```
 
 
-##### width & height
+##### Sizes
 
-You can change the dimensions of the icon by setting `width` and/or `height`. We recommended you supply **only the height**, because this will then calculate the appropriate width based on the viewBox size.
+The properties `large`, `medium`, `small` are available for setting the size of the icon.
+
+| Prop | Rendered Size |
+| :- | :- |
+| Small | 16px height by `computed` width |
+| Medium | 32px height by `computed` width |
+| Small | 64px height by `computed` width |
 
 ```js
 // Example usage
 import Octicon from "@github/octicons-react"
 
-const BiggestLogo = <Octicon name="logo-github" height="500" />
+const BiggestLogo = <Octicon name="logo-github" large />
 ```
 
 ## License
