@@ -19,10 +19,28 @@ The entire library will be available when importing `@github/octicons-react`. Sp
 // Example usage
 import Octicon from "@github/octicons-react"
 
-const AlertIcon = <Octicon name="alert" />
+return (
+  <Octicon name="beaker" />
+)
 ```
 
-##### ariaLabel
+### Alignment
+
+By default the octicons have `vertical-align: text-bottom;` applied to them. But there are cases where you'll want to change the alignment. The props available are `top`, `middle`.
+
+```js
+// Example usage
+import Octicon from "@github/octicons-react"
+
+return (
+  <h1>
+    <Octicon name="repo" large middle /> github/github
+  </h1>
+)
+```
+
+
+### ariaLabel
 
 You have the option to add accessibility information to the icon using `aria-label`.
 
@@ -30,11 +48,15 @@ You have the option to add accessibility information to the icon using `aria-lab
 // Example usage
 import Octicon from "@github/octicons-react"
 
-const PlusIcon = <Octicon name="plus" ariaLabel="Add new item" />
+return (
+  <button>
+    <Octicon name="plus" ariaLabel="Add new item" /> New
+  </button>
+)
 ```
 
 
-##### Sizes
+### Sizes
 
 The properties `large`, `medium`, `small` are available for setting the size of the icon.
 
@@ -48,7 +70,13 @@ The properties `large`, `medium`, `small` are available for setting the size of 
 // Example usage
 import Octicon from "@github/octicons-react"
 
-const BiggestLogo = <Octicon name="logo-github" large />
+return (
+  <h1>
+    <a href="https://github.com">
+      <Octicon name="logo-github" large ariaLabel="GitHub"/>
+    </a>
+  </h1>
+)
 ```
 
 ## License
