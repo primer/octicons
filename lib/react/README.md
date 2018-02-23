@@ -42,7 +42,7 @@ The properties `large`, `medium`, `small` are available for setting the size of 
 | :- | :- |
 | Small | 16px height by `computed` width |
 | Medium | 32px height by `computed` width |
-| Small | 64px height by `computed` width |
+| Large | 64px height by `computed` width |
 
 ```js
 // Example usage
