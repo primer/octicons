@@ -140,4 +140,3 @@ When using the GitHub logos, be sure to follow the [GitHub logo guidelines](http
 [npm]: https://www.npmjs.com/
 [install-npm]: https://docs.npmjs.com/getting-started/installing-node
 [sass]: http://sass-lang.com/
-[sketch-document]: https://github.com/primer/octicons/blob/master/lib/octicons-master.sketch

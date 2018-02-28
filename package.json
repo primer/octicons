@@ -3,22 +3,13 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "test": "ava tests/*.js && lerna run test",
-    "precommit": "lint-staged",
     "alpha-release": "script/clean && $(npm bin)/lerna publish --npm-tag=alpha --canary --exact --skip-git",
     "release": "script/clean && $(npm bin)/lerna publish --exact --since \"v$(npm info octicons version)\""
-  },
-  "lint-staged": {
-    "octicons-master.sketch": [
-      "script/export",
-      "git add lib"
-    ]
   },
   "devDependencies": {
     "ava": "^0.22.0",
     "husky": "^0.14.3",
     "lerna": "2.4.0",
-    "lint-staged": "^4.2.3",
-    "so-sketchy": "~47.1.1",
     "svgo": "^0.7.2"
   }
 }
