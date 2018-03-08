@@ -6,10 +6,17 @@
     "alpha-release": "script/clean && $(npm bin)/lerna publish --npm-tag=alpha --canary --exact --skip-git",
     "release": "script/clean && $(npm bin)/lerna publish --exact --since \"v$(npm info octicons version)\""
   },
+  "figma": {
+    "url": "https://wild.figma.com/file/cWhYUnF0z7Y0ljSuyulNEuN0/Octicons"
+  },
   "devDependencies": {
     "ava": "^0.22.0",
+    "fs-extra": "^5.0.0",
     "husky": "^0.14.3",
+    "js-yaml": "^3.11.0",
     "lerna": "2.4.0",
-    "svgo": "^0.7.2"
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5",
+    "svgo": "^1.0.5"
   }
 }
