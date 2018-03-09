@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "export": "",
     "bootstrap": "lerna bootstrap",
     "test": "ava tests/*.js && lerna run test",
     "alpha-release": "script/clean && $(npm bin)/lerna publish --npm-tag=alpha --canary --exact --skip-git",
@@ -12,11 +13,10 @@
   "devDependencies": {
     "ava": "^0.22.0",
     "fs-extra": "^5.0.0",
-    "husky": "^0.14.3",
+    "got": "^8.3.0",
     "js-yaml": "^3.11.0",
     "lerna": "2.4.0",
-    "request": "^2.83.0",
-    "request-promise-native": "^1.0.5",
+    "ora": "^2.0.0",
     "svgo": "^1.0.5"
   }
 }
