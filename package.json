@@ -1,11 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "export": "",
     "bootstrap": "lerna bootstrap",
     "test": "ava tests/*.js && lerna run test",
-    "alpha-release": "script/clean && $(npm bin)/lerna publish --npm-tag=alpha --canary --exact --skip-git",
-    "release": "script/clean && $(npm bin)/lerna publish --exact --since \"v$(npm info octicons version)\""
+    "alpha-release": "script/clean && script/export && $(npm bin)/lerna publish --npm-tag=alpha --canary --exact --skip-git",
+    "release": "script/clean && script/export && $(npm bin)/lerna publish --exact --since \"v$(npm info octicons version)\""
   },
   "figma": {
     "url": "https://wild.figma.com/file/cWhYUnF0z7Y0ljSuyulNEuN0/Octicons"
