@@ -1,10 +1,11 @@
 node_modules
 .DS_Store
-build/
 *.log
 package-lock.json
-lib/octicons_gem/lib/data.json
 *.gem
 *.lock
 .bundle
 vendor
+
+# Ignore build/export artifacts
+build/

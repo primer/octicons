@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
+const { figma } = require('../package.json')
+const fs = require('fs-extra')
+const path = require('path')
 const request = require('request-promise-native')
 const SVGO = require('svgo')
-const path = require('path')
-const fs = require('fs-extra')
 const yaml = require('js-yaml')
-const { figma } = require('../package.json')
 
 // Fail if there's no figma file key
 let figmaFileKey;
@@ -16,139 +16,203 @@ try {
   return process.exit(1)
 }
 
+// Where we're putting the exported SVG and data.json
+// so the libraries can use it
 const outputDir = path.resolve(__dirname, "../lib/build")
 
-// Translates a path based on the xy array passed in
-const translatePath = (p, xy) => {
-
-  let ds = p.match(/([A-Z]{1,2}[\s0-9\.\-e]+)/g)
-  let [x, y] = xy
-
-  let dd = ds.map((d) => {
-    var darr = d.split(" ").reverse()
-    for(let i = 0; i < darr.length; i += 2) {
-      if(darr[i+1]) {
-        darr[i] = parseFloat(darr[i]) + y
-        darr[i+1] = parseFloat(darr[i+1]) + x
+const getFigmaComponents = () => {
+  return new Promise((resolve, reject) => {
+    console.warn("☁️  Getting components from figma file...")
+    request({
+      method: "GET",
+      url: `${process.env.FIGMA_DOMAIN}/v1/files/${figmaFileKey}`,
+      headers: { "Content-Type": "application/json", "x-figma-token": process.env.FIGMA_TOKEN },
+      transform: (body) => JSON.parse(body)
+    })
+    .then( result => {
+      let components = []
+      const check = (c) => {
+        if (c.type == "COMPONENT") {
+          components.push(c)
+        } else if (c.children) {
+          c.children.forEach(check)
+        }
       }
-    }
-
-    return darr.reverse().join(" ")
-  }).join("") + "Z"
-
-  return dd
-}
-
-// Gets the sum of all the `translate(x y)` and reduces it
-// <g transform="translate(-238 -286)"><g transform="translate(238 290)">
-// becomes [0, 4]
-const reduceTranslate = (t) => {
-  if(t == null) {
-    return [0, 0]
-  }
-  if(t.length == 1) {
-    return t[0].replace(/translate|[\(\)]/g,"").split(" ").map((v) => Math.round(parseFloat(v)))
-  }
-  return t.reduce((p,c) => {
-    p = p.replace(/translate|[\(\)]/g,"").split(" ")
-    c = c.replace(/translate|[\(\)]/g,"").split(" ")
-    for(let i = 0; i < c.length; i++) {
-      c[i] = Math.round(parseFloat(p[i])) + Math.round(parseFloat(c[i]))
-    }
-    return c
+      result.document.children.forEach(check)
+      return components
+    })
+    .then( components => resolve(components) )
+    .catch( err => reject(err))
   })
 }
 
-console.warn("☁️  Getting figma file from the cloud...")
-// Get the figma file
-request({
-  method: "GET",
-  url: `${process.env.FIGMA_DOMAIN}/v1/files/${figmaFileKey}`,
-  headers: { "Content-Type": "application/json", "x-figma-token": process.env.FIGMA_TOKEN },
-  transform: (body) => JSON.parse(body)
-}).then( result => {
+const getFigmaImageUrls = (componentIds) => {
+  return new Promise((resolve, reject) => {
+    request({
+      method: "GET",
+      url: `${process.env.FIGMA_DOMAIN}/v1/images/${figmaFileKey}`,
+      qs: {
+        ids: componentIds,
+        format: "svg"
+      },
+      headers: { "Content-Type": "application/json", "x-figma-token": process.env.FIGMA_TOKEN },
+      transform: (body) => JSON.parse(body)
+    })
+    .then( result => {
+      if( result.err ) {
+        reject(result.err)
+      } else {
+        resolve(result.images)
+      }
+    })
+    .catch( err => reject(err) )
+  })
+}
+
+const downloadSVG = (url) => {
+  return new Promise((resolve, reject) => {
+    request({
+      method: "GET",
+      url: url,
+      headers: { "Content-Type": "images/svg+xml" }
+    })
+    .then(svg => {
+      // Translates a path based on the xy array passed in
+      const translatePath = (p, xy) => {
+
+        let ds = p.match(/([A-Z]{1,2}[\s0-9\.\-e]+)/g)
+        let [x, y] = xy
+
+        let dd = ds.map((d) => {
+          var darr = d.split(" ").reverse()
+          for(let i = 0; i < darr.length; i += 2) {
+            if(darr[i+1]) {
+              darr[i] = parseFloat(darr[i]) + y
+              darr[i+1] = parseFloat(darr[i+1]) + x
+            }
+          }
+
+          return darr.reverse().join(" ")
+        }).join("") + "Z"
+
+        return dd
+      }
+
+      // Gets the sum of all the `translate(x y)` and reduces it
+      // <g transform="translate(-238 -286)"><g transform="translate(238 290)">
+      // becomes [0, 4]
+      const reduceTranslate = (t) => {
+        if(t == null) {
+          return [0, 0]
+        }
+        if(t.length == 1) {
+          return t[0].replace(/translate|[\(\)]/g,"").split(" ").map((v) => Math.round(parseFloat(v)))
+        }
+        return t.reduce((p,c) => {
+          p = p.replace(/translate|[\(\)]/g,"").split(" ")
+          c = c.replace(/translate|[\(\)]/g,"").split(" ")
+          for(let i = 0; i < c.length; i++) {
+            c[i] = Math.round(parseFloat(p[i])) + Math.round(parseFloat(c[i]))
+          }
+          return c
+        })
+      }
+
+      let d = svg.match(/ d=["']([a-z\s0-9\.\-]+)["']/i).pop()
+      let translate = reduceTranslate(svg.match(/translate\([0-9\-\s\.e]+\)/g))
+      let d2 = translatePath(d, translate)
+
+      // Clean and replace svg elements
+      svg = svg.replace(`d="${d}"`, `d="${d2}"`)
+              .replace(/<\/?defs>/g,"")
+              .replace(/<use[^>]*>/g, "")
+
+
+      resolve(svg)
+    })
+    .catch(err => reject(`There was trouble downloading ${url}\n${err}`))
+  })
+}
+
+// Clear the build directory
+Promise.resolve(fs.removeSync(outputDir))
+
+// Get the components
+.then(() => getFigmaComponents())
+
+// Construct a new data object
+.then( components => {
 
   // returned data will be a new Object
   let data = {}
 
-  // Filter file children to data I want
-  result.document.children[0].children.filter((c) => c.type == "COMPONENT")
-    // Map all components to a new object
-    .forEach((c) => {
+  console.warn(`⚙️  Processing ${components.length} Octicons...`)
 
-      // Keywords extracted from description when that's ready
-      let tempDescription = "This is some descriptions\n\nkeywords: arrow, down, point"
-      let keywords = tempDescription.match(/^keywords: (.+)$/mi)
-      if(keywords) {
-        keywords = keywords.pop().split(", ")
-      }
-      data[c.name] = {
-        componentId: c.id,
-        keywords: keywords || [],
-        width: c.absoluteBoundingBox.width,
-        height: c.absoluteBoundingBox.height
-      }
-    })
+  // Map all components to a new object
+  components.forEach((c) => {
 
-   console.warn(`⚙️  Processing ${Object.keys(data).length} Octicons...`)
+    // Keywords extracted from description when that's ready
+    let keywords = (c.description || "").match(/^keywords: (.+)$/mi)
 
-   return data
-}).then( data => {
+    // If we have a match, get keywords and split by comma
+    if(keywords) {
+      keywords = keywords.pop().split(", ")
+    } else {
+      keywords = []
+    }
+
+    // Create a data object
+    data[c.name] = {
+      name: c.name,
+      figma: {
+        id: c.id,
+        file: figmaFileKey
+      },
+      keywords: keywords,
+      width: c.absoluteBoundingBox.width,
+      height: c.absoluteBoundingBox.height,
+    }
+  })
+  return data
+})
+
+.then( data => {
+  console.warn(`🌅 Exporting SVG images from Figma...`)
 
   // Make a query string with all the component ids
-  let componentIds = Object.keys(data).map((c) => data[c].componentId ).join(",")
+  let componentIds = Object.values(data).map((c) => c.figma.id ).join(",")
 
-  console.warn(`🌅 Exporting SVG images from Figma...`)
-  // Request all the images from figma
-  return request({
-    method: "GET",
-    url: `${process.env.FIGMA_DOMAIN}/v1/images/${figmaFileKey}`,
-    qs: {
-      ids: componentIds,
-      format: "svg"
-    },
-    headers: { "Content-Type": "application/json", "x-figma-token": process.env.FIGMA_TOKEN },
-    transform: (body) => JSON.parse(body)
-  }).then(result => {
+  // Request all the image export URLs from figma
+  return getFigmaImageUrls(componentIds)
+  .then(images => {
 
-    console.warn(`🗜  Optimizing SVG with svgo...`)
-    let svgoConfig = Object.assign({}, yaml.safeLoad(fs.readFileSync(path.resolve(__dirname,'../.svgo.yml'), 'utf8')))
-    let svgo = new SVGO(svgoConfig)
+    let svgo = new SVGO(Object.assign(
+      {},
+      yaml.safeLoad(fs.readFileSync(path.resolve(__dirname,'../.svgo.yml'), 'utf8'))
+    ))
+
     // For each octicon
-    return Promise.all(Object.keys(data).map(k => {
+    return Promise.all(Object.values(data).map(icon => {
 
       // Request the svg data from aws
-      return request({
-        method: "GET",
-        url: result.images[data[k].componentId],
-        headers: { "Content-Type": "images/svg+xml" }
-      }).then(svg => {
-        let d = svg.match(/ d=["']([a-z\s0-9\.\-]+)["']/i).pop()
-        let translates = svg.match(/translate\([0-9\-\s\.e]+\)/g)
+      return downloadSVG(images[icon.figma.id])
+        .then(svg => {
+          return svgo.optimize(svg, {})
+            .then(optimized => {
+              icon.path = /<svg.+>(.+)<\/svg>/g.exec(optimized.data).pop()
 
-        let d2 = translatePath(d, reduceTranslate(translates))
-
-        // Clean and replace svg elements
-        svg = svg.replace(`d="${d}"`, `d="${d2}"`)
-                .replace(/<\/?defs>/g,"")
-                .replace(/<use[^>]*>/g, "")
-
-        return svgo.optimize(svg, { multipass: true }).then(optimized => {
-          return fs.ensureDir(path.join(outputDir, "/svg")).then(() => fs.writeFileSync(path.resolve(outputDir, `svg/${k}.svg`), optimized.data, "utf8"))
+              return fs.ensureDir(path.join(outputDir, "/svg"))
+                .then(() => fs.writeFileSync(path.resolve(outputDir, `svg/${icon.name}.svg`), optimized.data, "utf8"))
+            }).catch((err) => {
+              console.error("Something went wrong optimizing the svg data!", err)
+              process.exit(1)
+            })
         })
-      }).catch((err) => {
-        console.error("We had trouble connecting to AWS to get SVG files", result.images[data[k].componentId], err)
-        process.exit(1)
-      })
     }))
-    .then(() => fs.writeFileSync(path.resolve(outputDir, `data.json`), JSON.stringify(data), "utf8"))
-    .then(() => console.warn(`🎨 All done! ${Object.keys(data).length} Octicons exported to svg.`))
-    .catch((err) => {
-      console.error("We had trouble exporting SVG images from figma", err)
-      process.exit(1)
-    })
   })
+  .then(() => fs.writeFileSync(path.resolve(outputDir, `data.json`), JSON.stringify(data), "utf8"))
+  .then(() => console.warn(`🎨 All done! ${Object.keys(data).length} Octicons exported to svg.`))
 }).catch((err) => {
-  console.error("Can't get file from figma api")
+  console.error(err)
   process.exit(1)
 })
