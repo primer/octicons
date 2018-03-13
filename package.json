@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "script/export && lerna bootstrap",
     "test": "ava tests/*.js && lerna run test",
     "alpha-release": "script/clean && script/export && $(npm bin)/lerna publish --npm-tag=alpha --canary --exact --skip-git",
     "release": "script/clean && script/export && $(npm bin)/lerna publish --exact --since \"v$(npm info octicons version)\""
