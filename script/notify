@@ -15,7 +15,7 @@ _status=$1
 
 # get the published version of primer from its package.json
 version=$(jq -r .version lib/octicons_node/package.json)
-published="$package@$version"
+published="octicons@$version"
 
 message=""
 if [[ "$_status" = "success" ]]; then
