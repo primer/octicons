@@ -10,10 +10,6 @@ before_script:
   - npm run bootstrap
 
 after_success:
-  # Setup rubygems creds
-  - touch ~/.gem/credentials
-  - chmod 0600 ~/.gem/credentials
-  - echo -e "---\n:rubygems_api_key: $RUBYGEMS_API_KEY" > ~/.gem/credentials
   # this will short-circuit the publish step if it fails to interpolate $NPM_API_KEY
   - npm config set "//registry.npmjs.org/:_authToken=\${NPM_API_KEY}"
   - script/after_success

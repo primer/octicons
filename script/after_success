@@ -7,6 +7,14 @@ event=$TRAVIS_EVENT_TYPE
 # only publish canary releases on PRs against dev
 if [[ "$event" = "pull_request" ]] && [[ !("$branch" =~ ^release-.*) ]] && [[ !("$branch" = "master") ]];
 then
+
+  if [ ! -z "$var" ]; then
+    mkdir -p ~/.gem
+    touch ~/.gem/credentials
+    chmod 0600 ~/.gem/credentials
+    echo -e "---\n:rubygems_api_key: $RUBYGEMS_API_KEY" > ~/.gem/credentials
+  fi
+
   echo "🐦  Publishing PR (canary) release..."
 
   $(npm bin)/lerna publish --npm-tag=alpha --canary --exact --skip-git --yes
