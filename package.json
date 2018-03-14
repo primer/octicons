@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "ava": "^0.22.0",
+    "commit-status": "^4.3.0",
     "fs-extra": "^5.0.0",
     "got": "^8.3.0",
     "js-yaml": "^3.11.0",
