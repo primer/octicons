@@ -8,7 +8,7 @@ event=$TRAVIS_EVENT_TYPE
 if [[ "$event" = "pull_request" ]] && [[ !("$branch" =~ ^release-.*) ]] && [[ !("$branch" = "master") ]];
 then
 
-  if [ ! -z "$var" ]; then
+  if [ -z "$RUBYGEMS_API_KEY" ]; then
     mkdir -p ~/.gem
     touch ~/.gem/credentials
     chmod 0600 ~/.gem/credentials
