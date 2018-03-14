@@ -1,0 +1,34 @@
+#!/bin/bash
+set -e
+
+if [[ "$CI" != "true" ]]; then
+  echo "(notify bailing: not in CI)"
+  exit
+elif [[ $# -lt 1 ]]; then
+  echo "No status provided!" >&2
+  exit 1
+fi
+
+# the commit status context
+context="npm publish"
+_status=$1
+
+# get the published version of primer from its package.json
+version=$(jq -r .version lib/octicons_node/package.json)
+published="octicons@$version"
+
+message=""
+if [[ "$_status" = "success" ]]; then
+  # TODO point this at the contributing docs!
+  message="https://unpkg.com/$published/build/"
+fi
+
+# XXX this will go away if we build pushes instead of PRs
+if [[ "$TRAVIS_PULL_REQUEST_SHA" != "" ]]; then
+  # setting TRAVIS_COMMIT inline here is a fix for:
+  # <https://github.com/taskworld/commit-status/issues/5>
+  export TRAVIS_COMMIT=$TRAVIS_PULL_REQUEST_SHA
+fi
+
+echo "📡  Transmitting publish status for $published..."
+$(npm bin)/commit-status "$_status" "$context" "$published" "$message"
