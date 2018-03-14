@@ -4,12 +4,14 @@ set -e
 branch=$TRAVIS_PULL_REQUEST_BRANCH
 event=$TRAVIS_EVENT_TYPE
 
+if [ ! -d "lib/build" ]; then
+  script/export
+fi
+
 # only publish canary releases on PRs against dev
 if [[ "$event" = "pull_request" ]] && [[ !("$branch" =~ ^release-.*) ]] && [[ !("$branch" = "master") ]];
 then
   echo "🐦  Publishing PR (canary) release..."
-
-  script/export
 
   $(npm bin)/lerna publish --npm-tag=alpha --canary --exact --skip-git --yes
 
