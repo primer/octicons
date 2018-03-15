@@ -8,13 +8,6 @@ event=$TRAVIS_EVENT_TYPE
 if [[ "$event" = "pull_request" ]] && [[ !("$branch" =~ ^release-.*) ]] && [[ !("$branch" = "master") ]];
 then
 
-  if [ -z "$RUBYGEMS_API_KEY" ]; then
-    mkdir -p ~/.gem
-    touch ~/.gem/credentials
-    chmod 0600 ~/.gem/credentials
-    echo -e "---\n:rubygems_api_key: $RUBYGEMS_API_KEY" > ~/.gem/credentials
-  fi
-
   echo "🐦  Publishing PR (canary) release..."
 
   $(npm bin)/lerna publish --npm-tag=alpha --canary --exact --skip-git --yes
