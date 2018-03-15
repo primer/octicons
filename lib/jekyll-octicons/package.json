@@ -17,6 +17,7 @@
   "bugs": {
     "url": "https://github.com/primer/octicons/issues"
   },
+  "rubygems": "jekyll-octicons",
   "homepage": "https://github.com/primer/octicons#readme",
   "dependencies": {
     "octicons_gem": "5.2.0"

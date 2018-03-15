@@ -13,6 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/primer/octicons.git"
   },
+  "rubygems": "octicons",
   "author": "GitHub, Inc.",
   "license": "MIT",
   "homepage": "https://github.com/primer/octicons"

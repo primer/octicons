@@ -9,19 +9,29 @@ elif [[ $# -lt 1 ]]; then
   exit 1
 fi
 
-# the commit status context
-context="npm publish"
 _status=$1
 
-# get the published version of primer from its package.json
-version=$(jq -r .version lib/octicons_node/package.json)
-published="octicons@$version"
+packageStatus () {
+  version=$(jq -r .version $1)
+  rubygems=$(jq -r .rubygems $1)
+  npm=$(jq -r .name $1)
+  if [ "$rubygems" != "null" ]; then
+    name=$rubygems
+    # the commit status context
+    context="gem push"
+    file=$(echo $1 | sed -e 's/package\.json/lib\/**\/version.rb/')
+    version=$(grep -oE '"([0-9\.a-z\-]+)"' $file | sed -e 's/"//g')
+    message="https://rubygems.org/gems/$name/versions/$version"
+  else
+    name=$npm
+    # the commit status context
+    context="npm publish"
+    message="https://unpkg.com/$name@$version/"
+  fi
 
-message=""
-if [[ "$_status" = "success" ]]; then
-  # TODO point this at the contributing docs!
-  message="https://unpkg.com/$published/build/"
-fi
+  echo "📡 Transmitting publish status for $context $name@$version..."
+  $(npm bin)/commit-status "$_status" "$context" "$published" "$message"
+}
 
 # XXX this will go away if we build pushes instead of PRs
 if [[ "$TRAVIS_PULL_REQUEST_SHA" != "" ]]; then
@@ -30,5 +40,8 @@ if [[ "$TRAVIS_PULL_REQUEST_SHA" != "" ]]; then
   export TRAVIS_COMMIT=$TRAVIS_PULL_REQUEST_SHA
 fi
 
-echo "📡  Transmitting publish status for $published..."
-$(npm bin)/commit-status "$_status" "$context" "$published" "$message"
+if [[ "$_status" = "success" ]]; then
+  for filename in lib/**/package.json; do
+    packageStatus $filename
+  done
+fi
