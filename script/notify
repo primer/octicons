@@ -18,14 +18,14 @@ packageStatus () {
   if [ "$rubygems" != "null" ]; then
     name=$rubygems
     # the commit status context
-    context="gem push"
+    context="gem push $name"
     file=$(echo $1 | sed -e 's/package\.json/lib\/**\/version.rb/')
     version=$(grep -oE '"([0-9\.a-z\-]+)"' $file | sed -e 's/"//g')
     message="https://rubygems.org/gems/$name/versions/$version"
   else
     name=$npm
     # the commit status context
-    context="npm publish"
+    context="npm publish $name"
     message="https://unpkg.com/$name@$version/"
   fi
 
