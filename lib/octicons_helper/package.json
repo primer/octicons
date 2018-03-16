@@ -6,7 +6,7 @@
     "publish": "../../script/notify success package.json",
     "version": "../../script/rubyversion ./lib/octicons_helper/version.rb",
     "postinstall": "bundle install --path vendor/bundle",
-    "prepublishOnly": "gem build octicons_helper.gemspec && gem push octicons_helper-*.gem",
+    "prepare": "gem build octicons_helper.gemspec && gem push octicons_helper-*.gem",
     "test": "bundle exec rubocop && bundle exec rake"
   },
   "repository": {

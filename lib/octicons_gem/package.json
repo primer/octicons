@@ -7,7 +7,7 @@
     "postinstall": "bundle install --path vendor/bundle",
     "prepare": "../../script/build-json ./lib",
     "version": "../../script/rubyversion ./lib/octicons/version.rb",
-    "prepublishOnly": "gem build octicons.gemspec && gem push octicons-*.gem",
+    "prepare": "gem build octicons.gemspec && gem push octicons-*.gem",
     "test": "bundle exec rubocop && bundle exec rake"
   },
   "repository": {
