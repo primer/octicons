@@ -10,6 +10,7 @@ elif [[ $# -lt 1 ]]; then
 fi
 
 _status=$1
+_filename=$2
 
 packageStatus () {
   version=$(jq -r .version $1)
@@ -41,7 +42,5 @@ if [[ "$TRAVIS_PULL_REQUEST_SHA" != "" ]]; then
 fi
 
 if [[ "$_status" = "success" ]]; then
-  for filename in lib/**/package.json; do
-    packageStatus $filename
-  done
+  packageStatus $_filename
 fi

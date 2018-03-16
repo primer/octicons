@@ -11,6 +11,4 @@ then
   echo "🐦  Publishing PR (canary) release..."
 
   $(npm bin)/lerna publish --npm-tag=alpha --canary --exact --skip-git --yes
-
-  script/notify success
 fi
