@@ -5,7 +5,7 @@
   "scripts": {
     "version": "../../script/rubyversion ./lib/jekyll-octicons/version.rb",
     "postinstall": "bundle install --path vendor/bundle",
-    "prepublishOnly": "gem build jekyll-octicons.gemspec && gem push -q jekyll-octicons-*.gem",
+    "prepublishOnly": "gem build jekyll-octicons.gemspec && gem push -​-silent jekyll-octicons-*.gem",
     "postpublish": "../../script/notify success package.json",
     "test": "bundle exec rubocop && bundle exec rake"
   },
