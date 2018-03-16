@@ -3,10 +3,10 @@
   "version": "4.2.0",
   "description": "A rails helper that makes including svg Octicons simple.",
   "scripts": {
-    "publish": "../../script/notify success package.json",
     "version": "../../script/rubyversion ./lib/octicons_helper/version.rb",
     "postinstall": "bundle install --path vendor/bundle",
-    "prepare": "gem build octicons_helper.gemspec && gem push octicons_helper-*.gem",
+    "prepublishOnly": "gem build octicons_helper.gemspec && gem push octicons_helper-*.gem",
+    "postpublish": "../../script/notify success package.json",
     "test": "bundle exec rubocop && bundle exec rake"
   },
   "repository": {

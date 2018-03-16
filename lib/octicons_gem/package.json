@@ -3,11 +3,11 @@
   "version": "5.2.0",
   "description": "Don't install",
   "scripts": {
-    "publish": "../../script/notify success package.json",
-    "postinstall": "bundle install --path vendor/bundle",
-    "prepare": "../../script/build-json ./lib",
     "version": "../../script/rubyversion ./lib/octicons/version.rb",
-    "prepare": "gem build octicons.gemspec && gem push octicons-*.gem",
+    "prepare": "../../script/build-json ./lib",
+    "postinstall": "bundle install --path vendor/bundle",
+    "prepublishOnly": "gem build octicons.gemspec && gem push octicons-*.gem",
+    "postpublish": "../../script/notify success package.json",
     "test": "bundle exec rubocop && bundle exec rake"
   },
   "repository": {
