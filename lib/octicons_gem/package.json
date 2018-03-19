@@ -7,7 +7,7 @@
     "prepare": "../../script/build-json ./lib",
     "postinstall": "bundle install --path vendor/bundle",
     "prepublishOnly": "../../script/gem_publish",
-    "postpublish": "../../script/notify success package.json",
+    "postpublish": "../../script/notify success",
     "test": "bundle exec rubocop && bundle exec rake"
   },
   "repository": {

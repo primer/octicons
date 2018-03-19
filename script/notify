@@ -2,7 +2,7 @@
 set -e
 
 if [[ "$CI" != "true" ]]; then
-  echo "(notify bailing: not in CI) $2"
+  echo "(notify bailing: not in CI)"
   exit
 elif [[ $# -lt 1 ]]; then
   echo "No status provided!" >&2
@@ -10,37 +10,31 @@ elif [[ $# -lt 1 ]]; then
 fi
 
 _status=$1
-_filename=$2
 
-packageStatus () {
-  version=$(jq -r .version $1)
-  rubygems=$(jq -r .rubygems $1)
-  npm=$(jq -r .name $1)
-  if [ "$rubygems" != "null" ]; then
-    name=$rubygems
-    # the commit status context
-    context="gem push $name"
-    file=$(echo $1 | sed -e 's/package\.json/lib\/**\/version.rb/')
-    version=$(grep -oE '"([0-9\.a-z\-]+)"' $file | sed -e 's/"//g')
-    message="https://rubygems.org/gems/$name/versions/$version"
-  else
-    name=$npm
-    # the commit status context
-    context="npm publish $name"
-    message="https://unpkg.com/$name@$version/"
-  fi
+version=$(jq -r .version package.json)
+rubygems=$(jq -r .rubygems package.json)
+npm=$(jq -r .name $1)
+if [ "$rubygems" != "null" ]; then
+  name=$rubygems
+  # the commit status context
+  context="gem push $name"
+  file=$(echo $1 | sed -e 's/package\.json/lib\/**\/version.rb/')
+  version=$(grep -oE '"([0-9\.a-z\-]+)"' $file | sed -e 's/"//g')
+  message="https://rubygems.org/gems/$name/versions/$version"
+else
+  name=$npm
+  # the commit status context
+  context="npm publish $name"
+  message="https://unpkg.com/$name@$version/"
+fi
 
-  echo "📡 Transmitting publish status for $context $name@$version..."
-  $(npm bin)/commit-status "$_status" "$context" "$name@$version" "$message"
-}
+echo "📡 Transmitting publish status for $context $name@$version..."
+$(npm bin)/commit-status "$_status" "$context" "$name@$version" "$message"
+
 
 # XXX this will go away if we build pushes instead of PRs
 if [[ "$TRAVIS_PULL_REQUEST_SHA" != "" ]]; then
   # setting TRAVIS_COMMIT inline here is a fix for:
   # <https://github.com/taskworld/commit-status/issues/5>
   export TRAVIS_COMMIT=$TRAVIS_PULL_REQUEST_SHA
-fi
-
-if [[ "$_status" = "success" ]]; then
-  packageStatus $_filename
 fi
