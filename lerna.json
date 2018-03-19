@@ -3,7 +3,8 @@
   "packages": [
     "lib/octicons_node",
     "lib/octicons_gem",
-    "lib/octicons_helper"
+    "lib/octicons_helper",
+    "lib/jekyll-octicons"
   ],
   "version": "independent"
 }
