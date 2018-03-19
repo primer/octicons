@@ -13,13 +13,12 @@ _status=$1
 
 version=$(jq -r .version package.json)
 rubygems=$(jq -r .rubygems package.json)
-npm=$(jq -r .name $1)
+npm=$(jq -r .name package.json)
 if [ "$rubygems" != "null" ]; then
   name=$rubygems
   # the commit status context
   context="gem push $name"
-  file=$(echo $1 | sed -e 's/package\.json/lib\/**\/version.rb/')
-  version=$(grep -oE '"([0-9\.a-z\-]+)"' $file | sed -e 's/"//g')
+  version=$(grep -oE '"([0-9\.a-z\-]+)"' lib/**/version.rb | sed -e 's/"//g')
   message="https://rubygems.org/gems/$name/versions/$version"
 else
   name=$npm
