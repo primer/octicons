@@ -1,5 +1,4 @@
 #!/bin/bash
 set -e
 
-wait gem build octicons.gemspec
-wait gem push octicons-*.gem
+(gem build octicons.gemspec; gem push octicons-*.gem) & wait
