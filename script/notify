@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+echo "📡 📡 📡 📡 📡 notify $1"
+
 if [[ "$CI" != "true" ]]; then
   echo "(notify bailing: not in CI)"
   exit
@@ -14,8 +16,6 @@ _status=$1
 version=$(jq -r .version package.json)
 rubygems=$(jq -r .rubygems package.json)
 npm=$(jq -r .name package.json)
-
-echo "📡 📡 📡 📡 📡 notify"
 
 if [ "$rubygems" != "null" ]; then
   name=$rubygems
