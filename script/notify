@@ -9,6 +9,13 @@ elif [[ $# -lt 1 ]]; then
   exit 1
 fi
 
+# XXX this will go away if we build pushes instead of PRs
+if [[ "$TRAVIS_PULL_REQUEST_SHA" != "" ]]; then
+  # setting TRAVIS_COMMIT inline here is a fix for:
+  # <https://github.com/taskworld/commit-status/issues/5>
+  export TRAVIS_COMMIT=$TRAVIS_PULL_REQUEST_SHA
+fi
+
 _status=$1
 
 version=$(jq -r .version package.json)
@@ -30,11 +37,3 @@ fi
 
 echo "📡 Transmitting publish status for $context $name@$version..."
 $(npm bin)/commit-status "$_status" "$context" "$name@$version" "$message"
-
-
-# XXX this will go away if we build pushes instead of PRs
-if [[ "$TRAVIS_PULL_REQUEST_SHA" != "" ]]; then
-  # setting TRAVIS_COMMIT inline here is a fix for:
-  # <https://github.com/taskworld/commit-status/issues/5>
-  export TRAVIS_COMMIT=$TRAVIS_PULL_REQUEST_SHA
-fi
