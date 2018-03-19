@@ -5,7 +5,7 @@
   "scripts": {
     "version": "../../script/rubyversion ./lib/octicons_helper/version.rb",
     "postinstall": "bundle install --path vendor/bundle",
-    "prepublishOnly": "gem build octicons_helper.gemspec && gem push octicons_helper-*.gem",
+    "prepublishOnly": "../../script/gem_publish",
     "postpublish": "../../script/notify success package.json",
     "test": "bundle exec rubocop && bundle exec rake"
   },
