@@ -1,7 +1,7 @@
 {
   "lerna": "2.9.0",
   "packages": [
-    "lib/octicons",
+    "lib/octicons_node",
     "lib/octicons_gem"
   ],
   "version": "independent"
