@@ -1,10 +1,11 @@
 #!/bin/bash
 set -e
 
-echo "before date"
-date
+if [[ "$CI" != "true" ]]; then
+  echo "(bailing: not in CI)"
+  exit
+fi
 
-(gem build octicons.gemspec; gem push octicons-*.gem) & wait
+rubygems=$(jq -r .rubygems package.json)
 
-echo "after date"
-date
+(gem build $rubygems.gemspec; gem push $rubygems-*.gem) & wait
