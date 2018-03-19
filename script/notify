@@ -36,4 +36,4 @@ else
 fi
 
 echo "📡 Transmitting publish status for $context $name@$version..."
-$(npm bin)/commit-status "$_status" "$context" "$name@$version" "$message"
+commit-status "$_status" "$context" "$name@$version" "$message"
