@@ -12,3 +12,5 @@ then
 
   $(npm bin)/lerna publish --npm-tag=alpha --canary --exact --skip-git --yes
 fi
+
+cat lerna-debug.log
