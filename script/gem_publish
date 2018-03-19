@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+
+echo "before date"
+date
+
+(gem build octicons.gemspec; gem push octicons-*.gem) & wait
+
+echo "after date"
+date
