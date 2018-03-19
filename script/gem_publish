@@ -9,3 +9,9 @@ fi
 rubygems=$(jq -r .rubygems package.json)
 
 (gem build $rubygems.gemspec; gem push $rubygems-*.gem) & wait
+
+retVal=$?
+if [ ! $? -eq 0 ]; then
+    ../../script/notify failure
+fi
+exit $retVal
