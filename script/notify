@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-echo "📡 📡 📡 📡 📡 notify $1"
-
 if [[ "$CI" != "true" ]]; then
   echo "(notify bailing: not in CI)"
   exit
