@@ -17,6 +17,8 @@
     "url": "https://github.com/primer/octicons/issues"
   },
   "scripts": {
+    "publish": "../../script/notify success",
+    "prepublishOnly": "../../script/notify pending",
     "prepare": "cp -R ../build . && cp index.scss build/build.css",
     "test": "ava --verbose 'tests/*.js'"
   },

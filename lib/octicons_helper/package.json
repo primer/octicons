@@ -5,7 +5,8 @@
   "scripts": {
     "version": "../../script/rubyversion ./lib/octicons_helper/version.rb",
     "postinstall": "bundle install --path vendor/bundle",
-    "prepublishOnly": "gem build octicons_helper.gemspec && gem push octicons_helper-*.gem",
+    "prepublishOnly": "../../script/notify pending && ../../script/gem_publish",
+    "publish": "../../script/notify success",
     "test": "bundle exec rubocop && bundle exec rake"
   },
   "repository": {
@@ -17,6 +18,7 @@
   "bugs": {
     "url": "https://github.com/primer/octicons/issues"
   },
+  "rubygems": "octicons_helper",
   "homepage": "https://github.com/primer/octicons#readme",
   "dependencies": {
     "octicons_gem": "5.2.0"

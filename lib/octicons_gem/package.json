@@ -6,13 +6,15 @@
     "postinstall": "bundle install --path vendor/bundle",
     "prepare": "cp -R ../build ./lib/",
     "version": "../../script/rubyversion ./lib/octicons/version.rb",
-    "prepublishOnly": "gem build octicons.gemspec && gem push octicons-*.gem",
+    "prepublishOnly": "../../script/notify pending && ../../script/gem_publish",
+    "publish": "../../script/notify success",
     "test": "bundle exec rubocop && bundle exec rake"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/primer/octicons.git"
   },
+  "rubygems": "octicons",
   "author": "GitHub, Inc.",
   "license": "MIT",
   "homepage": "https://github.com/primer/octicons"
