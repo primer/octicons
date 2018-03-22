@@ -7,7 +7,7 @@
     "release": "script/clean && script/export && $(npm bin)/lerna publish --exact --since \"v$(npm info octicons version)\""
   },
   "figma": {
-    "url": "https://wild.figma.com/file/cWhYUnF0z7Y0ljSuyulNEuN0/Octicons"
+    "url": "https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons"
   },
   "devDependencies": {
     "ava": "^0.22.0",

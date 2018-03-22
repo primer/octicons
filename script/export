@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const { figma } = require('../package.json')
-const { progress, downloadSVG } = require('../lib/utils/export.js')
+const { progress, downloadSVG } = require('./utils.js')
 const fs = require('fs-extra')
 const path = require('path')
 const SVGO = require('svgo')
