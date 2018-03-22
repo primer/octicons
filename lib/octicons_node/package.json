@@ -19,7 +19,7 @@
   "scripts": {
     "publish": "../../script/notify success",
     "prepublishOnly": "../../script/notify pending",
-    "prepare": "../../script/build-svg ./build && ../../script/build-json ./build && cp index.scss build/build.css",
+    "prepare": "cp -R ../build . && cp index.scss build/build.css",
     "test": "ava --verbose 'tests/*.js'"
   },
   "keywords": [

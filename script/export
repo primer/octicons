@@ -1,12 +1,175 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env node
 
-outdir=lib/svg
-rm -rf $outdir
-mkdir -p $outdir
+const { figma } = require('../package.json')
+const { progress, downloadSVG } = require('./utils.js')
+const fs = require('fs-extra')
+const path = require('path')
+const SVGO = require('svgo')
+const yaml = require('js-yaml')
+const got = require('got')
+const spinner = require('ora')("")
 
-# Export svg slices from sketch document
-$(npm bin)/so-sketchy export slices octicons-master.sketch --output=$outdir
+// Fail if there's no figma file key
+let figmaFileKey;
+try {
+  figmaFileKey = figma.url.match(/file\/([a-z0-9]+)\//i)[1]
+} catch (e) {
+  console.error("Cannot find figma file key in package.json!", e)
+  return process.exit(1)
+}
 
-# Minify the svg
-$(npm bin)/svgo -f $outdir --config=$(dirname $0)/../.svgo.yml
+spinner.info(`Exporting octicons from ${figma.url} file`)
+
+// Where we're putting the exported SVG and data.json
+// so the libraries can use it
+const outputDir = path.resolve(__dirname, "../lib/build")
+
+let dCount = 0
+let oCount = 0
+
+const getFigmaComponents = () => {
+  return new Promise((resolve, reject) => {
+    spinner.info("Getting components from the figma file")
+    spinner.start(`Contacting ${process.env.FIGMA_DOMAIN}`)
+    got.get(`${process.env.FIGMA_DOMAIN}/v1/files/${figmaFileKey}`, {
+      headers: { "Content-Type": "application/json", "x-figma-token": process.env.FIGMA_TOKEN },
+      json: true
+    })
+    .then( response => {
+      spinner.start(`Processing response`)
+      let components = []
+      const check = (c) => {
+        if (c.type == "COMPONENT") {
+          components.push(c)
+        } else if (c.children) {
+          c.children.forEach(check)
+        }
+      }
+      response.body.document.children.forEach(check)
+      return components.map(c => {
+        c["description"] = response.body.components[c.id].description
+        return c
+      })
+    })
+    .then( components => {
+      oCount = components.length
+      spinner.succeed(`${components.length} icons found in the figma file`)
+      return resolve(components)
+    })
+    .catch( err => {
+      spinner.fail("Error: Getting getting octicons from figma file")
+      reject(err)
+    })
+  })
+}
+
+const getFigmaImageUrls = (componentIds) => {
+  spinner.info("Exporting figma components as SVG")
+  return new Promise((resolve, reject) => {
+    got.get(`${process.env.FIGMA_DOMAIN}/v1/images/${figmaFileKey}`, {
+      query: {
+        ids: componentIds,
+        format: "svg"
+      },
+      headers: { "Content-Type": "application/json", "x-figma-token": process.env.FIGMA_TOKEN },
+      json: true
+    })
+    .then( response => {
+      if( response.body.err ) {
+        reject(response.body.err)
+      } else {
+        spinner.succeed(`Successfully exported components`)
+        resolve(response.body.images)
+      }
+    })
+    .catch( err => reject(err) )
+  })
+}
+
+// Clear the build directory
+Promise.resolve(fs.removeSync(outputDir))
+
+// Get the components
+.then(() => getFigmaComponents())
+
+// Construct a new data object
+.then( components => {
+
+  // returned data will be a new Object
+  let data = {}
+
+  // Map all components to a new object
+  components.forEach((c) => {
+
+    // Keywords extracted from description when that's ready
+    let keywords = (c.description || "").match(/^keywords: (.+)$/mi)
+
+    // If we have a match, get keywords and split by comma
+    keywords = keywords ? keywords.pop().split(", ") : []
+
+    // Create a data object
+    data[c.name] = {
+      name: c.name,
+      figma: {
+        id: c.id,
+        file: figmaFileKey
+      },
+      keywords: keywords,
+      width: c.absoluteBoundingBox.width,
+      height: c.absoluteBoundingBox.height,
+    }
+  })
+  return data
+})
+
+.then( data => {
+
+  // Make a query string with all the component ids
+  let componentIds = Object.values(data).map((c) => c.figma.id ).join(",")
+
+  // Request all the image export URLs from figma
+  return getFigmaImageUrls(componentIds)
+  .then(images => {
+
+    let svgo = new SVGO(Object.assign(
+      {},
+      yaml.safeLoad(fs.readFileSync(path.resolve(__dirname,'../.svgo.yml'), 'utf8'))
+    ))
+
+    spinner.info("Downloading SVG files from aws")
+    spinner.start("")
+    // For each octicon
+    return Promise.all(Object.values(data).map(icon => {
+
+      // Request the svg data from aws
+      return downloadSVG(images[icon.figma.id], icon.name, () => {
+          spinner.text = `${progress(dCount, oCount)} Downloading ${icon.name} icon`
+        })
+        .then(svg => {
+          dCount++
+          return svgo.optimize(svg, {})
+            .then(optimized => {
+              icon.path = /<svg.+>(.+)<\/svg>/g.exec(optimized.data).pop()
+
+              return fs.ensureDir(path.join(outputDir, "/svg"))
+                .then(() => fs.writeFileSync(path.resolve(outputDir, `svg/${icon.name}.svg`), optimized.data, "utf8"))
+            }).catch((err) => {
+              console.error("Something went wrong optimizing the svg data!", err)
+              process.exit(1)
+            })
+        })
+    }))
+  })
+  .then(() => {
+    spinner.stopAndPersist({
+      text: `${progress(dCount, oCount)} ${Object.keys(data).length} icons downloaded`
+    })
+    spinner.info("Writing data out to lib/build/data.json")
+    fs.writeFileSync(path.resolve(outputDir, `data.json`), JSON.stringify(data), "utf8")
+    console.warn("\n  🎉 All done! Icons successfully exported.")
+  })
+
+}).catch((err) => {
+  console.error(err)
+  process.exit(1)
+})

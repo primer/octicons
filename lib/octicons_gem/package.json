@@ -3,9 +3,9 @@
   "version": "5.2.0",
   "description": "Don't install",
   "scripts": {
-    "version": "../../script/rubyversion ./lib/octicons/version.rb",
-    "prepare": "../../script/build-json ./lib",
     "postinstall": "bundle install --path vendor/bundle",
+    "prepare": "cp -R ../build ./lib/",
+    "version": "../../script/rubyversion ./lib/octicons/version.rb",
     "prepublishOnly": "../../script/notify pending && ../../script/gem_publish",
     "publish": "../../script/notify success",
     "test": "bundle exec rubocop && bundle exec rake"

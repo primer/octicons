@@ -1,25 +1,22 @@
 {
   "private": true,
   "scripts": {
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "script/export && lerna bootstrap",
     "test": "ava tests/*.js && lerna run test",
-    "precommit": "lint-staged",
-    "alpha-release": "script/clean && $(npm bin)/lerna publish --npm-tag=alpha --canary --exact --skip-git",
-    "release": "script/clean && $(npm bin)/lerna publish --exact --since \"v$(npm info octicons version)\""
+    "alpha-release": "script/clean && script/export && $(npm bin)/lerna publish --npm-tag=alpha --canary --exact --skip-git",
+    "release": "script/clean && script/export && $(npm bin)/lerna publish --exact --since \"v$(npm info octicons version)\""
   },
-  "lint-staged": {
-    "octicons-master.sketch": [
-      "script/export",
-      "git add lib"
-    ]
+  "figma": {
+    "url": "https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons"
   },
   "devDependencies": {
     "ava": "^0.22.0",
     "commit-status": "^4.3.0",
-    "husky": "^0.14.3",
+    "fs-extra": "^5.0.0",
+    "got": "^8.3.0",
+    "js-yaml": "^3.11.0",
     "lerna": "2.9.0",
-    "lint-staged": "^4.2.3",
-    "so-sketchy": "~47.1.1",
-    "svgo": "^0.7.2"
+    "ora": "^2.0.0",
+    "svgo": "^1.0.5"
   }
 }
