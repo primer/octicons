@@ -36,31 +36,45 @@ Once the build passes on your pull request, you should see statuses with all the
 
 # Maintainers accepting changes
 
+Once submitted changes have been agreed upon, these instructions will guide core Primer team members in merging in those changes.
+
 ## Step 1, Save:
+
+Save the contributor’s figma file as a `.fig` file.
 
 [<img src="https://user-images.githubusercontent.com/54012/37809888-940f5d38-2e0e-11e8-957f-99c162a1d4ff.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37809888-940f5d38-2e0e-11e8-957f-99c162a1d4ff.gif)
 
 ## Step 2, Import:
+
+Drag and drop, or add the file to the main team project. Make sure it’s name is different from the master Octicons file.
 
 [<img src="https://user-images.githubusercontent.com/54012/37809879-8d9824ee-2e0e-11e8-9b1d-e83316192eb0.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37809879-8d9824ee-2e0e-11e8-9b1d-e83316192eb0.gif)
 
 
 ## Step 3, Publish:
 
-Publish changed Octicon to team library.
+From the new imported file, publish the updated or new components to the team library. This published component makes importing into the master document easier.
 
 [<img src="https://user-images.githubusercontent.com/54012/37807772-6734f926-2e04-11e8-98a0-9b4c73411bd3.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37807772-6734f926-2e04-11e8-98a0-9b4c73411bd3.gif)
 
 ## Step 4, Add:
 
-Import changed Octicon into master Octicons file.
+In the Team Library you will see the new Octicons file, and all the components from that file. Add the new components to the master Octicons file. It makes changing easier if you drag it on top of the icon you are changing.
 
 [<img src="https://user-images.githubusercontent.com/54012/37807775-6b1dea52-2e04-11e8-804a-a41c6bc04fd2.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37807775-6b1dea52-2e04-11e8-804a-a41c6bc04fd2.gif)
 
 ## Step 5, Replace:
 
-Replace old Octicon with updated Octicon.
+Right click on the new component instance and select "Detach Instance". Then toggle both the old and new components open. Move the shape from the new component into the old component. Delete the old component’s shape. Delete the empty new component container.
 
 [<img src="https://user-images.githubusercontent.com/54012/37807780-6ddba626-2e04-11e8-9a6b-749ac5b800fe.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37807780-6ddba626-2e04-11e8-9a6b-749ac5b800fe.gif)
+
+## Step 6, Publishing:
+
+Publish the component changes to your team library. You can now delete the imported `.fig` file from the contributor.
+
+[<img src="https://user-images.githubusercontent.com/54012/37812350-cc2349ba-2e1c-11e8-8b80-d9ff2f8d4ea3.png" width="600"/>](https://user-images.githubusercontent.com/54012/37812350-cc2349ba-2e1c-11e8-8b80-d9ff2f8d4ea3.png)
+
+In this repository run the script `npm run bump` to bump the library versions. Commit the version number changes to a new pull request.
 
 [master-octicons]: https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons

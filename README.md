@@ -8,7 +8,7 @@ Octicons are a set of SVG icons built by GitHub for GitHub. This repository is a
 
 ## Adding/Updating an icon
 
-Read through our [contributing guide](./.github/CONTRIBUTING.md#icons) if you're planning on adding or updating one of the icons.
+Read through our [contributing guide](./.github/CONTRIBUTING.md#adding-or-updating-icons) if you're planning on adding or updating one of the icons.
 
 ## Libraries
 
