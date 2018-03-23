@@ -36,16 +36,31 @@ Submit a Pull Request with your updated file in the `figma.url` field of the `pa
 
 ## Maintainers
 
-1. Publish changed Octicon to team library.
+### Step 1, Save:
 
-   [<img src="https://user-images.githubusercontent.com/54012/37807772-6734f926-2e04-11e8-98a0-9b4c73411bd3.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37807772-6734f926-2e04-11e8-98a0-9b4c73411bd3.gif)
+[<img src="https://user-images.githubusercontent.com/54012/37809888-940f5d38-2e0e-11e8-957f-99c162a1d4ff.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37809888-940f5d38-2e0e-11e8-957f-99c162a1d4ff.gif)
 
-2. Import changed Octicon into master Octicons file.
+### Step 2, Import:
 
-   [<img src="https://user-images.githubusercontent.com/54012/37807775-6b1dea52-2e04-11e8-804a-a41c6bc04fd2.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37807775-6b1dea52-2e04-11e8-804a-a41c6bc04fd2.gif)
+[<img src="https://user-images.githubusercontent.com/54012/37809879-8d9824ee-2e0e-11e8-9b1d-e83316192eb0.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37809879-8d9824ee-2e0e-11e8-9b1d-e83316192eb0.gif)
 
-3. Replace old Octicon with updated Octicon.
 
-   [<img src="https://user-images.githubusercontent.com/54012/37807780-6ddba626-2e04-11e8-9a6b-749ac5b800fe.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37807780-6ddba626-2e04-11e8-9a6b-749ac5b800fe.gif)
+### Step 3, Publish:
+
+Publish changed Octicon to team library.
+
+[<img src="https://user-images.githubusercontent.com/54012/37807772-6734f926-2e04-11e8-98a0-9b4c73411bd3.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37807772-6734f926-2e04-11e8-98a0-9b4c73411bd3.gif)
+
+### Step 4, Add:
+
+Import changed Octicon into master Octicons file.
+
+[<img src="https://user-images.githubusercontent.com/54012/37807775-6b1dea52-2e04-11e8-804a-a41c6bc04fd2.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37807775-6b1dea52-2e04-11e8-804a-a41c6bc04fd2.gif)
+
+### Step 5, Replace:
+
+Replace old Octicon with updated Octicon.
+
+[<img src="https://user-images.githubusercontent.com/54012/37807780-6ddba626-2e04-11e8-9a6b-749ac5b800fe.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37807780-6ddba626-2e04-11e8-9a6b-749ac5b800fe.gif)
 
 [master-octicons]: https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons
