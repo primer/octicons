@@ -2,28 +2,35 @@
 
 ## Contributing
 
-1. **Duplicate:** The first step is to make a copy of the [master Octicons file][master-octicons] to your drafts folder. You can do this from the dropdown menu, select "Duplicate to your drafts".
+### Step 1, Duplicate:
 
-   [<img src="https://user-images.githubusercontent.com/54012/37802948-c10dca06-2de9-11e8-98c3-dd45cd561865.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37802948-c10dca06-2de9-11e8-98c3-dd45cd561865.gif)
+The first step is to make a copy of the [master Octicons file][master-octicons] to your drafts folder. You can do this from the dropdown menu, select "Duplicate to your drafts".
 
-2. **Edit:** In your duplicate file, make proposed changes. In the example, we’ll change the logo red.
+[<img src="https://user-images.githubusercontent.com/54012/37802948-c10dca06-2de9-11e8-98c3-dd45cd561865.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37802948-c10dca06-2de9-11e8-98c3-dd45cd561865.gif)
 
-   [<img src="https://user-images.githubusercontent.com/54012/37803022-14d1a0fe-2dea-11e8-862d-b7ef22c918cf.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37803022-14d1a0fe-2dea-11e8-862d-b7ef22c918cf.gif)
+### Step 2, Edit:
 
-3. **Share:** Make sure your duplicate file can be viewed by others. In the share menu "Anyone with link" should be set to "can view". It will also simplify things if you give your file a unique name ie _Octicons (Jon’s Changes)_.
+In your duplicate file, make proposed changes. In the example, we’ll change the logo red.
 
-   [<img src="https://user-images.githubusercontent.com/54012/37803059-3ca54432-2dea-11e8-8c27-36c83a2dc5cb.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37803059-3ca54432-2dea-11e8-8c27-36c83a2dc5cb.gif)
+[<img src="https://user-images.githubusercontent.com/54012/37803022-14d1a0fe-2dea-11e8-862d-b7ef22c918cf.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37803022-14d1a0fe-2dea-11e8-862d-b7ef22c918cf.gif)
 
-4. **(Optional) Pull Request:** Submit a Pull Request with your updated file in the `figma.url` field of the `package.json`. This will generate an alpha release of the icons with your set. For testing.
+### Step 3, Share:
 
-   ```js
-   "figma": {
-     "url": "https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons"
-   }
-   ```
+Make sure your duplicate file can be viewed by others. In the share menu "Anyone with link" should be set to "can view". Copy the link. It will also simplify things if you give your file a unique name ie _Octicons (Jon’s Changes)_.
 
-   ![image](https://user-images.githubusercontent.com/54012/37808540-1448e160-2e08-11e8-8a16-cbd94e4da2e0.png)
+[<img src="https://user-images.githubusercontent.com/54012/37803059-3ca54432-2dea-11e8-8c27-36c83a2dc5cb.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37803059-3ca54432-2dea-11e8-8c27-36c83a2dc5cb.gif)
 
+### Step 4, Pull Request: _(Optional)_
+
+Submit a Pull Request with your updated file in the `figma.url` field of the `package.json`. This will generate an alpha release of the icons with your set. For testing.
+
+```js
+"figma": {
+ "url": "https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons"
+}
+```
+
+![image](https://user-images.githubusercontent.com/54012/37808540-1448e160-2e08-11e8-8a16-cbd94e4da2e0.png)
 
 ---
 
