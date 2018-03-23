@@ -3,8 +3,8 @@
   "scripts": {
     "bootstrap": "script/export && lerna bootstrap",
     "test": "ava tests/*.js && lerna run test",
-    "alpha-release": "script/clean && script/export && $(npm bin)/lerna publish --npm-tag=alpha --canary --exact --skip-git",
-    "release": "script/clean && script/export && $(npm bin)/lerna publish --exact --since \"v$(npm info octicons version)\""
+    "release": "script/clean && script/export && $(npm bin)/lerna publish --exact --since \"v$(npm info octicons version)\"",
+    "bump": "lerna publish --exact --skip-npm --since \"v$(npm info octicons version)\""
   },
   "figma": {
     "url": "https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons"
