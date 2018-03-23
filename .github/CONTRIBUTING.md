@@ -1,6 +1,10 @@
 # Icons
 
-## Contributing
+## Adding or Updating
+
+If you plan to update an icon and/or add a new icon follow these steps. These steps will be the same; If you are a core Primer team member, or a contributor wanting to try something new.
+
+Complete steps [1](#step-1-duplicate) - [3](#step-3-share) and notify us of your changes, either with [a pull request](#step-4-pull-request-optional) or [an  issue](https://github.com/primer/octicons/issues/new) describing your changes. Screen shots welcome! 🎉
 
 ### Step 1, Duplicate:
 
