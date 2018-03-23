@@ -22,15 +22,13 @@ Make sure your duplicate file can be viewed by others. In the share menu "Anyone
 
 ### Step 4, Pull Request: _(Optional)_
 
-Submit a Pull Request with your updated file in the `figma.url` field of the `package.json`. This will generate an alpha release of the icons with your set. For testing.
+You can submit a pull request with the url of your updated file. Doing so will generate alpha releases of [all the libraries that distribute Octicons](https://github.com/primer/octicons#libraries). Change the figma url configuration in the root [package.json](https://github.com/primer/octicons/blob/master/package.json#L10) file of this repository.
 
-```js
-"figma": {
- "url": "https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons"
-}
-```
+Once the build passes on your pull request, you should see statuses with all the alpha versions of the libraries. You can then use these to test your changes.
 
-![image](https://user-images.githubusercontent.com/54012/37808540-1448e160-2e08-11e8-8a16-cbd94e4da2e0.png)
+[Here is an example pull request](https://github.com/primer/octicons/pull/206)
+
+[<img src="https://user-images.githubusercontent.com/54012/37811102-45ec2abc-2e15-11e8-8c1d-2d162ddcdad2.png" width="700"/>](https://user-images.githubusercontent.com/54012/37811102-45ec2abc-2e15-11e8-8c1d-2d162ddcdad2.png)
 
 ---
 
