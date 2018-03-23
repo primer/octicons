@@ -2,7 +2,7 @@
 set -e
 
 if [[ "$CI" != "true" ]]; then
-  echo "(notify bailing: not in CI)"
+  echo "(bailing: not in CI)"
   exit
 elif [[ $# -lt 1 ]]; then
   echo "No status provided!" >&2
