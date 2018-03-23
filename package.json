@@ -3,7 +3,6 @@
   "scripts": {
     "bootstrap": "script/export && lerna bootstrap",
     "test": "ava tests/*.js && lerna run test",
-    "release": "script/clean && script/export && $(npm bin)/lerna publish --exact --since \"v$(npm info octicons version)\"",
     "bump": "lerna publish --exact --skip-npm --since \"v$(npm info octicons version)\""
   },
   "figma": {
