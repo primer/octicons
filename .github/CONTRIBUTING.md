@@ -2,7 +2,7 @@
 
 If you plan to update an icon and/or add a new icon follow these steps. These steps will be the same for core primer members and contributors.
 
-Complete steps 1 - 3 and notify us of your changes, either with a pull request or an issue describing your changes. Screen shots welcome! 🎉
+Complete steps 1 - 3 and notify us of your changes, either with a pull request or an issue describing your changes. Screenshots welcome! 🎉
 
 ## Step 1, Duplicate:
 
@@ -12,7 +12,7 @@ The first step is to make a copy of the [master Octicons file][master-octicons] 
 
 ## Step 2, Edit:
 
-In your duplicate file, make proposed changes. In the example, we’ll change the logo red. It will also simplify things if you give your file a unique name ie _Octicons (Jon’s Changes)_.
+In your duplicate file, make proposed changes. In the example, we’ll make the GitHub logo red. It will also simplify things if you give your file a unique name e.g. _Octicons (Jon’s Changes)_.
 
 [<img src="https://user-images.githubusercontent.com/54012/37803022-14d1a0fe-2dea-11e8-862d-b7ef22c918cf.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37803022-14d1a0fe-2dea-11e8-862d-b7ef22c918cf.gif)
 
@@ -46,7 +46,7 @@ Save the contributor’s figma file as a `.fig` file.
 
 ## Step 2, Import:
 
-Drag and drop, or add the file to the main team project. Make sure it’s name is different from the master Octicons file.
+Drag and drop, or add the file to the main team project. Make sure its name is different from the master Octicons file.
 
 [<img src="https://user-images.githubusercontent.com/54012/37809879-8d9824ee-2e0e-11e8-9b1d-e83316192eb0.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37809879-8d9824ee-2e0e-11e8-9b1d-e83316192eb0.gif)
 
@@ -75,6 +75,6 @@ Publish the component changes to your team library. You can now delete the impor
 
 [<img src="https://user-images.githubusercontent.com/54012/37812350-cc2349ba-2e1c-11e8-8b80-d9ff2f8d4ea3.png" width="600"/>](https://user-images.githubusercontent.com/54012/37812350-cc2349ba-2e1c-11e8-8b80-d9ff2f8d4ea3.png)
 
-In this repository run the script `npm run bump` to bump the library versions. Commit the version number changes to a new pull request.
+Create a release branch, and run `npm run bump`. This will guide you through a prompt asking what all the new versions of the packages should be. After, push up your branch and open a pull request into master.
 
 [master-octicons]: https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons
