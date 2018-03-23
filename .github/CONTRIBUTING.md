@@ -1,8 +1,8 @@
 # Adding or Updating icons
 
-If you plan to update an icon and/or add a new icon follow these steps. These steps will be the same; If you are a core Primer team member, or a contributor wanting to try something new.
+If you plan to update an icon and/or add a new icon follow these steps. These steps will be the same for core primer members and contributors.
 
-Complete steps [1](#step-1-duplicate) - [3](#step-3-share) and notify us of your changes, either with [a pull request](#step-4-pull-request-optional) or [an  issue](https://github.com/primer/octicons/issues/new) describing your changes. Screen shots welcome! 🎉
+Complete steps 1 - 3 and notify us of your changes, either with a pull request or an issue describing your changes. Screen shots welcome! 🎉
 
 ## Step 1, Duplicate:
 
@@ -12,19 +12,19 @@ The first step is to make a copy of the [master Octicons file][master-octicons] 
 
 ## Step 2, Edit:
 
-In your duplicate file, make proposed changes. In the example, we’ll change the logo red.
+In your duplicate file, make proposed changes. In the example, we’ll change the logo red. It will also simplify things if you give your file a unique name ie _Octicons (Jon’s Changes)_.
 
 [<img src="https://user-images.githubusercontent.com/54012/37803022-14d1a0fe-2dea-11e8-862d-b7ef22c918cf.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37803022-14d1a0fe-2dea-11e8-862d-b7ef22c918cf.gif)
 
 ## Step 3, Share:
 
-Make sure your duplicate file can be viewed by others. In the share menu "Anyone with link" should be set to "can view". Copy the link. It will also simplify things if you give your file a unique name ie _Octicons (Jon’s Changes)_.
+Make sure your duplicate file can be viewed by others. In the share menu "Anyone with link" should be set to "can view". Copy the link.
 
 [<img src="https://user-images.githubusercontent.com/54012/37803059-3ca54432-2dea-11e8-8c27-36c83a2dc5cb.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37803059-3ca54432-2dea-11e8-8c27-36c83a2dc5cb.gif)
 
 ## Step 4, Pull Request: _(Optional)_
 
-You can submit a pull request with the url of your updated file. Doing so will generate alpha releases of [all the libraries that distribute Octicons](https://github.com/primer/octicons#libraries). Change the figma url configuration in the root [package.json](https://github.com/primer/octicons/blob/master/package.json#L10) file of this repository.
+You can submit a pull request updating the `figma.url` configuration in the root [package.json](https://github.com/primer/octicons/blob/master/package.json#L10) with your figma file. Doing so will generate alpha releases of [all the libraries that distribute Octicons](https://github.com/primer/octicons#libraries).
 
 Once the build passes on your pull request, you should see statuses with all the alpha versions of the libraries. You can then use these to test your changes.
 
@@ -36,7 +36,7 @@ Once the build passes on your pull request, you should see statuses with all the
 
 # Maintainers accepting changes
 
-Once submitted changes have been agreed upon, these instructions will guide core Primer team members in merging in those changes.
+Once submitted changes have been agreed upon, these instructions will guide core primer team members in merging in those changes.
 
 ## Step 1, Save:
 
