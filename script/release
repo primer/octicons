@@ -7,4 +7,4 @@ if [[ "$CI" != "true" ]]; then
   exit
 fi
 
-$(npm bin)/lerna publish --exact --since \"v$(npm info octicons version)\"
+$(npm bin)/lerna exec -- $(pwd)/script/try-release
