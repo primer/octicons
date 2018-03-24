@@ -2,6 +2,26 @@ language: node_js
 node_js:
   - 8
 
+script:
+  - npm test
+
 before_script:
   # XXX this is a fix for nokogiri building on Travis
   - npm run bootstrap
+
+after_success:
+  # Setup rubygems creds
+  - curl -u $RUBYGEMS_USER:$RUBYGEMS_PW https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials
+  - chmod 0600 ~/.gem/credentials
+  # this will short-circuit the publish step if it fails to interpolate $NPM_API_KEY
+  - npm config set "//registry.npmjs.org/:_authToken=\${NPM_API_KEY}"
+  - script/after_success
+
+deploy:
+  # publish "final" releases on master
+  - provider: script
+    script: script/release
+    skip_cleanup: true
+    on:
+      branch: master
+      tags: false

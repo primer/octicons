@@ -1,12 +1,18 @@
 plugins:
   - removeTitle: true
+  - removeViewBox: false
   - removeStyleElement: true
   - removeAttrs:
-      attrs: 
+      attrs:
+        - xmlns:xlink
         - id
         - class
         - data-name
         - fill
+        - transform
+        - href
+        - clip-path
+        - clip-rule
   - removeEmptyContainers: true
   - sortAttrs: true
   - removeUselessDefs: true
