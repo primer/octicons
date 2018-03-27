@@ -13,8 +13,9 @@
   ],
   "scripts": {
     "lint": "$(npm bin)/github-lint",
-    "build": "$(npm bin)/babel index.js -d build",
-    "prepare": "npm run build"
+    "publish": "../../script/notify success",
+    "prepublishOnly": "../../script/notify pending",
+    "prepare": "node script/build.js"
   },
   "bugs": {
     "url": "https://github.com/primer/octicons/issues"
@@ -36,15 +37,11 @@
   "peerDependencies": {
     "react": ">=16.2.0"
   },
-  "dependencies": {
-    "octicons": "7.1.0",
-    "react": "^16.2.0"
-  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "eslint": "^4.18.1",
-    "eslint-plugin-github": "^0.23.0"
+    "lodash": "^4.17.5",
+    "octicons": "7.2.0"
   }
 }
