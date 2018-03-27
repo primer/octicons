@@ -1,9 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "lint": "$(npm bin)/lerna exec npm run lint",
-    "test": "ava tests/*.js && lerna run test",
     "bootstrap": "script/export && lerna bootstrap",
+    "test": "ava tests/*.js && lerna run test",
     "bump": "lerna publish --exact --skip-npm --since \"v$(npm info octicons version)\""
   },
   "figma": {
