@@ -28,7 +28,7 @@ You can also import only the icons you need by importing the specific icon names
 
 ```js
 // Example usage
-import { AlertOcticon, RepoOcticon, XOcticon } from "@github/octicons-react"
+import { AlertOcticon, RepoOcticon, XOcticon } from "@github/octicons-react/named"
 
 return (
   <AlertOcticon />
@@ -41,11 +41,11 @@ By default the octicons have `vertical-align: text-bottom;` applied to them. But
 
 ```js
 // Example usage
-import { RepoOcticon } from "@github/octicons-react"
+import Octicon from "@github/octicons-react"
 
 return (
   <h1>
-    <RepoOcticon large middle /> github/github
+    <Octicon name="repo" large middle /> github/github
   </h1>
 )
 ```
@@ -57,11 +57,11 @@ You have the option to add accessibility information to the icon using `aria-lab
 
 ```js
 // Example usage
-import { PlusOcticon } from "@github/octicons-react"
+import Octicon from "@github/octicons-react"
 
 return (
   <button>
-    <PlusOcticon ariaLabel="Add new item" /> New
+    <Octicon name="plus" ariaLabel="Add new item" /> New
   </button>
 )
 ```
@@ -79,12 +79,12 @@ The properties `large`, `medium`, `small` are available for setting the size of 
 
 ```js
 // Example usage
-import { LogoGithubOcticon } from "@github/octicons-react"
+import Octicon from "@github/octicons-react"
 
 return (
   <h1>
     <a href="https://github.com">
-      <LogoGithubOcticon large ariaLabel="GitHub"/>
+      <Octicon name="logo-github" large ariaLabel="GitHub"/>
     </a>
   </h1>
 )
