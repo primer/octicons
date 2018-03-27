@@ -12,7 +12,6 @@
     "build"
   ],
   "scripts": {
-    "lint": "$(npm bin)/github-lint",
     "publish": "../../script/notify success",
     "prepublishOnly": "../../script/notify pending",
     "prepare": "node script/build.js"
