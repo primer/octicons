@@ -8,7 +8,8 @@
   "main": "build/index.js",
   "repository": "https://github.com/primer/octicons.git",
   "files": [
-    "build"
+    "build",
+    "named.js"
   ],
   "scripts": {
     "publish": "../../script/notify success",
