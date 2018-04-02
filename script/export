@@ -149,7 +149,7 @@ Promise.resolve(fs.removeSync(outputDir))
           dCount++
           return svgo.optimize(svg, {})
             .then(optimized => {
-              icon.path = /<svg.+>(.+)<\/svg>/g.exec(optimized.data).pop()
+              icon.path = optimized.data.slice(optimized.data.indexOf('>') + 1).slice(0, -6)
 
               return fs.ensureDir(path.join(outputDir, "/svg"))
                 .then(() => fs.writeFileSync(path.resolve(outputDir, `svg/${icon.name}.svg`), optimized.data, "utf8"))
