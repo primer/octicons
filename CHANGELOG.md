@@ -7,6 +7,7 @@
 
 * Fixed versioning strategy https://github.com/primer/octicons/pull/#208
 
+# Archived releases
 
 ### Octicons_node 7.0.0
 
