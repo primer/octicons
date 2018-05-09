@@ -1,4 +1,12 @@
-### HEAD
+# 7.3.0
+
+* Fix for heart icon https://github.com/primer/octicons/pull/211
+
+* Adding an archive icon  created by @colinkeany
+  Fixes https://github.com/primer/octicons/issues/182
+
+* Fixed versioning strategy https://github.com/primer/octicons/pull/#208
+
 
 ### Octicons_node 7.0.0
 
