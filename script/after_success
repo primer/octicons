@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
 
+if [[ "$CI" != "true" ]]; then
+  echo "(bailing: not in CI)"
+  exit
+fi
+
 branch=$TRAVIS_PULL_REQUEST_BRANCH
 event=$TRAVIS_EVENT_TYPE
 
