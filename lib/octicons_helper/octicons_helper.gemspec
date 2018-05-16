@@ -8,11 +8,11 @@ Gem::Specification.new do |s|
   s.authors     = ["GitHub Inc."]
   s.email       = ["support@github.com"]
   s.files       = Dir["{lib}/**/*"] + ["LICENSE", "README.md"]
-  s.homepage    = "https://github.com/primer/octicons_helper"
+  s.homepage    = "https://github.com/primer/octicons"
   s.license     = "MIT"
 
   s.require_paths = ["lib"]
 
-  s.add_dependency "octicons"
+  s.add_dependency "octicons", "7.3.0"
   s.add_dependency "rails"
 end

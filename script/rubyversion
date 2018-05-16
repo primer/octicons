@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
-perl -pi -e "s/VERSION = \"[^\"]+\"/VERSION = \"${npm_package_version}\"/" $1
+octicons_version=$(jq -r .dependencies.octicons_gem package.json | sed -e 's/-alpha/.pre/g')
+new_version=$(echo $npm_package_version | sed -e 's/-alpha/.pre/g')
 
-git add $1
+perl -pi -e "s/VERSION = \"[^\"]+\"/VERSION = \"${new_version}\"/" ./lib/**/version.rb
+perl -pi -e "s/\"octicons\", \"[^\"]+\"/\"octicons\", \"${octicons_version}\"/" ./*.gemspec
+
+git add ./lib/**/version.rb ./Gemfile ./*.gemspec
