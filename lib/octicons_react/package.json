@@ -12,7 +12,7 @@
     "icons"
   ],
   "scripts": {
-    "start": "parcel serve index.html",
+    "start": "next",
     "publish": "../../script/notify success",
     "prepublishOnly": "../../script/notify pending",
     "prepare": "script/build.js"
@@ -28,22 +28,12 @@
     "react",
     "primer"
   ],
-  "babel": {
-    "presets": [
-      "env",
-      "react"
-    ]
-  },
-  "peerDependencies": {
-    "react": ">=16.2.0"
-  },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "fs-extra": "^6.0.1",
+    "next": "^6.0.3",
     "octicons": "7.2.0",
-    "parcel": "^1.8.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0"
   },
