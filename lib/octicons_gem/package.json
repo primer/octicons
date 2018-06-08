@@ -1,6 +1,6 @@
 {
   "name": "octicons_gem",
-  "version": "5.3.0",
+  "version": "7.3.0",
   "description": "Don't install",
   "scripts": {
     "postinstall": "bundle install --path vendor/bundle",
