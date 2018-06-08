@@ -12,6 +12,7 @@
     "icons"
   ],
   "scripts": {
+    "start": "parcel serve index.html",
     "publish": "../../script/notify success",
     "prepublishOnly": "../../script/notify pending",
     "prepare": "script/build.js"
@@ -38,9 +39,15 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "fs-extra": "^6.0.1",
-    "octicons": "7.2.0"
+    "octicons": "7.2.0",
+    "parcel": "^1.8.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.1"
   }
 }
