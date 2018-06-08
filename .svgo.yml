@@ -1,3 +1,4 @@
+multipass: true
 plugins:
   - removeTitle: true
   - removeViewBox: false
@@ -20,3 +21,4 @@ plugins:
   - removeEditorsNSData: true
   - removeEmptyAttrs: true
   - removeHiddenElems: true
+  - collapseGroups: true
