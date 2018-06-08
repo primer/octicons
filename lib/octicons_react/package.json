@@ -8,8 +8,9 @@
   "main": "index.js",
   "repository": "https://github.com/primer/octicons.git",
   "files": [
+    "icons",
     "index.js",
-    "icons"
+    "pages"
   ],
   "scripts": {
     "start": "next",
