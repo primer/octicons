@@ -1,0 +1,46 @@
+{
+  "name": "@github/octicons-react",
+  "version": "1.1.0",
+  "description": "A scalable set of icons handcrafted with <3 by GitHub.",
+  "homepage": "https://octicons.github.com",
+  "author": "GitHub Inc.",
+  "license": "MIT",
+  "main": "build/index.js",
+  "repository": "https://github.com/primer/octicons.git",
+  "files": [
+    "build",
+    "named.js"
+  ],
+  "scripts": {
+    "publish": "../../script/notify success",
+    "prepublishOnly": "../../script/notify pending",
+    "prepare": "node script/build.js"
+  },
+  "bugs": {
+    "url": "https://github.com/primer/octicons/issues"
+  },
+  "keywords": [
+    "GitHub",
+    "icons",
+    "svg",
+    "octicons",
+    "react",
+    "primer"
+  ],
+  "babel": {
+    "presets": [
+      "env",
+      "react"
+    ]
+  },
+  "peerDependencies": {
+    "react": ">=16.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "lodash": "^4.17.5",
+    "octicons": "7.2.0"
+  }
+}

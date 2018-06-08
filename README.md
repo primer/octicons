@@ -21,6 +21,7 @@ The octicons node.js library is the main JavaScript library. With [a JavaScript 
 | Package | Version |
 |---|---|
 | **[octicons](/lib/octicons_node)** <br />Node.js package with Javascript API | [![npm version](https://img.shields.io/npm/v/octicons.svg)](https://www.npmjs.org/package/octicons) |
+| **[@github/octicons-react](/lib/octicons_react)** <br />React.js octicons components | [![npm version](https://img.shields.io/npm/v/%40github%2Focticons-react.svg)](https://www.npmjs.org/package/%40github%2Focticons-react) |
 
 ### Ruby
 
@@ -28,7 +29,7 @@ The octicons node.js library is the main JavaScript library. With [a JavaScript 
 |---|---|
 | **[octicons](/lib/octicons_gem)** <br />Ruby gem with Ruby API | [![Gem version](https://img.shields.io/gem/v/octicons.svg)](https://rubygems.org/gems/octicons) |
 | [octicons_helper](/lib/octicons_helper)<br />Rails helper for using octicons|  [![Gem version](https://img.shields.io/gem/v/octicons_helper.svg)](https://rubygems.org/gems/octicons_helper) |
-| [jekyll-octicons](/lib/jekyll-octicons)<br />Jekyll plugin for using octicons | [![Gem version](https://img.shields.io/gem/v/jekyll-octicons.svg)](https://rubygems.org/gems/jekyll-octicons) |
+| [jekyll-octicons](/lib/octicons_jekyll)<br />Jekyll plugin for using octicons | [![Gem version](https://img.shields.io/gem/v/jekyll-octicons.svg)](https://rubygems.org/gems/jekyll-octicons) |
 
 ## License
 
