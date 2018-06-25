@@ -18,6 +18,16 @@ try {
   return process.exit(1)
 }
 
+const {
+  FIGMA_DOMAIN = 'api.figma.com',
+  FIGMA_TOKEN
+} = process.env
+
+if (!FIGMA_TOKEN) {
+  console.error('You must set FIGMA_TOKEN to a Figma personal access token.')
+  process.exit(1)
+}
+
 spinner.info(`Exporting octicons from ${figma.url} file`)
 
 // Where we're putting the exported SVG and data.json
@@ -30,9 +40,9 @@ let oCount = 0
 const getFigmaComponents = () => {
   return new Promise((resolve, reject) => {
     spinner.info("Getting components from the figma file")
-    spinner.start(`Contacting ${process.env.FIGMA_DOMAIN}`)
-    got.get(`${process.env.FIGMA_DOMAIN}/v1/files/${figmaFileKey}`, {
-      headers: { "Content-Type": "application/json", "x-figma-token": process.env.FIGMA_TOKEN },
+    spinner.start(`Contacting ${FIGMA_DOMAIN}`)
+    got.get(`${FIGMA_DOMAIN}/v1/files/${figmaFileKey}`, {
+      headers: { "Content-Type": "application/json", "x-figma-token": FIGMA_TOKEN },
       json: true
     })
     .then( response => {
@@ -66,12 +76,12 @@ const getFigmaComponents = () => {
 const getFigmaImageUrls = (componentIds) => {
   spinner.info("Exporting figma components as SVG")
   return new Promise((resolve, reject) => {
-    got.get(`${process.env.FIGMA_DOMAIN}/v1/images/${figmaFileKey}`, {
+    got.get(`${FIGMA_DOMAIN}/v1/images/${figmaFileKey}`, {
       query: {
         ids: componentIds,
         format: "svg"
       },
-      headers: { "Content-Type": "application/json", "x-figma-token": process.env.FIGMA_TOKEN },
+      headers: { "Content-Type": "application/json", "x-figma-token": FIGMA_TOKEN },
       json: true
     })
     .then( response => {
