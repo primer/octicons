@@ -1,0 +1,8 @@
+{
+  "presets": ["env", "react"],
+  "env": {
+    "development": {
+      "presets": ["next/babel"]
+    }
+  }
+}
