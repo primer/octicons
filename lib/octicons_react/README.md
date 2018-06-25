@@ -13,26 +13,30 @@ $ npm install @github/octicons-react --save
 
 ## Usage
 
-The entire library will be available when importing `@github/octicons-react`. Specifying the [icon you want to use][octicons], by supplying the `name=""` to the component.
+### `<Octicon>`
+The `<Octicon>` component is really just the "shell" of an octicon which
+handles the `<svg>` element and all of its attributes. To render a specific
+icon, you must pass it either via `icon` prop or as a child:
 
-```js
-// Example usage
-import Octicon from "@github/octicons-react"
-
-return (
-  <Octicon name="beaker" />
-)
+```jsx
+// icon prop (function)
+<Octicon icon={Icon} />
+// icon prop (element)
+<Octicon icon={<Icon />} />
+// child
+<Octicon><Icon/></Octicon>
 ```
 
-You can also import only the icons you need by importing the specific icon names. This is useful if you’re trying to keep bundle size down.
+### Icons
+In order to avoid bloating builds, the `@github/octicons-react` ES6 module
+exports the `Octicon` component as `default`, and the individual icon symbols
+as separate [named exports]. This means that you have to import only the icons
+that you need:
 
-```js
-// Example usage
-import { AlertOcticon, RepoOcticon, XOcticon } from "@github/octicons-react/named"
+```jsx
+import Octicon, {Beaker, Zap} from '@github/octicons-react'
 
-return (
-  <AlertOcticon />
-)
+module.exports = ({boom}) => <Octicon icon={boom ? Zap : Beaker} />
 ```
 
 ### Alignment
