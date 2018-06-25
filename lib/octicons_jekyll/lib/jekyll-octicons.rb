@@ -1,4 +1,3 @@
-# rubocop:disable Naming/FileName
 require "octicons"
 require "jekyll-octicons/version"
 require "liquid"
