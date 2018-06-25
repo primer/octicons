@@ -48,19 +48,19 @@ the resulting bundle would only include the "zap" and "beaker" icons.
 
 ### All icons
 If you don't mind your bundle being huge or you need to be able to render
-arbitrarily named icons at runtime, there's a special `all` export which
+arbitrarily named icons at runtime, there's a special `icons/all` entry which
 provides you with two ways to get any icon:
 
-#### Icons by name
+#### `getIconByName()`
 The default export of `@github/octicons-react/icons/all` is a function that
 takes a lowercase octicon name (such as `arrow-right`) and returns the
 corresponding icon class. Using this helper, it's possible to create an Octicon
-class that takes a `name` prop:
+class that takes a `name` prop and resolves it to the right component:
 
 ```jsx
 import React from 'react'
 import Octicon from '@github/octicons-react'
-import allOcticons from '@github/octicons-react/icons/all'
+import getIcon from '@github/octicons-react/icons/all'
 
 export default function OcticonByName({name, ...props}) {
   return <Octicon {...props} icon={getIcon(name)} />
@@ -74,7 +74,7 @@ generate listings of all the octicons:
 ```jsx
 import React from 'react'
 import Octicon from '@github/octicons-react'
-import getIcon, {iconsByName} from '@github/octicons-react/icons/all'
+import {iconsByName} from '@github/octicons-react/icons/all'
 
 export default function OcticonsList() {
   return (
@@ -82,7 +82,7 @@ export default function OcticonsList() {
       {Object.keys(iconsByName).map(key => (
         <li key={key}>
           <tt>{key}</tt>
-          <Octicon icon={getIcon(key)}/>
+          <Octicon icon={iconsByName[key]}/>
         </li>
       ))}
     </ul>
