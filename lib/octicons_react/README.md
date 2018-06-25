@@ -67,6 +67,7 @@ export default function OcticonByName({name, ...props}) {
 }
 ```
 
+#### `iconsByName` object
 `@github/octicons-react/icons/all` also exports a `iconsByName` object that
 maps keys (such as `arrow-right`) to component functions, which you can use to
 generate listings of all the octicons:
@@ -90,25 +91,26 @@ export default function OcticonsList() {
 }
 ```
 
-### Alignment
-
-By default the octicons have `vertical-align: text-bottom;` applied to them. But there are cases where you'll want to change the alignment. The props available are `top`, `middle`.
+### Vertical alignment
+By default the octicons have `vertical-align: text-bottom;` applied as inline
+styles. You can change the alignment via the `verticalAlign` prop, which can be
+either `middle`, `text-bottom`, `text-top`, or `top`.
 
 ```js
-// Example usage
-import Octicon from "@github/octicons-react"
+import Octicon from '@github/octicons-react'
 
 export default () => (
   <h1>
-    <Octicon name="repo" large middle /> github/github
+    <Octicon name='repo' size='large' verticalAlign='middle' /> github/github
   </h1>
 )
 ```
 
 
-### ariaLabel
-
-You have the option to add accessibility information to the icon using `aria-label`.
+### `ariaLabel`
+You have the option of adding accessibility information to the icon with the
+[`aria-label` attribute][aria-label] via the `ariaLabel` prop (note the
+capitalization of `L`!).
 
 ```js
 // Example usage
@@ -124,22 +126,23 @@ export default () => (
 
 ### Sizes
 
-The properties `large`, `medium`, `small` are available for setting the size of the icon.
+The `size` prop takes `small`, `medium`, and `large` values that can be used to
+render octicons at standard sizes:
 
 | Prop | Rendered Size |
 | :- | :- |
-| Small | 16px height by `computed` width |
-| Medium | 32px height by `computed` width |
-| Large | 64px height by `computed` width |
+| `size='small'` | 16px height by `computed` width |
+| `size='medium'` | 32px height by `computed` width |
+| `size='large'` | 64px height by `computed` width |
 
 ```js
 // Example usage
-import Octicon from "@github/octicons-react"
+import Octicon from '@github/octicons-react'
 
 export default () => (
   <h1>
-    <a href="https://github.com">
-      <Octicon name="logo-github" large ariaLabel="GitHub"/>
+    <a href='https://github.com'>
+      <Octicon name='logo-github' size='large' ariaLabel='GitHub'/>
     </a>
   </h1>
 )
@@ -159,3 +162,4 @@ When using the GitHub logos, be sure to follow the [GitHub logo guidelines](http
 [npm]: https://www.npmjs.com/
 [install-npm]: https://docs.npmjs.com/getting-started/installing-node
 [tree-shaking]: https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking
+[aria-label]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
