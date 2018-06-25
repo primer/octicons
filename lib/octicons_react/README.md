@@ -158,3 +158,4 @@ When using the GitHub logos, be sure to follow the [GitHub logo guidelines](http
 [docs]: http://primercss.io/
 [npm]: https://www.npmjs.com/
 [install-npm]: https://docs.npmjs.com/getting-started/installing-node
+[tree-shaking]: https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking
