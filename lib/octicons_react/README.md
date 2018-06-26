@@ -43,39 +43,38 @@ export default function Icon({boom}) {
 }
 ```
 
-If you were to compile this example with a tool that supports [tree-shaking],
-the resulting bundle would only include the "zap" and "beaker" icons.
+If you were to compile this example with a tool that supports [tree-shaking][]
+(such as Webpack, Rollup, or Parcel) the resulting bundle would only include
+the "zap" and "beaker" icons.
 
 ### All icons
 If you don't mind your bundle being huge or you need to be able to render
-arbitrarily named icons at runtime, there's a special `icons/all` entry which
-provides you with two ways to get any icon:
+arbitrarily named icons at runtime, you can import either the following named
+exports:
 
 #### `getIconByName()`
-The default export of `@github/octicons-react/icons/all` is a function that
-takes a lowercase octicon name (such as `arrow-right`) and returns the
-corresponding icon class. Using this helper, it's possible to create an Octicon
-class that takes a `name` prop and resolves it to the right component:
+The `getIconByName` export is a function that takes a lowercase octicon name
+(such as `arrow-right`) and returns the corresponding icon class. Using this
+helper, it's possible to create an Octicon class that takes a `name` prop and
+resolves it to the right component:
 
 ```jsx
 import React from 'react'
-import Octicon from '@github/octicons-react'
-import getIcon from '@github/octicons-react/icons/all'
+import Octicon, {getIconByName} from '@github/octicons-react'
 
 export default function OcticonByName({name, ...props}) {
   return <Octicon {...props} icon={getIcon(name)} />
 }
 ```
 
-#### `iconsByName` object
-`@github/octicons-react/icons/all` also exports a `iconsByName` object that
-maps keys (such as `arrow-right`) to component functions, which you can use to
-generate listings of all the octicons:
+#### `iconsByName`
+The `iconsByName` export is an object that maps keys (such as `arrow-right` or
+`zap`) to component functions, which you can use to generate listings of all
+the octicons:
 
 ```jsx
 import React from 'react'
-import Octicon from '@github/octicons-react'
-import {iconsByName} from '@github/octicons-react/icons/all'
+import Octicon, {iconsByName} from '@github/octicons-react'
 
 export default function OcticonsList() {
   return (
@@ -97,11 +96,11 @@ styles. You can change the alignment via the `verticalAlign` prop, which can be
 either `middle`, `text-bottom`, `text-top`, or `top`.
 
 ```js
-import Octicon from '@github/octicons-react'
+import Octicon, {Repo} from '@github/octicons-react'
 
 export default () => (
   <h1>
-    <Octicon name='repo' size='large' verticalAlign='middle' /> github/github
+    <Octicon icon={Repo} size='large' verticalAlign='middle' /> github/github
   </h1>
 )
 ```
@@ -114,11 +113,11 @@ capitalization of `L`!).
 
 ```js
 // Example usage
-import Octicon from "@github/octicons-react"
+import Octicon, {Plus} from '@github/octicons-react'
 
 export default () => (
   <button>
-    <Octicon name="plus" ariaLabel="Add new item" /> New
+    <Octicon icon={Plus} ariaLabel="Add new item" /> New
   </button>
 )
 ```
@@ -137,12 +136,12 @@ render octicons at standard sizes:
 
 ```js
 // Example usage
-import Octicon from '@github/octicons-react'
+import Octicon, {LogoGithub} from '@github/octicons-react'
 
 export default () => (
   <h1>
     <a href='https://github.com'>
-      <Octicon name='logo-github' size='large' ariaLabel='GitHub'/>
+      <Octicon icon={LogoGithub} size='large' ariaLabel='GitHub'/>
     </a>
   </h1>
 )
