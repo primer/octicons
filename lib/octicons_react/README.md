@@ -19,13 +19,19 @@ the `<svg>` element and all of its attributes. To render a specific icon, you
 must pass it either via the `icon` prop, or as the only child:
 
 ```jsx
-// icon prop (function)
+/**
+ * The prop form is shorter, but doesn't allow you to pass icon props.
+ */
 <Octicon icon={Icon} />
-// icon prop (element)
-<Octicon icon={<Icon/>} />
-// child
-<Octicon><Icon/></Octicon>
+
+/**
+ * The child form allows you to pass props.
+ */
+<Octicon><Icon x={10}/></Octicon>
 ```
+
+Note that none of our builtin icons take props, so unless you're creating
+[custom icons](#custom-icons) you'll probably want to use the `icon` prop form.
 
 ### Icons
 The `@github/octicons-react` module exports the `Octicon` component as
