@@ -14,9 +14,9 @@ $ npm install @github/octicons-react --save
 ## Usage
 
 ### `<Octicon>`
-The `<Octicon>` component is really just the "shell" of an octicon which
-handles the `<svg>` element and all of its attributes. To render a specific
-icon, you must pass it either via `icon` prop or as a child:
+The `<Octicon>` component is really just the "shell" of an Octicon that renders
+the `<svg>` element and all of its attributes. To render a specific icon, you
+must pass it either via the `icon` prop, or as the only child:
 
 ```jsx
 // icon prop (function)
@@ -124,7 +124,6 @@ export default () => (
 
 
 ### Sizes
-
 The `size` prop takes `small`, `medium`, and `large` values that can be used to
 render octicons at standard sizes:
 
@@ -146,6 +145,36 @@ export default () => (
   </h1>
 )
 ```
+
+
+## Custom icons
+Each of our icon components is really just a function that renders its SVG
+`<path>`. To accommodate icons varying aspect ratios, the `Octicon` component
+determines the `viewBox` of the `<svg>` element by first looking for a `size`
+array on the icon component class. For instance, if you wanted to create a
+custom icon that consisted of three circles side by side, you could do this:
+
+```jsx
+import React from 'react'
+import Octicon from '@github/octicons-react'
+
+function CirclesIcon() {
+  return (
+    <React.Fragment>
+      <circle r={5} cx={5} cy={5}/>
+      <circle r={5} cx={15} cy={5}/>
+      <circle r={5} cx={25} cy={5}/>
+    </React.Fragment>
+  )
+}
+
+CirclesIcon.size = [30, 10]
+
+export default CirclesOcticon(props) {
+  return <Octicon {...props} icon={CirclesIcon} />
+}
+```
+
 
 ## License
 
