@@ -28,7 +28,7 @@ icon, you must pass it either via `icon` prop or as a child:
 ```
 
 ### Icons
-The `@github/octicons-react` ES6 module exports the `Octicon` component as
+The `@github/octicons-react` module exports the `Octicon` component as
 `default` and the individual icon symbols as separate [named
 exports](https://ponyfoo.com/articles/es6-modules-in-depth#named-exports). This
 allows you to import only the icons that you need without blowing up your
