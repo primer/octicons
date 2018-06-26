@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/%40github%2Focticons-react.svg)](https://www.npmjs.org/package/%40github%2Focticons-react)
 [![Build Status](https://travis-ci.org/primer/octicons.svg?branch=master)](https://travis-ci.org/primer/octicons)
 
-> A react component for installing octicons
+> [Octicons] as React components
 
 ## Install
 
