@@ -2,6 +2,7 @@
 
 exports[`<Octicon> outputs <svg> 1`] = `
 <svg
+  ariaHidden="true"
   className="octicon"
   height={16}
   role="img"
@@ -9,6 +10,7 @@ exports[`<Octicon> outputs <svg> 1`] = `
     Object {
       "display": "inline-block",
       "fill": "currentColor",
+      "userSelect": "none",
       "verticalAlign": "text-bottom",
     }
   }
