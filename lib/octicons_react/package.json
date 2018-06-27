@@ -32,7 +32,6 @@
     "primer"
   ],
   "dependencies": {
-    "react": "^16.4.0",
     "prop-types": "^15.6.1"
   },
   "devDependencies": {
@@ -42,7 +41,11 @@
     "jest": "^23.2.0",
     "next": "^6.0.3",
     "octicons": "7.2.0",
+    "react": "^16.4.0",
     "react-dom": "^16.4.1",
     "react-test-renderer": "^16.4.1"
+  },
+  "peerDependencies": {
+    "react": ">=15"
   }
 }
