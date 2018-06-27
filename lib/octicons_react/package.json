@@ -18,13 +18,11 @@
   "scripts": {
     "start": "next",
     "test": "jest",
-    "preversion": "script/build",
+    "build": "script/build.js",
+    "preversion": "npm run build -s",
     "publish": "../../script/notify success",
     "prepublishOnly": "../../script/notify pending",
-    "prepare": "script/build"
-  },
-  "bugs": {
-    "url": "https://github.com/primer/octicons/issues"
+    "prepare": "npm run build -s"
   },
   "keywords": [
     "GitHub",
@@ -40,6 +38,9 @@
   "devDependencies": {
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "eslint": "^5.0.1",
+    "eslint-plugin-github": "^1.1.0",
+    "eslint-plugin-jest": "^21.17.0",
     "fs-extra": "^6.0.1",
     "jest": "^23.2.0",
     "next": "^6.0.3",
