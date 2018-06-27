@@ -15,9 +15,10 @@
   "scripts": {
     "start": "next",
     "test": "jest",
+    "preversion": "script/build",
     "publish": "../../script/notify success",
     "prepublishOnly": "../../script/notify pending",
-    "prepare": "script/build.js"
+    "prepare": "script/build"
   },
   "bugs": {
     "url": "https://github.com/primer/octicons/issues"
