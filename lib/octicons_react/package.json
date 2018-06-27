@@ -16,6 +16,7 @@
     "node": ">=8"
   },
   "scripts": {
+    "pretest": "npm run lint -s",
     "test": "jest",
     "start": "next",
     "lint": "eslint index.js script",
