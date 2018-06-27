@@ -12,6 +12,9 @@
     "index.js",
     "pages"
   ],
+  "engines": {
+    "node": ">=8"
+  },
   "scripts": {
     "start": "next",
     "test": "jest",
