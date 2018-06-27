@@ -16,8 +16,9 @@
     "node": ">=8"
   },
   "scripts": {
-    "start": "next",
     "test": "jest",
+    "start": "next",
+    "lint": "eslint index.js script",
     "build": "script/build.js",
     "preversion": "npm run build -s",
     "publish": "../../script/notify success",
