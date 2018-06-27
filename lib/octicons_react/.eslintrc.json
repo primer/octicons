@@ -5,6 +5,5 @@
     "plugin:github/react"
   ],
   "rules": {
-    "quotes": ["warn", "single"]
   }
 }
