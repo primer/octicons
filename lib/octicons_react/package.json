@@ -19,7 +19,7 @@
     "pretest": "npm run lint -s",
     "test": "jest",
     "start": "next",
-    "lint": "eslint index.js script",
+    "lint": "eslint index.js __tests__ script",
     "build": "script/build.js",
     "preversion": "npm run build -s",
     "publish": "../../script/notify success",
