@@ -55,8 +55,8 @@ the "zap" and "beaker" icons.
 
 ### All icons
 If you don't mind your bundle being huge or you need to be able to render
-arbitrarily named icons at runtime, you can import either the following named
-exports:
+arbitrarily named icons at runtime, you can import either of the following
+named exports:
 
 #### `getIconByName()`
 The `getIconByName` export is a function that takes a lowercase octicon name
@@ -186,7 +186,8 @@ export default CirclesOcticon(props) {
 
 (c) GitHub, Inc.
 
-When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
+When using the GitHub logos, be sure to follow the [GitHub logo
+guidelines](https://github.com/logos).
 
 [MIT](./LICENSE)  
 
