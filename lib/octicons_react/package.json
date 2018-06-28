@@ -6,7 +6,6 @@
   "author": "GitHub, Inc.",
   "license": "MIT",
   "main": "build/index.js",
-  "module": "index.js",
   "repository": "primer/octicons",
   "files": [
     "build",
