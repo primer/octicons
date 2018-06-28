@@ -2,7 +2,7 @@
 
 exports[`<Octicon> outputs <svg> 1`] = `
 <svg
-  ariaHidden="true"
+  aria-hidden="true"
   className="octicon"
   height={16}
   role="img"
