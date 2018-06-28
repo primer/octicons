@@ -20,7 +20,7 @@
     "pretest": "npm run lint -s",
     "test": "jest",
     "start": "next",
-    "lint": "eslint index.js __tests__ script",
+    "lint": "eslint src script",
     "prebuild": "script/build.js",
     "build": "rollup -c rollup.config.js",
     "preversion": "npm run build -s",
