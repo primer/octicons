@@ -11,4 +11,3 @@ vendor
 # Ignore build/export artifacts
 build/
 lib/octicons_gem/lib/data.json
-lib/octicons_react/named.js
