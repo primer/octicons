@@ -18,7 +18,6 @@
     "preversion": "npm -s run build",
     "publish": "../../script/notify success",
     "prepublishOnly": "../../script/notify pending",
-    "prepare": "npm -s run build",
     "rollup": "rollup -c"
   },
   "keywords": [
