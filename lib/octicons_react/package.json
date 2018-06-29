@@ -5,7 +5,8 @@
   "homepage": "https://octicons.github.com",
   "author": "GitHub, Inc.",
   "license": "MIT",
-  "main": "build/index.js",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
   "repository": "primer/octicons",
   "scripts": {
     "pretest": "npm run lint -s",
@@ -13,11 +14,12 @@
     "start": "NODE_ENV=production next",
     "lint": "eslint src script",
     "prebuild": "script/build.js",
-    "build": "rollup -c rollup.config.js",
-    "preversion": "npm run build -s",
+    "build": "npm -s run build",
+    "preversion": "npm -s run build",
     "publish": "../../script/notify success",
     "prepublishOnly": "../../script/notify pending",
-    "prepare": "npm run build -s"
+    "prepare": "npm -s run build",
+    "rollup": "rollup -c"
   },
   "keywords": [
     "GitHub",
@@ -32,6 +34,7 @@
   },
   "devDependencies": {
     "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "eslint": "^5.0.1",
