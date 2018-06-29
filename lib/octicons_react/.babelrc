@@ -1,7 +1,7 @@
 {
-  "presets": ["env", "react"],
+  "presets": ["env", "stage-0", "react"],
   "env": {
-    "development": {
+    "production": {
       "presets": ["next/babel"]
     }
   }
