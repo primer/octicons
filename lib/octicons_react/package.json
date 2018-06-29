@@ -13,11 +13,10 @@
     "test": "jest",
     "start": "NODE_ENV=production next",
     "lint": "eslint src script",
-    "prebuild": "script/build.js",
-    "build": "npm -s run rollup",
-    "preversion": "npm -s run build",
-    "publish": "../../script/notify success",
+    "prepare": "script/build.js && npm -s run rollup",
     "prepublishOnly": "../../script/notify pending",
+    "preversion": "npm -s run prepare",
+    "publish": "../../script/notify success",
     "rollup": "rollup -c"
   },
   "keywords": [

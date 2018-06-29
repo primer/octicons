@@ -5,6 +5,5 @@
 .eslint*
 .gitignore
 .next
-pages
 script
 src
