@@ -7,19 +7,10 @@
   "license": "MIT",
   "main": "build/index.js",
   "repository": "primer/octicons",
-  "files": [
-    "build",
-    "icons",
-    "index.js",
-    "pages"
-  ],
-  "engines": {
-    "node": ">=8"
-  },
   "scripts": {
     "pretest": "npm run lint -s",
     "test": "jest",
-    "start": "next",
+    "start": "NODE_ENV=production next",
     "lint": "eslint src script",
     "prebuild": "script/build.js",
     "build": "rollup -c rollup.config.js",
@@ -42,12 +33,13 @@
   "devDependencies": {
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "eslint": "^5.0.1",
     "eslint-plugin-github": "^1.1.0",
     "eslint-plugin-jest": "^21.17.0",
     "fs-extra": "^6.0.1",
     "jest": "^23.2.0",
-    "next": "^6.0.3",
+    "next": "^5.1.0",
     "octicons": "7.2.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.1",
@@ -58,5 +50,8 @@
   },
   "peerDependencies": {
     "react": ">=15"
+  },
+  "engines": {
+    "node": ">=8"
   }
 }

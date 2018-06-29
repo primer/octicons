@@ -1,0 +1,10 @@
+*.config.js
+.*.sw?
+.*rc
+.cache
+.eslint*
+.gitignore
+.next
+pages
+script
+src
