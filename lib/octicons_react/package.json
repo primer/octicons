@@ -13,9 +13,9 @@
     "test": "jest",
     "start": "NODE_ENV=production next",
     "lint": "eslint src pages script",
-    "prepare": "script/build.js && npm -s run rollup",
+    "prepare": "script/build.js && npm run rollup",
     "prepublishOnly": "../../script/notify pending",
-    "preversion": "npm -s run prepare",
+    "preversion": "npm run prepare",
     "publish": "../../script/notify success",
     "rollup": "rollup -c"
   },
