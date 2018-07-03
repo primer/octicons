@@ -21,6 +21,6 @@
   "rubygems": "jekyll-octicons",
   "homepage": "https://github.com/primer/octicons#readme",
   "dependencies": {
-    "octicons_gem": "7.3.0"
+    "octicons_gem": "7.4.0"
   }
 }
