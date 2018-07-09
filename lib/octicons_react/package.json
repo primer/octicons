@@ -1,0 +1,58 @@
+{
+  "name": "@github/octicons-react",
+  "version": "7.4.0",
+  "description": "A scalable set of icons handcrafted with <3 by GitHub.",
+  "homepage": "https://octicons.github.com",
+  "author": "GitHub, Inc.",
+  "license": "MIT",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "repository": "primer/octicons",
+  "scripts": {
+    "pretest": "npm run lint",
+    "test": "jest",
+    "start": "NODE_ENV=production next",
+    "lint": "eslint src pages script",
+    "prepare": "script/build.js && npm run rollup",
+    "prepublishOnly": "../../script/notify pending",
+    "preversion": "npm run prepare",
+    "publish": "../../script/notify success",
+    "rollup": "rollup -c"
+  },
+  "keywords": [
+    "GitHub",
+    "icons",
+    "svg",
+    "octicons",
+    "react",
+    "primer"
+  ],
+  "dependencies": {
+    "prop-types": "^15.6.1"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^5.0.1",
+    "eslint-plugin-github": "^1.1.0",
+    "eslint-plugin-jest": "^21.17.0",
+    "fs-extra": "^6.0.1",
+    "jest": "^23.2.0",
+    "next": "^5.1.0",
+    "octicons": "7.2.0",
+    "primer-react": "0.0.6-alpha.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.1",
+    "react-test-renderer": "^16.4.1",
+    "rollup": "^0.62.0",
+    "rollup-plugin-babel": "^3.0.5",
+    "rollup-plugin-commonjs": "^9.1.3"
+  },
+  "peerDependencies": {
+    "react": ">=15"
+  },
+  "engines": {
+    "node": ">=8"
+  }
+}

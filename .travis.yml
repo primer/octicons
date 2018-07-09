@@ -25,3 +25,6 @@ deploy:
     on:
       branch: master
       tags: false
+
+notifications:
+  slack: 'github:4OisIoqZYyMlWcw3hFtZgbmh'

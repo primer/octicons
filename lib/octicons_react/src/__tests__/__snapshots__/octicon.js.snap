@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Octicon> outputs <svg> 1`] = `
+<svg
+  aria-hidden="true"
+  className="octicon"
+  height={16}
+  role="img"
+  style={
+    Object {
+      "display": "inline-block",
+      "fill": "currentColor",
+      "userSelect": "none",
+      "verticalAlign": "text-bottom",
+    }
+  }
+  viewBox="0 0 16 16"
+  width={16}
+>
+  <path />
+</svg>
+`;

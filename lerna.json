@@ -4,7 +4,8 @@
     "lib/octicons_node",
     "lib/octicons_gem",
     "lib/octicons_helper",
-    "lib/jekyll-octicons"
+    "lib/octicons_jekyll",
+    "lib/octicons_react"
   ],
-  "version": "7.3.0"
+  "version": "7.4.0"
 }
