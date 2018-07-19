@@ -7,13 +7,14 @@
   "license": "MIT",
   "main": "dist/index.umd.js",
   "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "repository": "primer/octicons",
   "scripts": {
     "pretest": "npm run lint",
     "test": "jest",
     "start": "NODE_ENV=production next",
     "lint": "eslint src pages script",
-    "prepare": "script/build.js && npm run rollup",
+    "prepare": "script/build.js && script/types.js && npm run rollup",
     "prepublishOnly": "../../script/notify pending",
     "preversion": "npm run prepare",
     "publish": "../../script/notify success",
@@ -28,6 +29,7 @@
     "primer"
   ],
   "dependencies": {
+    "@types/react": "^16.4.6",
     "prop-types": "^15.6.1"
   },
   "devDependencies": {
