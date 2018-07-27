@@ -29,10 +29,10 @@
     "primer"
   ],
   "dependencies": {
-    "@types/react": "^16.4.6",
     "prop-types": "^15.6.1"
   },
   "devDependencies": {
+    "@types/react": "^16.4.6",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
