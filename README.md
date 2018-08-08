@@ -12,7 +12,7 @@ Read through our [contributing guide](./.github/CONTRIBUTING.md#adding-or-updati
 
 ## Libraries
 
-This repository is a repository containing other packages. Each of them are in the `lib/` folder and give access to Octicons on a different platform / language.
+This repository is a repository containing other packages. Each of them is in the `lib/` folder and give access to Octicons on a different platform / language.
 
 ### JavaScript
 
