@@ -9,5 +9,5 @@ package-lock.json
 vendor
 
 # Ignore build/export artifacts
-build/
-lib/octicons_gem/lib/data.json
+lib/build/
+lib/**/build/
