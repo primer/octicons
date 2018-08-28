@@ -7,13 +7,17 @@
   "license": "MIT",
   "main": "dist/index.umd.js",
   "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "repository": "primer/octicons",
   "scripts": {
+    "build": "script/build.js && script/types.js",
     "pretest": "npm run lint",
+    "ts-test": "tsc -P ts-tests",
     "test": "jest",
+    "posttest": "npm run ts-test",
     "start": "NODE_ENV=production next",
     "lint": "eslint src pages script",
-    "prepare": "script/build.js && npm run rollup",
+    "prepare": "npm run build && npm run rollup",
     "prepublishOnly": "../../script/notify pending",
     "preversion": "npm run prepare",
     "publish": "../../script/notify success",
@@ -31,6 +35,7 @@
     "prop-types": "^15.6.1"
   },
   "devDependencies": {
+    "@types/react": "^16.4.6",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -47,7 +52,8 @@
     "react-test-renderer": "^16.4.1",
     "rollup": "^0.62.0",
     "rollup-plugin-babel": "^3.0.5",
-    "rollup-plugin-commonjs": "^9.1.3"
+    "rollup-plugin-commonjs": "^9.1.3",
+    "typescript": "^2.9.2"
   },
   "peerDependencies": {
     "react": ">=15"
