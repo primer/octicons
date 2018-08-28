@@ -121,7 +121,7 @@ getFigmaComponents()
       spinner.stopAndPersist({
         text: `${progress(dCount, oCount)} ${Object.keys(data).length} icons downloaded`
       })
-      spinner.info("Writing data out to ${outputDir}/data.json")
+      spinner.info(`Writing data out to ${outputDir}/data.json`)
       writeFileSync(resolve(outputDir, 'data.json'), JSON.stringify(data), "utf8")
       console.warn("\nAll done! Icons successfully exported.")
     })
