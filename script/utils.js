@@ -1,11 +1,17 @@
-const execa = require('execa')
 const PQueue = require('p-queue')
+const execa = require('execa')
+const yaml = require('js-yaml')
+const {readFileSync}  = require('fs')
 
 // this works around an issue with the TLS library that
 // (apparently) every Node fetch() implementation uses
 function fetchSSLFix(url) {
   return execa('curl', ['-sL', url])
     .then(res => res.stdout)
+}
+
+function loadYAML(path) {
+  return yaml.safeLoad(readFileSync(path, 'utf8'))
 }
 
 function progress(current, total) {
@@ -29,4 +35,9 @@ function queueTasks(tasks, options) {
   return queue.onIdle()
 }
 
-module.exports = {fetchSSLFix, progress, queueTasks}
+module.exports = {
+  fetchSSLFix,
+  loadYAML,
+  progress,
+  queueTasks
+}

@@ -2,11 +2,15 @@
 const SVGO = require('svgo')
 const got = require('got')
 const spinner = require('ora')("")
-const yaml = require('js-yaml')
 const {ensureDir, readFileSync, removeSync, writeFileSync} = require('fs')
 const {join, resolve}  = require('path')
 const {figma} = require('../package.json')
-const {fetchSSLFix, progress, queueTasks} = require('./utils.js')
+const {
+  fetchSSLFix,
+  loadYAML,
+  progress,
+  queueTasks
+} = require('./utils.js')
 
 // Fail if there's no figma file key
 let figmaFileKey
@@ -22,9 +26,7 @@ const {
   FIGMA_TOKEN
 } = process.env
 
-const svgo = new SVGO(
-  yaml.safeLoad(readFileSync(resolve(__dirname,'../.svgo.yml'), 'utf8'))
-)
+const svgo = new SVGO(loadYAML(join(process.cwd(), '.svgo.yml')))
 
 // Where we're putting the exported SVG and data.json
 // so the libraries can use it
