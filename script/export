@@ -1,16 +1,18 @@
 #!/usr/bin/env node
-
-const { figma } = require('../package.json')
-const { progress, downloadSVG } = require('./utils.js')
-const fs = require('fs-extra')
-const path = require('path')
+const PQueue = require('p-queue')
 const SVGO = require('svgo')
-const yaml = require('js-yaml')
+const execa = require('execa')
+const fs = require('fs-extra')
 const got = require('got')
 const spinner = require('ora')("")
+const yaml = require('js-yaml')
+const {join, resolve}  = require('path')
+
+const {progress} = require('./utils.js')
+const {figma} = require('../package.json')
 
 // Fail if there's no figma file key
-let figmaFileKey;
+let figmaFileKey
 try {
   figmaFileKey = figma.url.match(/file\/([a-z0-9]+)\//i)[1]
 } catch (e) {
@@ -23,16 +25,19 @@ const {
   FIGMA_TOKEN
 } = process.env
 
+// Where we're putting the exported SVG and data.json
+// so the libraries can use it
+const outputDir = resolve(__dirname, "../lib/build")
+
 if (!FIGMA_TOKEN) {
-  console.error('You must set FIGMA_TOKEN to a Figma personal access token.')
-  process.exit(1)
+  return getPreviousData()
+    .catch(error => {
+      console.error('nope:', error)
+      process.exitCode = 1
+    })
 }
 
 spinner.info(`Exporting octicons from ${figma.url} file`)
-
-// Where we're putting the exported SVG and data.json
-// so the libraries can use it
-const outputDir = path.resolve(__dirname, "../lib/build")
 
 let dCount = 0
 let oCount = 0
@@ -79,7 +84,7 @@ getFigmaComponents()
 
         let svgo = new SVGO(Object.assign(
           {},
-          yaml.safeLoad(fs.readFileSync(path.resolve(__dirname,'../.svgo.yml'), 'utf8'))
+          yaml.safeLoad(fs.readFileSync(resolve(__dirname,'../.svgo.yml'), 'utf8'))
         ))
 
         spinner.info("Downloading SVG files from aws")
@@ -101,8 +106,8 @@ getFigmaComponents()
               return svgo.optimize(svg, {})
                 .then(optimized => {
                   icon.path = optimized.data.slice(optimized.data.indexOf('>') + 1).slice(0, -6)
-                  return fs.ensureDir(path.join(outputDir, "/svg"))
-                    .then(() => fs.writeFileSync(path.resolve(outputDir, `svg/${icon.name}.svg`), optimized.data, "utf8"))
+                  return fs.ensureDir(join(outputDir, 'svg'))
+                    .then(() => fs.writeFileSync(resolve(outputDir, `svg/${icon.name}.svg`), optimized.data, "utf8"))
                 })
                 .catch((err) => {
                   console.error("Something went wrong optimizing the svg data!", err)
@@ -116,7 +121,7 @@ getFigmaComponents()
         text: `${progress(dCount, oCount)} ${Object.keys(data).length} icons downloaded`
       })
       spinner.info("Writing data out to lib/build/data.json")
-      fs.writeFileSync(path.resolve(outputDir, `data.json`), JSON.stringify(icons), "utf8")
+      fs.writeFileSync(resolve(outputDir, 'data.json'), JSON.stringify(icons), "utf8")
       console.warn("\nAll done! Icons successfully exported.")
     })
 
@@ -137,7 +142,7 @@ function getFigmaComponents() {
       json: true
     })
     .then(response => {
-      spinner.start(`Processing response`)
+      spinner.start('Processing response')
       const {document, components} = response.body
       const canvas = getCanvas(document, 'Octicons')
       return canvas.children
@@ -177,7 +182,7 @@ function getFigmaImageUrls(componentIds) {
       if (response.body.err) {
         throw response.body.err
       } else {
-        spinner.succeed(`Successfully exported components`)
+        spinner.succeed('Successfully exported components')
         return response.body.images
       }
     })
@@ -190,4 +195,59 @@ function getCanvas(doc, name) {
     throw new Error(`Unable to find canvas named "${name}"`)
   }
   return matched[0]
+}
+
+function getPreviousData() {
+  const {figma} = require('../package.json')
+  const {name, version} = require('../lib/octicons_node/package.json')
+  const url = `https://raw.githubusercontent.com/primer/octicons/v${version}/package.json`
+  return got.get(url, {json: true})
+    .then(response => response.body)
+    .then(pkg => {
+      // same file; good to go!
+      if (pkg.figma.file === figma.file) {
+        const baseURL = `https://unpkg.com/${name}@${version}/build/`
+        spinner.info("Getting components from unpkg.com")
+        spinner.start('Fetching data.json...')
+        return fetchAndWrite(baseURL, 'data.json', outputDir)
+          .then(JSON.parse)
+          .then(data => {
+            fs.writeFileSync(join(outputDir, 'data.json'), JSON.stringify(data), 'utf8')
+            const icons = Object.values(data)
+            const total = icons.length
+            let loaded = 0
+            spinner.start('Fetching SVG files...')
+            const queue = new PQueue({concurrency: 3})
+            for (const icon of icons) {
+              queue.add(() => {
+                loaded++
+                spinner.text = `${progress(loaded, total)} Downloading icon: ${icon.name}`
+                const filename = join('svg', `${icon.name}.svg`)
+                return fetchAndWrite(baseURL, filename, outputDir)
+                  .catch(err => {
+                    console.error('shit:', err)
+                    process.exit(1)
+                  })
+              })
+            }
+            queue.start()
+            return queue.onIdle().then(() => icons)
+          })
+          .then(icons => {
+            spinner.info(`Wrote ${icons.length} icons to ${outputDir}/svg`)
+            spinner.succeed(`${icons.length} icons fetched from ${name}@${version}`)
+          })
+      } else {
+        console.error(`figma.file mismatch: "${figma.file}" !== "${pkg.figma.file}"`)
+        process.exitCode = 1
+      }
+    })
+}
+
+function fetchAndWrite(baseURL, file, dirname) {
+  return execa('curl', ['-sL', join(baseURL, file)])
+    .then(({stdout}) => {
+      fs.writeFileSync(join(dirname, file), stdout, 'utf8')
+      return stdout
+    })
 }

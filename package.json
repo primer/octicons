@@ -11,11 +11,14 @@
   "devDependencies": {
     "ava": "^0.22.0",
     "commit-status": "^4.3.0",
+    "execa": "^1.0.0",
     "fs-extra": "^5.0.0",
     "got": "^8.3.0",
+    "isomorphic-unfetch": "^2.1.1",
     "js-yaml": "^3.11.0",
     "lerna": "2.9.0",
     "ora": "^2.0.0",
+    "p-queue": "^2.4.2",
     "svgo": "^1.0.5"
   }
 }
