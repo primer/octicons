@@ -9,5 +9,4 @@ package-lock.json
 vendor
 
 # Ignore build/export artifacts
-lib/build/
 lib/**/build/
