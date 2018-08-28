@@ -16,6 +16,7 @@ deploy:
   # publish release candidates from any branch beginning with "release"
   - on:
       condition: $TRAVIS_BRANCH =~ ^release
+      all_branches: true
       tags: false
     provider: script
     script:
