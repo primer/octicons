@@ -21,7 +21,7 @@ The octicons node.js library is the main JavaScript library. With [a JavaScript 
 | Package | Version |
 |---|---|
 | **[octicons](/lib/octicons_node)** <br />Node.js package with Javascript API | [![npm version](https://img.shields.io/npm/v/octicons.svg)](https://www.npmjs.org/package/octicons) |
-| **[@primer/octicons-react](/lib/octicons_react)** <br />React octicons components | [![npm version](https://img.shields.io/npm/v/@primer/octicons-react.svg)](https://www.npmjs.org/package/@primer/octicons-react) |
+| **[@githubprimer/octicons-react](/lib/octicons_react)** <br />React octicons components | [![npm version](https://img.shields.io/npm/v/@githubprimer/octicons-react.svg)](https://www.npmjs.org/package/@githubprimer/octicons-react) |
 
 ### Ruby
 
