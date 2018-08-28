@@ -34,6 +34,7 @@ const svgo = new SVGO(loadYAML(join(process.cwd(), '.svgo.yml')))
 // Where we're putting the exported SVG and data.json
 // so the libraries can use it
 const outputDir = resolve(__dirname, "../lib/build")
+spinner.info(`output dir: ${outputDir}`)
 
 if (!FIGMA_TOKEN) {
   return getUnpkgData()
@@ -121,7 +122,7 @@ getFigmaComponents()
         text: `${progress(dCount, oCount)} ${Object.keys(data).length} icons downloaded`
       })
       spinner.info("Writing data out to ${outputDir}/data.json")
-      writeFileSync(resolve(outputDir, 'data.json'), JSON.stringify(icons), "utf8")
+      writeFileSync(resolve(outputDir, 'data.json'), JSON.stringify(data), "utf8")
       console.warn("\nAll done! Icons successfully exported.")
     })
 
@@ -211,7 +212,6 @@ function getUnpkgData() {
         return fetchAndWrite(baseURL, 'data.json', outputDir)
           .then(JSON.parse)
           .then(data => {
-            writeFileSync(join(outputDir, 'data.json'), JSON.stringify(data), 'utf8')
             const icons = Object.values(data)
             const total = icons.length
             let loaded = 0
