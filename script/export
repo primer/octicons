@@ -1,15 +1,12 @@
 #!/usr/bin/env node
-const PQueue = require('p-queue')
 const SVGO = require('svgo')
-const execa = require('execa')
-const fs = require('fs-extra')
 const got = require('got')
 const spinner = require('ora')("")
 const yaml = require('js-yaml')
+const {ensureDir, readFileSync, removeSync, writeFileSync} = require('fs')
 const {join, resolve}  = require('path')
-
-const {progress} = require('./utils.js')
 const {figma} = require('../package.json')
+const {fetchSSLFix, progress, queueTasks} = require('./utils.js')
 
 // Fail if there's no figma file key
 let figmaFileKey
@@ -24,6 +21,10 @@ const {
   FIGMA_DOMAIN = 'api.figma.com',
   FIGMA_TOKEN
 } = process.env
+
+const svgo = new SVGO(
+  yaml.safeLoad(readFileSync(resolve(__dirname,'../.svgo.yml'), 'utf8'))
+)
 
 // Where we're putting the exported SVG and data.json
 // so the libraries can use it
@@ -43,7 +44,7 @@ let dCount = 0
 let oCount = 0
 
 // Clear the build directory
-fs.removeSync(outputDir)
+removeSync(outputDir)
 
 // Get the components
 getFigmaComponents()
@@ -82,16 +83,10 @@ getFigmaComponents()
     return getFigmaImageUrls(componentIds)
       .then(images => {
 
-        let svgo = new SVGO(Object.assign(
-          {},
-          yaml.safeLoad(fs.readFileSync(resolve(__dirname,'../.svgo.yml'), 'utf8'))
-        ))
-
         spinner.info("Downloading SVG files from aws")
         spinner.start("")
 
-        // For each octicon
-        return Promise.all(icons.map(icon => {
+        return queueTasks(icons.map(icon => () => {
           return got.get(images[icon.figma.id], {
               headers: {
                 "Content-Type": "images/svg+xml"
@@ -106,8 +101,8 @@ getFigmaComponents()
               return svgo.optimize(svg, {})
                 .then(optimized => {
                   icon.path = optimized.data.slice(optimized.data.indexOf('>') + 1).slice(0, -6)
-                  return fs.ensureDir(join(outputDir, 'svg'))
-                    .then(() => fs.writeFileSync(resolve(outputDir, `svg/${icon.name}.svg`), optimized.data, "utf8"))
+                  return ensureDir(join(outputDir, 'svg'))
+                    .then(() => writeFileSync(resolve(outputDir, `svg/${icon.name}.svg`), optimized.data, "utf8"))
                 })
                 .catch((err) => {
                   console.error("Something went wrong optimizing the svg data!", err)
@@ -121,7 +116,7 @@ getFigmaComponents()
         text: `${progress(dCount, oCount)} ${Object.keys(data).length} icons downloaded`
       })
       spinner.info("Writing data out to lib/build/data.json")
-      fs.writeFileSync(resolve(outputDir, 'data.json'), JSON.stringify(icons), "utf8")
+      writeFileSync(resolve(outputDir, 'data.json'), JSON.stringify(icons), "utf8")
       console.warn("\nAll done! Icons successfully exported.")
     })
 
@@ -212,14 +207,13 @@ function getPreviousData() {
         return fetchAndWrite(baseURL, 'data.json', outputDir)
           .then(JSON.parse)
           .then(data => {
-            fs.writeFileSync(join(outputDir, 'data.json'), JSON.stringify(data), 'utf8')
+            writeFileSync(join(outputDir, 'data.json'), JSON.stringify(data), 'utf8')
             const icons = Object.values(data)
             const total = icons.length
             let loaded = 0
             spinner.start('Fetching SVG files...')
-            const queue = new PQueue({concurrency: 3})
-            for (const icon of icons) {
-              queue.add(() => {
+            return queueTasks(
+              icons.map(icon => () => {
                 loaded++
                 spinner.text = `${progress(loaded, total)} Downloading icon: ${icon.name}`
                 const filename = join('svg', `${icon.name}.svg`)
@@ -229,13 +223,13 @@ function getPreviousData() {
                     process.exit(1)
                   })
               })
-            }
-            queue.start()
-            return queue.onIdle().then(() => icons)
+            )
+            .then(() => icons)
           })
           .then(icons => {
             spinner.info(`Wrote ${icons.length} icons to ${outputDir}/svg`)
             spinner.succeed(`${icons.length} icons fetched from ${name}@${version}`)
+            return icons
           })
       } else {
         console.error(`figma.file mismatch: "${figma.file}" !== "${pkg.figma.file}"`)
@@ -245,9 +239,9 @@ function getPreviousData() {
 }
 
 function fetchAndWrite(baseURL, file, dirname) {
-  return execa('curl', ['-sL', join(baseURL, file)])
-    .then(({stdout}) => {
-      fs.writeFileSync(join(dirname, file), stdout, 'utf8')
-      return stdout
+  return fetchSSLFix(join(baseURL, file))
+    .then(body => {
+      writeFileSync(join(dirname, file), body, 'utf8')
+      return body
     })
 }
