@@ -37,149 +37,157 @@ const outputDir = path.resolve(__dirname, "../lib/build")
 let dCount = 0
 let oCount = 0
 
-const getFigmaComponents = () => {
-  return new Promise((resolve, reject) => {
-    spinner.info("Getting components from the figma file")
-    spinner.start(`Contacting ${FIGMA_DOMAIN}`)
-    got.get(`${FIGMA_DOMAIN}/v1/files/${figmaFileKey}`, {
-      headers: { "Content-Type": "application/json", "x-figma-token": FIGMA_TOKEN },
+// Clear the build directory
+fs.removeSync(outputDir)
+
+// Get the components
+getFigmaComponents()
+  .then(components => {
+    // Map all components to a new object
+    return components.reduce((data, c) => {
+
+      // Keywords extracted from description when that's ready
+      let keywords = (c.description || "").match(/^keywords: (.+)$/mi)
+
+      // If we have a match, get keywords and split by comma
+      keywords = keywords ? keywords.pop().split(", ") : []
+
+      // Create a data object
+      data[c.name] = {
+        name: c.name,
+        figma: {
+          id: c.id,
+          file: figmaFileKey
+        },
+        keywords: keywords,
+        width: c.absoluteBoundingBox.width,
+        height: c.absoluteBoundingBox.height,
+      }
+
+      return data
+    }, {})
+  })
+  .then(data => {
+
+    const icons = Object.values(data)
+    // Make a query string with all the component ids
+    let componentIds = icons.map(c => c.figma.id ).join(",")
+
+    // Request all the image export URLs from figma
+    return getFigmaImageUrls(componentIds)
+      .then(images => {
+
+        let svgo = new SVGO(Object.assign(
+          {},
+          yaml.safeLoad(fs.readFileSync(path.resolve(__dirname,'../.svgo.yml'), 'utf8'))
+        ))
+
+        spinner.info("Downloading SVG files from aws")
+        spinner.start("")
+
+        // For each octicon
+        return Promise.all(icons.map(icon => {
+          return got.get(images[icon.figma.id], {
+              headers: {
+                "Content-Type": "images/svg+xml"
+              }
+            })
+            .on('downloadProgress', () => {
+              spinner.text = `${progress(dCount, oCount)} Downloading ${icon.name} icon`
+            })
+            .then(response => {
+              const svg = response.body
+              dCount++
+              return svgo.optimize(svg, {})
+                .then(optimized => {
+                  icon.path = optimized.data.slice(optimized.data.indexOf('>') + 1).slice(0, -6)
+                  return fs.ensureDir(path.join(outputDir, "/svg"))
+                    .then(() => fs.writeFileSync(path.resolve(outputDir, `svg/${icon.name}.svg`), optimized.data, "utf8"))
+                })
+                .catch((err) => {
+                  console.error("Something went wrong optimizing the svg data!", err)
+                  process.exit(1)
+                })
+            })
+        }))
+    })
+    .then(() => {
+      spinner.stopAndPersist({
+        text: `${progress(dCount, oCount)} ${Object.keys(data).length} icons downloaded`
+      })
+      spinner.info("Writing data out to lib/build/data.json")
+      fs.writeFileSync(path.resolve(outputDir, `data.json`), JSON.stringify(icons), "utf8")
+      console.warn("\nAll done! Icons successfully exported.")
+    })
+
+  })
+  .catch(err => {
+    console.error(err)
+    process.exitCode = 1
+  })
+
+function getFigmaComponents() {
+  spinner.info("Getting components from the figma file")
+  spinner.start(`Contacting ${FIGMA_DOMAIN}`)
+  return got.get(`${FIGMA_DOMAIN}/v1/files/${figmaFileKey}`, {
+      headers: {
+        "Content-Type": "application/json",
+        "x-figma-token": FIGMA_TOKEN
+      },
       json: true
     })
-    .then( response => {
+    .then(response => {
       spinner.start(`Processing response`)
-      let components = []
-      const check = (c) => {
-        if (c.type == "COMPONENT") {
-          components.push(c)
-        } else if (c.children) {
-          c.children.forEach(check)
-        }
-      }
-      response.body.document.children.forEach(check)
-      return components.map(c => {
-        c["description"] = response.body.components[c.id].description
-        return c
-      })
+      const {document, components} = response.body
+      const canvas = getCanvas(document, 'Octicons')
+      return canvas.children
+        .filter(child => {
+          return child.type == "COMPONENT"
+        })
+        .map(child => {
+          child.description = components[child.id].description
+          return child
+        })
     })
-    .then( components => {
+    .then(components => {
       oCount = components.length
-      spinner.succeed(`${components.length} icons found in the figma file`)
-      return resolve(components)
+      spinner.succeed(`${oCount} icons found in the figma file`)
+      return components
     })
-    .catch( err => {
+    .catch(err => {
       spinner.fail("Error: Getting getting octicons from figma file")
-      reject(err)
+      throw err
     })
-  })
 }
 
-const getFigmaImageUrls = (componentIds) => {
+function getFigmaImageUrls(componentIds) {
   spinner.info("Exporting figma components as SVG")
-  return new Promise((resolve, reject) => {
-    got.get(`${FIGMA_DOMAIN}/v1/images/${figmaFileKey}`, {
+  return got.get(`${FIGMA_DOMAIN}/v1/images/${figmaFileKey}`, {
       query: {
         ids: componentIds,
         format: "svg"
       },
-      headers: { "Content-Type": "application/json", "x-figma-token": FIGMA_TOKEN },
+      headers: {
+        "Content-Type": "application/json",
+        "x-figma-token": FIGMA_TOKEN
+      },
       json: true
     })
-    .then( response => {
-      if( response.body.err ) {
-        reject(response.body.err)
+    .then(response => {
+      if (response.body.err) {
+        throw response.body.err
       } else {
         spinner.succeed(`Successfully exported components`)
-        resolve(response.body.images)
+        return response.body.images
       }
     })
-    .catch( err => reject(err) )
-  })
 }
 
-// Clear the build directory
-Promise.resolve(fs.removeSync(outputDir))
-
-// Get the components
-.then(() => getFigmaComponents())
-
-// Construct a new data object
-.then( components => {
-
-  // returned data will be a new Object
-  let data = {}
-
-  // Map all components to a new object
-  components.forEach((c) => {
-
-    // Keywords extracted from description when that's ready
-    let keywords = (c.description || "").match(/^keywords: (.+)$/mi)
-
-    // If we have a match, get keywords and split by comma
-    keywords = keywords ? keywords.pop().split(", ") : []
-
-    // Create a data object
-    data[c.name] = {
-      name: c.name,
-      figma: {
-        id: c.id,
-        file: figmaFileKey
-      },
-      keywords: keywords,
-      width: c.absoluteBoundingBox.width,
-      height: c.absoluteBoundingBox.height,
-    }
-  })
-  return data
-})
-
-.then( data => {
-
-  // Make a query string with all the component ids
-  let componentIds = Object.values(data).map((c) => c.figma.id ).join(",")
-
-  // Request all the image export URLs from figma
-  return getFigmaImageUrls(componentIds)
-  .then(images => {
-
-    let svgo = new SVGO(Object.assign(
-      {},
-      yaml.safeLoad(fs.readFileSync(path.resolve(__dirname,'../.svgo.yml'), 'utf8'))
-    ))
-
-    spinner.info("Downloading SVG files from aws")
-    spinner.start("")
-    // For each octicon
-    return Promise.all(Object.values(data).map(icon => {
-
-      // Request the svg data from aws
-      return downloadSVG(images[icon.figma.id], icon.name, () => {
-          spinner.text = `${progress(dCount, oCount)} Downloading ${icon.name} icon`
-        })
-        .then(svg => {
-          dCount++
-          return svgo.optimize(svg, {})
-            .then(optimized => {
-              icon.path = optimized.data.slice(optimized.data.indexOf('>') + 1).slice(0, -6)
-
-              return fs.ensureDir(path.join(outputDir, "/svg"))
-                .then(() => fs.writeFileSync(path.resolve(outputDir, `svg/${icon.name}.svg`), optimized.data, "utf8"))
-            }).catch((err) => {
-              console.error("Something went wrong optimizing the svg data!", err)
-              process.exit(1)
-            })
-        })
-    }))
-  })
-  .then(() => {
-    spinner.stopAndPersist({
-      text: `${progress(dCount, oCount)} ${Object.keys(data).length} icons downloaded`
-    })
-    spinner.info("Writing data out to lib/build/data.json")
-    fs.writeFileSync(path.resolve(outputDir, `data.json`), JSON.stringify(data), "utf8")
-    console.warn("\n  🎉 All done! Icons successfully exported.")
-  })
-
-}).catch((err) => {
-  console.error(err)
-  process.exit(1)
-})
+function getCanvas(doc, name) {
+  const matched = doc.children
+    .filter(child => child.type === 'CANVAS' && child.name === name)
+  if (!matched.length) {
+    throw new Error(`Unable to find canvas named "${name}"`)
+  }
+  return matched[0]
+}
