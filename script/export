@@ -12,19 +12,22 @@ const {
   queueTasks
 } = require('./utils.js')
 
-// Fail if there's no figma file key
-let figmaFileKey
-try {
-  figmaFileKey = figma.url.match(/file\/([a-z0-9]+)\//i)[1]
-} catch (e) {
-  console.error("Cannot find figma.url key in package.json!", e)
-  return process.exit(1)
-}
-
 const {
   FIGMA_DOMAIN = 'api.figma.com',
-  FIGMA_TOKEN
+  FIGMA_TOKEN,
+  FIGMA_FILE_KEY
 } = process.env
+
+// Fail if there's no figma file key
+let figmaFileKey = FIGMA_FILE_KEY
+if (!figmaFileKey) {
+  try {
+    figmaFileKey = figma.url.match(/file\/([a-z0-9]+)\//i)[1]
+  } catch (e) {
+    spinner.fail("Cannot find figma.url key in package.json!", e)
+    return process.exit(1)
+  }
+}
 
 const svgo = new SVGO(loadYAML(join(process.cwd(), '.svgo.yml')))
 
@@ -79,7 +82,7 @@ getFigmaComponents()
 
     const icons = Object.values(data)
     // Make a query string with all the component ids
-    let componentIds = icons.map(c => c.figma.id ).join(",")
+    const componentIds = icons.map(c => c.figma.id ).join(",")
 
     // Request all the image export URLs from figma
     return getFigmaImageUrls(componentIds)
@@ -117,7 +120,7 @@ getFigmaComponents()
       spinner.stopAndPersist({
         text: `${progress(dCount, oCount)} ${Object.keys(data).length} icons downloaded`
       })
-      spinner.info("Writing data out to lib/build/data.json")
+      spinner.info("Writing data out to ${outputDir}/data.json")
       writeFileSync(resolve(outputDir, 'data.json'), JSON.stringify(icons), "utf8")
       console.warn("\nAll done! Icons successfully exported.")
     })
