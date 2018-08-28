@@ -2,12 +2,12 @@ language: node_js
 node_js:
   - 8
 
-script:
-  - npm test
-
 before_script:
   # XXX this is a fix for nokogiri building on Travis
   - npm run bootstrap
+
+script:
+  - npm test
 
 after_success:
   # Setup rubygems creds
