@@ -2,7 +2,7 @@
 const SVGO = require('svgo')
 const got = require('got')
 const spinner = require('ora')("")
-const {ensureDir, readFileSync, removeSync, writeFileSync} = require('fs')
+const {ensureDir, readFileSync, removeSync, writeFileSync} = require('fs-extra')
 const {join, resolve}  = require('path')
 const {figma} = require('../package.json')
 const {
