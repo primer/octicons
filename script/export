@@ -33,9 +33,9 @@ const svgo = new SVGO(loadYAML(join(process.cwd(), '.svgo.yml')))
 const outputDir = resolve(__dirname, "../lib/build")
 
 if (!FIGMA_TOKEN) {
-  return getPreviousData()
+  return getUnpkgData()
     .catch(error => {
-      console.error('nope:', error)
+      spinner.fail(`Error fetching data from unpkg.com: ${error}`)
       process.exitCode = 1
     })
 }
@@ -194,7 +194,7 @@ function getCanvas(doc, name) {
   return matched[0]
 }
 
-function getPreviousData() {
+function getUnpkgData() {
   const {figma} = require('../package.json')
   const {name, version} = require('../lib/octicons_node/package.json')
   const url = `https://raw.githubusercontent.com/primer/octicons/v${version}/package.json`
@@ -220,17 +220,13 @@ function getPreviousData() {
                 spinner.text = `${progress(loaded, total)} Downloading icon: ${icon.name}`
                 const filename = join('svg', `${icon.name}.svg`)
                 return fetchAndWrite(baseURL, filename, outputDir)
-                  .catch(err => {
-                    console.error('shit:', err)
-                    process.exit(1)
-                  })
               })
             )
             .then(() => icons)
           })
           .then(icons => {
             spinner.info(`Wrote ${icons.length} icons to ${outputDir}/svg`)
-            spinner.succeed(`${icons.length} icons fetched from ${name}@${version}`)
+            spinner.succeed(`Fetched ${icons.length} icons from unpkg.com/${name}@${version}`)
             return icons
           })
       } else {
