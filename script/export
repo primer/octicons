@@ -17,7 +17,7 @@ let figmaFileKey
 try {
   figmaFileKey = figma.url.match(/file\/([a-z0-9]+)\//i)[1]
 } catch (e) {
-  console.error("Cannot find figma file key in package.json!", e)
+  console.error("Cannot find figma.url key in package.json!", e)
   return process.exit(1)
 }
 
@@ -195,14 +195,13 @@ function getCanvas(doc, name) {
 }
 
 function getUnpkgData() {
-  const {figma} = require('../package.json')
   const {name, version} = require('../lib/octicons_node/package.json')
   const url = `https://raw.githubusercontent.com/primer/octicons/v${version}/package.json`
   return got.get(url, {json: true})
     .then(response => response.body)
     .then(pkg => {
       // same file; good to go!
-      if (pkg.figma.file === figma.file) {
+      if (pkg.figma.url === figma.url) {
         const baseURL = `https://unpkg.com/${name}@${version}/build/`
         spinner.info("Getting components from unpkg.com")
         spinner.start('Fetching data.json...')
@@ -230,7 +229,7 @@ function getUnpkgData() {
             return icons
           })
       } else {
-        console.error(`figma.file mismatch: "${figma.file}" !== "${pkg.figma.file}"`)
+        spinner.fail(`figma.url mismatch in package.json:\n  "${figma.url}" (local)\n  "${pkg.figma.url}" (from: ${url})`)
         process.exitCode = 1
       }
     })
