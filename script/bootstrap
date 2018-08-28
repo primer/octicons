@@ -1,5 +1,2 @@
 #!/bin/bash
-set -e
-
-npm i
-npm run bootstrap
+npm install
