@@ -14,5 +14,5 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency "jekyll", "~> 3.1"
-  s.add_dependency "octicons", "8.0.0"
+  s.add_dependency "octicons", "8.1.0"
 end

@@ -67,7 +67,7 @@ import React from 'react'
 import Octicon, {getIconByName} from '@githubprimer/octicons-react'
 
 export default function OcticonByName({name, ...props}) {
-  return <Octicon {...props} icon={getIcon(name)} />
+  return <Octicon {...props} icon={getIconByName(name)} />
 }
 ```
 
