@@ -1,10 +1,11 @@
 {
   "name": "octicons_helper",
-  "version": "8.0.0",
+  "version": "8.0.1",
   "description": "A rails helper that makes including svg Octicons simple.",
   "scripts": {
     "version": "../../script/rubyversion ./lib/octicons_helper/version.rb",
     "postinstall": "bundle install --path vendor/bundle",
+    "prepare": "echo '(no prepare needed here)'",
     "prepublishOnly": "../../script/notify pending && ../../script/gem_publish",
     "publish": "../../script/notify success",
     "test": "bundle exec rubocop && bundle exec rake"
@@ -21,6 +22,6 @@
   "rubygems": "octicons_helper",
   "homepage": "https://github.com/primer/octicons#readme",
   "dependencies": {
-    "octicons_gem": "8.0.0"
+    "octicons_gem": "8.0.1"
   }
 }
