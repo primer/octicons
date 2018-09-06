@@ -1,0 +1,18 @@
+{
+  "name": "octicons",
+  "version": "1.0.0",
+  "description": "A scalable set of icons handcrafted with <3 by GitHub.",
+  "homepage": "https://octicons.github.com",
+  "main": "dist/octoicons.js",
+  "scripts": {
+    "build": "webpack  --mode=production -o dist/octoicons.min.js",
+    "watch": "webpack --progress --watch  --mode=development -o dist/octoicons.min.js"
+  },
+  "repository": "https://github.com/primer/octicons.git",
+  "author": "GitHub Inc.",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.1.0"
+  }
+}
