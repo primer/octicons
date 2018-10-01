@@ -161,7 +161,7 @@ function getFigmaComponents() {
       return components
     })
     .catch(err => {
-      spinner.fail("Error: Getting getting octicons from figma file")
+      spinner.fail("Error: Getting octicons from figma file")
       throw err
     })
 }
