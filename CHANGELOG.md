@@ -1,10 +1,10 @@
 # 8.1.1
 
-- Fix for list-ordered icon https://github.com/primer/octicons/pull/252
+- Fix for `list-ordered` icon https://github.com/primer/octicons/pull/252
 
 # 8.1.0
 
-- Add the arrow-both icon courtesy of @venetucci
+- Add the `arrow-both` icon courtesy of @venetucci
 - TypeScript types are now available thanks to @j-f1!
 - Fix CI builds for outside contributors (as long as they aren't changing octicons)
 - Fix typo in README
