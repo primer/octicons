@@ -80,7 +80,6 @@ getFigmaComponents(figmaFileKey)
     })
   })
   .then(data => {
-    console.log(data)
     const icons = Object.values(data)
     // Make a query string with all the component ids
     const componentIds = icons.map(c => c.figma.id ).join(",")
