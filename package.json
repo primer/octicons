@@ -9,7 +9,7 @@
   "figma": {
     "url": "https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons"
   },
-  "devDependencies": {
+  "dependencies": {
     "ava": "^0.22.0",
     "commit-status": "^4.3.0",
     "execa": "^1.0.0",
