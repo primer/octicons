@@ -137,7 +137,6 @@ function getFigmaComponents(figmaFileKey) {
               id: id,
               file: figmaFileKey
             },
-            description,
             keywords,
             width,
             height
