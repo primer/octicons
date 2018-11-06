@@ -55,10 +55,9 @@ removeSync(outputDir)
 // Get the components
 getFigmaComponents(figmaFileKey)
   .then(components => {
-    // Map all components to a new object
-    return Object.keys(components).map((k) => {
-
-      const c = components[k]
+    const result = {}
+    for (const key of Object.keys(components)) {
+      const c = components[key]
       const j = JSON.parse(c.raw)
 
       // Keywords extracted from description when that's ready
@@ -67,7 +66,7 @@ getFigmaComponents(figmaFileKey)
       // If we have a match, get keywords and split by comma
       keywords = keywords ? keywords.pop().split(", ") : []
 
-      return {
+      result[key] = {
         name: c.name,
         figma: {
           id: c.id,
@@ -77,12 +76,13 @@ getFigmaComponents(figmaFileKey)
         width: j.absoluteBoundingBox.width,
         height: j.absoluteBoundingBox.height,
       }
-    })
+    }
+    return result
   })
   .then(data => {
     const icons = Object.values(data)
     // Make a query string with all the component ids
-    const componentIds = icons.map(c => c.figma.id ).join(",")
+    const componentIds = icons.map(c => c.figma.id).join(",")
 
     // Request all the image export URLs from figma
     return getFigmaImageUrls(componentIds)
