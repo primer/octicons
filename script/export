@@ -54,31 +54,6 @@ removeSync(outputDir)
 
 // Get the components
 getFigmaComponents(figmaFileKey)
-  .then(components => {
-    const result = {}
-    for (const key of Object.keys(components)) {
-      const c = components[key]
-      const j = JSON.parse(c.raw)
-
-      // Keywords extracted from description when that's ready
-      let keywords = (c.description || "").match(/^keywords: (.+)$/mi)
-
-      // If we have a match, get keywords and split by comma
-      keywords = keywords ? keywords.pop().split(", ") : []
-
-      result[key] = {
-        name: c.name,
-        figma: {
-          id: c.id,
-          file: figmaFileKey
-        },
-        keywords: keywords,
-        width: j.absoluteBoundingBox.width,
-        height: j.absoluteBoundingBox.height,
-      }
-    }
-    return result
-  })
   .then(data => {
     const icons = Object.values(data)
     // Make a query string with all the component ids
@@ -147,11 +122,25 @@ function getFigmaComponents(figmaFileKey) {
       let components = {}
       const check = (c) => {
         if (c.type === 'COMPONENT') {
-          components[c.id] = {
-            name: c.name,
-            id: c.id,
-            description: response.body.components[c.id].description,
-            raw: JSON.stringify(c)
+
+          const {name, id} = c
+          const {description = ''} = response.body.components[c.id]
+          const {width, height} = c.absoluteBoundingBox
+          // Keywords extracted from description when that's ready
+          let keywords = description.match(/^keywords: (.+)$/mi)
+          // If we have a match, get keywords and split by comma
+          keywords = keywords ? keywords.pop().split(', ') : []
+
+          components[name] = {
+            name,
+            figma: {
+              id: id,
+              file: figmaFileKey
+            },
+            description,
+            keywords,
+            width,
+            height
           }
         } else if (c.children) {
           c.children.forEach(check)
