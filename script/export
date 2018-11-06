@@ -158,7 +158,7 @@ function getFigmaComponents(figmaFileKey) {
         }
       }
       response.body.document.children.forEach(check)
-      const oCount = Object.values(components).length
+      oCount = Object.values(components).length
       if (oCount == 0) {
         throw Error("No octicons found.")
       }
