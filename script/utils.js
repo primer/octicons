@@ -16,6 +16,10 @@ function loadYAML(path) {
 
 function progress(current, total) {
   let percentage = Math.ceil((current * 10) / total)
+  if (!Number.isFinite(percentage)) {
+    console.warn(`ack! infinite % for (${current} * 10 / ${total})`)
+    percentage = 0
+  }
   let bar = [
     "[", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "]",
     ` ${Math.ceil((current * 100) / total)}%`
