@@ -5,5 +5,10 @@
     "plugin:github/react"
   ],
   "rules": {
+  },
+  "settings": {
+    "react": {
+      "version": "16"
+    }
   }
 }
