@@ -4,6 +4,7 @@
     "postinstall": "npm run bootstrap",
     "bootstrap": "script/export && lerna bootstrap",
     "test": "ava tests/*.js && lerna run test",
+    "lint": "eslint --fix script/export",
     "bump": "lerna publish --exact --skip-npm --since \"v$(npm info octicons version)\""
   },
   "figma": {
@@ -12,6 +13,8 @@
   "dependencies": {
     "ava": "^0.22.0",
     "commit-status": "^4.3.0",
+    "eslint": "^5.8.0",
+    "eslint-plugin-github": "^1.6.0",
     "execa": "^1.0.0",
     "fs-extra": "^7.0.0",
     "got": "^8.3.0",
