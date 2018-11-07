@@ -1,13 +1,12 @@
 const PQueue = require('p-queue')
 const execa = require('execa')
 const yaml = require('js-yaml')
-const {readFileSync}  = require('fs')
+const {readFileSync} = require('fs')
 
 // this works around an issue with the TLS library that
 // (apparently) every Node fetch() implementation uses
 function fetchSSLFix(url) {
-  return execa('curl', ['-sL', url])
-    .then(res => res.stdout)
+  return execa('curl', ['-sL', url]).then(res => res.stdout)
 }
 
 function loadYAML(path) {
@@ -20,14 +19,11 @@ function progress(current, total) {
     console.warn(`ack! infinite % for (${current} * 10 / ${total})`)
     percentage = 0
   }
-  let bar = [
-    "[", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "]",
-    ` ${Math.ceil((current * 100) / total)}%`
-  ]
-  for(let i = 1; i <= percentage; i++) {
-    bar[i] = "="
+  const bar = ['[', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ']', ` ${Math.ceil((current * 100) / total)}%`]
+  for (let i = 1; i <= percentage; i++) {
+    bar[i] = '='
   }
-  return bar.join("")
+  return bar.join('')
 }
 
 function queueTasks(tasks, options) {
