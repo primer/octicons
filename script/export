@@ -2,7 +2,7 @@
 const SVGO = require('svgo')
 const got = require('got')
 const spinner = require('ora')('')
-const {ensureDir, removeSync, writeFileSync} = require('fs-extra')
+const {ensureDir, removeSync, writeFile} = require('fs-extra')
 const {join, resolve} = require('path')
 const {figma} = require('../package.json')
 const {fetchSSLFix, loadYAML, progress, queueTasks} = require('./utils.js')
@@ -27,26 +27,25 @@ const svgo = new SVGO(loadYAML(join(process.cwd(), '.svgo.yml')))
 const outputDir = resolve(__dirname, '../lib/build')
 spinner.info(`output dir: ${outputDir}`)
 
-let dCount = 0
-let oCount = 0
-
-// Clear the build directory
 removeSync(outputDir)
-
-if (FIGMA_TOKEN) {
-  spinner.info(`Exporting octicons from ${figma.url} file`)
-  getFigmaComponents(figmaFileKey).catch(error => {
-    spinner.fail(`Error fetching components from Figma: ${error}`)
-    process.exitCode = 1
-  })
-} else {
-  getUnpkgData().catch(error => {
-    spinner.fail(`Error fetching data from unpkg.com: ${error}`)
-    process.exitCode = 1
-  })
-}
+ensureDir(join(outputDir, 'svg')).then(() => {
+  if (FIGMA_TOKEN) {
+    spinner.info(`Exporting octicons from ${figma.url} file`)
+    getFigmaComponents(figmaFileKey).catch(error => {
+      spinner.fail(`Error fetching components from Figma: ${error}`)
+      process.exitCode = 1
+    })
+  } else {
+    getUnpkgData().catch(error => {
+      spinner.fail(`Error fetching data from unpkg.com: ${error}`)
+      process.exitCode = 1
+    })
+  }
+})
 
 function getFigmaComponents(figmaFileKey) {
+  let dCount = 0
+  let oCount = 0
   spinner.info('Getting components from the figma file')
   spinner.start(`Contacting ${FIGMA_DOMAIN}`)
   return got
@@ -124,9 +123,8 @@ function getFigmaComponents(figmaFileKey) {
                     .optimize(svg, {})
                     .then(optimized => {
                       icon.path = optimized.data.slice(optimized.data.indexOf('>') + 1).slice(0, -6)
-                      return ensureDir(join(outputDir, 'svg')).then(() =>
-                        writeFileSync(resolve(outputDir, `svg/${icon.name}.svg`), optimized.data, 'utf8')
-                      )
+                      const dir = resolve(outputDir, 'svg')
+                      return ensureDir(dir).then(() => writeFile(join(dir, `${icon.name}.svg`), optimized.data, 'utf8'))
                     })
                     .catch(err => {
                       console.error('Something went wrong optimizing the svg data!', err)
@@ -141,8 +139,10 @@ function getFigmaComponents(figmaFileKey) {
             text: `${progress(dCount, oCount)} ${Object.keys(components).length} icons downloaded`
           })
           spinner.info(`Writing data out to ${outputDir}/data.json`)
-          writeFileSync(resolve(outputDir, 'data.json'), JSON.stringify(components), 'utf8')
-          console.warn('\nAll done! Icons successfully exported.')
+          return writeFile(resolve(outputDir, 'data.json'), JSON.stringify(components), 'utf8')
+            .then(() => {
+              console.warn('\nAll done! Icons successfully exported.')
+            })
         })
     })
 }
@@ -194,8 +194,7 @@ function getUnpkgData() {
               icons.map(icon => () => {
                 loaded++
                 spinner.text = `${progress(loaded, total)} Downloading icon: ${icon.name}`
-                const filename = join('svg', `${icon.name}.svg`)
-                return fetchAndWrite(baseURL, filename, outputDir)
+                return fetchAndWrite(baseURL, `svg/${icon.name}.svg`, outputDir)
               })
             ).then(() => icons)
           })
@@ -215,7 +214,7 @@ function getUnpkgData() {
 
 function fetchAndWrite(baseURL, file, dirname) {
   return fetchSSLFix(join(baseURL, file)).then(body => {
-    writeFileSync(join(dirname, file), body, 'utf8')
-    return body
+    return writeFile(join(dirname, file), body, 'utf8')
+      .then(() => body)
   })
 }
