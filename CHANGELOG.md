@@ -1,11 +1,34 @@
+# 8.1.1
+
+- Fix for `list-ordered` icon https://github.com/primer/octicons/pull/252
+- In React Octicons, we set aria-hidden to false if there's an aria-label provided
+
+# 8.1.0
+
+- Add the `arrow-both` icon courtesy of @venetucci
+- TypeScript types are now available thanks to @j-f1!
+- Fix CI builds for outside contributors (as long as they aren't changing octicons)
+- Fix typo in README
+- Update README with `@githubprimer/octicons-react scope`
+- Publish release candidates from any branch beginning with `release`
+
+# 8.0.0
+
+- Breaking changes in `octicons_react` [#225](https://github.com/primer/octicons/pull/225)
+- After the initial release of octicons_react https://github.com/primer/octicons/releases/tag/v7.4.0, we needed to rename the scope of the package. Due to some deployment conflicts in our pipelines.
+
+# 7.4.0
+
+- This release marks the first official version of Octicons for React! Check out the `@github/octicons-react` package on npm for more info, or peruse the long-running PR [#222](https://github.com/primer/octicons/pull/222).
+- CI status is now reported to the `#design-ops` Slack channel
+- Jekyll Octicons has moved in this repo from `lib/jekyll-octicons` to `lib/octicons_jekyll`
+
 # 7.3.0
 
-* Fix for heart icon https://github.com/primer/octicons/pull/211
-
-* Adding an archive icon  created by @colinkeany
-  Fixes https://github.com/primer/octicons/issues/182
-
-* Fixed versioning strategy https://github.com/primer/octicons/pull/#208
+- Fix for heart icon https://github.com/primer/octicons/pull/211
+- Adding an archive icon created by @colinkeany
+- Fixes https://github.com/primer/octicons/issues/182
+- Fixed versioning strategy https://github.com/primer/octicons/pull/#208
 
 # Archived releases
 
