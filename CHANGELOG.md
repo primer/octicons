@@ -1,6 +1,7 @@
 # 8.1.1
 
 - Fix for `list-ordered` icon https://github.com/primer/octicons/pull/252
+- In React Octicons, we set aria-hidden to false if there's an aria-label provided
 
 # 8.1.0
 
