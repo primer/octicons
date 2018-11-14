@@ -47,18 +47,18 @@ Save the contributor’s Figma file as a `.fig` file and open in Figma (it will 
 
 ## Step 2, Import:
 
-Drag and drop, or paste the updated or new icon from the draft file into the main Octicons Figma file.
+Drag and drop, or paste the updated or new icon from the contributer's file into the main Octicons Figma file.
 
 
 ## Step 3, Add:
 
-Once the new changes have been added the new components to the master Octicons file, you can publish the team library in Figma.
+Once the new changes have been added the new components to the master Octicons file, you can publish to the team library in Figma.
 
 width="400"/>](https://user-images.githubusercontent.com/54012/37807780-6ddba626-2e04-11e8-9a6b-749ac5b800fe.gif)
 
 ## Step 4, Create a Release Branch in Octicons:
 
-Once you've published the latest changes in the Figma file, create a release branch in the [Octicons repo](https://github.com/primer/octicons).
+After you've published the latest changes in the Figma file, create a release branch in the [Octicons repo](https://github.com/primer/octicons).
 
 Update the [changelog](https://github.com/primer/octicons/blob/master/CHANGELOG.md) with the new changes pertaining to this version.
 
