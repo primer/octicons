@@ -1,3 +1,7 @@
+# 8.1.2
+
+- Patch release for failed 8.1.1 release
+
 # 8.1.1
 
 - Fix for `list-ordered` icon https://github.com/primer/octicons/pull/252
