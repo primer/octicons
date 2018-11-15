@@ -1,3 +1,7 @@
+# 8.1.3
+
+- Add `eye-closed` icon courtesy of @colinkeany
+
 # 8.1.2
 
 - Patch release for failed 8.1.1 release
