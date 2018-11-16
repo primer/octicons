@@ -1,6 +1,6 @@
 {
   "name": "@githubprimer/octicons-react",
-  "version": "8.1.2",
+  "version": "8.1.3",
   "description": "A scalable set of icons handcrafted with <3 by GitHub.",
   "homepage": "https://octicons.github.com",
   "author": "GitHub, Inc.",
@@ -45,7 +45,7 @@
     "fs-extra": "^6.0.1",
     "jest": "^23.2.0",
     "next": "^5.1.0",
-    "octicons": "8.1.2",
+    "octicons": "8.1.3",
     "primer-react": "0.0.6-alpha.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.1",

@@ -1,6 +1,6 @@
 {
   "name": "jekyll-octicons",
-  "version": "8.1.2",
+  "version": "8.1.3",
   "description": "A jekyll liquid plugin that makes including svg Octicons simple.",
   "scripts": {
     "version": "../../script/rubyversion ./lib/jekyll-octicons/version.rb",
@@ -21,6 +21,6 @@
   "rubygems": "jekyll-octicons",
   "homepage": "https://github.com/primer/octicons#readme",
   "dependencies": {
-    "octicons_gem": "8.1.2"
+    "octicons_gem": "8.1.3"
   }
 }
