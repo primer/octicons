@@ -1,4 +1,4 @@
-# 8.1.4
+# 8.2.0
 
 - Add `fold-up` and `fold-down` icons, courtesy of @pmarsceill
 
