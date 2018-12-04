@@ -1,3 +1,7 @@
+# 8.2.0
+
+- Add `fold-up` and `fold-down` icons, courtesy of @pmarsceill
+
 # 8.1.3
 
 - Add `eye-closed` icon, courtesy of @colinkeany
