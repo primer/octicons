@@ -9,7 +9,7 @@
     "bump": "lerna publish --exact --skip-npm --force-publish --since \"v$(npm info octicons version)\""
   },
   "figma": {
-    "url": "https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons"
+    "url": "https://www.figma.com/file/fdmVuDlQmt6tDcLnlgSovp/Octicons-request-changes"
   },
   "dependencies": {
     "ava": "^0.22.0",
