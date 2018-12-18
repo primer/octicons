@@ -61,6 +61,8 @@ After you've published the latest changes in the Figma file, create a release br
 
 Update the [changelog](https://github.com/primer/octicons/blob/master/CHANGELOG.md) with the new changes pertaining to this version.
 
-Once the changlog has been updated, run `npm run bump`. This will guide you through a prompt asking what all the new versions of the packages should be. After, push up your branch and open a pull request into master.
+Once the changlog has been updated, run `npm run bump`. This will guide you through a prompt asking what all the new versions of the packages should be. In the context of Octicons, significant changes to the library or workflow, or removing an icon would be considered a major update, adding a new icon would be considered a minor update, and fixing an icon would be considered a patch. Reach out in the #design-systems Slack channel if you're unsure! 
+
+After, push up your branch and open a pull request into master.
 
 [master-octicons]: https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons
