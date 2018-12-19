@@ -8,11 +8,7 @@ export default {
   plugins: [
     babel({
       babelrc: false,
-      presets: [
-        ['env', {modules: false}],
-        'stage-0',
-        'react'
-      ]
+      presets: [['env', {modules: false}], 'stage-0', 'react']
     }),
     commonjs()
   ],
