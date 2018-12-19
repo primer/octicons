@@ -19,8 +19,7 @@ deploy:
       all_branches: true
       tags: false
     provider: script
-    script:
-      - script/release-candidate
+    script: script/release-candidate
     skip_cleanup: true
 
   # publish "final" releases on master
@@ -30,6 +29,3 @@ deploy:
     provider: script
     script: script/release
     skip_cleanup: true
-
-notifications:
-  slack: 'github:4OisIoqZYyMlWcw3hFtZgbmh'
