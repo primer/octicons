@@ -4,7 +4,7 @@
   "description": "Don't install",
   "scripts": {
     "postinstall": "bundle install --path vendor/bundle",
-    "prepare": "cp -R ../build ./lib",
+    "prepare": "cp -R ../../build ./lib",
     "version": "../../script/rubyversion ./lib/octicons/version.rb",
     "prepublishOnly": "../../script/notify pending && ../../script/gem_publish",
     "publish": "../../script/notify success",
