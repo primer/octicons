@@ -1,5 +1,5 @@
 {
-  "name": "octicons_helper",
+  "name": "@primer/octicons_helper",
   "version": "8.2.0",
   "description": "A rails helper that makes including svg Octicons simple.",
   "scripts": {
