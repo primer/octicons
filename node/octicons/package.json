@@ -19,7 +19,8 @@
   "scripts": {
     "publish": "../../script/notify success",
     "prepublishOnly": "../../script/notify pending",
-    "prepare": "cp -R ../build . && cp index.scss build/build.css",
+    "prepare": "cp -R ../../build . && cp index.css build/build.css",
+    "pretest": "npm run prepare",
     "test": "ava --verbose 'tests/*.js'"
   },
   "keywords": [
