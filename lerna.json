@@ -1,11 +1,8 @@
 {
   "lerna": "2.11.0",
   "packages": [
-    "lib/octicons_node",
-    "lib/octicons_gem",
-    "lib/octicons_helper",
-    "lib/octicons_jekyll",
-    "lib/octicons_react"
+    "node/*",
+    "ruby/*"
   ],
-  "version": "8.2.0"
+  "version": "8.3.0"
 }
