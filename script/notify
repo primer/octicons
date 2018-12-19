@@ -26,7 +26,7 @@ if [ "$rubygems" != "null" ]; then
   name=$rubygems
   # the commit status context
   context="gem push $name"
-  version=$(grep -oE '"([0-9\.a-z\-]+)"' lib/**/version.rb | sed -e 's/"//g')
+  version=$(grep -oE '"([0-9\.a-z\-]+)"' ruby/**/version.rb | sed -e 's/"//g')
   message="https://rubygems.org/gems/$name/versions/$version"
 else
   name=$npm
