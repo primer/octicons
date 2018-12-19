@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gemspec
 
-gem "octicons", path: "../octicons_gem"
+gem "octicons", path: "../octicons"
 
 group :development, :test do
   gem "minitest"
