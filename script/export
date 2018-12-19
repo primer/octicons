@@ -24,7 +24,7 @@ const svgo = new SVGO(loadYAML(join(process.cwd(), '.svgo.yml')))
 
 // Where we're putting the exported SVG and data.json
 // so the libraries can use it
-const outputDir = resolve(__dirname, '../lib/build')
+const outputDir = resolve(__dirname, '../build')
 spinner.info(`output dir: ${outputDir}`)
 
 removeSync(outputDir)
@@ -172,7 +172,7 @@ function getFigmaImageUrls(componentIds) {
 }
 
 function getUnpkgData() {
-  const {name, version} = require('../lib/octicons_node/package.json')
+  const {name, version} = require('../node/octicons/package.json')
   const url = `https://raw.githubusercontent.com/primer/octicons/v${version}/package.json`
   return got
     .get(url, {json: true})
