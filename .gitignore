@@ -1,12 +1,10 @@
+**/build/
 *.gem
 *.lock
 *.log
+*/*/package-lock.json
 .DS_Store
 .bundle
 .env
 node_modules
-*/*/package-lock.json
-*/*/vendor/
-
-# Ignore build/export artifacts
-**/build/
+ruby/*/vendor/
