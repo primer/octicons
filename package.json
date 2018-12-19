@@ -6,7 +6,7 @@
     "bootstrap": "lerna bootstrap",
     "test": "lerna run test",
     "posttest": "ava tests/*.js",
-    "lint": "eslint --fix script tests",
+    "lint": "eslint --fix script tests node/*/{,src/}*.js",
     "bump": "lerna publish --exact --skip-npm --force-publish --since \"v$(npm info octicons version)\""
   },
   "figma": {
