@@ -5,8 +5,8 @@
 .bundle
 .env
 node_modules
-lib/*/package-lock.json
-vendor
+*/*/package-lock.json
+*/*/vendor/
 
 # Ignore build/export artifacts
-lib/**/build/
+**/build/
