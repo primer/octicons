@@ -93,7 +93,7 @@ describe Octicons::Octicon do
 
   describe "a11y" do
     it "includes attributes" do
-      icon = octicon("x", :'aria-label' => "Close")
+      icon = octicon("x", "aria-label": "Close")
       assert_includes icon.to_svg, "role=\"img\""
       assert_includes icon.to_svg, "aria-label=\"Close\""
     end
