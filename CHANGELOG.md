@@ -1,3 +1,9 @@
+# 8.3.0
+
+- New "changes requested" icon https://github.com/primer/octicons/pull/267
+- Contrib Doc Updates https://github.com/primer/octicons/pull/256
+- Updating licenses to 2019 https://github.com/primer/octicons/pull/272
+
 # 8.2.0
 
 - Add `fold-up` and `fold-down` icons, courtesy of @pmarsceill
