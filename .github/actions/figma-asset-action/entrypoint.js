@@ -1,6 +1,5 @@
 const SVGO = require('svgo')
 const got = require('got')
-const spinner = require('ora')('')
 const {ensureDir, removeSync, writeFile} = require('fs-extra')
 const {join, resolve} = require('path')
 
@@ -49,7 +48,7 @@ if (!figmaFileKey) {
   try {
     figmaFileKey = FIGMA_FILE_URL.match(/file\/([a-z0-9]+)\//i)[1]
   } catch (e) {
-    spinner.fail('Cannot find FIGMA_FILE_URL key in process!')
+    console.log('Cannot find FIGMA_FILE_URL key in process!')
     throw e
   }
 }
@@ -59,19 +58,19 @@ const svgo = new SVGO(loadYAML(join(process.cwd(), '.svgo.yml')))
 // Where we're putting the exported SVG and data.json
 // so the libraries can use it
 const outputDir = resolve(__dirname, '../lib/build')
-spinner.info(`output dir: ${outputDir}`)
+console.log(`output dir: ${outputDir}`)
 
 removeSync(outputDir)
 ensureDir(join(outputDir, 'svg')).then(() => {
   if (FIGMA_TOKEN) {
-    spinner.info(`Exporting octicons from ${FIGMA_FILE_URL} file`)
+    console.log(`Exporting octicons from ${FIGMA_FILE_URL} file`)
     getFigmaComponents(figmaFileKey).catch(error => {
-      spinner.fail(`Error fetching components from Figma: ${error}`)
+      console.log(`Error fetching components from Figma: ${error}`)
       process.exitCode = 1
     })
   } else {
     getUnpkgData().catch(error => {
-      spinner.fail(`Error fetching data from unpkg.com: ${error}`)
+      console.log(`Error fetching data from unpkg.com: ${error}`)
       process.exitCode = 1
     })
   }
@@ -80,8 +79,8 @@ ensureDir(join(outputDir, 'svg')).then(() => {
 function getFigmaComponents(figmaFileKey) {
   let dCount = 0
   let oCount = 0
-  spinner.info('Getting components from the figma file')
-  spinner.start(`Contacting ${FIGMA_DOMAIN}`)
+  console.log('Getting components from the figma file')
+  console.log(`Contacting ${FIGMA_DOMAIN}`)
   return got
     .get(`${FIGMA_DOMAIN}/v1/files/${figmaFileKey}`, {
       headers: {
@@ -91,7 +90,7 @@ function getFigmaComponents(figmaFileKey) {
       json: true
     })
     .then(response => {
-      spinner.start('Processing response')
+      console.log('Processing response')
 
       const components = {}
       function check(c) {
@@ -126,7 +125,7 @@ function getFigmaComponents(figmaFileKey) {
       if (oCount === 0) {
         throw Error('No octicons found!')
       }
-      spinner.succeed(`${oCount} icons found in the figma file`)
+      console.log(`${oCount} icons found in the figma file`)
       return components
     })
     .then(components => {
@@ -137,8 +136,8 @@ function getFigmaComponents(figmaFileKey) {
       // Request all the image export URLs from figma
       return getFigmaImageUrls(componentIds)
         .then(images => {
-          spinner.info('Downloading SVG files from Figma (AWS)')
-          spinner.start('')
+          console.log('Downloading SVG files from Figma (AWS)')
+          console.log('')
 
           return queueTasks(
             icons.map(icon => () => {
@@ -149,7 +148,7 @@ function getFigmaComponents(figmaFileKey) {
                   }
                 })
                 .on('downloadProgress', () => {
-                  spinner.text = `${progress(dCount, oCount)} Downloading ${icon.name} icon`
+                   console.log(`${progress(dCount, oCount)} Downloading ${icon.name} icon`)
                 })
                 .then(response => {
                   const svg = response.body
@@ -173,7 +172,7 @@ function getFigmaComponents(figmaFileKey) {
           spinner.stopAndPersist({
             text: `${progress(dCount, oCount)} ${Object.keys(components).length} icons downloaded`
           })
-          spinner.info(`Writing data out to ${outputDir}/data.json`)
+          console.log(`Writing data out to ${outputDir}/data.json`)
           return writeFile(resolve(outputDir, 'data.json'), JSON.stringify(components), 'utf8')
             .then(() => {
               console.warn('\nAll done! Icons successfully exported.')
@@ -183,7 +182,7 @@ function getFigmaComponents(figmaFileKey) {
 }
 
 function getFigmaImageUrls(componentIds) {
-  spinner.info('Exporting figma components as SVG')
+  console.log('Exporting figma components as SVG')
   return got
     .get(`${FIGMA_DOMAIN}/v1/images/${figmaFileKey}`, {
       query: {
@@ -200,7 +199,7 @@ function getFigmaImageUrls(componentIds) {
       if (response.body.err) {
         throw response.body.err
       } else {
-        spinner.succeed('Successfully exported components')
+        console.log('Successfully exported components')
         return response.body.images
       }
     })
@@ -216,15 +215,15 @@ function getUnpkgData() {
       // same file; good to go!
       if (pkg.figma.url === FIGMA_FILE_URL) {
         const baseURL = `https://unpkg.com/${name}@${version}/build/`
-        spinner.info('Getting components from unpkg.com')
-        spinner.start('Fetching data.json...')
+        console.log('Getting components from unpkg.com')
+        console.log('Fetching data.json...')
         return fetchAndWrite(baseURL, 'data.json', outputDir)
           .then(JSON.parse)
           .then(data => {
             const icons = Object.values(data)
             const total = icons.length
             let loaded = 0
-            spinner.start('Fetching SVG files...')
+            console.log('Fetching SVG files...')
             return queueTasks(
               icons.map(icon => () => {
                 loaded++
@@ -234,12 +233,12 @@ function getUnpkgData() {
             ).then(() => icons)
           })
           .then(icons => {
-            spinner.info(`Wrote ${icons.length} icons to ${outputDir}/svg`)
-            spinner.succeed(`Fetched ${icons.length} icons from unpkg.com/${name}@${version}`)
+            console.log(`Wrote ${icons.length} icons to ${outputDir}/svg`)
+            console.log(`Fetched ${icons.length} icons from unpkg.com/${name}@${version}`)
             return icons
           })
       } else {
-        spinner.fail(
+        console.log(
           `FIGMA_FILE_URL mismatch in package.json:\n  "${FIGMA_FILE_URL}" (local)\n  "${pkg.figma.url}" (from: ${url})`
         )
         process.exitCode = 1
