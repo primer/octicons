@@ -5,8 +5,8 @@ workflow "New workflow" {
 
 action "Hello World" {
   uses = "./figma-asset-action"
-  env = {
-    MY_NAME = "Mona"
-  }
+  secrets = [
+    "MY_NAME"
+  ]
   args = "\"Hello world, I'm $MY_NAME!\""
 }
