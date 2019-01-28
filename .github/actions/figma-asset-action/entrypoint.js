@@ -43,7 +43,7 @@ function queueTasks(tasks, options) {
 }
 
 // Fail if there's no figma file key
-let figmaFileKey = FIGMA_FILE_URL
+let figmaFileKey = null
 if (!figmaFileKey) {
   try {
     figmaFileKey = FIGMA_FILE_URL.match(/file\/([a-z0-9]+)\//i)[1]
