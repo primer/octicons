@@ -8,5 +8,6 @@ action "Hello World" {
   secrets = [
     "MY_NAME"
   ]
+
   args = "\"Hello world, I'm $MY_NAME!\""
 }
