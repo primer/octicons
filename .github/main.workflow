@@ -10,7 +10,7 @@ action "install" {
 
 action "Figma Export Assets" {
   needs = ["install"]
-  uses = "./figma-asset-action"
+  uses = "./.github/actions/figma-asset-action"
   secrets = [
     "FIGMA_TOKEN"
   ]
