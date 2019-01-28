@@ -7,15 +7,15 @@ const {join, resolve} = require('path')
 const {figma} = require('../package.json')
 const {fetchSSLFix, loadYAML, progress, queueTasks} = require('./utils.js')
 
-const {FIGMA_DOMAIN = 'api.figma.com', FIGMA_TOKEN, FIGMA_FILE_KEY} = process.env
+const {FIGMA_DOMAIN = 'api.figma.com', FIGMA_TOKEN, FIGMA_FILE_URL} = process.env
 
 // Fail if there's no figma file key
-let figmaFileKey = FIGMA_FILE_KEY
+let figmaFileKey = FIGMA_FILE_URL
 if (!figmaFileKey) {
   try {
-    figmaFileKey = figma.url.match(/file\/([a-z0-9]+)\//i)[1]
+    figmaFileKey = FIGMA_FILE_URL.match(/file\/([a-z0-9]+)\//i)[1]
   } catch (e) {
-    spinner.fail('Cannot find figma.url key in package.json!')
+    spinner.fail('Cannot find FIGMA_FILE_URL key in process!')
     throw e
   }
 }
@@ -30,7 +30,7 @@ spinner.info(`output dir: ${outputDir}`)
 removeSync(outputDir)
 ensureDir(join(outputDir, 'svg')).then(() => {
   if (FIGMA_TOKEN) {
-    spinner.info(`Exporting octicons from ${figma.url} file`)
+    spinner.info(`Exporting octicons from ${FIGMA_FILE_URL} file`)
     getFigmaComponents(figmaFileKey).catch(error => {
       spinner.fail(`Error fetching components from Figma: ${error}`)
       process.exitCode = 1
@@ -180,7 +180,7 @@ function getUnpkgData() {
     .then(response => response.body)
     .then(pkg => {
       // same file; good to go!
-      if (pkg.figma.url === figma.url) {
+      if (pkg.figma.url === FIGMA_FILE_URL) {
         const baseURL = `https://unpkg.com/${name}@${version}/build/`
         spinner.info('Getting components from unpkg.com')
         spinner.start('Fetching data.json...')
@@ -206,7 +206,7 @@ function getUnpkgData() {
           })
       } else {
         spinner.fail(
-          `figma.url mismatch in package.json:\n  "${figma.url}" (local)\n  "${pkg.figma.url}" (from: ${url})`
+          `FIGMA_FILE_URL mismatch in package.json:\n  "${FIGMA_FILE_URL}" (local)\n  "${pkg.figma.url}" (from: ${url})`
         )
         process.exitCode = 1
       }
