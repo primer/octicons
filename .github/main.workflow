@@ -11,7 +11,7 @@ action "install" {
 action "test" {
   needs = ["install", "Figma Export Assets"]
   uses = "actions/npm@master"
-  args = "ava tests/*.js"
+  args = "test"
 }
 
 action "Figma Export Assets" {

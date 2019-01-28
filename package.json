@@ -4,7 +4,7 @@
     "postinstall": "npm run bootstrap",
     "prebootstrap": "script/export",
     "bootstrap": "lerna bootstrap",
-    "test": "ava tests/*.js && lerna run test",
+    "test": "ava tests/*.js",
     "lint": "eslint --fix script",
     "bump": "lerna publish --exact --skip-npm --force-publish --since \"v$(npm info octicons version)\""
   },
