@@ -1,13 +1,21 @@
 workflow "New workflow" {
   on = "push"
-  resolves = ["Hello World"]
+  resolves = ["install", "Figma Export Assets"]
 }
 
-action "Hello World" {
+action "install" {
+  uses = "actions/npm@94e6933"
+  args = "ci"
+}
+
+action "Figma Export Assets" {
   uses = "./figma-asset-action"
   secrets = [
-    "MY_NAME"
+    "FIGMA_TOKEN"
   ]
-
-  args = "\"Hello world, I'm $MY_NAME!\""
+  env = {
+    "FIGMA_FILE_KEY": "FP7lqd1V00LUaT5zvdklkkZr"
+    "BUILD_DIR": "./build"
+  }
+  args = ""
 }
