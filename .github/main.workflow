@@ -1,11 +1,17 @@
 workflow "New workflow" {
   on = "push"
-  resolves = ["Figma Export Assets"]
+  resolves = ["install", "Figma Export Assets", "test"]
 }
 
 action "install" {
-  uses = "actions/npm@94e6933"
+  uses = "actions/npm@master"
   args = "ci"
+}
+
+action "test" {
+  needs = ["install", "Figma Export Assets"]
+  uses = "actions/npm@master"
+  args = "ava tests/*.js"
 }
 
 action "Figma Export Assets" {

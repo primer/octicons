@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ava": "^0.22.0",
     "execa": "^1.0.0",
     "fs-extra": "^7.0.0",
     "got": "^8.3.0",

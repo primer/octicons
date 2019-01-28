@@ -12,7 +12,7 @@ LABEL maintainer="Octocat <octocat@github.com>"
 # ADD entrypoint.js /entrypoint.js
 WORKDIR /
 COPY . /
-RUN npm install
+# RUN npm install
 
 ENTRYPOINT [ "node", "/entrypoint.js" ]
 # ENTRYPOINT ["/entrypoint.js"]
