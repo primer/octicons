@@ -9,5 +9,10 @@ LABEL repository="http://github.com/octocat/hello-world"
 LABEL homepage="http://github.com/actions"
 LABEL maintainer="Octocat <octocat@github.com>"
 
-ADD entrypoint.js /entrypoint.js
-ENTRYPOINT ["/entrypoint.js"]
+# ADD entrypoint.js /entrypoint.js
+WORKDIR /
+COPY . /
+RUN npm install
+
+ENTRYPOINT [ "node", "/entrypoint.js" ]
+# ENTRYPOINT ["/entrypoint.js"]
