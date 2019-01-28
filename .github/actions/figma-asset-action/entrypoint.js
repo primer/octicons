@@ -1,13 +1,47 @@
-#!/usr/bin/env node
 const SVGO = require('svgo')
 const got = require('got')
 const spinner = require('ora')('')
 const {ensureDir, removeSync, writeFile} = require('fs-extra')
 const {join, resolve} = require('path')
-const {figma} = require('../package.json')
-const {fetchSSLFix, loadYAML, progress, queueTasks} = require('./utils.js')
 
 const {FIGMA_DOMAIN = 'api.figma.com', FIGMA_TOKEN, FIGMA_FILE_URL} = process.env
+
+const PQueue = require('p-queue')
+const execa = require('execa')
+const yaml = require('js-yaml')
+const {readFileSync} = require('fs')
+
+// this works around an issue with the TLS library that
+// (apparently) every Node fetch() implementation uses
+function fetchSSLFix(url) {
+  return execa('curl', ['-sL', url]).then(res => res.stdout)
+}
+
+function loadYAML(path) {
+  return yaml.safeLoad(readFileSync(path, 'utf8'))
+}
+
+function progress(current, total) {
+  let percentage = Math.ceil((current * 10) / total)
+  if (!Number.isFinite(percentage)) {
+    console.warn(`ack! infinite % for (${current} * 10 / ${total})`)
+    percentage = 0
+  }
+  const bar = ['[', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ']', ` ${Math.ceil((current * 100) / total)}%`]
+  for (let i = 1; i <= percentage; i++) {
+    bar[i] = '='
+  }
+  return bar.join('')
+}
+
+function queueTasks(tasks, options) {
+  const queue = new PQueue(Object.assign({concurrency: 3}, options))
+  for (const task of tasks) {
+    queue.add(task)
+  }
+  queue.start()
+  return queue.onIdle()
+}
 
 // Fail if there's no figma file key
 let figmaFileKey = FIGMA_FILE_URL

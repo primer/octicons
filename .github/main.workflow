@@ -1,6 +1,6 @@
 workflow "New workflow" {
   on = "push"
-  resolves = ["install", "Figma Export Assets"]
+  resolves = ["Figma Export Assets"]
 }
 
 action "install" {
