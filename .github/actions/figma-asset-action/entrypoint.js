@@ -169,9 +169,6 @@ function getFigmaComponents(figmaFileKey) {
           )
         })
         .then(() => {
-          spinner.stopAndPersist({
-            text: `${progress(dCount, oCount)} ${Object.keys(components).length} icons downloaded`
-          })
           console.log(`Writing data out to ${outputDir}/data.json`)
           return writeFile(resolve(outputDir, 'data.json'), JSON.stringify(components), 'utf8')
             .then(() => {
@@ -227,7 +224,7 @@ function getUnpkgData() {
             return queueTasks(
               icons.map(icon => () => {
                 loaded++
-                spinner.text = `${progress(loaded, total)} Downloading icon: ${icon.name}`
+                console.log(`${progress(loaded, total)} Downloading icon: ${icon.name}`)
                 return fetchAndWrite(baseURL, `svg/${icon.name}.svg`, outputDir)
               })
             ).then(() => icons)
