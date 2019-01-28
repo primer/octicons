@@ -14,8 +14,8 @@ action "Figma Export Assets" {
     "FIGMA_TOKEN"
   ]
   env = {
-    "FIGMA_FILE_KEY": "FP7lqd1V00LUaT5zvdklkkZr",
-    "BUILD_DIR": "./build"
+    "FIGMA_FILE_KEY" = "FP7lqd1V00LUaT5zvdklkkZr"
+    "BUILD_DIR" = "./build"
   }
   args = ""
 }
