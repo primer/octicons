@@ -27,6 +27,7 @@
     "octicons"
   ],
   "dependencies": {
+    "ava": "^0.22.0",
     "object-assign": "^4.1.1"
   }
 }
