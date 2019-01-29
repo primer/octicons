@@ -3,11 +3,15 @@
 cd "$1"
 
 
-ls -la lib
+
+echp "################## Preparing"
+cp -R ../build ./lib
 
 echo "################## Bundle installing"
 bundle install
 
+echo "######## list"
+ls -la lib
 
 echo "################## Linting"
 bundle exec rubocop
