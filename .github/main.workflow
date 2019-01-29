@@ -1,6 +1,6 @@
 workflow "New workflow" {
   on = "push"
-  resolves = ["install", "Figma Export Assets", "test"]
+  resolves = ["install", "Figma Action", "test"]
 }
 
 action "install" {
@@ -9,12 +9,12 @@ action "install" {
 }
 
 action "test" {
-  needs = ["install", "Figma Export Assets"]
+  needs = ["install", "Figma Action"]
   uses = "actions/npm@master"
   args = "test"
 }
 
-action "Figma Export Assets" {
+action "Figma Action" {
   needs = ["install"]
   uses = "./.github/actions/figma-asset-action"
   secrets = [

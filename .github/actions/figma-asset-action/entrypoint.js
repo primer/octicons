@@ -57,7 +57,7 @@ const svgo = new SVGO(loadYAML(join(process.cwd(), '.svgo.yml')))
 
 // Where we're putting the exported SVG and data.json
 // so the libraries can use it
-const outputDir = resolve(__dirname, '../lib/build')
+const outputDir = resolve(process.cwd(), 'lib/build')
 console.log(`output dir: ${outputDir}`)
 
 removeSync(outputDir)
