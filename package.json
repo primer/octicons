@@ -4,7 +4,7 @@
     "prebootstrap": "script/export",
     "bootstrap": "lerna bootstrap",
     "test": "ava tests/*.js",
-    "lint": "eslint --fix script",
+    "lint": "eslint --fix script"
   },
   "figma": {
     "url": "https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons"
