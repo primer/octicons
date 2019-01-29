@@ -3,6 +3,8 @@
 cd "$1"
 
 
+ls -la lib
+
 echo "################## Bundle installing"
 bundle install
 
