@@ -1,17 +1,7 @@
 workflow "Build Octicons" {
   on = "push"
   resolves = [
-    "Main npm install",
-    "Figma Action",
-    "Main npm test",
-
-    # octicons_node
-    "octicons_node copy",
-    "octicons_node npm install",
     "octicons_node npm test",
-
-    "octicons_gem copy",
-    "octicons_gem bundle install",
     "octicons_gem test"
   ]
 }
