@@ -1,33 +1,34 @@
-workflow "Export Icons" {
+workflow "Build Octicons" {
   on = "push"
-  resolves = ["Figma Action", "test"]
-}
-
-workflow "Install repo" {
-  on = "push"
-  resolves = ["install"]
-}
-
-action "install" {
-  uses = "actions/npm@master"
-  args = "ci"
-}
-
-action "test" {
-  needs = ["install", "Figma Action"]
-  uses = "actions/npm@master"
-  args = "test"
+  resolves = [
+    "Main npm install",
+    "Figma Action",
+    "test"
+  ]
 }
 
 action "Figma Action" {
-  needs = ["install"]
+  needs = ["Main npm install"]
   uses = "primer/figma-action@master"
   secrets = [
     "FIGMA_TOKEN"
   ]
   env = {
     "FIGMA_FILE_URL" = "https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons"
-    "BUILD_DIR" = "./lib/build"
   }
-  args = "format=svg"
+  args = [
+    "format=svg",
+    "dir=./lib/build"
+  ]
+}
+
+action "Main npm install" {
+  uses = "./.github/actions/npm_install"
+  args = "./"
+}
+
+action "test" {
+  needs = ["Figma Action"]
+  uses = "actions/npm@master"
+  args = "test"
 }
