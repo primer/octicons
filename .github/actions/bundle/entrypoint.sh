@@ -4,7 +4,7 @@ cd "$1"
 
 
 
-echp "################## Preparing"
+echo "################## Preparing"
 cp -R ../build ./lib
 
 echo "################## Bundle installing"
