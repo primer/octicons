@@ -2,9 +2,6 @@ language: node_js
 node_js:
   - 10
 
-script:
-  - npm test
-
 after_success:
   # Setup rubygems creds
   - curl -u "$RUBYGEMS_USER:$RUBYGEMS_PW" https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials
