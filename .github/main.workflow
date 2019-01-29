@@ -88,7 +88,7 @@ action "octicons_gem bundle install" {
 }
 
 action "octicons_gem test" {
-  needs = "octicons_gem bundle install"
+  needs = ["octicons_gem copy","octicons_gem bundle install"]
   uses = "./.github/actions/bundle"
   args = [
     "./lib/octicons_gem",
