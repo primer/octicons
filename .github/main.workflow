@@ -77,3 +77,8 @@ action "octicons_gem copy" {
     "./lib/octicons_gem"
   ]
 }
+
+action "octicons_gem bundle install" {
+  uses = "./.github/actions/bundle"
+  args = ["./lib/octicons_gem"]
+}
