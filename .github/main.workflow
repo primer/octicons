@@ -11,7 +11,8 @@ workflow "Build Octicons" {
     "octicons_node npm test",
 
     "octicons_gem copy",
-    "octicons_gem bundle install"
+    "octicons_gem bundle install",
+    "octicons_gem test"
   ]
 }
 
@@ -80,5 +81,17 @@ action "octicons_gem copy" {
 
 action "octicons_gem bundle install" {
   uses = "./.github/actions/bundle"
-  args = ["./lib/octicons_gem"]
+  args = [
+    "./lib/octicons_gem",
+    "install --path ./vendor/bundle"
+  ]
+}
+
+action "octicons_gem test" {
+  needs = "octicons_gem bundle install"
+  uses = "./.github/actions/bundle"
+  args = [
+    "./lib/octicons_gem",
+    "exec rubocop"
+  ]
 }
