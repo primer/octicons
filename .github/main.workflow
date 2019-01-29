@@ -36,5 +36,5 @@ action "octicons_node npm install" {
 action "Main npm test" {
   needs = ["Figma Action"]
   uses = "./.github/actions/npm"
-  args = ["./", "ci"]
+  args = ["./", "test"]
 }
