@@ -8,7 +8,10 @@ workflow "Build Octicons" {
     # octicons_node
     "octicons_node copy",
     "octicons_node npm install",
-    "octicons_node npm test"
+    "octicons_node npm test",
+
+    "octicons_gem copy",
+    "octicons_gem bundle install"
   ]
 }
 
@@ -60,4 +63,17 @@ action "octicons_node npm test" {
   needs = ["octicons_node copy", "octicons_node npm install"]
   uses = "./.github/actions/npm"
   args = ["./lib/octicons_node", "test"]
+}
+
+# octicons_gem
+
+action "octicons_gem copy" {
+  needs = ["Figma Action"]
+  uses = "./.github/actions/copy"
+  args = [
+    # from
+    "./lib/build",
+    # to
+    "./lib/octicons_gem"
+  ]
 }
