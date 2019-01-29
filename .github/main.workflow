@@ -1,6 +1,11 @@
-workflow "New workflow" {
+workflow "Export Icons" {
   on = "push"
-  resolves = ["install", "Figma Action", "test"]
+  resolves = ["Figma Action", "test"]
+}
+
+workflow "Install repo" {
+  on = "push"
+  resolves = ["install"]
 }
 
 action "install" {
