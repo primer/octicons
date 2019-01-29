@@ -1,6 +1,7 @@
 workflow "Build Octicons" {
   on = "push"
   resolves = [
+    "Main npm test",
     "octicons_node npm test",
     "octicons_gem test"
   ]
@@ -73,7 +74,7 @@ action "octicons_gem bundle install" {
   uses = "./.github/actions/bundle"
   args = [
     "./lib/octicons_gem",
-    "install --path ./vendor/bundle"
+    "install"
   ]
 }
 
