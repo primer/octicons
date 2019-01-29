@@ -1,8 +1,8 @@
 FROM node:10
 
-LABEL com.github.actions.name="Figma Export Assets"
+LABEL com.github.actions.name="Figma Action"
 LABEL com.github.actions.description="Export image assets from Figma"
-LABEL com.github.actions.icon="file-media"
+LABEL com.github.actions.icon="image"
 LABEL com.github.actions.color="purple"
 
 LABEL repository="http://github.com/octocat/hello-world"

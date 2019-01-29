@@ -1,7 +1,7 @@
 import test from 'ava';
 import fs from 'fs';
 
-const octiconsLib = fs.readdirSync("./build/svg/");
+const octiconsLib = fs.readdirSync("../lib/build/svg/");
 
 
 test('No deprecated octicons are in ./build/data.json', t => {
