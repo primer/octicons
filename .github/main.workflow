@@ -1,14 +1,13 @@
 workflow "Build Octicons" {
   on = "push"
   resolves = [
-    "Main npm test",
-    "octicons_node npm test",
-    "octicons_gem test"
+    "test",
+    "Build octicons_node"
   ]
 }
 
 action "Figma Action" {
-  needs = ["Main npm install"]
+  needs = ["install"]
   uses = "primer/figma-action@master"
   secrets = [
     "FIGMA_TOKEN"
@@ -22,53 +21,23 @@ action "Figma Action" {
   ]
 }
 
-action "Main npm install" {
+action "install" {
   uses = "./.github/actions/npm"
   args = ["./", "ci"]
 }
 
-action "Main npm test" {
+action "test" {
   needs = ["Figma Action"]
   uses = "./.github/actions/npm"
   args = ["./", "test"]
 }
 
-# octicons_node
-
-action "octicons_node copy" {
+action "Build octicons_node" {
   needs = ["Figma Action"]
-  uses = "./.github/actions/copy"
-  args = [
-    # from
-    "./lib/build",
-    # to
-    "./lib/octicons_node"
-  ]
-}
-
-action "octicons_node npm install" {
-  uses = "./.github/actions/npm"
-  args = ["./lib/octicons_node", "ci"]
-}
-
-action "octicons_node npm test" {
-  needs = ["octicons_node copy", "octicons_node npm install"]
-  uses = "./.github/actions/npm"
-  args = ["./lib/octicons_node", "test"]
+  uses = "./.github/actions/octicons_node"
 }
 
 # octicons_gem
-
-action "octicons_gem copy" {
-  needs = ["Figma Action"]
-  uses = "./.github/actions/copy"
-  args = [
-    # from
-    "./lib/build",
-    # to
-    "./lib/octicons_gem"
-  ]
-}
 
 action "octicons_gem test" {
   needs = ["octicons_gem copy"]
