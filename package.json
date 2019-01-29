@@ -1,7 +1,6 @@
 {
   "private": true,
   "scripts": {
-    "postinstall": "npm run bootstrap",
     "prebootstrap": "script/export",
     "bootstrap": "lerna bootstrap",
     "test": "ava tests/*.js",

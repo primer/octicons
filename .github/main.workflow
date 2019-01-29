@@ -33,8 +33,8 @@ action "octicons_node npm install" {
   args = ["./lib/octicons_node", "ci"]
 }
 
-action "test" {
+action "Main npm test" {
   needs = ["Figma Action"]
-  uses = "actions/npm@master"
-  args = "test"
+  uses = "./.github/actions/npm"
+  args = ["./", "ci"]
 }
