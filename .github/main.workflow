@@ -24,13 +24,13 @@ action "Figma Action" {
 }
 
 action "Main npm install" {
-  uses = "./.github/actions/npm_install"
-  args = "./"
+  uses = "./.github/actions/npm"
+  args = ["./", "ci"]
 }
 
 action "octicons_node npm install" {
-  uses = "./.github/actions/npm_install"
-  args = "./lib/octicons_node"
+  uses = "./.github/actions/npm"
+  args = ["./lib/octicons_node", "ci"]
 }
 
 action "test" {
