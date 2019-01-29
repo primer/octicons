@@ -1,11 +1,13 @@
 import test from 'ava';
 import fs from 'fs';
 
-const octiconsLib = fs.readdirSync("./lib/build/svg/");
+const octiconsLib = fs.readdirSync("./");
+
+console.log(octiconsLib)
 
 
-test('No deprecated octicons are in ./build/data.json', t => {
-  Object.keys(octicons).forEach( point => {
-    t.truthy(octiconsLib.indexOf(point+'.svg') >= 0, './build/data.json contains the deleted octicon `' + point + '`, please remove it.' );
-  })
-})
+// test('No deprecated octicons are in ./build/data.json', t => {
+//   Object.keys(octicons).forEach( point => {
+//     t.truthy(octiconsLib.indexOf(point+'.svg') >= 0, './build/data.json contains the deleted octicon `' + point + '`, please remove it.' );
+//   })
+// })
