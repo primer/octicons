@@ -36,13 +36,3 @@ action "Build octicons_node" {
   needs = ["Figma Action"]
   uses = "./.github/actions/octicons_node"
 }
-
-# octicons_gem
-
-action "octicons_gem test" {
-  needs = ["octicons_gem copy"]
-  uses = "./.github/actions/bundle"
-  args = [
-    "./lib/octicons_gem"
-  ]
-}
