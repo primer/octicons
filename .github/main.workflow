@@ -3,7 +3,8 @@ workflow "Build Octicons" {
   resolves = [
     "Main npm install",
     "Figma Action",
-    "test"
+    "test",
+    "octicons_node npm install"
   ]
 }
 
@@ -25,6 +26,11 @@ action "Figma Action" {
 action "Main npm install" {
   uses = "./.github/actions/npm_install"
   args = "./"
+}
+
+action "octicons_node npm install" {
+  uses = "./.github/actions/npm_install"
+  args = "./lib/octicons_node"
 }
 
 action "test" {
