@@ -14,6 +14,7 @@ action "npm install" {
 action "lerna bootstrap" {
   uses = "docker://starefossen/ruby-node"
   needs = ["npm install"]
+  runs = "npm"
   args = "run bootstrap"
 }
 
