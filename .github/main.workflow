@@ -16,7 +16,7 @@ action "test" {
 
 action "Figma Action" {
   needs = ["install"]
-  uses = "./.github/actions/figma-asset-action"
+  uses = "primer/figma-action@master"
   secrets = [
     "FIGMA_TOKEN"
   ]
