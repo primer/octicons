@@ -1,7 +1,7 @@
 import test from 'ava';
 import fs from 'fs';
 
-const octiconsLib = fs.readdirSync("./");
+const octiconsLib = fs.readdirSync("./lib/");
 
 console.log(octiconsLib)
 
