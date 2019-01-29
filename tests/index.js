@@ -1,13 +1,9 @@
 import test from 'ava';
 import fs from 'fs';
 
-const octiconsLib = fs.readdirSync("./lib/");
-
-console.log(octiconsLib)
+const octiconsLib = fs.readdirSync("./lib/build/svg");
 
 
-// test('No deprecated octicons are in ./build/data.json', t => {
-//   Object.keys(octicons).forEach( point => {
-//     t.truthy(octiconsLib.indexOf(point+'.svg') >= 0, './build/data.json contains the deleted octicon `' + point + '`, please remove it.' );
-//   })
-// })
+test('SVG icons exist', t => {
+  t.not(octiconsLib.length, 0, `We didn't find any svg files`)
+})
