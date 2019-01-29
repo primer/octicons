@@ -3,7 +3,7 @@ workflow "Build Octicons" {
   resolves = [
     "Main npm install",
     "Figma Action",
-    "test",
+    "Main npm test",
     "octicons_node npm install"
   ]
 }
