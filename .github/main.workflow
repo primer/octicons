@@ -70,19 +70,10 @@ action "octicons_gem copy" {
   ]
 }
 
-action "octicons_gem bundle install" {
-  uses = "./.github/actions/bundle"
-  args = [
-    "./lib/octicons_gem",
-    "install"
-  ]
-}
-
 action "octicons_gem test" {
-  needs = ["octicons_gem copy","octicons_gem bundle install"]
+  needs = ["octicons_gem copy"]
   uses = "./.github/actions/bundle"
   args = [
-    "./lib/octicons_gem",
-    "exec rubocop"
+    "./lib/octicons_gem"
   ]
 }

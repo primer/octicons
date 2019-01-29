@@ -2,6 +2,16 @@
 
 cd "$1"
 
-bundle show --paths
 
-sh -c "bundle $2"
+echo "################## Bundle installing"
+bundle install
+
+
+echo "################## Linting"
+bundle exec rubocop
+
+
+echo "################## Running tests"
+bundle exec rake
+
+echo "################## All done!"
