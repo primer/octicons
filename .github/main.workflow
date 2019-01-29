@@ -22,7 +22,7 @@ action "Figma Action" {
   ]
   env = {
     "FIGMA_FILE_URL" = "https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons"
-    "BUILD_DIR" = "./build"
+    "BUILD_DIR" = "./lib/build"
   }
-  args = ""
+  args = "format=svg"
 }
