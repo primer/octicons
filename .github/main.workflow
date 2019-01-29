@@ -4,6 +4,9 @@ workflow "Build Octicons" {
     "Main npm install",
     "Figma Action",
     "Main npm test",
+
+    # octicons_node
+    "octicons_node copy",
     "octicons_node npm install"
   ]
 }
@@ -20,6 +23,16 @@ action "Figma Action" {
   args = [
     "format=svg",
     "dir=./lib/build"
+  ]
+}
+
+action "octicons_node copy" {
+  uses = "./.github/actions/copy"
+  args = [
+    # from
+    "./lib/build",
+    # to
+    "./lib/octicons_node"
   ]
 }
 
