@@ -11,6 +11,13 @@ action "npm install" {
   args = "install"
 }
 
+action "lerna bootstrap" {
+  uses = "docker://starefossen/ruby-node"
+  needs = ["npm install"]
+  args = "run bootstrap"
+}
+
+
 action "npm test" {
   uses = "docker://starefossen/ruby-node"
   needs = ["npm install"]
