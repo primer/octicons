@@ -20,7 +20,7 @@ action "lerna bootstrap" {
 
 action "npm test" {
   uses = "docker://starefossen/ruby-node"
-  needs = ["npm install"]
+  needs = ["lerna bootstrap"]
   runs = "npm"
   args = "test"
 }
