@@ -23,8 +23,8 @@ action "Figma Action" {
 }
 
 action "install" {
-  uses = "./.github/actions/npm"
-  args = ["./", "ci"]
+  uses = "actions/npm@master"
+  args = "install"
 }
 
 action "test" {
