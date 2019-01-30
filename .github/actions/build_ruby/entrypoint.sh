@@ -11,7 +11,7 @@ echo "**************** Installing ****************"
 bundle install
 
 echo "**************** Linting ****************"
-bundle exec rubocop
+bundle exec rake lint
 
 echo "**************** Testing  ****************"
-bundle exec rake
+bundle exec rake test
