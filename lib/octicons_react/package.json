@@ -18,9 +18,7 @@
     "start": "NODE_ENV=production next",
     "lint": "eslint src pages script",
     "prepare": "npm run build && npm run rollup",
-    "prepublishOnly": "../../script/notify pending",
     "preversion": "npm run prepare",
-    "publish": "../../script/notify success",
     "rollup": "rollup -c"
   },
   "keywords": [

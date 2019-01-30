@@ -3,7 +3,7 @@ workflow "Build Octicons" {
   resolves = [
     "test",
     "Build octicons_node",
-    "Build octicons_react",
+    # "Build octicons_react",
     "Build octicons_gem",
     "Build octicons_helper",
     "Build octicons_jekyll"
@@ -30,8 +30,14 @@ action "install" {
   args = "install"
 }
 
+action "lint" {
+  needs = ["install"]
+  uses = "actions/npm@master"
+  args = "lint"
+}
+
 action "test" {
-  needs = ["Figma Action"]
+  needs = ["lint", "Figma Action"]
   uses = "actions/npm@master"
   args = "test"
 }
