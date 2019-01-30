@@ -1,16 +1,54 @@
+const { FigmaExport } = require('./src')
 const {
   FIGMA_TOKEN,
-  FIGMA_FILE_URL
+  // FIGMA_FILE_URL
 } = process.env
 
 
-if (!FIGMA_TOKEN) {
-  throw new Error(`Required: You must set a FIGMA_TOKEN in your Secrets. https://developer.github.com/actions/creating-workflows/storing-secrets/`)
+// Check for required stuff
+// if (!FIGMA_TOKEN) {
+//   throw new Error(`Required: You must set a FIGMA_TOKEN in your Secrets. https://developer.github.com/actions/creating-workflows/storing-secrets/`)
+// }
+
+// if (!FIGMA_FILE_URL) {
+//   throw new Error(`Required: You must set a FIGMA_FILE_URL in your workflow.`)
+// }
+
+FIGMA_FILE_URL = "https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons"
+
+const parseArgs = () => {
+  let defaults = {
+    outputDir: './build',
+    format: 'png',
+    version: 'latest',
+    scale: '1'
+  }
+  for (const arg of process.argv) {
+    const [key, val] = arg.split("=")
+    if (defaults[key]) {
+      defaults[key] = val
+    }
+  }
+  return defaults
 }
 
-if (!FIGMA_FILE_URL) {
-  throw new Error(`Required: You must set a FIGMA_FILE_URL in your workflow.`)
+const getFileKey = () => {
+  // Fail if there's no figma file key
+  try {
+    return FIGMA_FILE_URL.match(/file\/([a-z0-9]+)\//i)[1]
+  } catch (e) {
+    throw new Error(`Cannot parse figma file key from provided file url ${FIGMA_FILE_URL}!`)
+  }
 }
+
+let fe = new FigmaExport({
+  token: FIGMA_TOKEN,
+  fileKey: getFileKey(),
+  arguments: parseArgs()
+})
+
+fe.export()
+
 
 // function queueTasks(tasks, options) {
 //   const queue = new PQueue(Object.assign({
@@ -21,17 +59,6 @@ if (!FIGMA_FILE_URL) {
 //   }
 //   queue.start()
 //   return queue.onIdle()
-// }
-
-// // Fail if there's no figma file key
-// let figmaFileKey = null
-// if (!figmaFileKey) {
-//   try {
-//     figmaFileKey = FIGMA_FILE_URL.match(/file\/([a-z0-9]+)\//i)[1]
-//   } catch (e) {
-//     console.log('Cannot find FIGMA_FILE_URL key in process!')
-//     throw e
-//   }
 // }
 
 // // Where we're putting the exported SVG and data.json

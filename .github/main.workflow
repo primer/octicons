@@ -1,12 +1,13 @@
 workflow "Build Octicons" {
   on = "push"
   resolves = [
-    "test",
-    "Build octicons_node",
+    "version",
+    # "test",
+    # "Build octicons_node",
     # "Build octicons_react",
-    "Build octicons_gem",
-    "Build octicons_helper",
-    "Build octicons_jekyll"
+    # "Build octicons_gem",
+    # "Build octicons_helper",
+    # "Build octicons_jekyll"
   ]
 }
 
@@ -40,6 +41,10 @@ action "test" {
   needs = ["lint", "Figma Action"]
   uses = "actions/npm@master"
   args = "test"
+}
+
+action "version" {
+  uses = "./.github/actions/version"
 }
 
 action "Build octicons_node" {
