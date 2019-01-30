@@ -1,7 +1,8 @@
 workflow "Octicons" {
   on = "push"
   resolves = [
-    "lint"
+    "lint",
+    "version"
   ]
 }
 
@@ -14,4 +15,9 @@ action "lint" {
   needs = ["install"]
   uses = "actions/npm@master"
   args = "run lint"
+}
+
+action "version" {
+  needs = ["install"]
+  uses = "./.github/actions/version"
 }
