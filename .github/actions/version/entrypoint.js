@@ -1,4 +1,4 @@
 const semver = require('semver')
-const pkg = require('./package.json')
+const pkg = require(process.cwd(), 'package.json')
 
 console.log(pkg)
