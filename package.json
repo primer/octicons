@@ -5,9 +5,6 @@
     "test": "ava tests/*.js",
     "lint": "eslint tests"
   },
-  "figma": {
-    "url": "https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons"
-  },
   "dependencies": {
     "ava": "^0.22.0",
     "eslint": "^5.8.0",
