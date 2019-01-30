@@ -35,10 +35,12 @@ action "test" {
 
 action "Build octicons_node" {
   needs = ["Figma Action"]
-  uses = "./.github/actions/octicons_node"
+  uses = "./.github/actions/build_node"
+  args = "octicons_node"
 }
 
 action "Build octicons_gem" {
   needs = ["Figma Action"]
-  uses = "./.github/actions/octicons_gem"
+  uses = "./.github/actions/build_gem"
+  args = "octicons_gem"
 }

@@ -2,13 +2,16 @@
 
 set -e
 
-cd ./lib/octicons_node
+cd ./lib/$*
 
 echo "**************** Copying assets files to build directory ****************"
 cp -R ../build/ .
 
-echo "**************** npm install ****************"
-npm ci
+echo "**************** Installing ****************"
+npm install
+
+echo "**************** Linting ****************"
+npm run lint
 
 echo "**************** Testing  ****************"
 npm run test

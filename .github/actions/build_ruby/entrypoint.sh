@@ -2,8 +2,7 @@
 
 set -e
 
-cd ./lib/octicons_gem
-
+cd ./lib/$*
 
 echo "**************** Copying assets files to build directory ****************"
 cp -R ../build lib/
