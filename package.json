@@ -1,5 +1,6 @@
 {
   "private": true,
+  "version": "8.3.0",
   "scripts": {
     "test": "ava tests/*.js",
     "lint": "eslint tests"
