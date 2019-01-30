@@ -8,8 +8,6 @@ cd ./lib/octicons_gem
 echo "**************** Copying assets files to build directory ****************"
 cp -R ../build lib/
 
-ls ./lib
-
 echo "**************** Installing ****************"
 bundle install
 
