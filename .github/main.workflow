@@ -14,7 +14,7 @@ action "Figma Action" {
   needs = ["install"]
   uses = "./.github/actions/figma"
   secrets = [
-    "FIGMA_TOKENf"
+    "FIGMA_TOKEN"
   ]
   env = {
     "FIGMA_FILE_URLd" = "https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons"
