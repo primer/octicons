@@ -1,15 +1,3 @@
-const execa = require('execa')
-const got = require('got')
-const PQueue = require('p-queue')
-const {
-  ensureDir,
-  removeSync,
-  writeFile
-} = require('fs-extra')
-const {
-  join,
-  resolve
-} = require('path')
 const {
   FIGMA_TOKEN,
   FIGMA_FILE_URL
@@ -17,7 +5,11 @@ const {
 
 
 if (!FIGMA_TOKEN) {
-  trow new Error(`Required: You must set a FIGMA_TOKEN in your Secrets. https://developer.github.com/actions/creating-workflows/storing-secrets/`)
+  throw new Error(`Required: You must set a FIGMA_TOKEN in your Secrets. https://developer.github.com/actions/creating-workflows/storing-secrets/`)
+}
+
+if (!FIGMA_FILE_URL) {
+  throw new Error(`Required: You must set a FIGMA_FILE_URL in your workflow.`)
 }
 
 // function queueTasks(tasks, options) {
