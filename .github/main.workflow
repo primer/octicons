@@ -12,7 +12,7 @@ workflow "Build Octicons" {
 
 action "Figma Action" {
   needs = ["install"]
-  uses = "primer/figma-action@master"
+  uses = "./.github/actions/figma"
   secrets = [
     "FIGMA_TOKEN"
   ]

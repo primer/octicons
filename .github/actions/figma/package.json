@@ -1,0 +1,18 @@
+{
+  "name": "@primer/figma-action",
+  "version": "1.0.0-alpha.1",
+  "private": false,
+  "description": "Export image assets from figma to GitHub",
+  "scripts": {
+    "start": "node entrypoint.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "execa": "^1.0.0",
+    "fs-extra": "^7.0.0",
+    "got": "^8.3.0",
+    "p-queue": "^2.4.2"
+  }
+}
