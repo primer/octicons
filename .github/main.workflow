@@ -29,8 +29,8 @@ action "install" {
 
 action "test" {
   needs = ["Figma Action"]
-  uses = "./.github/actions/npm"
-  args = ["./", "test"]
+  uses = "actions/npm@master"
+  args = "test"
 }
 
 action "Build octicons_node" {
