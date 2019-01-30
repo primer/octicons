@@ -33,7 +33,7 @@ action "install" {
 action "lint" {
   needs = ["install"]
   uses = "actions/npm@master"
-  args = "lint"
+  args = "run lint"
 }
 
 action "test" {
