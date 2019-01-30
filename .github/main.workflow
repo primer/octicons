@@ -11,6 +11,7 @@ action "install" {
 }
 
 action "lint" {
+  needs = ["install"]
   uses = "actions/npm@master"
   args = "run lint"
 }
