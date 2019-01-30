@@ -1,4 +1,9 @@
 const semver = require('semver')
-const pkg = require(process.cwd(), 'package.json')
+const {
+  join,
+  resolve
+} = require('path')
+
+const pkg = require(resolve(process.cwd(), 'package.json'))
 
 console.log(pkg)
