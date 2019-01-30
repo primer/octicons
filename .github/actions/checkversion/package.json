@@ -1,0 +1,14 @@
+{
+  "name": "@primer/version",
+  "version": "1.0.0-alpha.1",
+  "description": "Version the library based on commit branch.",
+  "scripts": {
+    "start": "node entrypoint.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "semver": "5.6.0"
+  }
+}

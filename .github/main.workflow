@@ -1,7 +1,7 @@
 workflow "Build Octicons" {
   on = "push"
   resolves = [
-    "version",
+    "checkversion",
     # "test",
     # "Build octicons_node",
     # "Build octicons_react",
@@ -45,6 +45,11 @@ action "test" {
 
 action "version" {
   uses = "./.github/actions/version"
+}
+
+action "checkversion" {
+  needs = ["version"]
+  uses = "./.github/actions/checkversion"
 }
 
 action "Build octicons_node" {
