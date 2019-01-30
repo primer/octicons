@@ -3,6 +3,7 @@ workflow "Build Octicons" {
   resolves = [
     "test",
     "Build octicons_node",
+    "Build octicons_react",
     "Build octicons_gem",
     "Build octicons_helper",
     "Build octicons_jekyll"
