@@ -44,3 +44,15 @@ action "Build octicons_gem" {
   uses = "./.github/actions/build_gem"
   args = "octicons_gem"
 }
+
+action "Build octicons_helper" {
+  needs = ["Build octicons_gem"]
+  uses = "./.github/actions/build_gem"
+  args = "octicons_helper"
+}
+
+action "Build octicons_jekyll" {
+  needs = ["Build octicons_gem"]
+  uses = "./.github/actions/build_gem"
+  args = "octicons_helper"
+}
