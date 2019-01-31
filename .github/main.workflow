@@ -2,7 +2,8 @@ workflow "Octicons" {
   on = "push"
   resolves = [
     "test",
-    "Build octicons_node"
+    "Build octicons_node",
+    "Build octicons_react"
   ]
 }
 
@@ -42,4 +43,10 @@ action "Build octicons_node" {
   needs = ["Figma Action"]
   uses = "./.github/actions/build_node"
   args = "octicons_node"
+}
+
+action "Build octicons_react" {
+  needs = ["Figma Action"]
+  uses = "./.github/actions/build_node"
+  args = "octicons_react"
 }
