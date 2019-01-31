@@ -22,10 +22,10 @@ PACKAGE_VERSION=$(cat package.json \
 PACKAGE_VERSION="0.0.0-882a0ed25"
 
 PUBLISH_TAG=latest
-if [[ $PACKAGE_VERSION =~ ^0\.0\.0\- ]]
+if [ $PACKAGE_VERSION =~ ^0\.0\.0\- ]
 then
   PUBLISH_TAG=canary
-elif [[ $PACKAGE_VERSION =~ \-rc ]]
+elif [ $PACKAGE_VERSION =~ \-rc ]
 then
   PUBLISH_TAG=next
 fi
