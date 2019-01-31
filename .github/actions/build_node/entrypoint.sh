@@ -27,27 +27,30 @@ elif [[ $PACKAGE_VERSION == *"-rc"* ]]; then
   PUBLISH_TAG=next
 fi
 
-cd ./lib/$*
+echo "This is the publish_tag"
+echo $PUBLISH_TAG
 
-echo "**************** Copying assets files to build directory ****************"
-cp -R ../build/ .
+# cd ./lib/$*
 
-echo "**************** Installing ****************"
-npm install
+# echo "**************** Copying assets files to build directory ****************"
+# cp -R ../build/ .
 
-echo "**************** Building ****************"
-npm run build
+# echo "**************** Installing ****************"
+# npm install
 
-echo "**************** Linting ****************"
-npm run lint
+# echo "**************** Building ****************"
+# npm run build
 
-echo "**************** Testing  ****************"
-npm run test
+# echo "**************** Linting ****************"
+# npm run lint
 
-{
-  echo "**************** Publishing ****************"
-  npm version $PACKAGE_VERSION && npm publish --tag $PUBLISH_TAG --access public
-} || {
-  # Bail out of publishing
-  exit 0
-}
+# echo "**************** Testing  ****************"
+# npm run test
+
+# {
+#   echo "**************** Publishing ****************"
+#   npm version $PACKAGE_VERSION && npm publish --tag $PUBLISH_TAG --access public
+# } || {
+#   # Bail out of publishing
+#   exit 0
+# }
