@@ -13,7 +13,7 @@ const {
 const pkg = require(resolve(process.cwd(), 'package.json'))
 
 // GitHub info
-const branchName = GITHUB_REF.replace(/^refs\/(heads|remotes\/origins)\//gi, "")
+const branchName = GITHUB_REF.replace(/^refs\/heads\//gi, "")
 const shortSha = GITHUB_SHA.slice(0,7)
 let releaseMatch = null
 
