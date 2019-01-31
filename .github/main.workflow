@@ -23,7 +23,7 @@ action "test" {
 }
 
 action "Figma Action" {
-  needs = ["install"]
+  needs = ["version"]
   uses = "primer/figma-action@master"
   secrets = [
     "FIGMA_TOKEN"
@@ -35,4 +35,9 @@ action "Figma Action" {
     "format=svg",
     "dir=./lib/build"
   ]
+}
+
+action "version" {
+  needs = ["install"]
+  uses = "./.github/actions/version"
 }
