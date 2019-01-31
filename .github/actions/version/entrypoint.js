@@ -16,7 +16,7 @@ const writePackageJson = () => {
   fs.writeFileSync(join(process.cwd(), 'package.json'), JSON.stringify(pkg), 'utf8')
 }
 
- // If it's a release branch
+// If it's a release branch
 if (branchName.match(/^release-/i)) {
   console.log('Versioning release candidate')
   const newVersion = branchName.match(/^release-([\d\.]+)/i)
