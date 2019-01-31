@@ -19,6 +19,14 @@ PACKAGE_VERSION=$(cat package.json \
   | sed 's/[",]//g' \
   | tr -d '[[:space:]]')
 
+PUBLISH_TAG="latest"
+
+if [[ $PACKAGE_VERSION == "0.0.0-"* ]]; then
+  PUBLISH_TAG="canary"
+elif [[ $PACKAGE_VERSION == *"-rc"* ]]; then
+  PUBLISH_TAG="next"
+fi
+
 cd ./lib/$*
 
 echo "**************** Copying assets files to build directory ****************"
@@ -38,7 +46,7 @@ npm run test
 
 {
   echo "**************** Publishing ****************"
-  npm version $PACKAGE_VERSION && npm publish --access public
+  npm version $PACKAGE_VERSION && npm publish --access public --tag $PUBLISH_TAG
 } || {
   # Bail out of publishing
   exit 0
