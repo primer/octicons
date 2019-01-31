@@ -10,6 +10,11 @@ action "install" {
   args = "install"
 }
 
+action "version" {
+  needs = ["install"]
+  uses = "./.github/actions/version"
+}
+
 action "lint" {
   needs = ["install"]
   uses = "actions/npm@master"
@@ -35,9 +40,4 @@ action "Figma Action" {
     "format=svg",
     "dir=./lib/build"
   ]
-}
-
-action "version" {
-  needs = ["install"]
-  uses = "./.github/actions/version"
 }
