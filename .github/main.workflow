@@ -1,7 +1,6 @@
 workflow "Octicons" {
   on = "push"
   resolves = [
-    "test",
     "Build octicons_node",
     "Build octicons_react"
   ]
