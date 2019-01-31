@@ -44,6 +44,7 @@ action "Figma Action" {
 }
 
 action "Build octicons_node" {
+  needs = ["test"]
   uses = "./.github/actions/build_node"
   args = "octicons_node"
   secrets = [
@@ -52,6 +53,7 @@ action "Build octicons_node" {
 }
 
 action "Build octicons_react" {
+  needs = ["test"]
   uses = "./.github/actions/build_node"
   args = "octicons_react"
   secrets = [

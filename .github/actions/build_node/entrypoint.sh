@@ -19,8 +19,6 @@ PACKAGE_VERSION=$(cat package.json \
   | sed 's/[",]//g' \
   | tr -d '[[:space:]]')
 
-PACKAGE_VERSION="0.0.0-882a0ed25"
-
 PUBLISH_TAG=latest
 if [[ "$PACKAGE_VERSION" =~ ^0\.0\.0\- ]]
 then
@@ -30,30 +28,27 @@ then
   PUBLISH_TAG=next
 fi
 
-echo "This is the publish_tag"
-echo $PUBLISH_TAG
+cd ./lib/$*
 
-# cd ./lib/$*
+echo "**************** Copying assets files to build directory ****************"
+cp -R ../build/ .
 
-# echo "**************** Copying assets files to build directory ****************"
-# cp -R ../build/ .
+echo "**************** Installing ****************"
+npm install
 
-# echo "**************** Installing ****************"
-# npm install
+echo "**************** Building ****************"
+npm run build
 
-# echo "**************** Building ****************"
-# npm run build
+echo "**************** Linting ****************"
+npm run lint
 
-# echo "**************** Linting ****************"
-# npm run lint
+echo "**************** Testing  ****************"
+npm run test
 
-# echo "**************** Testing  ****************"
-# npm run test
-
-# {
-#   echo "**************** Publishing ****************"
-#   npm version $PACKAGE_VERSION && npm publish --tag $PUBLISH_TAG --access public
-# } || {
-#   # Bail out of publishing
-#   exit 0
-# }
+{
+  echo "**************** Publishing ****************"
+  npm version $PACKAGE_VERSION && npm publish --tag $PUBLISH_TAG --access public
+} || {
+  # Bail out of publishing
+  exit 0
+}
