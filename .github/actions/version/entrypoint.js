@@ -13,7 +13,7 @@ const pkg = require(resolve(process.cwd(), 'package.json'))
 const branchName = GITHUB_REF.replace(/^refs\/(heads|remotes\/origins)\//gi, "")
 
 const writePackageJson = () => {
-  fs.writeFileSync(join(process.cwd(), 'package.json'), JSON.stringify(pkg), 'utf8')
+  fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2), 'utf8')
 }
 
 // If it's a release branch
