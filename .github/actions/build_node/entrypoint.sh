@@ -40,5 +40,6 @@ npm run test
   echo "**************** Publishing ****************"
   npm version $PACKAGE_VERSION && npm publish --access public
 } || {
-  exit 1
+  # Bail out of publishing
+  exit 0
 }
