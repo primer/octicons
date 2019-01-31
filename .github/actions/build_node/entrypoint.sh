@@ -29,4 +29,6 @@ npm run test
 {
   echo "**************** Publishing ****************"
   npm version $PACKAGE_VERSION && npm publish --access public
-} || { }
+} || {
+  exit 1
+}
