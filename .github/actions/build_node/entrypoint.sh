@@ -2,6 +2,8 @@
 
 set -e
 
+VERSION=$(cat package.json | jq '.version')
+
 cd ./lib/$*
 
 echo "**************** Copying assets files to build directory ****************"
@@ -18,3 +20,8 @@ npm run lint
 
 echo "**************** Testing  ****************"
 npm run test
+
+echo "**************** Testing  ****************"
+npm version $VERSION --allow-same-version
+
+cat package.json
