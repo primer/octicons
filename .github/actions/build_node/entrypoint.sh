@@ -2,7 +2,12 @@
 
 set -e
 
-VERSION=$(cat package.json | jq '.version')
+PACKAGE_VERSION=$(cat package.json \
+  | grep version \
+  | head -1 \
+  | awk -F: '{ print $2 }' \
+  | sed 's/[",]//g' \
+  | tr -d '[[:space:]]')
 
 cd ./lib/$*
 
@@ -22,6 +27,6 @@ echo "**************** Testing  ****************"
 npm run test
 
 echo "**************** Testing  ****************"
-npm version $VERSION --allow-same-version
+npm version $PACKAGE_VERSION --allow-same-version
 
 cat package.json
