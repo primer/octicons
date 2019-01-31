@@ -17,7 +17,7 @@
     "url": "https://github.com/primer/octicons/issues"
   },
   "scripts": {
-    "build": "",
+    "build": "script/build.js",
     "lint": "eslint index.js tests/*.js",
     "test": "ava --verbose 'tests/*.js'"
   },
