@@ -19,6 +19,8 @@ PACKAGE_VERSION=$(cat package.json \
   | sed 's/[",]//g' \
   | tr -d '[[:space:]]')
 
+PACKAGE_VERSION="0.0.0-882a0ed25"
+
 PUBLISH_TAG=latest
 if [[ $PACKAGE_VERSION =~ ^0\.0\.0\- ]]
 then
