@@ -46,7 +46,7 @@ npm run test
 
 {
   echo "**************** Publishing ****************"
-  npm version $PACKAGE_VERSION && npm publish --access public --tag $PUBLISH_TAG
+  npm version $PACKAGE_VERSION && npm publish --tag $PUBLISH_TAG --access public
 } || {
   # Bail out of publishing
   exit 0
