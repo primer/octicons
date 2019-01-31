@@ -13,5 +13,8 @@ npm install
 echo "**************** Linting ****************"
 npm run lint
 
+echo "**************** Building ****************"
+npm run build
+
 echo "**************** Testing  ****************"
 npm run test
