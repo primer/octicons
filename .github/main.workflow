@@ -1,7 +1,8 @@
 workflow "Octicons" {
   on = "push"
   resolves = [
-    "test"
+    "Build octicons_node",
+    "Build octicons_react"
   ]
 }
 
@@ -39,5 +40,23 @@ action "Figma Action" {
   args = [
     "format=svg",
     "dir=./lib/build"
+  ]
+}
+
+action "Build octicons_node" {
+  needs = ["test"]
+  uses = "./.github/actions/build_node"
+  args = "octicons_node"
+  secrets = [
+    "NPM_AUTH_TOKEN"
+  ]
+}
+
+action "Build octicons_react" {
+  needs = ["test"]
+  uses = "./.github/actions/build_node"
+  args = "octicons_react"
+  secrets = [
+    "NPM_AUTH_TOKEN"
   ]
 }

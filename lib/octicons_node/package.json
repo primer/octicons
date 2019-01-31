@@ -17,9 +17,8 @@
     "url": "https://github.com/primer/octicons/issues"
   },
   "scripts": {
-    "publish": "../../script/notify success",
-    "prepublishOnly": "../../script/notify pending",
-    "prepare": "cp -R ../build . && cp index.scss build/build.css",
+    "build": "script/build.js",
+    "lint": "eslint index.js tests/*.js",
     "test": "ava --verbose 'tests/*.js'"
   },
   "keywords": [
@@ -30,5 +29,10 @@
   ],
   "dependencies": {
     "object-assign": "^4.1.1"
+  },
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "eslint": "^5.8.0",
+    "eslint-plugin-github": "^1.6.0"
   }
 }
