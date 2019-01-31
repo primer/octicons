@@ -40,13 +40,13 @@ action "Figma Action" {
 }
 
 action "Build octicons_node" {
-  needs = ["Figma Action"]
+  needs = ["test"]
   uses = "./.github/actions/build_node"
   args = "octicons_node"
 }
 
 action "Build octicons_react" {
-  needs = ["Figma Action"]
+  needs = ["test"]
   uses = "./.github/actions/build_node"
   args = "octicons_react"
 }
