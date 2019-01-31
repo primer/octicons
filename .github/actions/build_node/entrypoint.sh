@@ -28,5 +28,3 @@ npm run test
 
 echo "**************** Testing  ****************"
 npm version $PACKAGE_VERSION --allow-same-version
-
-cat package.json
