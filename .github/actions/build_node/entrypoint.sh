@@ -26,5 +26,7 @@ npm run lint
 echo "**************** Testing  ****************"
 npm run test
 
-echo "**************** Testing  ****************"
-npm version $PACKAGE_VERSION --allow-same-version
+{
+  echo "**************** Publishing ****************"
+  npm version $PACKAGE_VERSION && npm publish --access public
+} || { }

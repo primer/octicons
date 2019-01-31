@@ -47,10 +47,16 @@ action "Build octicons_node" {
   needs = ["test"]
   uses = "./.github/actions/build_node"
   args = "octicons_node"
+  secrets = [
+    "NPM_AUTH_TOKEN"
+  ]
 }
 
 action "Build octicons_react" {
   needs = ["test"]
   uses = "./.github/actions/build_node"
   args = "octicons_react"
+  secrets = [
+    "NPM_AUTH_TOKEN"
+  ]
 }
