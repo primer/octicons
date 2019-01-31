@@ -1,7 +1,5 @@
-const semver = require('semver')
 const fs = require('fs')
 const {
-  join,
   resolve
 } = require('path')
  const {
@@ -14,7 +12,7 @@ const pkg = require(resolve(process.cwd(), 'package.json'))
 
 // GitHub info
 const branchName = GITHUB_REF.replace(/^refs\/heads\//gi, "")
-const shortSha = GITHUB_SHA.slice(0,7)
+const shortSha = GITHUB_SHA.slice(0,9)
 let releaseMatch = null
 
 const writePackageJson = () => {
@@ -31,7 +29,7 @@ if (releaseMatch = branchName.match(/^release-([\d\.]+)/i)) {
 
  // Otherwise
 else if (branchName != 'master') {
-  const newVersion = `${semver.inc(pkg.version, 'patch')}-alpha.${shortSha}`
+  const newVersion = `0.0.0-${shortSha}`
   console.log('Versioning prerelease')
   console.log(`${pkg.version} => ${newVersion}`)
   pkg.version = newVersion
