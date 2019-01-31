@@ -4,15 +4,15 @@ const {
   join,
   resolve
 } = require('path')
-
  const {
   GITHUB_REF,
   GITHUB_SHA
 } = process.env
-const pkg = require(resolve(process.cwd(), 'package.json'))
-const branchName = GITHUB_REF.split('/').pop()
 
- const writePackageJson = () => {
+const pkg = require(resolve(process.cwd(), 'package.json'))
+const branchName = GITHUB_REF.replace(/^refs\/(heads|remotes\/origins)\//gi, "")
+
+const writePackageJson = () => {
   fs.writeFileSync(join(process.cwd(), 'package.json'), JSON.stringify(pkg), 'utf8')
 }
 
