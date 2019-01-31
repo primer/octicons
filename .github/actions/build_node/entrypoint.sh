@@ -19,12 +19,12 @@ PACKAGE_VERSION=$(cat package.json \
   | sed 's/[",]//g' \
   | tr -d '[[:space:]]')
 
-PUBLISH_TAG="latest"
+PUBLISH_TAG=latest
 
 if [[ $PACKAGE_VERSION == "0.0.0-"* ]]; then
-  PUBLISH_TAG="canary"
+  PUBLISH_TAG=canary
 elif [[ $PACKAGE_VERSION == *"-rc"* ]]; then
-  PUBLISH_TAG="next"
+  PUBLISH_TAG=next
 fi
 
 cd ./lib/$*
