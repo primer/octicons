@@ -12,6 +12,11 @@ action "install" {
   args = "install"
 }
 
+action "version" {
+  needs = ["install"]
+  uses = "./.github/actions/version"
+}
+
 action "lint" {
   needs = ["install"]
   uses = "actions/npm@master"
@@ -25,7 +30,7 @@ action "test" {
 }
 
 action "Figma Action" {
-  needs = ["install"]
+  needs = ["version"]
   uses = "primer/figma-action@master"
   secrets = [
     "FIGMA_TOKEN"
