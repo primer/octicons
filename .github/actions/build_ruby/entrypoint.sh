@@ -14,10 +14,6 @@ mkdir -p ~/.gem
 echo "---\n:rubygems_api_key: $RUBYGEMS_TOKEN" > ~/.gem/credentials
 chmod 0600 ~/.gem/credentials
 
-# Setup git creds
-git config --global user.email "hubot@github.com"
-git config --global user.name $GITHUB_ACTOR
-
 cd ./lib/$*
 
 echo "**************** Copying assets files to build directory ****************"
@@ -36,4 +32,4 @@ echo "**************** Versioning ****************"
 bundle exec rake version\["$PACKAGE_VERSION"\]
 
 echo "**************** Building ****************"
-(bundle exec rake build && bundle exec rake release\[remote\]) && wait
+(bundle exec rake build; gem push pkg/*.gem) && wait
