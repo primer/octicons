@@ -72,7 +72,7 @@ action "Build & Deploy octicons_gem" {
 }
 
 action "Build & Deploy octicons_helper" {
-  needs = ["Build & Deploy octicons_helper"]
+  needs = ["Build & Deploy octicons_gem"]
   uses = "./.github/actions/build_ruby"
   args = "octicons_helper"
   secrets = [
@@ -81,7 +81,7 @@ action "Build & Deploy octicons_helper" {
 }
 
 action "Build & Deploy octicons_jekyll" {
-  needs = ["Build & Deploy octicons_jekyll"]
+  needs = ["Build & Deploy octicons_gem"]
   uses = "./.github/actions/build_ruby"
   args = "octicons_jekyll"
   secrets = [
