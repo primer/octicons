@@ -1,6 +1,8 @@
 workflow "Octicons" {
   on = "push"
   resolves = [
+    "Build & Deploy node.js",
+    "Build & Deploy react",
     "Build & Deploy rubygem",
     "Build & Deploy rails helper",
     "Build & Deploy jekyll plugin"
@@ -44,7 +46,7 @@ action "Export SVG from Figma" {
   ]
 }
 
-action "Build octicons_node" {
+action "Build & Deploy node.js" {
   needs = ["Test"]
   uses = "./.github/actions/build_node"
   args = "octicons_node"
@@ -53,7 +55,7 @@ action "Build octicons_node" {
   ]
 }
 
-action "Build octicons_react" {
+action "Build & Deploy react" {
   needs = ["Test"]
   uses = "./.github/actions/build_node"
   args = "octicons_react"
