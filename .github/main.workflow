@@ -7,30 +7,30 @@ workflow "Octicons" {
   ]
 }
 
-action "install" {
+action "Install" {
   uses = "actions/npm@master"
   args = "install"
 }
 
-action "version" {
-  needs = ["install"]
+action "Version" {
+  needs = ["Install"]
   uses = "./.github/actions/version"
 }
 
-action "lint" {
-  needs = ["install"]
+action "Lint" {
+  needs = ["Install"]
   uses = "actions/npm@master"
   args = "run lint"
 }
 
-action "test" {
-  needs = ["lint", "Figma Action"]
+action "Test" {
+  needs = ["Lint", "Export SVG from Figma"]
   uses = "actions/npm@master"
   args = "test"
 }
 
-action "Figma Action" {
-  needs = ["version"]
+action "Export SVG from Figma" {
+  needs = ["Version"]
   uses = "primer/figma-action@master"
   secrets = [
     "FIGMA_TOKEN"
@@ -45,7 +45,7 @@ action "Figma Action" {
 }
 
 action "Build octicons_node" {
-  needs = ["test"]
+  needs = ["Test"]
   uses = "./.github/actions/build_node"
   args = "octicons_node"
   secrets = [
@@ -54,7 +54,7 @@ action "Build octicons_node" {
 }
 
 action "Build octicons_react" {
-  needs = ["test"]
+  needs = ["Test"]
   uses = "./.github/actions/build_node"
   args = "octicons_react"
   secrets = [
@@ -63,7 +63,7 @@ action "Build octicons_react" {
 }
 
 action "Build & Deploy rubygem" {
-  needs = ["test"]
+  needs = ["Test"]
   uses = "./.github/actions/build_ruby"
   args = "octicons_gem"
   secrets = [

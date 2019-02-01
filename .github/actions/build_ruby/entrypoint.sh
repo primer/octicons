@@ -37,5 +37,7 @@ bundle exec rake test
 echo "**************** Versioning ****************"
 bundle exec rake version\["$PACKAGE_VERSION"\]
 
+bundle update
+
 echo "**************** Building ****************"
 (bundle exec rake build; gem push pkg/*.gem) && wait
