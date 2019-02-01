@@ -10,7 +10,16 @@ task :version, [:v] do |t, args|
   out = "module OcticonsHelper\n"\
     "  VERSION = \"#{args[:v]}\".freeze\n"\
     "end"
-  File.open(File.expand_path("../lib/octicons_helper/version.rb", __FILE__), "w") { |file| file.puts out }
+  File.open(File.expand_path("../lib/octicons_helper/version.rb", __FILE__), "w") do |file|
+    file.puts out
+  end
+
+  ["octicons_helper.gemspec", "Gemfile"].each do |filename|
+    gs = File.read(File.expand_path("../#{filename}", __FILE__))
+    File.open(File.expand_path("../#{filename}", __FILE__), "w") do |file|
+      file.puts gs.gsub(/"octicons", "[^"]+"/,"\"octicons\", \"#{args[:v]}\"")
+    end
+  end
 end
 
 Rake::TestTask.new do |t|
