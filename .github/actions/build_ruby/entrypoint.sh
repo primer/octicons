@@ -11,7 +11,10 @@ PACKAGE_VERSION=$(cat package.json \
 
 # Setup rubygems creds
 mkdir -p ~/.gem
-echo "---\n:rubygems_api_key: $RUBYGEMS_TOKEN" > ~/.gem/credentials
+cat << EOF > ~/.gem/credentials
+---
+:rubygems_api_key: ${RUBYGEMS_TOKEN}
+EOF
 chmod 0600 ~/.gem/credentials
 
 cat ~/.gem/credentials
