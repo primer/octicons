@@ -1,7 +1,7 @@
 workflow "Octicons" {
   on = "push"
   resolves = [
-    "Build octicons_gem"
+    "Build & Deploy octicons_gem"
   ]
 }
 
@@ -60,7 +60,7 @@ action "Build octicons_react" {
   ]
 }
 
-action "Build octicons_gem" {
+action "Build & Deploy octicons_gem" {
   needs = ["test"]
   uses = "./.github/actions/build_ruby"
   args = "octicons_gem"
