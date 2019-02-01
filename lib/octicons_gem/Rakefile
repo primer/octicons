@@ -16,7 +16,7 @@ task :version, [:v] do |t, args|
     "  VERSION = \"#{args[:v]}\".freeze\n"\
     "end"
   File.open(File.expand_path("../lib/octicons/version.rb", __FILE__), "w") { |file| file.puts out }
-  sh "git add && git commit -am '#{args[:v]}'"
+  sh "git add . && git commit --author='Mona <mona@github.com>' -am '#{args[:v]}'"
 end
 
 desc "Run tests"
