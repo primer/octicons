@@ -9,6 +9,9 @@ PACKAGE_VERSION=$(cat package.json \
   | sed 's/[",]//g' \
   | tr -d '[[:space:]]')
 
+PACKAGE_VERSION=$(echo $PACKAGE_VERSION | sed -e 's/0.0.0./0.0.0.pre./g')
+PACKAGE_VERSION=$(echo $PACKAGE_VERSION | sed -e 's/-rc/.pre/g')
+
 # Setup rubygems creds
 mkdir -p ~/.gem
 cat << EOF > ~/.gem/credentials
