@@ -14,22 +14,24 @@ mkdir -p ~/.gem
 echo "---\n:rubygems_api_key: $RUBYGEMS_TOKEN" > ~/.gem/credentials
 chmod 0600 ~/.gem/credentials
 
-cd ./lib/$*
+cat ~/.gem/credentials
 
-echo "**************** Copying assets files to build directory ****************"
-cp -R ../build lib/
+# cd ./lib/$*
 
-echo "**************** Installing ****************"
-bundle install
+# echo "**************** Copying assets files to build directory ****************"
+# cp -R ../build lib/
 
-echo "**************** Linting ****************"
-bundle exec rake lint
+# echo "**************** Installing ****************"
+# bundle install
 
-echo "**************** Testing  ****************"
-bundle exec rake test
+# echo "**************** Linting ****************"
+# bundle exec rake lint
 
-echo "**************** Versioning ****************"
-bundle exec rake version\["$PACKAGE_VERSION"\]
+# echo "**************** Testing  ****************"
+# bundle exec rake test
 
-echo "**************** Building ****************"
-(bundle exec rake build; gem push pkg/*.gem) && wait
+# echo "**************** Versioning ****************"
+# bundle exec rake version\["$PACKAGE_VERSION"\]
+
+# echo "**************** Building ****************"
+# (bundle exec rake build; gem push pkg/*.gem) && wait
