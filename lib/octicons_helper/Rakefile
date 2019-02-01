@@ -1,4 +1,17 @@
 require "rake/testtask"
+require "rubocop/rake_task"
+require "bundler/gem_tasks"
+
+RuboCop::RakeTask.new(:lint) do |t|
+  t.options = ["--display-cop-names"]
+end
+
+task :version, [:v] do |t, args|
+  out = "module OcticonsHelper\n"\
+    "  VERSION = \"#{args[:v]}\".freeze\n"\
+    "end"
+  File.open(File.expand_path("../lib/octicons_helper/version.rb", __FILE__), "w") { |file| file.puts out }
+end
 
 Rake::TestTask.new do |t|
   t.libs = ["lib", "test"]
