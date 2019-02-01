@@ -1,9 +1,9 @@
 workflow "Octicons" {
   on = "push"
   resolves = [
-    "Build & Deploy octicons_gem",
-    "Build & Deploy octicons_helper",
-    "Build & Deploy octicons_jekyll"
+    "Build & Deploy rubygem",
+    "Build & Deploy rails helper",
+    "Build & Deploy jekyll plugin"
   ]
 }
 
@@ -62,7 +62,7 @@ action "Build octicons_react" {
   ]
 }
 
-action "Build & Deploy octicons_gem" {
+action "Build & Deploy rubygem" {
   needs = ["test"]
   uses = "./.github/actions/build_ruby"
   args = "octicons_gem"
@@ -71,8 +71,8 @@ action "Build & Deploy octicons_gem" {
   ]
 }
 
-action "Build & Deploy octicons_helper" {
-  needs = ["Build & Deploy octicons_gem"]
+action "Build & Deploy rails helper" {
+  needs = ["Build & Deploy rubygem"]
   uses = "./.github/actions/build_ruby"
   args = "octicons_helper"
   secrets = [
@@ -80,8 +80,8 @@ action "Build & Deploy octicons_helper" {
   ]
 }
 
-action "Build & Deploy octicons_jekyll" {
-  needs = ["Build & Deploy octicons_gem"]
+action "Build & Deploy jekyll plugin" {
+  needs = ["Build & Deploy rubygem"]
   uses = "./.github/actions/build_ruby"
   args = "octicons_jekyll"
   secrets = [
