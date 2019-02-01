@@ -14,6 +14,10 @@ mkdir -p ~/.gem
 echo "---\n:rubygems_api_key: $RUBYGEMS_TOKEN" > ~/.gem/credentials
 chmod 0600 ~/.gem/credentials
 
+# Setup git creds
+git config --global user.email "hubot@github.com"
+git config --global user.name $GITHUB_ACTOR
+
 cd ./lib/$*
 
 echo "**************** Copying assets files to build directory ****************"
