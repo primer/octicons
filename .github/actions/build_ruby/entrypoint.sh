@@ -17,24 +17,22 @@ cat << EOF > ~/.gem/credentials
 EOF
 chmod 0600 ~/.gem/credentials
 
-cat ~/.gem/credentials
+cd ./lib/$*
 
-# cd ./lib/$*
+echo "**************** Copying assets files to build directory ****************"
+cp -R ../build lib/
 
-# echo "**************** Copying assets files to build directory ****************"
-# cp -R ../build lib/
+echo "**************** Installing ****************"
+bundle install
 
-# echo "**************** Installing ****************"
-# bundle install
+echo "**************** Linting ****************"
+bundle exec rake lint
 
-# echo "**************** Linting ****************"
-# bundle exec rake lint
+echo "**************** Testing  ****************"
+bundle exec rake test
 
-# echo "**************** Testing  ****************"
-# bundle exec rake test
+echo "**************** Versioning ****************"
+bundle exec rake version\["$PACKAGE_VERSION"\]
 
-# echo "**************** Versioning ****************"
-# bundle exec rake version\["$PACKAGE_VERSION"\]
-
-# echo "**************** Building ****************"
-# (bundle exec rake build; gem push pkg/*.gem) && wait
+echo "**************** Building ****************"
+(bundle exec rake build; gem push pkg/*.gem) && wait

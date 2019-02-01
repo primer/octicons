@@ -61,6 +61,7 @@ action "Build octicons_react" {
 }
 
 action "Build & Deploy octicons_gem" {
+  needs = ["test"]
   uses = "./.github/actions/build_ruby"
   args = "octicons_gem"
   secrets = [
