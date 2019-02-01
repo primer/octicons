@@ -1,11 +1,14 @@
 workflow "Octicons" {
   on = "push"
   resolves = [
-    "Build & Deploy node.js",
-    "Build & Deploy react",
-    "Build & Deploy rubygem",
-    "Build & Deploy rails helper",
-    "Build & Deploy jekyll plugin"
+    "Lint"
+  ]
+}
+
+workflow "Octicons2" {
+  on = "push"
+  resolves = [
+    "Lint"
   ]
 }
 

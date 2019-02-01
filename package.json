@@ -8,7 +8,6 @@
   "dependencies": {
     "ava": "^0.22.0",
     "eslint": "^5.8.0",
-    "eslint-plugin-github": "^1.6.0",
-    "fs-extra": "^7.0.0"
+    "eslint-plugin-github": "^1.6.0"
   }
 }
