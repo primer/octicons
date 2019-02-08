@@ -2,15 +2,12 @@
 
 set -e
 
-PACKAGE_VERSION=$(cat package.json \
-  | grep version \
-  | head -1 \
-  | awk -F: '{ print $2 }' \
-  | sed 's/[",]//g' \
-  | tr -d '[[:space:]]')
+PACKAGE_VERSION=$(jq '.version' --raw-output ./package.json)
 
 PACKAGE_VERSION=$(echo $PACKAGE_VERSION | sed -e 's/0.0.0./0.0.0.pre./g')
 PACKAGE_VERSION=$(echo $PACKAGE_VERSION | sed -e 's/-rc/.pre/g')
+
+echo "************* Building v$PACKAGE_VERSION *************"
 
 # Setup rubygems creds
 mkdir -p ~/.gem
