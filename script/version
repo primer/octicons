@@ -1,0 +1,33 @@
+#!/bin/bash
+
+PACKAGE_VERSION=$(jq '.version' --raw-output ./package.json)
+
+echo $PACKAGE_VERSION
+
+echo "Versioning Octicons node package"
+
+cd lib/octicons_node/
+npm -f --no-git-tag-version --allow-same-version version $PACKAGE_VERSION
+
+echo "Versioning Octicons react package"
+
+cd ../octicons_react/
+npm -f --no-git-tag-version --allow-same-version version $PACKAGE_VERSION
+
+echo "Versioning Octicons ruby gem"
+
+cd ../octicons_gem/
+rake version\["$PACKAGE_VERSION"\]
+
+echo "Versioning Octicons rails helper gem"
+
+cd ../octicons_helper/
+rake version\["$PACKAGE_VERSION"\]
+
+echo "Versioning Octicons jekyll plugin gem"
+
+cd ../octicons_jekyll/
+rake version\["$PACKAGE_VERSION"\]
+
+cd ../../
+git add lib/

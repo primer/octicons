@@ -1,3 +1,11 @@
+# 8.4.0
+
+### :house: Internal
+- Using Actions to build and deploy Octicons https://github.com/primer/octicons/pull/276
+
+#### Committers: 1
+- Jon Rohan ([jonrohan](https://github.com/jonrohan))
+
 # 8.3.0
 
 - New "changes requested" icon https://github.com/primer/octicons/pull/267

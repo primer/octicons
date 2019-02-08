@@ -5,7 +5,6 @@
 .bundle
 .env
 node_modules
-lib/*/package-lock.json
 vendor
 
 # Ignore build/export artifacts

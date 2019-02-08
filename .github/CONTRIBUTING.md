@@ -26,7 +26,7 @@ Make sure your duplicate file can be viewed by others. In the share menu "Anyone
 
 You can submit a pull request updating the `figma.url` configuration in the root [package.json](https://github.com/primer/octicons/blob/master/package.json#L10) with your figma file. Doing so will generate alpha releases of [all the libraries that distribute Octicons](https://github.com/primer/octicons#libraries).
 
-If an icon was edited or added, you should see the before and after images directly in the PR. In addition, please describe your proposed changes in the PR's description. 
+If an icon was edited or added, you should see the before and after images directly in the PR. In addition, please describe your proposed changes in the PR's description.
 
 Once the build passes on your pull request, you should see statuses with all the alpha versions of the libraries. You can then use these to test your changes.
 
@@ -59,9 +59,11 @@ Once the new changes have been added the new components to the master Octicons f
 
 After you've published the latest changes in the Figma file, create a release branch in the [Octicons repo](https://github.com/primer/octicons).
 
-Update the [changelog](https://github.com/primer/octicons/blob/master/CHANGELOG.md) with the new changes pertaining to this version.
+Update the [CHANGELOG](https://github.com/primer/octicons/blob/master/CHANGELOG.md) with the new changes pertaining to this version.
 
-Once the changlog has been updated, run `npm run bump`. This will guide you through a prompt asking what all the new versions of the packages should be. In the context of Octicons, significant changes to the library or workflow, or removing an icon would be considered a major update, adding a new icon would be considered a minor update, and fixing an icon would be considered a patch. Reach out in the #design-systems Slack channel if you're unsure! 
+Once the CHANGELOG has been updated, run `npm version <newversion>`. This will update package.json with the new version, then update all the `lib/*` packages with the same version. If that runs smoothly, it should commit the changed files. Push that commit to your release branch.
+
+In the context of Octicons, significant changes to the library or workflow, or removing an icon would be considered a major update, adding a new icon would be considered a minor update, and fixing an icon would be considered a patch. Reach out in the #design-systems Slack channel if you're unsure!
 
 After, push up your branch and open a pull request into master.
 
