@@ -44,7 +44,7 @@ npm run test
 
 {
   echo "**************** Publishing ****************"
-  npm version $PACKAGE_VERSION && npm publish --tag $PUBLISH_TAG --access public
+  npm version --allow-same-version $PACKAGE_VERSION && npm publish --tag $PUBLISH_TAG --access public
 } || {
   # Bail out of publishing
   exit 0
