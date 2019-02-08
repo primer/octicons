@@ -6,9 +6,9 @@ RUN apt-get update && \
         apt-get clean -y && \
     rm -rf /var/lib/apt/lists/*
 
-ENV PATH="/usr/local/bin:${PATH}"
+# ENV PATH="/usr/local/bin:${PATH}"
 
-COPY bin /usr/local/bin/
+# COPY bin /usr/local/bin/
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
