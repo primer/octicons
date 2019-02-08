@@ -1,6 +1,6 @@
 {
   "name": "@githubprimer/octicons-react",
-  "version": "8.4.0",
+  "version": "8.4.1",
   "description": "A scalable set of icons handcrafted with <3 by GitHub.",
   "homepage": "https://octicons.github.com",
   "author": "GitHub, Inc.",
@@ -10,13 +10,12 @@
   "types": "dist/index.d.ts",
   "repository": "primer/octicons",
   "scripts": {
-    "build": "script/build.js && script/types.js",
+    "build": "script/build.js && script/types.js && npm run rollup",
     "ts-test": "tsc -P ts-tests",
     "test": "jest",
     "posttest": "npm run ts-test",
     "start": "NODE_ENV=production next",
     "lint": "eslint src pages script",
-    "prepare": "npm run build && npm run rollup",
     "rollup": "rollup -c"
   },
   "keywords": [

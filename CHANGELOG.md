@@ -1,3 +1,8 @@
+# 8.4.1
+
+### :bug: Bug Fix
+- Rollup files missing from octicons react package https://github.com/primer/octicons/issues/282
+
 # 8.4.0
 
 ### :house: Internal
