@@ -2,6 +2,7 @@
   "private": true,
   "version": "8.3.0",
   "scripts": {
+    "version": "script/version",
     "test": "ava tests/*.js",
     "lint": "eslint tests"
   },
