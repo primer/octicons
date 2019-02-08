@@ -59,9 +59,9 @@ Once the new changes have been added the new components to the master Octicons f
 
 After you've published the latest changes in the Figma file, create a release branch in the [Octicons repo](https://github.com/primer/octicons).
 
-Update the [changelog](https://github.com/primer/octicons/blob/master/CHANGELOG.md) with the new changes pertaining to this version.
+Update the [CHANGELOG](https://github.com/primer/octicons/blob/master/CHANGELOG.md) with the new changes pertaining to this version.
 
-Once the changelog has been updated, run `npm version <newversion>`. This will update package.json with the new version, then update all the `lib/*` packages with the same version. If that runs smoothly, it should commit the changed files. Push that commit to your release branch.
+Once the CHANGELOG has been updated, run `npm version <newversion>`. This will update package.json with the new version, then update all the `lib/*` packages with the same version. If that runs smoothly, it should commit the changed files. Push that commit to your release branch.
 
 In the context of Octicons, significant changes to the library or workflow, or removing an icon would be considered a major update, adding a new icon would be considered a minor update, and fixing an icon would be considered a patch. Reach out in the #design-systems Slack channel if you're unsure!
 
