@@ -12,12 +12,9 @@ if [ -n "$NPM_AUTH_TOKEN" ]; then
   chmod 0600 "$NPM_CONFIG_USERCONFIG"
 fi
 
-PACKAGE_VERSION=$(cat package.json \
-  | grep version \
-  | head -1 \
-  | awk -F: '{ print $2 }' \
-  | sed 's/[",]//g' \
-  | tr -d '[[:space:]]')
+PACKAGE_VERSION=$(jq '.version' --raw-output ./package.json)
+
+echo "************* Building v$PACKAGE_VERSION *************"
 
 PUBLISH_TAG=latest
 if [[ "$PACKAGE_VERSION" =~ ^0\.0\.0\- ]]
