@@ -12,7 +12,7 @@ const pkg = require(resolve(process.cwd(), 'package.json'))
 
 // GitHub info
 const branchName = GITHUB_REF.replace('refs/heads/', '')
-const shortSha = GITHUB_SHA.slice(0,9)
+const shortSha = GITHUB_SHA.slice(0,7)
 let releaseMatch = null
 
 const writePackageJson = () => {
