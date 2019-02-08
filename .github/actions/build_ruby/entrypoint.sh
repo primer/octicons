@@ -22,8 +22,7 @@ cd ./lib/$*
 echo "**************** Copying assets files to build directory ****************"
 cp -R ../build lib/
 
-echo "**************** Versioning ****************"
-bundle exec rake version\["$PACKAGE_VERSION"\]
+perl -pi -e "s/\"octicons\", \"[^\"]+\"/\"octicons\", \"${PACKAGE_VERSION}\"/" ./Gemfile
 
 echo "**************** Installing ****************"
 bundle install
@@ -33,6 +32,9 @@ bundle exec rake lint
 
 echo "**************** Testing  ****************"
 bundle exec rake test
+
+echo "**************** Versioning ****************"
+bundle exec rake version\["$PACKAGE_VERSION"\]
 
 bundle update
 
