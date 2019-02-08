@@ -13,10 +13,11 @@
     "build": "script/build.js && script/types.js",
     "ts-test": "tsc -P ts-tests",
     "test": "jest",
+    "prepare": "npm run build && npm run rollup",
+    "preversion": "npm run prepare",
     "posttest": "npm run ts-test",
     "start": "NODE_ENV=production next",
     "lint": "eslint src pages script",
-    "prepare": "npm run build && npm run rollup",
     "rollup": "rollup -c"
   },
   "keywords": [
