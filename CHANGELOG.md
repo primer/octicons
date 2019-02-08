@@ -1,9 +1,7 @@
 # 8.4.0
 
-#### :rocket: Enhancement
-*
-
 ### :house: Internal
+- Using Actions to build and deploy Octicons https://github.com/primer/octicons/pull/276
 
 #### Committers: 1
 - Jon Rohan ([jonrohan](https://github.com/jonrohan))
