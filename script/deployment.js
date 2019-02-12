@@ -2,8 +2,8 @@
 
 const octokit = require('@octokit/rest')()
 
-octokit.authenticate({
-  type: 'integration',
+octokit.auth({
+  type: 'app',
   token: process.env.GITHUB_TOKEN
 })
 
