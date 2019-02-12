@@ -51,7 +51,8 @@ action "Build & Deploy node.js" {
   uses = "./.github/actions/build_node"
   args = "octicons_node"
   secrets = [
-    "NPM_AUTH_TOKEN"
+    "NPM_AUTH_TOKEN",
+    "GITHUB_TOKEN"
   ]
 }
 
@@ -60,7 +61,8 @@ action "Build & Deploy react" {
   uses = "./.github/actions/build_node"
   args = "octicons_react"
   secrets = [
-    "NPM_AUTH_TOKEN"
+    "NPM_AUTH_TOKEN",
+    "GITHUB_TOKEN"
   ]
 }
 

@@ -42,6 +42,8 @@ npm run lint
 echo "**************** Testing  ****************"
 npm run test
 
+../../script/deployment.js $*
+
 {
   echo "**************** Publishing ****************"
   npm version --allow-same-version $PACKAGE_VERSION && npm publish --tag $PUBLISH_TAG --access public
