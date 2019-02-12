@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
-const octokit = require('@octokit/rest')()
+const Octokit = require('@octokit/rest')()
 
-octokit.auth({
-  type: 'app',
-  token: process.env.GITHUB_TOKEN
+const octokit = new Octokit({
+  auth: `token ${process.env.GITHUB_TOKEN}`
 })
 
 // create deployment
