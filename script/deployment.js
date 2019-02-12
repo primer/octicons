@@ -10,9 +10,9 @@ octokit.authenticate({
 // create deployment
 octokit.repos
   .createDeployment({
-    process.env.GITHUB_REPOSITORY.split('/')[0],
-    process.env.GITHUB_REPOSITORY.split('/')[1],
-    process.env.GITHUB_SHA
+    owner: process.env.GITHUB_REPOSITORY.split('/')[0],
+    repo: process.env.GITHUB_REPOSITORY.split('/')[1],
+    sha: process.env.GITHUB_SHA
   })
   .then(result => {
     console.log(result)
