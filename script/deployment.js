@@ -11,7 +11,8 @@ octokit.repos
   .createDeployment({
     owner: process.env.GITHUB_REPOSITORY.split('/')[0],
     repo: process.env.GITHUB_REPOSITORY.split('/')[1],
-    ref: process.env.GITHUB_REF
+    ref: process.env.GITHUB_REF,
+    required_contexts: []
   })
   .then(result => {
     console.log(result)
