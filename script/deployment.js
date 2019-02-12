@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const Octokit = require('@octokit/rest')()
+const Octokit = require('@octokit/rest')
 
 const octokit = new Octokit({
   auth: `token ${process.env.GITHUB_TOKEN}`
