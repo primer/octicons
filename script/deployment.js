@@ -25,7 +25,6 @@ octokit.repos
         repo: process.env.GITHUB_REPOSITORY.split('/')[1],
         deployment_id: result.data.id,
         state: 'success',
-        environment: `npm:${pkg2.name}`,
         environment_url: `https://unpkg.com/${pkg2.name}@${pkg.version}/`,
         description: `${pkg2.name}@${pkg.version}`
       })
