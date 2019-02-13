@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const Octokit = require('@octokit/rest')
-const pkg2 = require(`../lib/${process.argv0}/package.json`)
+const pkg2 = require(`../lib/${process.argv.pop()}/package.json`)
 
 const octokit = new Octokit({
   auth: `token ${process.env.GITHUB_TOKEN}`
