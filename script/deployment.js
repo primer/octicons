@@ -14,8 +14,8 @@ octokit.repos
     owner: process.env.GITHUB_REPOSITORY.split('/')[0],
     repo: process.env.GITHUB_REPOSITORY.split('/')[1],
     ref: process.env.GITHUB_REF,
-    required_contexts: [],
     environment: `npm:${pkg2.name}`,
+    required_contexts: [],
     description: `${pkg2.name}@${pkg.version}`
 })
   .then(result => {
