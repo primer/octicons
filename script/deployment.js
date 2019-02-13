@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const Octokit = require('@octokit/rest')
-const pkg = require('../package.json')
+const pkg2 = require(`../lib/${process.argv0}/package.json`)
 
 const octokit = new Octokit({
   auth: `token ${process.env.GITHUB_TOKEN}`
@@ -14,8 +14,7 @@ octokit.repos
     repo: process.env.GITHUB_REPOSITORY.split('/')[1],
     ref: process.env.GITHUB_REF,
     required_contexts: [],
-    environment: `npm`,
-    description: `@${pkg.version}`
+    description: `npm ${pkg2.name}@${pkg2.version}`
   })
   .then(result => {
     console.log(result.data)
