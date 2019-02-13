@@ -15,8 +15,9 @@ octokit.repos
     repo: process.env.GITHUB_REPOSITORY.split('/')[1],
     ref: process.env.GITHUB_REF,
     required_contexts: [],
-    environment: `${pkg2.name}@${pkg.version}`
-  })
+    environment: `npm:${pkg2.name}`,
+    description: `${pkg2.name}@${pkg.version}`
+})
   .then(result => {
     octokit.repos
       .createDeploymentStatus({
@@ -24,8 +25,9 @@ octokit.repos
         repo: process.env.GITHUB_REPOSITORY.split('/')[1],
         deployment_id: result.data.id,
         state: 'success',
-        environment: `${pkg2.name}@${pkg.version}`,
-        environment_url: `https://unpkg.com/${pkg2.name}@${pkg.version}/`
+        environment: `npm:${pkg2.name}`,
+        environment_url: `https://unpkg.com/${pkg2.name}@${pkg.version}/`,
+        description: `${pkg2.name}@${pkg.version}`
       })
       .then(result => {
         console.log(result)
