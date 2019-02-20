@@ -1,3 +1,11 @@
+# 8.4.2
+
+### :art: Enhancement
+- Thumbs up/down icons needed some vector improvements. https://github.com/primer/octicons/pull/287
+
+### :bug: Bug Fix
+- Node package missing `build/build.css` file. https://github.com/primer/octicons/pull/292
+
 # 8.4.1
 
 ### :bug: Bug Fix
