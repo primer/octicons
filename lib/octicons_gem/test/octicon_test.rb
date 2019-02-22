@@ -92,10 +92,18 @@ describe Octicons::Octicon do
   end
 
   describe "a11y" do
-    it "includes attributes" do
+    it "includes attributes for symbol keys" do
       icon = octicon("x", "aria-label": "Close")
       assert_includes icon.to_svg, "role=\"img\""
       assert_includes icon.to_svg, "aria-label=\"Close\""
+      refute_includes icon.to_svg, "aria-hidden"
+    end
+
+    it "includes attributes for string keys" do
+      icon = octicon("x", "aria-label" => "Close")
+      assert_includes icon.to_svg, "role=\"img\""
+      assert_includes icon.to_svg, "aria-label=\"Close\""
+      refute_includes icon.to_svg, "aria-hidden"
     end
 
     it "has aria-hidden when no label is passed in" do
