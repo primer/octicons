@@ -43,8 +43,8 @@ module Octicons
     def a11y
       accessible = {}
 
-      if @options[:'aria-label'].nil?
-        accessible[:'aria-hidden'] = "true"
+      if @options[:"aria-label"].nil? && @options["aria-label"].nil?
+        accessible[:"aria-hidden"] = "true"
       else
         accessible[:role] = "img"
       end
