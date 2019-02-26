@@ -33,7 +33,7 @@ action "Test" {
 
 action "Export SVG from Figma" {
   needs = ["Version"]
-  uses = "primer/figma-action@1.0.0-alpha.1"
+  uses = "primer/figma-action@d7844a1927da9b8dd562cbf008c7da20e228607d"
   secrets = [
     "FIGMA_TOKEN"
   ]
