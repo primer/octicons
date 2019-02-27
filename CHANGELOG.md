@@ -1,3 +1,9 @@
+# 8.5.0
+
+- a11y aria-hidden update from @muan https://github.com/primer/octicons/pull/295
+- Verified icons poor rendering. @ashygee https://github.com/primer/octicons/pull/297
+- Docs update for contributing @ashygee https://github.com/primer/octicons/pull/298
+
 # 8.4.2
 
 ### :art: Enhancement

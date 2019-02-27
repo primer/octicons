@@ -24,7 +24,7 @@ Make sure your duplicate file can be viewed by others. In the share menu "Anyone
 
 ## Step 4, Pull Request: _(Optional)_
 
-You can submit a pull request updating the `figma.url` configuration in the root [package.json](https://github.com/primer/octicons/blob/master/package.json#L10) with your figma file. Doing so will generate alpha releases of [all the libraries that distribute Octicons](https://github.com/primer/octicons#libraries).
+You can submit a pull request updating the `FIGMA_FILE_URL` configuration in the .github/[main.workflow](https://github.com/primer/octicons/blob/master/.github/main.workflow?short_path=dd94174#L41) with your Figma file. Doing so will generate alpha releases of [all the libraries that distribute Octicons](https://github.com/primer/octicons#libraries).
 
 If an icon was edited or added, you should see the before and after images directly in the PR. In addition, please describe your proposed changes in the PR's description.
 
