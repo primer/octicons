@@ -465,3 +465,18 @@ Fixes file icons for
 ## 2.0.0 (June 16, 2014)
 
 - Hello world
+   
+Search Octicons
+Usage Release notes 
+dark | light | grid
+.octicon-file-directory
+   
+Rails & jekyll examples
+You can use the octicons rails helper or the jekyll helper to include octicons into your site. Below are code examples for each.
+
+<!-- svg rails helper -->
+<%= octicon "file-directory" %>
+
+<!-- svg jekyll helper -->
+{% octicon file-directory %}
+ with  by 
