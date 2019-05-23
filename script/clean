@@ -1,8 +1,0 @@
-#!/bin/bash
-set -e
-
-files="lib/**/build lib/**/*.gem lib/**/.bundle"
-
-for file in ${files}; do
-  rm -rf ${file}
-done

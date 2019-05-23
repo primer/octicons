@@ -24,7 +24,9 @@ Make sure your duplicate file can be viewed by others. In the share menu "Anyone
 
 ## Step 4, Pull Request: _(Optional)_
 
-You can submit a pull request updating the `figma.url` configuration in the root [package.json](https://github.com/primer/octicons/blob/master/package.json#L10) with your figma file. Doing so will generate alpha releases of [all the libraries that distribute Octicons](https://github.com/primer/octicons#libraries).
+You can submit a pull request updating the `FIGMA_FILE_URL` configuration in the .github/[main.workflow](https://github.com/primer/octicons/blob/master/.github/main.workflow?short_path=dd94174#L41) with your Figma file. Doing so will generate alpha releases of [all the libraries that distribute Octicons](https://github.com/primer/octicons#libraries).
+
+If an icon was edited or added, you should see the before and after images directly in the PR. In addition, please describe your proposed changes in the PR's description.
 
 Once the build passes on your pull request, you should see statuses with all the alpha versions of the libraries. You can then use these to test your changes.
 
@@ -40,41 +42,29 @@ Once submitted changes have been agreed upon, these instructions will guide core
 
 ## Step 1, Save:
 
-Save the contributor’s figma file as a `.fig` file.
+Save the contributor’s Figma file as a `.fig` file and open in Figma (it will automatically be imported into your Drafts)
 
-[<img src="https://user-images.githubusercontent.com/54012/37809888-940f5d38-2e0e-11e8-957f-99c162a1d4ff.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37809888-940f5d38-2e0e-11e8-957f-99c162a1d4ff.gif)
 
 ## Step 2, Import:
 
-Drag and drop, or add the file to the main team project. Make sure its name is different from the master Octicons file.
-
-[<img src="https://user-images.githubusercontent.com/54012/37809879-8d9824ee-2e0e-11e8-9b1d-e83316192eb0.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37809879-8d9824ee-2e0e-11e8-9b1d-e83316192eb0.gif)
+Drag and drop, or paste the updated or new icon from the contributer's file into the main Octicons Figma file. Make sure that the SVG only contains a single `path` and that it has relevant component keywords in Figma.
 
 
-## Step 3, Publish:
+## Step 3, Add:
 
-From the new imported file, publish the updated or new components to the team library. This published component makes importing into the master document easier.
+Once the new changes have been added the new components to the master Octicons file, you can publish to the team library in Figma.
 
-[<img src="https://user-images.githubusercontent.com/54012/37807772-6734f926-2e04-11e8-98a0-9b4c73411bd3.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37807772-6734f926-2e04-11e8-98a0-9b4c73411bd3.gif)
 
-## Step 4, Add:
+## Step 4, Create a Release Branch in Octicons:
 
-In the Team Library you will see the new Octicons file, and all the components from that file. Add the new components to the master Octicons file. It makes changing easier if you drag it on top of the icon you are changing.
+After you've published the latest changes in the Figma file, create a release branch in the [Octicons repo](https://github.com/primer/octicons).
 
-[<img src="https://user-images.githubusercontent.com/54012/37807775-6b1dea52-2e04-11e8-804a-a41c6bc04fd2.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37807775-6b1dea52-2e04-11e8-804a-a41c6bc04fd2.gif)
+Update the [CHANGELOG](https://github.com/primer/octicons/blob/master/CHANGELOG.md) with the new changes pertaining to this version.
 
-## Step 5, Replace:
+Once the CHANGELOG has been updated, run `npm version <newversion>`. This will update package.json with the new version, then update all the `lib/*` packages with the same version. If that runs smoothly, it should commit the changed files. Push that commit to your release branch.
 
-Right click on the new component instance and select "Detach Instance". Then toggle both the old and new components open. Move the shape from the new component into the old component. Delete the old component’s shape. Delete the empty new component container.
+In the context of Octicons, significant changes to the library or workflow, or removing an icon would be considered a major update, adding a new icon would be considered a minor update, and fixing an icon would be considered a patch. Reach out in the #design-systems Slack channel if you're unsure!
 
-[<img src="https://user-images.githubusercontent.com/54012/37807780-6ddba626-2e04-11e8-9a6b-749ac5b800fe.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37807780-6ddba626-2e04-11e8-9a6b-749ac5b800fe.gif)
-
-## Step 6, Publishing:
-
-Publish the component changes to your team library. You can now delete the imported `.fig` file from the contributor.
-
-[<img src="https://user-images.githubusercontent.com/54012/37812350-cc2349ba-2e1c-11e8-8b80-d9ff2f8d4ea3.png" width="600"/>](https://user-images.githubusercontent.com/54012/37812350-cc2349ba-2e1c-11e8-8b80-d9ff2f8d4ea3.png)
-
-Create a release branch, and run `npm run bump`. This will guide you through a prompt asking what all the new versions of the packages should be. After, push up your branch and open a pull request into master.
+After, push up your branch and open a pull request into master.
 
 [master-octicons]: https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons

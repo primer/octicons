@@ -1,28 +1,15 @@
 {
   "private": true,
+  "version": "8.5.0",
   "scripts": {
-    "postinstall": "npm run bootstrap",
-    "prebootstrap": "script/export",
-    "bootstrap": "lerna bootstrap",
-    "test": "ava tests/*.js && lerna run test",
-    "lint": "eslint --fix script",
-    "bump": "lerna publish --exact --skip-npm --force-publish --since \"v$(npm info octicons version)\""
-  },
-  "figma": {
-    "url": "https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons"
+    "version": "script/version",
+    "test": "ava tests/*.js",
+    "lint": "eslint tests"
   },
   "dependencies": {
     "ava": "^0.22.0",
-    "commit-status": "^4.3.0",
     "eslint": "^5.8.0",
     "eslint-plugin-github": "^1.6.0",
-    "execa": "^1.0.0",
-    "fs-extra": "^7.0.0",
-    "got": "^8.3.0",
-    "js-yaml": "^3.11.0",
-    "lerna": "^2.11.0",
-    "ora": "^2.0.0",
-    "p-queue": "^2.4.2",
-    "svgo": "^1.0.5"
+    "fs-extra": "^7.0.0"
   }
 }

@@ -1,3 +1,0 @@
-#!/bin/bash
-set -e
-$(npm bin)/lerna publish --npm-tag=alpha --canary --exact --skip-git --yes

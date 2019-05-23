@@ -1,3 +1,36 @@
+# 8.5.0
+
+- a11y aria-hidden update from @muan https://github.com/primer/octicons/pull/295
+- Verified icons poor rendering. @ashygee https://github.com/primer/octicons/pull/297
+- Docs update for contributing @ashygee https://github.com/primer/octicons/pull/298
+
+# 8.4.2
+
+### :art: Enhancement
+- Thumbs up/down icons needed some vector improvements. https://github.com/primer/octicons/pull/287
+
+### :bug: Bug Fix
+- Node package missing `build/build.css` file. https://github.com/primer/octicons/pull/292
+
+# 8.4.1
+
+### :bug: Bug Fix
+- Rollup files missing from octicons react package https://github.com/primer/octicons/issues/282
+
+# 8.4.0
+
+### :house: Internal
+- Using Actions to build and deploy Octicons https://github.com/primer/octicons/pull/276
+
+#### Committers: 1
+- Jon Rohan ([jonrohan](https://github.com/jonrohan))
+
+# 8.3.0
+
+- New "changes requested" icon https://github.com/primer/octicons/pull/267
+- Contrib Doc Updates https://github.com/primer/octicons/pull/256
+- Updating licenses to 2019 https://github.com/primer/octicons/pull/272
+
 # 8.2.0
 
 - Add `fold-up` and `fold-down` icons, courtesy of @pmarsceill
