@@ -20,8 +20,8 @@ The octicons node.js library is the main JavaScript library. With [a JavaScript 
 
 | Package | Version |
 |---|---|
-| **[octicons](/lib/octicons_node)** <br />Node.js package with Javascript API | [![npm version](https://img.shields.io/npm/v/octicons.svg)](https://www.npmjs.org/package/octicons) |
-| **[@githubprimer/octicons-react](/lib/octicons_react)** <br />React octicons components | [![npm version](https://img.shields.io/npm/v/@githubprimer/octicons-react.svg)](https://www.npmjs.org/package/@githubprimer/octicons-react) |
+| **[@primer/octicons](/lib/octicons_node)** <br />Node.js package with Javascript API | [![npm version](https://img.shields.io/npm/v/@primer/octicons.svg)](https://www.npmjs.org/package/@primer/octicons) |
+| **[@primer/octicons-react](/lib/octicons_react)** <br />React octicons components | [![npm version](https://img.shields.io/npm/v/@primer/octicons-react.svg)](https://www.npmjs.org/package/@primer/octicons-react) |
 
 ### Ruby
 
@@ -37,7 +37,7 @@ The octicons node.js library is the main JavaScript library. With [a JavaScript 
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 
-_Code License:_ [MIT](./LICENSE)  
+_Code License:_ [MIT](./LICENSE)
 Applies to all other files
 
 [figma-file]: https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons
