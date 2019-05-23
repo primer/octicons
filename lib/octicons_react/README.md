@@ -1,7 +1,6 @@
 # [Octicons] for React
 
 [![npm version](https://img.shields.io/npm/v/@primer/octicons-react.svg)](https://www.npmjs.org/package/@primer/octicons-react)
-[![Build Status](https://travis-ci.org/primer/octicons.svg?branch=master)](https://travis-ci.org/primer/octicons)
 
 ## Install
 
@@ -187,7 +186,7 @@ export default CirclesOcticon(props) {
 When using the GitHub logos, be sure to follow the [GitHub logo
 guidelines](https://github.com/logos).
 
-[MIT](./LICENSE)  
+[MIT](./LICENSE)
 
 [octicons]: https://octicons.github.com/
 [primer]: https://github.com/primer/primer

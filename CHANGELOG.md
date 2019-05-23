@@ -1,3 +1,7 @@
+# Latest
+
+- Scoping packages to organization `@primer/octicons` and `@primer/octicons-react` @jonrohan
+
 # 8.5.0
 
 - a11y aria-hidden update from @muan https://github.com/primer/octicons/pull/295
