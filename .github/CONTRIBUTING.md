@@ -49,6 +49,10 @@ Save the contributor’s Figma file as a `.fig` file and open in Figma (it will 
 
 Drag and drop, or paste the updated or new icon from the contributer's file into the main Octicons Figma file. Make sure that the SVG only contains a single `path` and that it has relevant component keywords in Figma.
 
+Example:
+[<img width="238" alt="components-description" src="https://user-images.githubusercontent.com/10384315/58345539-72f76000-7e0d-11e9-99a1-ee3131f1b8f0.png" />](<img width="238" alt="components-description" src="https://user-images.githubusercontent.com/10384315/58345539-72f76000-7e0d-11e9-99a1-ee3131f1b8f0.png" />)
+<figcaption>Add keywords to the component's description field in the Properties panel</figcaption>
+
 
 ## Step 3, Add:
 
