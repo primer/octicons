@@ -7,8 +7,10 @@
   "license": "MIT",
   "style": "index.scss",
   "main": "index.js",
+  "types": "library/source/index.d.ts",
   "files": [
     "index.js",
+    "index.d.ts",
     "index.scss",
     "build"
   ],
