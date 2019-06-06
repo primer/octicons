@@ -1,6 +1,7 @@
 # 9.0.0
 
 ### 💥 Breaking changes
+- [x] Rename `octicons` to `@primer/octicons` https://github.com/primer/octicons/pull/311
 - [x] Rename `@githubprimer/octicons-react` to `@primer/octicons-react` https://github.com/primer/octicons/pull/311
 
 ### 🚀 New features
