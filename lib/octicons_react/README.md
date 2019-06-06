@@ -1,12 +1,11 @@
 # [Octicons] for React
 
-[![npm version](https://img.shields.io/npm/v/@githubprimer/octicons-react.svg)](https://www.npmjs.org/package/@githubprimer/octicons-react)
-[![Build Status](https://travis-ci.org/primer/octicons.svg?branch=master)](https://travis-ci.org/primer/octicons)
+[![npm version](https://img.shields.io/npm/v/@primer/octicons-react.svg)](https://www.npmjs.org/package/@primer/octicons-react)
 
 ## Install
 
 ```
-$ npm install @githubprimer/octicons-react --save
+$ npm install @primer/octicons-react --save
 ```
 
 ## Usage
@@ -32,7 +31,7 @@ Note that none of our builtin icons take props, so unless you're creating
 [custom icons](#custom-icons) you'll probably want to use the `icon` prop form.
 
 ### Icons
-The `@githubprimer/octicons-react` module exports the `Octicon` component as
+The `@primer/octicons-react` module exports the `Octicon` component as
 `default` and the individual icon symbols as separate [named
 exports](https://ponyfoo.com/articles/es6-modules-in-depth#named-exports). This
 allows you to import only the icons that you need without blowing up your
@@ -40,7 +39,7 @@ bundle:
 
 ```jsx
 import React from 'react'
-import Octicon, {Beaker, Zap} from '@githubprimer/octicons-react'
+import Octicon, {Beaker, Zap} from '@primer/octicons-react'
 
 export default function Icon({boom}) {
   return <Octicon icon={boom ? Zap : Beaker}/>
@@ -64,7 +63,7 @@ resolves it to the right component:
 
 ```jsx
 import React from 'react'
-import Octicon, {getIconByName} from '@githubprimer/octicons-react'
+import Octicon, {getIconByName} from '@primer/octicons-react'
 
 export default function OcticonByName({name, ...props}) {
   return <Octicon {...props} icon={getIconByName(name)} />
@@ -78,7 +77,7 @@ the octicons:
 
 ```jsx
 import React from 'react'
-import Octicon, {iconsByName} from '@githubprimer/octicons-react'
+import Octicon, {iconsByName} from '@primer/octicons-react'
 
 export default function OcticonsList() {
   return (
@@ -100,7 +99,7 @@ styles. You can change the alignment via the `verticalAlign` prop, which can be
 either `middle`, `text-bottom`, `text-top`, or `top`.
 
 ```js
-import Octicon, {Repo} from '@githubprimer/octicons-react'
+import Octicon, {Repo} from '@primer/octicons-react'
 
 export default () => (
   <h1>
@@ -117,7 +116,7 @@ capitalization of `L`!).
 
 ```js
 // Example usage
-import Octicon, {Plus} from '@githubprimer/octicons-react'
+import Octicon, {Plus} from '@primer/octicons-react'
 
 export default () => (
   <button>
@@ -139,7 +138,7 @@ render octicons at standard sizes:
 
 ```js
 // Example usage
-import Octicon, {LogoGithub} from '@githubprimer/octicons-react'
+import Octicon, {LogoGithub} from '@primer/octicons-react'
 
 export default () => (
   <h1>
@@ -160,7 +159,7 @@ custom icon that consisted of three circles side by side, you could do this:
 
 ```jsx
 import React from 'react'
-import Octicon from '@githubprimer/octicons-react'
+import Octicon from '@primer/octicons-react'
 
 function CirclesIcon() {
   return (
@@ -187,7 +186,7 @@ export default CirclesOcticon(props) {
 When using the GitHub logos, be sure to follow the [GitHub logo
 guidelines](https://github.com/logos).
 
-[MIT](./LICENSE)  
+[MIT](./LICENSE)
 
 [octicons]: https://octicons.github.com/
 [primer]: https://github.com/primer/primer

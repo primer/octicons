@@ -1,7 +1,6 @@
 # GitHub Octicons
 
-[![npm version](https://img.shields.io/npm/v/octicons.svg)](https://www.npmjs.org/package/octicons)
-[![Build Status](https://travis-ci.org/primer/octicons.svg?branch=master)](https://travis-ci.org/primer/octicons)
+[![npm version](https://img.shields.io/npm/v/@primer/octicons.svg)](https://www.npmjs.org/package/@primer/octicons)
 
 > Octicons are a scalable set of icons handcrafted with <3 by GitHub.
 
@@ -133,7 +132,7 @@ octicons.x.toSVG({ "width": 45 })
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 
-[MIT](./LICENSE)  
+[MIT](./LICENSE)
 
 [primer]: https://github.com/primer/primer
 [docs]: http://primercss.io/
