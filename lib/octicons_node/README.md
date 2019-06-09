@@ -13,7 +13,7 @@
 This repository is distributed with [npm][npm]. After [installing npm][install-npm], you can install `octicons` with this command.
 
 ```
-$ npm install octicons --save
+$ npm install @primer/octicons --save
 ```
 
 ## Usage
