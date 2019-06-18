@@ -1,3 +1,9 @@
+# 9.1.0
+
+### 🚀 New features
+
+- [x] Adding skip icon https://github.com/primer/octicons/pull/318 @ashygee
+
 # 9.0.0
 
 ### 💥 Breaking changes
@@ -6,7 +12,7 @@
 
 ### 🚀 New features
 
-- [x] Adding a shield icon https://github.com/primer/octicons/pull/310 @ashygee @donokuda 
+- [x] Adding a shield icon https://github.com/primer/octicons/pull/310 @ashygee @donokuda
 - [x] Adding new repo icons https://github.com/primer/octicons/issues/316 @superbryntendo
 
 # 8.5.0
