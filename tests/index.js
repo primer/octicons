@@ -25,14 +25,14 @@ test('Data file exist', t => {
   t.not(octiconsData.length, 0, `We didn't find any data files`)
 })
 
-test('No duplicate icons', t => {
-  const names = {}
-  for (const o of Object.values(octiconsData)) {
+const names = {}
+for (const o of Object.values(octiconsData)) {
+  test(`No duplicate ${o.name} icon`, t => {
     if (names[o.name]) {
       t.fail(`Found duplicate '${o.name}' icons in the figma file. Please rename one of them.`)
     } else {
       names[o.name] = o
+      t.pass()
     }
-  }
-  t.pass()
-})
+  })
+}
