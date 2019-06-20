@@ -5,6 +5,7 @@ const globby = require('globby')
 const year = new Date().getFullYear()
 const yearRegex = new RegExp(`Copyright \\(c\\) ${year} GitHub Inc\\.`)
 const octiconsLib = fs.readdirSync('./lib/build/svg')
+const octiconsData = require('../lib/build/data.json')
 
 test(`LICENSE files have the current year ${year}`, t => {
   return globby(['**/LICENSE', '!**/node_modules/**/LICENSE', '!**/vendor/**/LICENSE']).then(paths => {
@@ -18,4 +19,16 @@ test(`LICENSE files have the current year ${year}`, t => {
 
 test('SVG icons exist', t => {
   t.not(octiconsLib.length, 0, `We didn't find any svg files`)
+})
+
+test('No duplicate icons', t => {
+  const names = {}
+  Object.values(octiconsData).forEach(o => {
+    if (names[o.name]) {
+      t.fail(`Found duplicate '${o.name}' icons in the figma file. Please rename one of them.`)
+    } else {
+      names[o.name] = o
+    }
+  })
+  t.pass()
 })

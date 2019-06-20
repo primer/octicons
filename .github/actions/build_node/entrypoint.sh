@@ -27,8 +27,6 @@ fi
 
 cd ./lib/$*
 
-cat ../build/data.json
-
 echo "**************** Copying assets files to build directory ****************"
 cp -R ../build/ .
 
