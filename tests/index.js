@@ -21,6 +21,10 @@ test('SVG icons exist', t => {
   t.not(octiconsLib.length, 0, `We didn't find any svg files`)
 })
 
+test('Data file exist', t => {
+  t.not(octiconsData.length, 0, `We didn't find any data files`)
+})
+
 test('No duplicate icons', t => {
   const names = {}
   for (const o of Object.values(octiconsData)) {
