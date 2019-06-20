@@ -23,12 +23,12 @@ test('SVG icons exist', t => {
 
 test('No duplicate icons', t => {
   const names = {}
-  Object.values(octiconsData).forEach(o => {
+  for (const o of Object.values(octiconsData)) {
     if (names[o.name]) {
       t.fail(`Found duplicate '${o.name}' icons in the figma file. Please rename one of them.`)
     } else {
       names[o.name] = o
     }
-  })
+  }
   t.pass()
 })
