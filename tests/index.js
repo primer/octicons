@@ -26,12 +26,18 @@ test('Data file exist', t => {
 })
 
 const names = {}
-for (const o of Object.values(octiconsData)) {
-  test(`No duplicate ${o.name} icon`, t => {
-    if (names[o.name]) {
-      t.fail(`Found duplicate '${o.name}' icons in the figma file. Please rename one of them.`)
+for (const octicon of Object.values(octiconsData)) {
+  test(`No duplicate ${octicon.name} icon`, t => {
+    if (names[octicon.name]) {
+      t.fail(
+        `Found duplicate '${
+          octicon.name
+        }' icons in the figma file. Please rename one of them. https://www.figma.com/file/${octicon.file}?node-id=${
+          octicon.id
+        }`
+      )
     } else {
-      names[o.name] = o
+      names[octicon.name] = octicon
       t.pass()
     }
   })
