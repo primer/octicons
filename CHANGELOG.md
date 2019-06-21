@@ -2,7 +2,8 @@
 
 ### :bug: Bug Fix
 
-- [x] renamed the original shield icon to `shield-lock` https://github.com/primer/octicons/issues/323 @ashygee 
+- [x] renamed the original shield icon to `shield-lock` https://github.com/primer/octicons/issues/323 @ashygee
+- [x] test for duplicate icons https://github.com/primer/octicons/pull/322 @jonrohan
 
 # 9.1.0
 
