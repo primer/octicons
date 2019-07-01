@@ -1,5 +1,5 @@
 # Octicons Contribution Guidelines
-Thank you for your interest in contributing to Octicons! We currently are only accepting submissions from GitHub staff and only include icons that are used in the GitHub's UI.
+Thank you for your interest in contributing to Octicons! We currently are only accepting submissions from GitHub staff and only include icons that are used in the GitHub UI.
 
 ## Adding or Updating icons
 
