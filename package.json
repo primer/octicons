@@ -7,9 +7,11 @@
     "lint": "eslint tests"
   },
   "dependencies": {
-    "ava": "^0.22.0",
+    "ava": "^2.1.0",
+    "braces": "^2.3.1",
     "eslint": "^5.8.0",
     "eslint-plugin-github": "^1.6.0",
-    "fs-extra": "^7.0.0"
+    "fs-extra": "^7.0.0",
+    "js-yaml": "^3.13.1"
   }
 }
