@@ -27,12 +27,6 @@ jobs:
       uses: actions/npm@master
       with:
         args: test
-    - name: Build & Deploy jekyll plugin
-      uses: ./.github/actions/build_ruby
-      env:
-        RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
-      with:
-        args: octicons_jekyll
     - name: Build & Deploy rails helper
       uses: ./.github/actions/build_ruby
       env:
@@ -45,6 +39,12 @@ jobs:
         RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
       with:
         args: octicons_gem
+    - name: Build & Deploy jekyll plugin
+      uses: ./.github/actions/build_ruby
+      env:
+        RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
+      with:
+        args: octicons_jekyll
     - name: Build & Deploy react
       uses: ./.github/actions/build_node
       env:
