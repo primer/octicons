@@ -27,18 +27,18 @@ jobs:
       uses: actions/npm@master
       with:
         args: test
-    - name: Build & Deploy rails helper
-      uses: ./.github/actions/build_ruby
-      env:
-        RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
-      with:
-        args: octicons_helper
     - name: Build & Deploy rubygem
       uses: ./.github/actions/build_ruby
       env:
         RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
       with:
         args: octicons_gem
+    - name: Build & Deploy rails helper
+      uses: ./.github/actions/build_ruby
+      env:
+        RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
+      with:
+        args: octicons_helper
     - name: Build & Deploy jekyll plugin
       uses: ./.github/actions/build_ruby
       env:
