@@ -5,7 +5,7 @@ workflow "Octicons" {
     "Build & Deploy react",
     "Build & Deploy rubygem",
     "Build & Deploy rails helper",
-    "Build & Deploy jekyll plugin"
+    "Build & Deploy jekyll plugin",
   ]
 }
 
@@ -35,15 +35,15 @@ action "Export SVG from Figma" {
   needs = ["Version"]
   uses = "primer/figma-action@d7844a1927da9b8dd562cbf008c7da20e228607d"
   secrets = [
-    "FIGMA_TOKEN"
+    "FIGMA_TOKEN",
   ]
-  env = {
-    "FIGMA_FILE_URL" = "https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons"
-  }
   args = [
     "format=svg",
-    "dir=./lib/build"
+    "dir=./lib/build",
   ]
+  env = {
+    FIGMA_FILE_URL = "https://www.figma.com/file/LhppJRnVNobJRHgb6iZrWz/Octicons-Brett-s-Changes"
+  }
 }
 
 action "Build & Deploy node.js" {
@@ -51,7 +51,7 @@ action "Build & Deploy node.js" {
   uses = "./.github/actions/build_node"
   args = "octicons_node"
   secrets = [
-    "NPM_AUTH_TOKEN"
+    "NPM_AUTH_TOKEN",
   ]
 }
 
@@ -60,7 +60,7 @@ action "Build & Deploy react" {
   uses = "./.github/actions/build_node"
   args = "octicons_react"
   secrets = [
-    "NPM_AUTH_TOKEN"
+    "NPM_AUTH_TOKEN",
   ]
 }
 
@@ -69,7 +69,7 @@ action "Build & Deploy rubygem" {
   uses = "./.github/actions/build_ruby"
   args = "octicons_gem"
   secrets = [
-    "RUBYGEMS_TOKEN"
+    "RUBYGEMS_TOKEN",
   ]
 }
 
@@ -78,7 +78,7 @@ action "Build & Deploy rails helper" {
   uses = "./.github/actions/build_ruby"
   args = "octicons_helper"
   secrets = [
-    "RUBYGEMS_TOKEN"
+    "RUBYGEMS_TOKEN",
   ]
 }
 
@@ -87,6 +87,6 @@ action "Build & Deploy jekyll plugin" {
   uses = "./.github/actions/build_ruby"
   args = "octicons_jekyll"
   secrets = [
-    "RUBYGEMS_TOKEN"
+    "RUBYGEMS_TOKEN",
   ]
 }
