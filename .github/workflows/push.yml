@@ -1,18 +1,25 @@
 name: Octicons
 on: push
 jobs:
-  prepare:
-    name: Prepare, test, and lint icons
+  lint:
+    name: Lint JavaScript
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
     - uses: actions/setup-node@v1
       with:
         version: 10.x
-    - run: |
-        npm install
-        npm run lint
-    - uses: ./.github/actions/version
+    - run: npm run lint
+  icons:
+    name: Fetch, generate, and test icons
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@v1
+      with:
+        version: 10.x
+    - run: npm install
+    # - uses: ./.github/actions/version
     - uses: primer/figma-action@d7844a
       env:
         FIGMA_FILE_URL: https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons
@@ -22,6 +29,5 @@ jobs:
     - run: npm test
     - uses: actions/upload-artifact@master
       with:
-        name: icon-library
+        name: icons
         path: ./lib/build
-    - run: ls -lha ./lib/build
