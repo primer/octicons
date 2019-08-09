@@ -23,6 +23,7 @@ jobs:
     - uses: actions/upload-artifact@master
       with:
         name: icon-library
+        path: .
   node:
     needs: [prepare]
     name: Deploy Node.js
