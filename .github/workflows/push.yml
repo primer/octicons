@@ -10,12 +10,9 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         version: 10.x
-    - name: Install dependencies
-      run: npm install
-    - name: Version
-      uses: ./.github/actions/version
-    - name: Export SVG from Figma
-      uses: primer/figma-action@d7844a
+    - run: npm install
+    - uses: ./.github/actions/version
+    - uses: primer/figma-action@d7844a
       env:
         FIGMA_FILE_URL: https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons
         FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
