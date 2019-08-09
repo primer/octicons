@@ -1,59 +1,23 @@
-on: push
 name: Octicons
+on: push
 jobs:
-  version:
-    name: Version
+  # Prepare
+  prepare:
+    name: Prepare
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - uses: actions/setup-node@v1
+      with:
+        version: 10.x
+    - name: Install dependencies
+      run: npm install
     - name: Version
       uses: ./.github/actions/version
-    - name: Install
-      uses: actions/npm@master
-      with:
-        args: install
     - name: Export SVG from Figma
-      uses: primer/figma-action@d7844a1927da9b8dd562cbf008c7da20e228607d
+      uses: primer/figma-action@d7844a
       env:
         FIGMA_FILE_URL: https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons
         FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
       with:
         args: format=svg dir=./lib/build
-    - name: Lint
-      uses: actions/npm@master
-      with:
-        args: run lint
-    - name: Test
-      uses: actions/npm@master
-      with:
-        args: test
-    - name: Build & Deploy rubygem
-      uses: ./.github/actions/build_ruby
-      env:
-        RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
-      with:
-        args: octicons_gem
-    - name: Build & Deploy rails helper
-      uses: ./.github/actions/build_ruby
-      env:
-        RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
-      with:
-        args: octicons_helper
-    - name: Build & Deploy jekyll plugin
-      uses: ./.github/actions/build_ruby
-      env:
-        RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
-      with:
-        args: octicons_jekyll
-    - name: Build & Deploy react
-      uses: ./.github/actions/build_node
-      env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      with:
-        args: octicons_react
-    - name: Build & Deploy node.js
-      uses: ./.github/actions/build_node
-      env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      with:
-        args: octicons_node
