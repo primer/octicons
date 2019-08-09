@@ -1,16 +1,17 @@
 name: Octicons
 on: push
 jobs:
-  # Prepare
   prepare:
-    name: Prepare
+    name: Prepare icon library
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
     - uses: actions/setup-node@v1
       with:
         version: 10.x
-    - run: npm install
+    - run: |
+        npm install
+        npm lint
     - uses: ./.github/actions/version
     - uses: primer/figma-action@d7844a
       env:
@@ -18,3 +19,29 @@ jobs:
         FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
       with:
         args: format=svg dir=./lib/build
+    - run: npm test
+    - uses: actions/upload-artifact@master
+      with:
+        name: icon-library
+  node:
+    needs: [prepare]
+    name: Deploy Node.js
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/download-artifact@master
+      with:
+        name: icon-library
+    - uses: ./.github/actions/build_node
+      with:
+        args: octicons_node
+  react:
+    needs: [prepare]
+    name: Deploy React
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/download-artifact@master
+      with:
+        name: icon-library
+    - uses: ./.github/actions/build_node
+      with:
+        args: octicons_react
