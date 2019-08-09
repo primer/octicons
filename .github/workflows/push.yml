@@ -2,7 +2,7 @@ name: Octicons
 on: push
 jobs:
   prepare:
-    name: Prepare icon library
+    name: Prepare, test, and lint icons
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
