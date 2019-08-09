@@ -11,7 +11,7 @@ jobs:
         version: 10.x
     - run: |
         npm install
-        npm lint
+        npm run lint
     - uses: ./.github/actions/version
     - uses: primer/figma-action@d7844a
       env:
