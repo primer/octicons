@@ -23,26 +23,5 @@ jobs:
     - uses: actions/upload-artifact@master
       with:
         name: icon-library
-        path: .
-  node:
-    needs: [prepare]
-    name: Deploy Node.js
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/download-artifact@master
-      with:
-        name: icon-library
-    - uses: ./.github/actions/build_node
-      with:
-        args: octicons_node
-  react:
-    needs: [prepare]
-    name: Deploy React
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/download-artifact@master
-      with:
-        name: icon-library
-    - uses: ./.github/actions/build_node
-      with:
-        args: octicons_react
+        path: ./lib/build
+    - run: ls -lha ./lib/build
