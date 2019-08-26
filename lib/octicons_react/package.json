@@ -10,7 +10,7 @@
   "types": "dist/index.d.ts",
   "repository": "primer/octicons",
   "scripts": {
-    "build": "script/build.js && script/types.js && npm run rollup",
+    "build": "script/build.js && script/types.js && npm run rollup && (cd ../../ && npm run svgr)",
     "ts-test": "tsc -P ts-tests",
     "test": "jest",
     "posttest": "npm run ts-test",
@@ -31,6 +31,9 @@
   },
   "devDependencies": {
     "@types/react": "^16.4.6",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-inline-react-svg": "^1.1.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
