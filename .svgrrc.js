@@ -1,7 +1,8 @@
 module.exports = {
   template: (babel, opts, {imports, componentName, props, jsx, exports}) => {
-    // Replace the <svg></svg> wrapper with a fragment For example:
-    // <svg><path /><path /></svg> => <React.Fragment><path /><path /></React.Fragment>
+    // Replace the <svg></svg> wrapper with a fragment (we need the fragment in case there are multiple paths).
+    // For example:
+    // <svg some="attr"><path /><path /></svg> => <React.Fragment><path /><path /></React.Fragment>
     const pathJsx = babel.types.jsxFragment(
       babel.types.jsxOpeningFragment(),
       babel.types.jsxClosingFragment(),
