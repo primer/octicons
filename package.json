@@ -4,9 +4,11 @@
   "scripts": {
     "version": "script/version",
     "test": "ava -v tests/*.js",
-    "lint": "eslint tests"
+    "lint": "eslint tests",
+    "svgr": "svgr --out-dir=lib/octicons_react/dist \"lib/build/svg/*.svg\""
   },
   "dependencies": {
+    "@svgr/cli": "^4.3.2",
     "ava": "^2.1.0",
     "braces": "^2.3.1",
     "eslint": "^5.8.0",
