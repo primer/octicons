@@ -9,3 +9,4 @@ vendor
 
 # Ignore build/export artifacts
 lib/**/build/
+lib/octicons_react/icons
