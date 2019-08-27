@@ -1,23 +1,45 @@
 module.exports = {
   template: (babel, opts, {imports, componentName, props, jsx, exports}) => {
-    // Replace the <svg></svg> wrapper with <Octicon />
+    // Replace the <svg></svg> wrapper with <React.Fragment />
     // For example:
-    // <svg some="attr"><path /></svg> => <Octicon><path /></Octicon>
-    const pathJsx = babel.types.jsxElement(
-      babel.types.jsxOpeningElement(babel.types.jsxIdentifier('Octicon'), [
-        babel.types.jsxSpreadAttribute(babel.types.identifier('props'))
-      ]),
-      babel.types.jsxClosingElement(babel.types.jsxIdentifier('Octicon')),
+    // <svg some="attr"><path /><path /></svg> => <React.Fragment><path /><path /></React.Fragment>
+    const pathJsx = babel.types.jsxFragment(
+      babel.types.jsxOpeningFragment(),
+      babel.types.jsxClosingFragment(),
       jsx.children
+    )
+
+    const viewBox = jsx.openingElement.attributes.find(attr => attr.name.name === 'viewBox')
+    const iconName = componentName.name.replace('Svg', '')
+    const iconJsx = babel.types.jsxElement(
+      babel.types.jsxOpeningElement(babel.types.jsxIdentifier('Octicon'), [babel.types.jsxSpreadAttribute(props)]),
+      babel.types.jsxClosingElement(babel.types.jsxIdentifier('Octicon')),
+      [
+        babel.types.jsxElement(
+          babel.types.jsxOpeningElement(babel.types.jsxIdentifier(componentName.name), [], true),
+          null,
+          [],
+          true
+        )
+      ]
     )
 
     return babel.template.ast`
       ${imports}
       import Octicon from '@primer/octicons-react'
 
-      const ${componentName} = (${props}) => ${pathJsx}
+      const ${componentName} = () => ${pathJsx}
+      ${viewBox &&
+        babel.template.ast`
+        ${componentName}.size = [${viewBox.value.value
+          .replace('0 0 ', '')
+          .split(' ')
+          .join(', ')}]
+      `}
 
-      ${exports}
+      const ${iconName} = (${props}) => ${iconJsx}
+
+      export default ${iconName}
     `
   }
 }
