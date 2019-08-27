@@ -10,88 +10,22 @@ $ npm install @primer/octicons-react --save
 
 ## Usage
 
-### `<Octicon>`
-The `<Octicon>` component is really just the "shell" of an Octicon that renders
-the `<svg>` element and all of its attributes. To render a specific icon, you
-must pass it either via the `icon` prop, or as the only child:
-
-```jsx
-/**
- * The prop form is shorter, but doesn't allow you to pass icon props.
- */
-<Octicon icon={Icon} />
-
-/**
- * The child form allows you to pass props.
- */
-<Octicon><Icon x={10}/></Octicon>
-```
-
-Note that none of our builtin icons take props, so unless you're creating
-[custom icons](#custom-icons) you'll probably want to use the `icon` prop form.
-
 ### Icons
-The `@primer/octicons-react` module exports the `Octicon` component as
-`default` and the individual icon symbols as separate [named
-exports](https://ponyfoo.com/articles/es6-modules-in-depth#named-exports). This
-allows you to import only the icons that you need without blowing up your
+The `@primer/octicons-react` module exports the individual icon components as separate files. This allows you to import only the icons that you need without blowing up your
 bundle:
 
 ```jsx
 import React from 'react'
-import Octicon, {Beaker, Zap} from '@primer/octicons-react'
+import Beaker from '@primer/octicons-react/icons/Beaker';
+import Zap from '@primer/octicons-react/icons/Zap';
 
 export default function Icon({boom}) {
-  return <Octicon icon={boom ? Zap : Beaker}/>
+  return boom ? <Zap /> : <Beaker />
 }
 ```
 
-If you were to compile this example with a tool that supports [tree-shaking][]
-(such as Webpack, Rollup, or Parcel) the resulting bundle would only include
-the "zap" and "beaker" icons.
-
-### All icons
-If you don't mind your bundle being huge or you need to be able to render
-arbitrarily named icons at runtime, you can import either of the following
-named exports:
-
-#### `getIconByName()`
-The `getIconByName` export is a function that takes a lowercase octicon name
-(such as `arrow-right`) and returns the corresponding icon class. Using this
-helper, it's possible to create an Octicon class that takes a `name` prop and
-resolves it to the right component:
-
-```jsx
-import React from 'react'
-import Octicon, {getIconByName} from '@primer/octicons-react'
-
-export default function OcticonByName({name, ...props}) {
-  return <Octicon {...props} icon={getIconByName(name)} />
-}
-```
-
-#### `iconsByName`
-The `iconsByName` export is an object that maps keys (such as `arrow-right` or
-`zap`) to component functions, which you can use to generate listings of all
-the octicons:
-
-```jsx
-import React from 'react'
-import Octicon, {iconsByName} from '@primer/octicons-react'
-
-export default function OcticonsList() {
-  return (
-    <ul>
-      {Object.keys(iconsByName).map(key => (
-        <li key={key}>
-          <tt>{key}</tt>
-          <Octicon icon={iconsByName[key]}/>
-        </li>
-      ))}
-    </ul>
-  )
-}
-```
+### `<Octicon>`
+The `<Octicon>` component is exported as `default` from `@primer/octicons-react` and is really just the "shell" of an Octicon that renders the `<svg>` element and all of its attributes. Note that all icons are automatically wrapped in this component.
 
 ### Vertical alignment
 By default the octicons have `vertical-align: text-bottom;` applied as inline
@@ -99,11 +33,11 @@ styles. You can change the alignment via the `verticalAlign` prop, which can be
 either `middle`, `text-bottom`, `text-top`, or `top`.
 
 ```js
-import Octicon, {Repo} from '@primer/octicons-react'
+import Repo from '@primer/octicons-react/icons/Repo'
 
 export default () => (
   <h1>
-    <Octicon icon={Repo} size='large' verticalAlign='middle' /> github/github
+    <Repo size='large' verticalAlign='middle' /> github/github
   </h1>
 )
 ```
@@ -116,11 +50,11 @@ capitalization of `L`!).
 
 ```js
 // Example usage
-import Octicon, {Plus} from '@primer/octicons-react'
+import Plus from '@primer/octicons-react/icons/Plus'
 
 export default () => (
   <button>
-    <Octicon icon={Plus} ariaLabel="Add new item" /> New
+    <Plus ariaLabel="Add new item" /> New
   </button>
 )
 ```
@@ -138,12 +72,12 @@ render octicons at standard sizes:
 
 ```js
 // Example usage
-import Octicon, {LogoGithub} from '@primer/octicons-react'
+import LogoGithub from '@primer/octicons-react/icons/LogoGithub'
 
 export default () => (
   <h1>
     <a href='https://github.com'>
-      <Octicon icon={LogoGithub} size='large' ariaLabel='GitHub'/>
+      <LogoGithub size='large' ariaLabel='GitHub'/>
     </a>
   </h1>
 )
