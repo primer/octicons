@@ -21,4 +21,6 @@ export function createIcon<C extends React.SFC<{}>, W extends number, H extends 
   size: [W, H]
 ): Icon<W, H>
 
-export * from './__generated__/icons'
+declare module '@primer/components/icons/*.js' {
+  export default Octicon
+}
