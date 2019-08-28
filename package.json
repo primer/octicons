@@ -5,7 +5,8 @@
     "version": "script/version",
     "test": "ava -v tests/*.js",
     "lint": "eslint tests",
-    "svgr": "svgr --out-dir=lib/octicons_react/icons \"lib/build/svg/*.svg\" && mv lib/octicons_react/icons/lib/build/svg/*.js lib/octicons_react/icons && rm -r lib/octicons_react/icons/lib"
+    "svgr": "svgr --out-dir=lib/octicons_react/icons \"lib/build/svg/*.svg\" && mv lib/octicons_react/icons/lib/build/svg/*.js lib/octicons_react/icons && rm -r lib/octicons_react/icons/lib",
+    "postsvgr": "(cd lib/octicons_react && npm run build:icons)"
   },
   "dependencies": {
     "@svgr/cli": "^4.3.2",

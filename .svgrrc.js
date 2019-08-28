@@ -3,9 +3,9 @@ module.exports = {
     // Replace the <svg></svg> wrapper with <React.Fragment />
     // For example:
     // <svg some="attr"><path /><path /></svg> => <React.Fragment><path /><path /></React.Fragment>
-    const pathJsx = babel.types.jsxFragment(
-      babel.types.jsxOpeningFragment(),
-      babel.types.jsxClosingFragment(),
+    const pathJsx = babel.types.jsxElement(
+      babel.types.jsxOpeningElement(babel.types.jsxIdentifier('React.Fragment'), []),
+      babel.types.jsxClosingElement(babel.types.jsxIdentifier('React.Fragment')),
       jsx.children
     )
 
