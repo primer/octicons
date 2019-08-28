@@ -49,18 +49,15 @@ function VerticalAlign() {
   )
 }
 
-const CirclesIcon = createIcon(
-  () => {
-    return (
-      <React.Fragment>
-        <circle r={5} cx={5} cy={5} />
-        <circle r={5} cx={15} cy={5} />
-        <circle r={5} cx={25} cy={5} />
-      </React.Fragment>
-    )
-  },
-  [30, 10]
-)
+const CirclesIcon = createIcon(() => {
+  return (
+    <React.Fragment>
+      <circle r={5} cx={5} cy={5} />
+      <circle r={5} cx={15} cy={5} />
+      <circle r={5} cx={25} cy={5} />
+    </React.Fragment>
+  )
+}, [30, 10])
 
 export function CirclesOcticon(props: OcticonProps) {
   return <Octicon {...props} icon={CirclesIcon} />

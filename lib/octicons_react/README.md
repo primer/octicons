@@ -16,8 +16,8 @@ bundle:
 
 ```jsx
 import React from 'react'
-import Beaker from '@primer/octicons-react/icons/Beaker';
-import Zap from '@primer/octicons-react/icons/Zap';
+import Beaker from '@primer/octicons-react/Beaker';
+import Zap from '@primer/octicons-react/Zap';
 
 export default function Icon({boom}) {
   return boom ? <Zap /> : <Beaker />
@@ -33,7 +33,7 @@ styles. You can change the alignment via the `verticalAlign` prop, which can be
 either `middle`, `text-bottom`, `text-top`, or `top`.
 
 ```js
-import Repo from '@primer/octicons-react/icons/Repo'
+import Repo from '@primer/octicons-react/Repo'
 
 export default () => (
   <h1>
@@ -50,7 +50,7 @@ capitalization of `L`!).
 
 ```js
 // Example usage
-import Plus from '@primer/octicons-react/icons/Plus'
+import Plus from '@primer/octicons-react/Plus'
 
 export default () => (
   <button>
@@ -72,7 +72,7 @@ render octicons at standard sizes:
 
 ```js
 // Example usage
-import LogoGithub from '@primer/octicons-react/icons/LogoGithub'
+import LogoGithub from '@primer/octicons-react/LogoGithub'
 
 export default () => (
   <h1>
