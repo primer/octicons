@@ -10,8 +10,8 @@
   "types": "dist/index.d.ts",
   "repository": "primer/octicons",
   "scripts": {
-    "build": "(cd ../../ && npm run svgr) && script/build.js && script/types.js && npm run rollup",
-    "build:icons": "babel --out-dir ./ icons",
+    "build": "npm run build:icons && script/build.js && script/types.js && npm run rollup",
+    "build:icons": "svgr --out-dir=./src/build \"../build/svg/*.svg\" && cp -Rp src/build/svg/ src/icons && rm -r src/build && babel --no-babelrc --presets=env,stage-0,react --out-dir ./ src/icons",
     "ts-test": "tsc -P ts-tests",
     "test": "jest",
     "posttest": "npm run ts-test",
@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@types/react": "^16.4.6",
+    "@svgr/cli": "^4.3.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-plugin-external-helpers": "^6.22.0",
