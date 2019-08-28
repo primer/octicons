@@ -1,15 +1,11 @@
 import * as React from 'react'
-import Octicon, {
-  OcticonProps,
-  Beaker,
-  Zap,
-  Repo,
-  Plus,
-  LogoGithub,
-  getIconByName,
-  iconsByName,
-  createIcon
-} from '../src'
+import Beaker from '../src/icons/Beaker'
+import Zap from '../src/icons/Zap'
+import Repo from '../src/icons/Repo'
+import Plus from '../src/icons/Plus'
+import LogoGithub from '../src/icons/LogoGithub'
+import {getIconByName, iconsByName} from '../src/index.umd'
+import Octicon, {OcticonProps, createIcon} from '../src'
 
 function Icon({boom}: {boom: boolean}): React.ReactNode {
   return <Octicon icon={boom ? Zap : Beaker} />
