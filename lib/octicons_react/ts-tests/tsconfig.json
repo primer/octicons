@@ -3,10 +3,11 @@
   "compileOnSave": false,
   "compilerOptions": {
     "module": "commonjs",
+    "esModuleInterop": true,
     "noEmit": true,
     "noImplicitAny": true,
     "jsx": "react",
     "lib": ["es2015"]
   },
-  "files": ["../src/index.d.ts", "./index.tsx"]
+  "files": ["./index.tsx"]
 }
