@@ -4,11 +4,11 @@ import Zap from '../Zap'
 import Repo from '../Repo'
 import Plus from '../Plus'
 import LogoGithub from '../LogoGithub'
-import {getIconByName, iconsByName} from '../src/index.umd'
-import Octicon, {OcticonProps, createIcon} from '../src'
+import {getIconByName, iconsByName} from '../dist/index.umd'
+import Octicon, {OcticonProps, createIcon} from '../dist'
 
 function Icon({boom}: {boom: boolean}): React.ReactNode {
-  return <Octicon icon={boom ? Zap : Beaker} />
+  return boom ? <Zap /> : <Beaker />
 }
 
 function OcticonByName({name, ...props}: {name: keyof iconsByName} & OcticonProps): React.ReactNode {
@@ -38,9 +38,9 @@ function OcticonsList() {
 function VerticalAlign() {
   return (
     <h1>
-      <Octicon icon={Repo} size="large" verticalAlign="middle" /> github/github
-      <Octicon icon={Plus} ariaLabel="Add new item" /> New
-      <Octicon icon={LogoGithub} size="large" ariaLabel="GitHub" />
+      <Repo size="large" verticalAlign="middle" /> github/github
+      <Plus ariaLabel="Add new item" /> New
+      <LogoGithub size="large" ariaLabel="GitHub" />
     </h1>
   )
 }
