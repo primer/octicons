@@ -44,7 +44,7 @@ jobs:
       - uses: actions/upload-artifact@master
         with:
           name: octicons_gem
-          path: ./lib/octicons_gem/pkg/*.gem
+          path: ./lib/octicons_gem/pkg
   helper:
     runs-on: ubuntu-latest
     needs: gem
@@ -56,6 +56,10 @@ jobs:
         with:
           name: octicons
           path: ./lib/build
+      - uses: actions/download-artifact@master
+        with:
+          name: octicons_gem
+          path: ./lib/octicons_helper/vendor/cache
       - uses: ./.github/actions/build_ruby
         env:
           RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
@@ -72,6 +76,10 @@ jobs:
         with:
           name: octicons
           path: ./lib/build
+      - uses: actions/download-artifact@master
+        with:
+          name: octicons_gem
+          path: ./lib/octicons_jekyll/vendor/cache
       - uses: ./.github/actions/build_ruby
         env:
           RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
