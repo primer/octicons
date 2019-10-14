@@ -1,5 +1,5 @@
 on: push
-name: Octicons
+name: Octicons Build
 jobs:
   version:
     name: Version
