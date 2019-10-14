@@ -1,8 +1,7 @@
 on: push
 name: Octicons Build
 jobs:
-  version:
-    name: Version
+  setup:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -27,33 +26,48 @@ jobs:
       uses: actions/npm@master
       with:
         args: test
-    - name: Build & Deploy rubygem
-      uses: ./.github/actions/build_ruby
-      env:
-        RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
-      with:
-        args: octicons_gem
-    - name: Build & Deploy react
-      uses: ./.github/actions/build_node
-      env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      with:
-        args: octicons_react
-    - name: Build & Deploy node.js
-      uses: ./.github/actions/build_node
-      env:
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      with:
-        args: octicons_node
-    - name: Build & Deploy rails helper
-      uses: ./.github/actions/build_ruby
-      env:
-        RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
-      with:
-        args: octicons_helper
-    - name: Build & Deploy jekyll plugin
-      uses: ./.github/actions/build_ruby
-      env:
-        RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
-      with:
-        args: octicons_jekyll
+  gem:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - uses: ./.github/actions/build_ruby
+        env:
+          RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
+        with:
+          args: octicons_gem
+  helper:
+    runs-on: ubuntu-latest
+    needs: gem
+    steps:
+      - uses: ./.github/actions/build_ruby
+        env:
+          RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
+        with:
+          args: octicons_helper
+  jekyll:
+    runs-on: ubuntu-latest
+    needs: gem
+    steps:
+      - uses: ./.github/actions/build_ruby
+        env:
+          RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
+        with:
+          args: octicons_jekyll
+  node:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - uses: ./.github/actions/build_node
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        with:
+          args: octicons_node
+  react:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - uses: ./.github/actions/build_node
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        with:
+          args: octicons_react
