@@ -35,10 +35,13 @@ jobs:
     needs: setup
     steps:
       - uses: actions/checkout@master
+      - name: Version
+        uses: ./.github/actions/version
       - uses: actions/download-artifact@master
         with:
           name: octicons
           path: ./lib/build
+      - run: ls ./lib/build
       - uses: ./.github/actions/build_ruby
         env:
           RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
