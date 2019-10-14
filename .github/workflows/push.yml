@@ -5,12 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - uses: actions/setup-node@master
+      with:
+        node-version: '10.x'
     - name: Version
       uses: ./.github/actions/version
-    - name: Install
-      uses: actions/npm@master
-      with:
-        args: install
+    - run: npm install
     - name: Export SVG from Figma
       uses: primer/figma-action@d7844a1927da9b8dd562cbf008c7da20e228607d
       env:
@@ -18,14 +18,8 @@ jobs:
         FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
       with:
         args: format=svg dir=./lib/build
-    - name: Lint
-      uses: actions/npm@master
-      with:
-        args: run lint
-    - name: Test
-      uses: actions/npm@master
-      with:
-        args: test
+    - run: npm run lint
+    - run: npm test
     - uses: actions/upload-artifact@master
       with:
         name: octicons
