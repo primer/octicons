@@ -37,8 +37,8 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/download-artifact@master
         with:
-          name: build
-          path: ./lib/
+          name: octicons
+          path: ./lib/build
       - uses: ./.github/actions/build_ruby
         env:
           RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
