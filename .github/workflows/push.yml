@@ -43,7 +43,7 @@ jobs:
       - uses: actions/upload-artifact@master
         with:
           name: octicons_gem
-          path: ./lib/octicons_gem/octicons*.gem
+          path: ./lib/octicons_gem/pkg/*.gem
   helper:
     runs-on: ubuntu-latest
     needs: gem
