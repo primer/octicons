@@ -26,6 +26,10 @@ jobs:
       uses: actions/npm@master
       with:
         args: test
+    - uses: actions/upload-artifact@master
+      with:
+        name: octicons
+        path: ./lib/build
   gem:
     runs-on: ubuntu-latest
     needs: setup
