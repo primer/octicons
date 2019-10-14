@@ -40,6 +40,7 @@ jobs:
           RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
         with:
           args: octicons_gem
+      - run: ls ./lib/octicons_gem/pkg
       - uses: actions/upload-artifact@master
         with:
           name: octicons_gem
