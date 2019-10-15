@@ -1,5 +1,18 @@
 # 9.2.0
 
+### 🚀 New features
+
+ - [x] New icons for save/unsave and primitive dot stroke https://github.com/primer/octicons/pull/351 @ashygee @colinkeany
+
+### 🧽 Chores
+
+- [x] Migrating to new yml actions syntax https://github.com/primer/octicons/pull/332 @max & @jonrohan
+- [x] Update jekyll gemspec to support Jekyll 4.0 https://github.com/primer/octicons/pull/347 @ntotten
+
+### 🐛 Bugs
+
+- [x] Octicons react isn't including className https://github.com/primer/octicons/pull/271 @pocke
+
 # 9.1.1
 
 ### :bug: Bug Fix
