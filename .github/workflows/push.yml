@@ -1,0 +1,119 @@
+on: push
+name: Octicons Build
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@master
+      with:
+        node-version: '10.x'
+    - name: Version
+      uses: ./.github/actions/version
+    - run: npm install
+    - name: Export SVG from Figma
+      uses: primer/figma-action@d7844a1927da9b8dd562cbf008c7da20e228607d
+      env:
+        FIGMA_FILE_URL: https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons
+        FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+      with:
+        args: format=svg dir=./lib/build
+    - run: npm run lint
+    - run: npm test
+    - uses: actions/upload-artifact@master
+      with:
+        name: octicons
+        path: ./lib/build
+  gem:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - uses: actions/checkout@master
+      - name: Version
+        uses: ./.github/actions/version
+      - uses: actions/download-artifact@master
+        with:
+          name: octicons
+          path: ./lib/build
+      - uses: ./.github/actions/build_ruby
+        env:
+          RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
+        with:
+          args: octicons_gem
+      - run: ls ./lib/octicons_gem/pkg
+      - uses: actions/upload-artifact@master
+        with:
+          name: octicons_gem
+          path: ./lib/octicons_gem/pkg
+  helper:
+    runs-on: ubuntu-latest
+    needs: gem
+    steps:
+      - uses: actions/checkout@master
+      - name: Version
+        uses: ./.github/actions/version
+      - uses: actions/download-artifact@master
+        with:
+          name: octicons
+          path: ./lib/build
+      - uses: actions/download-artifact@master
+        with:
+          name: octicons_gem
+          path: ./lib/octicons_helper/vendor/cache
+      - uses: ./.github/actions/build_ruby
+        env:
+          RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
+        with:
+          args: octicons_helper
+  jekyll:
+    runs-on: ubuntu-latest
+    needs: gem
+    steps:
+      - uses: actions/checkout@master
+      - name: Version
+        uses: ./.github/actions/version
+      - uses: actions/download-artifact@master
+        with:
+          name: octicons
+          path: ./lib/build
+      - uses: actions/download-artifact@master
+        with:
+          name: octicons_gem
+          path: ./lib/octicons_jekyll/vendor/cache
+      - uses: ./.github/actions/build_ruby
+        env:
+          RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
+        with:
+          args: octicons_jekyll
+  node:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - uses: actions/checkout@master
+      - name: Version
+        uses: ./.github/actions/version
+      - uses: actions/download-artifact@master
+        with:
+          name: octicons
+          path: ./lib/build
+      - uses: ./.github/actions/build_node
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        with:
+          args: octicons_node
+  react:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - uses: actions/checkout@master
+      - name: Version
+        uses: ./.github/actions/version
+      - uses: actions/download-artifact@master
+        with:
+          name: octicons
+          path: ./lib/build
+      - uses: ./.github/actions/build_node
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        with:
+          args: octicons_react

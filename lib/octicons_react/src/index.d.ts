@@ -6,6 +6,7 @@ type Size = 'small' | 'medium' | 'large'
 export interface OcticonProps {
   ariaLabel?: string
   children?: React.ReactElement<any>
+  className?: string
   height?: number
   icon: Icon
   size?: number | Size

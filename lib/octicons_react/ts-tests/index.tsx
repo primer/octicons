@@ -49,6 +49,12 @@ function VerticalAlign() {
   )
 }
 
+function WithClassName() {
+  return (
+    <Octicon icon={Repo} className="awesomeClassName" />
+  )
+}
+
 const CirclesIcon = createIcon(
   () => {
     return (
