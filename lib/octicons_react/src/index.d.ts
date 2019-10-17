@@ -10,7 +10,7 @@ export interface OcticonProps {
   height?: number
   icon: Icon
   size?: number | Size
-  verticalAlign?: 'middle' | 'text-bottom' | 'text-top' | 'top'
+  verticalAlign?: 'middle' | 'text-bottom' | 'text-top' | 'top' | 'unset'
   width?: number
 }
 
