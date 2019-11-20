@@ -1,3 +1,10 @@
+# 9.3.0
+
+### 🚀 New Features
+
+- Workflow icons https://github.com/primer/octicons/pull/356 @ashygee 
+- Allow 'unset' value for verticalAlign property https://github.com/primer/octicons/pull/354 @Fs00
+
 # 9.2.0
 
 ### 🚀 New features
