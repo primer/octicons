@@ -14,7 +14,7 @@ jobs:
     - name: Export SVG from Figma
       uses: primer/figma-action@d7844a1927da9b8dd562cbf008c7da20e228607d
       env:
-        FIGMA_FILE_URL: https://www.figma.com/file/FP7lqd1V00LUaT5zvdklkkZr/Octicons
+        FIGMA_FILE_URL: https://www.figma.com/file/KeVvQazRDZKeTmT9By0bnZ/Octicons-Bryn-s-changes?node-id=0%3A1
         FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
       with:
         args: format=svg dir=./lib/build
