@@ -25,17 +25,12 @@ Make sure your duplicate file can be viewed by others. In the share menu "Anyone
 
 [<img src="https://user-images.githubusercontent.com/54012/37803059-3ca54432-2dea-11e8-8c27-36c83a2dc5cb.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37803059-3ca54432-2dea-11e8-8c27-36c83a2dc5cb.gif)
 
-### Step 4, Pull Request: _(Optional)_
+### Step 4, Create a new icon submission issue
 
-You can submit a pull request updating the `FIGMA_FILE_URL` configuration in the .github/workflows/[push.yml](https://github.com/primer/octicons/blob/master/.github/workflows/push.yml#L17) with your Figma file. Doing so will generate alpha releases of [all the libraries that distribute Octicons](https://github.com/primer/octicons#libraries).
+Create a new issue using the [Octicon submission](https://github.com/primer/octicons/issues/new?template=octicon-submission.md) template. Fill out the issue with screenshots of the icon(s), a link to the figma document, and remaining information.
 
-If an icon was edited or added, you should see the before and after images directly in the PR. In addition, please describe your proposed changes in the PR's description.
+The design systems team will review the submission and request any changes. If approved, your icon will be added to the next octicons release.
 
-Once the build passes on your pull request, you should see statuses with all the alpha versions of the libraries. You can then use these to test your changes.
-
-[Here is an example pull request](https://github.com/primer/octicons/pull/206)
-
-[<img src="https://user-images.githubusercontent.com/54012/37811102-45ec2abc-2e15-11e8-8c1d-2d162ddcdad2.png" width="700"/>](https://user-images.githubusercontent.com/54012/37811102-45ec2abc-2e15-11e8-8c1d-2d162ddcdad2.png)
 
 ---
 
