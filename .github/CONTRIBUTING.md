@@ -38,28 +38,35 @@ The design systems team will review the submission and request any changes. If a
 
 Once submitted changes have been agreed upon, these instructions will guide core primer team members in merging in those changes.
 
-## Adding the icon
+### Adding the icon
 
-### 1. Paste into master figma file
+#### 1. Paste into master figma file
 
 If the icon is being updated, you'll need to keep the existing component and copy the new path into it.
 
-### 2. Join any separate paths
+#### 2. Join any separate paths
 
 Any separate shapes under the icon component need to be unioned into one path. This is for performance when serving the icons.
 
 ![image](https://user-images.githubusercontent.com/54012/72647901-7c9a7e80-392e-11ea-9e9b-08c4b8e1af0c.png)
 
 
-### 3. Create and/or publish the icon as a figma component
+#### 3. Create component of icon (if not already a component)
 
-Make sure you publish the icon changes to the figma component library. https://help.figma.com/hc/en-us/articles/360038665934
+If the icon is not already a component you must [create a new component](https://help.figma.com/hc/en-us/articles/360038665934). To do so, click the `Create Component` button in the top toolbar inside of Figma to add the icon as a component of the Octicons library. 
 
-### 4. Add keywords to the icon
+If the icon is already a component, make sure you are updating the contents of the related component.
+
+#### 4. Add keywords to the icon
 
 Each icon needs keywords to help build out the icon search. Add `keywords: foo, bar` to the "Component" section in the figma toolbar.
 
 ![image](https://user-images.githubusercontent.com/54012/72647771-26c5d680-392e-11ea-9167-462d5bb27936.png)
+
+#### 5. Publish changes in Figma
+
+Once all of the changes have been made to the Octicons file, be sure to [publish the changes](https://help.figma.com/hc/en-us/articles/360038682574-Publish-Changes-to-a-Team-Library) to the component library.
+<img width="449" alt="Screenshot 2020-01-17 14 43 01" src="https://user-images.githubusercontent.com/10384315/72651266-b4f28a80-3937-11ea-92db-ae51eb99c68e.png">
 
 
 ## Updating the release version
