@@ -38,22 +38,31 @@ The design systems team will review the submission and request any changes. If a
 
 Once submitted changes have been agreed upon, these instructions will guide core primer team members in merging in those changes.
 
-### Step 1, Save:
+## Adding the icon
 
-Save the contributor’s Figma file as a `.fig` file and open in Figma (it will automatically be imported into your Drafts)
+### 1. Paste into master figma file
 
+If the icon is being updated, you'll need to keep the existing component and copy the new path into it.
 
-## Step 2, Import:
+### 2. Join any separate paths
 
-Drag and drop, or paste the updated or new icon from the contributer's file into the main Octicons Figma file. Make sure that the SVG only contains a single `path` and that it has relevant component keywords in Figma.
+Any separate shapes under the icon component need to be unioned into one path. This is for performance when serving the icons.
 
-
-### Step 3, Add:
-
-Once the new changes have been added the new components to the master Octicons file, you can publish to the team library in Figma.
+![image](https://user-images.githubusercontent.com/54012/72647901-7c9a7e80-392e-11ea-9e9b-08c4b8e1af0c.png)
 
 
-### Step 4, Create a Release Branch in Octicons:
+### 3. Create and/or publish the icon as a figma component
+
+Make sure you publish the icon changes to the figma component library. https://help.figma.com/hc/en-us/articles/360038665934
+
+### 4. Add keywords to the icon
+
+Each icon needs keywords to help build out the icon search. Add `keywords: foo, bar` to the "Component" section in the figma toolbar.
+
+![image](https://user-images.githubusercontent.com/54012/72647771-26c5d680-392e-11ea-9167-462d5bb27936.png)
+
+
+## Updating the release version
 
 After you've published the latest changes in the Figma file, create a release branch in the [Octicons repo](https://github.com/primer/octicons).
 
