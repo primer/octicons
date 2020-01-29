@@ -25,17 +25,12 @@ Make sure your duplicate file can be viewed by others. In the share menu "Anyone
 
 [<img src="https://user-images.githubusercontent.com/54012/37803059-3ca54432-2dea-11e8-8c27-36c83a2dc5cb.gif" width="400"/>](https://user-images.githubusercontent.com/54012/37803059-3ca54432-2dea-11e8-8c27-36c83a2dc5cb.gif)
 
-### Step 4, Pull Request: _(Optional)_
+### Step 4, Create a new icon submission issue
 
-You can submit a pull request updating the `FIGMA_FILE_URL` configuration in the .github/workflows/[push.yml](https://github.com/primer/octicons/blob/master/.github/workflows/push.yml#L17) with your Figma file. Doing so will generate alpha releases of [all the libraries that distribute Octicons](https://github.com/primer/octicons#libraries).
+Create a new issue using the [Octicon submission](https://github.com/primer/octicons/issues/new?template=octicon-submission.md) template. Fill out the issue with screenshots of the icon(s), a link to the figma document, and remaining information.
 
-If an icon was edited or added, you should see the before and after images directly in the PR. In addition, please describe your proposed changes in the PR's description.
+The design systems team will review the submission and request any changes. If approved, your icon will be added to the next octicons release.
 
-Once the build passes on your pull request, you should see statuses with all the alpha versions of the libraries. You can then use these to test your changes.
-
-[Here is an example pull request](https://github.com/primer/octicons/pull/206)
-
-[<img src="https://user-images.githubusercontent.com/54012/37811102-45ec2abc-2e15-11e8-8c1d-2d162ddcdad2.png" width="700"/>](https://user-images.githubusercontent.com/54012/37811102-45ec2abc-2e15-11e8-8c1d-2d162ddcdad2.png)
 
 ---
 
@@ -43,22 +38,38 @@ Once the build passes on your pull request, you should see statuses with all the
 
 Once submitted changes have been agreed upon, these instructions will guide core primer team members in merging in those changes.
 
-### Step 1, Save:
+### Adding the icon
 
-Save the contributor’s Figma file as a `.fig` file and open in Figma (it will automatically be imported into your Drafts)
+#### 1. Paste into master figma file
 
+If the icon is being updated, you'll need to keep the existing component and copy the new path into it.
 
-## Step 2, Import:
+#### 2. Join any separate paths
 
-Drag and drop, or paste the updated or new icon from the contributer's file into the main Octicons Figma file. Make sure that the SVG only contains a single `path` and that it has relevant component keywords in Figma.
+Any separate shapes under the icon component need to be unioned into one path. This is for performance when serving the icons.
 
-
-### Step 3, Add:
-
-Once the new changes have been added the new components to the master Octicons file, you can publish to the team library in Figma.
+![image](https://user-images.githubusercontent.com/54012/72647901-7c9a7e80-392e-11ea-9e9b-08c4b8e1af0c.png)
 
 
-### Step 4, Create a Release Branch in Octicons:
+#### 3. Create component of icon (if not already a component)
+
+If the icon is not already a component you must [create a new component](https://help.figma.com/hc/en-us/articles/360038665934). To do so, click the `Create Component` button in the top toolbar inside of Figma to add the icon as a component of the Octicons library. 
+
+If the icon is already a component, make sure you are updating the contents of the related component.
+
+#### 4. Add keywords to the icon
+
+Each icon needs keywords to help build out the icon search. Add `keywords: foo, bar` to the "Component" section in the figma toolbar.
+
+![image](https://user-images.githubusercontent.com/54012/72647771-26c5d680-392e-11ea-9167-462d5bb27936.png)
+
+#### 5. Publish changes in Figma
+
+Once all of the changes have been made to the Octicons file, be sure to [publish the changes](https://help.figma.com/hc/en-us/articles/360038682574-Publish-Changes-to-a-Team-Library) to the component library.
+<img width="449" alt="Screenshot 2020-01-17 14 43 01" src="https://user-images.githubusercontent.com/10384315/72651266-b4f28a80-3937-11ea-92db-ae51eb99c68e.png">
+
+
+## Updating the release version
 
 After you've published the latest changes in the Figma file, create a release branch in the [Octicons repo](https://github.com/primer/octicons).
 

@@ -1,3 +1,14 @@
+# 9.4.0
+
+##  Features
+- New icons `heart-outline` `infinity` `line-arrow-up` `line-arrow-down` `line-arrow-right` `line-arrow-left` https://github.com/primer/octicons/pull/365
+
+## Chores
+- Contributing docs updates and issue template updates #367 
+
+## Bugs
+- Update `heart` glyphs removing extra points https://github.com/primer/octicons/pull/365
+
 # 9.3.1
 
 ## Bugfix
