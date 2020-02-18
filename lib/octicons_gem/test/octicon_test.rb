@@ -18,8 +18,8 @@ describe Octicons::Octicon do
   end
 
   it "gets keywords for the icon" do
-    icon = octicon("x")
-    assert_equal ["remove", "close", "delete"], icon.keywords
+    icon = octicon("mark-github")
+    assert_equal ["octocat", "brand", "github", "logo"], icon.keywords
   end
 
   it "the attributes are readable" do
@@ -27,14 +27,14 @@ describe Octicons::Octicon do
     assert icon.path
     assert icon.options
     assert_equal "x", icon.symbol
-    assert_equal 12, icon.width
+    assert_equal 16, icon.width
     assert_equal 16, icon.height
   end
 
   describe "viewBox" do
     it "always has a viewBox" do
       icon = octicon("x")
-      assert_includes icon.to_svg, "viewBox=\"0 0 12 16\""
+      assert_includes icon.to_svg, "viewBox=\"0 0 16 16\""
     end
   end
 
@@ -57,30 +57,30 @@ describe Octicons::Octicon do
     it "always has width and height" do
       icon = octicon("x")
       assert_includes icon.to_svg, "height=\"16\""
-      assert_includes icon.to_svg, "width=\"12\""
+      assert_includes icon.to_svg, "width=\"16\""
     end
 
     it "converts number string height to integer" do
       icon = octicon("x", height: "60")
       assert_includes icon.to_svg, "height=\"60\""
-      assert_includes icon.to_svg, "width=\"45\""
+      assert_includes icon.to_svg, "width=\"60\""
     end
 
     it "converts number height to integer" do
       icon = octicon("x", height: 60)
       assert_includes icon.to_svg, "height=\"60\""
-      assert_includes icon.to_svg, "width=\"45\""
+      assert_includes icon.to_svg, "width=\"60\""
     end
 
     it "converts number string width to integer" do
       icon = octicon("x", width: "45")
-      assert_includes icon.to_svg, "height=\"60\""
+      assert_includes icon.to_svg, "height=\"45\""
       assert_includes icon.to_svg, "width=\"45\""
     end
 
     it "converts number width to integer" do
       icon = octicon("x", width: 45)
-      assert_includes icon.to_svg, "height=\"60\""
+      assert_includes icon.to_svg, "height=\"45\""
       assert_includes icon.to_svg, "width=\"45\""
     end
 
