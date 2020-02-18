@@ -2,17 +2,17 @@ import * as React from 'react'
 import Octicon, {
   OcticonProps,
   Beaker,
-  Zap,
+  X,
   Repo,
   Plus,
-  LogoGithub,
+  MarkGithub,
   getIconByName,
   iconsByName,
   createIcon
 } from '../src'
 
 function Icon({boom}: {boom: boolean}): React.ReactNode {
-  return <Octicon icon={boom ? Zap : Beaker} />
+  return <Octicon icon={boom ? X : Beaker} />
 }
 
 function OcticonByName({name, ...props}: {name: keyof iconsByName} & OcticonProps): React.ReactNode {
@@ -44,7 +44,7 @@ function VerticalAlign() {
     <h1>
       <Octicon icon={Repo} size="large" verticalAlign="middle" /> github/github
       <Octicon icon={Plus} ariaLabel="Add new item" /> New
-      <Octicon icon={LogoGithub} size="large" ariaLabel="GitHub" />
+      <Octicon icon={MarkGithub} size="large" ariaLabel="GitHub" />
     </h1>
   )
 }
