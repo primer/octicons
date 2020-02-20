@@ -1,8 +1,8 @@
-require File.expand_path("../lib/octicons_helper/version", __FILE__)
+require File.expand_path("../lib/octicons_v2_helper/version", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "octicons_v2_helper"
-  s.version     = OcticonsHelper::VERSION
+  s.version     = OcticonsV2Helper::VERSION
   s.summary     = "Octicons rails helper"
   s.description = "A rails helper that makes including svg Octicons simple."
   s.authors     = ["GitHub Inc."]

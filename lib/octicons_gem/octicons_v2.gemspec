@@ -1,8 +1,8 @@
-require File.expand_path("../lib/octicons/version", __FILE__)
+require File.expand_path("../lib/octicons_v2/version", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "octicons_v2"
-  s.version     = Octicons::VERSION
+  s.version     = OcticonsV2::VERSION
   s.summary     = "GitHub's octicons gem"
   s.platform    = Gem::Platform::RUBY
   s.description = "A package that distributes Octicons in a gem"
