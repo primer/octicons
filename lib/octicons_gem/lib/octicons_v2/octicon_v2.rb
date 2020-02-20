@@ -1,11 +1,11 @@
-module Octicons
-  class Octicon
+module OcticonsV2
+  class OcticonV2
 
     attr_reader :path, :options, :width, :height, :symbol, :keywords
 
     def initialize(symbol, options = {})
       @symbol = symbol.to_s
-      if octicon = Octicons::OCTICON_SYMBOLS[@symbol]
+      if octicon = OcticonsV2::OCTICON_SYMBOLS[@symbol]
 
         @path = octicon["path"]
         @width = octicon["width"].to_i
