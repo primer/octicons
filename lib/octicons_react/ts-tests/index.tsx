@@ -15,7 +15,7 @@ function Icon({boom}: {boom: boolean}): React.ReactNode {
   return <Octicon icon={boom ? Zap : Beaker} />
 }
 
-function OcticonByName({name, ...props}: {name: keyof iconsByName} & OcticonProps): React.ReactNode {
+function OcticonByName({name, ...props}: {name: keyof iconsByName} & Omit<OcticonProps, 'icon'>): React.ReactElement {
   return <Octicon {...props} icon={getIconByName(name)} />
 }
 
