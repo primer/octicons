@@ -7,6 +7,7 @@ const trimNewlines = require('trim-newlines')
 const {argv} = require('yargs')
 const flatMap = require('lodash.flatmap')
 const keyBy = require('lodash.keyby')
+const keywords = require('../keywords.json')
 
 // TODO: Error handling
 // TODO: Explain why we're using flatMap
@@ -19,7 +20,13 @@ const icons = filepaths.map(filepath => {
   const width = parseInt(svgElement.attr('width'))
   const height = parseInt(svgElement.attr('height'))
   const innerHtml = trimNewlines(svgElement.html()).trim()
-  return {name, keywords: [], width, height, path: innerHtml}
+  return {
+    name,
+    keywords: keywords[name] || [],
+    width,
+    height,
+    path: innerHtml
+  }
 })
 
 const iconsByName = keyBy(icons, 'name')
