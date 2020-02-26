@@ -7,7 +7,7 @@ describe OcticonsHelper do
     end
 
     it "renders the svg" do
-      assert_match /<svg.*octicon-x.*><path.*\/><\/svg>/, octicon("x")
+      assert_match /<svg.*octicon-x.*>.*<\/svg>/, octicon_v2("x")
     end
 
     it "has a path" do
