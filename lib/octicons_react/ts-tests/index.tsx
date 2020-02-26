@@ -15,6 +15,8 @@ function Icon({boom}: {boom: boolean}): React.ReactNode {
   return <Octicon icon={boom ? Zap : Beaker} />
 }
 
+type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
+
 function OcticonByName({name, ...props}: {name: keyof iconsByName} & Omit<OcticonProps, 'icon'>): React.ReactElement {
   return <Octicon {...props} icon={getIconByName(name)} />
 }
