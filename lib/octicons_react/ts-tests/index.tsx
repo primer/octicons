@@ -21,6 +21,10 @@ function OcticonByName({name, ...props}: {name: keyof iconsByName} & Omit<Octico
   return <Octicon {...props} icon={getIconByName(name)} />
 }
 
+function TestOcticonsByName(): React.ReactElement {
+  return <OcticonByName name="zap" />
+}
+
 // Unfortunately, `Object.keys` returns `string[]` unconditionally;
 // see https://github.com/Microsoft/TypeScript/pull/13971 &
 // https://github.com/Microsoft/TypeScript/issues/12870 for details.
