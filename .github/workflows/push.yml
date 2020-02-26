@@ -12,6 +12,7 @@ jobs:
         uses: ./.github/actions/version
       - run: npm install
       - run: npm run build
+      - run: cp icons lib/build/svg
       - run: npm run lint
       - run: npm test
       - uses: actions/upload-artifact@master
