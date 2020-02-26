@@ -6,6 +6,7 @@ const cheerio = require('cheerio')
 const trimNewlines = require('trim-newlines')
 const {argv} = require('yargs')
 const flatMap = require('lodash.flatmap')
+const keyBy = require('lodash.keyby')
 
 // TODO: Error handling
 // TODO: Explain why we're using flatMap
@@ -21,4 +22,6 @@ const icons = filepaths.map(filepath => {
   return {name, keywords: [], width, height, path: innerHtml}
 })
 
-fs.outputJsonSync(path.resolve(argv.output), icons)
+const iconsByName = keyBy(icons, 'name')
+
+fs.outputJsonSync(path.resolve(argv.output), iconsByName)
