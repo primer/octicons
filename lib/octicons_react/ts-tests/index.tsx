@@ -74,6 +74,10 @@ const CirclesIcon = createIcon(
   [30, 10]
 )
 
-export function CirclesOcticon(props: OcticonProps) {
+export function CirclesOcticon(props: Omit<OcticonProps, 'icon'>) {
   return <Octicon {...props} icon={CirclesIcon} />
+}
+
+function TestCirclesOcticon(): React.ReactElement {
+  return <CirclesOcticon />
 }
