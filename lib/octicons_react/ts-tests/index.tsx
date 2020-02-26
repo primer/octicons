@@ -15,8 +15,14 @@ function Icon({boom}: {boom: boolean}): React.ReactNode {
   return <Octicon icon={boom ? Zap : Beaker} />
 }
 
-function OcticonByName({name, ...props}: {name: keyof iconsByName} & OcticonProps): React.ReactNode {
+type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
+
+function OcticonByName({name, ...props}: {name: keyof iconsByName} & Omit<OcticonProps, 'icon'>): React.ReactElement {
   return <Octicon {...props} icon={getIconByName(name)} />
+}
+
+function TestOcticonsByName(): React.ReactElement {
+  return <OcticonByName name="zap" />
 }
 
 // Unfortunately, `Object.keys` returns `string[]` unconditionally;
@@ -68,6 +74,10 @@ const CirclesIcon = createIcon(
   [30, 10]
 )
 
-export function CirclesOcticon(props: OcticonProps) {
+export function CirclesOcticon(props: Omit<OcticonProps, 'icon'>) {
   return <Octicon {...props} icon={CirclesIcon} />
+}
+
+function TestCirclesOcticon(): React.ReactElement {
+  return <CirclesOcticon />
 }
