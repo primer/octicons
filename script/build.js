@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-env node */
 const fs = require('fs-extra')
 const path = require('path')
 const globby = require('globby')
