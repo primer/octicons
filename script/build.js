@@ -1,11 +1,10 @@
 #!/usr/bin/env node
 const fs = require('fs-extra')
 const path = require('path')
-const glob = require('glob')
+const globby = require('globby')
 const cheerio = require('cheerio')
 const trimNewlines = require('trim-newlines')
 const yargs = require('yargs')
-const flatMap = require('lodash.flatmap')
 const keyBy = require('lodash.keyby')
 const keywords = require('../keywords.json')
 
@@ -19,9 +18,7 @@ const {argv} = yargs
   .option('output', {alias: 'o', type: 'string', demandOption: true, describe: 'Ouput JSON file'})
 
 // The `argv.input` array could contain globs (e.g. "**/*.svg").
-// We're using `flatMap` and `glob` to transform `argv.input` into
-// a flat array of file paths.
-const filePaths = flatMap(argv.input, pattern => glob.sync(pattern))
+const filePaths = globby.sync(argv.input)
 
 const icons = filePaths.map(filepath => {
   const name = path.parse(filepath).name

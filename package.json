@@ -14,9 +14,8 @@
     "eslint": "^5.8.0",
     "eslint-plugin-github": "^1.6.0",
     "fs-extra": "^7.0.1",
-    "glob": "^7.1.6",
+    "globby": "^11.0.0",
     "js-yaml": "^3.13.1",
-    "lodash.flatmap": "^4.5.0",
     "lodash.keyby": "^4.6.0",
     "trim-newlines": "^3.0.0",
     "yargs": "^15.1.0"
