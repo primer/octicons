@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "ava": "^2.1.0",
-    "babel-eslint": "^10.1.0",
     "braces": "^2.3.1",
     "cheerio": "^1.0.0-rc.3",
     "eslint": "^5.8.0",

@@ -4,7 +4,7 @@ const test = require('ava')
 const execa = require('execa')
 const yup = require('yup')
 
-test('builds a JSON object with a valid schema', async t => {
+test('builds a JSON object with a valid schema', t => {
   const schema = yup.array(
     yup.object({
       name: yup.string().required(),
@@ -19,31 +19,33 @@ test('builds a JSON object with a valid schema', async t => {
     })
   )
 
-  const {stdout} = await execa(path.resolve(__dirname, '../script/build.js'), ['--input=../icons/**/*.svg'], {
+  return execa(path.resolve(__dirname, '../script/build.js'), ['--input=../icons/**/*.svg'], {
     cwd: __dirname
+  }).then(({stdout}) => {
+    const icons = JSON.parse(stdout)
+
+    t.true(schema.isValidSync(Object.values(icons)))
   })
-
-  const icons = JSON.parse(stdout)
-
-  t.true(schema.isValidSync(Object.values(icons)))
 })
 
-test('fails when input arg is missing', async t => {
-  try {
-    await execa(path.resolve(__dirname, '../script/build.js'))
-    t.fail() // Test should fail if execa() call doesn't throw an error
-  } catch (error) {
-    t.is(error.exitCode, 1)
-    t.false(error.killed)
-  }
+test('fails when input arg is missing', t => {
+  return execa(path.resolve(__dirname, '../script/build.js'))
+    .then(() => {
+      t.fail() // Test should fail if execa() call doesn't throw an error
+    })
+    .catch(error => {
+      t.is(error.exitCode, 1)
+      t.false(error.killed)
+    })
 })
 
-test('fails when input file does not exist', async t => {
-  try {
-    await execa(path.resolve(__dirname, '../script/build.js'), ['--input=fake.svg'])
-    t.fail() // Test should fail if execa() call doesn't throw an error
-  } catch (error) {
-    t.is(error.exitCode, 1)
-    t.false(error.killed)
-  }
+test('fails when input file does not exist', t => {
+  return execa(path.resolve(__dirname, '../script/build.js'), ['--input=fake.svg'])
+    .then(() => {
+      t.fail() // Test should fail if execa() call doesn't throw an error
+    })
+    .catch(error => {
+      t.is(error.exitCode, 1)
+      t.false(error.killed)
+    })
 })
