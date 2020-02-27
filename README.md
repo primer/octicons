@@ -6,10 +6,6 @@
 
 Octicons are a set of SVG icons built by GitHub for GitHub.
 
-## Adding/updating an icon
-
-Read through our [contributing guide](./.github/CONTRIBUTING.md#adding-or-updating-icons) if you're planning on adding or updating one of the icons.
-
 ## Libraries
 
 This repository contains several libraries. Each of them is in the `lib/` folder and gives access to Octicons on a different platform/language.
@@ -30,6 +26,16 @@ The octicons node.js library is the main JavaScript library. With [a JavaScript 
 | **[octicons](/lib/octicons_gem)** <br />Ruby gem with Ruby API                | [![Gem version](https://img.shields.io/gem/v/octicons.svg)](https://rubygems.org/gems/octicons)               |
 | [octicons_helper](/lib/octicons_helper)<br />Rails helper for using octicons  | [![Gem version](https://img.shields.io/gem/v/octicons_helper.svg)](https://rubygems.org/gems/octicons_helper) |
 | [jekyll-octicons](/lib/octicons_jekyll)<br />Jekyll plugin for using octicons | [![Gem version](https://img.shields.io/gem/v/jekyll-octicons.svg)](https://rubygems.org/gems/jekyll-octicons) |
+
+## Contributing
+
+### Request a new icon
+
+To request a new icon, open an issue using the [icon request](https://github.com/primer/octicons-v2/issues/new?assignees=&template=icon-request.md&title=%5BIcon+request%5D) template.
+
+### Adding or updating an icon
+
+Read through our [contributing guide](./.github/CONTRIBUTING.md#adding-or-updating-icons) if you want to add or update icons.
 
 ## License
 
