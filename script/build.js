@@ -14,11 +14,26 @@ const keywords = require('../keywords.json')
 const {argv} = yargs
   .usage('Usage: $0 --input <input file paths> --output <output file path>')
   .example('$0 --input icons/**/*.svg --output build/data.json')
-  .option('input', {alias: 'i', type: 'array', demandOption: true, describe: 'Input SVG files'})
-  .option('output', {alias: 'o', type: 'string', demandOption: true, describe: 'Ouput JSON file'})
+  .option('input', {
+    alias: 'i',
+    type: 'array',
+    demandOption: true,
+    describe: 'Input SVG files'
+  })
+  .option('output', {
+    alias: 'o',
+    type: 'string',
+    describe: 'Ouput JSON file. Defaults to stdout if no output file is provided.'
+  })
 
 // The `argv.input` array could contain globs (e.g. "**/*.svg").
 const filePaths = globby.sync(argv.input)
+
+if (filePaths.length === 0) {
+  // eslint-disable-next-line no-console
+  console.error('Input file(s) not found')
+  process.exit(1)
+}
 
 const icons = filePaths.map(filepath => {
   const name = path.parse(filepath).name
@@ -38,4 +53,8 @@ const icons = filePaths.map(filepath => {
 
 const iconsByName = keyBy(icons, 'name')
 
-fs.outputJsonSync(path.resolve(argv.output), iconsByName)
+if (argv.output) {
+  fs.outputJsonSync(path.resolve(argv.output), iconsByName)
+} else {
+  process.stdout.write(JSON.stringify(iconsByName))
+}
