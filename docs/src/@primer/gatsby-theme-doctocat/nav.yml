@@ -1,0 +1,7 @@
+- title: Page 1
+  url: /page-1
+- title: Example
+  url: /example
+  children:
+    - title: Page 2
+      url: /example/page-2
