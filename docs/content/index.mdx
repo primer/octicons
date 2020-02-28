@@ -5,10 +5,11 @@ title: Octicons
 import {HeroLayout} from '@primer/gatsby-theme-doctocat'
 import {graphql} from 'gatsby'
 import {Flex, Box} from '@primer/components'
+import icons from '../../lib/build/data.json'
 export default HeroLayout
 
 <Flex flexWrap="wrap">
-  {props.data.allIcon.nodes.map(icon => (
+  {Object.values(icons).map(icon => (
     <Box p={3}>
       <svg
         width={icon.width}
@@ -24,17 +25,3 @@ export default HeroLayout
     </Box>
   ))}
 </Flex>
-
-export const pageQuery = graphql`
-  query {
-    allIcon {
-      nodes {
-        name
-        keywords
-        width
-        height
-        path
-      }
-    }
-  }
-`

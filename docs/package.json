@@ -5,13 +5,12 @@
   "version": "1.0.0",
   "scripts": {
     "develop": "gatsby develop",
-    "prebuild": "pushd ..; npm run build; popd",
+    "prebuild": "pushd ..; npm install; npm run build; popd",
     "build": "gatsby build --prefix-paths"
   },
   "dependencies": {
     "@primer/components": "^15.3.0",
     "@primer/gatsby-theme-doctocat": "^0.9.0",
-    "fs-extra": "^8.1.0",
     "gatsby": "^2.13.25",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
