@@ -1,15 +1,5 @@
 import * as React from 'react'
-import Octicon, {
-  OcticonProps,
-  Beaker,
-  X,
-  Repo,
-  Plus,
-  MarkGithub,
-  getIconByName,
-  iconsByName,
-  createIcon
-} from '../src'
+import Octicon, {OcticonProps, Beaker, X, Repo, Plus, MarkGithub, getIconByName, iconsByName, createIcon} from '../src'
 
 function Icon({boom}: {boom: boolean}): React.ReactNode {
   return <Octicon icon={boom ? X : Beaker} />
@@ -22,7 +12,7 @@ function OcticonByName({name, ...props}: {name: keyof iconsByName} & Omit<Octico
 }
 
 function TestOcticonsByName(): React.ReactElement {
-  return <OcticonByName name="zap" />
+  return <OcticonByName name="x" />
 }
 
 // Unfortunately, `Object.keys` returns `string[]` unconditionally;
@@ -56,23 +46,18 @@ function VerticalAlign() {
 }
 
 function WithClassName() {
-  return (
-    <Octicon icon={Repo} className="awesomeClassName" />
-  )
+  return <Octicon icon={Repo} className="awesomeClassName" />
 }
 
-const CirclesIcon = createIcon(
-  () => {
-    return (
-      <React.Fragment>
-        <circle r={5} cx={5} cy={5} />
-        <circle r={5} cx={15} cy={5} />
-        <circle r={5} cx={25} cy={5} />
-      </React.Fragment>
-    )
-  },
-  [30, 10]
-)
+const CirclesIcon = createIcon(() => {
+  return (
+    <React.Fragment>
+      <circle r={5} cx={5} cy={5} />
+      <circle r={5} cx={15} cy={5} />
+      <circle r={5} cx={25} cy={5} />
+    </React.Fragment>
+  )
+}, [30, 10])
 
 export function CirclesOcticon(props: Omit<OcticonProps, 'icon'>) {
   return <Octicon {...props} icon={CirclesIcon} />
