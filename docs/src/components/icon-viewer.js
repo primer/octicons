@@ -7,7 +7,7 @@ export default function IconViewer({children}) {
 
   return (
     <Relative>
-      <BorderBox>
+      <BorderBox css={{overflow: 'hidden'}}>
         <Flex
           justifyContent="center"
           alignItems="center"
@@ -36,7 +36,7 @@ export default function IconViewer({children}) {
               gridTemplateColumns="1fr 48px"
               justifyItems="start"
               alignItems="center"
-              width={['100%', '25%']}
+              width={['100%', '240px']}
               p={3}
             >
               <input
