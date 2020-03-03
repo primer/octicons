@@ -12,6 +12,7 @@
     "@primer/components": "^15.3.0",
     "@primer/gatsby-theme-doctocat": "^0.17.0",
     "eslint-plugin-github": "^3.4.1",
+    "fuse.js": "^3.4.6",
     "gatsby": "^2.13.25",
     "polished": "^3.4.4",
     "react": "^16.8.6",

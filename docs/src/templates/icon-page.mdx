@@ -13,9 +13,7 @@ export default function Layout({children, pageContext}) {
       <Header isSearchEnabled={false} />
       <Container>
         <Breadcrumb>
-          <Breadcrumb.Item as={Link} to="/">
-            Octicons
-          </Breadcrumb.Item>
+          <Breadcrumb.Item href="/">Octicons</Breadcrumb.Item>
           <Breadcrumb.Item href={pageContext.name} selected>
             {pageContext.name}
           </Breadcrumb.Item>
