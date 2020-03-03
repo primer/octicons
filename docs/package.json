@@ -11,7 +11,9 @@
   "dependencies": {
     "@primer/components": "^15.3.0",
     "@primer/gatsby-theme-doctocat": "^0.17.0",
+    "eslint-plugin-github": "^3.4.1",
     "gatsby": "^2.13.25",
+    "polished": "^3.4.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }
