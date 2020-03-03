@@ -1,7 +1,3 @@
----
-title: Octicons
----
-
 import {Head, Header, Hero, Container} from '@primer/gatsby-theme-doctocat'
 import {graphql} from 'gatsby'
 import {Flex, Box} from '@primer/components'
@@ -11,7 +7,7 @@ export default function Layout({children}) {
   return (
     <Flex flexDirection="column" minHeight="100vh">
       <Head />
-      <Header />
+      <Header isSearchEnabled={false} />
       <Box width="100%">
         <Hero />
         <Container>{children}</Container>
