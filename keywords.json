@@ -101,6 +101,7 @@
   "inbox": ["mail", "todo", "new", "messages"],
   "infinity": ["unlimited", "infinite"],
   "info": ["help"],
+  "internal-repo": ["internal, repo, repository"],
   "issue-closed": ["done", "complete"],
   "issue-opened": ["new"],
   "issue-reopened": ["regression"],
