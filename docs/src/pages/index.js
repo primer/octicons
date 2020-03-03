@@ -18,6 +18,7 @@ export default function IndexPage() {
       <Container>
         <TextInput
           icon={Search}
+          aria-label="Search"
           value={query}
           onChange={event => setQuery(event.target.value)}
           placeholder="Search icons..."
