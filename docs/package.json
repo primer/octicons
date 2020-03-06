@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "name": "docs",
+  "repository": "primer/octicons",
+  "version": "1.0.0",
+  "scripts": {
+    "develop": "gatsby develop",
+    "prebuild": "pushd ..; npm install; npm run build; popd",
+    "build": "gatsby build --prefix-paths"
+  },
+  "dependencies": {
+    "@primer/components": "^15.3.0",
+    "@primer/gatsby-theme-doctocat": "^0.17.0",
+    "eslint-plugin-github": "^3.4.1",
+    "fuse.js": "^3.4.6",
+    "gatsby": "^2.13.25",
+    "polished": "^3.4.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}

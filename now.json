@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "docs/package.json",
+      "use": "@now/static-build",
+      "config": {"distDir": "public"}
+    }
+  ],
+  "rewrites": [{"source": "/octicons(/.*)?", "destination": "/docs$1"}],
+  "redirects": [{"source": "/", "destination": "/octicons"}]
+}
