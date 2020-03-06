@@ -1,11 +1,12 @@
 {
   "private": true,
-  "version": "9.4.0",
+  "version": "9.5.0",
   "scripts": {
     "version": "script/version",
     "test": "ava -v tests/*.js",
     "lint": "eslint tests",
-    "build": "script/build.js --input icons/**/*.svg --output lib/build/data.json"
+    "build": "script/build.js --input icons/**/*.svg --output lib/build/data.json",
+    "start": "cd docs && npm run develop"
   },
   "dependencies": {
     "ava": "^2.1.0",

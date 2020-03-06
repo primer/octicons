@@ -9,3 +9,10 @@ vendor
 
 # Ignore build/export artifacts
 lib/**/build/
+
+# Gatsby
+public
+.cache
+
+# Now
+.now

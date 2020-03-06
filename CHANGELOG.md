@@ -1,3 +1,8 @@
+# 9.5.0
+
+## Features
+- New icon `internal-repo` https://github.com/primer/octicons/pull/375
+
 # 9.4.0
 
 ##  Features
