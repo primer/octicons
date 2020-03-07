@@ -54,7 +54,7 @@ export default function IconPage({pageContext}) {
           <Icon name={pageContext.name} />
         </IconViewer>
 
-        <Grid mt={3} gridGap={3} gridTemplateColumns="repeat(3, 1fr)">
+        <Grid mt={3} gridGap={3} gridTemplateColumns={[null, 'repeat(3, 1fr)']}>
           <Button
             onClick={() => {
               copy(svg)
