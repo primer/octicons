@@ -20,7 +20,6 @@
     "js-yaml": "^3.13.1",
     "lodash.keyby": "^4.6.0",
     "trim-newlines": "^3.0.0",
-    "yargs": "^15.1.0",
-    "yup": "^0.28.1"
+    "yargs": "^15.1.0"
   }
 }
