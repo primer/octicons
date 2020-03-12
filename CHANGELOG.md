@@ -1,3 +1,8 @@
+# 9.6.0
+
+## Features
+- New icon `north-star` https://github.com/primer/octicons/pull/380
+
 # 9.5.0
 
 ## Features
