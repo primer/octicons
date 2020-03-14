@@ -2,7 +2,6 @@
 /* eslint-env node */
 const fs = require('fs-extra')
 const path = require('path')
-const assert = require('assert')
 const globby = require('globby')
 const cheerio = require('cheerio')
 const trimNewlines = require('trim-newlines')
@@ -14,7 +13,7 @@ const keywords = require('../keywords.json')
 // information about input SVG files.
 
 const {argv} = yargs
-  .usage('Usage: $0 --input <input file paths> --output <output file path>')
+  .usage('Usage: $0 --input <input filepaths> --output <output filepath>')
   .example('$0 --input icons/**/*.svg --output build/data.json')
   .option('input', {
     alias: 'i',
@@ -29,25 +28,27 @@ const {argv} = yargs
   })
 
 // The `argv.input` array could contain globs (e.g. "**/*.svg").
-const filePaths = globby.sync(argv.input)
+const filepaths = globby.sync(argv.input)
+const svgFilepaths = filepaths.filter(filepath => path.parse(filepath).ext === '.svg')
 
-if (filePaths.length === 0) {
+if (svgFilepaths.length === 0) {
   // eslint-disable-next-line no-console
-  console.error('Input file(s) not found')
+  console.error('No input SVG file(s) found')
   process.exit(1)
 }
 
 let exitCode = 0
 
-const icons = filePaths.map(filepath => {
+const icons = svgFilepaths.map(filepath => {
   try {
     const filename = path.parse(filepath).base
     const filenamePattern = /(.+)-([0-9]+).svg$/
 
-    assert(
-      filenamePattern.test(filename),
-      `${filename}: Invalid filename. Please append the height of the SVG to the end of the filename (e.g. alert-16.svg).`
-    )
+    if (!filenamePattern.test(filename)) {
+      throw new Error(
+        `${filename}: Invalid filename. Please append the height of the SVG to the end of the filename (e.g. alert-16.svg).`
+      )
+    }
 
     const [, name, height] = filename.match(filenamePattern)
     const svg = fs.readFileSync(path.resolve(filepath), 'utf8')
@@ -57,19 +58,39 @@ const icons = filePaths.map(filepath => {
     const svgViewBox = svgElement.attr('viewBox')
     const svgPath = trimNewlines(svgElement.html()).trim()
 
-    assert(svgWidth, `${filename}: Missing width attribute.`)
-    assert(svgHeight, `${filename}: Missing height attribute.`)
-    assert(svgViewBox, `${filename}: Missing viewBox attribute.`)
-    assert(svgHeight === parseInt(height), `${filename}: Height in filename does not match height attribute of SVG`)
+    if (!svgWidth) {
+      throw new Error(`${filename}: Missing width attribute.`)
+    }
+
+    if (!svgHeight) {
+      throw new Error(`${filename}: Missing height attribute.`)
+    }
+
+    if (!svgViewBox) {
+      throw new Error(`${filename}: Missing viewBox attribute.`)
+    }
+
+    if (svgHeight !== parseInt(height)) {
+      throw new Error(`${filename}: Height in filename does not match height attribute of SVG`)
+    }
 
     const viewBoxPattern = /0 0 ([0-9]+) ([0-9]+)/
 
-    assert(viewBoxPattern.test(svgViewBox), `${filename}: Invalid viewBox attribute.`)
+    if (!viewBoxPattern.test(svgViewBox)) {
+      throw new Error(
+        `${filename}: Invalid viewBox attribute. The viewBox attribute should be in the following format: "0 0 <width> <height>"`
+      )
+    }
 
     const [, viewBoxWidth, viewBoxHeight] = svgViewBox.match(viewBoxPattern)
 
-    assert(svgWidth === parseInt(viewBoxWidth), `${filename}: width attribute and viewBox width do not match.`)
-    assert(svgHeight === parseInt(viewBoxHeight), `${filename}: height attribute and viewBox height do not match.`)
+    if (svgWidth !== parseInt(viewBoxWidth)) {
+      throw new Error(`${filename}: width attribute and viewBox width do not match.`)
+    }
+
+    if (svgHeight !== parseInt(viewBoxHeight)) {
+      throw new Error(`${filename}: height attribute and viewBox height do not match.`)
+    }
 
     return {
       name,
@@ -91,7 +112,7 @@ const icons = filePaths.map(filepath => {
   }
 })
 
-// Exit early if any errors occured.
+// Exit early if any errors occurred.
 if (exitCode !== 0) {
   process.exit(exitCode)
 }

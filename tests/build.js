@@ -14,7 +14,7 @@ test('builds an object with the correct shape', t => {
   })
 })
 
-test('fails when input arg is missing', t => {
+test('fails when input argument is missing', t => {
   return execa(path.resolve(__dirname, '../script/build.js'))
     .then(() => {
       t.fail() // Test should fail if execa() call doesn't throw an error
@@ -137,6 +137,17 @@ test('fails when viewBox width does not match width attribute', t => {
 
 test('fails when viewBox height does not match height attribute', t => {
   return execa(path.resolve(__dirname, '../script/build.js'), ['--input', 'tests/icons/viewbox-height-mismatch-16.svg'])
+    .then(() => {
+      t.fail() // Test should fail if execa() call doesn't throw an error
+    })
+    .catch(error => {
+      t.is(error.exitCode, 1)
+      t.false(error.killed)
+    })
+})
+
+test('ignores non-SVG input files', t => {
+  return execa(path.resolve(__dirname, '../script/build.js'), ['--input', 'tests/build.js'])
     .then(() => {
       t.fail() // Test should fail if execa() call doesn't throw an error
     })
