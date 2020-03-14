@@ -2,7 +2,7 @@ const path = require('path')
 const icons = require('../lib/build/data.json')
 
 exports.createPages = async ({actions}) => {
-  const iconPageTemplate = path.resolve(__dirname, 'src/templates/icon-page.mdx')
+  const iconPageTemplate = path.resolve(__dirname, 'src/templates/icon-page.js')
 
   for (const icon of Object.values(icons)) {
     actions.createPage({
