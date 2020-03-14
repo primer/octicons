@@ -1,6 +1,6 @@
 {
-  "name": "@primer/octicons",
-  "version": "9.5.0",
+  "name": "@primer/octicons-v2",
+  "version": "9.4.0",
   "description": "A scalable set of icons handcrafted with <3 by GitHub.",
   "homepage": "https://octicons.github.com",
   "author": "GitHub Inc.",
