@@ -18,7 +18,7 @@
     "fs-extra": "^7.0.1",
     "globby": "^11.0.0",
     "js-yaml": "^3.13.1",
-    "lodash.keyby": "^4.6.0",
+    "lodash.merge": "^4.6.2",
     "trim-newlines": "^3.0.0",
     "yargs": "^15.1.0"
   }
