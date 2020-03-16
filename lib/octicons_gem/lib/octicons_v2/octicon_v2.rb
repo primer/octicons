@@ -5,14 +5,11 @@ module OcticonsV2
 
     def initialize(symbol, options = {})
       @symbol = symbol.to_s
-      if octicon = OcticonsV2::OCTICON_SYMBOLS[@symbol]
-
-        @path = octicon["path"]
-        @width = octicon["width"].to_i
-        @height = octicon["height"].to_i
-
-        @keywords = octicon["keywords"]
-
+      if octicon = get_octicon(@symbol, options)
+        @path = octicon[:path]
+        @width = octicon[:width]
+        @height = octicon[:height]
+        @keywords = octicon[:keywords]
         @options = options
         @options.merge!({
           class:   classes,
@@ -83,6 +80,26 @@ module OcticonsV2
 
     def calculate_height(width)
       (width.to_i * @height) / @width
+    end
+
+    def get_octicon(symbol, options)
+      if octicon = OcticonsV2::OCTICON_SYMBOLS[symbol]
+        height = options[:height] || options[:width] || 16
+        octicon_height = closest_octicon_height(octicon["heights"].keys, height)
+        return {
+          name: octicon["name"],
+          keywords: octicon["keywords"],
+          width: octicon["heights"][octicon_height.to_s]["width"].to_i,
+          height: octicon_height,
+          path: octicon["heights"][octicon_height.to_s]["path"]
+        }
+      end
+    end
+
+    def closest_octicon_height(octicon_heights, height)
+      return octicon_heights.reduce(octicon_heights[0].to_i) {
+        |acc, octicon_height| (octicon_height.to_i <= height.to_i ? octicon_height.to_i : acc)
+      }
     end
   end
 end
