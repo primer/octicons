@@ -89,6 +89,27 @@ describe OcticonsV2::OcticonV2 do
       assert_includes icon.to_svg, "width=\"60\""
       assert_includes icon.to_svg, "height=\"60\""
     end
+
+    it "chooses the correct svg given a height" do
+      icon = octicon_v2("x", height: 32)
+      assert_includes icon.to_svg, "width=\"32\""
+      assert_includes icon.to_svg, "height=\"32\""
+      assert_includes icon.to_svg, "viewBox=\"0 0 24 24\""
+    end
+
+    it "chooses the correct svg given a width" do
+      icon = octicon_v2("x", width: 24)
+      assert_includes icon.to_svg, "width=\"24\""
+      assert_includes icon.to_svg, "height=\"24\""
+      assert_includes icon.to_svg, "viewBox=\"0 0 24 24\""
+    end
+
+    it "chooses the correct svg given a height and width" do
+      icon = octicon_v2("x", height: 24, width: 16)
+      assert_includes icon.to_svg, "width=\"16\""
+      assert_includes icon.to_svg, "height=\"24\""
+      assert_includes icon.to_svg, "viewBox=\"0 0 24 24\""
+    end
   end
 
   describe "a11y" do
