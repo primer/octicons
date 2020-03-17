@@ -82,7 +82,7 @@ module OcticonsV2
       (width.to_i * @height) / @width
     end
 
-    def get_octicon(symbol, options)
+    def get_octicon(symbol, options = {})
       if octicon = OcticonsV2::OCTICON_SYMBOLS[symbol]
         height = options[:height] || options[:width] || 16
         octicon_height = closest_octicon_height(octicon["heights"].keys, height)
