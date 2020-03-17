@@ -1,38 +1,77 @@
-import {Flex, Link, TextInput} from '@primer/components'
+import {Box, Flex, Grid, Link, Text, TextInput} from '@primer/components'
 import {Container, Head, Header, Hero} from '@primer/gatsby-theme-doctocat'
+import {H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
 import {Search} from '@primer/octicons-react'
+import flatMap from 'lodash.flatmap'
+import groupBy from 'lodash.groupby'
+import React from 'react'
 import icons from '../../lib/build/data.json'
 import Icon from '../src/components/icon'
 import useSearch from '../src/use-search'
 
 export default function IndexPage() {
   const [query, setQuery] = React.useState('')
-  const iconsArray = React.useMemo(() => Object.values(icons), [icons])
-  const results = useSearch(iconsArray, query, {keys: ['name']})
+  const iconsArray = React.useMemo(
+    () => {
+      return flatMap(Object.values(icons), icon => {
+        return Object.entries(icon.heights).map(([height, value]) => ({
+          name: icon.name,
+          keywords: icon.keywords,
+          width: value.width,
+          height,
+          path: value.path
+        }))
+      })
+    },
+    [icons]
+  )
+  const results = useSearch(iconsArray, query, {keys: ['name', 'keywords']})
+  const iconsByHeight = React.useMemo(() => groupBy(results, 'height'), [results])
   return (
     <Flex flexDirection="column" minHeight="100vh">
       <Head />
       <Header isSearchEnabled={false} />
       <Hero />
       <Container>
-        <TextInput
-          icon={Search}
-          aria-label="Search"
-          value={query}
-          onChange={event => setQuery(event.target.value)}
-          placeholder="Search icons..."
-          width="100%"
-          mb={5}
-        />
-        <Flex flexWrap="wrap" m={-3}>
-          {results.map(icon => (
-            <Link key={icon.name} display="block" p={3} color="inherit" href={icon.name}>
-              <Flex>
-                <Icon name={icon.name} />
-              </Flex>
-            </Link>
-          ))}
-        </Flex>
+        <Grid gridGap={4}>
+          <TextInput
+            icon={Search}
+            aria-label="Search"
+            value={query}
+            onChange={event => setQuery(event.target.value)}
+            placeholder="Search icons..."
+            width="100%"
+          />
+          {Object.entries(iconsByHeight).length > 0 ? (
+            Object.entries(iconsByHeight).map(([height, icons]) => (
+              <Box key={height}>
+                <H3>
+                  {height}
+                  px
+                </H3>
+                <Flex flexWrap="wrap" mx={-3}>
+                  {icons.map(icon => (
+                    <Link
+                      key={`${icon.name}-${icon.height}`}
+                      display="block"
+                      p={3}
+                      color="inherit"
+                      href={`${icon.name}-${icon.height}`}
+                    >
+                      <Flex>
+                        <Icon width={icon.width} height={icon.height} path={icon.path} />
+                      </Flex>
+                    </Link>
+                  ))}
+                </Flex>
+              </Box>
+            ))
+          ) : (
+            <Text textAlign="center" p={3}>
+              No results found
+            </Text>
+          )}
+        </Grid>
       </Container>
     </Flex>
   )
