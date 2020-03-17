@@ -1,7 +1,7 @@
-import {Breadcrumb, Button, Flex, Grid} from '@primer/components'
+import {Breadcrumb, Button, Flex, Grid, Heading, UnderlineNav} from '@primer/components'
 import {Container, Head, Header} from '@primer/gatsby-theme-doctocat'
 import Code from '@primer/gatsby-theme-doctocat/src/components/code'
-import {H1, H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
+import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
 import Paragraph from '@primer/gatsby-theme-doctocat/src/components/paragraph'
 import blobStream from 'blob-stream'
 import copy from 'copy-to-clipboard'
@@ -9,12 +9,18 @@ import download from 'downloadjs'
 import PDFDocument from 'pdfkit/js/pdfkit.standalone'
 import React from 'react'
 import svgToPdf from 'svg-to-pdfkit'
-import icons from '../../../lib/build/data.json'
 import Icon from '../components/icon'
 import IconViewer from '../components/icon-viewer'
+import {Link} from 'gatsby'
 
 export default function IconPage({pageContext}) {
-  const icon = icons[pageContext.name]
+  const icon = {
+    name: pageContext.name,
+    keywords: pageContext.keywords,
+    width: pageContext.width,
+    height: pageContext.height,
+    path: pageContext.svgPath
+  }
   const svg = getSvg(icon)
   const [pdf, setPdf] = React.useState(null)
 
@@ -44,14 +50,27 @@ export default function IconPage({pageContext}) {
       <Header isSearchEnabled={false} />
       <Container>
         <Breadcrumb>
-          <Breadcrumb.Item href="/">Octicons</Breadcrumb.Item>
-          <Breadcrumb.Item href={pageContext.name} selected>
-            {pageContext.name}
+          <Breadcrumb.Item as={Link} to="/">
+            Octicons
+          </Breadcrumb.Item>
+          <Breadcrumb.Item as={Link} to={`/${icon.name}-${icon.height}`} selected>
+            {icon.name}
           </Breadcrumb.Item>
         </Breadcrumb>
-        <H1>{pageContext.name}</H1>
+        <Heading as="h1" mt={3}>
+          {icon.name}
+        </Heading>
+        <UnderlineNav mb={4}>
+          {pageContext.heights.map(height => (
+            <UnderlineNav.Link key={height} as={Link} to={`/${icon.name}-${height}`} selected={height === icon.height}>
+              {height}
+              px
+            </UnderlineNav.Link>
+          ))}
+        </UnderlineNav>
+
         <IconViewer>
-          <Icon name={pageContext.name} />
+          <Icon width={icon.width} height={icon.height} path={icon.path} />
         </IconViewer>
 
         <Grid mt={3} gridGap={3} gridTemplateColumns={[null, 'repeat(3, 1fr)']}>
@@ -76,10 +95,10 @@ export default function IconPage({pageContext}) {
         </Paragraph>
 
         <H3>Ruby</H3>
-        <Code>{`<%= octicon "${pageContext.name}" %>`}</Code>
+        <Code>{`<%= octicon "${pageContext.name}", :height => ${icon.height} %>`}</Code>
 
         <H3>Jekyll</H3>
-        <Code>{`{% octicon ${pageContext.name} %}`}</Code>
+        <Code>{`{% octicon ${pageContext.name} height:${icon.height} %}`}</Code>
       </Container>
     </Flex>
   )
