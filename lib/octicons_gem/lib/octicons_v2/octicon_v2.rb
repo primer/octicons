@@ -97,9 +97,9 @@ module OcticonsV2
     end
 
     def closest_octicon_height(octicon_heights, height)
-      return octicon_heights.reduce(octicon_heights[0].to_i) {
-        |acc, octicon_height| (octicon_height.to_i <= height.to_i ? octicon_height.to_i : acc)
-      }
+      return octicon_heights.reduce(octicon_heights[0].to_i) do |acc, octicon_height| 
+        octicon_height.to_i <= height.to_i ? octicon_height.to_i : acc
+      end
     end
   end
 end
