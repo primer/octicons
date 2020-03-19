@@ -1,4 +1,4 @@
-import {Breadcrumb, Button, Flex, Grid, Heading, UnderlineNav} from '@primer/components'
+import {Breadcrumb, Button, Flex, Grid, Heading, TabNav} from '@primer/components'
 import {Container, Head, Header} from '@primer/gatsby-theme-doctocat'
 import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
@@ -57,17 +57,17 @@ export default function IconPage({pageContext}) {
             {icon.name}
           </Breadcrumb.Item>
         </Breadcrumb>
-        <Heading as="h1" mt={3}>
+        <Heading as="h1" mt={2} mb={3}>
           {icon.name}
         </Heading>
-        <UnderlineNav mb={4}>
+        <TabNav mb={4}>
           {pageContext.heights.map(height => (
-            <UnderlineNav.Link key={height} as={Link} to={`/${icon.name}-${height}`} selected={height === icon.height}>
+            <TabNav.Link key={height} as={Link} to={`/${icon.name}-${height}`} selected={height === icon.height}>
               {height}
               px
-            </UnderlineNav.Link>
+            </TabNav.Link>
           ))}
-        </UnderlineNav>
+        </TabNav>
 
         <IconViewer>
           <Icon width={icon.width} height={icon.height} path={icon.path} />
