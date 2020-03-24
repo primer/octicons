@@ -9,6 +9,6 @@ describe OcticonsV2 do
     assert x_icon["heights"]
     assert x_icon["heights"]["16"]
     assert x_icon["heights"]["16"]["width"]
-    assert x_icon["heights"]["16"]["path"] 
+    assert x_icon["heights"]["16"]["path"]
   end
 end
