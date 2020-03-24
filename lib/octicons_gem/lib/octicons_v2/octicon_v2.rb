@@ -7,10 +7,10 @@ module OcticonsV2
     def initialize(symbol, options = {})
       @symbol = symbol.to_s
       if octicon = get_octicon(@symbol, options)
-        @path = octicon[:path]
-        @width = octicon[:width]
-        @height = octicon[:height]
-        @keywords = octicon[:keywords]
+        @path = octicon["path"]
+        @width = octicon["width"]
+        @height = octicon["height"]
+        @keywords = octicon["keywords"]
         @options = options
         @options.merge!({
           class:   classes,
@@ -89,11 +89,11 @@ module OcticonsV2
         height = options[:height] || options[:width] || DEFAULT_HEIGHT
         natural_height = closest_natural_height(octicon["heights"].keys, height)
         return {
-          name: octicon["name"],
-          keywords: octicon["keywords"],
-          width: octicon["heights"][natural_height.to_s]["width"].to_i,
-          height: natural_height,
-          path: octicon["heights"][natural_height.to_s]["path"]
+          "name" => octicon["name"],
+          "keywords" => octicon["keywords"],
+          "width" => octicon["heights"][natural_height.to_s]["width"].to_i,
+          "height" => natural_height,
+          "path" => octicon["heights"][natural_height.to_s]["path"]
         }
       end
     end
