@@ -1,5 +1,5 @@
-import {Breadcrumb, Button, Flex, Grid} from '@primer/components'
-import {Container, Head, Header} from '@primer/gatsby-theme-doctocat'
+import {Breadcrumb, Button, Flex, Grid, Box} from '@primer/components'
+import {Container, Head, Header, Sidebar} from '@primer/gatsby-theme-doctocat'
 import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 import {H1, H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
 import Paragraph from '@primer/gatsby-theme-doctocat/src/components/paragraph'
@@ -41,46 +41,51 @@ export default function IconPage({pageContext}) {
   return (
     <Flex flexDirection="column" minHeight="100vh">
       <Head title={pageContext.name} />
-      <Header isSearchEnabled={false} />
-      <Container>
-        <Breadcrumb>
-          <Breadcrumb.Item href="/">Octicons</Breadcrumb.Item>
-          <Breadcrumb.Item href={pageContext.name} selected>
-            {pageContext.name}
-          </Breadcrumb.Item>
-        </Breadcrumb>
-        <H1>{pageContext.name}</H1>
-        <IconViewer>
-          <Icon name={pageContext.name} />
-        </IconViewer>
+      <Header />
+      <Flex flex="1 1 auto" flexDirection="row" css={{zIndex: 0}}>
+        <Box display={['none', null, null, 'block']}>
+          <Sidebar />
+        </Box>
+        <Container>
+          <Breadcrumb>
+            <Breadcrumb.Item href="/">Octicons</Breadcrumb.Item>
+            <Breadcrumb.Item href={pageContext.name} selected>
+              {pageContext.name}
+            </Breadcrumb.Item>
+          </Breadcrumb>
+          <H1>{pageContext.name}</H1>
+          <IconViewer>
+            <Icon name={pageContext.name} />
+          </IconViewer>
 
-        <Grid mt={3} gridGap={3} gridTemplateColumns={[null, 'repeat(3, 1fr)']}>
-          <Button
-            onClick={() => {
-              copy(svg)
-              setCopied(true)
-            }}
-          >
-            {copied ? 'Copied' : 'Copy SVG'}
-          </Button>
-          <Button onClick={() => download(svg, `${pageContext.name}.svg`, 'image/svg+xml')}>Download SVG</Button>
-          <Button disabled={!pdf} onClick={() => download(pdf, `${pageContext.name}.pdf`, 'application/pdf')}>
-            Download PDF
-          </Button>
-        </Grid>
+          <Grid mt={3} gridGap={3} gridTemplateColumns={[null, 'repeat(3, 1fr)']}>
+            <Button
+              onClick={() => {
+                copy(svg)
+                setCopied(true)
+              }}
+            >
+              {copied ? 'Copied' : 'Copy SVG'}
+            </Button>
+            <Button onClick={() => download(svg, `${pageContext.name}.svg`, 'image/svg+xml')}>Download SVG</Button>
+            <Button disabled={!pdf} onClick={() => download(pdf, `${pageContext.name}.pdf`, 'application/pdf')}>
+              Download PDF
+            </Button>
+          </Grid>
 
-        <H2>Rails and Jekyll examples</H2>
-        <Paragraph>
-          You can use the Octicons Rails helper or the Jekyll helper to include Octicons on your site. Below are code
-          examples for each.
-        </Paragraph>
+          <H2>Rails and Jekyll examples</H2>
+          <Paragraph>
+            You can use the Octicons Rails helper or the Jekyll helper to include Octicons on your site. Below are code
+            examples for each.
+          </Paragraph>
 
-        <H3>Ruby</H3>
-        <Code>{`<%= octicon "${pageContext.name}" %>`}</Code>
+          <H3>Ruby</H3>
+          <Code>{`<%= octicon "${pageContext.name}" %>`}</Code>
 
-        <H3>Jekyll</H3>
-        <Code>{`{% octicon ${pageContext.name} %}`}</Code>
-      </Container>
+          <H3>Jekyll</H3>
+          <Code>{`{% octicon ${pageContext.name} %}`}</Code>
+        </Container>
+      </Flex>
     </Flex>
   )
 }
