@@ -1,5 +1,5 @@
-import {Breadcrumb, Button, Flex, Grid, Heading, TabNav} from '@primer/components'
-import {Container, Head, Header} from '@primer/gatsby-theme-doctocat'
+import {Breadcrumb, Button, Flex, Grid, Heading, Box, TabNav} from '@primer/components'
+import {Container, Head, Header, Sidebar} from '@primer/gatsby-theme-doctocat'
 import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
 import Paragraph from '@primer/gatsby-theme-doctocat/src/components/paragraph'
@@ -47,59 +47,65 @@ export default function IconPage({pageContext}) {
   return (
     <Flex flexDirection="column" minHeight="100vh">
       <Head title={pageContext.name} />
-      <Header isSearchEnabled={false} />
-      <Container>
-        <Breadcrumb>
-          <Breadcrumb.Item as={Link} to="/">
-            Octicons
-          </Breadcrumb.Item>
-          <Breadcrumb.Item as={Link} to={`/${icon.name}-${icon.height}`} selected>
+
+      <Header />
+      <Flex flex="1 1 auto" flexDirection="row" css={{zIndex: 0}}>
+        <Box display={['none', null, null, 'block']}>
+          <Sidebar />
+        </Box>
+        <Container>
+          <Breadcrumb>
+            <Breadcrumb.Item as={Link} to="/">
+              Octicons
+            </Breadcrumb.Item>
+            <Breadcrumb.Item as={Link} to={`/${icon.name}-${icon.height}`} selected>
+              {icon.name}
+            </Breadcrumb.Item>
+          </Breadcrumb>
+          <Heading as="h1" mt={2} mb={3}>
             {icon.name}
-          </Breadcrumb.Item>
-        </Breadcrumb>
-        <Heading as="h1" mt={2} mb={3}>
-          {icon.name}
-        </Heading>
-        <TabNav mb={4}>
-          {pageContext.heights.map(height => (
-            <TabNav.Link key={height} as={Link} to={`/${icon.name}-${height}`} selected={height === icon.height}>
-              {height}
-              px
-            </TabNav.Link>
-          ))}
-        </TabNav>
+          </Heading>
+          <TabNav mb={4}>
+            {pageContext.heights.map(height => (
+              <TabNav.Link key={height} as={Link} to={`/${icon.name}-${height}`} selected={height === icon.height}>
+                {height}
+                px
+              </TabNav.Link>
+            ))}
+          </TabNav>
 
-        <IconViewer>
-          <Icon width={icon.width} height={icon.height} path={icon.path} />
-        </IconViewer>
+          <IconViewer>
+            <Icon width={icon.width} height={icon.height} path={icon.path} />
+          </IconViewer>
 
-        <Grid mt={3} gridGap={3} gridTemplateColumns={[null, 'repeat(3, 1fr)']}>
-          <Button
-            onClick={() => {
-              copy(svg)
-              setCopied(true)
-            }}
-          >
-            {copied ? 'Copied' : 'Copy SVG'}
-          </Button>
-          <Button onClick={() => download(svg, `${pageContext.name}.svg`, 'image/svg+xml')}>Download SVG</Button>
-          <Button disabled={!pdf} onClick={() => download(pdf, `${pageContext.name}.pdf`, 'application/pdf')}>
-            Download PDF
-          </Button>
-        </Grid>
+          <Grid mt={3} gridGap={3} gridTemplateColumns={[null, 'repeat(3, 1fr)']}>
+            <Button
+              onClick={() => {
+                copy(svg)
+                setCopied(true)
+              }}
+            >
+              {copied ? 'Copied' : 'Copy SVG'}
+            </Button>
+            <Button onClick={() => download(svg, `${pageContext.name}.svg`, 'image/svg+xml')}>Download SVG</Button>
+            <Button disabled={!pdf} onClick={() => download(pdf, `${pageContext.name}.pdf`, 'application/pdf')}>
+              Download PDF
+            </Button>
+          </Grid>
 
-        <H2>Rails and Jekyll examples</H2>
-        <Paragraph>
-          You can use the Octicons Rails helper or the Jekyll helper to include Octicons on your site. Below are code
-          examples for each.
-        </Paragraph>
+          <H2>Rails and Jekyll examples</H2>
+          <Paragraph>
+            You can use the Octicons Rails helper or the Jekyll helper to include Octicons on your site. Below are code
+            examples for each.
+          </Paragraph>
 
-        <H3>Ruby</H3>
-        <Code>{`<%= octicon "${pageContext.name}", :height => ${icon.height} %>`}</Code>
+          <H3>Ruby</H3>
+          <Code>{`<%= octicon "${pageContext.name}", :height => ${icon.height} %>`}</Code>
 
-        <H3>Jekyll</H3>
-        <Code>{`{% octicon ${pageContext.name} height:${icon.height} %}`}</Code>
-      </Container>
+          <H3>Jekyll</H3>
+          <Code>{`{% octicon ${pageContext.name} height:${icon.height} %}`}</Code>
+        </Container>
+      </Flex>
     </Flex>
   )
 }
