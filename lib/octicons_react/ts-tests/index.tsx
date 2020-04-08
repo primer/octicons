@@ -1,9 +1,5 @@
 import * as React from 'react'
-import Octicon, {OcticonProps, Beaker, X, Repo, Plus, MarkGithub, getIconByName, iconsByName, createIcon} from '../src'
-
-function Icon({boom}: {boom: boolean}): React.ReactNode {
-  return <Octicon icon={boom ? X : Beaker} />
-}
+import Octicon, {getIconByName, iconsByName, MarkGithub, OcticonProps, Plus, Repo} from '../src'
 
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 
@@ -47,22 +43,4 @@ function VerticalAlign() {
 
 function WithClassName() {
   return <Octicon icon={Repo} className="awesomeClassName" />
-}
-
-const CirclesIcon = createIcon(() => {
-  return (
-    <React.Fragment>
-      <circle r={5} cx={5} cy={5} />
-      <circle r={5} cx={15} cy={5} />
-      <circle r={5} cx={25} cy={5} />
-    </React.Fragment>
-  )
-}, [30, 10])
-
-export function CirclesOcticon(props: Omit<OcticonProps, 'icon'>) {
-  return <Octicon {...props} icon={CirclesIcon} />
-}
-
-function TestCirclesOcticon(): React.ReactElement {
-  return <CirclesOcticon />
 }
