@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Octicon, {getIconByName, iconsByName, MarkGithub, OcticonProps, Plus, Repo} from '../src'
+import Octicon, {getIconByName, iconsByName, MarkGithubIcon, OcticonProps, PlusIcon, RepoIcon} from '../src'
 
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 
@@ -34,18 +34,18 @@ function OcticonsList() {
 function TestOcticons() {
   return (
     <div>
-      <Octicon icon={Repo} size="large" verticalAlign="middle" /> github/github
-      <Octicon icon={Plus} ariaLabel="Add new item" /> New
-      <Octicon icon={MarkGithub} size="large" ariaLabel="GitHub" />
-      <Octicon icon={Repo} className="awesomeClassName" />
+      <Octicon icon={RepoIcon} size="large" verticalAlign="middle" /> github/github
+      <Octicon icon={PlusIcon} ariaLabel="Add new item" /> New
+      <Octicon icon={MarkGithubIcon} size="large" ariaLabel="GitHub" />
+      <Octicon icon={RepoIcon} className="awesomeClassName" />
       <Octicon>
-        <Repo />
+        <RepoIcon />
       </Octicon>
       <Octicon size="large">
-        <Repo />
+        <RepoIcon />
       </Octicon>
-      <Repo />
-      <Repo size="medium" className="test" ariaLabel="repo" verticalAlign="middle" />
+      <RepoIcon />
+      <RepoIcon size="medium" className="test" ariaLabel="repo" verticalAlign="middle" />
     </div>
   )
 }
