@@ -31,16 +31,21 @@ function OcticonsList() {
   )
 }
 
-function VerticalAlign() {
+function TestOcticons() {
   return (
-    <h1>
+    <div>
       <Octicon icon={Repo} size="large" verticalAlign="middle" /> github/github
       <Octicon icon={Plus} ariaLabel="Add new item" /> New
       <Octicon icon={MarkGithub} size="large" ariaLabel="GitHub" />
-    </h1>
+      <Octicon icon={Repo} className="awesomeClassName" />
+      <Octicon>
+        <Repo />
+      </Octicon>
+      <Octicon size="large">
+        <Repo />
+      </Octicon>
+      <Repo />
+      <Repo size="medium" className="test" ariaLabel="repo" verticalAlign="middle" />
+    </div>
   )
-}
-
-function WithClassName() {
-  return <Octicon icon={Repo} className="awesomeClassName" />
 }
