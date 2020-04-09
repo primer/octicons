@@ -10,6 +10,7 @@ export interface OcticonProps {
   className?: string
   icon?: Icon
   size?: number | Size
+  verticalAlign?: 'middle' | 'text-bottom' | 'text-top' | 'top' | 'unset'
 }
 
 declare const Octicon: React.FC<OcticonProps>
