@@ -8,5 +8,6 @@
     "jsx": "react",
     "lib": ["es2015"]
   },
-  "files": ["../src/index.d.ts", "./index.tsx"]
+  "include": ["../src/index.d.ts", "./index.tsx"],
+  "exclude": ["node_modules"]
 }
