@@ -45,7 +45,7 @@ function TestOcticons() {
         <RepoIcon />
       </Octicon>
       <RepoIcon />
-      <RepoIcon size="medium" className="test" ariaLabel="repo" verticalAlign="middle" />
+      <RepoIcon size="medium" className="test" aria-label="repo" verticalAlign="middle" />
     </div>
   )
 }
