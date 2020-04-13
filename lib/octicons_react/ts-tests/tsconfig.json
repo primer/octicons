@@ -6,7 +6,7 @@
     "noEmit": true,
     "noImplicitAny": true,
     "jsx": "react",
-    "lib": ["es2015"]
-  },
-  "files": ["../src/index.d.ts", "./index.tsx"]
+    "lib": ["es2015"],
+    "skipLibCheck": true
+  }
 }

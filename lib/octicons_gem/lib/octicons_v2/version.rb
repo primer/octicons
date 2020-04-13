@@ -1,3 +1,3 @@
 module OcticonsV2
-  VERSION = "9.4.0".freeze
+  VERSION = "10.0.0".freeze
 end

@@ -1,9 +1,5 @@
 import * as React from 'react'
-import Octicon, {OcticonProps, Beaker, X, Repo, Plus, MarkGithub, getIconByName, iconsByName, createIcon} from '../src'
-
-function Icon({boom}: {boom: boolean}): React.ReactNode {
-  return <Octicon icon={boom ? X : Beaker} />
-}
+import Octicon, {getIconByName, iconsByName, MarkGithubIcon, OcticonProps, PlusIcon, RepoIcon} from '../src'
 
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 
@@ -35,34 +31,21 @@ function OcticonsList() {
   )
 }
 
-function VerticalAlign() {
+function TestOcticons() {
   return (
-    <h1>
-      <Octicon icon={Repo} size="large" verticalAlign="middle" /> github/github
-      <Octicon icon={Plus} ariaLabel="Add new item" /> New
-      <Octicon icon={MarkGithub} size="large" ariaLabel="GitHub" />
-    </h1>
+    <div>
+      <Octicon icon={RepoIcon} size="large" verticalAlign="middle" /> github/github
+      <Octicon icon={PlusIcon} ariaLabel="Add new item" /> New
+      <Octicon icon={MarkGithubIcon} size="large" ariaLabel="GitHub" />
+      <Octicon icon={RepoIcon} className="awesomeClassName" />
+      <Octicon>
+        <RepoIcon />
+      </Octicon>
+      <Octicon size="large">
+        <RepoIcon />
+      </Octicon>
+      <RepoIcon />
+      <RepoIcon size="medium" className="test" ariaLabel="repo" verticalAlign="middle" />
+    </div>
   )
-}
-
-function WithClassName() {
-  return <Octicon icon={Repo} className="awesomeClassName" />
-}
-
-const CirclesIcon = createIcon(() => {
-  return (
-    <React.Fragment>
-      <circle r={5} cx={5} cy={5} />
-      <circle r={5} cx={15} cy={5} />
-      <circle r={5} cx={25} cy={5} />
-    </React.Fragment>
-  )
-}, [30, 10])
-
-export function CirclesOcticon(props: Omit<OcticonProps, 'icon'>) {
-  return <Octicon {...props} icon={CirclesIcon} />
-}
-
-function TestCirclesOcticon(): React.ReactElement {
-  return <CirclesOcticon />
 }
