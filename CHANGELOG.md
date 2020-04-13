@@ -5,14 +5,19 @@
 - Icon components (e.g. `AlertIcon`, `ArrowRightIcon`, etc.) now accept `size`, `ariaLabel`, `verticalAlign`, and `className` props and can be used on their own. No need to pass them to the `Octicon` component.
 
   ```jsx
-  // Both ways work now:
-  <Octicon icon={AlertIcon} size={24} />
   <AlertIcon size={24} />
   ```
 
 - Icon components will now choose the best SVG icon to render based on the `size` passed in.
 
 ### BREAKING CHANGES 💥
+
+- The `Octicon` component is deprecated. Use icon components on their own instead:
+
+  ```diff
+  - <Octicon icon={AlertIcon} />
+  + <AlertIcon />
+  ```
 
 - All icon component names now include `Icon` at the end (e.g. `Alert` → `AlertIcon`).
 
