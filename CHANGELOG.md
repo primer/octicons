@@ -10,14 +10,14 @@
 
 - Icon components will now choose the best SVG icon to render based on the `size` passed in.
 
-### BREAKING CHANGES 💥
-
 - The `Octicon` component is deprecated. Use icon components on their own instead:
 
   ```diff
   - <Octicon icon={AlertIcon} />
   + <AlertIcon />
   ```
+
+### BREAKING CHANGES 💥
 
 - All icon component names now include `Icon` at the end (e.g. `Alert` → `AlertIcon`).
 
