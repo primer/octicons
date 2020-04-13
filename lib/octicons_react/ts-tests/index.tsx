@@ -35,8 +35,8 @@ function TestOcticons() {
   return (
     <div>
       <Octicon icon={RepoIcon} size="large" verticalAlign="middle" /> github/github
-      <Octicon icon={PlusIcon} ariaLabel="Add new item" /> New
-      <Octicon icon={MarkGithubIcon} size="large" ariaLabel="GitHub" />
+      <Octicon icon={PlusIcon} aria-label="Add new item" /> New
+      <Octicon icon={MarkGithubIcon} size="large" aria-label="GitHub" />
       <Octicon icon={RepoIcon} className="awesomeClassName" />
       <Octicon>
         <RepoIcon />
