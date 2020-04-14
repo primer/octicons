@@ -96,10 +96,9 @@ export default () => (
 ```
 
 
-### `ariaLabel`
+### `aria-label`
 You have the option of adding accessibility information to the icon with the
-[`aria-label` attribute][aria-label] via the `ariaLabel` prop (note the
-capitalization of `L`!).
+[`aria-label` attribute][aria-label] via the `aria-label` prop.
 
 ```js
 // Example usage
@@ -107,7 +106,11 @@ import {PlusIcon} from '@primer/octicons-react'
 
 export default () => (
   <button>
+<<<<<<< HEAD
     <PlusIcon ariaLabel="Add new item" /> New
+=======
+    <Octicon icon={Plus} aria-label="Add new item" /> New
+>>>>>>> origin/v2
   </button>
 )
 ```
@@ -130,7 +133,7 @@ import {LogoGithubIcon} from '@primer/octicons-react'
 export default () => (
   <h1>
     <a href='https://github.com'>
-      <LogoGithubIcon size='large' ariaLabel='GitHub'/>
+      <LogoGithubIcon size='large' aria-label='GitHub'/>
     </a>
   </h1>
 )

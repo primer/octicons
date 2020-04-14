@@ -5,7 +5,7 @@ import {Icon} from './__generated__/icons'
 type Size = 'small' | 'medium' | 'large'
 
 export interface OcticonProps {
-  ariaLabel?: string
+  'aria-label'?: string
   children?: React.ReactElement<any>
   className?: string
   icon?: Icon

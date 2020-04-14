@@ -23,6 +23,13 @@
 
 - `Octicon` no longer accepts `width` or `height` props. Use the `size` prop instead. In cases where the width and height of an icon are not equal (e.g. logos), the height will be set to the value of the `size` prop and the `width` will be scaled proportionally.
 
+- We renamed the `ariaLabel` prop to `aria-label` to be consistent with React: https://reactjs.org/docs/accessibility.html#wai-aria
+
+  ```diff
+  - <AlertIcon ariaLabel="alert">
+  + <AlertIcon aria-label="alert">
+  ```
+
 - Setting `verticalAlign="top"` on the `Octicon` component or any icon component will now apply a `vertical-align: top;` style to the `<svg>`. Previously, we were translating "top" to "text-top." So setting `verticalAlign="top"` would apply a `vertical-align: text-top;` style to the `<svg>`. If you want a vertical alignment of "text-top," set the `verticalAlign` prop to `"text-top"`.
 
 - Custom icon components passed to the `Octicon` component now need to render the entire `<svg>`, not just the `<path>`.
