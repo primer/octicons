@@ -13,6 +13,9 @@ export interface OcticonProps {
   verticalAlign?: 'middle' | 'text-bottom' | 'text-top' | 'top' | 'unset'
 }
 
+/**
+ * @deprecated Use icon components on their own instead (e.g. `<Octicon icon={AlertIcon} />` → `<AlertIcon />`)
+ */
 declare const Octicon: React.FC<OcticonProps>
 
 export default Octicon
