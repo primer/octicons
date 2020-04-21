@@ -1,22 +1,79 @@
+# Unreleased
+
+## React
+
+- Icon components (e.g. `AlertIcon`, `ArrowRightIcon`, etc.) now accept `size`, `ariaLabel`, `verticalAlign`, and `className` props and can be used on their own. No need to pass them to the `Octicon` component.
+
+  ```jsx
+  <AlertIcon size={24} />
+  ```
+
+- Icon components will now choose the best SVG icon to render based on the `size` passed in.
+
+- The `Octicon` component is deprecated. Use icon components on their own instead:
+
+  ```diff
+  - <Octicon icon={AlertIcon} />
+  + <AlertIcon />
+  ```
+
+### BREAKING CHANGES 💥
+
+- All icon component names now include `Icon` at the end (e.g. `Alert` → `AlertIcon`).
+
+- `Octicon` no longer accepts `width` or `height` props. Use the `size` prop instead. In cases where the width and height of an icon are not equal (e.g. logos), the height will be set to the value of the `size` prop and the `width` will be scaled proportionally.
+
+- We renamed the `ariaLabel` prop to `aria-label` to be consistent with React: https://reactjs.org/docs/accessibility.html#wai-aria
+
+  ```diff
+  - <AlertIcon ariaLabel="alert">
+  + <AlertIcon aria-label="alert">
+  ```
+
+- Setting `verticalAlign="top"` on the `Octicon` component or any icon component will now apply a `vertical-align: top;` style to the `<svg>`. Previously, we were translating "top" to "text-top." So setting `verticalAlign="top"` would apply a `vertical-align: text-top;` style to the `<svg>`. If you want a vertical alignment of "text-top," set the `verticalAlign` prop to `"text-top"`.
+
+- Custom icon components passed to the `Octicon` component now need to render the entire `<svg>`, not just the `<path>`.
+
+```diff
+function CirclesIcon() {
+  return (
+-   <React.Fragment>
++   <svg viewBox="0 0 30 10" width="30" height="10">
+      <circle r={5} cx={5} cy={5}/>
+      <circle r={5} cx={15} cy={5}/>
+      <circle r={5} cx={25} cy={5}/>
+-   </React.Fragment>
++   </svg>
+  )
+}
+
+- CirclesIcon.size = [30, 10]
+```
+
 # 9.6.0
 
 ## Features
+
 - New icon `north-star` https://github.com/primer/octicons/pull/380
 
 # 9.5.0
 
 ## Features
+
 - New icon `internal-repo` https://github.com/primer/octicons/pull/375
 
 # 9.4.0
 
-##  Features
+## Features
+
 - New icons `heart-outline` `infinity` `line-arrow-up` `line-arrow-down` `line-arrow-right` `line-arrow-left` https://github.com/primer/octicons/pull/365
 
 ## Chores
-- Contributing docs updates and issue template updates #367 
+
+- Contributing docs updates and issue template updates #367
 
 ## Bugs
+
 - Update `heart` glyphs removing extra points https://github.com/primer/octicons/pull/365
 
 # 9.3.1
@@ -36,7 +93,7 @@
 
 ### 🚀 New features
 
- - [x] New icons for save/unsave and primitive dot stroke https://github.com/primer/octicons/pull/351 @ashygee @colinkeany
+- [x] New icons for save/unsave and primitive dot stroke https://github.com/primer/octicons/pull/351 @ashygee @colinkeany
 
 ### 🧽 Chores
 
@@ -63,6 +120,7 @@
 # 9.0.0
 
 ### 💥 Breaking changes
+
 - [x] Rename `octicons` to `@primer/octicons` https://github.com/primer/octicons/pull/311
 - [x] Rename `@githubprimer/octicons-react` to `@primer/octicons-react` https://github.com/primer/octicons/pull/311
 
@@ -80,22 +138,27 @@
 # 8.4.2
 
 ### :art: Enhancement
+
 - Thumbs up/down icons needed some vector improvements. https://github.com/primer/octicons/pull/287
 
 ### :bug: Bug Fix
+
 - Node package missing `build/build.css` file. https://github.com/primer/octicons/pull/292
 
 # 8.4.1
 
 ### :bug: Bug Fix
+
 - Rollup files missing from octicons react package https://github.com/primer/octicons/issues/282
 
 # 8.4.0
 
 ### :house: Internal
+
 - Using Actions to build and deploy Octicons https://github.com/primer/octicons/pull/276
 
 #### Committers: 1
+
 - Jon Rohan ([jonrohan](https://github.com/jonrohan))
 
 # 8.3.0
@@ -345,7 +408,6 @@ Removes
 
 - `screen-normal`
 - `screen-full`
-
 
 ### 3.1.0 (August 13, 2015)
 
