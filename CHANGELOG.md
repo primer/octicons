@@ -21,6 +21,8 @@
 
 - All icon component names now include `Icon` at the end (e.g. `Alert` → `AlertIcon`).
 
+- In order to enable tree-shaking, we removed the `iconsByName` and `getIconByName` exports.
+
 - `Octicon` no longer accepts `width` or `height` props. Use the `size` prop instead. In cases where the width and height of an icon are not equal (e.g. logos), the height will be set to the value of the `size` prop and the `width` will be scaled proportionally.
 
 - We renamed the `ariaLabel` prop to `aria-label` to be consistent with React: https://reactjs.org/docs/accessibility.html#wai-aria
