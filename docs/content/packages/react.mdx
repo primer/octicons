@@ -39,53 +39,6 @@ If you were to compile this example with a tool that supports [tree-shaking][]
 (such as Webpack, Rollup, or Parcel) the resulting bundle would only include
 the "zap" and "beaker" icons.
 
-### All icons
-If you don't mind your bundle being huge or you need to be able to render
-arbitrarily named icons at runtime, you can import either of the following
-named exports:
-
-#### `getIconByName()`
-The `getIconByName` export is a function that takes a lowercase octicon name
-(such as `arrow-right`) and returns the corresponding icon component. Using this
-helper, it's possible to create an component that takes a `name` prop and
-resolves it to the right icon:
-
-```jsx
-import React from 'react'
-import {getIconByName} from '@primer/octicons-v2-react'
-
-export default function OcticonByName({name, ...props}) {
-  const Icon = getIconByName(name)
-  return <Icon {...props} />
-}
-```
-
-#### `iconsByName`
-The `iconsByName` export is an object that maps keys (such as `arrow-right` or
-`zap`) to component functions, which you can use to generate listings of all
-the octicons:
-
-```jsx
-import React from 'react'
-import {iconsByName} from '@primer/octicons-v2-react'
-
-export default function OcticonsList() {
-  return (
-    <ul>
-      {Object.keys(iconsByName).map(key => {
-        const Icon = iconsByName[key]
-        return (
-          <li key={key}>
-            <tt>{key}</tt>
-            <Icon />
-          </li>
-        )
-      })}
-    </ul>
-  )
-}
-```
-
 ### Vertical alignment
 By default the octicons have `vertical-align: text-bottom;` applied as inline
 styles. You can change the alignment via the `verticalAlign` prop, which can be
