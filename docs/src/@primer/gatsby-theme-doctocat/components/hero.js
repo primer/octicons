@@ -11,7 +11,7 @@ function Hero() {
           Octicons
         </Heading>
         <Text as="p" mt={0} mb={3} color="blue.2" fontSize={4}>
-          You project. GitHub's icons.
+          Your project. GitHub's icons.
         </Text>
         <Text as="p" m={0} color="blue.3" fontFamily="mono">
           v{version}
