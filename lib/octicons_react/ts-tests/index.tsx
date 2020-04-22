@@ -1,15 +1,15 @@
 import * as React from 'react'
-import Octicon, {getIconByName, iconsByName, MarkGithubIcon, OcticonProps, PlusIcon, RepoIcon} from '../src'
-
+// import Octicon, {getIconByName, iconsByName, MarkGithubIcon, OcticonProps, PlusIcon, RepoIcon} from '../src'
+import Octicon, {MarkGithubIcon, OcticonProps, PlusIcon, RepoIcon} from '../src'
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 
-function OcticonByName({name, ...props}: {name: keyof iconsByName} & Omit<OcticonProps, 'icon'>): React.ReactElement {
-  return <Octicon {...props} icon={getIconByName(name)} />
-}
+// function OcticonByName({name, ...props}: {name: keyof iconsByName} & Omit<OcticonProps, 'icon'>): React.ReactElement {
+//   return <Octicon {...props} icon={getIconByName(name)} />
+// }
 
-function TestOcticonsByName(): React.ReactElement {
-  return <OcticonByName name="x" />
-}
+// function TestOcticonsByName(): React.ReactElement {
+//   return <OcticonByName name="x" />
+// }
 
 // Unfortunately, `Object.keys` returns `string[]` unconditionally;
 // see https://github.com/Microsoft/TypeScript/pull/13971 &
@@ -18,18 +18,18 @@ function keys<T>(obj: T): (keyof T)[] {
   return Object.keys(obj) as (keyof T)[]
 }
 
-function OcticonsList() {
-  return (
-    <ul>
-      {keys(iconsByName).map(key => (
-        <li key={key}>
-          <code>{key}</code>
-          <Octicon icon={iconsByName[key]} />
-        </li>
-      ))}
-    </ul>
-  )
-}
+// function OcticonsList() {
+//   return (
+//     <ul>
+//       {keys(iconsByName).map(key => (
+//         <li key={key}>
+//           <code>{key}</code>
+//           <Octicon icon={iconsByName[key]} />
+//         </li>
+//       ))}
+//     </ul>
+//   )
+// }
 
 function TestOcticons() {
   return (
