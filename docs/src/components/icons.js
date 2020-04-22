@@ -1,5 +1,4 @@
-import {Box, Flex, Link, Text, TextInput} from '@primer/components'
-import {H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
+import {Box, Flex, Grid, Heading, Link, Text, TextInput} from '@primer/components'
 import {Search} from '@primer/octicons-react'
 import {Link as GatsbyLink} from 'gatsby'
 import flatMap from 'lodash.flatmap'
@@ -28,7 +27,7 @@ export default function Icons() {
   const results = useSearch(iconsArray, query, {keys: ['name']})
   const iconsByHeight = React.useMemo(() => groupBy(results, 'height'), [results])
   return (
-    <>
+    <Grid gridGap={5}>
       <TextInput
         icon={Search}
         aria-label="Search"
@@ -36,15 +35,14 @@ export default function Icons() {
         onChange={event => setQuery(event.target.value)}
         placeholder="Search icons..."
         width="100%"
-        mb={5}
       />
       {Object.entries(iconsByHeight).length > 0 ? (
         Object.entries(iconsByHeight).map(([height, icons]) => (
           <Box key={height}>
-            <H3>
+            <Heading as="h2" fontSize={3} mb={3}>
               {height}
               px
-            </H3>
+            </Heading>
             <Flex flexWrap="wrap" mx={-3}>
               {icons.map(icon => (
                 <Link
@@ -68,6 +66,6 @@ export default function Icons() {
           No results found
         </Text>
       )}
-    </>
+    </Grid>
   )
 }
