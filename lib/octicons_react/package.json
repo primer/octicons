@@ -7,6 +7,7 @@
   "license": "MIT",
   "main": "dist/index.umd.js",
   "module": "dist/index.esm.js",
+  "sideEffects": false,
   "types": "dist/index.d.ts",
   "repository": "primer/octicons",
   "scripts": {
