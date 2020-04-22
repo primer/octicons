@@ -1,5 +1,5 @@
 require "minitest/autorun"
-require "jekyll-octicons_v2"
+require "jekyll-octicons"
 
 # Parse a string into a liquid template
 def parse(string)
