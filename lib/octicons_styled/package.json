@@ -15,8 +15,7 @@
     "ts-test": "echo \"Write tests!\" #tsc -P ts-tests",
     "test": "echo \"Write tests!\" #jest",
     "posttest": "echo \"Write tests!\" #npm run ts-test",
-    "start": "NODE_ENV=production next",
-    "lint": "eslint src pages script",
+    "lint": "eslint src script",
     "rollup": "rollup -c"
   },
   "keywords": [
