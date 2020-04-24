@@ -1,0 +1,57 @@
+{
+  "name": "@primer/styled-octicons",
+  "version": "10.0.0",
+  "description": "A scalable set of icons handcrafted with <3 by GitHub.",
+  "homepage": "https://octicons.github.com",
+  "author": "GitHub, Inc.",
+  "license": "MIT",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "sideEffects": false,
+  "types": "dist/index.d.ts",
+  "repository": "primer/octicons",
+  "scripts": {
+    "build": "script/build.js && script/types.js && npm run rollup",
+    "ts-test": "echo \"Write tests!\" #tsc -P ts-tests",
+    "test": "echo \"Write tests!\" #jest",
+    "posttest": "echo \"Write tests!\" #npm run ts-test",
+    "start": "NODE_ENV=production next",
+    "lint": "eslint src pages script",
+    "rollup": "rollup -c"
+  },
+  "keywords": [
+    "GitHub",
+    "icons",
+    "svg",
+    "octicons",
+    "react",
+    "primer"
+  ],
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.3.0",
+    "@testing-library/react": "^10.0.2",
+    "@types/react": "^16.4.6",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^5.0.1",
+    "eslint-plugin-github": "^1.1.0",
+    "eslint-plugin-jest": "^21.17.0",
+    "fs-extra": "^6.0.1",
+    "jest": "^23.2.0",
+    "next": "^5.1.0",
+    "primer-react": "0.0.6-alpha.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.1",
+    "rollup": "^0.62.0",
+    "rollup-plugin-babel": "^3.0.5",
+    "rollup-plugin-commonjs": "^9.1.3",
+    "typescript": "^3.7.5"
+  },
+  "peerDependencies": {
+    "react": ">=15"
+  },
+  "engines": {
+    "node": ">=8"
+  }
+}
