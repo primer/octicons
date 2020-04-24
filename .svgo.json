@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    {
+      "removeViewBox": false
+    },
+    {
+      "removeAttrs": {"attrs": "fill"}
+    }
+  ]
+}
