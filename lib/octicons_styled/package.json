@@ -10,6 +10,9 @@
   "sideEffects": false,
   "types": "dist/index.d.ts",
   "repository": "primer/octicons",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "script/build.js && script/types.js && npm run rollup",
     "ts-test": "echo \"Write tests!\" #tsc -P ts-tests",
