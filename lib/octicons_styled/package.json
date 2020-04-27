@@ -31,7 +31,8 @@
   ],
   "dependencies": {
     "@styled-system/prop-types": "^5.1.5",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "@types/styled-system": "^5.1.9"
   },
   "peerDependencies": {
     "react": ">=15",
