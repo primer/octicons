@@ -16,7 +16,7 @@
   "scripts": {
     "build": "script/build.js && script/types.js && npm run rollup",
     "ts-test": "echo \"Write tests!\" #tsc -P ts-tests",
-    "test": "echo \"Write tests!\" #jest",
+    "test": "jest",
     "posttest": "echo \"Write tests!\" #npm run ts-test",
     "lint": "eslint src script",
     "rollup": "rollup -c"
@@ -56,6 +56,7 @@
     "rollup": "^0.62.0",
     "rollup-plugin-babel": "^3.0.5",
     "rollup-plugin-commonjs": "^9.1.3",
+    "styled-components": "^5.1.0",
     "typescript": "^3.7.5"
   },
   "engines": {
