@@ -1,21 +1,13 @@
 import * as React from 'react'
-import Octicon, {MarkGithubIcon, PlusIcon, RepoIcon} from '../src'
+import {RepoIcon} from '../src/__generated__'
 
 function TestOcticons() {
   return (
     <div>
-      <Octicon icon={RepoIcon} size="large" verticalAlign="middle" /> github/github
-      <Octicon icon={PlusIcon} aria-label="Add new item" /> New
-      <Octicon icon={MarkGithubIcon} size="large" aria-label="GitHub" />
-      <Octicon icon={RepoIcon} className="awesomeClassName" />
-      <Octicon>
-        <RepoIcon />
-      </Octicon>
-      <Octicon size="large">
-        <RepoIcon />
-      </Octicon>
       <RepoIcon />
       <RepoIcon size="medium" className="test" aria-label="repo" verticalAlign="middle" />
+      <RepoIcon color="red" />
+      <RepoIcon m={3} ml={1} mr={2} mt={3} mb={4} />
     </div>
   )
 }
