@@ -7,7 +7,7 @@
     "lint": "eslint tests",
     "build": "script/build.js --input icons/**/*.svg --output lib/build/data.json",
     "start": "cd docs && npm run develop",
-    "svgo": "svgo icons --config .svgo.json"
+    "svgo": "svgo icons --config .svgo.yml"
   },
   "dependencies": {
     "ava": "^2.1.0",
