@@ -154,6 +154,24 @@ export default () => (
 ```
 
 
+### Fill
+The `fill` prop takes a string value that can be used to color the icon.
+Default value is `currentColor` which means it inherits parent's text color.
+
+```js
+// Example usage
+import Octicon, {LogoGithub} from '@primer/octicons-react'
+
+export default () => (
+  <h1>
+    <a href='https://github.com'>
+      <Octicon icon={LogoGithub} fill='#28284E' size='large' ariaLabel='GitHub'/>
+    </a>
+  </h1>
+)
+```
+
+
 ## Custom icons
 Each of our icon components is really just a function that renders its SVG
 `<path>`. To accommodate icons varying aspect ratios, the `Octicon` component

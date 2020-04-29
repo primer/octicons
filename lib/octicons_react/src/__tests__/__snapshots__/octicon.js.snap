@@ -4,12 +4,12 @@ exports[`<Octicon> outputs <svg> 1`] = `
 <svg
   aria-hidden="true"
   className="octicon"
+  fill="currentColor"
   height={16}
   role="img"
   style={
     Object {
       "display": "inline-block",
-      "fill": "currentColor",
       "userSelect": "none",
       "verticalAlign": "text-bottom",
     }
