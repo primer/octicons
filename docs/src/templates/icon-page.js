@@ -1,4 +1,4 @@
-import {Breadcrumb, Button, Flex, Grid, Box} from '@primer/components'
+import {Box, Breadcrumb, Button, Flex, Grid} from '@primer/components'
 import {Container, Head, Header, Sidebar} from '@primer/gatsby-theme-doctocat'
 import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 import {H1, H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
@@ -6,6 +6,7 @@ import Paragraph from '@primer/gatsby-theme-doctocat/src/components/paragraph'
 import blobStream from 'blob-stream'
 import copy from 'copy-to-clipboard'
 import download from 'downloadjs'
+import {Link} from 'gatsby'
 import PDFDocument from 'pdfkit/js/pdfkit.standalone'
 import React from 'react'
 import svgToPdf from 'svg-to-pdfkit'
@@ -48,8 +49,10 @@ export default function IconPage({pageContext}) {
         </Box>
         <Container>
           <Breadcrumb>
-            <Breadcrumb.Item href="/">Octicons</Breadcrumb.Item>
-            <Breadcrumb.Item href={pageContext.name} selected>
+            <Breadcrumb.Item as={Link} to="/">
+              Octicons
+            </Breadcrumb.Item>
+            <Breadcrumb.Item as={Link} to={pageContext.name} selected>
               {pageContext.name}
             </Breadcrumb.Item>
           </Breadcrumb>
