@@ -4,15 +4,13 @@ title: Octicons
 
 import {HeroLayout} from '@primer/gatsby-theme-doctocat'
 import Icons from '../src/components/icons'
-import {Flash, Button, Flex} from '@primer/components'
+import {Flash, Button, Flex, Link} from '@primer/components'
+import {Link as GatsbyLink} from 'gatsby'
 
 export default HeroLayout
 
-<Flash mb={4}>
-  <Flex flexDirection={['column', 'row']} alignItems={["flex-start", "center"]} justifyContent="space-between">
-    <Text>We're working on a new look for Octicons</Text>
-    <Button as="a" href="https://octicons-git-v2.primer.now.sh" mt={[3, 0]}>Check it out</Button>
-  </Flex>
+<Flash scheme="yellow" mb={4}>
+Octicons v10.0.0 is not released yet. In the meantime, we've created temporary <Link as={GatsbyLink} to="/packages">packages</Link> so you can preview the new icons. If you're looking for the latest stable release of Octicons, go <Link href="https://primer.style/octicons">here</Link>.
 </Flash>
 
 <Icons />

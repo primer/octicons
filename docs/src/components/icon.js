@@ -1,16 +1,14 @@
 import React from 'react'
-import icons from '../../../lib/build/data.json'
 
-export default function Icon({name, ...props}) {
-  const icon = icons[name]
+export default function Icon({width, height, path, ...props}) {
   return (
     <svg
-      width={icon.width}
-      height={icon.height}
-      viewBox={`0 0 ${icon.width} ${icon.height}`}
+      width={width}
+      height={height}
+      viewBox={`0 0 ${width} ${height}`}
       fill="currentColor"
       // eslint-disable-next-line react/no-danger
-      dangerouslySetInnerHTML={{__html: icon.path}}
+      dangerouslySetInnerHTML={{__html: path}}
       {...props}
     />
   )
