@@ -14,7 +14,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "script/build.js && script/types.js && cp src/__generated__/index.js dist/index.esm.js && npm run rollup",
+    "build": "script/build.js && script/copy.sh &&  && npm run rollup",
     "ts-test": "tsc -P ts-tests",
     "test": "jest",
     "posttest": "npm run ts-test",
