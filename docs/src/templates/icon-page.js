@@ -6,12 +6,12 @@ import Paragraph from '@primer/gatsby-theme-doctocat/src/components/paragraph'
 import blobStream from 'blob-stream'
 import copy from 'copy-to-clipboard'
 import download from 'downloadjs'
+import {Link} from 'gatsby'
 import PDFDocument from 'pdfkit/js/pdfkit.standalone'
 import React from 'react'
 import svgToPdf from 'svg-to-pdfkit'
 import Icon from '../components/icon'
 import IconViewer from '../components/icon-viewer'
-import {Link} from 'gatsby'
 
 export default function IconPage({pageContext}) {
   const icon = {
