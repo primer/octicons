@@ -13,7 +13,7 @@ exports.createPages = async ({actions}) => {
           name: icon.name,
           keywords: icon.keywords,
           width: data.width,
-          height,
+          height: parseInt(height, 10),
           // We're calling this field `svgPath` because
           // `path` is a reserved field name.
           svgPath: data.path,
