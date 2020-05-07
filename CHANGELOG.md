@@ -1,5 +1,66 @@
 # Unreleased
 
+## All packages
+
+- We've given Octicons a new look ✨ Some icons have new names and some icons haven't been redesigned yet. The following table documents those changes. If you're using an octicon in v9.x that doesn't have an equivelent in v10.0 yet, let us know by [opening an issue](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D).
+
+| v9.x                     | v10.0                     | Notes                                                                                                                                               |
+| ------------------------ | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `arrow-small-down`       | `arrow-down`              |                                                                                                                                                     |
+| `arrow-small-left`       | `arrow-left`              |                                                                                                                                                     |
+| `arrow-small-right`      | `arrow-right`             |                                                                                                                                                     |
+| `arrow-small-up`         | `arrow-up`                |                                                                                                                                                     |
+| `briefcase`              |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `browser`                |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `bug`                    |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `circuit-board`          | `cpu`                     |                                                                                                                                                     |
+| `cloud-download`         | `download`                |                                                                                                                                                     |
+| `cloud-upload`           | `upload`                  |                                                                                                                                                     |
+| `dashboard`              |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `dependent`              | `package-dependents`      |                                                                                                                                                     |
+| `device-camera`          |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `ellipsis`               |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `file-pdf`               | `file`                    |                                                                                                                                                     |
+| `file-symlink-directory` | `file-submodule`          |                                                                                                                                                     |
+| `gist-secret`            | `lock`                    |                                                                                                                                                     |
+| `gist`                   | `code-square`             |                                                                                                                                                     |
+| `github-action`          |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `heart-outline`          | `heart`                   |                                                                                                                                                     |
+| `internal-repo`          |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `jersey`                 | `people`                  |                                                                                                                                                     |
+| `keyboard`               |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `line-arrow-down`        | `arrow-down`              |                                                                                                                                                     |
+| `line-arrow-left`        | `arrow-left`              |                                                                                                                                                     |
+| `line-arrow-right`       | `arrow-right`             |                                                                                                                                                     |
+| `line-arrow-up`          | `arrow-up`                |                                                                                                                                                     |
+| `mail-read`              | `mail`                    |                                                                                                                                                     |
+| `no-newline`             | `no-entry`                |                                                                                                                                                     |
+| `paintcan`               |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `plus-small`             | `plus`                    |                                                                                                                                                     |
+| `primitive-dot-stroke`   | `dot`                     |                                                                                                                                                     |
+| `primitive-dot`          | `dot-fill`                |                                                                                                                                                     |
+| `primitive-square`       |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `radio-tower`            | `broadcast`               |                                                                                                                                                     |
+| `repo-clone`             |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `repo-force-push`        | `repo-push`               |                                                                                                                                                     |
+| `repo-pull`              |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `repo-template-private`  |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `request-changes`        | `diff`                    |                                                                                                                                                     |
+| `ruby`                   |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `saved`                  | `bookmark`                |                                                                                                                                                     |
+| `squirrel`               |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `text-size`              | `heading` or `typography` |                                                                                                                                                     |
+| `triangle-down`          | `caret-down`              |                                                                                                                                                     |
+| `triangle-left`          | `caret-left`              |                                                                                                                                                     |
+| `triangle-right`         | `caret-right`             |                                                                                                                                                     |
+| `triangle-up`            | `caret-up`                |                                                                                                                                                     |
+| `unsaved`                | `bookmark-slash`          |                                                                                                                                                     |
+| `watch`                  | `hourglass`               |                                                                                                                                                     |
+| `workflow-all`           |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `zap`                    |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+
+- We designed a set of 24px icons—as well as 16px icons—to accommodate interfaces that need larger icons. All package implementations now choose which SVG to render based on the size passed in.
+
 ## React
 
 - Icon components (e.g. `AlertIcon`, `ArrowRightIcon`, etc.) now accept `size`, `ariaLabel`, `verticalAlign`, and `className` props and can be used on their own. No need to pass them to the `Octicon` component.
