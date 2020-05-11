@@ -1,4 +1,4 @@
-import {Breadcrumb, Button, Flex, Grid, Heading, Box, TabNav} from '@primer/components'
+import {Box, Breadcrumb, Button, Flex, Grid, Heading, TabNav, Text} from '@primer/components'
 import {Container, Head, Header, Sidebar} from '@primer/gatsby-theme-doctocat'
 import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
@@ -12,6 +12,8 @@ import React from 'react'
 import svgToPdf from 'svg-to-pdfkit'
 import Icon from '../components/icon'
 import IconViewer from '../components/icon-viewer'
+import UIExamples16 from '../components/ui-examples-16'
+import UIExamples24 from '../components/ui-examples-24'
 
 export default function IconPage({pageContext}) {
   const icon = {
@@ -104,10 +106,27 @@ export default function IconPage({pageContext}) {
 
           <H3>Jekyll</H3>
           <Code>{`{% octicon ${pageContext.name} height:${icon.height} %}`}</Code>
+
+          <H2>UI examples</H2>
+          <UIExamples
+            size={icon.height}
+            icon={props => <Icon width={icon.width} height={icon.height} path={icon.path} {...props} />}
+          />
         </Container>
       </Flex>
     </Flex>
   )
+}
+
+function UIExamples({size, icon}) {
+  switch (size) {
+    case 16:
+      return <UIExamples16 icon={icon} />
+    case 24:
+      return <UIExamples24 icon={icon} />
+    default:
+      return <Text>No examples available</Text>
+  }
 }
 
 function getSvg(icon) {
