@@ -9,6 +9,10 @@ export default function Icon({width, height, path, ...props}) {
       fill="currentColor"
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{__html: path}}
+      style={{
+        display: 'inline-block',
+        verticalAlign: 'text-bottom'
+      }}
       {...props}
     />
   )
