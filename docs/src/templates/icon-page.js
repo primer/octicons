@@ -1,4 +1,4 @@
-import {Box, Breadcrumb, Button, Flex, Grid, Heading, TabNav, Text} from '@primer/components'
+import {Box, Breadcrumb, Button, Flex, Grid, Heading, TabNav, Text, Link} from '@primer/components'
 import {Container, Head, Header, Sidebar} from '@primer/gatsby-theme-doctocat'
 import Code from '@primer/gatsby-theme-doctocat/src/components/code'
 import {H2, H3} from '@primer/gatsby-theme-doctocat/src/components/heading'
@@ -6,7 +6,7 @@ import Paragraph from '@primer/gatsby-theme-doctocat/src/components/paragraph'
 import blobStream from 'blob-stream'
 import copy from 'copy-to-clipboard'
 import download from 'downloadjs'
-import {Link} from 'gatsby'
+import {Link as GatsbyLink} from 'gatsby'
 import PDFDocument from 'pdfkit/js/pdfkit.standalone'
 import React from 'react'
 import svgToPdf from 'svg-to-pdfkit'
@@ -14,6 +14,7 @@ import Icon from '../components/icon'
 import IconViewer from '../components/icon-viewer'
 import UIExamples16 from '../components/ui-examples-16'
 import UIExamples24 from '../components/ui-examples-24'
+import {pascalCase} from 'pascal-case'
 
 export default function IconPage({pageContext}) {
   const icon = {
@@ -26,25 +27,19 @@ export default function IconPage({pageContext}) {
   const svg = getSvg(icon)
   const [pdf, setPdf] = React.useState(null)
 
-  React.useEffect(
-    () => {
-      getPdf(icon).then(blob => setPdf(blob))
-    },
-    [icon]
-  )
+  React.useEffect(() => {
+    getPdf(icon).then(blob => setPdf(blob))
+  }, [icon])
 
   const [copied, setCopied] = React.useState(false)
 
-  React.useEffect(
-    () => {
-      const timeout = setTimeout(() => {
-        if (copied) setCopied(false)
-      }, 1000)
+  React.useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (copied) setCopied(false)
+    }, 1000)
 
-      return () => clearTimeout(timeout)
-    },
-    [copied]
-  )
+    return () => clearTimeout(timeout)
+  }, [copied])
 
   return (
     <Flex flexDirection="column" minHeight="100vh">
@@ -57,10 +52,10 @@ export default function IconPage({pageContext}) {
         </Box>
         <Container>
           <Breadcrumb>
-            <Breadcrumb.Item as={Link} to="/">
+            <Breadcrumb.Item as={GatsbyLink} to="/">
               Octicons
             </Breadcrumb.Item>
-            <Breadcrumb.Item as={Link} to={`/${icon.name}-${icon.height}`} selected>
+            <Breadcrumb.Item as={GatsbyLink} to={`/${icon.name}-${icon.height}`} selected>
               {icon.name}
             </Breadcrumb.Item>
           </Breadcrumb>
@@ -69,7 +64,12 @@ export default function IconPage({pageContext}) {
           </Heading>
           <TabNav mb={4}>
             {pageContext.heights.map(height => (
-              <TabNav.Link key={height} as={Link} to={`/${icon.name}-${height}`} selected={height === icon.height}>
+              <TabNav.Link
+                key={height}
+                as={GatsbyLink}
+                to={`/${icon.name}-${height}`}
+                selected={height === icon.height}
+              >
                 {height}
                 px
               </TabNav.Link>
@@ -95,10 +95,21 @@ export default function IconPage({pageContext}) {
             </Button>
           </Grid>
 
-          <H2>Rails and Jekyll examples</H2>
+          <H2>Usage</H2>
           <Paragraph>
-            You can use the Octicons Rails helper or the Jekyll helper to include Octicons on your site. Below are code
-            examples for each.
+            You can use the{' '}
+            <Link as={GatsbyLink} to="/packages/rails">
+              Rails helper
+            </Link>
+            ,{' '}
+            <Link as={GatsbyLink} to="/packages/jekyll">
+              Jekyll helper
+            </Link>
+            , or{' '}
+            <Link as={GatsbyLink} to="/packages/react">
+              React package
+            </Link>{' '}
+            to include Octicons on your site. Below are code examples for each:
           </Paragraph>
 
           <H3>Ruby</H3>
@@ -106,6 +117,9 @@ export default function IconPage({pageContext}) {
 
           <H3>Jekyll</H3>
           <Code>{`{% octicon ${pageContext.name} height:${icon.height} %}`}</Code>
+
+          <H3>React</H3>
+          <Code className="language-jsx">{`<${pascalCase(pageContext.name)}Icon size={${icon.height}} />`}</Code>
 
           <H2>UI examples</H2>
           <UIExamples
@@ -131,9 +145,7 @@ function UIExamples({size, icon}) {
 
 function getSvg(icon) {
   // eslint-disable-next-line github/unescaped-html-literal
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${icon.width} ${icon.height}" width="${
-    icon.width
-  }" height="${icon.height}">${icon.path}</svg>`
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${icon.width} ${icon.height}" width="${icon.width}" height="${icon.height}">${icon.path}</svg>`
 }
 
 function getPdf(icon) {
