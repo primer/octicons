@@ -19,6 +19,7 @@
     "gatsby": "^2.13.25",
     "lodash.flatmap": "^4.5.0",
     "lodash.groupby": "^4.6.0",
+    "pascal-case": "^3.1.1",
     "pdfkit": "^0.11.0",
     "polished": "^3.4.4",
     "react": "^16.8.6",
