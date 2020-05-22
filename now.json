@@ -8,5 +8,5 @@
     }
   ],
   "rewrites": [{"source": "/octicons-v2(/.*)?", "destination": "/docs$1"}],
-  "redirects": [{"source": "/", "destination": "/octicons"}]
+  "redirects": [{"source": "/", "destination": "/octicons-v2"}]
 }
