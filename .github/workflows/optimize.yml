@@ -14,7 +14,6 @@ jobs:
         with:
           add: 'icons'
           message: 'Optimize SVGs'
-          author_name: github-actions
           author_email: actions@github.com
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
