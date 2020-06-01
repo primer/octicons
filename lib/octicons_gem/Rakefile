@@ -12,10 +12,10 @@ Rake::TestTask.new do |t|
 end
 
 task :version, [:v] do |t, args|
-  out = "module Octicons\n"\
+  out = "module OcticonsV2\n"\
     "  VERSION = \"#{args[:v]}\".freeze\n"\
     "end"
-  File.open(File.expand_path("../lib/octicons/version.rb", __FILE__), "w") { |file| file.puts out }
+  File.open(File.expand_path("../lib/octicons_v2/version.rb", __FILE__), "w") { |file| file.puts out }
 end
 
 desc "Run tests"
