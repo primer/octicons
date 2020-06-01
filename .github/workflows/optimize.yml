@@ -1,0 +1,19 @@
+on: push
+name: Optimize SVGs
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: '10.x'
+      - run: npm install
+      - run: npm run svgo
+      - uses: EndBug/add-and-commit@v4
+        with:
+          add: 'icons'
+          message: 'Optimize SVGs'
+          author_email: actions@github.com
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
