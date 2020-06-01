@@ -1,6 +1,6 @@
 require "minitest/autorun"
-require "octicons"
+require "octicons_v2"
 
-def octicon(symbol, options = {})
-  ::Octicons::Octicon.new(symbol, options)
+def octicon_v2(symbol, options = {})
+  ::OcticonsV2::OcticonV2.new(symbol, options)
 end

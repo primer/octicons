@@ -107,8 +107,15 @@ jobs:
         with:
           name: octicons
           path: ./lib/build
-      - uses: ./.github/actions/build_node
+      - name: Build @primer/octicons-react
+        uses: ./.github/actions/build_node
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         with:
           args: octicons_react
+      - name: Build @primer/styled-octicons
+        uses: ./.github/actions/build_node
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        with:
+          args: octicons_styled
