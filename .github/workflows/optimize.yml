@@ -1,0 +1,55 @@
+on: push
+name: Optimize SVGs
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: '10.x'
+      - run: npm install
+      - run: npm run svgo
+      - uses: actions/upload-artifact@master
+        with:
+          name: octicons
+          path: ./lib/build
+      - uses: EndBug/add-and-commit@v4 # You can change this to use a specific version
+        with:
+          # The arguments for the `git add` command (see the paragraph below for more info)
+          # Default: '.'
+          add: 'icons'
+
+          # The name of the user that will be displayed as the author of the commit
+          # Default: author of the commit that triggered the run
+          #author_name: Your Name
+
+          # The email of the user that will be displayed as the author of the commit
+          # Default: author of the commit that triggered the run
+          #author_email: mail@example.com
+
+          # The local path to the directory where your repository is located. You should use actions/checkout first to set it up
+          # Default: '.'
+          #cwd: './path/to/the/repo'
+
+          # Whether to use the --force option on `git add`, in order to bypass eventual gitignores
+          # Default: false
+          #force: true
+
+          # The message for the commit
+          # Default: 'Commit from GitHub Actions'
+          message: 'Optimize SVGs'
+
+          # Name of the branch to use, if different from the one that triggered the workflow
+          # Default: the branch that triggered the workflow (from GITHUB_REF)
+          #ref: 'someOtherBranch'
+          # The arguments for the `git rm` command (see the paragraph below for more info)
+          # Default: ''
+          #remove: "./dir/old_file.js"
+          # Name of the tag to add to the new commit (see the paragraph below for more info)
+          # Default: ''
+          #tag: "v1.0.0"
+
+        env:
+          # This is necessary in order to push a commit to the repo
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
