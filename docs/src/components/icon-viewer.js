@@ -25,7 +25,7 @@ export default function IconViewer({children}) {
           <Flex
             css={{
               transform: `scale(${zoom})`,
-              boxShadow: `0 0 0 ${1 / zoom}px ${theme.colors.blue[4]}`
+              boxShadow: `0 0 0 ${1 / zoom}px ${theme.colors.orange[5]}`
             }}
           >
             {children}
