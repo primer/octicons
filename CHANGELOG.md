@@ -10,7 +10,6 @@
 | `arrow-small-left`       | `arrow-left`              |                                                                                                                                                     |
 | `arrow-small-right`      | `arrow-right`             |                                                                                                                                                     |
 | `arrow-small-up`         | `arrow-up`                |                                                                                                                                                     |
-| `briefcase`              |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
 | `browser`                |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
 | `bug`                    |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
 | `circuit-board`          | `cpu`                     |                                                                                                                                                     |
@@ -19,14 +18,13 @@
 | `dashboard`              |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
 | `dependent`              | `package-dependents`      |                                                                                                                                                     |
 | `device-camera`          |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
-| `ellipsis`               |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
 | `file-pdf`               | `file`                    |                                                                                                                                                     |
 | `file-symlink-directory` | `file-submodule`          |                                                                                                                                                     |
 | `gist-secret`            | `lock`                    |                                                                                                                                                     |
 | `gist`                   | `code-square`             |                                                                                                                                                     |
 | `github-action`          |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
 | `heart-outline`          | `heart`                   |                                                                                                                                                     |
-| `internal-repo`          |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `internal-repo`          | `repo`                          |  |
 | `jersey`                 | `people`                  |                                                                                                                                                     |
 | `keyboard`               |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
 | `line-arrow-down`        | `arrow-down`              |                                                                                                                                                     |
@@ -46,7 +44,6 @@
 | `repo-pull`              |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
 | `repo-template-private`  |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
 | `request-changes`        | `diff`                    |                                                                                                                                                     |
-| `ruby`                   |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
 | `saved`                  | `bookmark`                |                                                                                                                                                     |
 | `squirrel`               |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
 | `text-size`              | `heading` or `typography` |                                                                                                                                                     |
