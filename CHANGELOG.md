@@ -24,7 +24,7 @@
 | `gist`                   | `code-square`             |                                                                                                                                                     |
 | `github-action`          |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
 | `heart-outline`          | `heart`                   |                                                                                                                                                     |
-| `internal-repo`          | `repo`                          |  |
+| `internal-repo`          | `repo`                    |                                                                                                                                                     |
 | `jersey`                 | `people`                  |                                                                                                                                                     |
 | `keyboard`               |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
 | `line-arrow-down`        | `arrow-down`              |                                                                                                                                                     |
@@ -37,7 +37,7 @@
 | `plus-small`             | `plus`                    |                                                                                                                                                     |
 | `primitive-dot-stroke`   | `dot`                     |                                                                                                                                                     |
 | `primitive-dot`          | `dot-fill`                |                                                                                                                                                     |
-| `primitive-square`       |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `primitive-square`       | `square-fill`             |                                                                                                                                                     |
 | `radio-tower`            | `broadcast`               |                                                                                                                                                     |
 | `repo-clone`             |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
 | `repo-force-push`        | `repo-push`               |                                                                                                                                                     |
