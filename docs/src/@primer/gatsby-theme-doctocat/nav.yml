@@ -11,3 +11,5 @@
       url: /packages/javascript
     - title: React
       url: /packages/react
+    - title: Styled System
+      url: /packages/styled-system
