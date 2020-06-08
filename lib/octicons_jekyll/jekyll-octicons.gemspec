@@ -1,7 +1,7 @@
 require File.expand_path("../lib/jekyll-octicons/version", __FILE__)
 
 Gem::Specification.new do |s|
-  s.name        = "jekyll-octicons"
+  s.name        = "jekyll-octicons_v2"
   s.version     = Jekyll::Octicons::VERSION
   s.summary     = "Octicons jekyll liquid tag"
   s.description = "A jekyll liquid plugin that makes including svg Octicons simple."
@@ -14,5 +14,5 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency "jekyll", ">= 3.6", "< 5.0"
-  s.add_dependency "octicons", "9.6.0"
+  s.add_dependency "octicons_v2", "10.0.0"
 end
