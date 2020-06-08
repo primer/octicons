@@ -15,7 +15,7 @@
 | `circuit-board`          | `cpu`                     |                                                                                                                                                     |
 | `cloud-download`         | `download`                |                                                                                                                                                     |
 | `cloud-upload`           | `upload`                  |                                                                                                                                                     |
-| `dashboard`              |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `dashboard`              | `meter`                   |                                                                                                                                                     |
 | `dependent`              | `package-dependents`      |                                                                                                                                                     |
 | `device-camera`          |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
 | `file-pdf`               | `file`                    |                                                                                                                                                     |
