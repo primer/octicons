@@ -45,7 +45,6 @@
 | `repo-template-private`  |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
 | `request-changes`        | `diff`                    |                                                                                                                                                     |
 | `saved`                  | `bookmark`                |                                                                                                                                                     |
-| `squirrel`               |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
 | `text-size`              | `heading` or `typography` |                                                                                                                                                     |
 | `triangle-down`          | `caret-down`              |                                                                                                                                                     |
 | `triangle-left`          | `caret-left`              |                                                                                                                                                     |
@@ -54,7 +53,6 @@
 | `unsaved`                | `bookmark-slash`          |                                                                                                                                                     |
 | `watch`                  | `hourglass`               |                                                                                                                                                     |
 | `workflow-all`           |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
-| `zap`                    |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
 
 - We designed a set of 24px icons—as well as 16px icons—to accommodate interfaces that need larger icons. All package implementations now choose which SVG to render based on the size passed in.
 
