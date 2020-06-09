@@ -33,7 +33,7 @@
 | `line-arrow-up`          | `arrow-up`                |                                                                                                                                                     |
 | `mail-read`              | `mail`                    |                                                                                                                                                     |
 | `no-newline`             | `no-entry`                |                                                                                                                                                     |
-| `paintcan`               |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
+| `paintcan`               | `paintbrush`              |                                                                                                                                                     |
 | `plus-small`             | `plus`                    |                                                                                                                                                     |
 | `primitive-dot-stroke`   | `dot`                     |                                                                                                                                                     |
 | `primitive-dot`          | `dot-fill`                |                                                                                                                                                     |
