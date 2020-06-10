@@ -1,34 +1,28 @@
 ---
 title: React
-status: Experimental 
-source: 'https://github.com/primer/octicons/tree/v2/lib/octicons_react'
+status: Stable 
+source: 'https://github.com/primer/octicons/tree/master/lib/octicons_react'
 ---
 
-import {Flash, Link} from '@primer/components'
-
-[![npm version](https://img.shields.io/npm/v/@primer/octicons-v2-react/canary.svg)](https://www.npmjs.org/package/@primer/octicons-v2-react)
-
-<Flash scheme="yellow" my={3}>
-This is a temporary package containing icons that will be released in Octicons v10.0.0. If you want to use the latest stable release of Octicons, go <Link href="https://primer.style/octicons/packages/react">here</Link>.
-</Flash> 
+[![npm version](https://img.shields.io/npm/v/@primer/octicons-react.svg)](https://www.npmjs.org/package/@primer/octicons-react)
 
 ## Install
 
 ```shell
-npm install @primer/octicons-v2-react@canary
+npm install @primer/octicons-react
 ```
 
 ## Usage
 
 ### Icons
-The `@primer/octicons-v2-react` module exports individual icons as [named
+The `@primer/octicons-react` module exports individual icons as [named
 exports](https://ponyfoo.com/articles/es6-modules-in-depth#named-exports). This
 allows you to import only the icons that you need without blowing up your
 bundle:
 
 ```jsx
 import React from 'react'
-import {BeakerIcon, ZapIcon} from '@primer/octicons-v2-react'
+import {BeakerIcon, ZapIcon} from '@primer/octicons-react'
 
 export default function Icon({boom}) {
   return boom ? <ZapIcon /> : <BeakerIcon />
@@ -45,7 +39,7 @@ styles. You can change the alignment via the `verticalAlign` prop, which can be
 either `middle`, `text-bottom`, `text-top`, or `top`.
 
 ```js
-import {RepoIcon} from '@primer/octicons-v2-react'
+import {RepoIcon} from '@primer/octicons-react'
 
 export default () => (
   <h1>
@@ -61,7 +55,7 @@ You have the option of adding accessibility information to the icon with the
 
 ```js
 // Example usage
-import {PlusIcon} from '@primer/octicons-v2-react'
+import {PlusIcon} from '@primer/octicons-react'
 
 export default () => (
   <button>
@@ -83,7 +77,7 @@ render octicons at standard sizes:
 
 ```js
 // Example usage
-import {LogoGithubIcon} from '@primer/octicons-v2-react'
+import {LogoGithubIcon} from '@primer/octicons-react'
 
 export default () => (
   <h1>

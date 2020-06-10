@@ -1,16 +1,11 @@
 ---
 title: Jekyll
-status: Experimental 
-source: 'https://github.com/primer/octicons/tree/v2/lib/octicons_jekyll'
+status: Stable 
+source: 'https://github.com/primer/octicons/tree/master/lib/octicons_jekyll'
 ---
 
-import {Flash, Link} from '@primer/components'
+[![Gem version](https://img.shields.io/gem/v/jekyll-octicons.svg)](https://rubygems.org/gems/jekyll-octicons)
 
-[![Gem version](https://img.shields.io/gem/v/jekyll-octicons_v2.svg)](https://rubygems.org/gems/jekyll-octicons_v2)
-
-<Flash scheme="yellow" my={3}>
-This is a temporary package containing icons that will be released in Octicons v10.0.0. If you want to use the latest stable release of Octicons, go <Link href="https://primer.style/octicons/packages/jekyll">here</Link>.
-</Flash> 
 
 This jekyll liquid tag is a plugin that will let you easily include svg octicons in your jekyll sites.
 
@@ -19,14 +14,14 @@ This jekyll liquid tag is a plugin that will let you easily include svg octicons
 1. Add this to your `Gemfile`
 
     ```rb
-    gem 'jekyll-octicons_v2'
+    gem 'jekyll-octicons'
     ```
 
 2. Add this to your jekyll `_config.yml`
 
     ```yml
     gems:
-      - jekyll-octicons_v2
+      - jekyll-octicons
     ```
 
 3. Use this tag in your jekyll templates
@@ -35,4 +30,4 @@ This jekyll liquid tag is a plugin that will let you easily include svg octicons
     {% octicon alert height:32 class:"right left" aria-label:hi %}
     ```
 
-We recommend including the CSS in the [`@primer/octicons-v2`](/packages/javascript) npm module. You can also npm install that package and include `build/build.css` in your styles.
+We recommend including the CSS in the [`@primer/octicons`](/packages/javascript) npm module. You can also npm install that package and include `build/build.css` in your styles.
