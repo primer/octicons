@@ -39,7 +39,7 @@
     "eslint-plugin-jest": "^21.17.0",
     "fs-extra": "^6.0.1",
     "jest": "^23.2.0",
-    "next": "^5.1.0",
+    "next": "^9.3.2",
     "primer-react": "0.0.6-alpha.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.1",
