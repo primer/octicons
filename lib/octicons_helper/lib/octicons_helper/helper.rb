@@ -1,14 +1,14 @@
-require "octicons_v2"
+require "octicons"
 require "action_view"
 
-module OcticonsV2Helper
+module OcticonsHelper
 
   include ActionView::Helpers::TagHelper
 
-  def octicon_v2(symbol, options = {})
+  def octicon(symbol, options = {})
     return "" if symbol.nil?
 
-    icon = OcticonsV2::OcticonV2.new(symbol, options)
+    icon = Octicons::Octicon.new(symbol, options)
     content_tag(:svg, icon.path.html_safe, icon.options) # rubocop:disable Rails/OutputSafety
   end
 end

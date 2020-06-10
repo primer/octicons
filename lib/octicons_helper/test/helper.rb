@@ -1,4 +1,4 @@
 require "minitest/autorun"
-require "octicons_v2_helper"
+require "octicons_helper"
 
-include OcticonsV2Helper
+include OcticonsHelper

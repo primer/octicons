@@ -1,5 +1,5 @@
-module OcticonsV2
-  class OcticonV2
+module Octicons
+  class Octicon
     DEFAULT_HEIGHT = 16
 
     attr_reader :path, :options, :width, :height, :symbol, :keywords
@@ -84,7 +84,7 @@ module OcticonsV2
     end
 
     def get_octicon(symbol, options = {})
-      if octicon = OcticonsV2::OCTICON_SYMBOLS[symbol]
+      if octicon = Octicons::OCTICON_SYMBOLS[symbol]
         # We're using width as an approximation for height if the height option is not passed in
         height = options[:height] || options[:width] || DEFAULT_HEIGHT
         natural_height = closest_natural_height(octicon["heights"].keys, height)

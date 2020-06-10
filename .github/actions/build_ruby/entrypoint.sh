@@ -22,7 +22,7 @@ cd ./lib/$*
 echo "**************** Copying assets files to build directory ****************"
 cp -R ../build lib/
 
-perl -pi -e "s/\"octicons_v2\", \"[^\"]+\"/\"octicons_v2\", \"${PACKAGE_VERSION}\"/" ./Gemfile ./*.gemspec
+perl -pi -e "s/\"octicons\", \"[^\"]+\"/\"octicons\", \"${PACKAGE_VERSION}\"/" ./Gemfile ./*.gemspec
 
 echo "**************** Installing ****************"
 bundle install
