@@ -4,15 +4,9 @@ title: Octicons
 
 import {HeroLayout} from '@primer/gatsby-theme-doctocat'
 import Icons from '../src/components/icons'
-import {Flash, Button, Flex} from '@primer/components'
+import {Flash, Button, Flex, Link} from '@primer/components'
+import {Link as GatsbyLink} from 'gatsby'
 
 export default HeroLayout
-
-<Flash mb={4}>
-  <Flex flexDirection={['column', 'row']} alignItems={["flex-start", "center"]} justifyContent="space-between">
-    <Text>We're working on a new look for Octicons</Text>
-    <Button as="a" href="https://primer.style/octicons-v2/" mt={[3, 0]}>Check it out</Button>
-  </Flex>
-</Flash>
 
 <Icons />
