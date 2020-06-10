@@ -1,16 +1,10 @@
 ---
 title: Rails
-status: Experimental
-source: 'https://github.com/primer/octicons/tree/v2/lib/octicons_v2_helper'
+status: Stable
+source: 'https://github.com/primer/octicons/tree/master/lib/octicons_helper'
 ---
 
-import {Flash, Link} from '@primer/components'
-
-[![Gem version](https://img.shields.io/gem/v/octicons_v2_helper.svg)](https://rubygems.org/gems/octicons_v2_helper)
-
-<Flash scheme="yellow" my={3}>
-This is a temporary package containing icons that will be released in Octicons v10.0.0. If you want to use the latest stable release of Octicons, go <Link href="https://primer.style/octicons/packages/rails">here</Link>.
-</Flash>
+[![Gem version](https://img.shields.io/gem/v/octicons_helper.svg)](https://rubygems.org/gems/octicons_helper)
 
 This rails helper lets you easily include svg octicons in your rails apps.
 
@@ -19,13 +13,13 @@ This rails helper lets you easily include svg octicons in your rails apps.
 1. Add this to your `Gemfile`
 
     ```rb
-    gem 'octicons_v2_helper'
+    gem 'octicons_helper'
     ```
 
 3. Use this tag in your erbs
 
     ```rb
-    <%= octicon_v2 "alert", :height => 32,  :class => "right left", :"aria-label" => "hi" %>
+    <%= octicon "alert", :height => 32,  :class => "right left", :"aria-label" => "hi" %>
     ```
 
-We recommend including the CSS in the [`@primer/octicons-v2`](/packages/javascript) npm module. You can also npm install that package and include `build/build.css` in your styles.
+We recommend including the CSS in the [`@primer/octicons`](/packages/javascript) npm module. You can also npm install that package and include `build/build.css` in your styles.

@@ -1,4 +1,4 @@
-require "octicons_v2"
+require "octicons"
 require "jekyll-octicons/version"
 require "liquid"
 require "jekyll/liquid_extensions"
@@ -31,7 +31,7 @@ module Jekyll
       prepare(interpolate(@markup, context)) if match = @markup.match(Variable)
 
       return nil if @symbol.nil?
-      ::OcticonsV2::OcticonV2.new(@symbol, @options).to_svg
+      ::Octicons::Octicon.new(@symbol, @options).to_svg
     end
 
     private

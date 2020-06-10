@@ -1,23 +1,17 @@
 ---
 title: Ruby
-status: Experimental
-source: 'https://github.com/primer/octicons/tree/v2/lib/octicons_gem'
+status: Stable
+source: 'https://github.com/primer/octicons/tree/master/lib/octicons_gem'
 ---
 
-import {Flash, Link} from '@primer/components'
-
-[![Gem version](https://img.shields.io/gem/v/octicons_v2.svg)](https://rubygems.org/gems/octicons_v2)
-
-<Flash scheme="yellow" my={3}>
-This is a temporary package containing icons that will be released in Octicons v10.0.0. If you want to use the latest stable release of Octicons, go <Link href="https://primer.style/octicons/packages/ruby">here</Link>.
-</Flash> 
+[![Gem version](https://img.shields.io/gem/v/octicons.svg)](https://rubygems.org/gems/octicons)
 
 ## Install
 
 Add this to your `Gemfile`
 
 ```rb
-gem 'octicons_v2'
+gem 'octicons'
 ```
 
 Then `bundle install`.
@@ -25,15 +19,15 @@ Then `bundle install`.
 ## Usage
 
 ```rb
-require 'octicons_v2'
-icon = OcticonsV2::OcticonV2.new("x")
+require 'octicons'
+icon = Octicons::Octicon.new("x")
 icon.to_svg
 # <svg class="octicon octicon-x" viewBox="0 0 16 16" width="16" height="16" version="1.1" "aria-hidden"="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg>
 ```
 
 ## Documentation
 
-The `OcticonV2` class takes two arguments. The first is the symbol of the icon, and the second is a hash of arguments representing html attributes
+The `Octicon` class takes two arguments. The first is the symbol of the icon, and the second is a hash of arguments representing html attributes
 
 ### `symbol` _(required)_
 
@@ -55,7 +49,7 @@ Once initialized, you can read a few properties from the icon.
 Returns the string of the symbol name
 
 ```rb
-icon = OcticonsV2::OcticonV2.new("x")
+icon = Octicons::Octicon.new("x")
 icon.symbol
 # "x"
 ```
@@ -65,7 +59,7 @@ icon.symbol
 Path returns the string representation of the path of the icon.
 
 ```rb
-icon = OcticonsV2::OcticonV2.new("x")
+icon = Octicons::Octicon.new("x")
 icon.path
 # <path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path>
 ```
@@ -75,7 +69,7 @@ icon.path
 This is a hash of all the `options` that will be added to the output tag.
 
 ```rb
-icon = OcticonsV2::OcticonV2.new("x")
+icon = Octicons::Octicon.new("x")
 icon.options
 # {:class=>"octicon octicon-x", :viewBox=>"0 0 12 16", :version=>"1.1", :width=>12, :height=>16, :"aria-hidden"=>"true"}
 ```
@@ -93,7 +87,7 @@ Height is the icon's true height. Based on the svg view box height. _Note, this 
 Returns an array of keywords for the icon. The data comes from the [data file in lib](../data.json). Consider contributing more aliases for the icons.
 
 ```rb
-icon = OcticonsV2::OcticonV2.new("x")
+icon = Octicons::Octicon.new("x")
 icon.keywords
 # ["remove", "close", "delete"]
 ```
@@ -105,7 +99,7 @@ icon.keywords
 Returns a string of the svg tag
 
 ```rb
-icon = OcticonsV2::OcticonV2.new("x")
+icon = Octicons::Octicon.new("x")
 icon.to_svg
 # <svg class="octicon octicon-x" viewBox="0 0 16 16" width="16" height="16" version="1.1" "aria-hidden"="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg>
 ```

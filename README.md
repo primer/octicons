@@ -31,7 +31,7 @@ The octicons node.js library is the main JavaScript library. With [a JavaScript 
 
 ### Request a new icon
 
-To request a new icon, open an issue using the [icon request](https://github.com/primer/octicons-v2/issues/new?assignees=&template=icon-request.md&title=%5BIcon+request%5D) template.
+To request a new icon, open an issue using the [icon request](https://github.com/primer/octicons/issues/new?assignees=&template=icon-request.md&title=%5BIcon+request%5D) template.
 
 ### Adding or updating an icon
 

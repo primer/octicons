@@ -21,7 +21,7 @@ task :version, [:v] do |t, args|
   ["jekyll-octicons.gemspec", "Gemfile"].each do |filename|
     gs = File.read(File.expand_path("../#{filename}", __FILE__))
     File.open(File.expand_path("../#{filename}", __FILE__), "w") do |file|
-      file.puts gs.gsub(/"octicons_v2", "[^"]+"/, "\"octicons_v2\", \"#{args[:v]}\"")
+      file.puts gs.gsub(/"octicons", "[^"]+"/, "\"octicons\", \"#{args[:v]}\"")
     end
   end
 end

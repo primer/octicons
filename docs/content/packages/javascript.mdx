@@ -1,33 +1,27 @@
 ---
 title: JavaScript
-status: Experimental 
-source: 'https://github.com/primer/octicons/tree/v2/lib/octicons_node'
+status: Stable 
+source: 'https://github.com/primer/octicons/tree/master/lib/octicons_node'
 ---
 
-import {Flash, Link} from '@primer/components'
-
-[![npm version](https://img.shields.io/npm/v/@primer/octicons-v2/canary.svg)](https://www.npmjs.org/package/@primer/octicons-v2)
-
-<Flash scheme="yellow">
-This is a temporary package containing icons that will be released in Octicons v10.0.0. If you're looking for the latest stable release of Octicons, go <Link href="https://primer.style/octicons/packages/ruby">here</Link>.
-</Flash> 
+[![npm version](https://img.shields.io/npm/v/@primer/octicons.svg)](https://www.npmjs.org/package/@primer/octicons)
 
 ## Install
 
-This package is distributed with [npm][npm]. After [installing npm][install-npm], you can install `@primer/octicons-v2` with this command:
+This package is distributed with [npm][npm]. After [installing npm][install-npm], you can install `@primer/octicons` with this command:
 
 ```shell
-npm install @primer/octicons-v2@canary
+npm install @primer/octicons
 ```
 
 ## Usage
 
-For all the usages, we recommend using the CSS located in [`build/build.css`](https://unpkg.com/@primer/octicons-v2@canary/build/build.css). This is some simple CSS to normalize the icons and inherit colors.
+For all the usages, we recommend using the CSS located in [`build/build.css`](https://unpkg.com/@primer/octicons/build/build.css). This is some simple CSS to normalize the icons and inherit colors.
 
-After installing `@primer/octicons-v2` you can access the icons like this:
+After installing `@primer/octicons` you can access the icons like this:
 
 ```js
-var octicons = require("@primer/octicons-v2")
+var octicons = require("@primer/octicons")
 octicons.alert
 // {
 //     symbol: 'alert',
