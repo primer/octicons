@@ -14,7 +14,7 @@ export interface OcticonProps {
 }
 
 /**
- * @deprecated Use icon components on their own instead (e.g. `<Octicon icon={AlertIcon} />` → `<AlertIcon />`)
+ * @deprecated Use icon components on their own instead (e.g. `<Octicon icon={Alert} />` → `<AlertIcon />`)
  */
 declare const Octicon: React.FC<OcticonProps>
 
