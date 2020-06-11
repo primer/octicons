@@ -1,6 +1,8 @@
 # Octicons
 
-![octicons](https://user-images.githubusercontent.com/54012/37737576-5d1e8c7a-2d11-11e8-8fd9-13956a241549.png)
+<p align="center">
+  <img width="800" src="https://user-images.githubusercontent.com/4608155/74476584-77155300-4e5e-11ea-88c6-6c9f64cf0f05.png" alt="Octicons cover" />
+</p>
 
 [![Octicons Build](https://github.com/primer/octicons/workflows/Octicons%20Build/badge.svg)](https://github.com/primer/octicons/actions?query=workflow%3A%22Octicons+Build%22)
 
