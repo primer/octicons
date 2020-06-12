@@ -1,18 +1,16 @@
 module Octicons
   class Octicon
+    DEFAULT_HEIGHT = 16
 
     attr_reader :path, :options, :width, :height, :symbol, :keywords
 
     def initialize(symbol, options = {})
       @symbol = symbol.to_s
-      if octicon = Octicons::OCTICON_SYMBOLS[@symbol]
-
+      if octicon = get_octicon(@symbol, options)
         @path = octicon["path"]
-        @width = octicon["width"].to_i
-        @height = octicon["height"].to_i
-
+        @width = octicon["width"]
+        @height = octicon["height"]
         @keywords = octicon["keywords"]
-
         @options = options
         @options.merge!({
           class:   classes,
@@ -83,6 +81,27 @@ module Octicons
 
     def calculate_height(width)
       (width.to_i * @height) / @width
+    end
+
+    def get_octicon(symbol, options = {})
+      if octicon = Octicons::OCTICON_SYMBOLS[symbol]
+        # We're using width as an approximation for height if the height option is not passed in
+        height = options[:height] || options[:width] || DEFAULT_HEIGHT
+        natural_height = closest_natural_height(octicon["heights"].keys, height)
+        return {
+          "name" => octicon["name"],
+          "keywords" => octicon["keywords"],
+          "width" => octicon["heights"][natural_height.to_s]["width"].to_i,
+          "height" => natural_height,
+          "path" => octicon["heights"][natural_height.to_s]["path"]
+        }
+      end
+    end
+
+    def closest_natural_height(natural_heights, height)
+      return natural_heights.reduce(natural_heights[0].to_i) do |acc, natural_height|
+        natural_height.to_i <= height.to_i ? natural_height.to_i : acc
+      end
     end
   end
 end

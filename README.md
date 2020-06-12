@@ -1,6 +1,8 @@
 # Octicons
 
-![octicons](https://user-images.githubusercontent.com/54012/37737576-5d1e8c7a-2d11-11e8-8fd9-13956a241549.png)
+<p align="center">
+  <img width="800" src="https://user-images.githubusercontent.com/4608155/74476584-77155300-4e5e-11ea-88c6-6c9f64cf0f05.png" alt="Octicons cover" />
+</p>
 
 [![Octicons Build](https://github.com/primer/octicons/workflows/Octicons%20Build/badge.svg)](https://github.com/primer/octicons/actions?query=workflow%3A%22Octicons+Build%22)
 
@@ -17,7 +19,9 @@ The octicons node.js library is the main JavaScript library. With [a JavaScript 
 | Package                                                                              | Version                                                                                                                         |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
 | **[@primer/octicons](/lib/octicons_node)** <br />Node.js package with Javascript API | [![npm version](https://img.shields.io/npm/v/@primer/octicons.svg)](https://www.npmjs.org/package/@primer/octicons)             |
-| **[@primer/octicons-react](/lib/octicons_react)** <br />React octicons components    | [![npm version](https://img.shields.io/npm/v/@primer/octicons-react.svg)](https://www.npmjs.org/package/@primer/octicons-react) |
+| **[@primer/octicons-react](/lib/octicons_react)** <br />React Octicons components    | [![npm version](https://img.shields.io/npm/v/@primer/octicons-react.svg)](https://www.npmjs.org/package/@primer/octicons-react) |
+| **[@primer/styled-octicons](/lib/octicons_styled)** <br />React Octicons components with Styled System props    | [![npm version](https://img.shields.io/npm/v/@primer/styled-octicons.svg)](https://www.npmjs.org/package/@primer/styled-octicons) |
+
 
 ### Ruby
 
@@ -31,7 +35,7 @@ The octicons node.js library is the main JavaScript library. With [a JavaScript 
 
 ### Request a new icon
 
-To request a new icon, open an issue using the [icon request](https://github.com/primer/octicons-v2/issues/new?assignees=&template=icon-request.md&title=%5BIcon+request%5D) template.
+To request a new icon, open an issue using the [icon request](https://github.com/primer/octicons/issues/new?assignees=&template=icon-request.md&title=%5BIcon+request%5D) template.
 
 ### Adding or updating an icon
 
