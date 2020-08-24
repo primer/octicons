@@ -1,3 +1,15 @@
+# 10.1.0
+### 🚀 New Features
+- [`arrow-switch`](https://github.com/primer/octicons/pull/486)
+- [`file-badge`](https://github.com/primer/octicons/pull/464)
+- [`x-circle`, `x-circle-fill`, `circle`](https://github.com/primer/octicons/pull/455)
+  
+### 🐛 Fixes
+- Corrected positioning for `triangle-down` [#459](https://github.com/primer/octicons/pull/459)
+
+### 🧽Chores
+- Dependency updates
+
 # 10.0.0
 
 ## All packages
