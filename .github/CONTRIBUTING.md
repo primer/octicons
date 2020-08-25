@@ -72,7 +72,7 @@ git checkout -b release-x.y.z
 
 In the context of Octicons, the version number is updated as follows:
 
-- Significant changes to the library or workflow, renaming or removing an icon would all be considered a **major update**. 
+- Breaking changes to the library or workflow, renaming or removing an icon would all be considered a **major update**. 
 - Adding a new icon would be considered a **minor update**.
 - Fixing an icon would be considered a **patch**.
 
@@ -125,6 +125,5 @@ When all of the checks have passed and the release PR has been approved, merge t
 
 
 🎉 Congratulations! The new release has been published.
-
 
 
