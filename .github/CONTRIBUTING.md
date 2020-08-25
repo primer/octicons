@@ -72,13 +72,13 @@ git checkout -b release-x.y.z
 
 In the context of Octicons, significant changes to the library or workflow, or removing an icon would be considered a major update. Adding a new icon would be considered a minor update. Fixing an icon would be considered a patch. Reach out in the #design-systems Slack channel if you're unsure.
 
-### 2. Update the [CHANGELOG](https://github.com/primer/octicons/blob/main/CHANGELOG.md) describing the changes in this release.
+### 2. Update the [CHANGELOG](https://github.com/primer/octicons/blob/master/CHANGELOG.md) describing the changes in this release.
 
 ### 3. Once the CHANGELOG has been updated, run `npm version <new-version>`.
 
 This will update `package.json` with the new version, then update all the `lib/*` packages with the same version. If that runs smoothly, it should commit the changed files.
 
-### 4. Push your branch and open a pull request into `main`.
+### 4. Push your branch and open a pull request into `master`.
 
 A GitHub action will automatically publish a canary release of each Octicons package for each commit pushed to a branch. If the branch is prefixed with `release-` it will publish a release candidate.
 
@@ -88,4 +88,4 @@ Merge any pull requests you want to include in the release into the release bran
 
 ### 6. Merge the release branch
 
-Shortly after the release branch is merged into `main`, a GitHub action will publish new versions of each Octicons package.
+Shortly after the release branch is merged into `master`, a GitHub action will publish new versions of each Octicons package.

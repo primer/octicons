@@ -28,7 +28,7 @@ if (releaseMatch = branchName.match(/^release-([\d\.]+)/i)) {
 }
 
  // Otherwise
-else if (branchName != 'main') {
+else if (branchName != 'master') {
   const newVersion = `0.0.0-${shortSha}`
   console.log('Versioning prerelease')
   console.log(`${pkg.version} => ${newVersion}`)
