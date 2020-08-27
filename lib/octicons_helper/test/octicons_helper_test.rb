@@ -17,5 +17,27 @@ describe OcticonsHelper do
     it "adds html attributes to output" do
       assert_match /foo="bar"/, octicon("alert", foo: "bar")
     end
+
+    it "caches SVGs for two calls with the same arguments" do
+      OcticonsHelper.octicons_helper_cache = {}
+
+      mock = Minitest::Mock.new
+      def mock.path
+        @@call_count ||= 0
+        @@call_count += 1
+
+        raise "Octicon library called twice" if @@call_count > 1
+
+        "foo"
+      end
+      def mock.options; end
+
+      Octicons::Octicon.stub :new, mock do
+        octicon("alert")
+        octicon("alert")
+      end
+
+      OcticonsHelper.octicons_helper_cache = {}
+    end
   end
 end
