@@ -58,10 +58,6 @@
 | `request-changes`        | `diff`                    |                                                                                                                                                     |
 | `saved`                  | `bookmark`                |                                                                                                                                                     |
 | `text-size`              | `heading` or `typography` |                                                                                                                                                     |
-| `triangle-down`          | `caret-down`              |                                                                                                                                                     |
-| `triangle-left`          | `caret-left`              |                                                                                                                                                     |
-| `triangle-right`         | `caret-right`             |                                                                                                                                                     |
-| `triangle-up`            | `caret-up`                |                                                                                                                                                     |
 | `unsaved`                | `bookmark-slash`          |                                                                                                                                                     |
 | `watch`                  | `hourglass`               |                                                                                                                                                     |
 | `workflow-all`           |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
