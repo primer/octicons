@@ -1,3 +1,15 @@
+# 10.1.0
+### 🚀 New Features
+- [`arrow-switch`](https://github.com/primer/octicons/pull/486)
+- [`file-badge`](https://github.com/primer/octicons/pull/464)
+- [`x-circle`, `x-circle-fill`, `circle`](https://github.com/primer/octicons/pull/455)
+  
+### 🐛 Fixes
+- Corrected positioning for `triangle-down` [#459](https://github.com/primer/octicons/pull/459)
+
+### 🧽Chores
+- Dependency updates
+
 # 10.0.0
 
 ## All packages
@@ -46,10 +58,6 @@
 | `request-changes`        | `diff`                    |                                                                                                                                                     |
 | `saved`                  | `bookmark`                |                                                                                                                                                     |
 | `text-size`              | `heading` or `typography` |                                                                                                                                                     |
-| `triangle-down`          | `caret-down`              |                                                                                                                                                     |
-| `triangle-left`          | `caret-left`              |                                                                                                                                                     |
-| `triangle-right`         | `caret-right`             |                                                                                                                                                     |
-| `triangle-up`            | `caret-up`                |                                                                                                                                                     |
 | `unsaved`                | `bookmark-slash`          |                                                                                                                                                     |
 | `watch`                  | `hourglass`               |                                                                                                                                                     |
 | `workflow-all`           |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
