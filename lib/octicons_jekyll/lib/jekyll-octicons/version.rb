@@ -3,6 +3,6 @@ module Liquid; class Tag; end; end
 
 module Jekyll
   class Octicons < Liquid::Tag
-    VERSION = "10.1.0".freeze
+    VERSION = "11.0.0".freeze
   end
 end
