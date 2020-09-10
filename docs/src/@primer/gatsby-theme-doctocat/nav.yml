@@ -13,3 +13,8 @@
       url: /packages/react
     - title: Styled System
       url: /packages/styled-system
+- title: Guidelines
+  url: /guidelines
+  children:
+    - title: Design
+      url: /guidelines/design
