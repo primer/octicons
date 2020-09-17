@@ -5,8 +5,7 @@ title: Design guidelines
 import {Caption, Do, Dont} from '@primer/gatsby-theme-doctocat'
 import {Grid, Flex, Box} from '@primer/components'
 
-TODO: Introduction
-
+These are guidelines to use as a reference when designing new Octicons. If you're looking for guidance on how to use Octicons in your design, see our [Usage guidelines](/guidelines/usage).
 
 ## Grid sizes
 
@@ -41,7 +40,7 @@ Use a consistent stroke width of 1.5px for both 16px and 24px icons.
 
 ## Reference shapes 
 
-Use the following shapes as sizing references to ensure that "optical volume" of your icon is consistent with the rest of the set. See the "Grid and Optical Volume" section of [Nucleo's Icon Guidelines](https://blog.nucleoapp.com/nucleo-icon-guidelines-introduction-70092f8b4697) to learn more about "optical volume."
+Use the following shapes as sizing references to ensure that the "optical volume" of your icon is consistent with the rest of the set. See the "Grid and Optical Volume" section of [Nucleo's Icon Guidelines](https://blog.nucleoapp.com/nucleo-icon-guidelines-introduction-70092f8b4697) to learn more about "optical volume."
 
 ### Circle
 
@@ -179,7 +178,7 @@ Use 0.25px radius for small filled elements inside icons, like filled arrowheads
 
 ## Gaps
 
-Use a 1px gap to separate 1px overlapping objects.
+Use a 1px gap to separate overlapping objects.
 
 <Flex mb={4} flexDirection="column">
     <Flex bg="gray.1" justifyContent="center">
@@ -207,14 +206,14 @@ Use a 1.5px gap around modifier elements, like lines and arrows.
 
 ## Perspective
 
-Design with 2D perspective unless depth makes the icon more recognizable.
+Use 2D perspective unless depth makes the icon more recognizable.
 
 <Grid gridTemplateColumns={['1fr', null, null, null, '1fr 1fr']} gridGap={4}>
     <Do>
         <Flex bg="gray.1" justifyContent="center">
             <img width="400" alt="" src="https://compai.pub/v1/png/279357826adcb80f653d8d199e6b01989a1d08daacb4e1eb9d88a6b27d7f25a4"/>
         </Flex>
-        <Caption>Design with 2D perspective</Caption>
+        <Caption>Use 2D perspective</Caption>
     </Do>
     <Dont>
         <Flex bg="gray.1" justifyContent="center">
@@ -281,4 +280,21 @@ Use line arrowheads unless there is not enough room.
 
 ### Creating a pull request
 
+If you work at GitHub, you can use the [Octicons Push](https://www.figma.com/community/plugin/825432045044458754/Octicons-Push) Figma plugin to start an Octicons pull request from Figma.
+
+Here's how it works:
+1. Select the icon frames you want to commit. Make sure the frames are either 16x16 or 24x24 and that you've outlined all strokes.
+1. Open the Octicons Push plugin.
+1. Select the branch you want to commit to. You can choose an existing branch or create a new branch.
+1. Press "Commit." The plugin will then export, commit, and push the selected icons to the branch you chose. If you chose to create a new branch, the plugin will give you a link to where you can start a new pull request with your branch.
+
+
+![demo](https://user-images.githubusercontent.com/4608155/77948730-b1a24600-727a-11ea-9c39-040be9a12963.gif)
+
 ### Review questions
+
+- Where will this icon be used in the context of GitHub UI?
+- Is an icon necessary in that context?
+- Could we use an existing icon?
+- Is the icon trying to represent too many ideas? 
+- Does it follow the design guidelines?
