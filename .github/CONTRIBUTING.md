@@ -60,7 +60,7 @@ Use GitHub to [create a pull request](https://help.github.com/en/desktop/contrib
 
 If everything looks good, a maintainer will approve and merge the pull request when appropriate. After the pull request is merged, your icon will be available in the next Octicons release.
 
-## Releasing changes
+## Releasing changes 
 
 Once submitted changes have been agreed upon, these instructions will guide maintainers through releasing changes.
 
@@ -70,22 +70,60 @@ Once submitted changes have been agreed upon, these instructions will guide main
 git checkout -b release-x.y.z
 ```
 
-In the context of Octicons, significant changes to the library or workflow, or removing an icon would be considered a major update. Adding a new icon would be considered a minor update. Fixing an icon would be considered a patch. Reach out in the #design-systems Slack channel if you're unsure.
+In the context of Octicons, the version number is updated as follows:
+
+- Breaking changes to the library or workflow, renaming or removing an icon would all be considered a **major update**. 
+- Adding a new icon would be considered a **minor update**.
+- Fixing an icon would be considered a **patch**.
+
+Reach out in the #design-systems Slack channel if you're unsure.
 
 ### 2. Update the [CHANGELOG](https://github.com/primer/octicons/blob/master/CHANGELOG.md) describing the changes in this release.
 
-### 3. Once the CHANGELOG has been updated, run `npm version <new-version>`.
+When adding changes, be sure to provide a link to any of the relevant PRs merged into the release. 
 
-This will update `package.json` with the new version, then update all the `lib/*` packages with the same version. If that runs smoothly, it should commit the changed files.
+### 3. Update the version in code base
 
-### 4. Push your branch and open a pull request into `master`.
+Find and replace the version number of the current release with the version number of the new release. Exclude anything that does relate directly to the Octicons version. Examples of excluded items include `yargs-parser` and `testing-library_react`.
 
-A GitHub action will automatically publish a canary release of each Octicons package for each commit pushed to a branch. If the branch is prefixed with `release-` it will publish a release candidate.
+### 4. Create a release PR
 
-### 5. Merge feature branches into the release branch
+When creating the release PR, include the changes written in the CHANGELOG in the description. We advise changing any bulleted item into a checkbox item. After each update is merged into the release PR, check each item as complete.
 
-Merge any pull requests you want to include in the release into the release branch (e.g. `add-new-icon` → `release-1.2.3`).
+### 5. Tag release branch
 
-### 6. Merge the release branch
+Pull down any changes from release branch onto your local machine and tag your release with the new version number by running:
 
-Shortly after the release branch is merged into `master`, a GitHub action will publish new versions of each Octicons package.
+```shell
+git tag vx.y.z
+```
+**Example:**
+
+```shell
+git tag v10.1.0
+```
+
+After the release branch has been tagged, push the tag back to the origin.
+
+```shell
+git push --tags
+```
+
+### 6. Merge
+When all of the checks have passed and the release PR has been approved, merge the new release to the main branch.
+
+### 7. Draft new release
+- On the **Code** tab, click **Releases** in the repo sidebar.
+- Click **Draft a new release**.
+- Select the tag with the new version number tag set in step 5.
+- Title the release with the new version number and paste in the changes that were added to the CHANGELOG.
+- Click **Publish release**.
+
+**Example:**
+
+![image](https://user-images.githubusercontent.com/10384315/91103190-c6171e80-e61f-11ea-8396-7138996cff30.png)
+
+
+🎉 Congratulations! The new release has been published.
+
+

@@ -1,3 +1,34 @@
+# 11.0.0
+
+### 💅 Enhancements
+
+- Cache retrieval of Octicon SVG paths (https://github.com/primer/octicons/pull/491)
+
+### 💥 Breaking changes
+
+- Fix 24px icon names https://github.com/primer/octicons/pull/465 (@BenJetson 🙇)
+  - `unverifed-24.svg` → `unverified-24.svg`
+  - `file-symlink-24.svg` → `file-symlink-file-24.svg`
+  - `fire-24.svg` → `flame-24.svg`
+  - `eye-slash-24.svg` → `eye-closed-24.svg`
+- Remove 24px `settings` icon. Use `gear` instead https://github.com/primer/octicons/pull/493
+
+# 10.1.0
+
+### 🚀 New Features
+
+- [`arrow-switch`](https://github.com/primer/octicons/pull/486)
+- [`file-badge`](https://github.com/primer/octicons/pull/464)
+- [`x-circle`, `x-circle-fill`, `circle`](https://github.com/primer/octicons/pull/455)
+
+### 🐛 Fixes
+
+- Corrected positioning for `triangle-down` [#459](https://github.com/primer/octicons/pull/459)
+
+### 🧽Chores
+
+- Dependency updates
+
 # 10.0.0
 
 ## All packages
@@ -46,10 +77,6 @@
 | `request-changes`        | `diff`                    |                                                                                                                                                     |
 | `saved`                  | `bookmark`                |                                                                                                                                                     |
 | `text-size`              | `heading` or `typography` |                                                                                                                                                     |
-| `triangle-down`          | `caret-down`              |                                                                                                                                                     |
-| `triangle-left`          | `caret-left`              |                                                                                                                                                     |
-| `triangle-right`         | `caret-right`             |                                                                                                                                                     |
-| `triangle-up`            | `caret-up`                |                                                                                                                                                     |
 | `unsaved`                | `bookmark-slash`          |                                                                                                                                                     |
 | `watch`                  | `hourglass`               |                                                                                                                                                     |
 | `workflow-all`           |                           | [Request this icon](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D) |
