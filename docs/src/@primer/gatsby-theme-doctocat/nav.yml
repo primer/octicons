@@ -18,5 +18,7 @@
 - title: Guidelines
   url: /guidelines
   children:
+    - title: Usage
+      url: /guidelines/usage
     - title: Design
       url: /guidelines/design
