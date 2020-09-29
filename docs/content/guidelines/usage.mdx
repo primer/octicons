@@ -7,31 +7,66 @@ import {Grid, Flex, Box} from '@primer/components'
 
 # Octicons usage guidelines
 
-Octicons are a set of icons that are custom to GitHub. When using an octicon keep in mind that an icon should be used for _emphasis_ of the context it supports. 
+The following guidelines are to be used as a reference for how to use octicons.
 
-Remember: Not everything needs an icon. Consider a text label before adding an icon. Adding an octicon should be intentional. 
+## General guidelines:
 
-## Sizing
+These are general guidelines to follow when using octicons across various platforms:
+
+1. Octicons should be used to _emphasize_ meaning, not replace.
+2. Adding an octicon should be intentional.
+3. Not everything needs an icon. Consider a text label before adding an icon.
+4. Octicons should be kept at their 1:1 aspect ratio
+
+### Sizing
+
 Octicons are available at 16px and 24px frame sizes. While they can be resized we recommend you use octicons at their original sizes to maintain consistency in stroke width.
 
-## Spacing
+[TODO: Add image]
+
+### Spacing
+
 When used in groups, octicons should have a minimum of 4px space between each icon.
 
-## Octicons custom to `git`
+[TODO: Add image]
+
+## Specific icon usage
+
+### Octicons custom to `git`
+
 The following should only be used for their specific meanings:
 
 - Commits: The commit icon is represented as a circle on a line. This is to symbolize a point (the circle) along the version history timeline in which changes were made. This icon should be used in views to represent individual or groups of commits. These views include the timeline and the Commits tab in pull requests.
-- Issues: The issue icon is represented as a circle with an `!` mark. The base issue icon is extended through slight modifications to communicate different states of an issue: a checkmark for a closed issue and combining the sync icon with an `!` for reopening an issue. These three symbols should be used exclusively with issues. 
+- Issues: The issue icon is represented as a circle with an `!` mark. The base issue icon is extended through slight modifications to communicate different states of an issue: a checkmark for a closed issue and combining the sync icon with an `!` for reopening an issue. These three symbols should be used exclusively with issues.
 - Pull requests: The pull request icon is represented as a commit dot attached with an arrow being inserted into the history timeline (two dots connected by a line).
-- Repos: A repository in GitHub is represented as a closed book and is explicitly named as `repo`. Octicons does contain a `book` icon which displays an open book symbol that is used for wikis, READMEs, and other use cases where the user can see a collection of information. 
+- Repos: A repository in GitHub is represented as a closed book and is explicitly named as `repo`. Octicons does contain a `book` icon which displays an open book symbol that is used for wikis, READMEs, and other use cases where the user can see a collection of information.
 
-
-## Octicons custom to GitHub brand
+### Octicons custom to GitHub brand
 
 - Octoface: Represents the user. Conveys connection between GitHub and the user. Similar to the octocat generator.
 - GH mark: Brand logo use only. Follow brand guidelines.
 
+## Outline vs fill: What's the difference?
 
-## Outline vs fill
-TODO Write 
+By default, octicons have been designed in an outline style where filled shapes create small details (e.g. the repo icon where the book is outlined and the bookmark is filled). The use for using a fill style icon instead of an outline icon has been intentional and for the following use cases:
 
+- To aid in contrast when in relation to another icon [TODO: Screenshot of repo files view folder icon vs file icon]
+- For use in GitHub's native mobile apps [TODO: Screenshot of navbar and swipe actions (iOS)]
+- To show state [TODO: Screenshot of star and sponsor social buttons]
+
+## Icon states
+
+The state of an icon can be displayed using outline/fill icon pairs or by using an icon's slash variant. Read below to understand the difference.
+
+### Outline and fill pairings
+
+Use the outline icon for the "off"/"empty" state and the fill icons for "on"/"filled" states.
+
+[Example from mobile nav bar]
+[Example from sponsors button]
+
+### Slash icons
+
+Specific icons have a stateful pair using a slash to indicate the "off/empty" state. Use these when indicating that an action is removing or disabling a function.
+
+Examples: The subscribe button and save actions in notifications are special cases where a `slash` version of the icon is used for the "off"/"empty" state.

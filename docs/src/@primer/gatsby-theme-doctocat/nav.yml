@@ -1,5 +1,12 @@
 - title: Icons
   url: /
+- title: Guidelines
+  url: /guidelines
+  children:
+    - title: Usage
+      url: /guidelines/usage
+    - title: Design
+      url: /guidelines/design
 - title: Packages
   url: /packages
   children:
@@ -15,10 +22,3 @@
       url: /packages/react
     - title: Styled System
       url: /packages/styled-system
-- title: Guidelines
-  url: /guidelines
-  children:
-    - title: Usage
-      url: /guidelines/usage
-    - title: Design
-      url: /guidelines/design
