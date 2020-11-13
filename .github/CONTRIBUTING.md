@@ -90,32 +90,13 @@ Find and replace the version number of the current release with the version numb
 
 When creating the release PR, include the changes written in the CHANGELOG in the description. We advise changing any bulleted item into a checkbox item. After each update is merged into the release PR, check each item as complete.
 
-### 5. Tag release branch
-
-Pull down any changes from release branch onto your local machine and tag your release with the new version number by running:
-
-```shell
-git tag vx.y.z
-```
-**Example:**
-
-```shell
-git tag v10.1.0
-```
-
-After the release branch has been tagged, push the tag back to the origin.
-
-```shell
-git push --tags
-```
-
-### 6. Merge
+### 5. Merge
 When all of the checks have passed and the release PR has been approved, merge the new release to the main branch.
 
-### 7. Draft new release
+### 6. Draft new release
 - On the **Code** tab, click **Releases** in the repo sidebar.
 - Click **Draft a new release**.
-- Select the tag with the new version number tag set in step 5.
+- Tag the release with the new version number (e.g. `v10.1.0`).
 - Title the release with the new version number and paste in the changes that were added to the CHANGELOG.
 - Click **Publish release**.
 
