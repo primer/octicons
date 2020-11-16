@@ -1,3 +1,10 @@
+- title: Icons
+  url: /
+- title: Guidelines
+  url: /guidelines
+  children:
+    - title: Design
+      url: /guidelines/design
 - title: Packages
   url: /packages
   children:

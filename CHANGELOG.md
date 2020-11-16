@@ -1,3 +1,12 @@
+# 11.1.0
+### 🚀 New Features
+- `container` (https://github.com/primer/octicons/pull/507)
+- `squirrel` 24px icon (https://github.com/primer/octicons/pull/508)
+  
+### 🐛 Fixes
+- Corrected stroke for 24px `smiley` (https://github.com/primer/octicons/pull/509)
+
+
 # 11.0.0
 
 ### 💅 Enhancements
