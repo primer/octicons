@@ -5,13 +5,16 @@ title: Usage guidelines
 import {Caption, Do, Dont} from '@primer/gatsby-theme-doctocat'
 import {Grid, Flex, Box} from '@primer/components'
 
-# Octicons usage guidelines
+Follow these guidelines to know how to correctly use octicons in your designs.
 
-The following guidelines are to be used as a reference for how to use octicons.
+Above all, when using octicons across various platforms, make sure that:
 
-## General guidelines:
+1. Octicons are used to _emphasize_ meaning, not as a replacement.
+2. Adding an octicon is intentional.
+3. An icon is need. Not everything needs an icon: consider a text label before adding an icon.
+4. Octicons are kept at their 1:1 aspect ratio.
 
-These are general guidelines to follow when using octicons across various platforms:
+## Sizing
 
 1. Octicons should be used to _emphasize_ meaning, not replace.
 2. Adding an octicon should be intentional.
@@ -27,7 +30,7 @@ Octicons are available at 16px and 24px frame sizes.
 
 [TODO: Add image]
 
-### Spacing
+## Spacing
 
 When used in groups, octicons should have a minimum of 4px space between each icon.
 
@@ -39,27 +42,27 @@ When used in groups, octicons should have a minimum of 4px space between each ic
 
 The following should only be used for their specific meanings:
 
-- Commits: The commit icon is represented as a circle on a line. This is to symbolize a point (the circle) along the version history timeline in which changes were made. This icon should be used in views to represent individual or groups of commits. These views include the timeline and the Commits tab in pull requests.
-- Issues: The issue icon is represented as a circle with an `!` mark. The base issue icon is extended through slight modifications to communicate different states of an issue: a checkmark for a closed issue and combining the sync icon with an `!` for reopening an issue. These three symbols should be used exclusively with issues.
-- Pull requests: The pull request icon is represented as a commit dot attached with an arrow being inserted into the history timeline (two dots connected by a line).
-- Repos: A repository in GitHub is represented as a closed book and is explicitly named as `repo`. Octicons does contain a `book` icon which displays an open book symbol that is used for wikis, READMEs, and other use cases where the user can see a collection of information.
+- **Commits:** The `commit` icon is represented as a circle on a line. This symbolizes a point (the circle) along the version history timeline in which changes were made. Use this icon in views to represent individual or groups of commits, including the timeline and the Commits tab in pull requests.
+- **Issues:** The `issue` icon is represented as a circle with an `!` mark. The base `issue` icon is extended through slight modifications that communicate different states of an issue: a checkmark for a closed issue, and by combining the sync icon with an `!` for reopening an issue. These three symbols should be used exclusively with issues.
+- **Pull requests:** The `pull request` icon is represented as a commit dot attached with an arrow being inserted into the history timeline (two dots connected by a line).
+- **Repos:** A repository in GitHub is represented as a closed book and is explicitly named as `repo`. Octicons does contain a `book` icon which displays an open book symbol that is used for wikis, READMEs, and other use cases where the user can see a collection of information.
 
-### Octicons custom to GitHub brand
+### Octicons custom to the GitHub brand
 
-- Octoface: Represents the user. Conveys connection between GitHub and the user. Similar to the octocat generator.
-- GH mark: Brand logo use only. Follow brand guidelines.
+- **Octoface:** Represents the user. Conveys connection between GitHub and the user. Similar to the octocat generator.
+- **GH mark:** Brand logo use only. Follow [GitHub's brand guidelines](https://brand.github.com/) when using this octicon.
 
 ## Outline vs fill: What's the difference?
 
-By default, octicons have been designed in an outline style where filled shapes create small details (e.g. the repo icon where the book is outlined and the bookmark is filled). The use for using a fill style icon instead of an outline icon has been intentional and for the following use cases:
+By default, octicons are designed in an outline style, where filled shapes create small details (for example, in the `repo` icon the book is outlined and the bookmark is filled). Choosing to follow a filled icon style instead of an outline one was an intentional decision taking into account the following use cases:
 
 - To aid in contrast when in relation to another icon [TODO: Screenshot of repo files view folder icon vs file icon]
-- For use in GitHub's native mobile apps [TODO: Screenshot of navbar and swipe actions (iOS)]
+- To be use in GitHub's native mobile apps [TODO: Screenshot of navbar and swipe actions (iOS)]
 - To show state [TODO: Screenshot of star and sponsor social buttons]
 
 ### Status
 
-To show the status or completion of an action (e.g. an action running), the filled check and filled x icons can be used.
+To indicate the status or completion of an action (for example, an action running), you can use the filled `check` and filled `x` icons.
 
 [TODO: Show image of Actions]
 
