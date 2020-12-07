@@ -6,7 +6,7 @@ source: 'https://github.com/primer/octicons/tree/master/lib/octicons_helper'
 
 [![Gem version](https://img.shields.io/gem/v/octicons_helper.svg)](https://rubygems.org/gems/octicons_helper)
 
-This rails helper lets you easily include svg octicons in your rails apps.
+The Rails helper lets you include octicons in your Rails apps.
 
 ## Install
 
@@ -23,3 +23,7 @@ This rails helper lets you easily include svg octicons in your rails apps.
     ```
 
 We recommend including the CSS in the [`@primer/octicons`](/packages/javascript) npm module. You can also npm install that package and include `build/build.css` in your styles.
+
+## Caching
+
+`octicons_helper` caches repeated calls to `octicon` based on the name of the icon and the provided `options` hash. Avoid arbitrary/high cardinality `options` (such as an `id` with a unique record identifier), as they can cause a memory leak.
