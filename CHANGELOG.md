@@ -1,4 +1,4 @@
-# 11.1.0
+# 11.2.0
 ### 🚀 New Features
 - `container` (https://github.com/primer/octicons/pull/507)
 - `squirrel` 24px icon (https://github.com/primer/octicons/pull/508)
