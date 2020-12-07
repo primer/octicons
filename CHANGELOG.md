@@ -1,5 +1,17 @@
 # 11.2.0
 ### 🚀 New Features
+- `strikethrough` (https://github.com/primer/octicons/pull/518)
+
+### 🐛 Fixes
+- Align `plus` and `dash` icon (https://github.com/primer/octicons/pull/447)
+- Small edits in JS documentation (https://github.com/primer/octicons/pull/499)
+
+### 🧽Chores
+
+- Dependency updates
+
+# 11.1.0
+### 🚀 New Features
 - `container` (https://github.com/primer/octicons/pull/507)
 - `squirrel` 24px icon (https://github.com/primer/octicons/pull/508)
   
