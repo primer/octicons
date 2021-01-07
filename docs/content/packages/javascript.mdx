@@ -105,7 +105,7 @@ octicons.x.heights
 
 ### `octicons[name].heights[height].width`
 
-Returns the icon's true width, based on the svg view box width. _Note, this doesn't change if you scale it up with size options, it only is the natural width of the icon._
+Returns the icon's true width, based on the SVG view box width. _Note, this doesn't change if you scale it up with size options, it only is the natural width of the icon._
 
 ### `octicons[name].heights[height].path`
 
@@ -134,7 +134,7 @@ octicons.x.toSVG()
 // <svg version="1.1" width="12" height="16" viewBox="0 0 12 16" class="octicon octicon-x" aria-hidden="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
 ```
 
-The `.toSVG()` method accepts an optional `options` object. This is used to add CSS classnames, a11y options, and sizing.
+The `.toSVG()` method accepts an optional `options` object. This is used to add CSS class names, accessibility options, and sizes.
 
 #### class
 
@@ -154,9 +154,9 @@ octicons.x.toSVG({ "aria-label": "Close the window" })
 // <svg version="1.1" width="12" height="16" viewBox="0 0 12 16" class="octicon octicon-x" aria-label="Close the window" role="img"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
 ```
 
-#### width & height
+#### width and height
 
-Size the SVG icon larger using `width` & `height` independently or together. `.toSVG()` will automatically choose the best SVG to render based on the width or height passed in.
+Size the SVG icon larger using `width` and `height` independently or together. `.toSVG()` will automatically choose the best SVG to render based on the width or height passed in.
 
 ```js
 octicons.x.toSVG({ "width": 45 })
