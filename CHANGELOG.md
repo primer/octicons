@@ -1,3 +1,8 @@
+# 11.3.0
+### 🚀 New Features
+- `number` (https://github.com/primer/octicons/pull/541)
+
+
 # 11.2.0
 ### 🚀 New Features
 - `strikethrough` (https://github.com/primer/octicons/pull/518)
@@ -14,7 +19,7 @@
 ### 🚀 New Features
 - `container` (https://github.com/primer/octicons/pull/507)
 - `squirrel` 24px icon (https://github.com/primer/octicons/pull/508)
-  
+
 ### 🐛 Fixes
 - Corrected stroke for 24px `smiley` (https://github.com/primer/octicons/pull/509)
 
