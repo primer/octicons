@@ -2,6 +2,9 @@
 ### 🚀 New Features
 - `number` (https://github.com/primer/octicons/pull/541)
 
+### 🐛 Fixes
+- Fix rendering of arrows in Safari (@aaronshekey https://github.com/primer/octicons/pull/527)
+
 
 # 11.2.0
 ### 🚀 New Features
