@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### 🚀 New Features
+
+- `multi-select` (https://github.com/primer/octicons/pull/534)
+
 ## 11.3.0
 
 ### 🚀 New Features
