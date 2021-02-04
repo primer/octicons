@@ -5,6 +5,8 @@
   children:
     - title: Design
       url: /guidelines/design
+    - title: Usage
+      url: /guidelines/usage
 - title: Packages
   url: /packages
   children:
