@@ -9,10 +9,10 @@ module OcticonsHelper
   def octicon(symbol, options = {})
     return "" if symbol.nil?
 
-    cache_key = [symbol, options].to_s
+    cache_key = [symbol, options]
 
-    if octicons_helper_cache[cache_key]
-      octicons_helper_cache[cache_key]
+    if tag = octicons_helper_cache[cache_key]
+      tag
     else
       icon = Octicons::Octicon.new(symbol, options)
 
