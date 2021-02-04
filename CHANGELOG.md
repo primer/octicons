@@ -1,10 +1,18 @@
 # Changelog
 
-## Unreleased
-
+# 12.0.0
 ### 🚀 New Features
-
+- `bug` (https://github.com/primer/octicons/pull/543)
 - `multi-select` (https://github.com/primer/octicons/pull/534)
+
+### 💅 Enhancements
+- Make octicon helper slightly faster (@jhawthorn & @seejohnrun) (#536)
+
+### 💥 Breaking changes 
+- Rename 16px `trashcan` icon to `trash` (@fermion 🙇) (https://github.com/primer/octicons/pull/538)
+
+### 🧽Chores
+- Dependency updates (#525, #524, #523, #522, #520)
 
 ## 11.3.0
 
