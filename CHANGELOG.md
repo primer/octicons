@@ -1,4 +1,9 @@
-# 11.3.0
+# Changelog
+
+## Unreleased
+
+## 11.3.0
+
 ### 🚀 New Features
 - `number` (https://github.com/primer/octicons/pull/541)
 - `video` (https://github.com/primer/octicons/pull/540)
@@ -7,7 +12,8 @@
 - Fix rendering of arrows in Safari (@aaronshekey https://github.com/primer/octicons/pull/527)
 
 
-# 11.2.0
+## 11.2.0
+
 ### 🚀 New Features
 - `strikethrough` (https://github.com/primer/octicons/pull/518)
 
@@ -19,7 +25,8 @@
 
 - Dependency updates
 
-# 11.1.0
+## 11.1.0
+
 ### 🚀 New Features
 - `container` (https://github.com/primer/octicons/pull/507)
 - `squirrel` 24px icon (https://github.com/primer/octicons/pull/508)
@@ -28,7 +35,7 @@
 - Corrected stroke for 24px `smiley` (https://github.com/primer/octicons/pull/509)
 
 
-# 11.0.0
+## 11.0.0
 
 ### 💅 Enhancements
 
@@ -43,7 +50,7 @@
   - `eye-slash-24.svg` → `eye-closed-24.svg`
 - Remove 24px `settings` icon. Use `gear` instead https://github.com/primer/octicons/pull/493
 
-# 10.1.0
+## 10.1.0
 
 ### 🚀 New Features
 
@@ -59,9 +66,9 @@
 
 - Dependency updates
 
-# 10.0.0
+## 10.0.0
 
-## All packages
+### All packages
 
 - We've given Octicons a new look ✨ Some icons have new names and some icons haven't been redesigned yet. The following table documents those changes. If you're using an octicon in v9.x that doesn't have an equivelent in v10.0 yet, let us know by [opening an issue](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D).
 
@@ -113,7 +120,7 @@
 
 - We designed a set of 24px icons—as well as 16px icons—to accommodate interfaces that need larger icons. All package implementations now choose which SVG to render based on the size passed in.
 
-## React (@primer/octicons-react)
+### React (@primer/octicons-react)
 
 - Icon components (e.g. `AlertIcon`, `ArrowRightIcon`, etc.) now accept `size`, `ariaLabel`, `verticalAlign`, and `className` props and can be used on their own. No need to pass them to the `Octicon` component.
 
@@ -130,7 +137,7 @@
   + <AlertIcon />
   ```
 
-### BREAKING CHANGES 💥
+#### BREAKING CHANGES 💥
 
 - All icon component names now include `Icon` at the end (e.g. `Alert` → `AlertIcon`).
 
@@ -165,13 +172,13 @@ function CirclesIcon() {
 - CirclesIcon.size = [30, 10]
 ```
 
-## JavaScript (@primer/octicons)
+### JavaScript (@primer/octicons)
 
-### BREAKING CHANGES 💥
+#### BREAKING CHANGES 💥
 
 - The structure of each icon object has been updated to allow support multiple SVGs per icon:
 
-#### Before
+##### Before
 
 ```js
 octicons.alert
@@ -219,46 +226,46 @@ octicons.alert
 // }
 ```
 
-# 9.6.0
+## 9.6.0
 
-## Features
+### Features
 
 - New icon `north-star` https://github.com/primer/octicons/pull/380
 
-# 9.5.0
+## 9.5.0
 
-## Features
+### Features
 
 - New icon `internal-repo` https://github.com/primer/octicons/pull/375
 
-# 9.4.0
+## 9.4.0
 
-## Features
+### Features
 
 - New icons `heart-outline` `infinity` `line-arrow-up` `line-arrow-down` `line-arrow-right` `line-arrow-left` https://github.com/primer/octicons/pull/365
 
-## Chores
+### Chores
 
 - Contributing docs updates and issue template updates #367
 
-## Bugs
+### Bugs
 
 - Update `heart` glyphs removing extra points https://github.com/primer/octicons/pull/365
 
-# 9.3.1
+## 9.3.1
 
-## Bugfix
+### Bugfix
 
 - Workflow icon had a cutoff edge.
 
-# 9.3.0
+## 9.3.0
 
 ### 🚀 New Features
 
 - Workflow icons https://github.com/primer/octicons/pull/356 @ashygee
 - Allow 'unset' value for verticalAlign property https://github.com/primer/octicons/pull/354 @Fs00
 
-# 9.2.0
+## 9.2.0
 
 ### 🚀 New features
 
@@ -273,20 +280,20 @@ octicons.alert
 
 - [x] Octicons react isn't including className https://github.com/primer/octicons/pull/271 @pocke
 
-# 9.1.1
+## 9.1.1
 
 ### :bug: Bug Fix
 
 - [x] renamed the original shield icon to `shield-lock` https://github.com/primer/octicons/issues/323 @ashygee
 - [x] test for duplicate icons https://github.com/primer/octicons/pull/322 @jonrohan
 
-# 9.1.0
+## 9.1.0
 
 ### 🚀 New features
 
 - [x] Adding skip icon https://github.com/primer/octicons/pull/318 @ashygee
 
-# 9.0.0
+## 9.0.0
 
 ### 💥 Breaking changes
 
@@ -298,13 +305,13 @@ octicons.alert
 - [x] Adding a shield icon https://github.com/primer/octicons/pull/310 @ashygee @donokuda
 - [x] Adding new repo icons https://github.com/primer/octicons/issues/316 @superbryntendo
 
-# 8.5.0
+## 8.5.0
 
 - a11y aria-hidden update from @muan https://github.com/primer/octicons/pull/295
 - Verified icons poor rendering. @ashygee https://github.com/primer/octicons/pull/297
 - Docs update for contributing @ashygee https://github.com/primer/octicons/pull/298
 
-# 8.4.2
+## 8.4.2
 
 ### :art: Enhancement
 
@@ -314,13 +321,13 @@ octicons.alert
 
 - Node package missing `build/build.css` file. https://github.com/primer/octicons/pull/292
 
-# 8.4.1
+## 8.4.1
 
 ### :bug: Bug Fix
 
 - Rollup files missing from octicons react package https://github.com/primer/octicons/issues/282
 
-# 8.4.0
+## 8.4.0
 
 ### :house: Internal
 
@@ -330,30 +337,30 @@ octicons.alert
 
 - Jon Rohan ([jonrohan](https://github.com/jonrohan))
 
-# 8.3.0
+## 8.3.0
 
 - New "changes requested" icon https://github.com/primer/octicons/pull/267
 - Contrib Doc Updates https://github.com/primer/octicons/pull/256
 - Updating licenses to 2019 https://github.com/primer/octicons/pull/272
 
-# 8.2.0
+## 8.2.0
 
 - Add `fold-up` and `fold-down` icons, courtesy of @pmarsceill
 
-# 8.1.3
+## 8.1.3
 
 - Add `eye-closed` icon, courtesy of @colinkeany
 
-# 8.1.2
+## 8.1.2
 
 - Patch release for failed 8.1.1 release
 
-# 8.1.1
+## 8.1.1
 
 - Fix for `list-ordered` icon https://github.com/primer/octicons/pull/252
 - In React Octicons, we set aria-hidden to false if there's an aria-label provided
 
-# 8.1.0
+## 8.1.0
 
 - Add the `arrow-both` icon courtesy of @venetucci
 - TypeScript types are now available thanks to @j-f1!
@@ -362,25 +369,25 @@ octicons.alert
 - Update README with `@githubprimer/octicons-react scope`
 - Publish release candidates from any branch beginning with `release`
 
-# 8.0.0
+## 8.0.0
 
 - Breaking changes in `octicons_react` [#225](https://github.com/primer/octicons/pull/225)
 - After the initial release of octicons_react https://github.com/primer/octicons/releases/tag/v7.4.0, we needed to rename the scope of the package. Due to some deployment conflicts in our pipelines.
 
-# 7.4.0
+## 7.4.0
 
 - This release marks the first official version of Octicons for React! Check out the `@github/octicons-react` package on npm for more info, or peruse the long-running PR [#222](https://github.com/primer/octicons/pull/222).
 - CI status is now reported to the `#design-ops` Slack channel
 - Jekyll Octicons has moved in this repo from `lib/jekyll-octicons` to `lib/octicons_jekyll`
 
-# 7.3.0
+## 7.3.0
 
 - Fix for heart icon https://github.com/primer/octicons/pull/211
 - Adding an archive icon created by @colinkeany
 - Fixes https://github.com/primer/octicons/issues/182
 - Fixed versioning strategy https://github.com/primer/octicons/pull/#208
 
-# Archived releases
+## Archived releases
 
 ### Octicons_node 7.0.0
 
