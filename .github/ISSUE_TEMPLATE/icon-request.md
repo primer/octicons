@@ -14,7 +14,7 @@ Describe the metaphor that the icon should visually illustrate.
 
 Provide a link from either GitHub.com or a Figma project file.
 
-### What is the timeline?
+### What is the timeline? Is this critical for a launch event?
 Provide a timeline for when the icon should be implemented.
 
 ### Screenshots
