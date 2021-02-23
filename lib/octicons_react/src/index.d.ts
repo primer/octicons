@@ -8,6 +8,7 @@ export interface OcticonProps {
   'aria-label'?: string
   children?: React.ReactElement<any>
   className?: string
+  fill?: string
   icon?: Icon
   size?: number | Size
   verticalAlign?: 'middle' | 'text-bottom' | 'text-top' | 'top' | 'unset'
