@@ -1,6 +1,15 @@
 # Changelog
 
-# 12.0.0
+## 12.1.0
+
+### React
+
+### 💅 Enhancements
+
+- Add icon-specific class names to each icon component https://github.com/primer/octicons/pull/453 @FloEdelmann
+- Add `fill` prop to each icon component  https://github.com/primer/octicons/pull/551 @macno
+
+## 12.0.0
 ### 🚀 New Features
 - `bug` (https://github.com/primer/octicons/pull/543)
 - `multi-select` (https://github.com/primer/octicons/pull/534)
