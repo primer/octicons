@@ -1,5 +1,26 @@
 # Changelog
 
+## 13.0.0
+
+### 🚀 New Features
+- `table`
+- `add-person` https://github.com/primer/octicons/pull/573
+- `blocked` https://github.com/primer/octicons/pull/576
+- `duplicate` https://github.com/primer/octicons/pull/576
+- `dependabot`
+- `code-scanning`
+- `browser` https://github.com/primer/octicons/pull/575
+- `sidebar` icons https://github.com/primer/octicons/pull/569
+
+### 💥 Breaking changes 
+- Remove 24px `insights` icon https://github.com/primer/octicons/pull/574
+
+### 💅 Enhancements
+- Use more explicit dependencies for Rails helper https://github.com/primer/octicons/pull/565
+
+### 🐛 Fixes
+- Fix `megaphone-16` https://github.com/primer/octicons/pull/554
+
 ## 12.1.0
 
 ### React
