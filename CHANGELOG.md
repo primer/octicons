@@ -1,5 +1,33 @@
 # Changelog
 
+## 13.0.0
+
+### 🚀 New Features
+
+- `table` https://github.com/primer/octicons/pull/564
+- `person-add` https://github.com/primer/octicons/pull/573
+- `blocked` https://github.com/primer/octicons/pull/576
+- `duplicate` https://github.com/primer/octicons/pull/576
+- `dependabot`https://github.com/primer/octicons/pull/585
+- `codescan` https://github.com/primer/octicons/pull/588
+- `browser` https://github.com/primer/octicons/pull/575
+- `sidebar` icons https://github.com/primer/octicons/pull/569
+- `codespaces` https://github.com/primer/octicons/pull/587
+
+### 💥 Breaking changes
+
+- Remove 24px `insights` icon https://github.com/primer/octicons/pull/574
+- Remove 24px `copy` icon https://github.com/primer/octicons/pull/586
+
+### 💅 Enhancements
+
+- Use more explicit dependencies for Rails helper https://github.com/primer/octicons/pull/565
+
+### 🐛 Fixes
+
+- Fix `megaphone-16` https://github.com/primer/octicons/pull/554
+- Fix `circle` icon https://github.com/primer/octicons/pull/584
+
 ## 12.1.0
 
 ### React
@@ -7,38 +35,46 @@
 ### 💅 Enhancements
 
 - Add icon-specific class names to each icon component https://github.com/primer/octicons/pull/453 @FloEdelmann
-- Add `fill` prop to each icon component  https://github.com/primer/octicons/pull/551 @macno
+- Add `fill` prop to each icon component https://github.com/primer/octicons/pull/551 @macno
 
 ## 12.0.0
+
 ### 🚀 New Features
+
 - `bug` (https://github.com/primer/octicons/pull/543)
 - `multi-select` (https://github.com/primer/octicons/pull/534)
 
 ### 💅 Enhancements
+
 - Make octicon helper slightly faster (@jhawthorn & @seejohnrun) (#536)
 
-### 💥 Breaking changes 
+### 💥 Breaking changes
+
 - Rename 16px `trashcan` icon to `trash` (@fermion 🙇) (https://github.com/primer/octicons/pull/538)
 
 ### 🧽Chores
+
 - Dependency updates (#525, #524, #523, #522, #520)
 
 ## 11.3.0
 
 ### 🚀 New Features
+
 - `number` (https://github.com/primer/octicons/pull/541)
 - `video` (https://github.com/primer/octicons/pull/540)
 
 ### 🐛 Fixes
-- Fix rendering of arrows in Safari (@aaronshekey https://github.com/primer/octicons/pull/527)
 
+- Fix rendering of arrows in Safari (@aaronshekey https://github.com/primer/octicons/pull/527)
 
 ## 11.2.0
 
 ### 🚀 New Features
+
 - `strikethrough` (https://github.com/primer/octicons/pull/518)
 
 ### 🐛 Fixes
+
 - Align `plus` and `dash` icon (https://github.com/primer/octicons/pull/447)
 - Small edits in JS documentation (https://github.com/primer/octicons/pull/499)
 
@@ -49,12 +85,13 @@
 ## 11.1.0
 
 ### 🚀 New Features
+
 - `container` (https://github.com/primer/octicons/pull/507)
 - `squirrel` 24px icon (https://github.com/primer/octicons/pull/508)
 
 ### 🐛 Fixes
-- Corrected stroke for 24px `smiley` (https://github.com/primer/octicons/pull/509)
 
+- Corrected stroke for 24px `smiley` (https://github.com/primer/octicons/pull/509)
 
 ## 11.0.0
 
