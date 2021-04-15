@@ -6,30 +6,30 @@ Thank you for your interest in contributing to Octicons! We are currently only a
 
 ### 1. Icon request is made
 
-- Icon requests are made using the issue template in the primer/octicons repo. If the icon being requested is for a product/feature that has not yet been release, please use the [template](https://github.com/github/design-systems/issues/new?assignees=ashygee%2C+edokoa&labels=area%3A+icons%2C+type%3A+request&template=octicon_request.md&title=%5BIcon+request%5D+) found in the [github/design-systems repo](https://github.com/github/design-systems/issues/new/choose).
-- Once received, the issue will be placed in the **❓ Icon requests (inbox)** column of the [Octicons project board](https://github.com/github/design-systems/projects/45)
-- Icons in the inbox will be triaged by a maintainer from the octicons team. Maintainers should reply with a comment on the issue and then move the issue to the **💬 Responded** column of the Octicons [project board](https://github.com/github/design-systems/projects/45)
+- Icon requests are made using the [icon request template](https://github.com/github/primer/issues/new?assignees=ashygee&labels=octicon%2C+request&template=2-icon-request.md&title=%5BIcon+request%5D+) in the github/primer repo (visible to GitHub staff only). 
+- Once received, the issue will be placed in the **❓ Icon requests (inbox)** column of the [Octicons project board](https://github.com/github/primer/projects/2)
+- Icons in the inbox will be triaged by a maintainer from the Octicons team. Maintainers should reply with a comment on the issue and then move the issue to the **💬 Responded** column of the Octicons [project board](https://github.com/github/primer/projects/2)
   
 ### 2. Assigning icons
 
 - Each new icon request will initially be discussed async within our #octicons channel on Slack.
-  - If the icon requires further discussion or needs more context before assigning, a maintainer will leave a comment on the issue requesting more information from the original requestor and the issue will be moved to the **⚠️ To discuss** column of the Octicons [project board](https://github.com/github/design-systems/projects/45)
-  - If a currently exisiting icon can be used to clearly convey the correct metaphor a suggestion will be made in the icon request issue and the issue will be moved to the **⚠️ To discuss** column of the Octicons [project board](https://github.com/github/design-systems/projects/45)
-  - If it is decided that a new icon needs to be created the issue will be moved to the **📫 To do** column of the Octicons [project board](https://github.com/github/design-systems/projects/45)
-- Icon requests will be assigned to a designer in the weekly Octicons sync held on Wednesday's
-  - Once an icon has been assigned it is up to assigned designer to be responsible for communicating the icon's status.
+  - If the icon requires further discussion or needs more context before assigning, a maintainer will leave a comment on the issue requesting more information from the original requestor and the issue will be moved to the **⚠️ To discuss** column of the Octicons [project board](https://github.com/github/primer/projects/2)
+  - If a currently existing icon can be used to clearly convey the correct metaphor, a suggestion will be made in the icon request issue and the issue will be moved to the **⚠️ To discuss** column of the Octicons [project board](https://github.com/github/primer/projects/2)
+  - If it is decided that a new icon needs to be created the issue will be moved to the **📫 To do** column of the Octicons [project board](https://github.com/github/primer/projects/2)
+- Icon requests will be assigned to a designer in the weekly Octicons sync held on Wednesdays
+  - Once an icon has been assigned, it's up to assigned designer to be responsible for communicating the icon's status
   - Other designers are welcome to collaborate on any icons
 
 ### 3. Icon design, review, and communication
 
-- Once design has been started on an icon, the request issue will be moved to the **✒️In Progress** column of the Octicons [project board](https://github.com/github/design-systems/projects/45)
+- Once design has been started on an icon, the request issue will be moved to the **✒️In Progress** column of the Octicons [project board](https://github.com/github/primer/projects/2)
 - Designers should design the icon in Figma and when ready for review, use the [Octicons Push plugin](https://www.figma.com/community/plugin/825432045044458754/Octicons-Push) to create a PR
-  - After a PR is created link to the PR in the icon request issue and move the issue to the **👁‍🗨 Ready for Review** column of the Octicons [project board](https://github.com/github/design-systems/projects/45)
+  - After a PR is created link to the PR in the icon request issue and move the issue to the **👁‍🗨 Ready for review** column of the Octicons [project board](https://github.com/github/primer/projects/2)
   - All review communication will be contained within the PR
   - PRs need approval from the icon requestor (stakeholder) and at least one designer on the octicons maintainer team
   
 ### 4. Icon request completed
-- When an icon request PR has been approved by both the requestor and a member of octicons maintainer team, the icon request is moved to the **🔼 Push to repo** column of the Octicons [project board](https://github.com/github/design-systems/projects/45)
+- When an icon request PR has been approved by both the requestor and a member of Octicons maintainer team, the icon request is moved to the **🔼 Push to repo** column of the Octicons [project board](https://github.com/github/primer/projects/2)
 - After a new release has been made, the new icons that were added will have their request issues moved to the **✔ Done** column
 
 
