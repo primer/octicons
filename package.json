@@ -10,18 +10,18 @@
     "svgo": "svgo icons --config .svgo.yml"
   },
   "dependencies": {
-    "ava": "^2.1.0",
-    "braces": "^2.3.1",
-    "cheerio": "^1.0.0-rc.3",
-    "eslint": "^5.8.0",
-    "eslint-plugin-github": "^1.6.0",
-    "execa": "^4.0.0",
-    "fs-extra": "^7.0.1",
-    "globby": "^11.0.0",
-    "js-yaml": "^3.13.1",
-    "lodash.merge": "^4.6.2",
-    "svgo": "^1.3.2",
-    "trim-newlines": "^3.0.0",
-    "yargs": "^15.1.0"
+    "ava": "2.1.0",
+    "braces": "2.3.1",
+    "cheerio": "1.0.0-rc.3",
+    "eslint": "5.8.0",
+    "eslint-plugin-github": "1.6.0",
+    "execa": "4.0.0",
+    "fs-extra": "7.0.1",
+    "globby": "11.0.0",
+    "js-yaml": "3.13.1",
+    "lodash.merge": "4.6.2",
+    "svgo": "1.3.2",
+    "trim-newlines": "3.0.0",
+    "yargs": "15.1.0"
   }
 }
