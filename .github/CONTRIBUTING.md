@@ -6,10 +6,10 @@ Thank you for your interest in contributing to Octicons! We are currently only a
 
 ### 1. Icon request is made
 
-- Icon requests are made using the [icon request template](https://github.com/github/primer/issues/new?assignees=ashygee&labels=octicon%2C+request&template=2-icon-request.md&title=%5BIcon+request%5D+) in the github/primer repo (visible to GitHub staff only). 
+- Icon requests are made using the [icon request template](https://github.com/github/primer/issues/new?assignees=ashygee&labels=octicon%2C+request&template=2-icon-request.md&title=%5BIcon+request%5D+) in the github/primer repo (visible to GitHub staff only).
 - Once received, the issue will be placed in the **❓ Icon requests (inbox)** column of the [Octicons project board](https://github.com/github/primer/projects/2)
 - Icons in the inbox will be triaged by a maintainer from the Octicons team. Maintainers should reply with a comment on the issue and then move the issue to the **💬 Responded** column of the Octicons [project board](https://github.com/github/primer/projects/2)
-  
+
 ### 2. Assigning icons
 
 - Each new icon request will initially be discussed async within our #octicons channel on Slack.
@@ -27,7 +27,7 @@ Thank you for your interest in contributing to Octicons! We are currently only a
   - After a PR is created link to the PR in the icon request issue and move the issue to the **👁‍🗨 Ready for review** column of the Octicons [project board](https://github.com/github/primer/projects/2)
   - All review communication will be contained within the PR
   - PRs need approval from the icon requestor (stakeholder) and at least one designer on the octicons maintainer team
-  
+
 ### 4. Icon request completed
 - When an icon request PR has been approved by both the requestor and a member of Octicons maintainer team, the icon request is moved to the **🔼 Push to repo** column of the Octicons [project board](https://github.com/github/primer/projects/2)
 - After a new release has been made, the new icons that were added will have their request issues moved to the **✔ Done** column
@@ -91,7 +91,7 @@ Use GitHub to [create a pull request](https://help.github.com/en/desktop/contrib
 
 If everything looks good, a maintainer will approve and merge the pull request when appropriate. After the pull request is merged, your icon will be available in the next Octicons release.
 
-## Releasing changes 
+## Releasing changes
 
 Once submitted changes have been agreed upon, these instructions will guide maintainers through releasing changes.
 
@@ -103,15 +103,15 @@ git checkout -b release-x.y.z
 
 In the context of Octicons, the version number is updated as follows:
 
-- Breaking changes to the library or workflow, renaming or removing an icon would all be considered a **major update**. 
+- Breaking changes to the library or workflow, renaming or removing an icon would all be considered a **major update**.
 - Adding a new icon would be considered a **minor update**.
 - Fixing an icon would be considered a **patch**.
 
 Reach out in the #design-systems Slack channel if you're unsure.
 
-### 2. Update the [CHANGELOG](https://github.com/primer/octicons/blob/master/CHANGELOG.md) describing the changes in this release.
+### 2. Update the [CHANGELOG](https://github.com/primer/octicons/blob/main/CHANGELOG.md) describing the changes in this release.
 
-When adding changes, be sure to provide a link to any of the relevant PRs merged into the release. 
+When adding changes, be sure to provide a link to any of the relevant PRs merged into the release.
 
 ### 3. Update the version in code base
 
@@ -137,5 +137,3 @@ When all of the checks have passed and the release PR has been approved, merge t
 
 
 🎉 Congratulations! The new release has been published.
-
-
