@@ -1,5 +1,5 @@
 *.gem
-*.lock
+/package-lock.json
 *.log
 .DS_Store
 .bundle
