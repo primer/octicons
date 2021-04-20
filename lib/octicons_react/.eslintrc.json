@@ -1,10 +1,28 @@
 {
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "extends": [
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended",
     "plugin:github/recommended",
-    "plugin:github/es6",
-    "plugin:github/react"
+    "plugin:github/browser"
   ],
   "rules": {
+    "github/no-then": 0,
+    "import/named": 0,
+    "react/prop-types": 0
+  },
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true,
+    "node": true
   },
   "settings": {
     "react": {
