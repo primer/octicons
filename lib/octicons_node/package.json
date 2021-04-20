@@ -2,7 +2,7 @@
   "name": "@primer/octicons",
   "version": "13.0.0",
   "description": "A scalable set of icons handcrafted with <3 by GitHub.",
-  "homepage": "https://octicons.github.com",
+  "homepage": "https://primer.style/octicons",
   "author": "GitHub Inc.",
   "license": "MIT",
   "style": "index.scss",
