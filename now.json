@@ -8,5 +8,8 @@
     }
   ],
   "rewrites": [{"source": "/octicons(/.*)?", "destination": "/docs$1"}],
-  "redirects": [{"source": "/", "destination": "/octicons"}]
+  "redirects": [{"source": "/", "destination": "/octicons"}],
+  "github": {
+    "enabled": false
+  }
 }
