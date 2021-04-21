@@ -27,12 +27,6 @@ perl -pi -e "s/\"octicons\", \"[^\"]+\"/\"octicons\", \"${PACKAGE_VERSION}\"/" .
 echo "**************** Installing ****************"
 bundle install
 
-echo "**************** Linting ****************"
-bundle exec rake lint
-
-echo "**************** Testing  ****************"
-bundle exec rake test
-
 echo "**************** Versioning ****************"
 bundle exec rake version\["$PACKAGE_VERSION"\]
 
