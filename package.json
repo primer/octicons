@@ -9,6 +9,9 @@
     "start": "cd docs && npm run develop",
     "svgo": "svgo icons --config .svgo.yml"
   },
+  "workspaces": [
+    "lib/*"
+  ],
   "dependencies": {
     "@github/prettier-config": "0.0.4",
     "ava": "2.1.0",
