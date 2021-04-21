@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+echo "**************** Copying assets files to build directory ****************"
+cp -R ../build lib/
+
+echo "**************** Building ****************"
+bundle exec rake build

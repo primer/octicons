@@ -5,7 +5,8 @@
   "linked": [[
     "@primer/octicons",
     "@primer/octicons-react",
-    "@primer/styled-octicons"
+    "@primer/styled-octicons",
+    "octicons_gem"
   ]],
   "access": "public",
   "baseBranch": "main",
