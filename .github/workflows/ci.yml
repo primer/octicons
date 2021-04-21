@@ -1,6 +1,8 @@
 name: CI
 on:
   push:
+    branches:
+      - main
   pull_request_target:
 
 jobs:
@@ -19,7 +21,6 @@ jobs:
         with:
           name: octicons-build
           path: ./lib/build
-
 
   main:
     name: Main project
