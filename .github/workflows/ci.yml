@@ -69,6 +69,9 @@ jobs:
     name: '@primer/octicons-react'
     needs: build
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./lib/octicons_react
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -78,50 +81,29 @@ jobs:
         with:
           name: octicons-build
           path: ./lib/build
+        working-directory: .
       - run: yarn
-        working-directory: ./lib/octicons_react
       - name: Building
         run: yarn build
-        working-directory: ./lib/octicons_react
       - name: Lint
         run: yarn lint
-        working-directory: ./lib/octicons_react
       - name: Test
         run: yarn test
-        working-directory: ./lib/octicons_react
       - run: rm -rf node_modules
-        working-directory: ./lib/octicons_react
-      - uses: actions/upload-artifact@v2
-        with:
-          name: octicons-react
-          path: ./lib/octicons_react
 
 
   octicons_styled:
     name: '@primer/styled-octicons'
     needs: octicons_react
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14
-      - uses: actions/download-artifact@v2
-        with:
-          name: octicons-build
-          path: ./lib/build
-      - uses: actions/download-artifact@v2
-        with:
-          name: octicons-react
-          path: ./lib/octicons_react
-      - run: yarn
+    defaults:
+      run:
         working-directory: ./lib/octicons_styled
+    steps:
+      - run: yarn
       - name: Building
         run: yarn build
-        working-directory: ./lib/octicons_styled
       - name: Lint
         run: yarn lint
-        working-directory: ./lib/octicons_styled
       - name: Test
         run: yarn test
-        working-directory: ./lib/octicons_styled
