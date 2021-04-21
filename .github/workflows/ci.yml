@@ -4,9 +4,8 @@ on:
   pull_request_target:
 
 jobs:
-  main:
-    name: Main Project
-    runs-on: ubuntu-latest
+  build:
+   runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -16,6 +15,25 @@ jobs:
       - name: Building
         run: yarn build
       - run: cp -r icons lib/build/svg
+      - uses: actions/upload-artifact@v2
+        with:
+          name: octicons-build
+          path: ./lib/build
+
+
+  main:
+    name: Main project
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - uses: actions/download-artifact@v2
+        with:
+          name: octicons-build
+          path: ./lib/build
       - name: Lint
         run: yarn lint
       - name: Test
@@ -23,16 +41,17 @@ jobs:
 
   octicons_node:
     name: 'npm @primer/octicons'
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: 14
-      - run: yarn
-      - name: Building
-        run: yarn build
-      - run: cp -r icons lib/build/svg
+      - uses: actions/download-artifact@v2
+        with:
+          name: octicons-build
+          path: ./lib/build
       - run: cd ./lib/octicons_node
       - run: yarn
       - name: Building
