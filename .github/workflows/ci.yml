@@ -139,3 +139,26 @@ jobs:
       run: bundle exec rake lint
     - name: Testing
       run: bundle exec rake test
+
+  octicons_jekyll:
+    name: 'gem:octicons_jekyll'
+    needs: octicons_gem
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./lib/octicons_jekyll
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+    - uses: actions/download-artifact@v2
+      with:
+        name: octicons-gem
+        path: ./lib/octicons_jekyll/vendor/cache
+    - run: bundle install
+    - name: Linting
+      run: bundle exec rake lint
+    - name: Testing
+      run: bundle exec rake test
