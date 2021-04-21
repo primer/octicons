@@ -86,7 +86,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: octicons-react
-          path: ./
+          path: ./lib/octicons_react
 
 
   octicons_styled:
