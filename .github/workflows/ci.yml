@@ -34,13 +34,14 @@ jobs:
         with:
           name: octicons-build
           path: ./lib/build
+      - run: yarn
       - name: Lint
         run: yarn lint
       - name: Test
         run: yarn test
 
   octicons_node:
-    name: 'npm @primer/octicons'
+    name: '@primer/octicons'
     needs: build
     runs-on: ubuntu-latest
     steps:
