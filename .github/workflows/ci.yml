@@ -89,6 +89,8 @@ jobs:
       - name: Test
         run: yarn test
         working-directory: ./lib/octicons_react
+      - run: rm -rf node_modules
+        working-directory: ./lib/octicons_react
       - uses: actions/upload-artifact@v2
         with:
           name: octicons-react
