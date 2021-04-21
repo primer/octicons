@@ -20,24 +20,19 @@ jobs:
         run: yarn lint
       - name: Test
         run: yarn test
-      - uses: actions/upload-artifact@v2
-        with:
-          name: octicons
-          path: ./lib/build
 
   octicons_node:
-    name: '@primer/octicons'
-    needs: main
+    name: 'npm @primer/octicons'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: 14
-      - uses: actions/download-artifact@v2
-        with:
-          name: octicons
-          path: ./lib/build
+      - run: yarn
+      - name: Building
+        run: yarn build
+      - run: cp -r icons lib/build/svg
       - run: cd ./lib/octicons_node
       - run: yarn
       - name: Building
