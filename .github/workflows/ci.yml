@@ -91,7 +91,7 @@ jobs:
 
   octicons_styled:
     name: '@primer/styled-octicons'
-    needs: build
+    needs: octicons_react
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
