@@ -69,9 +69,6 @@ jobs:
     name: '@primer/octicons-react'
     needs: build
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./lib/octicons_react
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -82,13 +79,22 @@ jobs:
           name: octicons-build
           path: ./lib/build
       - run: yarn
+        working-directory: ./lib/octicons_react
       - name: Building
         run: yarn build
+        working-directory: ./lib/octicons_react
       - name: Lint
         run: yarn lint
+        working-directory: ./lib/octicons_react
       - name: Test
         run: yarn test
-      - run: rm -rf node_modules
+        working-directory: ./lib/octicons_react
+      - run: yarn pack --filename primer-octicons-react.tgz
+        working-directory: ./lib/octicons_react
+      - uses: actions/upload-artifact@v2
+        with:
+          name: octicons-react
+          path: ./lib/octicons_react/primer-octicons-react.tgz
 
 
   octicons_styled:
@@ -99,7 +105,21 @@ jobs:
       run:
         working-directory: ./lib/octicons_styled
     steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - uses: actions/download-artifact@v2
+        with:
+          name: octicons-build
+          path: ./lib/build
+      - uses: actions/download-artifact@v2
+        with:
+          name: octicons-react
+          path: ./lib/octicons_styled
+
       - run: yarn
+      - run: yarn add file:./primer-octicons-react.tgz
       - name: Building
         run: yarn build
       - name: Lint
