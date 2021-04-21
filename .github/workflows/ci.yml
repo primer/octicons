@@ -100,6 +100,10 @@ jobs:
           node-version: 14
       - uses: actions/download-artifact@v2
         with:
+          name: octicons-build
+          path: ./lib/build
+      - uses: actions/download-artifact@v2
+        with:
           name: octicons-react
           path: ./lib/octicons_react
       - run: cd ./lib/octicons_styled
