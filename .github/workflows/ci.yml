@@ -53,14 +53,17 @@ jobs:
         with:
           name: octicons-build
           path: ./lib/build
-      - run: cd ./lib/octicons_node
       - run: yarn
+        working-directory: ./lib/octicons_node
       - name: Building
         run: yarn build
+        working-directory: ./lib/octicons_node
       - name: Lint
         run: yarn lint
+        working-directory: ./lib/octicons_node
       - name: Test
         run: yarn test
+        working-directory: ./lib/octicons_node
 
   octicons_react:
     name: '@primer/octicons-react'
@@ -75,14 +78,17 @@ jobs:
         with:
           name: octicons-build
           path: ./lib/build
-      - run: cd ./lib/octicons_react
       - run: yarn
+        working-directory: ./lib/octicons_react
       - name: Building
         run: yarn build
+        working-directory: ./lib/octicons_react
       - name: Lint
         run: yarn lint
+        working-directory: ./lib/octicons_react
       - name: Test
         run: yarn test
+        working-directory: ./lib/octicons_react
       - uses: actions/upload-artifact@v2
         with:
           name: octicons-react
@@ -106,11 +112,14 @@ jobs:
         with:
           name: octicons-react
           path: ./lib/octicons_react
-      - run: cd ./lib/octicons_styled
       - run: yarn
+        working-directory: ./lib/octicons_styled
       - name: Building
         run: yarn build
+        working-directory: ./lib/octicons_styled
       - name: Lint
         run: yarn lint
+        working-directory: ./lib/octicons_styled
       - name: Test
         run: yarn test
+        working-directory: ./lib/octicons_styled
