@@ -81,7 +81,6 @@ jobs:
         with:
           name: octicons-build
           path: ./lib/build
-        working-directory: .
       - run: yarn
       - name: Building
         run: yarn build
