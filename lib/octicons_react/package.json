@@ -9,6 +9,7 @@
   "module": "dist/index.esm.js",
   "sideEffects": false,
   "types": "dist/index.d.ts",
+  "type": "module",
   "repository": "primer/octicons",
   "scripts": {
     "build": "script/build.js && script/types.js && npm run rollup",
