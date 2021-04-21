@@ -5,6 +5,7 @@ on:
 
 jobs:
   main:
+    name: Main Project
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -12,9 +13,35 @@ jobs:
         with:
           node-version: 14
       - run: yarn
-      - name: Building octicons
+      - name: Building
         run: yarn build
       - run: cp -r icons lib/build/svg
+      - name: Lint
+        run: yarn lint
+      - name: Test
+        run: yarn test
+      - uses: actions/upload-artifact@v2
+        with:
+          name: octicons
+          path: ./lib/build
+
+  octicons_node:
+    name: '@primer/octicons'
+    needs: main
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - uses: actions/download-artifact@v2
+        with:
+          name: octicons
+          path: ./lib/build
+      - run: cd ./lib/octicons_node
+      - run: yarn
+      - name: Building
+        run: yarn build
       - name: Lint
         run: yarn lint
       - name: Test
