@@ -36,12 +36,6 @@ npm install
 echo "**************** Building ****************"
 npm run build
 
-echo "**************** Linting ****************"
-npm run lint
-
-echo "**************** Testing  ****************"
-npm run test
-
 {
   echo "**************** Publishing ****************"
   npm version --allow-same-version $PACKAGE_VERSION && npm publish --tag $PUBLISH_TAG --access public
