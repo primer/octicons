@@ -13,6 +13,8 @@
     "lib/*"
   ],
   "dependencies": {
+    "@changesets/changelog-github": "0.4.0",
+    "@changesets/cli": "2.16.0",
     "@github/prettier-config": "0.0.4",
     "ava": "2.1.0",
     "braces": "2.3.1",
@@ -44,9 +46,5 @@
     "rules": {
       "github/no-then": 0
     }
-  },
-  "devDependencies": {
-    "@changesets/changelog-github": "0.4.0",
-    "@changesets/cli": "2.16.0"
   }
 }
