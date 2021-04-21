@@ -101,6 +101,10 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.7
+    - uses: actions/download-artifact@v2
+      with:
+        name: octicons-build
+        path: ./lib/octicons_gem/lib/build
     - run: bundle install
     - name: Linting
       run: bundle exec rake lint
