@@ -45,7 +45,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     defaults:
-      env:
+      run:
         working-directory: ./lib/octicons_node
     steps:
       - uses: actions/checkout@v2
@@ -69,7 +69,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     defaults:
-      env:
+      run:
         working-directory: ./lib/octicons_react
     steps:
       - uses: actions/checkout@v2
