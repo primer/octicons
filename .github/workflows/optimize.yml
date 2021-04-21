@@ -1,4 +1,8 @@
-on: push
+on: 
+  push:
+    paths:
+    - 'icons/**'
+    - '.github/workflows/optimize.yml'
 name: Optimize SVGs
 jobs:
   optimize:
