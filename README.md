@@ -4,6 +4,8 @@
   <img width="800" src="https://user-images.githubusercontent.com/4608155/74476584-77155300-4e5e-11ea-88c6-6c9f64cf0f05.png" alt="Octicons cover" />
 </p>
 
+[![CI](https://github.com/primer/octicons/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/primer/octicons/actions/workflows/ci.yml)
+
 [![Octicons Build](https://github.com/primer/octicons/workflows/Octicons%20Build/badge.svg)](https://github.com/primer/octicons/actions?query=workflow%3A%22Octicons+Build%22)
 
 Octicons are a set of SVG icons built by GitHub for GitHub.
