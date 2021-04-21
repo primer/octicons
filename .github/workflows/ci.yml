@@ -1,0 +1,21 @@
+name: CI
+on:
+  push:
+  pull_request_target:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - run: yarn
+      - name: Building octicons
+        run: yarn build
+      - run: cp -r icons lib/build/svg
+      - name: Lint
+        run: yarn lint
+      - name: Test
+        run: yarn test
