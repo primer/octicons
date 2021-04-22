@@ -2,12 +2,7 @@
   "$schema": "https://unpkg.com/@changesets/config@1.6.0/schema.json",
   "changelog": ["@changesets/changelog-github", {"repo": "primer/octicons"}],
   "commit": false,
-  "linked": [[
-    "@primer/octicons",
-    "@primer/octicons-react",
-    "@primer/styled-octicons",
-    "octicons_gem"
-  ]],
+  "linked": [["*"]],
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
