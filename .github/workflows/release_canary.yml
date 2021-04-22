@@ -35,10 +35,22 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN_SHARED }}
 
+      - name: Create gem creds
+        run: |
+          cat << EOF > ~/.gem/credentials
+          ---
+          :github: Bearer $GITHUB_TOKEN
+          :rubygems_api_key: $RUBYGEMS_TOKEN
+          EOF
+
+          chmod 0600 ~/.gem/credentials
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          RUBYGEMS_TOKEN: ${{secrets.RUBYGEMS_TOKEN_SHARED}}
+
       - name: Publish canary version
         run: |
-          echo "$( jq '.version = "0.0.0"' package.json )" > package.json
-          echo -e "---\n'@primer/css': patch\n---\n\nFake entry to force publishing" > .changeset/force-snapshot-release.md
+          echo -e "---\n'octicons_gem': patch\n'@primer/styled-octicons': patch\n'@primer/octicons': patch\n'@primer/octicons-react': patch\n---\n\nFake entry to force publishing" > .changeset/force-snapshot-release.md
           yarn changeset version --snapshot
           yarn changeset publish --tag canary
         env:
@@ -48,7 +60,7 @@ jobs:
         uses: actions/github-script@v3
         with:
           script: |
-            const package = require(`${process.env.GITHUB_WORKSPACE}/package.json`)
+            const package = require(`${process.env.GITHUB_WORKSPACE}/lib/octicons_node/package.json`)
             github.repos.createCommitStatus({
               owner: context.repo.owner,
               repo: context.repo.repo,
