@@ -5,6 +5,6 @@
   "scripts": {
     "postinstall": "bundle install",
     "build": "script/build",
-    "prepublishOnly": "script/build"
+    "prepublishOnly": "(script/build; gem push pkg/*.gem) && wait"
   }
 }
