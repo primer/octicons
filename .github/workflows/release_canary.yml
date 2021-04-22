@@ -37,6 +37,7 @@ jobs:
 
       - name: Create gem creds
         run: |
+          mkdir -p ~/.gem
           cat << EOF > ~/.gem/credentials
           ---
           :github: Bearer $GITHUB_TOKEN
