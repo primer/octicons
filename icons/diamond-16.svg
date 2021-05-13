@@ -1,4 +1,1 @@
-<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="16" height="16" fill="white"/>
-<rect x="0.349976" y="8" width="10.84" height="10.84" rx="1" transform="rotate(-45 0.349976 8)" stroke="black" stroke-width="1.5"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16"><path d="M0 0h16v16H0z"/><rect width="10.84" height="10.84" x=".35" y="8" stroke="#000" stroke-width="1.5" rx="1"/></svg>
