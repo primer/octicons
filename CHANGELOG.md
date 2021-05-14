@@ -1,5 +1,32 @@
 # Changelog
 
+## 14.0.0
+
+### 💥 Breaking changes
+
+- Remove `octoface` https://github.com/primer/octicons/pull/611 
+- Rename `git-fork-24` to `repo-forked-24` https://github.com/primer/octicons/pull/593 
+
+### 🚀 New Features
+
+- `number` https://github.com/primer/octicons/pull/592 
+- `hash` (previously `number`) https://github.com/primer/octicons/pull/592 
+- `diamond` https://github.com/primer/octicons/pull/616
+- `single-select` https://github.com/primer/octicons/pull/612
+- `rows` https://github.com/primer/octicons/pull/617
+- `columns` https://github.com/primer/octicons/pull/617
+- `issue-draft` https://github.com/primer/octicons/pull/614 
+
+### 💅 Enhancements
+
+- `issue-opened` https://github.com/primer/octicons/pull/614 
+- `issue-closed` https://github.com/primer/octicons/pull/614 
+
+### 🐛 Fixes
+
+- Fix 24px `arrow-up` icon  https://github.com/primer/octicons/pull/594 
+- Prevent clipping using `overflow: visible` https://github.com/primer/octicons/pull/607
+
 ## 13.0.0
 
 ### 🚀 New Features
