@@ -1,5 +1,12 @@
 # Changelog
 
+## 14.1.0
+
+### 🚀 New Features
+
+- `git-pull-request-draft` https://github.com/primer/octicons/pull/613
+- `git-pull-request-closed` https://github.com/primer/octicons/pull/613
+
 ## 14.0.0
 
 ### 💥 Breaking changes
