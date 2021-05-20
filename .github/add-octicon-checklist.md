@@ -16,6 +16,10 @@
 - [ ] Convert the icons into components
 - [ ] Set constraints of vectors to Scale/Scale
   - Note: If adding multiple icons, use the ["All Constraints" plugin](https://www.figma.com/community/plugin/847224511609531534/All-Constraints) for bulk editing
+- [ ] Add keywords to icon component
+  - Note: All keywords begin with the search flag `icon: `
+  - Note: Keywords should describe other metaphors that the icon can represent when searching
+  - Example: The `bookmark` icon's keywords are "icon: favorite, save, bookmark"
 
 ## Octicons package
 - [ ] Use the [Octicons Push plugin](https://www.figma.com/community/plugin/825432045044458754/Octicons-Push) to create a pull request from Figma
