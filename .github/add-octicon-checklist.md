@@ -1,5 +1,7 @@
 # Add an octicon
 
+Use this checklist to add a new/updated octicon to the Figma library and the Octicons package. Read the [contributing guidelines](CONTRIBUTING.md) for more information on the entire contribution process.
+
 ## Figma
 - [ ] Remove white background from icon frame
 - [ ] Outline all strokes of vector shape
