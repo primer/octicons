@@ -25,9 +25,9 @@
 - [ ] Use the [Octicons Push plugin](https://www.figma.com/community/plugin/825432045044458754/Octicons-Push) to create a pull request from Figma
 - [ ] Open created pull request in the browser and add details
   - Pull request should include
-  - [ ] Small description with the names of the new icons
-  - [ ] Screenshot
-  - [ ] Link to icon request issue for tracking
+    - [ ] Small description with the names of the new icons
+    - [ ] Screenshot
+    - [ ] Link to icon request issue for tracking
 - [ ] request reviewers
   - [ ] Original requestor (from issue)
   - [ ] Member of octicons team (@ashygee, @colebemis, @edokoa, @juliusschaeper)
