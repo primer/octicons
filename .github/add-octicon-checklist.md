@@ -28,7 +28,7 @@
     - [ ] Small description with the names of the new icons
     - [ ] Screenshot
     - [ ] Link to icon request issue for tracking
-- [ ] request reviewers
+- [ ] Request reviewers
   - [ ] Original requestor (from issue)
   - [ ] Member of octicons team (@ashygee, @colebemis, @edokoa, @juliusschaeper)
 - [ ] Submit pull request
