@@ -3,7 +3,7 @@
 ## 14.2.1
 
 ### 🐛 Bug fix
-- fix vectors for 24px sort icons https://github.com/primer/octicons/pull/627
+- fix vectors for 24px sort icons https://github.com/primer/octicons/pull/627 (🙏 @metonym)
 
 ## 14.2.0
 
