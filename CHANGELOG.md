@@ -1,5 +1,16 @@
 # Changelog
 
+## 14.2.0
+
+### 🚀 New Features
+
+- `key-asterisk-16` https://github.com/primer/octicons/pull/623
+- `sort-asc` https://github.com/primer/octicons/pull/619
+- `sort-desc` https://github.com/primer/octicons/pull/619
+
+### 🧽 Chores
+- Remove unused dependency on nokogiri https://github.com/primer/octicons/pull/609 (🙏 @cschlack)
+
 ## 14.1.0
 
 ### 🚀 New Features
