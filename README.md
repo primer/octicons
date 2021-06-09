@@ -45,7 +45,7 @@ To request a new icon, open an issue using the [icon request](https://github.com
 
 ### Adding or updating an icon
 
-Read through our [contributing guide](./.github/CONTRIBUTING.md#adding-or-updating-icons) if you want to add or update icons.
+Read through our [contributing guide](./CONTRIBUTING.md#adding-or-updating-icons) if you want to add or update icons.
 
 ## License
 
