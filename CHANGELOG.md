@@ -1,5 +1,11 @@
 # Changelog
 
+## 14.2.2
+
+### 🐛 Bug fix
+
+- Update `issue-reopened` to match new issue icon glyph https://github.com/primer/octicons/pull/623
+
 ## 14.2.1
 
 ### 🐛 Bug fix
