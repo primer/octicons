@@ -1,5 +1,10 @@
 # Changelog
 
+## 14.2.2
+
+### 🐛 Bug fix
+- Update `issue-reopened` https://github.com/primer/octicons/pull/633
+
 ## 14.2.1
 
 ### 🐛 Bug fix
