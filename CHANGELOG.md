@@ -1,5 +1,12 @@
 # Changelog
 
+## 15.0.0
+
+### 💥 Breaking changes
+
+- Rename `duplicate` icon to `copy` https://github.com/primer/octicons/pull/643
+- Rename `clippy` icon to `paste` https://github.com/primer/octicons/pull/643
+
 ## 14.2.2
 
 ### 🐛 Bug fix
