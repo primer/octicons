@@ -1,5 +1,11 @@
 # Changelog
 
+## 15.0.1
+
+### 🐛 Bug fix
+
+- Modify `duplicate` icon to differentiate from `copy` https://github.com/primer/octicons/pull/647
+
 ## 15.0.0
 
 ### 💥 Breaking changes
