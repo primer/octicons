@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gemspec
 
-gem "octicons", "15.0.1"
+gem "octicons", "15.1.0"
 
 group :development, :test do
   gem "minitest"

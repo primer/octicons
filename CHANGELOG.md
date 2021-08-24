@@ -1,5 +1,11 @@
 # Changelog
 
+## 15.1.0
+
+### 🚀 New Features
+
+- `bell-fill-16` https://github.com/primer/octicons/pull/657
+
 ## 15.0.1
 
 ### 🐛 Bug fix
