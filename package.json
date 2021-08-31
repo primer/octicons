@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "15.0.1",
+  "version": "15.1.0",
   "scripts": {
     "version": "script/version",
     "test": "ava -v tests/*.js",
