@@ -1,8 +1,15 @@
 # Changelog
 
+## 15.2.0
+
+### 🚀 New features
+
+- Add `stack` icons https://github.com/primer/octicons/pull/659
+- Add `person-fill` and `telescope-fill` icons https://github.com/primer/octicons/pull/660
+
 ## 15.1.0
 
-### 🚀 New Features
+### 🚀 New features
 
 - `bell-fill-16` https://github.com/primer/octicons/pull/657
 
@@ -31,7 +38,7 @@
 
 ## 14.2.0
 
-### 🚀 New Features
+### 🚀 New features
 
 - `key-asterisk-16` https://github.com/primer/octicons/pull/623
 - `sort-asc` https://github.com/primer/octicons/pull/619
@@ -42,7 +49,7 @@
 
 ## 14.1.0
 
-### 🚀 New Features
+### 🚀 New features
 
 - `git-pull-request-draft` https://github.com/primer/octicons/pull/613
 - `git-pull-request-closed` https://github.com/primer/octicons/pull/613
@@ -54,7 +61,7 @@
 - Remove `octoface` https://github.com/primer/octicons/pull/611 
 - Rename `git-fork-24` to `repo-forked-24` https://github.com/primer/octicons/pull/593 
 
-### 🚀 New Features
+### 🚀 New features
 
 - `number` https://github.com/primer/octicons/pull/592 
 - `hash` (previously `number`) https://github.com/primer/octicons/pull/592 
@@ -76,7 +83,7 @@
 
 ## 13.0.0
 
-### 🚀 New Features
+### 🚀 New features
 
 - `table` https://github.com/primer/octicons/pull/564
 - `person-add` https://github.com/primer/octicons/pull/573
@@ -113,7 +120,7 @@
 
 ## 12.0.0
 
-### 🚀 New Features
+### 🚀 New features
 
 - `bug` (https://github.com/primer/octicons/pull/543)
 - `multi-select` (https://github.com/primer/octicons/pull/534)
@@ -132,7 +139,7 @@
 
 ## 11.3.0
 
-### 🚀 New Features
+### 🚀 New features
 
 - `number` (https://github.com/primer/octicons/pull/541)
 - `video` (https://github.com/primer/octicons/pull/540)
@@ -143,7 +150,7 @@
 
 ## 11.2.0
 
-### 🚀 New Features
+### 🚀 New features
 
 - `strikethrough` (https://github.com/primer/octicons/pull/518)
 
@@ -158,7 +165,7 @@
 
 ## 11.1.0
 
-### 🚀 New Features
+### 🚀 New features
 
 - `container` (https://github.com/primer/octicons/pull/507)
 - `squirrel` 24px icon (https://github.com/primer/octicons/pull/508)
@@ -184,7 +191,7 @@
 
 ## 10.1.0
 
-### 🚀 New Features
+### 🚀 New features
 
 - [`arrow-switch`](https://github.com/primer/octicons/pull/486)
 - [`file-badge`](https://github.com/primer/octicons/pull/464)
@@ -360,19 +367,19 @@ octicons.alert
 
 ## 9.6.0
 
-### Features
+### features
 
 - New icon `north-star` https://github.com/primer/octicons/pull/380
 
 ## 9.5.0
 
-### Features
+### features
 
 - New icon `internal-repo` https://github.com/primer/octicons/pull/375
 
 ## 9.4.0
 
-### Features
+### features
 
 - New icons `heart-outline` `infinity` `line-arrow-up` `line-arrow-down` `line-arrow-right` `line-arrow-left` https://github.com/primer/octicons/pull/365
 
@@ -392,7 +399,7 @@ octicons.alert
 
 ## 9.3.0
 
-### 🚀 New Features
+### 🚀 New features
 
 - Workflow icons https://github.com/primer/octicons/pull/356 @ashygee
 - Allow 'unset' value for verticalAlign property https://github.com/primer/octicons/pull/354 @Fs00
@@ -414,7 +421,7 @@ octicons.alert
 
 ## 9.1.1
 
-### :bug: Bug Fix
+### 🐛 Bug Fix
 
 - [x] renamed the original shield icon to `shield-lock` https://github.com/primer/octicons/issues/323 @ashygee
 - [x] test for duplicate icons https://github.com/primer/octicons/pull/322 @jonrohan
@@ -445,23 +452,23 @@ octicons.alert
 
 ## 8.4.2
 
-### :art: Enhancement
+### 💅🏼 Enhancement
 
 - Thumbs up/down icons needed some vector improvements. https://github.com/primer/octicons/pull/287
 
-### :bug: Bug Fix
+### 🐛 Bug Fix
 
 - Node package missing `build/build.css` file. https://github.com/primer/octicons/pull/292
 
 ## 8.4.1
 
-### :bug: Bug Fix
+### 🐛 Bug Fix
 
 - Rollup files missing from octicons react package https://github.com/primer/octicons/issues/282
 
 ## 8.4.0
 
-### :house: Internal
+### 🏠 Internal
 
 - Using Actions to build and deploy Octicons https://github.com/primer/octicons/pull/276
 
