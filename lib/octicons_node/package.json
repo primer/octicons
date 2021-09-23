@@ -1,6 +1,6 @@
 {
   "name": "@primer/octicons",
-  "version": "13.0.0",
+  "version": "15.2.0",
   "description": "A scalable set of icons handcrafted with <3 by GitHub.",
   "homepage": "https://primer.style/octicons",
   "author": "GitHub Inc.",
@@ -17,7 +17,7 @@
     "url": "https://github.com/primer/octicons/issues"
   },
   "scripts": {
-    "build": "script/build.js",
+    "build": "\\cp -r ../build/ ./build && \\cp index.scss ./build/build.css",
     "lint": "eslint index.js tests/*.js",
     "test": "ava --verbose 'tests/*.js'"
   },

@@ -31,7 +31,7 @@ export default function IconPage({pageContext}) {
     () => {
       getPdf(icon).then(blob => setPdf(blob))
     },
-    [icon]
+    [pageContext]
   )
 
   const [copied, setCopied] = React.useState(false)
