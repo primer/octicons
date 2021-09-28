@@ -1,4 +1,0 @@
-{
-  "extends": ["plugin:github/es6"],
-  "rules": {}
-}
