@@ -1,5 +1,19 @@
 # Changelog
 
+## 16.0.0
+
+### 💥 Breaking changes
+
+- Rename 16px `select-single` icon to `single-select` https://github.com/primer/octicons/pull/665
+
+### 🚀 New features
+
+- `iterations` https://github.com/primer/octicons/pull/667
+
+### 🧽 Chores
+
+- Bump dependencies
+
 ## 15.2.0
 
 ### 🚀 New features
