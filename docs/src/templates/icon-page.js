@@ -104,7 +104,7 @@ export default function IconPage({pageContext}) {
           <H2>Usage</H2>
           <Paragraph>
             You can use the{' '}
-            <Link as={GatsbyLink} to="https://primer.style/view-components/components/octicon">
+            <Link to="https://primer.style/view-components/components/octicon">
               Octicon View Component
             </Link>
             ,{' '}
