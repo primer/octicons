@@ -104,8 +104,8 @@ export default function IconPage({pageContext}) {
           <H2>Usage</H2>
           <Paragraph>
             You can use the{' '}
-            <Link as={GatsbyLink} to="/packages/rails">
-              Rails helper
+            <Link as={GatsbyLink} to="https://primer.style/view-components/components/octicon">
+              Octicon View Component
             </Link>
             ,{' '}
             <Link as={GatsbyLink} to="/packages/jekyll">
@@ -118,8 +118,8 @@ export default function IconPage({pageContext}) {
             to include Octicons on your site. Below are code examples for each:
           </Paragraph>
 
-          <H3>Ruby</H3>
-          <Code>{`<%= octicon "${pageContext.name}", :height => ${icon.height} %>`}</Code>
+          <H3>Octicon View Component</H3>
+          <Code>{`<%= render(Primer::OcticonComponent.new(:"${pageContext.name}")) %>`}</Code>
 
           <H3>Jekyll</H3>
           <Code>{`{% octicon ${pageContext.name} height:${icon.height} %}`}</Code>
