@@ -27,25 +27,19 @@ export default function IconPage({pageContext}) {
   const svg = getSvg(icon)
   const [pdf, setPdf] = React.useState(null)
 
-  React.useEffect(
-    () => {
-      getPdf(icon).then(blob => setPdf(blob))
-    },
-    [pageContext]
-  )
+  React.useEffect(() => {
+    getPdf(icon).then(blob => setPdf(blob))
+  }, [pageContext])
 
   const [copied, setCopied] = React.useState(false)
 
-  React.useEffect(
-    () => {
-      const timeout = setTimeout(() => {
-        if (copied) setCopied(false)
-      }, 1000)
+  React.useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (copied) setCopied(false)
+    }, 1000)
 
-      return () => clearTimeout(timeout)
-    },
-    [copied]
-  )
+    return () => clearTimeout(timeout)
+  }, [copied])
 
   return (
     <Flex flexDirection="column" minHeight="100vh">
@@ -103,11 +97,7 @@ export default function IconPage({pageContext}) {
 
           <H2>Usage</H2>
           <Paragraph>
-            You can use the{' '}
-            <a href="https://primer.style/view-components/components/octicon">
-              View Component
-            </a>
-            ,{' '}
+            You can use the <Link href="https://primer.style/view-components/components/octicon">View Component</Link>,{' '}
             <Link as={GatsbyLink} to="/packages/jekyll">
               Jekyll helper
             </Link>
@@ -151,9 +141,7 @@ function UIExamples({size, icon}) {
 
 function getSvg(icon) {
   // eslint-disable-next-line github/unescaped-html-literal
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${icon.width} ${icon.height}" width="${
-    icon.width
-  }" height="${icon.height}">${icon.path}</svg>`
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${icon.width} ${icon.height}" width="${icon.width}" height="${icon.height}">${icon.path}</svg>`
 }
 
 function getPdf(icon) {
