@@ -1,4 +1,4 @@
-import {Absolute, BorderBox, Flex, Grid, Relative, theme} from '@primer/components'
+import {Absolute, BorderBox, Flex, Grid, Relative} from '@primer/components'
 import {rgba} from 'polished'
 import React from 'react'
 
@@ -12,20 +12,21 @@ export default function IconViewer({children}) {
           justifyContent="center"
           alignItems="center"
           height={400}
-          css={{
-            backgroundImage: `${gridGradient(0, getGridSize(zoom), theme.colors.gray[2])}, ${gridGradient(
-              90,
-              getGridSize(zoom),
-              theme.colors.gray[2]
-            )}`,
+          sx={{
+            backgroundImage: theme =>
+              `${gridGradient(0, getGridSize(zoom), theme.colors.border.subtle)}, ${gridGradient(
+                90,
+                getGridSize(zoom),
+                theme.colors.border.subtle
+              )}`,
             backgroundSize: `${getGridSize(zoom)}px ${getGridSize(zoom)}px`,
             backgroundPosition: 'center center'
           }}
         >
           <Flex
-            css={{
+            sx={{
               transform: `scale(${zoom})`,
-              boxShadow: `0 0 0 ${1 / zoom}px ${theme.colors.orange[5]}`
+              boxShadow: theme => `0 0 0 ${1 / zoom}px ${theme.colors.accent.emphasis}`
             }}
           >
             {children}
