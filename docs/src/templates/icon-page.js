@@ -104,9 +104,9 @@ export default function IconPage({pageContext}) {
           <H2>Usage</H2>
           <Paragraph>
             You can use the{' '}
-            <Link to="https://primer.style/view-components/components/octicon">
-              Octicon View Component
-            </Link>
+            <a href="https://primer.style/view-components/components/octicon">
+              View Component
+            </a>
             ,{' '}
             <Link as={GatsbyLink} to="/packages/jekyll">
               Jekyll helper
