@@ -1,5 +1,6 @@
 {
   "private": true,
+  "name": "@primer/octicons-svg",
   "version": "16.0.0",
   "scripts": {
     "version": "script/version",
@@ -7,9 +8,12 @@
     "lint": "eslint tests",
     "build": "script/build.js --input icons/**/*.svg --output lib/build/data.json",
     "start": "cd docs && npm run develop",
-    "svgo": "svgo icons --config .svgo.yml"
+    "svgo": "svgo icons --config .svgo.yml",
+    "release": "changeset publish"
   },
   "dependencies": {
+    "@changesets/changelog-github": "0.4.1",
+    "@changesets/cli": "2.17.0",
     "@github/prettier-config": "0.0.4",
     "ava": "2.1.0",
     "braces": "2.3.1",
