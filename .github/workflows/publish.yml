@@ -1,7 +1,7 @@
 on:
   release:
     types: [published]
-name: Octicons Build
+name: Octicons Publish
 jobs:
   setup:
     runs-on: ubuntu-latest
