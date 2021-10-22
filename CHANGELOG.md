@@ -1,10 +1,14 @@
-# Octicons Changelog
+# Changelog
 
-## 16.0.1
+## 16.1.0
 
-### Patch Changes
+### 🚀 New features
 
-- [#1](https://github.com/primer/octicons-test/pull/1) [`1c7ba01`](https://github.com/primer/octicons-test/commit/1c7ba01259808e87d8ccb5422bde4af7938d668e) Thanks [@jonrohan](https://github.com/jonrohan)! - Create changeset workflow
+- Added first set of 12px filled icons https://github.com/primer/octicons/pull/676
+
+### 🐛 Bug fix
+
+- Adjusted 'no-entry' size to match other circle icons https://github.com/primer/octicons/pull/673
 
 ## 16.0.0
 
@@ -49,13 +53,11 @@
 ## 14.2.2
 
 ### 🐛 Bug fix
-
 - Update `issue-reopened` https://github.com/primer/octicons/pull/633
 
 ## 14.2.1
 
 ### 🐛 Bug fix
-
 - fix vectors for 24px sort icons https://github.com/primer/octicons/pull/627 (🙏 @metonym)
 
 ## 14.2.0
@@ -67,7 +69,6 @@
 - `sort-desc` https://github.com/primer/octicons/pull/619
 
 ### 🧽 Chores
-
 - Remove unused dependency on nokogiri https://github.com/primer/octicons/pull/609 (🙏 @cschlack)
 
 ## 14.1.0
@@ -81,27 +82,27 @@
 
 ### 💥 Breaking changes
 
-- Remove `octoface` https://github.com/primer/octicons/pull/611
-- Rename `git-fork-24` to `repo-forked-24` https://github.com/primer/octicons/pull/593
+- Remove `octoface` https://github.com/primer/octicons/pull/611 
+- Rename `git-fork-24` to `repo-forked-24` https://github.com/primer/octicons/pull/593 
 
 ### 🚀 New features
 
-- `number` https://github.com/primer/octicons/pull/592
-- `hash` (previously `number`) https://github.com/primer/octicons/pull/592
+- `number` https://github.com/primer/octicons/pull/592 
+- `hash` (previously `number`) https://github.com/primer/octicons/pull/592 
 - `diamond` https://github.com/primer/octicons/pull/616
 - `single-select` https://github.com/primer/octicons/pull/612
 - `rows` https://github.com/primer/octicons/pull/617
 - `columns` https://github.com/primer/octicons/pull/617
-- `issue-draft` https://github.com/primer/octicons/pull/614
+- `issue-draft` https://github.com/primer/octicons/pull/614 
 
 ### 💅 Enhancements
 
-- `issue-opened` https://github.com/primer/octicons/pull/614
-- `issue-closed` https://github.com/primer/octicons/pull/614
+- `issue-opened` https://github.com/primer/octicons/pull/614 
+- `issue-closed` https://github.com/primer/octicons/pull/614 
 
 ### 🐛 Fixes
 
-- Fix 24px `arrow-up` icon https://github.com/primer/octicons/pull/594
+- Fix 24px `arrow-up` icon  https://github.com/primer/octicons/pull/594 
 - Prevent clipping using `overflow: visible` https://github.com/primer/octicons/pull/607
 
 ## 13.0.0

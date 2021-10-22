@@ -1,4 +1,4 @@
-on:
+on: 
   push:
     paths:
     - 'icons/**'
@@ -8,10 +8,10 @@ jobs:
   optimize:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
         with:
-          node-version: '12'
+          node-version: '10.x'
       - run: npm install
       - run: npm run svgo
       - uses: EndBug/add-and-commit@v4

@@ -1,0 +1,165 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - run: yarn
+      - name: Building
+        run: yarn build
+      - run: cp -r icons lib/build/svg
+      - uses: actions/upload-artifact@v2
+        with:
+          name: octicons-build
+          path: ./lib/build
+
+  main:
+    name: Main project
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - uses: actions/download-artifact@v2
+        with:
+          name: octicons-build
+          path: ./lib/build
+      - run: yarn
+      - name: Lint
+        run: yarn lint
+      - name: Test
+        run: yarn test
+
+  octicons_node:
+    name: 'npm:@primer/octicons'
+    needs: build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./lib/octicons_node
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - uses: actions/download-artifact@v2
+        with:
+          name: octicons-build
+          path: ./lib/build
+      - run: yarn
+      - name: Building
+        run: yarn build
+      - name: Lint
+        run: yarn lint
+      - name: Test
+        run: yarn test
+
+  octicons_react:
+    name: 'npm:@primer/octicons-react'
+    needs: build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./lib/octicons_react
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - uses: actions/download-artifact@v2
+        with:
+          name: octicons-build
+          path: ./lib/build
+      - run: yarn
+      - name: Building
+        run: yarn build
+      - name: Lint
+        run: yarn lint
+      - name: Test
+        run: yarn test
+
+  octicons_gem:
+    name: 'gem:octicons'
+    needs: build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./lib/octicons_gem
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+    - uses: actions/download-artifact@v2
+      with:
+        name: octicons-build
+        path: ./lib/octicons_gem/lib/build
+    - run: bundle install
+    - name: Linting
+      run: bundle exec rake lint
+    - name: Testing
+      run: bundle exec rake test
+    - name: Build
+      run: bundle exec rake build
+    - uses: actions/upload-artifact@master
+      with:
+        name: octicons-gem
+        path: ./lib/octicons_gem/pkg
+
+  octicons_helper:
+    name: 'gem:octicons_helper'
+    needs: octicons_gem
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./lib/octicons_helper
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+    - uses: actions/download-artifact@v2
+      with:
+        name: octicons-gem
+        path: ./lib/octicons_helper/vendor/cache
+    - run: bundle install
+    - name: Linting
+      run: bundle exec rake lint
+    - name: Testing
+      run: bundle exec rake test
+
+  octicons_jekyll:
+    name: 'gem:octicons_jekyll'
+    needs: octicons_gem
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./lib/octicons_jekyll
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+    - uses: actions/download-artifact@v2
+      with:
+        name: octicons-gem
+        path: ./lib/octicons_jekyll/vendor/cache
+    - run: bundle install
+    - name: Linting
+      run: bundle exec rake lint
+    - name: Testing
+      run: bundle exec rake test

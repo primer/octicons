@@ -7,7 +7,7 @@ on:
 jobs:
   release:
     name: Final
-    if: ${{ github.repository == 'primer/octicons-test' }}
+    if: ${{ github.repository == 'primer/octicons' }}
 
     runs-on: ubuntu-latest
     steps:
@@ -39,7 +39,7 @@ jobs:
         with:
           title: Release Tracking
           version: yarn changeset:version
-          # This expects you to have a script called release which does a build for your packages and calls changeset publish
+          # This is a hack to make the changeset action think we npm published, so that it creates the github release
           publish: echo "New tag:"
         env:
           GITHUB_TOKEN: ${{ secrets.GPR_AUTH_TOKEN_SHARED }}
