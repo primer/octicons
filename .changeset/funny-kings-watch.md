@@ -1,5 +1,5 @@
 ---
-"@primer/octicons-svg": patch
+"@primer/octicons": patch
 ---
 
 Create changeset workflow
