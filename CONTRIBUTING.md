@@ -95,45 +95,12 @@ If everything looks good, a maintainer will approve and merge the pull request w
 
 Once submitted changes have been agreed upon, these instructions will guide maintainers through releasing changes.
 
-### 1. Create a release branch in the [primer/octicons](https://github.com/primer/octicons) repository.
+Releases are managed by 🦋 [Changesets](https://github.com/atlassian/changesets#documentation) which is a great tool for managing major/minor/patch bumps and changelogs.
 
-```shell
-git checkout -b release-x.y.z
-```
+We have the [changeset-bot comment on new pull requests](https://github.com/changesets/bot#readme) asking contributors or maintainers to add a changeset file, which will become the markdown supported changelog entry for the change.
 
-In the context of Octicons, the version number is updated as follows:
+When a pull request is approved merge it into the `main` branch. The changeset action will then create a Release pull request that includes this new pull request.
 
-- Breaking changes to the library or workflow, renaming or removing an icon would all be considered a **major update**.
-- Adding a new icon would be considered a **minor update**.
-- Fixing an icon would be considered a **patch**.
-
-Reach out in the #design-systems Slack channel if you're unsure.
-
-### 2. Update the [CHANGELOG](https://github.com/primer/octicons/blob/main/CHANGELOG.md) describing the changes in this release.
-
-When adding changes, be sure to provide a link to any of the relevant PRs merged into the release.
-
-### 3. Update the version in code base
-
-Find and replace the version number of the current release with the version number of the new release. Exclude anything that does relate directly to the Octicons version. Examples of excluded items include `yargs-parser` and `testing-library_react`.
-
-### 4. Create a release PR
-
-When creating the release PR, include the changes written in the CHANGELOG in the description. We advise changing any bulleted item into a checkbox item. After each update is merged into the release PR, check each item as complete.
-
-### 5. Merge
-When all of the checks have passed and the release PR has been approved, merge the new release to the main branch.
-
-### 6. Draft new release
-- On the **Code** tab, click **Releases** in the repo sidebar.
-- Click **Draft a new release**.
-- Tag the release with the new version number (e.g. `v10.1.0`).
-- Title the release with the new version number and paste in the changes that were added to the CHANGELOG.
-- Click **Publish release**.
-
-**Example:**
-
-![image](https://user-images.githubusercontent.com/10384315/91103190-c6171e80-e61f-11ea-8396-7138996cff30.png)
-
+Once maintainers have agreed and are satisifed with the release. Merge the Release pull request. Changesets will then publish a new GitHub release to the repository with the changelog and new version number. A second action will be triggered by this release and publish the new versions to npm and rubygems.
 
 🎉 Congratulations! The new release has been published.
