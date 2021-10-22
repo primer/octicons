@@ -4,7 +4,7 @@
   "version": "16.0.0",
   "scripts": {
     "version": "script/version",
-    "changeset:version": "changeset version && yarn version",
+    "changeset:version": "changeset version && script/version",
     "test": "ava -v tests/*.js",
     "lint": "eslint tests",
     "build": "script/build.js --input icons/**/*.svg --output lib/build/data.json",
