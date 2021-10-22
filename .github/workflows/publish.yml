@@ -1,11 +1,7 @@
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches-ignore:
-      - 'dependabot/**'
-name: Octicons Build
+  release:
+    types: [published]
+name: Octicons Publish
 jobs:
   setup:
     runs-on: ubuntu-latest
@@ -14,8 +10,6 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: '10.x'
-      - name: Version
-        uses: ./.github/actions/version
       - run: npm install
       - run: npm run build
       - run: cp -r icons lib/build/svg
@@ -28,8 +22,6 @@ jobs:
     needs: setup
     steps:
       - uses: actions/checkout@master
-      - name: Version
-        uses: ./.github/actions/version
       - uses: actions/download-artifact@master
         with:
           name: octicons
@@ -49,8 +41,6 @@ jobs:
     needs: gem
     steps:
       - uses: actions/checkout@master
-      - name: Version
-        uses: ./.github/actions/version
       - uses: actions/download-artifact@master
         with:
           name: octicons
@@ -69,8 +59,6 @@ jobs:
     needs: gem
     steps:
       - uses: actions/checkout@master
-      - name: Version
-        uses: ./.github/actions/version
       - uses: actions/download-artifact@master
         with:
           name: octicons
@@ -89,8 +77,6 @@ jobs:
     needs: setup
     steps:
       - uses: actions/checkout@master
-      - name: Version
-        uses: ./.github/actions/version
       - uses: actions/download-artifact@master
         with:
           name: octicons
@@ -105,8 +91,6 @@ jobs:
     needs: setup
     steps:
       - uses: actions/checkout@master
-      - name: Version
-        uses: ./.github/actions/version
       - uses: actions/download-artifact@master
         with:
           name: octicons

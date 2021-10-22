@@ -1,3 +1,6 @@
+/* eslint-disable import/no-commonjs */
+/* eslint-disable i18n-text/no-en */
+
 const test = require('ava')
 const fs = require('fs-extra')
 const globby = require('globby')

@@ -1,9 +1,5 @@
 source "https://rubygems.org"
 
-gemspec
-
-gem "octicons", "16.1.0"
-
 group :development, :test do
   gem "minitest"
   gem "rake"

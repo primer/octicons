@@ -1,0 +1,46 @@
+name: Release
+on:
+  push:
+    branches:
+      - 'main'
+      - 'next_major'
+jobs:
+  release:
+    name: Final
+    if: ${{ github.repository == 'primer/octicons' }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 3.0.x
+
+      - name: Install dependencies
+        run: |
+          yarn
+          bundle install
+
+      - name: Create release pull request or publish to npm
+        id: changesets
+        uses: changesets/action@master
+        with:
+          title: Release Tracking
+          version: yarn changeset:version
+          # This is a hack to make the changeset action think we npm published, so that it creates the github release
+          publish: echo "New tag:"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GPR_AUTH_TOKEN_SHARED }}
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN_SHARED }}
