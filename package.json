@@ -2,7 +2,7 @@
   "name": "@primer/octicons",
   "version": "16.1.0",
   "publishConfig": {
-    "registry": "http://localhost:4873"
+    "registry": "no registry, don't publish from this package.json."
   },
   "scripts": {
     "version": "script/version",
