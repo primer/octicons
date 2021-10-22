@@ -23,8 +23,15 @@ jobs:
         with:
           node-version: 14.x
 
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 3.0.x
+
       - name: Install dependencies
-        run: yarn
+        run: |
+          yarn
+          bundle install
 
       - name: Create release pull request or publish to npm
         id: changesets
