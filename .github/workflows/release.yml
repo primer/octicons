@@ -40,7 +40,7 @@ jobs:
           title: Release Tracking
           version: yarn changeset:version
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
-          publish: yarn release
+          publish: echo "New tag:"
         env:
           GITHUB_TOKEN: ${{ secrets.GPR_AUTH_TOKEN_SHARED }}
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN_SHARED }}

@@ -1,7 +1,9 @@
 {
-  "private": true,
   "name": "@primer/octicons",
   "version": "16.0.1",
+  "publishConfig": {
+    "registry": "http://localhost:4873"
+  },
   "scripts": {
     "version": "script/version",
     "changeset:version": "changeset version && script/version",
@@ -9,8 +11,7 @@
     "lint": "eslint tests",
     "build": "script/build.js --input icons/**/*.svg --output lib/build/data.json",
     "start": "cd docs && npm run develop",
-    "svgo": "svgo icons --config .svgo.yml",
-    "release": "changeset publish"
+    "svgo": "svgo icons --config .svgo.yml"
   },
   "dependencies": {
     "@changesets/changelog-github": "0.4.1",
