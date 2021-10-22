@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "octicons",
+  "name": "@primer/octicons",
   "version": "16.0.0",
   "scripts": {
     "version": "script/version",
