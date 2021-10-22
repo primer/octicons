@@ -17,19 +17,16 @@ npm -f --no-git-tag-version --allow-same-version version $PACKAGE_VERSION
 echo "Versioning Octicons ruby gem"
 
 cd ../octicons_gem/
-bundle install
 rake version\["$PACKAGE_VERSION"\]
 
 echo "Versioning Octicons rails helper gem"
 
 cd ../octicons_helper/
-bundle install
 rake version\["$PACKAGE_VERSION"\]
 
 echo "Versioning Octicons jekyll plugin gem"
 
 cd ../octicons_jekyll/
-bundle install
 rake version\["$PACKAGE_VERSION"\]
 
 cd ../../

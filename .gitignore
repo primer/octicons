@@ -6,6 +6,7 @@
 .env
 node_modules
 vendor
+Gemfile.lock
 
 # Ignore build/export artifacts
 lib/**/build/
