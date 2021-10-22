@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@primer/octicons-svg",
+  "name": "octicons",
   "version": "16.0.0",
   "scripts": {
     "version": "script/version",
