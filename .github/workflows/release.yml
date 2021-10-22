@@ -29,9 +29,7 @@ jobs:
           ruby-version: 3.0.x
 
       - name: Install dependencies
-        run: |
-          yarn
-          bundle install
+        run: yarn
 
       - name: Create release pull request or publish to npm
         id: changesets
