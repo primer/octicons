@@ -1,25 +1,19 @@
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches-ignore:
-      - 'dependabot/**'
+  release:
+    types: [published]
 name: Octicons Build
 jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@master
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
-          node-version: '10.x'
-      - name: Version
-        uses: ./.github/actions/version
+          node-version: '12'
       - run: npm install
       - run: npm run build
       - run: cp -r icons lib/build/svg
-      - uses: actions/upload-artifact@master
+      - uses: actions/upload-artifact@v2
         with:
           name: octicons
           path: ./lib/build
@@ -27,10 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: setup
     steps:
-      - uses: actions/checkout@master
-      - name: Version
-        uses: ./.github/actions/version
-      - uses: actions/download-artifact@master
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
         with:
           name: octicons
           path: ./lib/build
@@ -40,7 +32,7 @@ jobs:
         with:
           args: octicons_gem
       - run: ls ./lib/octicons_gem/pkg
-      - uses: actions/upload-artifact@master
+      - uses: actions/upload-artifact@v2
         with:
           name: octicons_gem
           path: ./lib/octicons_gem/pkg
@@ -48,14 +40,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: gem
     steps:
-      - uses: actions/checkout@master
-      - name: Version
-        uses: ./.github/actions/version
-      - uses: actions/download-artifact@master
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
         with:
           name: octicons
           path: ./lib/build
-      - uses: actions/download-artifact@master
+      - uses: actions/download-artifact@v2
         with:
           name: octicons_gem
           path: ./lib/octicons_helper/vendor/cache
@@ -68,14 +58,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: gem
     steps:
-      - uses: actions/checkout@master
-      - name: Version
-        uses: ./.github/actions/version
-      - uses: actions/download-artifact@master
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
         with:
           name: octicons
           path: ./lib/build
-      - uses: actions/download-artifact@master
+      - uses: actions/download-artifact@v2
         with:
           name: octicons_gem
           path: ./lib/octicons_jekyll/vendor/cache
@@ -88,10 +76,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: setup
     steps:
-      - uses: actions/checkout@master
-      - name: Version
-        uses: ./.github/actions/version
-      - uses: actions/download-artifact@master
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
         with:
           name: octicons
           path: ./lib/build
@@ -104,10 +90,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: setup
     steps:
-      - uses: actions/checkout@master
-      - name: Version
-        uses: ./.github/actions/version
-      - uses: actions/download-artifact@master
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
         with:
           name: octicons
           path: ./lib/build
