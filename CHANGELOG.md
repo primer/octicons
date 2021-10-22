@@ -1,5 +1,15 @@
 # Changelog
 
+## 16.1.0
+
+### 🚀 New features
+
+- Added first set of 12px filled icons https://github.com/primer/octicons/pull/676
+
+### 🐛 Bug fix
+
+- Adjusted 'no-entry' size to match other circle icons https://github.com/primer/octicons/pull/673
+
 ## 16.0.0
 
 ### 💥 Breaking changes

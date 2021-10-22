@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "scripts": {
     "develop": "gatsby develop",
-    "prebuild": "pushd ..; npm install; npm run build; popd",
+    "prebuild": "pushd ..; yarn; yarn build; popd",
     "build": "gatsby build --prefix-paths"
   },
   "dependencies": {
