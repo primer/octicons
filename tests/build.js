@@ -1,4 +1,4 @@
-/* eslint-env node */
+/* eslint-disable import/no-commonjs */
 const path = require('path')
 const test = require('ava')
 const execa = require('execa')
