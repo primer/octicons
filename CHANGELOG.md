@@ -1,5 +1,11 @@
 # Octicons Changelog
 
+## 16.0.1
+
+### Patch Changes
+
+- [#1](https://github.com/primer/octicons-test/pull/1) [`1c7ba01`](https://github.com/primer/octicons-test/commit/1c7ba01259808e87d8ccb5422bde4af7938d668e) Thanks [@jonrohan](https://github.com/jonrohan)! - Create changeset workflow
+
 ## 16.0.0
 
 ### 💥 Breaking changes
@@ -43,11 +49,13 @@
 ## 14.2.2
 
 ### 🐛 Bug fix
+
 - Update `issue-reopened` https://github.com/primer/octicons/pull/633
 
 ## 14.2.1
 
 ### 🐛 Bug fix
+
 - fix vectors for 24px sort icons https://github.com/primer/octicons/pull/627 (🙏 @metonym)
 
 ## 14.2.0
@@ -59,6 +67,7 @@
 - `sort-desc` https://github.com/primer/octicons/pull/619
 
 ### 🧽 Chores
+
 - Remove unused dependency on nokogiri https://github.com/primer/octicons/pull/609 (🙏 @cschlack)
 
 ## 14.1.0
@@ -92,7 +101,7 @@
 
 ### 🐛 Fixes
 
-- Fix 24px `arrow-up` icon  https://github.com/primer/octicons/pull/594
+- Fix 24px `arrow-up` icon https://github.com/primer/octicons/pull/594
 - Prevent clipping using `overflow: visible` https://github.com/primer/octicons/pull/607
 
 ## 13.0.0
