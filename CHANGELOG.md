@@ -1,5 +1,15 @@
 # Changelog
 
+## 16.1.1
+
+### Patch Changes
+
+- [#681](https://github.com/primer/octicons/pull/681) [`c394d9a`](https://github.com/primer/octicons/commit/c394d9a556666beed4912797fb78f34190796511) Thanks [@jonrohan](https://github.com/jonrohan)! - Adding changesets workflow to octicons for releasing.
+
+* [#684](https://github.com/primer/octicons/pull/684) [`9ed6154`](https://github.com/primer/octicons/commit/9ed615464cc405d9264cb933d4fe5f05ff14a219) Thanks [@ashygee](https://github.com/ashygee)! - Add 12px usage guidelines
+
+- [#677](https://github.com/primer/octicons/pull/677) [`777f229`](https://github.com/primer/octicons/commit/777f2290b4662f2d769096ac3c121e61e92a0ff2) Thanks [@benkoshy](https://github.com/benkoshy)! - update: installation instructions
+
 ## 16.1.0
 
 ### 🚀 New features
@@ -53,11 +63,13 @@
 ## 14.2.2
 
 ### 🐛 Bug fix
+
 - Update `issue-reopened` https://github.com/primer/octicons/pull/633
 
 ## 14.2.1
 
 ### 🐛 Bug fix
+
 - fix vectors for 24px sort icons https://github.com/primer/octicons/pull/627 (🙏 @metonym)
 
 ## 14.2.0
@@ -69,6 +81,7 @@
 - `sort-desc` https://github.com/primer/octicons/pull/619
 
 ### 🧽 Chores
+
 - Remove unused dependency on nokogiri https://github.com/primer/octicons/pull/609 (🙏 @cschlack)
 
 ## 14.1.0
@@ -82,27 +95,27 @@
 
 ### 💥 Breaking changes
 
-- Remove `octoface` https://github.com/primer/octicons/pull/611 
-- Rename `git-fork-24` to `repo-forked-24` https://github.com/primer/octicons/pull/593 
+- Remove `octoface` https://github.com/primer/octicons/pull/611
+- Rename `git-fork-24` to `repo-forked-24` https://github.com/primer/octicons/pull/593
 
 ### 🚀 New features
 
-- `number` https://github.com/primer/octicons/pull/592 
-- `hash` (previously `number`) https://github.com/primer/octicons/pull/592 
+- `number` https://github.com/primer/octicons/pull/592
+- `hash` (previously `number`) https://github.com/primer/octicons/pull/592
 - `diamond` https://github.com/primer/octicons/pull/616
 - `single-select` https://github.com/primer/octicons/pull/612
 - `rows` https://github.com/primer/octicons/pull/617
 - `columns` https://github.com/primer/octicons/pull/617
-- `issue-draft` https://github.com/primer/octicons/pull/614 
+- `issue-draft` https://github.com/primer/octicons/pull/614
 
 ### 💅 Enhancements
 
-- `issue-opened` https://github.com/primer/octicons/pull/614 
-- `issue-closed` https://github.com/primer/octicons/pull/614 
+- `issue-opened` https://github.com/primer/octicons/pull/614
+- `issue-closed` https://github.com/primer/octicons/pull/614
 
 ### 🐛 Fixes
 
-- Fix 24px `arrow-up` icon  https://github.com/primer/octicons/pull/594 
+- Fix 24px `arrow-up` icon https://github.com/primer/octicons/pull/594
 - Prevent clipping using `overflow: visible` https://github.com/primer/octicons/pull/607
 
 ## 13.0.0
