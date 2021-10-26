@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# This is a hack to make the changeset action think we npm published, so that it creates the github release
+
+# Get the current version
+PACKAGE_VERSION=$(jq '.version' --raw-output ./package.json)
+
+# Check if the remote has the current version as a git tag
+# If it doesn't, we echo "New tag:" which is what the changeset action expects https://github.com/changesets/action/blob/b98cec97583b917ff1dc6179dd4d230d3e439894/src/run.ts#L123
+git ls-remote --exit-code --tags origin "v$PACKAGE_VERSION" || echo "New tag:"

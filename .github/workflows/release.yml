@@ -39,10 +39,7 @@ jobs:
         with:
           title: Release Tracking
           version: yarn changeset:version
-          # This is a hack to make the changeset action think we npm published, so that it creates the github release
-          publish: |
-            PACKAGE_VERSION=$(node -p -e "require('./package.json').version")
-            git ls-remote --exit-code --tags origin "v$PACKAGE_VERSION" || echo "New tag:"
+          publish: script/changeset-publish
         env:
           GITHUB_TOKEN: ${{ secrets.GPR_AUTH_TOKEN_SHARED }}
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN_SHARED }}
