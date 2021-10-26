@@ -6,7 +6,7 @@
 
 [![CI](https://github.com/primer/octicons/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/primer/octicons/actions/workflows/ci.yml)
 
-[![Octicons Build](https://github.com/primer/octicons/workflows/Octicons%20Build/badge.svg)](https://github.com/primer/octicons/actions?query=workflow%3A%22Octicons+Build%22)
+[![Octicons Publish](https://github.com/primer/octicons/actions/workflows/publish.yml/badge.svg)](https://github.com/primer/octicons/actions/workflows/publish.yml)
 
 Octicons are a set of SVG icons built by GitHub for GitHub.
 
