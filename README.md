@@ -1,14 +1,19 @@
-# Octicons
+![octicons cover light](https://user-images.githubusercontent.com/54012/138925195-5779c51d-ff8c-4264-a914-e64f4843893d.png?gh_color_mode=light)
+![octicons cover dark](https://user-images.githubusercontent.com/54012/138925203-80e1afa1-ba54-4731-9525-3c41186663f9.png?gh_color_mode=dark)
+<br>
+<br>
+<h1 align="center">Octicons</h1>
+
+<p align="center">Octicons are a set of SVG icons built by GitHub for GitHub.</p>
 
 <p align="center">
-  <img width="800" src="https://user-images.githubusercontent.com/4608155/74476584-77155300-4e5e-11ea-88c6-6c9f64cf0f05.png" alt="Octicons cover" />
+  <a aria-label="build status" href="https://github.com/primer/octicons/actions/workflows/ci.yml">
+    <img alt="" src="https://github.com/primer/octicons/actions/workflows/ci.yml/badge.svg?branch=main&event=push">
+  </a>
+  <a aria-label="publish status" href="https://github.com/primer/octicons/actions/workflows/publish.yml">
+    <img alt="" src="https://github.com/primer/octicons/actions/workflows/publish.yml/badge.svg">
+  </a>
 </p>
-
-[![CI](https://github.com/primer/octicons/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/primer/octicons/actions/workflows/ci.yml)
-
-[![Octicons Publish](https://github.com/primer/octicons/actions/workflows/publish.yml/badge.svg)](https://github.com/primer/octicons/actions/workflows/publish.yml)
-
-Octicons are a set of SVG icons built by GitHub for GitHub.
 
 ## Libraries
 
