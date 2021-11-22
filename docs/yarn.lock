@@ -1635,10 +1635,10 @@
     focus-visible "5.2.0"
     styled-system "5.1.5"
 
-"@primer/gatsby-theme-doctocat@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@primer/gatsby-theme-doctocat/-/gatsby-theme-doctocat-2.1.0.tgz#5b19ca9fe657108226e4202ba9143f2c57370767"
-  integrity sha512-sRXb5LcP/2YG33q7WTxgfjpG+DSk5VFYEzYI+qiAW520IOhBf3V9Nvx2NVAdq7XHQTKd+ZIuN3+Qc+Z45SKYUw==
+"@primer/gatsby-theme-doctocat@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@primer/gatsby-theme-doctocat/-/gatsby-theme-doctocat-3.0.0.tgz#cbfd275ba1abf3b950d79e8828eaec9ee895a911"
+  integrity sha512-XzMPJlMUYcor0yJyQlh7pWrNba99+G5tXIK3Jp1AGglD+CtH3ypiU4JO+GaYIc5m9xqGiJsKXyulvuzXoxYdsw==
   dependencies:
     "@babel/preset-env" "^7.5.5"
     "@babel/preset-react" "^7.0.0"
@@ -1672,7 +1672,6 @@
     github-slugger "^1.2.1"
     html-react-parser "^1.4.0"
     jest "^24.9.0"
-    jsonschema "^1.4.0"
     lodash.debounce "4.0.8"
     lodash.uniqby "^4.7.0"
     pkg-up "^3.1.0"
@@ -1688,7 +1687,6 @@
     react-live "^2.1.2"
     react-measure "^2.3.0"
     read-pkg-up "^6.0.0"
-    require-glob "^4.0.0"
     sentence-case "^2.1.1"
     styled-components "^4.3.2"
     styled-system "^5.0.18"
@@ -3929,7 +3927,7 @@ callsites@^2.0.0:
   resolved "https://registry.yarnpkg.com/callsites/-/callsites-2.0.0.tgz#06eb84f00eea413da86affefacbffb36093b3c50"
   integrity sha1-BuuE8A7qQT2oav/vrL/7Ngk7PFA=
 
-callsites@^3.0.0, callsites@^3.1.0:
+callsites@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/callsites/-/callsites-3.1.0.tgz#b3630abd8943432f54b3f0519238e33cd7df2f73"
   integrity sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==
@@ -7641,13 +7639,6 @@ glob-parent@^5.0.0, glob-parent@^5.1.2, glob-parent@~5.1.2:
   dependencies:
     is-glob "^4.0.1"
 
-glob-parent@^6.0.0:
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/glob-parent/-/glob-parent-6.0.2.tgz#6d237d99083950c79290f24c7642a3de9a28f9e3"
-  integrity sha512-XxwI8EOhVQgWp6iDL+3b0r86f4d6AX6zSU55HfB4ydCEuXLXc5FcYeOu+nnGftS4TEju/11rt4KJPTMgbfmv4A==
-  dependencies:
-    is-glob "^4.0.3"
-
 glob@^7.0.3, glob@^7.0.5, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4, glob@^7.1.6:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.2.0.tgz#d15535af7732e02e948f4c41628bd910293f6023"
@@ -7733,7 +7724,7 @@ globby@^10.0.1:
     merge2 "^1.2.3"
     slash "^3.0.0"
 
-globby@^11.0.2, globby@^11.0.3, globby@^11.0.4:
+globby@^11.0.2, globby@^11.0.4:
   version "11.0.4"
   resolved "https://registry.yarnpkg.com/globby/-/globby-11.0.4.tgz#2cbaff77c2f2a62e71e9b2813a67b97a3a3001a5"
   integrity sha512-9O4MVG9ioZJ08ffbcyVYyLOJLk5JQ688pJ4eMGLpdWLHq/Wr1D9BlriLQyL0E+jbkuePVZXYFj47QM/v093wHg==
@@ -9812,11 +9803,6 @@ jsonify@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
   integrity sha1-LHS27kHZPKUbe1qu6PUDYx0lKnM=
-
-jsonschema@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/jsonschema/-/jsonschema-1.4.0.tgz#1afa34c4bc22190d8e42271ec17ac8b3404f87b2"
-  integrity sha512-/YgW6pRMr6M7C+4o8kS+B/2myEpHCrxO4PEWnqJNBFMjn7EWXqlQ4tGwL6xTHeRplwuZmcAncdvfOad1nT2yMw==
 
 jsprim@^1.2.2:
   version "1.4.1"
@@ -11914,13 +11900,6 @@ parent-module@^1.0.0:
   dependencies:
     callsites "^3.0.0"
 
-parent-module@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/parent-module/-/parent-module-2.0.0.tgz#fa71f88ff1a50c27e15d8ff74e0e3a9523bf8708"
-  integrity sha512-uo0Z9JJeWzv8BG+tRcapBKNJ0dro9cLyczGzulS6EfeyAdeC9sbojtW6XwvYxJkEne9En+J2XEl4zyglVeIwFg==
-  dependencies:
-    callsites "^3.1.0"
-
 parse-asn1@^5.0.0, parse-asn1@^5.1.5:
   version "5.1.6"
   resolved "https://registry.yarnpkg.com/parse-asn1/-/parse-asn1-5.1.6.tgz#385080a3ec13cb62a62d39409cb3e88844cdaed4"
@@ -13771,15 +13750,6 @@ require-from-string@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/require-from-string/-/require-from-string-2.0.2.tgz#89a7fdd938261267318eafe14f9c32e598c36909"
   integrity sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==
-
-require-glob@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/require-glob/-/require-glob-4.0.0.tgz#b81b58e559af257469943df1f9e0bdcf105302f6"
-  integrity sha512-it036McAdNoDjFtq9ZcLy7dG42yMfm7d8MVm6yZVSiBt6gcGl4OcU3zpEPUrfoXZM60U6kwAYo1gfXMcNye6Bg==
-  dependencies:
-    glob-parent "^6.0.0"
-    globby "^11.0.3"
-    parent-module "^2.0.0"
 
 "require-like@>= 0.1.1":
   version "0.1.2"
