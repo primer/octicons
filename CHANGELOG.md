@@ -1,5 +1,15 @@
 # Changelog
 
+## 16.2.0
+
+### Minor Changes
+
+- [#706](https://github.com/primer/octicons/pull/706) [`2c43706`](https://github.com/primer/octicons/commit/2c4370658663817a216895ee7831a00d413f7d4e) Thanks [@Juliusschaeper](https://github.com/Juliusschaeper)! - Add `code-of-conduct` icon
+
+### Patch Changes
+
+- [#685](https://github.com/primer/octicons/pull/685) [`c59c097`](https://github.com/primer/octicons/commit/c59c097c23ccea6409c9e2f235b64a50b4d580dd) Thanks [@jonrohan](https://github.com/jonrohan)! - Formatting changes to the main readme file, including dark mode support.
+
 ## 16.1.1
 
 ### Patch Changes
