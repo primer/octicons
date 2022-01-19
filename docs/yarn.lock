@@ -1635,10 +1635,10 @@
     focus-visible "5.2.0"
     styled-system "5.1.5"
 
-"@primer/gatsby-theme-doctocat@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@primer/gatsby-theme-doctocat/-/gatsby-theme-doctocat-3.0.1.tgz#ae8229e57d29d5d4c6f087ad59345c753d62caac"
-  integrity sha512-4a0BCF+ddBzNX9eT/WR389MNbSo4j2I4qjs4yz8AI9z9+ImlLxfZuIAAthqDzwHyYQ0IGtkgfHyvr3Zobsk2jg==
+"@primer/gatsby-theme-doctocat@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@primer/gatsby-theme-doctocat/-/gatsby-theme-doctocat-3.2.0.tgz#54856b92fdd948218c02328a48f083846a4a7585"
+  integrity sha512-C/8X4xHKWmVf+TKlzWzvj65+BRbcTv6rWr1VoiFQsf6hQacEvzxe6BiTvuvZTFQ+P7Ei1TWKPnTOGbqg0VUSnw==
   dependencies:
     "@babel/preset-env" "^7.5.5"
     "@babel/preset-react" "^7.0.0"
