@@ -1,5 +1,20 @@
 # Changelog
 
+## 16.3.0
+
+### Minor Changes
+
+- [#724](https://github.com/primer/octicons/pull/724) [`855cb27`](https://github.com/primer/octicons/commit/855cb27b7ebd0d728cc85eb1398e94af0a592504) Thanks [@rezrah](https://github.com/rezrah)! - Adding new icons for accessibility, apps, id-badge, log, repo-deleted, tab-external, webhook
+
+* [#708](https://github.com/primer/octicons/pull/708) [`6933ac3`](https://github.com/primer/octicons/commit/6933ac32f87a2cb5efda4fb74b39d1e6199134ce) Thanks [@Juliusschaeper](https://github.com/Juliusschaeper)! - Added first batch of 16px feed icons:
+  - `feed-discussion`
+  - `feed-heart`
+  - `feed-person`
+  - `feed-repo`
+  - `feed-rocket`
+  - `feed-star`
+  - `feed-tag`
+
 ## 16.2.0
 
 ### Minor Changes
