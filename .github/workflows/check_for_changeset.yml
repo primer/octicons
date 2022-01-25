@@ -1,0 +1,25 @@
+name: Check for changeset
+
+on:
+  pull_request:
+    types:
+      # On by default if you specify no types.
+      - 'opened'
+      - 'reopened'
+      - 'synchronize'
+      # For `skip-label` only.
+      - 'labeled'
+      - 'unlabeled'
+
+jobs:
+  check-for-changeset:
+    name: Check for changeset
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: 'Check for changeset'
+        uses: brettcannon/check-for-changed-files@v1
+        with:
+          file-pattern: '.changeset/*.md'
+          skip-label: 'skip changeset'
+          failure-message: 'No changeset found. If these changes should not result in a new version, apply the ${skip-label} label to this pull request. If these changes should result in a version bump, please add a changeset https://git.io/J6QvQ'
