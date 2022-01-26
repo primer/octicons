@@ -5,13 +5,13 @@
 ### Minor Changes
 
 - [#715](https://github.com/primer/octicons/pull/715) [`ab991ab`](https://github.com/primer/octicons/commit/ab991ab318488efc3c02b747168a34e356fad059) Thanks [@edokoa](https://github.com/edokoa)! - Added new icons for:
-- `accessibility`
-- `apps`
-- `id-badge`
-- `log`
-- `repo-deleted`
-- `tab-external`
-- `webhook`
+  - `accessibility`
+  - `apps`
+  - `id-badge`
+  - `log`
+  - `repo-deleted`
+  - `tab-external`
+  - `webhook`
 
 * [#708](https://github.com/primer/octicons/pull/708) [`6933ac3`](https://github.com/primer/octicons/commit/6933ac32f87a2cb5efda4fb74b39d1e6199134ce) Thanks [@Juliusschaeper](https://github.com/Juliusschaeper)! - Added first batch of 16px feed icons:
   - `feed-discussion`
