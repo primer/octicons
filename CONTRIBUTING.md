@@ -99,6 +99,8 @@ Releases are managed by 🦋 [Changesets](https://github.com/atlassian/changeset
 
 We have the [changeset-bot comment on new pull requests](https://github.com/changesets/bot#readme) asking contributors or maintainers to add a changeset file, which will become the markdown supported changelog entry for the change.
 
+When creating the changeset always commit into the working branch (pull request branch), not `main`.
+
 When a pull request is approved merge it into the `main` branch. The changeset action will then create a Release pull request that includes this new pull request.
 
 Once maintainers have agreed and are satisifed with the release. Merge the Release pull request. Changesets will then publish a new GitHub release to the repository with the changelog and new version number. A second action will be triggered by this release and publish the new versions to npm and rubygems.
