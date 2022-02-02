@@ -1,5 +1,5 @@
 ---
-"@primer/octicons": patch
+"@primer/octicons": major
 ---
 
 Save file-directory-32.svg, file-directory-fill-32.svg
