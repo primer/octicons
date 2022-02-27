@@ -24,7 +24,7 @@ const {argv} = yargs
   .option('output', {
     alias: 'o',
     type: 'string',
-    describe: 'Ouput JSON file. Defaults to stdout if no output file is provided.'
+    describe: 'Output JSON file. Defaults to stdout if no output file is provided.'
   })
 
 // The `argv.input` array could contain globs (e.g. "**/*.svg").
