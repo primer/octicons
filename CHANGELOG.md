@@ -284,7 +284,7 @@
 
 ### All packages
 
-- We've given Octicons a new look ✨ Some icons have new names and some icons haven't been redesigned yet. The following table documents those changes. If you're using an octicon in v9.x that doesn't have an equivelent in v10.0 yet, let us know by [opening an issue](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D).
+- We've given Octicons a new look ✨ Some icons have new names and some icons haven't been redesigned yet. The following table documents those changes. If you're using an octicon in v9.x that doesn't have an equivalent in v10.0 yet, let us know by [opening an issue](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D).
 
 | v9.x                     | v10.0                     | Notes                                                                                                                                               |
 | ------------------------ | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
