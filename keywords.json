@@ -90,7 +90,7 @@
   "git-pull-request": ["review"],
   "github-action": ["board", "workflow", "action", "automation"],
   "globe": ["world", "earth", "planet"],
-  "grabber": ["mover", "drap", "drop", "sort"],
+  "grabber": ["mover", "drag", "drop", "sort"],
   "graph": ["trend", "stats", "statistics"],
   "heart": ["love", "beat"],
   "heart-outline": ["love", "beat"],
