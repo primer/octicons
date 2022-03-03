@@ -25,7 +25,7 @@ The octicons node.js library is the main JavaScript library. With [a JavaScript 
 
 | Package                                                                              | Version                                                                                                                         |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| **[@primer/octicons](/lib/octicons_node)** <br />Node.js package with Javascript API | [![npm version](https://img.shields.io/npm/v/@primer/octicons.svg)](https://www.npmjs.org/package/@primer/octicons)             |
+| **[@primer/octicons](/lib/octicons_node)** <br />Node.js package with JavaScript API | [![npm version](https://img.shields.io/npm/v/@primer/octicons.svg)](https://www.npmjs.org/package/@primer/octicons)             |
 | **[@primer/octicons-react](/lib/octicons_react)** <br />React Octicons components    | [![npm version](https://img.shields.io/npm/v/@primer/octicons-react.svg)](https://www.npmjs.org/package/@primer/octicons-react) |
 | **[@primer/styled-octicons](/lib/octicons_styled)** <br />React Octicons components with Styled System props    | [![npm version](https://img.shields.io/npm/v/@primer/styled-octicons.svg)](https://www.npmjs.org/package/@primer/styled-octicons) |
 

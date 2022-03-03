@@ -9,7 +9,7 @@ describe Jekyll::Octicons do
       assert_match /aria-label="hi"/, output
     end
 
-    it "parses interpoaltion of variables" do
+    it "parses interpolation of variables" do
       template = render("{% assign symbol = \"mark-github\" %}{% octicon {{ symbol }} %}")
       assert_match /<svg.*octicon-mark-github.*/, template
     end

@@ -65,10 +65,10 @@ export default function IconViewer({children}) {
 function gridGradient(angle, size, color) {
   // WebKit browsers do not support the "transparent" keyword in gradients.
   // As a workaround, we convert `color` to rgba with an alpha value of 0.
-  const tranparent = rgba(color, 0)
-  return `linear-gradient(${angle}deg, ${tranparent}, ${tranparent} ${Math.floor(
+  const transparent = rgba(color, 0)
+  return `linear-gradient(${angle}deg, ${transparent}, ${transparent} ${Math.floor(
     size / 2
-  )}px, ${color}, ${tranparent} ${Math.floor(size / 2) + 1}px)`
+  )}px, ${color}, ${transparent} ${Math.floor(size / 2) + 1}px)`
 }
 
 function getGridSize(zoom) {
