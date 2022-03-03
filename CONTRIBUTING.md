@@ -99,8 +99,16 @@ Releases are managed by 🦋 [Changesets](https://github.com/atlassian/changeset
 
 We have the [changeset-bot comment on new pull requests](https://github.com/changesets/bot#readme) asking contributors or maintainers to add a changeset file, which will become the markdown supported changelog entry for the change.
 
+When creating the changeset always commit into the working branch (pull request branch), not `main`.
+
 When a pull request is approved merge it into the `main` branch. The changeset action will then create a Release pull request that includes this new pull request.
 
-Once maintainers have agreed and are satisifed with the release. Merge the Release pull request. Changesets will then publish a new GitHub release to the repository with the changelog and new version number. A second action will be triggered by this release and publish the new versions to npm and rubygems.
+Once maintainers have agreed and are satisfied with the release. Merge the Release pull request. Changesets will then publish a new GitHub release to the repository with the changelog and new version number. A second action will be triggered by this release and publish the new versions to npm and rubygems.
 
 🎉 Congratulations! The new release has been published.
+
+## Other contributions
+
+When contributing to Octicons outside of adding a new icon or release-dependent contribution, be sure to add the `skip-changeset` label to the pull request. This will allow for the pull request to skip the changeset check and have the ability to be merged into the main branch. 
+
+Examples of other contributions include adding documentation or improving a GitHub Actions workflows.

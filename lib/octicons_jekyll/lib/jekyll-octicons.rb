@@ -10,7 +10,7 @@ module Jekyll
     # Syntax for the octicon symbol
     Syntax = /\A(#{Liquid::VariableSignature}+)/
 
-    # For interpoaltion, look for liquid variables
+    # For interpolation, look for liquid variables
     Variable = /\{\{\s*([\w]+\.?[\w]*)\s*\}\}/i
 
     # Copied from Liquid::TagAttributes to allow dashes in tag names:
@@ -23,7 +23,7 @@ module Jekyll
       super
       @markup = markup
 
-      # If there's interpoaltion going on, we need to do this in render
+      # If there's interpolation going on, we need to do this in render
       prepare(markup) unless match = markup.match(Variable)
     end
 
