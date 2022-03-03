@@ -24,7 +24,7 @@ const {argv} = yargs
   .option('output', {
     alias: 'o',
     type: 'string',
-    describe: 'Ouput JSON file. Defaults to stdout if no output file is provided.'
+    describe: 'Output JSON file. Defaults to stdout if no output file is provided.'
   })
 
 // The `argv.input` array could contain globs (e.g. "**/*.svg").
@@ -105,7 +105,7 @@ const icons = svgFilepaths.map(filepath => {
     // Instead of exiting immediately, we set exitCode to 1 and continue
     // iterating through the rest of the SVGs. This allows us to identify all
     // the SVGs that have errors, not just the first one. An exit code of 1
-    // indicates that an error occured.
+    // indicates that an error occurred.
     // Reference: https://nodejs.org/api/process.html#process_exit_codes
     exitCode = 1
     return null

@@ -1,5 +1,58 @@
 # Changelog
 
+## 17.0.0
+
+### Major Changes
+
+- [#736](https://github.com/primer/octicons/pull/736) [`ec8cab8`](https://github.com/primer/octicons/commit/ec8cab891426f759fe665a781e3129241d83de8a) Thanks [@edokoa](https://github.com/edokoa)! - This patch fixes two problems:
+
+  - We're adding a non-filled `file-directory` icon to the set.
+  - We're fixing a problem where the 16px and 24px versions of the `file-directory` icons were mismatched between `fill` and `non-fill` versions of the icon.
+
+  **THIS IS A BREAKING CHANGE** and will require re-linking all the `file-directory` icon references to `file-directory-fill`
+
+### Minor Changes
+
+- [#754](https://github.com/primer/octicons/pull/754) [`7a51cb7`](https://github.com/primer/octicons/commit/7a51cb71b108b21aeb9a1716d443df3f23deba28) Thanks [@edokoa](https://github.com/edokoa)! - Add trophy-16.svg, trophy-24.svg
+
+* [#758](https://github.com/primer/octicons/pull/758) [`0d9000c`](https://github.com/primer/octicons/commit/0d9000c50255bac736eb0fbbc1ffee839130a708) Thanks [@edokoa](https://github.com/edokoa)! - Save repo-locked-16.svg
+
+- [#755](https://github.com/primer/octicons/pull/755) [`a520a37`](https://github.com/primer/octicons/commit/a520a374a0a29f47504e1a758e5cbfa0a4033721) Thanks [@Juliusschaeper](https://github.com/Juliusschaeper)! - Second batch of feed icons: merged, forked and achievement
+
+### Patch Changes
+
+- [#751](https://github.com/primer/octicons/pull/751) [`4e768a5`](https://github.com/primer/octicons/commit/4e768a5e427684cd92c87c6b6a0ff5a5dab1e0a4) Thanks [@Crayon2000](https://github.com/Crayon2000)! - Fix typos in build.js
+
+* [#734](https://github.com/primer/octicons/pull/734) [`afde0dd`](https://github.com/primer/octicons/commit/afde0dd4ee74ec32e6babde240b49e27d96f4d30) Thanks [@ashygee](https://github.com/ashygee)! - Modify upload-24.svg to mirror 16px version
+
+## 16.3.1
+
+### Patch Changes
+
+- [#733](https://github.com/primer/octicons/pull/733) [`a57b9ca`](https://github.com/primer/octicons/commit/a57b9ca1361cde081ce2c84f15ca8999639e5792) Thanks [@edokoa](https://github.com/edokoa)! - Modify upload-24.svg to mirror 16px version
+
+## 16.3.0
+
+### Minor Changes
+
+- [#715](https://github.com/primer/octicons/pull/715) [`ab991ab`](https://github.com/primer/octicons/commit/ab991ab318488efc3c02b747168a34e356fad059) Thanks [@edokoa](https://github.com/edokoa)! - Added new icons for:
+  - `accessibility`
+  - `apps`
+  - `id-badge`
+  - `log`
+  - `repo-deleted`
+  - `tab-external`
+  - `webhook`
+
+* [#708](https://github.com/primer/octicons/pull/708) [`6933ac3`](https://github.com/primer/octicons/commit/6933ac32f87a2cb5efda4fb74b39d1e6199134ce) Thanks [@Juliusschaeper](https://github.com/Juliusschaeper)! - Added first batch of 16px feed icons:
+  - `feed-discussion`
+  - `feed-heart`
+  - `feed-person`
+  - `feed-repo`
+  - `feed-rocket`
+  - `feed-star`
+  - `feed-tag`
+
 ## 16.2.0
 
 ### Minor Changes
@@ -256,7 +309,7 @@
 
 ### All packages
 
-- We've given Octicons a new look ✨ Some icons have new names and some icons haven't been redesigned yet. The following table documents those changes. If you're using an octicon in v9.x that doesn't have an equivelent in v10.0 yet, let us know by [opening an issue](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D).
+- We've given Octicons a new look ✨ Some icons have new names and some icons haven't been redesigned yet. The following table documents those changes. If you're using an octicon in v9.x that doesn't have an equivalent in v10.0 yet, let us know by [opening an issue](https://github.com/primer/octicons/issues/new?assignees=&labels=icon+request&template=icon-request.md&title=%5BIcon+request%5D).
 
 | v9.x                     | v10.0                     | Notes                                                                                                                                               |
 | ------------------------ | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
