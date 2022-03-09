@@ -2,4 +2,4 @@
 "@primer/octicons": minor
 ---
 
-Adds the open filled folder icon to the set
+Add 16px `file-directory-open-fill` icon
