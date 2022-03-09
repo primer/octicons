@@ -1,5 +1,30 @@
 # Changelog
 
+## 17.0.0
+
+### Major Changes
+
+- [#736](https://github.com/primer/octicons/pull/736) [`ec8cab8`](https://github.com/primer/octicons/commit/ec8cab891426f759fe665a781e3129241d83de8a) Thanks [@edokoa](https://github.com/edokoa)! - This patch fixes two problems:
+
+  - We're adding a non-filled `file-directory` icon to the set.
+  - We're fixing a problem where the 16px and 24px versions of the `file-directory` icons were mismatched between `fill` and `non-fill` versions of the icon.
+
+  **THIS IS A BREAKING CHANGE** and will require re-linking all the `file-directory` icon references to `file-directory-fill`
+
+### Minor Changes
+
+- [#754](https://github.com/primer/octicons/pull/754) [`7a51cb7`](https://github.com/primer/octicons/commit/7a51cb71b108b21aeb9a1716d443df3f23deba28) Thanks [@edokoa](https://github.com/edokoa)! - Add trophy-16.svg, trophy-24.svg
+
+* [#758](https://github.com/primer/octicons/pull/758) [`0d9000c`](https://github.com/primer/octicons/commit/0d9000c50255bac736eb0fbbc1ffee839130a708) Thanks [@edokoa](https://github.com/edokoa)! - Save repo-locked-16.svg
+
+- [#755](https://github.com/primer/octicons/pull/755) [`a520a37`](https://github.com/primer/octicons/commit/a520a374a0a29f47504e1a758e5cbfa0a4033721) Thanks [@Juliusschaeper](https://github.com/Juliusschaeper)! - Second batch of feed icons: merged, forked and achievement
+
+### Patch Changes
+
+- [#751](https://github.com/primer/octicons/pull/751) [`4e768a5`](https://github.com/primer/octicons/commit/4e768a5e427684cd92c87c6b6a0ff5a5dab1e0a4) Thanks [@Crayon2000](https://github.com/Crayon2000)! - Fix typos in build.js
+
+* [#734](https://github.com/primer/octicons/pull/734) [`afde0dd`](https://github.com/primer/octicons/commit/afde0dd4ee74ec32e6babde240b49e27d96f4d30) Thanks [@ashygee](https://github.com/ashygee)! - Modify upload-24.svg to mirror 16px version
+
 ## 16.3.1
 
 ### Patch Changes
