@@ -1,29 +1,27 @@
-name: Deploy
+name: Deploy to production
+
 on:
   push:
     branches:
-      - 'main'
+      - main
     paths:
       - 'lib/**'
       - 'icons/**'
       - 'docs/**'
       - '.github/workflows/deploy*.yml'
       - 'package.json'
-jobs:
-  deploy:
-    if: ${{ github.repository == 'primer/octicons' }}
-    name: Production
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
 
-      - name: Vercel Action
-        uses: amondnet/vercel-action@v20
-        id: vercel-action
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          vercel-token: ${{ secrets.VERCEL_TOKEN_SHARED }}
-          vercel-args: '--prod'
-          github-comment: false
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID_SHARED }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build_deploy:
+    name: Build and deploy
+    uses: primer/.github/.github/workflows/deploy.yml@main
+    with:
+      node_version: 14
+      install: yarn
+      build: yarn build
+      output_dir: docs/public
