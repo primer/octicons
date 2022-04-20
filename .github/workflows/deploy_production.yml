@@ -23,5 +23,5 @@ jobs:
     with:
       node_version: 14
       install: yarn
-      build: yarn build
+      build: yarn build:docs
       output_dir: docs/public
