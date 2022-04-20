@@ -10,7 +10,6 @@
     "build:docs:preview": "yarn build && cd docs && yarn gatsby build",
     "changeset:version": "changeset version && script/version",
     "lint": "eslint tests",
-    "postinstall": "cd docs && yarn",
     "start": "cd docs && npm run develop",
     "svgo": "svgo icons --config .svgo.yml",
     "test": "ava -v tests/*.js",

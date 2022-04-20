@@ -14,6 +14,6 @@ jobs:
     uses: primer/.github/.github/workflows/deploy_preview.yml@main
     with:
       node_version: 14
-      install: yarn
+      install: yarn && cd docs && yarn && cd ..
       build: yarn build:docs:preview
       output_dir: docs/public
