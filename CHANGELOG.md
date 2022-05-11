@@ -1,5 +1,11 @@
 # Changelog
 
+## 17.2.0
+
+### Minor Changes
+
+- [#785](https://github.com/primer/octicons/pull/785) [`bc04f00`](https://github.com/primer/octicons/commit/bc04f00583d54e4b090544f6d9b0d82be7b9a5da) Thanks [@ashygee](https://github.com/ashygee)! - Add Copilot icons
+
 ## 17.1.0
 
 ### Minor Changes
