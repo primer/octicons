@@ -1,5 +1,16 @@
 # Changelog
 
+## 17.2.0
+
+### Minor Changes
+
+- [#789](https://github.com/primer/octicons/pull/789) [`d59a5e2`](https://github.com/primer/octicons/commit/d59a5e2095495c9f8a2d9ad10072782df3714522) Thanks [@ashygee](https://github.com/ashygee)! - Add file-added, file-removed, file-moved
+  Update file to be consistent in height with other file icons
+
+### Patch Changes
+
+- [#786](https://github.com/primer/octicons/pull/786) [`0dede7f`](https://github.com/primer/octicons/commit/0dede7f202645bde2294b354284ce0592c248815) Thanks [@ashygee](https://github.com/ashygee)! - recenter org icon
+
 ## 17.1.0
 
 ### Minor Changes
