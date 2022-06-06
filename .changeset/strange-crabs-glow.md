@@ -2,4 +2,4 @@
 "@primer/octicons": minor
 ---
 
-Save repo-locked-24.svg
+Add 24px `repo-locked` icon
