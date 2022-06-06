@@ -1,5 +1,13 @@
 # Changelog
 
+## 17.3.0
+
+### Minor Changes
+
+- [#794](https://github.com/primer/octicons/pull/794) [`608d639`](https://github.com/primer/octicons/commit/608d6399af450f8eda444c73069b59d7fc10eaa4) Thanks [@gavinmn](https://github.com/gavinmn)! - Add `copilot` icons
+
+* [#766](https://github.com/primer/octicons/pull/766) [`8df01b5`](https://github.com/primer/octicons/commit/8df01b5031dac3bd1f11071bac9d7d699e69e4b5) Thanks [@edokoa](https://github.com/edokoa)! - Add 24px `repo-locked` icon
+
 ## 17.2.0
 
 ### Minor Changes
