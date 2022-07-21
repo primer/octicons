@@ -2,4 +2,4 @@
 "@primer/octicons": minor
 ---
 
-Save attachment-16.svg, attachment-24.svg
+Save paperclip-16.svg, paperclip-24.svg
