@@ -1,5 +1,24 @@
 # Changelog
 
+## 17.4.0
+
+### Minor Changes
+
+- [#810](https://github.com/primer/octicons/pull/810) [`840f4eb`](https://github.com/primer/octicons/commit/840f4eb7d89020c36a8f8eeaa6f69042c67adc8e) Thanks [@ashygee](https://github.com/ashygee)! - - modifies tasklist icon proposed in https://github.com/github/primer/issues/746
+  - adds a new checkbox icon using metaphor from previous tasklist metaphor
+
+* [#807](https://github.com/primer/octicons/pull/807) [`d280148`](https://github.com/primer/octicons/commit/d280148ffaa43f3260b06ed723a059f72fc0ee3b) Thanks [@edokoa](https://github.com/edokoa)! - Add `cache` 16px icon
+
+- [#801](https://github.com/primer/octicons/pull/801) [`8e5dcfc`](https://github.com/primer/octicons/commit/8e5dcfcac8dda5c9d41ba8fb3d5b7d5d14ca3943) Thanks [@gavinmn](https://github.com/gavinmn)! - Save paperclip-16.svg, paperclip-24.svg
+
+* [#806](https://github.com/primer/octicons/pull/806) [`27575d0`](https://github.com/primer/octicons/commit/27575d0e67eb0e6557856d18535b75550a364e66) Thanks [@ashygee](https://github.com/ashygee)! - Save git-merge-queue-16.svg
+
+- [#811](https://github.com/primer/octicons/pull/811) [`a005869`](https://github.com/primer/octicons/commit/a0058690fc56e5740817e6f5060ecf0473c6fc46) Thanks [@ashygee](https://github.com/ashygee)! - Save command-palette-24.svg, command-palette-16.svg
+
+### Patch Changes
+
+- [#803](https://github.com/primer/octicons/pull/803) [`5090b7a`](https://github.com/primer/octicons/commit/5090b7acab73dc3f0f25936fceefdeb16bc19d2f) Thanks [@ashygee](https://github.com/ashygee)! - fix table icon
+
 ## 17.3.0
 
 ### Minor Changes
