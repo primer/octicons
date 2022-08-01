@@ -1,5 +1,7 @@
-- title: Icons
-  url: /
+- title: Introduction
+  children:
+  - title: Icons
+    url: /
 - title: Guidelines
   url: /guidelines
   children:
