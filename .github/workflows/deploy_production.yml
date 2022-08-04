@@ -20,6 +20,8 @@ jobs:
   build_deploy:
     name: Build and deploy
     uses: primer/.github/.github/workflows/deploy.yml@main
+    secrets:
+      gh_token: ${{ secrets.GITHUB_TOKEN }}
     with:
       node_version: 14
       install: yarn
