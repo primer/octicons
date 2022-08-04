@@ -1,6 +1,6 @@
 {
   "name": "@primer/octicons",
-  "version": "17.0.0",
+  "version": "17.4.0",
   "publishConfig": {
     "registry": "no registry, don't publish from this package.json."
   },
@@ -10,7 +10,6 @@
     "build:docs:preview": "yarn build && cd docs && yarn gatsby build",
     "changeset:version": "changeset version && script/version",
     "lint": "eslint tests",
-    "postinstall": "cd docs && yarn",
     "start": "cd docs && npm run develop",
     "svgo": "svgo icons --config .svgo.yml",
     "test": "ava -v tests/*.js",
@@ -24,7 +23,7 @@
     "braces": "2.3.1",
     "cheerio": "1.0.0-rc.3",
     "eslint": "8.0.1",
-    "eslint-plugin-github": "4.3.2",
+    "eslint-plugin-github": "4.3.5",
     "eslint-plugin-prettier": "4.0.0",
     "execa": "4.0.0",
     "fs-extra": "7.0.1",

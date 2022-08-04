@@ -1,5 +1,53 @@
 # Changelog
 
+## 17.4.0
+
+### Minor Changes
+
+- [#810](https://github.com/primer/octicons/pull/810) [`840f4eb`](https://github.com/primer/octicons/commit/840f4eb7d89020c36a8f8eeaa6f69042c67adc8e) Thanks [@ashygee](https://github.com/ashygee)! - - modifies tasklist icon proposed in https://github.com/github/primer/issues/746
+  - adds a new checkbox icon using metaphor from previous tasklist metaphor
+
+* [#807](https://github.com/primer/octicons/pull/807) [`d280148`](https://github.com/primer/octicons/commit/d280148ffaa43f3260b06ed723a059f72fc0ee3b) Thanks [@edokoa](https://github.com/edokoa)! - Add `cache` 16px icon
+
+- [#801](https://github.com/primer/octicons/pull/801) [`8e5dcfc`](https://github.com/primer/octicons/commit/8e5dcfcac8dda5c9d41ba8fb3d5b7d5d14ca3943) Thanks [@gavinmn](https://github.com/gavinmn)! - Save paperclip-16.svg, paperclip-24.svg
+
+* [#806](https://github.com/primer/octicons/pull/806) [`27575d0`](https://github.com/primer/octicons/commit/27575d0e67eb0e6557856d18535b75550a364e66) Thanks [@ashygee](https://github.com/ashygee)! - Save git-merge-queue-16.svg
+
+- [#811](https://github.com/primer/octicons/pull/811) [`a005869`](https://github.com/primer/octicons/commit/a0058690fc56e5740817e6f5060ecf0473c6fc46) Thanks [@ashygee](https://github.com/ashygee)! - Save command-palette-24.svg, command-palette-16.svg
+
+### Patch Changes
+
+- [#803](https://github.com/primer/octicons/pull/803) [`5090b7a`](https://github.com/primer/octicons/commit/5090b7acab73dc3f0f25936fceefdeb16bc19d2f) Thanks [@ashygee](https://github.com/ashygee)! - fix table icon
+
+## 17.3.0
+
+### Minor Changes
+
+- [#794](https://github.com/primer/octicons/pull/794) [`608d639`](https://github.com/primer/octicons/commit/608d6399af450f8eda444c73069b59d7fc10eaa4) Thanks [@gavinmn](https://github.com/gavinmn)! - Add `copilot` icons
+
+* [#766](https://github.com/primer/octicons/pull/766) [`8df01b5`](https://github.com/primer/octicons/commit/8df01b5031dac3bd1f11071bac9d7d699e69e4b5) Thanks [@edokoa](https://github.com/edokoa)! - Add 24px `repo-locked` icon
+
+## 17.2.0
+
+### Minor Changes
+
+- [#789](https://github.com/primer/octicons/pull/789) [`d59a5e2`](https://github.com/primer/octicons/commit/d59a5e2095495c9f8a2d9ad10072782df3714522) Thanks [@ashygee](https://github.com/ashygee)! - Add file-added, file-removed, file-moved
+  Update file to be consistent in height with other file icons
+
+### Patch Changes
+
+- [#786](https://github.com/primer/octicons/pull/786) [`0dede7f`](https://github.com/primer/octicons/commit/0dede7f202645bde2294b354284ce0592c248815) Thanks [@ashygee](https://github.com/ashygee)! - recenter org icon
+
+## 17.1.0
+
+### Minor Changes
+
+- [#756](https://github.com/primer/octicons/pull/756) [`2993d47`](https://github.com/primer/octicons/commit/2993d4733cbf3acdaf4286a1a5c17e0ced762967) Thanks [@Juliusschaeper](https://github.com/Juliusschaeper)! - Added `cloud` and `cloud-offline` icons
+
+* [#762](https://github.com/primer/octicons/pull/762) [`57105bb`](https://github.com/primer/octicons/commit/57105bbaffeb38de1bb5f8bc33e125bb3968a554) Thanks [@edokoa](https://github.com/edokoa)! - Add 16px `file-directory-open-fill` icon
+
+- [#783](https://github.com/primer/octicons/pull/783) [`47d3018`](https://github.com/primer/octicons/commit/47d30183a944383e1fb28651fe70e01f3a5dbe59) Thanks [@ashygee](https://github.com/ashygee)! - Save sliders-16.svg
+
 ## 17.0.0
 
 ### Major Changes
