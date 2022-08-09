@@ -8,7 +8,7 @@ function Hero() {
     <ThemeProvider colorMode="night" nightScheme="dark_dimmed">
       <Box bg="canvas.default" py={6}>
         <Container>
-          <Heading color="accent.fg" fontSize={7} m={0}>
+          <Heading as="h1" color="accent.fg" fontSize={7} m={0}>
             Octicons
           </Heading>
           <Text as="p" mt={0} mb={3} color="fg.default" fontSize={4}>
