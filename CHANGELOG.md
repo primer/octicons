@@ -1,5 +1,11 @@
 # Changelog
 
+## 17.4.1
+
+### Patch Changes
+
+- [#815](https://github.com/primer/octicons/pull/815) [`41c088e`](https://github.com/primer/octicons/commit/41c088e11862a2f693c7670deb3a12daa7a04089) Thanks [@ashygee](https://github.com/ashygee)! - Correct alignment for search-24
+
 ## 17.4.0
 
 ### Minor Changes
