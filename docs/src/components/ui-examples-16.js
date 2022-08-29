@@ -40,26 +40,26 @@ export default function UIExamples16({icon: Icon}) {
             </Timeline.Body>
           </Timeline.Item>
         </Timeline>
-        <Flex>
-          <Button mr={2}>
+        <Flex flexWrap={'wrap'} sx={{gap: 2}}>
+          <Button>
             <Icon />
             <Text ml={2} contentEditable>
               Button
             </Text>
           </Button>
-          <ButtonPrimary mr={2}>
+          <ButtonPrimary>
             <Icon />
             <Text ml={2} contentEditable>
               Button
             </Text>
           </ButtonPrimary>
-          <ButtonDanger mr={2}>
+          <ButtonDanger>
             <Icon />
             <Text ml={2} contentEditable>
               Button
             </Text>
           </ButtonDanger>
-          <ButtonOutline mr={2}>
+          <ButtonOutline>
             <Icon />
             <Text ml={2} contentEditable>
               Button
