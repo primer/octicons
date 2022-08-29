@@ -1,5 +1,13 @@
 # Changelog
 
+## 17.5.0
+
+### Minor Changes
+
+- [#827](https://github.com/primer/octicons/pull/827) [`f186ad3`](https://github.com/primer/octicons/commit/f186ad3a07bd30954088e9e63936f81dc735bbcd) Thanks [@edokoa](https://github.com/edokoa)! - Save `accessibility-inset` 16px icon
+
+* [#828](https://github.com/primer/octicons/pull/828) [`6c0d207`](https://github.com/primer/octicons/commit/6c0d20761f62dad118db48e72d6e0b20210c38cb) Thanks [@edokoa](https://github.com/edokoa)! - Save `shield-slash` 16px icon
+
 ## 17.4.1
 
 ### Patch Changes
