@@ -51,5 +51,8 @@
       "github/no-then": 0,
       "eslint-comments/no-use": 0
     }
+  },
+  "devDependencies": {
+    "svgson": "5.2.1"
   }
 }

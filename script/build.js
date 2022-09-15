@@ -7,6 +7,7 @@ const cheerio = require('cheerio')
 const trimNewlines = require('trim-newlines')
 const yargs = require('yargs')
 const merge = require('lodash.merge')
+const {parseSync} = require('svgson')
 const keywords = require('../keywords.json')
 
 // This script generates a JSON file that contains
@@ -57,6 +58,9 @@ const icons = svgFilepaths.map(filepath => {
     const svgHeight = parseInt(svgElement.attr('height'))
     const svgViewBox = svgElement.attr('viewBox')
     const svgPath = trimNewlines(svgElement.html()).trim()
+    const ast = parseSync(svg, {
+      camelcase: true
+    })
 
     if (!svgWidth) {
       throw new Error(`${filename}: Missing width attribute.`)
@@ -97,7 +101,8 @@ const icons = svgFilepaths.map(filepath => {
       keywords: keywords[name] || [],
       width: svgWidth,
       height: svgHeight,
-      path: svgPath
+      path: svgPath,
+      ast
     }
   } catch (error) {
     // eslint-disable-next-line no-console
@@ -126,7 +131,8 @@ const iconsByName = icons.reduce(
         heights: {
           [icon.height]: {
             width: icon.width,
-            path: icon.path
+            path: icon.path,
+            ast: icon.ast
           }
         }
       }
