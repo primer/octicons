@@ -101,7 +101,8 @@ const icons = svgFilepaths.map(filepath => {
       keywords: keywords[name] || [],
       width: svgWidth,
       height: svgHeight,
-      path: svgPath
+      path: svgPath,
+      ast
     }
   } catch (error) {
     // eslint-disable-next-line no-console
