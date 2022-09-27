@@ -1,4 +1,4 @@
-name: Deploy preview
+name: Deploy
 on:
   pull_request:
 
@@ -10,8 +10,9 @@ permissions:
 jobs:
   deploy:
     if: ${{ github.repository == 'primer/octicons' }}
-    name: Build and deploy
-    uses: primer/.github/.github/workflows/deploy_preview.yml@main
+    name: Preview
+    # SHA for security hardening. Points at last verified HEAD of main branch.
+    uses: primer/.github/.github/workflows/deploy_preview.yml@0cec9b9914f358846163f2428663b58da41028c9
     secrets:
       gh_token: ${{ secrets.GITHUB_TOKEN }}
     with:
