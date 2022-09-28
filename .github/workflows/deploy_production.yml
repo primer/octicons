@@ -1,4 +1,4 @@
-name: Deploy to production
+name: Deploy
 
 on:
   push:
@@ -18,8 +18,9 @@ permissions:
 
 jobs:
   build_deploy:
-    name: Build and deploy
-    uses: primer/.github/.github/workflows/deploy.yml@main
+    name: Production
+    # Uses SHA for security hardening. Points at last verified HEAD of main branch.
+    uses: primer/.github/.github/workflows/deploy.yml@0cec9b9914f358846163f2428663b58da41028c9
     secrets:
       gh_token: ${{ secrets.GITHUB_TOKEN }}
     with:
