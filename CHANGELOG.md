@@ -1,5 +1,19 @@
 # Changelog
 
+## 17.6.0
+
+### Minor Changes
+
+- [#848](https://github.com/primer/octicons/pull/848) [`ed25e50`](https://github.com/primer/octicons/commit/ed25e501f614afe1b43aa09c11f344d8b47a233d) Thanks [@ashygee](https://github.com/ashygee)! - Add filled alert icons
+  - alert-fill-16
+  - alert-fill-24
+
+* [#847](https://github.com/primer/octicons/pull/847) [`2f9b32e`](https://github.com/primer/octicons/commit/2f9b32e6b48cb58adac95552d6e7ddb2bf405a94) Thanks [@ashygee](https://github.com/ashygee)! - - add log-24.svg (TY @edokoa!)
+
+### Patch Changes
+
+- [#831](https://github.com/primer/octicons/pull/831) [`57f364a`](https://github.com/primer/octicons/commit/57f364a7e234080781355cd57fcf3bdd75b05af4) Thanks [@josepmartins](https://github.com/josepmartins)! - Adjust flex wrap in UI examples.Fixes #731
+
 ## 17.5.0
 
 ### Minor Changes
