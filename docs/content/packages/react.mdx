@@ -66,6 +66,23 @@ export default () => (
 )
 ```
 
+### `focusable`
+
+You can add the `focusable` attribute to the SVG element via the `focusable` prop, which can be either `true`, `false`, or `auto`.
+If there is no `aria-label` prop presents, `focusable` prop will be set to false and this helps prevent the decorative
+SVG from being announced by some specialized assistive technology browsing modes which get delayed while trying to parse SVG's markup
+
+```js
+// Example usage
+import {PlusIcon} from '@primer/octicons-react'
+
+export default () => (
+  <button>
+    <PlusIcon aria-label="Add new item" focusable="auto" /> New
+  </button>
+)
+```
+
 ### Sizes
 
 The `size` prop takes `small`, `medium`, and `large` values that can be used to
@@ -110,10 +127,16 @@ export default () => (
 ### `Octicon` (DEPRECATED)
 
 > ⚠️ The `Octicon` component is deprecated. Use icon components on their own instead:
+>
 > ```diff
+>
+> ```
+
 - <Octicon icon={AlertIcon} />
-+ <AlertIcon />
-```
+
+* <AlertIcon />
+
+````
 
 The `Octicon` component is wrapper that passes props to its icon component. To render a specific icon, you
 can pass it either via the `icon` prop, or as the only child:
@@ -121,7 +144,7 @@ can pass it either via the `icon` prop, or as the only child:
 ```jsx
 <Octicon icon={Icon} />
 <Octicon><Icon x={10}/></Octicon>
-```
+````
 
 [octicons]: https://primer.style/octicons/
 [primer]: https://github.com/primer/primer
