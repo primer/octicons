@@ -6,7 +6,7 @@ type Size = 'small' | 'medium' | 'large'
 
 export interface OcticonProps {
   'aria-label'?: string
-  focusable?: boolean | 'auto'
+  tabIndex?: number
   children?: React.ReactElement<any>
   className?: string
   fill?: string

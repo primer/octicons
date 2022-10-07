@@ -79,11 +79,8 @@ while trying to parse the SVG markup.
 ```js
 // Example usage
 import {PlusIcon} from '@primer/octicons-react'
-
 export default () => (
-
   <PlusIcon aria-label="Interactive Plus Icon" tabIndex={0} /> New Item
-
 )
 ```
 
@@ -131,16 +128,10 @@ export default () => (
 ### `Octicon` (DEPRECATED)
 
 > ⚠️ The `Octicon` component is deprecated. Use icon components on their own instead:
->
 > ```diff
->
-> ```
-
 - <Octicon icon={AlertIcon} />
-
-* <AlertIcon />
-
-````
++ <AlertIcon />
+```
 
 The `Octicon` component is wrapper that passes props to its icon component. To render a specific icon, you
 can pass it either via the `icon` prop, or as the only child:
@@ -148,7 +139,7 @@ can pass it either via the `icon` prop, or as the only child:
 ```jsx
 <Octicon icon={Icon} />
 <Octicon><Icon x={10}/></Octicon>
-````
+```
 
 [octicons]: https://primer.style/octicons/
 [primer]: https://github.com/primer/primer
