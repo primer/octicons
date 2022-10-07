@@ -1,6 +1,6 @@
 {
   "name": "@primer/octicons",
-  "version": "17.6.0",
+  "version": "17.7.0",
   "publishConfig": {
     "registry": "no registry, don't publish from this package.json."
   },
