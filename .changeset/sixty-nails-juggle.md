@@ -2,4 +2,4 @@
 '@primer/octicons': minor
 ---
 
-Add tabIndex prop to react icons
+Add `tabIndex` prop to React icon components
