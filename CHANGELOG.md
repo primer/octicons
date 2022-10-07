@@ -1,5 +1,11 @@
 # Changelog
 
+## 17.7.0
+
+### Minor Changes
+
+- [#849](https://github.com/primer/octicons/pull/849) [`f6c8d2b`](https://github.com/primer/octicons/commit/f6c8d2b37a4f38d99d5f9279f793a88a020933cf) Thanks [@broccolinisoup](https://github.com/broccolinisoup)! - Add `tabIndex` prop to React icon components
+
 ## 17.6.0
 
 ### Minor Changes
