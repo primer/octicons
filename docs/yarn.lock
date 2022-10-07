@@ -1647,17 +1647,17 @@
     focus-visible "5.2.0"
     styled-system "5.1.5"
 
-"@primer/gatsby-theme-doctocat@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@primer/gatsby-theme-doctocat/-/gatsby-theme-doctocat-4.0.0.tgz#29c916ce62f14f7e70c0e8c9195ff38d89467ffa"
-  integrity sha512-V6+cANzIKbPh4KHl+WtGBnRzIRt9WWfI5o1iTOwfmoPz7NOpU63kHmvmhofdbS64Nnv/1urc+eI3NIBfO4XbVQ==
+"@primer/gatsby-theme-doctocat@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@primer/gatsby-theme-doctocat/-/gatsby-theme-doctocat-4.2.0.tgz#230f4f241e0035cd23e8da7e8ae5e48097aaf9d4"
+  integrity sha512-WgptcLQHZ565IQbp9WETRCVCiapnkk1HURyWk26XhAZfeDHNFoKKNgZRzW1wzZU/nkRuzw6jCgUduZG6wICpBw==
   dependencies:
     "@babel/preset-env" "^7.5.5"
     "@babel/preset-react" "^7.0.0"
     "@mdx-js/mdx" "^1.0.21"
     "@mdx-js/react" "^1.0.21"
     "@primer/component-metadata" "^0.4.0"
-    "@primer/octicons-react" "^16.3.1"
+    "@primer/octicons-react" "^17.5.0"
     "@primer/react" "^35.2.2"
     "@styled-system/theme-get" "^5.0.12"
     "@testing-library/jest-dom" "^5.16.2"
@@ -1709,15 +1709,10 @@
   resolved "https://registry.yarnpkg.com/@primer/octicons-react/-/octicons-react-13.0.0.tgz#a7f2288fd9cf9cabc1e75553a0dd9f00d74b68c1"
   integrity sha512-j5XppNRCvgaMZLPsVvvmp6GSh7P5pq6PUbsfLNBWi2Kz3KYDeoGDWbPr5MjoxFOGUn6Hjnt6qjHPRxahd11vLQ==
 
-"@primer/octicons-react@^16.3.1":
-  version "16.3.1"
-  resolved "https://registry.yarnpkg.com/@primer/octicons-react/-/octicons-react-16.3.1.tgz#86982fe1001eee138d5ee46accbcdf62d51d11c5"
-  integrity sha512-uzTs8/CvLiW1/47cgMRkIK9bKWpnw+UonCbgczXErwSSLqMDHfiiTpobW1trvRuoiMgLwsPo0l7kBBdKBnmq3g==
-
-"@primer/octicons-react@^17.3.0":
-  version "17.4.0"
-  resolved "https://registry.yarnpkg.com/@primer/octicons-react/-/octicons-react-17.4.0.tgz#b4e838dab01e5dbdb229f4b9abfe424ae06f1fd2"
-  integrity sha512-3h+/5CqwvQ9lUzlY+g25v6KoM5eVq1/3OjNslphKqiw/fqLzNHWwkWQQx89MZyRVXtaPs0dcRdGb2pqKUXCRqQ==
+"@primer/octicons-react@^17.3.0", "@primer/octicons-react@^17.5.0":
+  version "17.6.0"
+  resolved "https://registry.yarnpkg.com/@primer/octicons-react/-/octicons-react-17.6.0.tgz#641c7ac1d78e4e97fa1afff72d02501b26b353b5"
+  integrity sha512-jn1fWag3eU6BvOltMS2MqLPNh39D45cpegsTO2Qhb8SlJoUsj/ZO1qbJgYd9ibvZo8evDyXx3syh4kDbxJQFsg==
 
 "@primer/primitives@4.8.1":
   version "4.8.1"
