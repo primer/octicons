@@ -66,20 +66,24 @@ export default () => (
 )
 ```
 
-### `focusable`
+### `tabIndex`
 
-You can add the `focusable` attribute to the SVG element via the `focusable` prop, which can be either `true`, `false`, or `auto`.
-If there is no `aria-label` prop presents, `focusable` prop will be set to false and this helps prevent the decorative
-SVG from being announced by some specialized assistive technology browsing modes which get delayed while trying to parse SVG's markup
+You can add the `tabindex` attribute to an SVG element via the `tabIndex` prop if the SVG element is intended to be interactive.
+`tabIndex` prop also controls the `focusable` attribute of the SVG element which is defined by SVG Tiny 1.2 and only implemented in
+Internet Explorer and Microsoft Edge.
+
+If there is no `tabIndex` prop is present (default behaviour), it will set `focusable` attribute to `false` and this is particularly helpful
+for preventing the decorative SVG from being announced by some specialized assistive technology browsing modes which can get delayed
+while trying to parse the SVG markup.
 
 ```js
 // Example usage
 import {PlusIcon} from '@primer/octicons-react'
 
 export default () => (
-  <button>
-    <PlusIcon aria-label="Add new item" focusable="auto" /> New
-  </button>
+
+  <PlusIcon aria-label="Interactive Plus Icon" tabIndex={0} /> New Item
+
 )
 ```
 
