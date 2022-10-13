@@ -66,6 +66,24 @@ export default () => (
 )
 ```
 
+### `tabIndex`
+
+You can add the `tabindex` attribute to an SVG element via the `tabIndex` prop if the SVG element is intended to be interactive.
+`tabIndex` prop also controls the `focusable` attribute of the SVG element which is defined by SVG Tiny 1.2 and only implemented in
+Internet Explorer and Microsoft Edge.
+
+If there is no `tabIndex` prop is present (default behavior), it will set the `focusable` attribute to `false`. This is helpful
+for preventing the decorative SVG from being announced by some specialized assistive technology browsing modes which can get delayed
+while trying to parse the SVG markup.
+
+```js
+// Example usage
+import {PlusIcon} from '@primer/octicons-react'
+export default () => (
+  <PlusIcon aria-label="Interactive Plus Icon" tabIndex={0} /> New Item
+)
+```
+
 ### Sizes
 
 The `size` prop takes `small`, `medium`, and `large` values that can be used to
@@ -129,4 +147,4 @@ can pass it either via the `icon` prop, or as the only child:
 [npm]: https://www.npmjs.com/
 [install-npm]: https://docs.npmjs.com/getting-started/installing-node
 [tree-shaking]: https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking
-[aria-label]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
+[aria-label]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label
