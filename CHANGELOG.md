@@ -1,5 +1,13 @@
 # Changelog
 
+## 17.8.0
+
+### Minor Changes
+
+- [#858](https://github.com/primer/octicons/pull/858) [`199f00e`](https://github.com/primer/octicons/commit/199f00e99e0fc3c5abb6e78f2255393a67c08fc6) Thanks [@heyamie](https://github.com/heyamie)! - Add diagonal arrows as 16px
+
+* [#857](https://github.com/primer/octicons/pull/857) [`da2c78f`](https://github.com/primer/octicons/commit/da2c78f103bbfd65aa046ea763325380592581a7) Thanks [@gavinmn](https://github.com/gavinmn)! - Add `issue-tracked-in` and `issue-tracked-by` icons
+
 ## 17.7.0
 
 ### Minor Changes
