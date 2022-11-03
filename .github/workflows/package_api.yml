@@ -1,0 +1,48 @@
+name: Package API
+on:
+  pull_request_target:
+    types: [labeled, opened, synchronize]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.head.repo.full_name == 'primer/octicons' && contains(github.event.pull_request.labels.*.name, 'Update Public API') }}
+    steps:
+      - name: Checkout default branch
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install dependencies
+        run: yarn
+      - name: Install workspace dependencies
+        run: yarn
+        working-directory: lib/octicons_react
+      - name: Build project
+        run: yarn build
+      - name: Build package
+        run: yarn build
+        working-directory: lib/octicons_react
+      - name: Update snapshots
+        run: yarn test -u
+      - name: Sync to Pull Request
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Our git status is not clean. Checking in the following files:";
+            echo "$(git status --porcelain)";
+            git config --global credential.helper 'cache --timeout=120'
+            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+            git remote set-url origin "https://github.com/primer/octicons.git"
+            git add -A
+            git commit -m "chore(project): update @primer/octicons-react Public API"
+            git push
+          fi
