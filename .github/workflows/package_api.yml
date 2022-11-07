@@ -13,7 +13,7 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.head.repo.full_name == 'primer/octicons' && contains(github.event.pull_request.labels.*.name, 'Update Public API') }}
+    if: ${{ github.event.pull_request.head.repo.full_name == 'primer/octicons' && contains(github.event.pull_request.labels.*.name, 'api changes approved') }}
     steps:
       - name: Checkout default branch
         uses: actions/checkout@v3
