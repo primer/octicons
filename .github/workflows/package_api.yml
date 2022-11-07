@@ -24,14 +24,15 @@ jobs:
       - name: Install dependencies
         run: yarn
       - name: Install workspace dependencies
-        run: yarn
         working-directory: lib/octicons_react
+        run: yarn
       - name: Build project
         run: yarn build
       - name: Build package
-        run: yarn build
         working-directory: lib/octicons_react
+        run: yarn build
       - name: Update snapshots
+        working-directory: lib/octicons_react
         run: yarn test -u
       - name: Sync to Pull Request
         run: |
