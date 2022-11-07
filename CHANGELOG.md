@@ -1,5 +1,15 @@
 # Changelog
 
+## 17.9.0
+
+### Minor Changes
+
+- [#862](https://github.com/primer/octicons/pull/862) [`e15fe00`](https://github.com/primer/octicons/commit/e15fe007224d2785878b78dec36821373c75cbf7) Thanks [@ashygee](https://github.com/ashygee)! - Add project-roadmap icons. Thanks @ohiosveryown and @gavinmn!
+
+* [#861](https://github.com/primer/octicons/pull/861) [`1a6887d`](https://github.com/primer/octicons/commit/1a6887df3423ff539f6959d0fe8bb23c17dafa70) Thanks [@ashygee](https://github.com/ashygee)! - Add project-symlink icons. Thanks @peterloveland!
+
+- [#860](https://github.com/primer/octicons/pull/860) [`8a98d2b`](https://github.com/primer/octicons/commit/8a98d2b727623aa089912721513a68e8d4c0fc3f) Thanks [@ashygee](https://github.com/ashygee)! - Save clock-fill-16.svg, clock-fill-24.svg, skip-fill-16.svg, skip-fil… Thanks @dylanatsmith!
+
 ## 17.8.0
 
 ### Minor Changes
