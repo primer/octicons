@@ -1,6 +1,5 @@
 ---
 title: React
-status: Stable
 source: 'https://github.com/primer/octicons/tree/main/lib/octicons_react'
 ---
 
@@ -128,10 +127,16 @@ export default () => (
 ### `Octicon` (DEPRECATED)
 
 > ⚠️ The `Octicon` component is deprecated. Use icon components on their own instead:
+>
 > ```diff
+>
+> ```
+
 - <Octicon icon={AlertIcon} />
-+ <AlertIcon />
-```
+
+* <AlertIcon />
+
+````
 
 The `Octicon` component is wrapper that passes props to its icon component. To render a specific icon, you
 can pass it either via the `icon` prop, or as the only child:
@@ -139,7 +144,7 @@ can pass it either via the `icon` prop, or as the only child:
 ```jsx
 <Octicon icon={Icon} />
 <Octicon><Icon x={10}/></Octicon>
-```
+````
 
 [octicons]: https://primer.style/octicons/
 [primer]: https://github.com/primer/primer
