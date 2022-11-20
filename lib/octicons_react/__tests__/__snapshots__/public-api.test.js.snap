@@ -209,7 +209,6 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "PlusIcon",
   "ProjectIcon",
   "ProjectRoadmapIcon",
-  "ProjectSymlinkIcon",
   "PulseIcon",
   "QuestionIcon",
   "QuoteIcon",
