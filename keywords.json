@@ -89,7 +89,7 @@
   "git-merge": ["join"],
   "git-pull-request": ["review"],
   "github-action": ["board", "workflow", "action", "automation"],
-  "globe": ["world", "earth", "planet"],
+  "globe": ["world", "earth", "planet", "enterprise"],
   "grabber": ["mover", "drag", "drop", "sort"],
   "graph": ["trend", "stats", "statistics"],
   "heart": ["love", "beat"],
