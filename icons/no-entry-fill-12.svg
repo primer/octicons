@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill-rule="evenodd" d="M6 0a6 6 0 100 12A6 6 0 006 0zm3 5H3v2h6V5z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+  <defs/>
+  <path d="M6,0 C9.314,0 12,2.686 12,6 C12,9.314 9.314,12 6,12 C2.686,12 0,9.314 0,6 C0,2.686 2.686,0 6,0 Z M9,5 L3,5 L3,7 L9,7 Z"/>
+</svg>
+
