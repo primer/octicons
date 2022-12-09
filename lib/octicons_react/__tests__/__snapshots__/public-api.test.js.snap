@@ -176,6 +176,8 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "MailIcon",
   "MarkGithubIcon",
   "MarkdownIcon",
+  "MarkReadIcon",
+  "MarkUnreadIcon",
   "MegaphoneIcon",
   "MentionIcon",
   "MeterIcon",
