@@ -282,6 +282,7 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "TrophyIcon",
   "TypographyIcon",
   "UnfoldIcon",
+  "UnlinkIcon",
   "UnlockIcon",
   "UnmuteIcon",
   "UnreadIcon",
