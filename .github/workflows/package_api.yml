@@ -1,10 +1,11 @@
 name: Package API
 on:
   pull_request_target:
-    types: [labeled, opened, synchronize]
+    types:
+      - labeled
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.head_ref }}
   cancel-in-progress: true
 
 permissions:
@@ -12,11 +13,16 @@ permissions:
 
 jobs:
   update:
+    if: >
+      github.event.pull_request.head.repo.full_name == 'primer/octicons' &&
+      contains(github.event.pull_request.labels.*.name, 'api changes approved') }}
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.head.repo.full_name == 'primer/octicons' && contains(github.event.pull_request.labels.*.name, 'api changes approved') }}
     steps:
       - name: Checkout default branch
         uses: actions/checkout@v3
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.head_ref }}
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
@@ -34,16 +40,9 @@ jobs:
       - name: Update snapshots
         working-directory: lib/octicons_react
         run: yarn test -u
-      - name: Sync to Pull Request
-        run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            echo "Our git status is not clean. Checking in the following files:";
-            echo "$(git status --porcelain)";
-            git config --global credential.helper 'cache --timeout=120'
-            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git config --global user.name "github-actions[bot]"
-            git remote set-url origin "https://github.com/primer/octicons.git"
-            git add -A
-            git commit -m "chore(project): update @primer/octicons-react Public API"
-            git push
-          fi
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'chore(project): update @primer/octicons-react Public API'
+      - uses: actions-ecosystem/action-remove-labels@v1
+        with:
+          labels: 'api changes approved'
