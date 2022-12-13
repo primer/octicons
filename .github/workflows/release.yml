@@ -24,7 +24,7 @@ jobs:
           node-version: 14.x
 
       - name: Setup Ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.0.x
 
