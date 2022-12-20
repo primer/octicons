@@ -23,10 +23,10 @@ jobs:
       - run: pip install -r .github/actions/python/requirements.txt
       - run: for icon in icons/*; do picosvg $icon --output_file $icon; done
 
-      - uses: actions/setup-node@master
+      - uses: actions/setup-node@v3
         with:
-          node-version: '10.x'
-      - run: npm install
+          node-version: 16
+      - run: npm ci
       - run: npm run svgo
 
       - uses: EndBug/add-and-commit@v4
