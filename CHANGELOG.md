@@ -1,5 +1,13 @@
 # Changelog
 
+## 17.10.1
+
+### Patch Changes
+
+- [#882](https://github.com/primer/octicons/pull/882) [`503bafb9`](https://github.com/primer/octicons/commit/503bafb9578ea307fed3b261a1f8f9cbaea1c346) Thanks [@manuelpuyol](https://github.com/manuelpuyol)! - Use parameter defaults instead of defaultProps
+
+* [#883](https://github.com/primer/octicons/pull/883) [`8a039a7b`](https://github.com/primer/octicons/commit/8a039a7befa6b542404f416fac3f5c9ec99099cc) Thanks [@eliperkins](https://github.com/eliperkins)! - Remove fill-rule from SVGs using picosvg as an optimization step
+
 ## 17.10.0
 
 ### Minor Changes
