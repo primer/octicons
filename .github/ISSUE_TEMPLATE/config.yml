@@ -1,6 +1,6 @@
 blank_issues_enabled: true
 
 contact_links:
-    - name: Need a new octicon?
-      url: https://github.com/github/primer/issues/new?assignees=ashygee&labels=octicon%2C+request&template=2-icon-request.md&title=%5BIcon+request%5D+
+    - name: Add to the Octicon library?
+      url: https://github.com/github/primer
       about: Open an issue in github/primer (for GitHub staff only!)
