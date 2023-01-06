@@ -2,7 +2,7 @@
 name: 💬 Feedback and ideas
 about: Suggest improvements or give feedback on icon designs
 title: "[Feedback] "
-labels: "type: octicon, type: feedback, needs triage"
+labels: "octicon, type: feedback, needs triage"
 assignees: ''
 
 ---
