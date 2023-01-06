@@ -2,7 +2,7 @@
 name: 🐞 Bug report
 about: Report a bug in Octicons 
 title: "[Bug] "
-labels: "type: bug, octicon, needs triage"
+labels: "bug, octicon"
 assignees: ''
 
 ---
