@@ -2,8 +2,8 @@
 name: 🐞 Bug report
 about: Report a bug in Octicons 
 title: "[Bug] "
-labels: "type: bug, octicons"
-assignees: tallys
+labels: "type: bug, octicon, needs triage"
+assignees: ''
 
 ---
 
