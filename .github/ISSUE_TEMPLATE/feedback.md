@@ -2,8 +2,8 @@
 name: 💬 Feedback and ideas
 about: Suggest improvements or give feedback 
 title: "[Feedback] "
-labels: "type: feedback"
-assignees: ashygee, edokoa
+labels: "type: octicons, bug"
+assignees: tallys
 
 ---
 
