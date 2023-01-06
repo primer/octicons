@@ -1,9 +1,9 @@
 ---
 name: 💬 Feedback and ideas
-about: Suggest improvements or give feedback 
+about: Suggest improvements or give feedback on icon designs
 title: "[Feedback] "
-labels: "type: octicons, bug"
-assignees: tallys
+labels: "type: octicon, type: feedback, needs triage"
+assignees: ''
 
 ---
 
@@ -11,7 +11,7 @@ assignees: tallys
 
 ### Describe the topic
 
-_You have an idea, feedback or suggestion to improve Octicons, tell us all about it! Add as much detail as you can to explain your thinking: what is your idea, why is it relevant, what should change, how will it improve Octicons?_
+_You have an idea, feedback or suggestion for icons to add to Octicons, tell us all about it! Add as much detail as you can: what is your idea, why is it relevant, what should change, how will it improve the Octicons library?_
 
 
 ### Anything else?
