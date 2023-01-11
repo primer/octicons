@@ -1,5 +1,11 @@
 # Changelog
 
+## 17.10.2
+
+### Patch Changes
+
+- [#886](https://github.com/primer/octicons/pull/886) [`b5a1530f`](https://github.com/primer/octicons/commit/b5a1530f441e5b2f7b3c874fe669c5d0d1838d9c) Thanks [@eliperkins](https://github.com/eliperkins)! - Upgrade to latest version of SVG Optimizer to remove invalid SVG paths on iOS, macOS and other native Apple target platforms.
+
 ## 17.10.1
 
 ### Patch Changes
