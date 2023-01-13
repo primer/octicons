@@ -19,6 +19,10 @@
     "ts-test": "tsc -P ts-tests",
     "posttest": "yarn ts-test"
   },
+  "files": [
+    "build",
+    "dist"
+  ],
   "keywords": [
     "GitHub",
     "icons",
