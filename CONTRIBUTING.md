@@ -1,8 +1,8 @@
-# Octicons Contribution Guidelines
+# Octicons Contribution Guidelines (Currently GitHub Staff only)
 
-Thank you for your interest in contributing to Octicons! We are currently only accepting submissions from GitHub staff and only include icons that are used in the GitHub UI.
+Thank you for your interest in contributing to Octicons! We are currently only accepting submissions from GitHub staff and only include icons that are used in the GitHub UI. If you'd like to submit feedback, a bug, or an idea for improvement, please open a new issue in this repo using the appropriate [issue template](https://github.com/primer/octicons/issues/new/choose).
 
-## Icon request process
+## Icon request and review process
 
 ### 1. Icon review request is made
 

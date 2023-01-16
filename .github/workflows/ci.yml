@@ -97,26 +97,26 @@ jobs:
       run:
         working-directory: ./lib/octicons_gem
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup Ruby
-      uses: actions/setup-ruby@v1
-      with:
-        ruby-version: 2.7
-    - uses: actions/download-artifact@v2
-      with:
-        name: octicons-build
-        path: ./lib/octicons_gem/lib/build
-    - run: bundle install
-    - name: Linting
-      run: bundle exec rake lint
-    - name: Testing
-      run: bundle exec rake test
-    - name: Build
-      run: bundle exec rake build
-    - uses: actions/upload-artifact@master
-      with:
-        name: octicons-gem
-        path: ./lib/octicons_gem/pkg
+      - uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+      - uses: actions/download-artifact@v2
+        with:
+          name: octicons-build
+          path: ./lib/octicons_gem/lib/build
+      - run: bundle install
+      - name: Linting
+        run: bundle exec rake lint
+      - name: Testing
+        run: bundle exec rake test
+      - name: Build
+        run: bundle exec rake build
+      - uses: actions/upload-artifact@master
+        with:
+          name: octicons-gem
+          path: ./lib/octicons_gem/pkg
 
   octicons_helper:
     name: 'gem:octicons_helper'
@@ -126,20 +126,20 @@ jobs:
       run:
         working-directory: ./lib/octicons_helper
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup Ruby
-      uses: actions/setup-ruby@v1
-      with:
-        ruby-version: 2.7
-    - uses: actions/download-artifact@v2
-      with:
-        name: octicons-gem
-        path: ./lib/octicons_helper/vendor/cache
-    - run: bundle install
-    - name: Linting
-      run: bundle exec rake lint
-    - name: Testing
-      run: bundle exec rake test
+      - uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+      - uses: actions/download-artifact@v2
+        with:
+          name: octicons-gem
+          path: ./lib/octicons_helper/vendor/cache
+      - run: bundle install
+      - name: Linting
+        run: bundle exec rake lint
+      - name: Testing
+        run: bundle exec rake test
 
   octicons_jekyll:
     name: 'gem:octicons_jekyll'
@@ -149,17 +149,17 @@ jobs:
       run:
         working-directory: ./lib/octicons_jekyll
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup Ruby
-      uses: actions/setup-ruby@v1
-      with:
-        ruby-version: 2.7
-    - uses: actions/download-artifact@v2
-      with:
-        name: octicons-gem
-        path: ./lib/octicons_jekyll/vendor/cache
-    - run: bundle install
-    - name: Linting
-      run: bundle exec rake lint
-    - name: Testing
-      run: bundle exec rake test
+      - uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+      - uses: actions/download-artifact@v2
+        with:
+          name: octicons-gem
+          path: ./lib/octicons_jekyll/vendor/cache
+      - run: bundle install
+      - name: Linting
+        run: bundle exec rake lint
+      - name: Testing
+        run: bundle exec rake test

@@ -1,5 +1,33 @@
 # Changelog
 
+## 17.10.2
+
+### Patch Changes
+
+- [#886](https://github.com/primer/octicons/pull/886) [`b5a1530f`](https://github.com/primer/octicons/commit/b5a1530f441e5b2f7b3c874fe669c5d0d1838d9c) Thanks [@eliperkins](https://github.com/eliperkins)! - Upgrade to latest version of SVG Optimizer to remove invalid SVG paths on iOS, macOS and other native Apple target platforms.
+
+## 17.10.1
+
+### Patch Changes
+
+- [#882](https://github.com/primer/octicons/pull/882) [`503bafb9`](https://github.com/primer/octicons/commit/503bafb9578ea307fed3b261a1f8f9cbaea1c346) Thanks [@manuelpuyol](https://github.com/manuelpuyol)! - Use parameter defaults instead of defaultProps
+
+* [#883](https://github.com/primer/octicons/pull/883) [`8a039a7b`](https://github.com/primer/octicons/commit/8a039a7befa6b542404f416fac3f5c9ec99099cc) Thanks [@eliperkins](https://github.com/eliperkins)! - Remove fill-rule from SVGs using picosvg as an optimization step
+
+## 17.10.0
+
+### Minor Changes
+
+- [#874](https://github.com/primer/octicons/pull/874) [`3ff5aa6`](https://github.com/primer/octicons/commit/3ff5aa669d33a88048825d229656abfa459e4d64) Thanks [@gavinmn](https://github.com/gavinmn)! - Add rel-file-path-16.svg, rel-file-path-24.svg
+
+* [#878](https://github.com/primer/octicons/pull/878) [`5797f85`](https://github.com/primer/octicons/commit/5797f859859df31cd769e102fbf518ccaf9a976f) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Save unlink-16.svg, unlink-24.svg
+
+- [#879](https://github.com/primer/octicons/pull/879) [`2fa8425`](https://github.com/primer/octicons/commit/2fa8425dab93346cd5d8b44bfc3709f0126e19fb) Thanks [@gavinmn](https://github.com/gavinmn)! - Save read-32.svg, unread-32.svg, read-48.svg, unread-48.svg
+
+* [#873](https://github.com/primer/octicons/pull/873) [`0d1b1ff`](https://github.com/primer/octicons/commit/0d1b1ffca5334c6207cf975f69459153f1d1cbfd) Thanks [@gavinmn](https://github.com/gavinmn)! - Add Goal icons
+
+- [#877](https://github.com/primer/octicons/pull/877) [`3916b29`](https://github.com/primer/octicons/commit/3916b29935d9845eec8726cc389b98281bc42b02) Thanks [@gavinmn](https://github.com/gavinmn)! - Save sponsor-tiers-16.svg, sponsor-tiers-24.svg
+
 ## 17.9.0
 
 ### Minor Changes

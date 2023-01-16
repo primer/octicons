@@ -1,19 +1,34 @@
 on: 
   push:
     paths:
-    - 'icons/**'
-    - '.github/workflows/optimize.yml'
+      - 'icons/**'
+      - '.github/workflows/optimize.yml'
+      - '.github/actions/python/requirements.txt'
+  pull_request:
+    paths:
+      - 'icons/**'
+      - '.github/workflows/optimize.yml'
+      - '.github/actions/python/requirements.txt'
 name: Optimize SVGs
 jobs:
   optimize:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: actions/setup-node@master
+
+      - uses: actions/setup-python@v4
         with:
-          node-version: '10.x'
+          python-version: '3.10' 
+          cache: 'pip'
+      - run: pip install -r .github/actions/python/requirements.txt
+      - run: for icon in icons/*; do picosvg $icon --output_file $icon; done
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
       - run: npm install
       - run: npm run svgo
+
       - uses: EndBug/add-and-commit@v4
         with:
           add: 'icons'

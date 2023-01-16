@@ -2,8 +2,8 @@
 name: 🐞 Bug report
 about: Report a bug in Octicons 
 title: "[Bug] "
-labels: "type: bug 🐞"
-assignees: ashygee, edokoa
+labels: "bug, octicon"
+assignees: ''
 
 ---
 
