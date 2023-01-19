@@ -7,4 +7,6 @@
 .next
 script
 src
-./pages
+**/pages/**
+**/__tests__/**
+**/ts-tests/**
