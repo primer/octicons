@@ -43,7 +43,6 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "ChevronDownIcon",
   "ChevronLeftIcon",
   "ChevronRightIcon",
-  "ChevronTopIcon",
   "ChevronUpIcon",
   "CircleIcon",
   "CircleSlashIcon",
