@@ -2,4 +2,4 @@
 "@primer/octicons": patch
 ---
 
-[Bug] up/down chevron alignment
+[Bug] up/down chevron alignment fix
