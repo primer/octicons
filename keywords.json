@@ -75,6 +75,7 @@
   "file-symlink-directory": ["folder", "subfolder", "link", "alias"],
   "file-symlink-file": ["link", "alias"],
   "file-zip": ["compress", "archive"],
+  "fiscal-host": ["safe", "money"],
   "flame": ["fire", "hot", "burn", "trending"],
   "fold": ["unfold", "hide", "collapse"],
   "fold-down": ["unfold", "hide", "collapse", "down"],
