@@ -2,4 +2,4 @@
 "@primer/octicons": minor
 ---
 
-Save sparkle-16.svg
+Save sparkle-fill-16.svg
