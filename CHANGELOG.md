@@ -1,5 +1,19 @@
 # Changelog
 
+## 17.11.0
+
+### Minor Changes
+
+- [#895](https://github.com/primer/octicons/pull/895) [`ce11fb3b`](https://github.com/primer/octicons/commit/ce11fb3b3c67b9c0f4f69bec14e5a962b189cba2) Thanks [@joshblack](https://github.com/joshblack)! - Update the npm package for `@primer/octicons-react` to include the `exports` field and explicitly list out files in `package.json`
+
+* [#902](https://github.com/primer/octicons/pull/902) [`4cbc043a`](https://github.com/primer/octicons/commit/4cbc043a81f81ad23f5e5bbb5dc687fe9f550877) Thanks [@gavinmn](https://github.com/gavinmn)! - Save sparkle-fill-16.svg
+
+- [#903](https://github.com/primer/octicons/pull/903) [`caf958be`](https://github.com/primer/octicons/commit/caf958be9c695ff9ee4381328a555f12b0d830fa) Thanks [@gavinmn](https://github.com/gavinmn)! - Save fiscal-host-16.svg
+
+### Patch Changes
+
+- [#894](https://github.com/primer/octicons/pull/894) [`410831bc`](https://github.com/primer/octicons/commit/410831bc3d3aee3b816fb4172031a470b7b1e38e) Thanks [@langermank](https://github.com/langermank)! - [Bug] up/down chevron alignment fix
+
 ## 17.10.2
 
 ### Patch Changes
