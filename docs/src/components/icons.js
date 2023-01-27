@@ -24,7 +24,7 @@ export default function Icons() {
     },
     [icons]
   )
-  const results = useSearch(iconsArray, query, {keys: ['name']})
+  const results = useSearch(iconsArray, query, {keys: ['name', 'keywords']})
   const iconsByHeight = React.useMemo(() => groupBy(results, 'height'), [results])
   return (
     <Grid gridGap={5}>
