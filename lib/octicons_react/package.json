@@ -1,6 +1,6 @@
 {
   "name": "@primer/octicons-react",
-  "version": "17.11.0",
+  "version": "17.11.1",
   "description": "A scalable set of icons handcrafted with <3 by GitHub.",
   "homepage": "https://primer.style/octicons",
   "author": "GitHub, Inc.",
@@ -8,8 +8,8 @@
   "main": "dist/index.umd.js",
   "module": "dist/index.esm.js",
   "exports": {
-    "import": "dist/index.esm.js",
-    "require": "dist/index.umd.js"
+    "import": "./dist/index.esm.js",
+    "require": "./dist/index.umd.js"
   },
   "sideEffects": false,
   "types": "dist/index.d.ts",

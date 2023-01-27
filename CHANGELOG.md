@@ -1,5 +1,11 @@
 # Changelog
 
+## 17.11.1
+
+### Patch Changes
+
+- [#905](https://github.com/primer/octicons/pull/905) [`cbbc519f`](https://github.com/primer/octicons/commit/cbbc519ffd31eaf38d5d5b1e068ad4506d0d1e27) Thanks [@gr2m](https://github.com/gr2m)! - prefix relative paths with `./` in ESM exports paths
+
 ## 17.11.0
 
 ### Minor Changes
