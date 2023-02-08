@@ -6,11 +6,8 @@
   },
   "scripts": {
     "build": "script/build.js --input icons/**/*.svg --output lib/build/data.json",
-    "build:docs": "yarn build && cd docs && yarn gatsby build --prefix-paths",
-    "build:docs:preview": "yarn build && cd docs && yarn gatsby build",
     "changeset:version": "changeset version && script/version",
     "lint": "eslint tests",
-    "start": "cd docs && npm run develop",
     "svgo": "svgo icons --config svgo.config.js",
     "test": "ava -v tests/*.js",
     "version": "script/version"

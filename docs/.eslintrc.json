@@ -1,3 +1,0 @@
-{
-  "extends": ["plugin:github/recommended", "plugin:github/es6", "plugin:github/react"]
-}
