@@ -218,7 +218,7 @@
   "workflow": ["workflow", "actions"],
   "workflow-all": ["workflow", "actions"],
   "x": ["remove", "close", "delete"],
-  "zap": ["electricity", "lightning", "props", "like", "star", "save"]
+  "zap": ["electricity", "lightning", "props", "like", "star", "save"],
   "zoom-in": ["zoom", "in", "plus", "bigger"],
   "zoom-out": ["zoom", "out", "minus", "smaller"]
 }
