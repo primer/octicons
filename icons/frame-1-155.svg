@@ -1,5 +1,1 @@
-<svg width="42" height="155" viewBox="0 0 42 155" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="42" height="155" fill="white"/>
-<rect x="11" y="14" width="13" height="126" fill="#D9D9D9"/>
-<ellipse cx="3" cy="49.5" rx="3" ry="45.5" fill="#D9D9D9"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="42" height="155" viewBox="0 0 42 155"><path d="M0 0h42v155H0V0Z"/><path d="M11 14h13v126H11V14ZM6 49.5a3 45.5 0 1 1-6 0 3 45.5 0 1 1 6 0Z"/></svg>
