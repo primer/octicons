@@ -109,7 +109,7 @@ export default function IconPage({pageContext}) {
           </Paragraph>
 
           <H3>Octicon View Component</H3>
-          <Code>{`<%= render(Primer::OcticonComponent.new(:"${pageContext.name}")) %>`}</Code>
+          <Code>{`<%= render(Primer::Beta::Octicon.new(:"${pageContext.name}")) %>`}</Code>
 
           <H3>Jekyll</H3>
           <Code>{`{% octicon ${pageContext.name} height:${icon.height} %}`}</Code>
