@@ -9,16 +9,3 @@
       url: /guidelines/design
     - title: Usage
       url: /guidelines/usage
-- title: Packages
-  url: /packages
-  children:
-    - title: Ruby
-      url: /packages/ruby
-    - title: Jekyll
-      url: /packages/jekyll
-    - title: JavaScript
-      url: /packages/javascript
-    - title: React
-      url: /packages/react
-    - title: Styled System
-      url: /packages/styled-system
