@@ -157,7 +157,7 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "IssueOpenedIcon",
   "IssueReopenedIcon",
   "IssueTrackedByIcon",
-  "IssueTrackedInIcon",
+  "IssueTracksIcon",
   "ItalicIcon",
   "IterationsIcon",
   "KebabHorizontalIcon",
