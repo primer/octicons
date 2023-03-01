@@ -1,5 +1,16 @@
 # Changelog
 
+## 17.12.0
+
+### Minor Changes
+
+- [#904](https://github.com/primer/octicons/pull/904) [`ad0eb569`](https://github.com/primer/octicons/commit/ad0eb5699661138ee04baf8938fbb6f291f9f060) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Edit: Upload and download icons
+  Add: Move to start, end, top, and bottom icons
+
+* [#918](https://github.com/primer/octicons/pull/918) [`082f722d`](https://github.com/primer/octicons/commit/082f722d1b49ce148830f0e396a5f0933afaaf2a) Thanks [@gavinmn](https://github.com/gavinmn)! - Add 24pt merge queue icon
+
+- [#919](https://github.com/primer/octicons/pull/919) [`bbff0d13`](https://github.com/primer/octicons/commit/bbff0d13c08a0cebafed32d7787ae216c9b26778) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Save zoom-in-24.svg, zoom-out-24.svg, zoom-out-16.svg, zoom-in-16.svg
+
 ## 17.11.1
 
 ### Patch Changes
