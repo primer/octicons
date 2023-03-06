@@ -2,4 +2,4 @@
 "@primer/octicons": minor
 ---
 
-Add passkey-24 and passkey-16 octicons
+Add passkey-fill-24 and passkey-fill-16 octicons
