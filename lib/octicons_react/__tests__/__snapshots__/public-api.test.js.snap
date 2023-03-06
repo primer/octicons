@@ -202,7 +202,7 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "PaintbrushIcon",
   "PaperAirplaneIcon",
   "PaperclipIcon",
-  "PasskeyIcon",
+  "PasskeyFillIcon",
   "PasteIcon",
   "PencilIcon",
   "PeopleIcon",
