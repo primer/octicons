@@ -1,14 +1,19 @@
+// eslint-disable-next-line import/no-namespace
 import * as React from 'react'
 
-import {Icon} from './__generated__/icons'
+import { Icon } from './__generated__/icons'
 
 type Size = 'small' | 'medium' | 'large'
 
 export interface OcticonProps {
   'aria-label'?: string
+  'aria-labelby'?: string
   tabIndex?: number
   children?: React.ReactElement<any>
   className?: string
+  title?: string | React.ReactElement<any>
+  ref?: React.Ref
+  id?: string
   fill?: string
   icon?: Icon
   size?: number | Size
