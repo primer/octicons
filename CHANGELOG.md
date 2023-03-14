@@ -1,5 +1,41 @@
 # Changelog
 
+## 18.2.0
+
+### Minor Changes
+
+- [#928](https://github.com/primer/octicons/pull/928) [`4135bc38`](https://github.com/primer/octicons/commit/4135bc38f8592906cfbe2ac6f6772aae1fe049cf) Thanks [@gavinmn](https://github.com/gavinmn)! - Add discussion state Octicons
+
+## 18.1.0
+
+### Minor Changes
+
+- [#927](https://github.com/primer/octicons/pull/927) [`ffd32dd6`](https://github.com/primer/octicons/commit/ffd32dd67e7599041e3e49867e16282e486b8f36) Thanks [@gavinmn](https://github.com/gavinmn)! - Add passkey-fill-24 and passkey-fill-16 octicons
+
+## 18.0.0
+
+### Major Changes
+
+- [#914](https://github.com/primer/octicons/pull/914) [`4d558ed9`](https://github.com/primer/octicons/commit/4d558ed962593dedde3d294194dce7c9419ee355) Thanks [@omerbensaadon](https://github.com/omerbensaadon)! - Update icon naming conventions for Tracks and Tracked By:
+
+  - `issue-tracked-by` → `issue-tracks`
+  - `issue-tracked-in` → `issue-tracked-by`
+
+### Minor Changes
+
+- [#924](https://github.com/primer/octicons/pull/924) [`6b494dfe`](https://github.com/primer/octicons/commit/6b494dfe07735fd343889678bfb0d13561396dc8) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Added missing 24px version of shield-slash-24.svg
+
+## 17.12.0
+
+### Minor Changes
+
+- [#904](https://github.com/primer/octicons/pull/904) [`ad0eb569`](https://github.com/primer/octicons/commit/ad0eb5699661138ee04baf8938fbb6f291f9f060) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Edit: Upload and download icons
+  Add: Move to start, end, top, and bottom icons
+
+* [#918](https://github.com/primer/octicons/pull/918) [`082f722d`](https://github.com/primer/octicons/commit/082f722d1b49ce148830f0e396a5f0933afaaf2a) Thanks [@gavinmn](https://github.com/gavinmn)! - Add 24pt merge queue icon
+
+- [#919](https://github.com/primer/octicons/pull/919) [`bbff0d13`](https://github.com/primer/octicons/commit/bbff0d13c08a0cebafed32d7787ae216c9b26778) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Save zoom-in-24.svg, zoom-out-24.svg, zoom-out-16.svg, zoom-in-16.svg
+
 ## 17.11.1
 
 ### Patch Changes

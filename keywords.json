@@ -185,6 +185,7 @@
   "shield": ["security", "shield", "protection"],
   "shield-check": ["security", "shield", "protection", "check", "success"],
   "shield-lock": ["protect", "shield", "lock"],
+  "shield-slash": ["shield", "slash", "protect", "unsafe", "unprotected", "security"],
   "shield-x": ["security", "shield", "protection", "fail"],
   "sign-in": ["door", "arrow", "direction", "enter", "log in"],
   "sign-out": ["door", "arrow", "direction", "leave", "log out"],
@@ -218,5 +219,7 @@
   "workflow": ["workflow", "actions"],
   "workflow-all": ["workflow", "actions"],
   "x": ["remove", "close", "delete"],
-  "zap": ["electricity", "lightning", "props", "like", "star", "save"]
+  "zap": ["electricity", "lightning", "props", "like", "star", "save"],
+  "zoom-in": ["zoom", "in", "plus", "bigger"],
+  "zoom-out": ["zoom", "out", "minus", "smaller"]
 }
