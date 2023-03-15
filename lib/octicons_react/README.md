@@ -62,6 +62,70 @@ export default () => (
 )
 ```
 
+### `aria-labelledby`
+
+You have the option of adding accessibility information to the icon with the
+[`aria-labelledby` attribute][aria-labelledby] via the `aria-labelledby` prop. Using aria-labelledby referencing the id values of the title element provides the accessible name.
+
+```js
+// Example usage
+import {PlusIcon} from '@primer/octicons-react'
+
+export default () => (
+  <button>
+    <PlusIcon aria-labelledby="title" title="Add new item" /> New
+  </button>
+)
+```
+
+### `title`
+
+You have the option of adding accessibility information to the icon with the
+[`title` attribute][title] via the `title` prop.
+
+```js
+// Example usage
+import {PlusIcon} from '@primer/octicons-react'
+
+export default () => (
+  <button>
+    <PlusIcon title="Add new item" /> New
+  </button>
+)
+```
+
+### `ref`
+
+You have the option of adding information to the icon with the
+[`ref` attribute][ref] via the `ref` prop.
+
+```js
+// Example usage
+import {PlusIcon} from '@primer/octicons-react'
+
+export default () => (
+  <button>
+    <PlusIcon ref="Add new item" /> New
+  </button>
+)
+```
+
+### `id`
+
+You have the option of adding information to the icon with the
+[`id` attribute][id] via the `id` prop.
+
+```js
+// Example usage
+import {PlusIcon} from '@primer/octicons-react'
+
+export default () => (
+  <button>
+    <PlusIcon id="unique-plus-icon" /> New
+  </button>
+)
+```
+
 ### `tabIndex`
 
 You can add the `tabindex` attribute to an SVG element via the `tabIndex` prop if the SVG element is intended to be interactive.
@@ -124,6 +188,7 @@ export default () => (
 ### `Octicon` (DEPRECATED)
 
 > ⚠️ The `Octicon` component is deprecated. Use icon components on their own instead:
+
 ```diff
 - <Octicon icon={AlertIcon} />
 + <AlertIcon />
