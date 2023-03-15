@@ -1,5 +1,17 @@
 # Changelog
 
+## 18.2.0
+
+### Minor Changes
+
+- [#928](https://github.com/primer/octicons/pull/928) [`4135bc38`](https://github.com/primer/octicons/commit/4135bc38f8592906cfbe2ac6f6772aae1fe049cf) Thanks [@gavinmn](https://github.com/gavinmn)! - Add discussion state Octicons
+
+## 18.1.0
+
+### Minor Changes
+
+- [#927](https://github.com/primer/octicons/pull/927) [`ffd32dd6`](https://github.com/primer/octicons/commit/ffd32dd67e7599041e3e49867e16282e486b8f36) Thanks [@gavinmn](https://github.com/gavinmn)! - Add passkey-fill-24 and passkey-fill-16 octicons
+
 ## 18.0.0
 
 ### Major Changes
