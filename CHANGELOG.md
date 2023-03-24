@@ -1,5 +1,11 @@
 # Changelog
 
+## 18.3.0
+
+### Minor Changes
+
+- [#934](https://github.com/primer/octicons/pull/934) [`3707c091`](https://github.com/primer/octicons/commit/3707c0917c53eb862457673ba5aa0dfc544be434) Thanks [@gavinmn](https://github.com/gavinmn)! - Add project-template-24.svg, project-template-16.svg
+
 ## 18.2.0
 
 ### Minor Changes
