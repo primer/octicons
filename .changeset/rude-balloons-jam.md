@@ -3,5 +3,3 @@
 ---
 
 Add 12px `×` icon
-
-Kickstart tests
