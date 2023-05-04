@@ -121,9 +121,10 @@ export default () => (
 )
 ```
 
-### `Octicon` (DEPRECATED)
+### `Octicon` (REMOVED)
 
-> ⚠️ The `Octicon` component is deprecated. Use icon components on their own instead:
+> ⚠️ The `Octicon` component is removed. Use icon components on their own instead:
+
 ```diff
 - <Octicon icon={AlertIcon} />
 + <AlertIcon />
