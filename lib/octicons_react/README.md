@@ -121,9 +121,6 @@ export default () => (
 )
 ```
 
-### `Octicon` (REMOVED)
-
-> ⚠️ The `Octicon` component is removed. Use icon components on their own instead:
 
 ```diff
 - <Octicon icon={AlertIcon} />
