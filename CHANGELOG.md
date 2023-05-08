@@ -1,5 +1,17 @@
 # Changelog
 
+## 19.0.0
+
+### Major Changes
+
+- [#943](https://github.com/primer/octicons/pull/943) [`a38ae2d2`](https://github.com/primer/octicons/commit/a38ae2d2cf0b51259be0ab9bc19052c4ddc64a09) Thanks [@broccolinisoup](https://github.com/broccolinisoup)! - Remove support for `Octicon`
+  Update peer dependency React version to support >=16.3
+  Update icons to use React.forwardRef
+
+### Minor Changes
+
+- [#937](https://github.com/primer/octicons/pull/937) [`6c94e0e8`](https://github.com/primer/octicons/commit/6c94e0e851c5c5b30cb7ddf73899cde54bf8e205) Thanks [@gavinmn](https://github.com/gavinmn)! - Add 12px `×` icon
+
 ## 18.3.0
 
 ### Minor Changes
