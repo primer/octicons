@@ -150,6 +150,7 @@
   "pencil": ["edit", "change", "update", "write"],
   "person": ["people", "man", "woman", "human"],
   "pin": ["save", "star", "bookmark"],
+  "pin-slash": ["unpin", "unsave", "unstar", "unbookmark"],
   "play": ["play", "start", "begin", "action"],
   "plug": ["hook", "webhook"],
   "plus": ["add", "new", "more"],
