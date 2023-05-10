@@ -214,6 +214,7 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "PersonFillIcon",
   "PersonIcon",
   "PinIcon",
+  "PinSlashIcon",
   "PlayIcon",
   "PlugIcon",
   "PlusCircleIcon",
@@ -313,6 +314,5 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "ZapIcon",
   "ZoomInIcon",
   "ZoomOutIcon",
-  "default",
 ]
 `;

@@ -1,6 +1,7 @@
 on:
   release:
     types: [published]
+  workflow_dispatch:
 name: Octicons Publish
 jobs:
   setup:
@@ -9,7 +10,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
-          node-version: '10.x'
+          node-version: '18.x'
       - run: npm install
       - run: npm run build
       - run: cp -r icons lib/build/svg
