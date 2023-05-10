@@ -78,6 +78,7 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "DeviceCameraVideoIcon",
   "DeviceDesktopIcon",
   "DeviceMobileIcon",
+  "DevicesIcon",
   "DiamondIcon",
   "DiffAddedIcon",
   "DiffIcon",
