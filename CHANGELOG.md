@@ -1,5 +1,15 @@
 # Changelog
 
+## 19.1.0
+
+### Minor Changes
+
+- [#933](https://github.com/primer/octicons/pull/933) [`af6edab9`](https://github.com/primer/octicons/commit/af6edab99d51f31eac23395b016dd988e34ef05d) Thanks [@stvehayes](https://github.com/stvehayes)! - Add `devices` icon
+
+* [#950](https://github.com/primer/octicons/pull/950) [`8f0edd9e`](https://github.com/primer/octicons/commit/8f0edd9e3aade3901a10d133e14f0561919c945d) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Updates the `pin` icon with a flipped composition, and adds `pin-slash`
+
+- [#949](https://github.com/primer/octicons/pull/949) [`f6796914`](https://github.com/primer/octicons/commit/f6796914732ef96052585adbd8dcccb554bfb2d6) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Updating `move-to-top` and `move-to-bottom` to fix logic and alignment issues.
+
 ## 19.0.0
 
 ### Major Changes
