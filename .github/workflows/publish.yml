@@ -84,7 +84,7 @@ jobs:
           path: ./lib/build
       - uses: ./.github/actions/build_node
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_AUTH_TOKEN_SHARED: ${{ secrets.NPM_AUTH_TOKEN_SHARED }}
         with:
           args: octicons_node
   react:
@@ -99,12 +99,12 @@ jobs:
       - name: Build @primer/octicons-react
         uses: ./.github/actions/build_node
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_AUTH_TOKEN_SHARED: ${{ secrets.NPM_AUTH_TOKEN_SHARED }}
         with:
           args: octicons_react
       - name: Build @primer/styled-octicons
         uses: ./.github/actions/build_node
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_AUTH_TOKEN_SHARED: ${{ secrets.NPM_AUTH_TOKEN_SHARED }}
         with:
           args: octicons_styled
