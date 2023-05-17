@@ -13,7 +13,6 @@ export interface OcticonProps {
   children?: React.ReactElement<any>
   className?: string
   title?: string | React.ReactElement<any>
-  ref?: React.Ref
   id?: string
   fill?: string
   icon?: Icon | React.SVGAttributes<SVGElement>
