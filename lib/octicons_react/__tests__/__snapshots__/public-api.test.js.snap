@@ -78,6 +78,7 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "DeviceCameraVideoIcon",
   "DeviceDesktopIcon",
   "DeviceMobileIcon",
+  "DevicesIcon",
   "DiamondIcon",
   "DiffAddedIcon",
   "DiffIcon",
@@ -213,6 +214,7 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "PersonFillIcon",
   "PersonIcon",
   "PinIcon",
+  "PinSlashIcon",
   "PlayIcon",
   "PlugIcon",
   "PlusCircleIcon",
@@ -220,6 +222,7 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "ProjectIcon",
   "ProjectRoadmapIcon",
   "ProjectSymlinkIcon",
+  "ProjectTemplateIcon",
   "PulseIcon",
   "QuestionIcon",
   "QuoteIcon",
@@ -311,6 +314,5 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "ZapIcon",
   "ZoomInIcon",
   "ZoomOutIcon",
-  "default",
 ]
 `;

@@ -1,6 +1,7 @@
 on:
   release:
     types: [published]
+  workflow_dispatch:
 name: Octicons Publish
 jobs:
   setup:
@@ -9,7 +10,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
-          node-version: '10.x'
+          node-version: '18.x'
       - run: npm install
       - run: npm run build
       - run: cp -r icons lib/build/svg
@@ -83,7 +84,7 @@ jobs:
           path: ./lib/build
       - uses: ./.github/actions/build_node
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_AUTH_TOKEN_SHARED: ${{ secrets.NPM_AUTH_TOKEN_SHARED }}
         with:
           args: octicons_node
   react:
@@ -98,12 +99,12 @@ jobs:
       - name: Build @primer/octicons-react
         uses: ./.github/actions/build_node
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_AUTH_TOKEN_SHARED: ${{ secrets.NPM_AUTH_TOKEN_SHARED }}
         with:
           args: octicons_react
       - name: Build @primer/styled-octicons
         uses: ./.github/actions/build_node
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_AUTH_TOKEN_SHARED: ${{ secrets.NPM_AUTH_TOKEN_SHARED }}
         with:
           args: octicons_styled

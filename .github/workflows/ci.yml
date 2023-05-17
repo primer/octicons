@@ -9,15 +9,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 18
       - run: yarn
       - name: Building
         run: yarn build
       - run: cp -r icons lib/build/svg
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: octicons-build
           path: ./lib/build
@@ -27,11 +27,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 14
-      - uses: actions/download-artifact@v2
+          node-version: 18
+      - uses: actions/download-artifact@v3
         with:
           name: octicons-build
           path: ./lib/build
@@ -49,11 +49,11 @@ jobs:
       run:
         working-directory: ./lib/octicons_node
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 14
-      - uses: actions/download-artifact@v2
+          node-version: 18
+      - uses: actions/download-artifact@v3
         with:
           name: octicons-build
           path: ./lib/build
@@ -73,11 +73,11 @@ jobs:
       run:
         working-directory: ./lib/octicons_react
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 14
-      - uses: actions/download-artifact@v2
+          node-version: 18
+      - uses: actions/download-artifact@v3
         with:
           name: octicons-build
           path: ./lib/build
@@ -97,12 +97,12 @@ jobs:
       run:
         working-directory: ./lib/octicons_gem
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: octicons-build
           path: ./lib/octicons_gem/lib/build
@@ -126,12 +126,12 @@ jobs:
       run:
         working-directory: ./lib/octicons_helper
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: octicons-gem
           path: ./lib/octicons_helper/vendor/cache
@@ -149,12 +149,12 @@ jobs:
       run:
         working-directory: ./lib/octicons_jekyll
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: octicons-gem
           path: ./lib/octicons_jekyll/vendor/cache

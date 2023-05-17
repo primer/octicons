@@ -1,6 +1,6 @@
 {
   "name": "@primer/octicons-react",
-  "version": "18.2.0",
+  "version": "19.1.0",
   "description": "A scalable set of icons handcrafted with <3 by GitHub.",
   "homepage": "https://primer.style/octicons",
   "author": "GitHub, Inc.",
@@ -69,7 +69,7 @@
     "typescript": "^4.8.3"
   },
   "peerDependencies": {
-    "react": ">=15"
+    "react": ">=16.3"
   },
   "engines": {
     "node": ">=8"

@@ -1,5 +1,33 @@
 # Changelog
 
+## 19.1.0
+
+### Minor Changes
+
+- [#933](https://github.com/primer/octicons/pull/933) [`af6edab9`](https://github.com/primer/octicons/commit/af6edab99d51f31eac23395b016dd988e34ef05d) Thanks [@stvehayes](https://github.com/stvehayes)! - Add `devices` icon
+
+* [#950](https://github.com/primer/octicons/pull/950) [`8f0edd9e`](https://github.com/primer/octicons/commit/8f0edd9e3aade3901a10d133e14f0561919c945d) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Updates the `pin` icon with a flipped composition, and adds `pin-slash`
+
+- [#949](https://github.com/primer/octicons/pull/949) [`f6796914`](https://github.com/primer/octicons/commit/f6796914732ef96052585adbd8dcccb554bfb2d6) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Updating `move-to-top` and `move-to-bottom` to fix logic and alignment issues.
+
+## 19.0.0
+
+### Major Changes
+
+- [#943](https://github.com/primer/octicons/pull/943) [`a38ae2d2`](https://github.com/primer/octicons/commit/a38ae2d2cf0b51259be0ab9bc19052c4ddc64a09) Thanks [@broccolinisoup](https://github.com/broccolinisoup)! - Remove support for `Octicon`
+  Update peer dependency React version to support >=16.3
+  Update icons to use React.forwardRef
+
+### Minor Changes
+
+- [#937](https://github.com/primer/octicons/pull/937) [`6c94e0e8`](https://github.com/primer/octicons/commit/6c94e0e851c5c5b30cb7ddf73899cde54bf8e205) Thanks [@gavinmn](https://github.com/gavinmn)! - Add 12px `×` icon
+
+## 18.3.0
+
+### Minor Changes
+
+- [#934](https://github.com/primer/octicons/pull/934) [`3707c091`](https://github.com/primer/octicons/commit/3707c0917c53eb862457673ba5aa0dfc544be434) Thanks [@gavinmn](https://github.com/gavinmn)! - Add project-template-24.svg, project-template-16.svg
+
 ## 18.2.0
 
 ### Minor Changes
