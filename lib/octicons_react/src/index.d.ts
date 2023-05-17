@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-namespace
 import * as React from 'react'
 
+// eslint-disable-next-line prettier/prettier
 import { Icon } from './__generated__/icons'
 
 type Size = 'small' | 'medium' | 'large'
@@ -15,7 +16,7 @@ export interface OcticonProps {
   ref?: React.Ref
   id?: string
   fill?: string
-  icon?: Icon
+  icon?: Icon | React.SVGAttributes<SVGElement>
   size?: number | Size
   verticalAlign?: 'middle' | 'text-bottom' | 'text-top' | 'top' | 'unset'
 }
