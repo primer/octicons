@@ -83,17 +83,6 @@ export default () => (
 You have the option of adding accessibility information to the icon with the
 [`title` attribute][title] via the `title` prop.
 
-```js
-// Example usage
-import {PlusIcon} from '@primer/octicons-react'
-
-export default () => (
-  <button>
-    <PlusIcon title="Add new item" /> New
-  </button>
-)
-```
-
 ### `ref`
 
 You have the option of adding information to the icon with the
