@@ -202,3 +202,6 @@ can pass it either via the `icon` prop, or as the only child:
 [install-npm]: https://docs.npmjs.com/getting-started/installing-node
 [tree-shaking]: https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking
 [aria-label]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label
+[aria-labelledby]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby
+[title]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title
+[id]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id
