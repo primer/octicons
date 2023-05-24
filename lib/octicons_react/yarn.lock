@@ -1679,7 +1679,7 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@*", "@types/jest@^29.4.0":
+"@types/jest@*":
   "integrity" "sha512-VaywcGQ9tPorCX/Jkkni7RWGFfI11whqzs8dvxF41P17Z+z872thvEvlIbznjPJ02kl1HMX3LmLOonsj2n7HeQ=="
   "resolved" "https://registry.npmjs.org/@types/jest/-/jest-29.4.0.tgz"
   "version" "29.4.0"
