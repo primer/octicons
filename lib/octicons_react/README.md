@@ -97,7 +97,7 @@ export default () => (
 ### `ref`
 
 You have the option of adding information to the icon with the
-[`ref` attribute][ref] via the `ref` prop.
+`ref` attribute via the `ref` prop.
 
 ```js
 // Example usage
@@ -184,6 +184,14 @@ export default () => (
   </h1>
 )
 ```
+
+<<<<<<< HEAD
+
+> ⚠️ The `Octicon` component is deprecated. Use icon components on their own instead:
+
+=======
+
+> > > > > > > origin/main
 
 ```diff
 - <Octicon icon={AlertIcon} />
