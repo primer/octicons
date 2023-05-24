@@ -15,7 +15,7 @@ export interface OcticonProps {
   title?: string | React.ReactElement<any>
   id?: string
   fill?: string
-  icon?: Icon | React.SVGAttributes<SVGElement>
+  icon?: Icon | React.ReactNode
   size?: number | Size
   verticalAlign?: 'middle' | 'text-bottom' | 'text-top' | 'top' | 'unset'
 }
