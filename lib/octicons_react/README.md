@@ -158,13 +158,6 @@ export default () => (
 )
 ```
 
-<<<<<<< HEAD
-
-> ⚠️ The `Octicon` component is deprecated. Use icon components on their own instead:
-
-=======
-
-> > > > > > > origin/main
 
 ```diff
 - <Octicon icon={AlertIcon} />
