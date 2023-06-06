@@ -151,6 +151,7 @@
   "person": ["people", "man", "woman", "human"],
   "pin": ["save", "star", "bookmark"],
   "pin-slash": ["unpin", "unsave", "unstar", "unbookmark"],
+  "pivot-column": ["pivot", "column", "table", "project", "filter"],
   "play": ["play", "start", "begin", "action"],
   "plug": ["hook", "webhook"],
   "plus": ["add", "new", "more"],
