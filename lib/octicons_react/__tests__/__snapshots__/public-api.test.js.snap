@@ -291,6 +291,8 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "ThumbsdownIcon",
   "ThumbsupIcon",
   "ToolsIcon",
+  "TrackedByClosedCompletedIcon",
+  "TrackedByClosedNotPlannedIcon",
   "TrashIcon",
   "TriangleDownIcon",
   "TriangleLeftIcon",
