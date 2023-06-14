@@ -1,5 +1,17 @@
 # Changelog
 
+## 19.2.0
+
+### Minor Changes
+
+- [#959](https://github.com/primer/octicons/pull/959) [`268b2021`](https://github.com/primer/octicons/commit/268b2021bed7b12ff878e999d8b532534b1e2dcc) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Add pivot-column icon
+
+* [#932](https://github.com/primer/octicons/pull/932) [`ea81ec17`](https://github.com/primer/octicons/commit/ea81ec17f0d3d8e74d53e484f551166339af3a17) Thanks [@green6erry](https://github.com/green6erry)! - Add `id`, `title`, and `aria-labelledby` props to icon components
+
+- [#957](https://github.com/primer/octicons/pull/957) [`ab786838`](https://github.com/primer/octicons/commit/ab786838f7ec93523b82c2905e37b9e0c8639e43) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Update copilot octicons for consistency
+
+* [#956](https://github.com/primer/octicons/pull/956) [`16318b6b`](https://github.com/primer/octicons/commit/16318b6b7ba9abcf75c8a17f8ea2204128f9541a) Thanks [@gavinmn](https://github.com/gavinmn)! - Add undo / redo icons
+
 ## 19.1.0
 
 ### Minor Changes
