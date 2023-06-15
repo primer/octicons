@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.3.0
+
+### Minor Changes
+
+- [#953](https://github.com/primer/octicons/pull/953) [`d3cb9cd8`](https://github.com/primer/octicons/commit/d3cb9cd8b5186a05eb26159f9c97754bef9ea127) Thanks [@gavinmn](https://github.com/gavinmn)! - Add Tracked By states
+
 ## 19.2.0
 
 ### Minor Changes
