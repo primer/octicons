@@ -114,6 +114,7 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "FileDirectoryFillIcon",
   "FileDirectoryIcon",
   "FileDirectoryOpenFillIcon",
+  "FileDirectorySymlinkIcon",
   "FileIcon",
   "FileMediaIcon",
   "FileMovedIcon",
