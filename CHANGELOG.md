@@ -1,5 +1,13 @@
 # Changelog
 
+## 19.4.0
+
+### Minor Changes
+
+- [#962](https://github.com/primer/octicons/pull/962) [`5805622c`](https://github.com/primer/octicons/commit/5805622c1f9005a4c81a7e7fb09225f2a0e31af4) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Edited small details on `copilot-warning` and `copilot-error` to maintain consistency with the rest of the copilot icon set.
+
+* [#961](https://github.com/primer/octicons/pull/961) [`e92cb36a`](https://github.com/primer/octicons/commit/e92cb36aedc3a9c28b8502733e8c30d01d716bb6) Thanks [@gavinmn](https://github.com/gavinmn)! - Save file-directory-symlink-16.svg, file-directory-symlink-24.svg
+
 ## 19.3.0
 
 ### Minor Changes
