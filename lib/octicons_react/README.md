@@ -180,5 +180,5 @@ can pass it either via the `icon` prop, or as the only child:
 [tree-shaking]: https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking
 [aria-label]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label
 [aria-labelledby]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby
-[title]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title
+[title]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title
 [id]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id
