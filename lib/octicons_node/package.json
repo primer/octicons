@@ -1,5 +1,5 @@
 {
-  "name": "@primer/octicons",
+  "name": "@opf/openproject-octicons",
   "version": "19.4.0",
   "description": "A scalable set of icons handcrafted with <3 by GitHub.",
   "homepage": "https://primer.style/octicons",
@@ -12,9 +12,9 @@
     "index.scss",
     "build"
   ],
-  "repository": "https://github.com/primer/octicons.git",
+  "repository": "https://github.com/opf/openproject-octicons.git",
   "bugs": {
-    "url": "https://github.com/primer/octicons/issues"
+    "url": "https://github.com/opf/openproject-octicons/issues"
   },
   "scripts": {
     "build": "\\cp -r ../build/ ./build && \\cp index.scss ./build/build.css",

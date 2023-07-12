@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.summary     = "GitHub's octicons gem"
   s.platform    = Gem::Platform::RUBY
   s.description = "A package that distributes Octicons in a gem"
-  s.authors     = ["GitHub Inc.","OpenProject GmbH"]
+  s.authors     = ["GitHub Inc.", "OpenProject GmbH"]
   s.email       = ["support@openproject.com"]
   s.files       = Dir["{lib}/**/*"] + ["LICENSE", "README.md"]
   s.homepage    = "https://github.com/opf/openproject-octicons"
