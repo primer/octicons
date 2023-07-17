@@ -10,5 +10,6 @@ Gem::Specification.new do |s|
   s.email       = ["support@openproject.com"]
   s.files       = Dir["{lib}/**/*"] + ["LICENSE", "README.md"]
   s.homepage    = "https://github.com/opf/openproject-octicons"
+  s.metadata    = { "rubygems_mfa_required" => 'false' }
   s.license     = "MIT"
 end

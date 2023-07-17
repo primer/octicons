@@ -7,11 +7,11 @@
 <p align="center">Octicons are a set of SVG icons built by GitHub for GitHub.</p>
 
 <p align="center">
-  <a aria-label="build status" href="https://github.com/primer/octicons/actions/workflows/ci.yml">
-    <img alt="" src="https://github.com/primer/octicons/actions/workflows/ci.yml/badge.svg?branch=main&event=push">
+  <a aria-label="build status" href="https://github.com/opf/openproject-octicons/actions/workflows/ci.yml">
+    <img alt="" src="https://github.com/opf/openproject-octicons/actions/workflows/ci.yml/badge.svg?branch=main&event=push">
   </a>
-  <a aria-label="publish status" href="https://github.com/primer/octicons/actions/workflows/publish.yml">
-    <img alt="" src="https://github.com/primer/octicons/actions/workflows/publish.yml/badge.svg">
+  <a aria-label="publish status" href="https://github.com/opf/openproject-octicons/actions/workflows/publish.yml">
+    <img alt="" src="https://github.com/opf/openproject-octicons/actions/workflows/publish.yml/badge.svg">
   </a>
 </p>
 
@@ -25,8 +25,8 @@ The octicons node.js library is the main JavaScript library. With [a JavaScript 
 
 | Package                                                                              | Version                                                                                                                         |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| **[@primer/octicons](/lib/octicons_node)** <br />Node.js package with JavaScript API | [![npm version](https://img.shields.io/npm/v/@primer/octicons.svg)](https://www.npmjs.org/package/@primer/octicons)             |
-| **[@primer/octicons-react](/lib/octicons_react)** <br />React Octicons components    | [![npm version](https://img.shields.io/npm/v/@primer/octicons-react.svg)](https://www.npmjs.org/package/@primer/octicons-react) |
+| **[@peonproject/openproject-octicons](/lib/octicons_node)** <br />Node.js package with JavaScript API | [![npm version](https://img.shields.io/npm/v/@openproject/openproject-octicons.svg)](https://www.npmjs.org/package/@opf/openproject-octicons)             |
+| **[@openprojectf/openproject-octicons-react](/lib/octicons_react)** <br />React Octicons components    | [![npm version](https://img.shields.io/npm/v/@openproject/openproject-octicons-react.svg)](https://www.npmjs.org/package/@opf/openproject-octicons-react) |
 | **[@primer/styled-octicons](/lib/octicons_styled)** <br />React Octicons components with Styled System props    | [![npm version](https://img.shields.io/npm/v/@primer/styled-octicons.svg)](https://www.npmjs.org/package/@primer/styled-octicons) |
 
 
@@ -42,7 +42,7 @@ The octicons node.js library is the main JavaScript library. With [a JavaScript 
 
 ### Feedback, ideas, and bug reports
 
-If you found a bug, have feedback about our Octicon Library, or an idea on how to improve it, please open a new issue in this repo using the appropriate [issue template](https://github.com/primer/octicons/issues/new/choose).
+If you found a bug, have feedback about our Octicon Library, or an idea on how to improve it, please open a new issue in this repo using the appropriate [issue template](https://github.com/opf/openproject-octicons/issues/new/choose).
 
 ### Request an Icon Review (GitHub staff only)
 
