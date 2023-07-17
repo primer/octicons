@@ -1,5 +1,5 @@
 {
-  "name": "@primer/octicons",
+  "name": "@openproject/octicons",
   "version": "19.4.0",
   "publishConfig": {
     "registry": "no registry, don't publish from this package.json."
