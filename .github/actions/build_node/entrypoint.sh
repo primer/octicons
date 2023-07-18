@@ -23,7 +23,7 @@ echo "**************** Copying assets files to build directory ****************"
 cp -R ../build/ .
 
 echo "**************** Installing ****************"
-npm install --legacy-peer-deps
+npm ci
 
 echo "**************** Building ****************"
 npm run build

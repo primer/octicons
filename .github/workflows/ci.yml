@@ -1,4 +1,5 @@
 name: CI
+
 on:
   push:
     branches:
@@ -42,7 +43,7 @@ jobs:
         run: yarn test
 
   octicons_node:
-    name: 'npm:@primer/octicons'
+    name: 'npm:@openproject/octicons'
     needs: build
     runs-on: ubuntu-latest
     defaults:
@@ -65,13 +66,13 @@ jobs:
       - name: Test
         run: yarn test
 
-  octicons_react:
-    name: 'npm:@primer/octicons-react'
+  octicons_angular:
+    name: 'npm:@openproject/octicons-angular'
     needs: build
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./lib/octicons_react
+        working-directory: ./lib/octicons_angular
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
