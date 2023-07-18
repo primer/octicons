@@ -5,7 +5,7 @@ on:
     branches:
       - 'main'
       - 'next_major'
-      - 'release_test'
+      - 'feat/angular'
 
 jobs:
   release:
