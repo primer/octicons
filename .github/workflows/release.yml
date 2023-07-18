@@ -1,9 +1,12 @@
 name: Release
+
 on:
   push:
     branches:
       - 'main'
       - 'next_major'
+      - 'release_test'
+
 jobs:
   release:
     name: Final

@@ -17,3 +17,6 @@ public
 
 # Now
 .now
+
+# generated stuff
+__generated__
