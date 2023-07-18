@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.5.0
+
+### Minor Changes
+
+- [`97f00fcd`](https://github.com/primer/octicons/commit/97f00fcde06f70fc64ce23f38ec8155f0aa2fa82) - Added Angular package
+
 ## 19.4.0
 
 ### Minor Changes
