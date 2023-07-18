@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "script/build.js && ng build",
+    "lint": "echo 'The angular package is not currently linted' && exit 0",
     "watch": "script/build.js && ng build --watch --configuration development",
     "test": "ng test"
   },
