@@ -6,9 +6,8 @@
     "start": "ng serve",
     "build": "script/build.js && ng build",
     "lint": "echo 'No linting specified for @openproject/octicons-angular' && exit 0",
-    "lint": "echo 'No tests specified for @openproject/octicons-angular' && exit 0",
-    "watch": "script/build.js && ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "echo 'No tests specified for @openproject/octicons-angular' && exit 0",
+    "watch": "script/build.js && ng build --watch --configuration development"
   },
   "private": false,
   "peerDependencies": {

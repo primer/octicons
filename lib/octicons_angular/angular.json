@@ -5,7 +5,7 @@
   "projects": {
     "octicons_angular": {
       "projectType": "library",
-      "root": "projects/octicons_angular",
+      "root": ".",
       "sourceRoot": "src",
       "prefix": "lib",
       "architect": {
