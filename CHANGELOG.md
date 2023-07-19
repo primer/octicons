@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.5.1
+
+### Patch Changes
+
+- [`e9daf870`](https://github.com/primer/octicons/commit/e9daf8700d2e8ac0bcf3fe9286c8761549e2a793) - ci: use npm i instead of npm ci
+
 ## 19.5.0
 
 ### Minor Changes
