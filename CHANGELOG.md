@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.5.3
+
+### Patch Changes
+
+- [`56e2b9b1`](https://github.com/primer/octicons/commit/56e2b9b1e746b5d8765d5f6e45745ce5bd7eb623) - fix: make Angular components standalone for treeshaking
+
 ## 19.5.2
 
 ### Patch Changes
