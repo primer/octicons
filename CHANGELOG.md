@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.5.2
+
+### Patch Changes
+
+- [`360d82aa`](https://github.com/primer/octicons/commit/360d82aa25d4ace34351087f5b8ed846ad812f0f) - fix: publish built angular package instead of source
+
 ## 19.5.1
 
 ### Patch Changes
