@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: '18.x'
-      - run: npm ci
+      - run: npm i
       - run: npm run build
       - run: cp -r icons lib/build/svg
       - uses: actions/upload-artifact@master

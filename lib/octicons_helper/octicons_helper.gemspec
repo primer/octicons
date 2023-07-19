@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.files       = Dir["{lib}/**/*"] + ["LICENSE", "README.md"]
   s.homepage    = "https://github.com/opf/openproject-octicons"
   s.license     = "MIT"
-  s.metadata    = { "rubygems_mfa_required" => 'false' }
+  s.metadata    = { "rubygems_mfa_required" => "false" }
 
   s.require_paths = ["lib"]
 
