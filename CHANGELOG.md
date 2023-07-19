@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.5.4
+
+### Patch Changes
+
+- [`ebbb6300`](https://github.com/primer/octicons/commit/ebbb6300a0de21ca64c646717b1c5e6bd1f85e41) - fix: import CommonModule in Angular standalone components
+
 ## 19.5.3
 
 ### Patch Changes
