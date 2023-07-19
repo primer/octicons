@@ -66,7 +66,7 @@ jobs:
         with:
           name: octicons
           path: ./lib/build
-      - uses: ./.github/actions/build_node
+      - uses: ./.github/actions/build_angular
         env:
           NPM_AUTH_TOKEN_SHARED: ${{ secrets.NPM_AUTH_TOKEN_SHARED }}
         with:

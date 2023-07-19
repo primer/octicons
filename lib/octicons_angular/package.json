@@ -9,7 +9,6 @@
     "test": "echo 'No tests specified for @openproject/octicons-angular' && exit 0",
     "watch": "script/build.js && ng build --watch --configuration development"
   },
-  "private": false,
   "peerDependencies": {
     "@angular/common": "^16.1.0",
     "@angular/compiler": "^16.1.0",
