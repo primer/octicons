@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.5.6
+
+### Patch Changes
+
+- [`b47be85c`](https://github.com/primer/octicons/commit/b47be85c7a3ef08ddeff1789a157270e31be4e88) - fix: don't use safeHtml pipe for path rendering
+
 ## 19.5.5
 
 ### Patch Changes
