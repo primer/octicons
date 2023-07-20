@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.5.5
+
+### Patch Changes
+
+- [`73f21cb8`](https://github.com/primer/octicons/commit/73f21cb89b47a7d600ef0fc2739ee8d0fcb31d7f) - fix: actually render SVG path in components
+
 ## 19.5.4
 
 ### Patch Changes
