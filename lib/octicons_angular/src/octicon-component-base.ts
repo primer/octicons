@@ -3,6 +3,7 @@ import {
   Input,
   HostBinding
 } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { closestNaturalHeight } from './helpers';
 
 @Directive({})
@@ -71,4 +72,6 @@ export class OpOcticonComponentBase {
        path: string,
      };
    } = {};
+
+   constructor(protected sanitizer:DomSanitizer) {}
 }
