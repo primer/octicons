@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.6.1
+
+### Patch Changes
+
+- [`853164e1`](https://github.com/primer/octicons/commit/853164e1e0007f1c1b1ebe4040ee857978fbb5fd) - fix: Custom icon viewboxes
+
 ## 19.6.0
 
 ### Minor Changes
@@ -8,7 +14,7 @@
 
 ### Patch Changes
 
--   [`853164e1`](https://github.com/primer/octicons/commit/853164e1e0007f1c1b1ebe4040ee857978fbb5fd) - fix: Custom icon viewboxes
+- [`853164e1`](https://github.com/primer/octicons/commit/853164e1e0007f1c1b1ebe4040ee857978fbb5fd) - fix: Custom icon viewboxes
 
 ## 19.5.7
 
