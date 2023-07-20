@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.5.7
+
+### Patch Changes
+
+- [`1004d477`](https://github.com/primer/octicons/commit/1004d4773838f9e8ec210de0fac00f3bc410f6cc) - fix: mark SVG Path as sanitized
+
 ## 19.5.6
 
 ### Patch Changes
