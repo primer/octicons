@@ -7,7 +7,7 @@
     "build": "npm run generate && ng build",
     "generate": "script/build.js",
     "lint": "echo 'No linting specified for @openproject/octicons-angular' && exit 0",
-    "test": "npm run generate && ng test --no-watch --no-progress",
+    "test": "npm run generate && ng test --no-watch --no-progress --browsers ChromeHeadless",
     "watch": "script/build.js && ng build --watch --configuration development"
   },
   "peerDependencies": {
