@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.6.2
+
+### Patch Changes
+
+- [`9711833c`](https://github.com/primer/octicons/commit/9711833cf11319a776986e89c5e84e3251efdc31) - fix: don't use outerHTML, add specs to Angular package
+
 ## 19.6.1
 
 ### Patch Changes
