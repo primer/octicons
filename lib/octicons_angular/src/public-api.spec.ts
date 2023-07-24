@@ -43,17 +43,17 @@ describe('OpenProject extension icon', () => {
 
   it('should render the svg', () => {
     const iconElement: HTMLElement = fixture.nativeElement;
-    expect(iconElement.children[0].children[0].tagName.toLowerCase()).toEqual("path");
+    expect(iconElement.children[0].tagName.toLowerCase()).toEqual("path");
   });
 
   it('should render the title', () => {
     const iconElement: HTMLElement = fixture.nativeElement;
-    expect(iconElement.children[0].children[0].tagName.toLowerCase()).toEqual("path");
+    expect(iconElement.children[0].tagName.toLowerCase()).toEqual("path");
 
     component.title = "Some title";
     fixture.detectChanges();
 
     expect(iconElement.children[0].tagName.toLowerCase()).toEqual("title");
-    expect(iconElement.children[1].children[0].tagName.toLowerCase()).toEqual("path");
+    expect(iconElement.children[1].tagName.toLowerCase()).toEqual("path");
   });
 });
