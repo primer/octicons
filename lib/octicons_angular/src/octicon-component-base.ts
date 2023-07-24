@@ -62,14 +62,14 @@ export class OpOcticonComponentBase {
      return this.height * (this.naturalWidth / this.naturalHeight);
   }
 
-  get path() {
-    return this.SVGData[this.naturalHeight].path;
+  get paths() {
+    return this.SVGData[this.naturalHeight].paths;
   }
 
   protected SVGData:{
      [key in string]: {
        width: number,
-       path: string,
+       paths: string[],
      };
    } = {};
 
