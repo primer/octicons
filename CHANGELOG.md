@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.6.3
+
+### Patch Changes
+
+- [`62563029`](https://github.com/primer/octicons/commit/625630298312ab0077dbd69f808f3873f86037b8) - fix: fix rendering svg paths, add extra specs
+
 ## 19.6.2
 
 ### Patch Changes
