@@ -6,6 +6,13 @@ import {
 import { DomSanitizer } from '@angular/platform-browser';
 import { closestNaturalHeight } from './helpers';
 
+export interface SVGData {
+ [key: string]: {
+   width: number,
+   paths: string[],
+ };
+};
+
 @Directive({})
 export class OpOcticonComponentBase {
   @Input() className = '';
@@ -66,12 +73,7 @@ export class OpOcticonComponentBase {
     return this.SVGData[this.naturalHeight].paths;
   }
 
-  protected SVGData:{
-     [key in string]: {
-       width: number,
-       paths: string[],
-     };
-   } = {};
+  protected SVGData:SVGData = {};
 
    constructor(protected sanitizer:DomSanitizer) {}
 }
