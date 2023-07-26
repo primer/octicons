@@ -1,5 +1,13 @@
 # Changelog
 
+## 19.6.4
+
+### Patch Changes
+
+- [`c7ae4673`](https://github.com/primer/octicons/commit/c7ae46736e54fb7fe1dcb190e8ac556101cac451) - feat: add @openproject/octicons-node package
+
+* [`be3db12c`](https://github.com/primer/octicons/commit/be3db12c8ee263c44248c2e5708a973b62cd28e8) - fix: rename angular icons, export icon data
+
 ## 19.6.3
 
 ### Patch Changes
