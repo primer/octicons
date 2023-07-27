@@ -6,6 +6,8 @@ import {
   opAddIconData,
   LogIconComponent,
   logIconData,
+
+  toDOMString,
 } from './public-api';
 
 describe('Github native icon', () => {
@@ -28,19 +30,19 @@ describe('Github native icon', () => {
 
   it('should render the svg', () => {
     const iconElement: HTMLElement = fixture.nativeElement;
-    expect(iconElement.children[0].tagName.toLowerCase()).toEqual("path");
+    expect(iconElement.children[0].tagName.toLowerCase()).toEqual('path');
     expect(iconElement.children[0].getAttribute('d')).toBeTruthy();
   });
 
   it('should render the title', () => {
     const iconElement: HTMLElement = fixture.nativeElement;
-    expect(iconElement.children[0].tagName.toLowerCase()).toEqual("path");
+    expect(iconElement.children[0].tagName.toLowerCase()).toEqual('path');
 
-    component.title = "Some title";
+    component.title = 'Some title';
     fixture.detectChanges();
 
-    expect(iconElement.children[0].tagName.toLowerCase()).toEqual("title");
-    expect(iconElement.children[1].tagName.toLowerCase()).toEqual("path");
+    expect(iconElement.children[0].tagName.toLowerCase()).toEqual('title');
+    expect(iconElement.children[1].tagName.toLowerCase()).toEqual('path');
     expect(iconElement.children[1].getAttribute('d')).toBeTruthy();
   });
 
@@ -71,7 +73,7 @@ describe('OpenProject extension icon', () => {
 
   it('should render the svg', () => {
     const iconElement: HTMLElement = fixture.nativeElement;
-    expect(iconElement.children[0].tagName.toLowerCase()).toEqual("path");
+    expect(iconElement.children[0].tagName.toLowerCase()).toEqual('path');
     expect(iconElement.children[0].getAttribute('d')).toBeTruthy();
   });
 
@@ -102,9 +104,9 @@ describe('Icon with multiple paths', () => {
 
   it('should render the svg with all paths', () => {
     const iconElement: HTMLElement = fixture.nativeElement;
-    expect(iconElement.children[0].tagName.toLowerCase()).toEqual("path");
+    expect(iconElement.children[0].tagName.toLowerCase()).toEqual('path');
     expect(iconElement.children[0].getAttribute('d')).toBeTruthy();
-    expect(iconElement.children[1].tagName.toLowerCase()).toEqual("path");
+    expect(iconElement.children[1].tagName.toLowerCase()).toEqual('path');
     expect(iconElement.children[1].getAttribute('d')).toBeTruthy();
   });
 
@@ -115,3 +117,27 @@ describe('Icon with multiple paths', () => {
   });
 });
 
+
+describe('rendering without Angular', () => {
+  it('should render the SVG', () => {
+    const rendered = toDOMString(logIconData);
+    expect(rendered).toContain('<svg');
+    expect(rendered).toContain(`<path d="${logIconData[24].paths[0]}"></path>`);
+    expect(rendered).toContain('</svg>');
+  });
+
+  it('should render the small SVG', () => {
+    const rendered = toDOMString(logIconData, 'small');
+    expect(rendered).toContain('<svg');
+    expect(rendered).toContain(`<path d="${logIconData[16].paths[0]}"></path>`);
+    expect(rendered).toContain('</svg>');
+  });
+
+  it('should render the SVG attributes', () => {
+    const rendered = toDOMString(logIconData, 'medium', { extra: '1' });
+    expect(rendered).toContain('<svg');
+    expect(rendered).toContain('extra="1"');
+    expect(rendered).toContain(`<path d="${logIconData[24].paths[0]}"></path>`);
+    expect(rendered).toContain('</svg>');
+  });
+});

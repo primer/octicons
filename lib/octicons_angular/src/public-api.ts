@@ -3,3 +3,4 @@
  */
 
 export * from './__generated__/icons';
+export * from './helpers';

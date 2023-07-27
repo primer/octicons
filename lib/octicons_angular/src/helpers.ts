@@ -20,11 +20,14 @@ export function closestNaturalHeight(naturalHeights:string[], height:number) {
 }
 
 export function toDOMString(data:SVGData, size:SVGSize = 'medium', extraAttributes:Record<string, string> = {}) {
-  const height = sizeMap[size]
-  const { paths } = data[height];
+  const height = sizeMap[size];
+  const naturalHeight = closestNaturalHeight(Object.keys(data), height)
+  const { width, paths } = data[naturalHeight.toString()];
+  const elWidth =  height * (width / naturalHeight);
   return `<svg
     height="${height}px"
-    ${Object.keys(extraAttributes).reduce((attr, total) => `${total} ${attr}="${extraAttributes[attr]}"`, '')}
+    width="${elWidth}px"
+    ${Object.keys(extraAttributes).reduce((total, attr) => `${total} ${attr}="${extraAttributes[attr]}"`, '')}
   >
     ${paths.map(p => `<path d="${p}"></path>`)}
   </svg>`
