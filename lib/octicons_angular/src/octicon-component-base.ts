@@ -4,20 +4,13 @@ import {
   HostBinding
 } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { closestNaturalHeight } from './helpers';
-
-export interface SVGData {
- [key: string]: {
-   width: number,
-   paths: string[],
- };
-};
+import { closestNaturalHeight, SVGData, SVGSize, sizeMap } from './helpers';
 
 @Directive({})
 export class OpOcticonComponentBase {
   @Input() className = '';
   @Input() fill = 'currentColor';
-  @Input() size: 'small'|'medium'|'large'= 'medium';
+  @Input() size:SVGSize = 'medium';
   @Input() verticalAlign = 'text-bottom';
   @Input() title = '';
 
@@ -52,11 +45,6 @@ export class OpOcticonComponentBase {
 
   @HostBinding('attr.height')
   get height() {
-    const sizeMap = {
-      small: 16,
-      medium: 32,
-      large: 64
-    }
     return sizeMap[this.size];
   }
 
