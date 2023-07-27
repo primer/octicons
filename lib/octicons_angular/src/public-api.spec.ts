@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
   PlusIconComponent,
   plusIconData,
-  OpAddIconComponent,
-  opAddIconData,
+  OpBcfIconComponent,
+  opBcfIconData,
   LogIconComponent,
   logIconData,
 
@@ -54,15 +54,15 @@ describe('Github native icon', () => {
 });
 
 describe('OpenProject extension icon', () => {
-  let component: OpAddIconComponent;
-  let fixture: ComponentFixture<OpAddIconComponent>;
+  let component: OpBcfIconComponent;
+  let fixture: ComponentFixture<OpBcfIconComponent>;
 
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({imports: [OpAddIconComponent]}).compileComponents();
+    TestBed.configureTestingModule({imports: [OpBcfIconComponent]}).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OpAddIconComponent);
+    fixture = TestBed.createComponent(OpBcfIconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -75,48 +75,18 @@ describe('OpenProject extension icon', () => {
     const iconElement: HTMLElement = fixture.nativeElement;
     expect(iconElement.children[0].tagName.toLowerCase()).toEqual('path');
     expect(iconElement.children[0].getAttribute('d')).toBeTruthy();
-  });
-
-  it('should export the SVG data', () => {
-    expect(opAddIconData).toBeDefined();
-    expect(opAddIconData['24']).toBeDefined();
-    expect(opAddIconData['24'].paths.length).toEqual(1);
-  });
-});
-
-describe('Icon with multiple paths', () => {
-  let component: LogIconComponent;
-  let fixture: ComponentFixture<LogIconComponent>;
-
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({imports: [LogIconComponent]}).compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(LogIconComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeDefined();
-  });
-
-  it('should render the svg with all paths', () => {
-    const iconElement: HTMLElement = fixture.nativeElement;
-    expect(iconElement.children[0].tagName.toLowerCase()).toEqual('path');
-    expect(iconElement.children[0].getAttribute('d')).toBeTruthy();
     expect(iconElement.children[1].tagName.toLowerCase()).toEqual('path');
     expect(iconElement.children[1].getAttribute('d')).toBeTruthy();
+    expect(iconElement.children[2].tagName.toLowerCase()).toEqual('path');
+    expect(iconElement.children[2].getAttribute('d')).toBeTruthy();
   });
 
   it('should export the SVG data', () => {
-    expect(logIconData).toBeDefined();
-    expect(logIconData['24']).toBeDefined();
-    expect(logIconData['24'].paths.length).toEqual(2);
+    expect(opBcfIconData).toBeDefined();
+    expect(opBcfIconData['16']).toBeDefined();
+    expect(opBcfIconData['16'].paths.length).toEqual(3);
   });
 });
-
 
 describe('rendering without Angular', () => {
   it('should render the SVG', () => {
