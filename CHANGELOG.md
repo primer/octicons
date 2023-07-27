@@ -1,5 +1,15 @@
 # Changelog
 
+## 19.6.5
+
+### Patch Changes
+
+- [`75bbb35b`](https://github.com/primer/octicons/commit/75bbb35bedfd7b5b6b4695b53736112bb6af7406) - feat: change icon names & selectors
+
+* [`75bbb35b`](https://github.com/primer/octicons/commit/75bbb35bedfd7b5b6b4695b53736112bb6af7406) - feat: add rendering function outside of Angular
+
+- [`04bdfbde`](https://github.com/primer/octicons/commit/04bdfbdeee1b5772a64034b6e0e6a13d1fd144f9) Thanks [@HDinger](https://github.com/HDinger)! - Exchange OP icons with the redrawn ones
+
 ## 19.6.4
 
 ### Patch Changes
