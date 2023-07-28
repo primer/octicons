@@ -2,9 +2,9 @@
 ![octicons cover dark](https://user-images.githubusercontent.com/54012/138925203-80e1afa1-ba54-4731-9525-3c41186663f9.png#gh-dark-mode-only)
 <br>
 <br>
-<h1 align="center">Primer Octicons</h1>
+<h1 align="center">OpenProject's Primer Octicons</h1>
 
-<p align="center">Octicons are a set of SVG icons built by GitHub for GitHub.</p>
+<p align="center">Octicons are a set of SVG icons built by GitHub extended by OpenProject for OpenProject</p>
 
 <p align="center">
   <a aria-label="build status" href="https://github.com/opf/openproject-octicons/actions/workflows/ci.yml">
@@ -23,20 +23,18 @@ This repository contains several libraries. Each of them is in the `lib/` folder
 
 The octicons node.js library is the main JavaScript library. With [a JavaScript API](/lib/octicons_node/README.md) that can be used in a variety of applications.
 
-| Package                                                                              | Version                                                                                                                         |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| **[@peonproject/openproject-octicons](/lib/octicons_node)** <br />Node.js package with JavaScript API | [![npm version](https://img.shields.io/npm/v/@openproject/openproject-octicons.svg)](https://www.npmjs.org/package/@opf/openproject-octicons)             |
-| **[@openprojectf/openproject-octicons-react](/lib/octicons_react)** <br />React Octicons components    | [![npm version](https://img.shields.io/npm/v/@openproject/openproject-octicons-react.svg)](https://www.npmjs.org/package/@opf/openproject-octicons-react) |
-| **[@primer/styled-octicons](/lib/octicons_styled)** <br />React Octicons components with Styled System props    | [![npm version](https://img.shields.io/npm/v/@primer/styled-octicons.svg)](https://www.npmjs.org/package/@primer/styled-octicons) |
+| Package                                                                                       | Version                                                                                                                         |
+|-----------------------------------------------------------------------------------------------| ------------------------------------------------------------------------------------------------------------------------------- |
+| **[@openproject/octicons-angular](/lib/octicons_node)** <br />Node.js package with JavaScript API | [![npm version](https://img.shields.io/npm/v/@openproject/octicons-angular.svg)](https://www.npmjs.com/package/@openproject/octicons-angular)             |
 
 
 ### Ruby
 
-| Package                                                                       | Version                                                                                                       |
-| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| **[octicons](/lib/octicons_gem)** <br />Ruby gem with Ruby API                | [![Gem version](https://img.shields.io/gem/v/octicons.svg)](https://rubygems.org/gems/octicons)               |
-| [octicons_helper](/lib/octicons_helper)<br />Rails helper for using octicons  | [![Gem version](https://img.shields.io/gem/v/octicons_helper.svg)](https://rubygems.org/gems/octicons_helper) |
-| [jekyll-octicons](/lib/octicons_jekyll)<br />Jekyll plugin for using octicons | [![Gem version](https://img.shields.io/gem/v/jekyll-octicons.svg)](https://rubygems.org/gems/jekyll-octicons) |
+| Package                                                                       | Version                                                                                                                               |
+| ----------------------------------------------------------------------------- |---------------------------------------------------------------------------------------------------------------------------------------|
+| **[openproject-octicons](/lib/octicons_gem)** <br />Ruby gem with Ruby API                | [![Gem version](https://img.shields.io/gem/v/openproject-octicons.svg)](https://rubygems.org/gems/openproject-octicons)               |
+| [openproject-octicons_helper](/lib/octicons_helper)<br />Rails helper for using octicons  | [![Gem version](https://img.shields.io/gem/v/openproject-octicons_helper.svg)](https://rubygems.org/gems/openproject-octicons_helper) |
+
 
 ## Contributing
 
@@ -44,13 +42,13 @@ The octicons node.js library is the main JavaScript library. With [a JavaScript 
 
 If you found a bug, have feedback about our Octicon Library, or an idea on how to improve it, please open a new issue in this repo using the appropriate [issue template](https://github.com/opf/openproject-octicons/issues/new/choose).
 
-### Request an Icon Review (GitHub staff only)
-
-To request an icon review for inclusion in the Octicons Library, open an issue using the [icon review request](https://github.com/github/primer/issues/new?assignees=&labels=octicon%2C+request%2C+needs+triage&template=03-icon-request.md&title=%5BIcon+request%5D+) template in github/primer.
-
 ### Adding or updating an icon
 
 Read through our [contributing guide](./CONTRIBUTING.md#adding-or-updating-icons) if you want to add or update icons.
+
+## Release
+
+Read through our [release guide](./RELEASE.md) if you want to release a new version.
 
 ## License
 

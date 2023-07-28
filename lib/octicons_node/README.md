@@ -1,24 +1,24 @@
 # @primer/octicons
 
 
-[![npm version](https://img.shields.io/npm/v/@primer/octicons.svg)](https://www.npmjs.org/package/@primer/octicons)
+[![npm version](https://img.shields.io/npm/v/@openproject/octicons-angular.svg)](https://www.npmjs.org/package/@openproject/octicons-angular)
 
 ## Install
 
-This package is distributed with [npm][npm]. After [installing npm][install-npm], you can install `@primer/octicons` with this command:
+This package is distributed with [npm][npm]. After [installing npm][install-npm], you can install `@openproject/octicons-angular` with this command:
 
 ```shell
-npm install @primer/octicons
+npm install @openproject/octicons-angular
 ```
 
 ## Usage
 
-For all the usages, we recommend using the CSS located in [`build/build.css`](https://unpkg.com/@primer/octicons/build/build.css). This is some simple CSS to normalize the icons and inherit colors.
+For all the usages, we recommend using the CSS located in [`build/build.css`](https://unpkg.com/@openproject/octicons-angular/build/build.css). This is some simple CSS to normalize the icons and inherit colors.
 
-After installing `@primer/octicons` you can access the icons like this:
+After installing `@openproject/octicons-angular` you can access the icons like this:
 
 ```js
-var octicons = require("@primer/octicons")
+var octicons = require(" @openproject/octicons-angular")
 octicons.alert
 // {
 //     symbol: 'alert',
