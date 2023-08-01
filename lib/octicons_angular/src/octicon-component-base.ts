@@ -19,12 +19,12 @@ export class OpOcticonComponentBase {
   @HostBinding('attr.aria-label') @Input('aria-label') ariaLabel = '';
   @HostBinding('attr.aria-labelledby') @Input('aria-labelledby') arialabelledby = '';
 
-  @HostBinding('class.op-octicon') baseClassName = true;
+  @HostBinding('class.octicon') baseClassName = true;
   @HostBinding('attr.aria-hidden') get ariaHidden() {
     return !this.ariaLabel;
   }
   @HostBinding('attr.focusable') get focusable() {
-    return this.tabindex >= 0;
+    return this.tabIndex >= 0;
   }
   @HostBinding('style') get style () {
     return {
