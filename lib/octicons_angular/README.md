@@ -30,6 +30,12 @@ import { LogIconComponent } from '@openproject/octicons-angular';
 export class MyComponent {}
 ```
 
+In the code you simply use an `svg` tag with the name as attribtue. E.g:
+
+```html
+<svg log-icon></svg>
+```
+
 #### Vertical alignment
 
 By default the octicons have `vertical-align: text-bottom;` applied as inline
