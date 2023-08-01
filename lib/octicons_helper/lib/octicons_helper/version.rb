@@ -1,3 +1,3 @@
 module OcticonsHelper
-  VERSION = "19.6.5".freeze
+  VERSION = "19.6.6".freeze
 end
