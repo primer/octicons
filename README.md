@@ -4,7 +4,7 @@
 <br>
 <h1 align="center">OpenProject's Primer Octicons</h1>
 
-<p align="center">Octicons are a set of SVG icons built by GitHub extended by OpenProject for OpenProject</p>
+<p align="center">Octicons are a set of SVG icons built by GitHub forked by OpenProject for OpenProject</p>
 
 <p align="center">
   <a aria-label="build status" href="https://github.com/opf/openproject-octicons/actions/workflows/ci.yml">

@@ -1,6 +1,6 @@
 # Octicons Contribution Guidelines
 
-Thank you for your interest in contributing to Octicons! If you'd like to submit feedback, a bug, or an idea for improvement, please open a new issue in this repo using the appropriate [issue template](https://github.com/primer/octicons/issues/new/choose).
+Thank you for your interest in contributing to Octicons! If you'd like to submit feedback, a bug, or an idea for improvement, please open a new issue in this repo using the appropriate [issue template](https://github.com/opf/openproject-octicons/issues/new/choose).
 
 ## Adding or updating an icon
 
@@ -46,7 +46,24 @@ git checkout -b <branch-name>
 }
 ```
 
-### 5. Commit and push changes
+### 5. Create and push a changeset
+For release dependent Pull Requests, add a changeset file to your Pull Request. These files are needed for the release process managed by [Changesets](https://github.com/changesets/changesets#readme).
+
+1. Install (if you have not done before)
+```shell
+npm install @changesets/cli && npx changeset init
+```
+
+2. Create a changeset
+```shell
+npx changeset
+```
+
+3. Select version type (patch, minor, major)
+4. Type a message explaining your changes (equivalent to release notes) 
+
+
+### 6. Commit and push changes
 
 ```shell
 git add .
@@ -54,17 +71,15 @@ git commit -m <message>
 git push
 ```
 
-### 6. Create a pull request
+### 7. Create a pull request
 
 Use GitHub to [create a pull request](https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request) for your branch. In your pull request description, be sure to mention where the icon will be used and any relevant timeline information.
-
-You will be asked to create a changeset file (if you have not done before yet). These files are needed for the release process managed by Changesets. You can find more information about how to add such a file [here](https://github.com/changesets/changesets#how-do-i-get-started).
 
 If everything looks good, a maintainer will approve and merge the pull request when appropriate. After the pull request is merged, your icon will be available in the next Octicons release.
 
 
 ## Other contributions
 
-When contributing to Octicons outside of adding a new icon or release-dependent contribution, be sure to add the `skip-changeset` label to the pull request. This will allow for the pull request to skip the changeset check and have the ability to be merged into the main branch. 
+When contributing to Octicons outside of adding a new icon or release-dependent contribution, you don't have to add a _Changeset_ file.  
 
 Examples of other contributions include adding documentation or improving a GitHub Actions workflows.
