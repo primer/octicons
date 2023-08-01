@@ -1,27 +1,159 @@
-# OcticonsAngular
+# @openproject/octicons-angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+[![npm version](https://img.shields.io/npm/v/@openproject/octicons-angular.svg)](https://www.npmjs.org/package/@openproject/octicons-angular)
 
-## Development server
+## Install
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```shell
+npm install @openproject/octicons-angular
+```
 
-## Code scaffolding
+## Usage
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Angular component
 
-## Build
+The `@openproject/octicons-angular` module exports standalone components as [named
+exports](https://ponyfoo.com/articles/es6-modules-in-depth#named-exports). This
+allows you to import only the icons that you need without blowing up your
+bundle:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```ts
+import { Component } from '@angular/core';
+import { LogIconComponent } from '@openproject/octicons-angular';
 
-## Running unit tests
+@Component({
+  imports: [
+    LogIconComponent,
+  ],
+  template: `<svg log-icon></svg>`,
+})
+export class MyComponent {}
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### Vertical alignment
 
-## Running end-to-end tests
+By default the octicons have `vertical-align: text-bottom;` applied as inline
+styles. You can change the alignment via the `verticalAlign` input, which can be
+either `middle`, `text-bottom`, `text-top`, or `top`.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```html
+<svg
+  log-icon
+  vertical-align="text-bottom"  
+></svg>
+```
 
-## Further help
+#### `aria-label`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+You have the option of adding accessibility information to the icon with the
+[`aria-label` attribute][aria-label] via the `aria-label` input.
+
+```html
+<svg
+  log-icon
+  aria-label="Look at the logs"  
+></svg>
+```
+
+#### `aria-labelledby`
+
+You have the option of adding accessibility information to the icon with the
+[`aria-labelledby` attribute][aria-labelledby] via the `aria-labelledby` input. Using aria-labelledby referencing the id values of the title element provides the accessible name.
+
+```html
+<svg
+  log-icon
+  aria-labelledby="title"  
+  title="Look at the logs"  
+></svg>
+```
+
+#### `title`
+
+You have the option of adding accessibility information to the icon with the
+[`title` attribute][title] via the `title` input.
+
+#### `id`
+
+You have the option of adding information to the icon with the
+[`id` attribute][id] via the `id` input.
+
+```html
+<svg
+  log-icon
+  id="unique-log-icon"  
+></svg>
+```
+
+#### `tabIndex`
+
+You can add the `tabindex` attribute to an SVG element via the `tabIndex` input if the SVG element is intended to be interactive.
+`tabIndex` input also controls the `focusable` attribute of the SVG element which is defined by SVG Tiny 1.2 and only implemented in
+Internet Explorer and Microsoft Edge.
+
+If there is no `tabIndex` input is present (default behavior), it will set the `focusable` attribute to `false`. This is helpful
+for preventing the decorative SVG from being announced by some specialized assistive technology browsing modes which can get delayed
+while trying to parse the SVG markup.
+
+```html
+<svg
+  log-icon
+  aria-label="Interactive log icon"  
+  [tabIndex]="0" 
+></svg>
+```
+
+#### Sizes
+
+The `size` input takes `small`, `medium`, and `large` values that can be used to render octicons at standard sizes:
+
+| Prop            | Rendered Size                   |
+| :-------------- | :------------------------------ |
+| `size='small'`  | 16px height by `computed` width |
+| `size='medium'` | 32px height by `computed` width |
+| `size='large'`  | 64px height by `computed` width |
+
+```html
+<svg
+  log-icon
+  size="small"  
+></svg>
+```
+
+#### Fill
+
+The `fill` input takes a string value that can be used to set the color of the icon.
+By default, `fill` is set to [`currentColor`](https://css-tricks.com/currentcolor/).
+
+```html
+<svg
+  log-icon
+  fill="#f00"  
+></svg>
+```
+
+### Dom string rendering
+
+Alternatively, you can render an icon SVG directly, for example in legacy jQuery code:
+
+```ts
+import { logIconData, toDOMString } from '@openproject/octicons-angular';
+
+const mySVGString:string = toDOMString(
+  logIconData, // SVG data for the icon. You can get this by importing `${name}IconData`
+  'small', // The icon size. Optional
+  { 'aria-hidden': 'true' }, // Extra attributes like class, style, aria, and others. Optional.
+);
+document.body.innerHTML = mySVGString;
+```
+
+[octicons]: https://primer.style/octicons/
+[primer]: https://github.com/primer/primer
+[docs]: http://primercss.io/
+[npm]: https://www.npmjs.com/
+[install-npm]: https://docs.npmjs.com/getting-started/installing-node
+[tree-shaking]: https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking
+[aria-label]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label
+[aria-labelledby]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby
+[title]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title
+[id]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id
