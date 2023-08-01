@@ -8,24 +8,23 @@ import { closestNaturalHeight, SVGData, SVGSize, sizeMap } from './helpers';
 
 @Directive({})
 export class OpOcticonComponentBase {
-  @Input() className = '';
-  @Input() fill = 'currentColor';
   @Input() size:SVGSize = 'medium';
   @Input() verticalAlign = 'text-bottom';
   @Input() title = '';
 
   @HostBinding('attr.role') role = 'img';
+  @HostBinding('attr.fill') @Input() fill = 'currentColor';
   @HostBinding('attr.id') @Input() id = '';
-  @HostBinding('attr.tabindex') @Input() tabindex:number = -1;
+  @HostBinding('attr.tabindex') @Input() tabIndex:number = -1;
   @HostBinding('attr.aria-label') @Input('aria-label') ariaLabel = '';
   @HostBinding('attr.aria-labelledby') @Input('aria-labelledby') arialabelledby = '';
 
-  @HostBinding('class.op-octicon') baseClassName = true;
+  @HostBinding('class.octicon') baseClassName = true;
   @HostBinding('attr.aria-hidden') get ariaHidden() {
     return !this.ariaLabel;
   }
   @HostBinding('attr.focusable') get focusable() {
-    return this.tabindex >= 0;
+    return this.tabIndex >= 0;
   }
   @HostBinding('style') get style () {
     return {

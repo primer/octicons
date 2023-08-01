@@ -1,13 +1,13 @@
 # octicons 
 
-[![Gem version](https://img.shields.io/gem/v/octicons.svg)](https://rubygems.org/gems/octicons)
+[![Gem version](https://img.shields.io/gem/v/openproject-octicons.svg)](https://rubygems.org/gems/openproject-octicons)
 
 ## Install
 
 Add this to your `Gemfile`
 
 ```rb
-gem 'octicons'
+gem 'openproject-octicons'
 ```
 
 Then `bundle install`.
@@ -17,7 +17,7 @@ If using a framework like Rails, please follow the [installation instructions](h
 ## Usage
 
 ```rb
-require 'octicons'
+require 'openproject-octicons'
 icon = Octicons::Octicon.new("x")
 icon.to_svg
 # <svg class="octicon octicon-x" viewBox="0 0 16 16" width="16" height="16" version="1.1" "aria-hidden"="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg>

@@ -1,6 +1,6 @@
 # octicons_helper
 
-[![Gem version](https://img.shields.io/gem/v/octicons_helper.svg)](https://rubygems.org/gems/octicons_helper)
+[![Gem version](https://img.shields.io/gem/v/openproject-octicons_helper.svg)](https://rubygems.org/gems/openproject-octicons_helper)
 
 
 This rails helper lets you easily include svg octicons in your rails apps.
@@ -10,7 +10,7 @@ This rails helper lets you easily include svg octicons in your rails apps.
 1. Add this to your `Gemfile`
 
     ```rb
-    gem 'octicons_helper'
+    gem 'openproject-octicons_helper'
     ```
 
 3. Use this tag in your erbs
@@ -18,4 +18,4 @@ This rails helper lets you easily include svg octicons in your rails apps.
     ```rb
     <%= octicon "alert", :height => 32,  :class => "right left", :"aria-label" => "hi" %>
     ```
-We recommend including the CSS in the [`@primer/octicons`](/packages/javascript) npm module. You can also npm install that package and include `build/build.css` in your styles.
+We recommend including the CSS in the [`@openproject/octicons-angular`](/packages/javascript) npm module. You can also npm install that package and include `@openproject/octicons-angular/styles/index.scss` in your styles.

@@ -25,4 +25,4 @@ The Jekyll liquid tag is a plugin that lets you include octicons in your Jekyll 
     {% octicon alert height:32 class:"right left" aria-label:hi %}
     ```
 
-We recommend including the CSS in the [`@primer/octicons`](/packages/javascript) npm module. You can also npm install that package and include `build/build.css` in your styles.
+We recommend including the CSS in the [`@primer/octicons`](/packages/javascript) npm module. You can also npm install that package and include `@openproject/octicons-angular/styles/index.scss` in your styles.
