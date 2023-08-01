@@ -18,4 +18,4 @@ This rails helper lets you easily include svg octicons in your rails apps.
     ```rb
     <%= octicon "alert", :height => 32,  :class => "right left", :"aria-label" => "hi" %>
     ```
-We recommend including the CSS in the [`@openproject/octicons-angular`](/packages/javascript) npm module. You can also npm install that package and include `build/build.css` in your styles.
+We recommend including the CSS in the [`@openproject/octicons-angular`](/packages/javascript) npm module. You can also npm install that package and include `@openproject/octicons-angular/styles/index.scss` in your styles.

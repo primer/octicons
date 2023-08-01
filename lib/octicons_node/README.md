@@ -13,7 +13,7 @@ npm install @openproject/octicons-angular
 
 ## Usage
 
-For all the usages, we recommend using the CSS located in [`build/build.css`](https://unpkg.com/@openproject/octicons-angular/build/build.css). This is some simple CSS to normalize the icons and inherit colors.
+For all the usages, we recommend using the CSS located in `@openproject/octicons-angular/styles/index.scss`. This is some simple CSS to normalize the icons and inherit colors.
 
 After installing `@openproject/octicons-angular` you can access the icons like this:
 
