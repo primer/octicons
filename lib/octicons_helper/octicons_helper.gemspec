@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
 
   s.require_paths = ["lib"]
 
-  s.add_dependency "openproject-octicons", "19.5.7"
+  s.add_dependency "openproject-octicons", "19.6.7"
   s.add_dependency "railties"
   s.add_dependency "actionview"
 end

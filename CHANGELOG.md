@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.6.7
+
+### Patch Changes
+
+- [#37](https://github.com/opf/openproject-octicons/pull/37) [`cc945304`](https://github.com/opf/openproject-octicons/commit/cc945304741c25817067de8f35da61490a477321) Thanks [@HDinger](https://github.com/HDinger)! - Take care that the gem helper is updated correctly with every release
+
 ## 19.6.6
 
 ### Patch Changes
