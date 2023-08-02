@@ -27,6 +27,7 @@ The octicons node.js library is the main JavaScript library. With [a JavaScript 
 |-----------------------------------------------------------------------------------------------| ------------------------------------------------------------------------------------------------------------------------------- |
 | **[@openproject/octicons-angular](/lib/octicons_node)** <br />Node.js package with JavaScript API | [![npm version](https://img.shields.io/npm/v/@openproject/octicons-angular.svg)](https://www.npmjs.com/package/@openproject/octicons-angular)             |
 
+Read more about the usage with Javascript [here](./lib/octicons_angular/README.md).
 
 ### Ruby
 
@@ -35,6 +36,7 @@ The octicons node.js library is the main JavaScript library. With [a JavaScript 
 | **[openproject-octicons](/lib/octicons_gem)** <br />Ruby gem with Ruby API                | [![Gem version](https://img.shields.io/gem/v/openproject-octicons.svg)](https://rubygems.org/gems/openproject-octicons)               |
 | [openproject-octicons_helper](/lib/octicons_helper)<br />Rails helper for using octicons  | [![Gem version](https://img.shields.io/gem/v/openproject-octicons_helper.svg)](https://rubygems.org/gems/openproject-octicons_helper) |
 
+Read more about the usage with Ruby [here](./lib/octicons_gem/README.md).
 
 ## Contributing
 
