@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.6.0
+
+### Minor Changes
+
+- [#977](https://github.com/primer/octicons/pull/977) [`e2a0cbdb`](https://github.com/primer/octicons/commit/e2a0cbdbd0566301e295ea38ffb4367c4650c656) Thanks [@gavinmn](https://github.com/gavinmn)! - Add new Feed icons
+
 ## 19.5.0
 
 ### Minor Changes
