@@ -123,6 +123,7 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "FileSymlinkFileIcon",
   "FileZipIcon",
   "FilterIcon",
+  "FilterRemoveIcon",
   "FiscalHostIcon",
   "FlameIcon",
   "FoldDownIcon",
