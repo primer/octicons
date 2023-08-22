@@ -45,7 +45,7 @@ jobs:
 
       - name: Create release pull request or publish to npm
         id: changesets
-        uses: changesets/action@main
+        uses: changesets/action@master
         with:
           title: Release Tracking
           version: yarn changeset:version
