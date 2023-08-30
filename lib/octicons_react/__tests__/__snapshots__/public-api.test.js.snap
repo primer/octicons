@@ -102,6 +102,7 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "FeedIssueClosedIcon",
   "FeedIssueDraftIcon",
   "FeedIssueOpenIcon",
+  "FeedIssueReopenIcon",
   "FeedMergedIcon",
   "FeedPersonIcon",
   "FeedPlusIcon",
