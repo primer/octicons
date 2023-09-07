@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.7.0
+
+### Minor Changes
+
+- [#980](https://github.com/primer/octicons/pull/980) [`5c207929`](https://github.com/opf/openproject-octicons/commit/5c207929bdda29e910f2c5b2f6df9de6ef902b84) Thanks [@gavinmn](https://github.com/gavinmn)! - Fix Feed icon alignment issue and name collision
+
 ## 19.6.7
 
 ### Patch Changes
