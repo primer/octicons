@@ -4,6 +4,7 @@
 
 ### Minor Changes
 
+- [#977](https://github.com/primer/octicons/pull/977) [`e2a0cbdb`](https://github.com/primer/octicons/commit/e2a0cbdbd0566301e295ea38ffb4367c4650c656) Thanks [@gavinmn](https://github.com/gavinmn)! - Add new Feed icons
 - [#980](https://github.com/primer/octicons/pull/980) [`5c207929`](https://github.com/opf/openproject-octicons/commit/5c207929bdda29e910f2c5b2f6df9de6ef902b84) Thanks [@gavinmn](https://github.com/gavinmn)! - Fix Feed icon alignment issue and name collision
 
 ## 19.6.7
