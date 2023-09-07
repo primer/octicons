@@ -1,4 +1,4 @@
-# @primer/octicons
+# @openproject/octicons-angular
 
 
 [![npm version](https://img.shields.io/npm/v/@openproject/octicons-angular.svg)](https://www.npmjs.org/package/@openproject/octicons-angular)
