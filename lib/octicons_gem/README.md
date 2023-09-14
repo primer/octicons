@@ -33,8 +33,8 @@ This is the name of the octicon you want to use. For example `alert`. [Full list
 
 ### Options
 
-* `:height` - When setting the height to a number, the icon will scale to that size. For example, passing `32`, will calculate the width based on the icon's natural size.
-* `:width` - When setting the width to a number, the icon will scale to that size. For example, passing `32`, will calculate the width based on the icon's natural size.
+* `:height` - When setting the height to a number, the icon will scale to that size. For example, passing `45`, will calculate the width based on the icon's natural size.
+* `:width` - When setting the width to a number, the icon will scale to that size. For example, passing `45`, will calculate the width based on the icon's natural size.
 
 If both `:width, :height` are passed into the options hash, then the icon will be sized exactly at those dimensions.
 
