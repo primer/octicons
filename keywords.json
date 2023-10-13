@@ -10,6 +10,7 @@
   "arrow-small-right": ["point", "direction", "little", "tiny"],
   "arrow-small-up": ["point", "direction", "little", "tiny"],
   "arrow-up": ["point", "direction"],
+  "azure": ["azure"],
   "beaker": [
     "experiment",
     "labs",
