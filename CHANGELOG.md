@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.8.0
+
+### Minor Changes
+
+- [#976](https://github.com/primer/octicons/pull/976) [`15ea1e43`](https://github.com/opf/openproject-octicons/commit/15ea1e43510a55a5f77d4f4bc76f5033d6655997) Thanks [@UnicodeRogue](https://github.com/UnicodeRogue)! - Adds filter remove octicon
+
 ## 19.7.0
 
 ### Minor Changes
