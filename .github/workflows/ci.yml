@@ -14,6 +14,8 @@ jobs:
         with:
           node-version: 18
       - run: yarn
+      - name: Transforming FontAwesome icons
+        run: yarn transform-fa
       - name: Building
         run: yarn build
       - run: cp -r icons lib/build/svg
