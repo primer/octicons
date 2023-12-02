@@ -30,7 +30,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
       - uses: actions/download-artifact@v3
         with:
           name: octicons-build
@@ -41,71 +41,71 @@ jobs:
       - name: Test
         run: yarn test
 
-  octicons_node:
-    name: 'npm:@primer/octicons'
-    needs: build
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./lib/octicons_node
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - uses: actions/download-artifact@v3
-        with:
-          name: octicons-build
-          path: ./lib/build
-      - run: yarn
-      - name: Building
-        run: yarn build
-      - name: Lint
-        run: yarn lint
-      - name: Test
-        run: yarn test
+#  octicons_node:
+#    name: 'npm:@primer/octicons'
+#    needs: build
+#    runs-on: ubuntu-latest
+#    defaults:
+#      run:
+#        working-directory: ./lib/octicons_node
+#    steps:
+#      - uses: actions/checkout@v3
+#      - uses: actions/setup-node@v3
+#        with:
+#          node-version: 18
+#      - uses: actions/download-artifact@v3
+#        with:
+#          name: octicons-build
+#          path: ./lib/build
+#      - run: yarn
+#      - name: Building
+#        run: yarn build
+#      - name: Lint
+#        run: yarn lint
+#      - name: Test
+#        run: yarn test
 
-  octicons_react:
-    name: 'npm:@primer/octicons-react'
-    needs: build
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./lib/octicons_react
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - uses: actions/download-artifact@v3
-        with:
-          name: octicons-build
-          path: ./lib/build
-      - run: yarn
-      - name: Building
-        run: yarn build
-      - name: Lint
-        run: yarn lint
-      - name: Test
-        run: yarn test
+#  octicons_react:
+#    name: 'npm:@primer/octicons-react'
+#    needs: build
+#    runs-on: ubuntu-latest
+#    defaults:
+#      run:
+#        working-directory: ./lib/octicons_react
+#    steps:
+#      - uses: actions/checkout@v3
+#      - uses: actions/setup-node@v3
+#        with:
+#          node-version: 18
+#      - uses: actions/download-artifact@v3
+#        with:
+#          name: octicons-build
+#          path: ./lib/build
+#      - run: yarn
+#      - name: Building
+#        run: yarn build
+#      - name: Lint
+#        run: yarn lint
+#      - name: Test
+#        run: yarn test
 
-  octicons_gem:
-    name: 'gem:octicons'
+  forticons_gem:
+    name: 'gem:forticons'
     needs: build
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./lib/octicons_gem
+        working-directory: ./lib/forticons_gem
     steps:
       - uses: actions/checkout@v3
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7
+          ruby-version: 3.2.2
       - uses: actions/download-artifact@v3
         with:
-          name: octicons-build
-          path: ./lib/octicons_gem/lib/build
+          name: forticons-build
+          path: ./lib/forticons_gem/lib/build
       - run: bundle install
       - name: Linting
         run: bundle exec rake lint
@@ -115,16 +115,16 @@ jobs:
         run: bundle exec rake build
       - uses: actions/upload-artifact@master
         with:
-          name: octicons-gem
-          path: ./lib/octicons_gem/pkg
+          name: forticons-gem
+          path: ./lib/forticons_gem/pkg
 
-  octicons_helper:
-    name: 'gem:octicons_helper'
-    needs: octicons_gem
+  forticons_helper:
+    name: 'gem:forticons_helper'
+    needs: forticons_gem
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./lib/octicons_helper
+        working-directory: ./lib/forticons_helper
     steps:
       - uses: actions/checkout@v3
       - name: Setup Ruby
@@ -133,33 +133,33 @@ jobs:
           ruby-version: 2.7
       - uses: actions/download-artifact@v3
         with:
-          name: octicons-gem
-          path: ./lib/octicons_helper/vendor/cache
+          name: forticons-gem
+          path: ./lib/forticons_helper/vendor/cache
       - run: bundle install
       - name: Linting
         run: bundle exec rake lint
       - name: Testing
         run: bundle exec rake test
 
-  octicons_jekyll:
-    name: 'gem:octicons_jekyll'
-    needs: octicons_gem
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./lib/octicons_jekyll
-    steps:
-      - uses: actions/checkout@v3
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7
-      - uses: actions/download-artifact@v3
-        with:
-          name: octicons-gem
-          path: ./lib/octicons_jekyll/vendor/cache
-      - run: bundle install
-      - name: Linting
-        run: bundle exec rake lint
-      - name: Testing
-        run: bundle exec rake test
+#  octicons_jekyll:
+#    name: 'gem:octicons_jekyll'
+#    needs: octicons_gem
+#    runs-on: ubuntu-latest
+#    defaults:
+#      run:
+#        working-directory: ./lib/octicons_jekyll
+#    steps:
+#      - uses: actions/checkout@v3
+#      - name: Setup Ruby
+#        uses: ruby/setup-ruby@v1
+#        with:
+#          ruby-version: 2.7
+#      - uses: actions/download-artifact@v3
+#        with:
+#          name: octicons-gem
+#          path: ./lib/octicons_jekyll/vendor/cache
+#      - run: bundle install
+#      - name: Linting
+#        run: bundle exec rake lint
+#      - name: Testing
+#        run: bundle exec rake test
