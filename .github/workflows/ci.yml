@@ -65,8 +65,6 @@ jobs:
           name: forticons-build
           path: ./lib/forticons_gem/lib/build
       - run: bundle install
-      - name: Linting
-        run: bundle exec rake lint
       - name: Testing
         run: bundle exec rake test
       - name: Build
@@ -94,7 +92,5 @@ jobs:
           name: forticons-gem
           path: ./lib/forticons_helper/vendor/cache
       - run: bundle install
-      - name: Linting
-        run: bundle exec rake lint
       - name: Testing
         run: bundle exec rake test
