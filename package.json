@@ -5,6 +5,7 @@
     "registry": "no registry, don't publish from this package.json."
   },
   "scripts": {
+    "transform-fa": "script/transform-fa-icons.rb --input node_modules/@fortawesome/fontawesome-free/svgs/solid --output icons",
     "build": "script/build.js --input icons/**/*.svg --output lib/build/data.json",
     "changeset:version": "changeset version && script/version",
     "lint": "eslint tests",
@@ -15,6 +16,7 @@
   "dependencies": {
     "@changesets/changelog-github": "0.4.1",
     "@changesets/cli": "2.17.0",
+    "@fortawesome/fontawesome-free": "6.5.1",
     "@github/prettier-config": "0.0.4",
     "ava": "2.1.0",
     "braces": "2.3.1",
