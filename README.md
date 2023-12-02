@@ -15,6 +15,14 @@
 
 This repository contains several libraries. Each of them is in the `lib/` folder and gives access to Forticons on a different platform/language.
 
+## Build
+
+1. `yarn` - to download the fontawesome icons
+2. `yarn transform-fa` - to transform them into a format forticon understands
+3. `yarn build` - to build the icons into forticon_gem understandable data.json
+4. `mv lib/build lib/forticons_gem/lib`
+5. `cd lib/forticons_gem`
+6. `gem build forticons.gemspec`
 
 ### Ruby
 
