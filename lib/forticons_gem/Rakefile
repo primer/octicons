@@ -1,10 +1,5 @@
 require "rake/testtask"
-require "rubocop/rake_task"
 require "bundler/gem_tasks"
-
-RuboCop::RakeTask.new(:lint) do |t|
-  t.options = ["--display-cop-names"]
-end
 
 Rake::TestTask.new do |t|
   t.libs = ["lib", "test"]

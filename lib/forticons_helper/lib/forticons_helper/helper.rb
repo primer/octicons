@@ -16,7 +16,7 @@ module ForticonsHelper
     else
       icon = Forticons::Forticon.new(symbol, options)
 
-      tag = content_tag(:svg, icon.path.html_safe, icon.options).freeze # rubocop:disable Rails/OutputSafety
+      tag = content_tag(:svg, icon.path.html_safe, icon.options).freeze
       forticons_helper_cache[cache_key] = tag
       tag
     end
