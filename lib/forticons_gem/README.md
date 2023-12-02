@@ -1,13 +1,13 @@
-# octicons 
+# forticons 
 
-[![Gem version](https://img.shields.io/gem/v/octicons.svg)](https://rubygems.org/gems/octicons)
+[![Gem version](https://img.shields.io/gem/v/forticons.svg)](https://rubygems.org/gems/forticons)
 
 ## Install
 
 Add this to your `Gemfile`
 
 ```rb
-gem 'octicons'
+gem 'forticons'
 ```
 
 Then `bundle install`.
@@ -17,19 +17,19 @@ If using a framework like Rails, please follow the [installation instructions](h
 ## Usage
 
 ```rb
-require 'octicons'
-icon = Octicons::Octicon.new("x")
+require 'forticons'
+icon = Forticons::Forticon.new("x")
 icon.to_svg
-# <svg class="octicon octicon-x" viewBox="0 0 16 16" width="16" height="16" version="1.1" "aria-hidden"="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg>
+# <svg class="forticon forticon-x" viewBox="0 0 16 16" width="16" height="16" version="1.1" "aria-hidden"="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg>
 ```
 
 ## Documentation
 
-The `Octicon` class takes two arguments. The first is the symbol of the icon, and the second is a hash of arguments representing html attributes
+The `Forticon` class takes two arguments. The first is the symbol of the icon, and the second is a hash of arguments representing html attributes
 
 ### `symbol` _(required)_
 
-This is the name of the octicon you want to use. For example `alert`. [Full list of icons](/)
+This is the name of the forticon you want to use. For example `alert`. [Full list of icons](/)
 
 ### Options
 
@@ -47,7 +47,7 @@ Once initialized, you can read a few properties from the icon.
 Returns the string of the symbol name
 
 ```rb
-icon = Octicons::Octicon.new("x")
+icon = Forticons::Forticon.new("x")
 icon.symbol
 # "x"
 ```
@@ -57,7 +57,7 @@ icon.symbol
 Path returns the string representation of the path of the icon.
 
 ```rb
-icon = Octicons::Octicon.new("x")
+icon = Forticons::Forticon.new("x")
 icon.path
 # <path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path>
 ```
@@ -67,9 +67,9 @@ icon.path
 This is a hash of all the `options` that will be added to the output tag.
 
 ```rb
-icon = Octicons::Octicon.new("x")
+icon = Forticons::Forticon.new("x")
 icon.options
-# {:class=>"octicon octicon-x", :viewBox=>"0 0 12 16", :version=>"1.1", :width=>12, :height=>16, :"aria-hidden"=>"true"}
+# {:class=>"forticon forticon-x", :viewBox=>"0 0 12 16", :version=>"1.1", :width=>12, :height=>16, :"aria-hidden"=>"true"}
 ```
 
 #### `width`
@@ -85,7 +85,7 @@ Height is the icon's true height. Based on the svg view box height. _Note, this 
 Returns an array of keywords for the icon. The data comes from the [data file in lib](../data.json). Consider contributing more aliases for the icons.
 
 ```rb
-icon = Octicons::Octicon.new("x")
+icon = Forticons::Forticon.new("x")
 icon.keywords
 # ["remove", "close", "delete"]
 ```
@@ -97,7 +97,7 @@ icon.keywords
 Returns a string of the svg tag
 
 ```rb
-icon = Octicons::Octicon.new("x")
+icon = Forticons::Forticon.new("x")
 icon.to_svg
-# <svg class="octicon octicon-x" viewBox="0 0 16 16" width="16" height="16" version="1.1" "aria-hidden"="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg>
+# <svg class="forticon forticon-x" viewBox="0 0 16 16" width="16" height="16" version="1.1" "aria-hidden"="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg>
 ```

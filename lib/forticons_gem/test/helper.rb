@@ -1,6 +1,6 @@
 require "minitest/autorun"
-require "octicons"
+require "forticons"
 
-def octicon(symbol, options = {})
-  ::Octicons::Octicon.new(symbol, options)
+def forticon(symbol, options = {})
+  ::Forticons::Forticon.new(symbol, options)
 end
