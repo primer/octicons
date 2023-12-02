@@ -15,7 +15,7 @@ jobs:
           node-version: 18
       - uses: actions/setup-ruby@v1
         with:
-          ruby-version: 3.2.2
+          ruby-version: '3.2'
       - run: yarn
       - run: bundle install
       - name: Transforming FontAwesome icons
