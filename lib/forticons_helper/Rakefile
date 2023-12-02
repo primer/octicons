@@ -7,17 +7,17 @@ RuboCop::RakeTask.new(:lint) do |t|
 end
 
 task :version, [:v] do |t, args|
-  out = "module OcticonsHelper\n"\
+  out = "module ForticonsHelper\n"\
     "  VERSION = \"#{args[:v]}\".freeze\n"\
     "end"
-  File.open(File.expand_path("../lib/octicons_helper/version.rb", __FILE__), "w") do |file|
+  File.open(File.expand_path("../lib/forticons_helper/version.rb", __FILE__), "w") do |file|
     file.puts out
   end
 
-  ["octicons_helper.gemspec", "Gemfile"].each do |filename|
+  ["forticons_helper.gemspec", "Gemfile"].each do |filename|
     gs = File.read(File.expand_path("../#{filename}", __FILE__))
     File.open(File.expand_path("../#{filename}", __FILE__), "w") do |file|
-      file.puts gs.gsub(/"octicons", "[^"]+"/, "\"octicons\", \"#{args[:v]}\"")
+      file.puts gs.gsub(/"forticons", "[^"]+"/, "\"forticons\", \"#{args[:v]}\"")
     end
   end
 end

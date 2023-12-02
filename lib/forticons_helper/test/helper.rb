@@ -1,4 +1,4 @@
 require "minitest/autorun"
-require "octicons_helper"
+require "forticons_helper"
 
-include OcticonsHelper
+include ForticonsHelper
