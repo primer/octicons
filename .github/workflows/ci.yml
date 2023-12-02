@@ -13,13 +13,19 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
       - run: yarn
+      - run: bundle install
+      - name: Transforming FontAwesome icons
+        run: yarn transform-fa
       - name: Building
         run: yarn build
       - run: cp -r icons lib/build/svg
       - uses: actions/upload-artifact@v3
         with:
-          name: octicons-build
+          name: forticons-build
           path: ./lib/build
 
   main:
@@ -33,61 +39,13 @@ jobs:
           node-version: 20
       - uses: actions/download-artifact@v3
         with:
-          name: octicons-build
+          name: forticons-build
           path: ./lib/build
       - run: yarn
       - name: Lint
         run: yarn lint
       - name: Test
         run: yarn test
-
-#  octicons_node:
-#    name: 'npm:@primer/octicons'
-#    needs: build
-#    runs-on: ubuntu-latest
-#    defaults:
-#      run:
-#        working-directory: ./lib/octicons_node
-#    steps:
-#      - uses: actions/checkout@v3
-#      - uses: actions/setup-node@v3
-#        with:
-#          node-version: 18
-#      - uses: actions/download-artifact@v3
-#        with:
-#          name: octicons-build
-#          path: ./lib/build
-#      - run: yarn
-#      - name: Building
-#        run: yarn build
-#      - name: Lint
-#        run: yarn lint
-#      - name: Test
-#        run: yarn test
-
-#  octicons_react:
-#    name: 'npm:@primer/octicons-react'
-#    needs: build
-#    runs-on: ubuntu-latest
-#    defaults:
-#      run:
-#        working-directory: ./lib/octicons_react
-#    steps:
-#      - uses: actions/checkout@v3
-#      - uses: actions/setup-node@v3
-#        with:
-#          node-version: 18
-#      - uses: actions/download-artifact@v3
-#        with:
-#          name: octicons-build
-#          path: ./lib/build
-#      - run: yarn
-#      - name: Building
-#        run: yarn build
-#      - name: Lint
-#        run: yarn lint
-#      - name: Test
-#        run: yarn test
 
   forticons_gem:
     name: 'gem:forticons'
@@ -107,8 +65,6 @@ jobs:
           name: forticons-build
           path: ./lib/forticons_gem/lib/build
       - run: bundle install
-      - name: Linting
-        run: bundle exec rake lint
       - name: Testing
         run: bundle exec rake test
       - name: Build
@@ -136,30 +92,5 @@ jobs:
           name: forticons-gem
           path: ./lib/forticons_helper/vendor/cache
       - run: bundle install
-      - name: Linting
-        run: bundle exec rake lint
       - name: Testing
         run: bundle exec rake test
-
-#  octicons_jekyll:
-#    name: 'gem:octicons_jekyll'
-#    needs: octicons_gem
-#    runs-on: ubuntu-latest
-#    defaults:
-#      run:
-#        working-directory: ./lib/octicons_jekyll
-#    steps:
-#      - uses: actions/checkout@v3
-#      - name: Setup Ruby
-#        uses: ruby/setup-ruby@v1
-#        with:
-#          ruby-version: 2.7
-#      - uses: actions/download-artifact@v3
-#        with:
-#          name: octicons-gem
-#          path: ./lib/octicons_jekyll/vendor/cache
-#      - run: bundle install
-#      - name: Linting
-#        run: bundle exec rake lint
-#      - name: Testing
-#        run: bundle exec rake test

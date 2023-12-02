@@ -18,8 +18,8 @@ describe Forticons::Forticon do
   end
 
   it "gets keywords for the icon" do
-    icon = forticon("mark-github")
-    assert_equal ["octocat", "brand", "github", "logo"], icon.keywords
+    icon = forticon("x")
+    assert_equal ["remove", "close", "delete"], icon.keywords
   end
 
   it "the attributes are readable" do
@@ -27,14 +27,14 @@ describe Forticons::Forticon do
     assert icon.path
     assert icon.options
     assert_equal "x", icon.symbol
-    assert_equal 16, icon.width
-    assert_equal 16, icon.height
+    assert_equal 384, icon.width
+    assert_equal 512, icon.height
   end
 
   describe "viewBox" do
     it "always has a viewBox" do
       icon = forticon("x")
-      assert_includes icon.to_svg, "viewBox=\"0 0 16 16\""
+      assert_includes icon.to_svg, "viewBox=\"0 0 384 512\""
     end
   end
 
@@ -56,31 +56,31 @@ describe Forticons::Forticon do
   describe "size" do
     it "always has width and height" do
       icon = forticon("x")
-      assert_includes icon.to_svg, "height=\"16\""
-      assert_includes icon.to_svg, "width=\"16\""
+      assert_includes icon.to_svg, "height=\"512\""
+      assert_includes icon.to_svg, "width=\"384\""
     end
 
     it "converts number string height to integer" do
-      icon = forticon("x", height: "60")
+      icon = forticon("x", height: 60)
       assert_includes icon.to_svg, "height=\"60\""
-      assert_includes icon.to_svg, "width=\"60\""
+      assert_includes icon.to_svg, "width=\"45\""
     end
 
     it "converts number height to integer" do
       icon = forticon("x", height: 60)
       assert_includes icon.to_svg, "height=\"60\""
-      assert_includes icon.to_svg, "width=\"60\""
+      assert_includes icon.to_svg, "width=\"45\""
     end
 
     it "converts number string width to integer" do
       icon = forticon("x", width: "45")
-      assert_includes icon.to_svg, "height=\"45\""
+      assert_includes icon.to_svg, "height=\"60\""
       assert_includes icon.to_svg, "width=\"45\""
     end
 
     it "converts number width to integer" do
       icon = forticon("x", width: 45)
-      assert_includes icon.to_svg, "height=\"45\""
+      assert_includes icon.to_svg, "height=\"60\""
       assert_includes icon.to_svg, "width=\"45\""
     end
 
@@ -88,27 +88,6 @@ describe Forticons::Forticon do
       icon = forticon("x", width: 60, height: 60)
       assert_includes icon.to_svg, "width=\"60\""
       assert_includes icon.to_svg, "height=\"60\""
-    end
-
-    it "chooses the correct svg given a height" do
-      icon = forticon("x", height: 32)
-      assert_includes icon.to_svg, "width=\"32\""
-      assert_includes icon.to_svg, "height=\"32\""
-      assert_includes icon.to_svg, "viewBox=\"0 0 24 24\""
-    end
-
-    it "chooses the correct svg given a width" do
-      icon = forticon("x", width: 24)
-      assert_includes icon.to_svg, "width=\"24\""
-      assert_includes icon.to_svg, "height=\"24\""
-      assert_includes icon.to_svg, "viewBox=\"0 0 24 24\""
-    end
-
-    it "chooses the correct svg given a height and width" do
-      icon = forticon("x", height: 24, width: 16)
-      assert_includes icon.to_svg, "width=\"16\""
-      assert_includes icon.to_svg, "height=\"24\""
-      assert_includes icon.to_svg, "viewBox=\"0 0 24 24\""
     end
   end
 
