@@ -6,10 +6,10 @@
   "author": "GitHub, Inc.",
   "license": "MIT",
   "main": "dist/index.umd.js",
-  "module": "dist/index.esm.js",
+  "module": "dist/index.esm.mjs",
   "exports": {
     "types": "./dist/index.d.ts",
-    "import": "./dist/index.esm.js",
+    "import": "./dist/index.esm.mjs",
     "require": "./dist/index.umd.js"
   },
   "sideEffects": false,
