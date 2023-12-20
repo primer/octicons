@@ -10,3 +10,4 @@ src
 **/pages/**
 **/__tests__/**
 **/ts-tests/**
+/build
