@@ -113,7 +113,7 @@ jobs:
         run: bundle exec rake test
       - name: Build
         run: bundle exec rake build
-      - uses: actions/upload-artifact@master
+      - uses: actions/upload-artifact@3
         with:
           name: octicons-gem
           path: ./lib/octicons_gem/pkg
