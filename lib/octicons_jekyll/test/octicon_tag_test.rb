@@ -1,4 +1,5 @@
-require_relative "./helper"
+# frozen_string_literal: true
+require_relative "helper"
 
 describe Jekyll::Octicons do
   describe "parsing" do
