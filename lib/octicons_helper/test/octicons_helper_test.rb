@@ -22,7 +22,9 @@ describe OcticonsHelper do
 
     it "caches SVGs for two calls with the same arguments" do
       OcticonsHelper.octicons_helper_cache = {}
+      # rubocop:disable Lint/BinaryOperatorWithIdenticalOperands
       assert octicon("alert").object_id == octicon("alert").object_id
+      # rubocop:enable Lint/BinaryOperatorWithIdenticalOperands
       OcticonsHelper.octicons_helper_cache = {}
     end
   end
