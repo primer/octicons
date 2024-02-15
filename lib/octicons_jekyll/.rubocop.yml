@@ -4,3 +4,6 @@ inherit_gem:
 
 Naming/FileName:
   Enabled: false
+
+AllCops:
+  NewCops: enable
