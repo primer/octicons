@@ -135,7 +135,8 @@ jobs:
         with:
           name: octicons-gem
           path: ./lib/octicons_helper/vendor/cache
-      - run: bundle install
+      - name: Run bundle install
+        run: bundle config set --local disable_checksum_validation true && bundle install
       - name: Linting
         run: bundle exec rake lint
       - name: Testing
@@ -158,7 +159,8 @@ jobs:
         with:
           name: octicons-gem
           path: ./lib/octicons_jekyll/vendor/cache
-      - run: bundle install
+      - name: Run bundle install
+        run: bundle config set --local disable_checksum_validation true && bundle install
       - name: Linting
         run: bundle exec rake lint
       - name: Testing
