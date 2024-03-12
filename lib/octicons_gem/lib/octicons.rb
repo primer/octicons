@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "octicons/version"
 require "octicons/octicon"
 require "json"
