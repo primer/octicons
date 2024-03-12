@@ -101,7 +101,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7
+          ruby-version: 3.3
       - uses: actions/download-artifact@v4
         with:
           name: octicons-build
@@ -130,7 +130,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7
+          ruby-version: 3.3
       - uses: actions/download-artifact@v4
         with:
           name: octicons-gem
@@ -153,7 +153,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7
+          ruby-version: 3.3
       - uses: actions/download-artifact@v4
         with:
           name: octicons-gem
