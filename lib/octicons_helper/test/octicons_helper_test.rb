@@ -1,4 +1,6 @@
-require_relative "./helper"
+# frozen_string_literal: true
+
+require_relative "helper"
 
 describe OcticonsHelper do
   describe "rendering" do
@@ -23,10 +25,10 @@ describe OcticonsHelper do
 
       mock = Minitest::Mock.new
       def mock.path
-        @@call_count ||= 0
-        @@call_count += 1
+        @call_count ||= 0
+        @call_count += 1
 
-        raise "Octicon library called twice" if @@call_count > 1
+        raise "Octicon library called twice" if @call_count > 1
 
         "foo"
       end
