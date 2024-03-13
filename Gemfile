@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 
 group :development, :test do
   gem "minitest"
   gem "rake"
-  gem "rubocop", "0.59"
-  gem "rubocop-github", "0.12.0"
+  gem "rubocop-github", "0.20.0"
 end
