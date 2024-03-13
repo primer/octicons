@@ -14,7 +14,7 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: cp -r icons lib/build/svg
-      - uses: actions/upload-artifact@master
+      - uses: actions/upload-artifact@v4
         with:
           name: octicons
           path: ./lib/build
@@ -23,7 +23,7 @@ jobs:
     needs: setup
     steps:
       - uses: actions/checkout@master
-      - uses: actions/download-artifact@master
+      - uses: actions/download-artifact@v4
         with:
           name: octicons
           path: ./lib/build
@@ -33,7 +33,7 @@ jobs:
         with:
           args: octicons_gem
       - run: ls ./lib/octicons_gem/pkg
-      - uses: actions/upload-artifact@master
+      - uses: actions/upload-artifact@v4
         with:
           name: octicons_gem
           path: ./lib/octicons_gem/pkg
@@ -42,11 +42,11 @@ jobs:
     needs: gem
     steps:
       - uses: actions/checkout@master
-      - uses: actions/download-artifact@master
+      - uses: actions/download-artifact@v4
         with:
           name: octicons
           path: ./lib/build
-      - uses: actions/download-artifact@master
+      - uses: actions/download-artifact@v4
         with:
           name: octicons_gem
           path: ./lib/octicons_helper/vendor/cache
@@ -60,11 +60,11 @@ jobs:
     needs: gem
     steps:
       - uses: actions/checkout@master
-      - uses: actions/download-artifact@master
+      - uses: actions/download-artifact@v4
         with:
           name: octicons
           path: ./lib/build
-      - uses: actions/download-artifact@master
+      - uses: actions/download-artifact@v4
         with:
           name: octicons_gem
           path: ./lib/octicons_jekyll/vendor/cache
@@ -78,7 +78,7 @@ jobs:
     needs: setup
     steps:
       - uses: actions/checkout@master
-      - uses: actions/download-artifact@master
+      - uses: actions/download-artifact@v4
         with:
           name: octicons
           path: ./lib/build
@@ -92,7 +92,7 @@ jobs:
     needs: setup
     steps:
       - uses: actions/checkout@master
-      - uses: actions/download-artifact@master
+      - uses: actions/download-artifact@v4
         with:
           name: octicons
           path: ./lib/build
