@@ -9,7 +9,7 @@ RuboCop::RakeTask.new(:lint) do |t|
 end
 
 task :version, [:v] do |t, args|
-  out = "module OcticonsHelper\n"\
+  out = "# frozen_string_literal: true\n\nmodule OcticonsHelper\n"\
     "  VERSION = \"#{args[:v]}\".freeze\n"\
     "end"
   File.open(File.expand_path("../lib/octicons_helper/version.rb", __FILE__), "w") do |file|

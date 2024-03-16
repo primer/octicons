@@ -4,3 +4,6 @@ inherit_gem:
     - config/rails.yml
 AllCops:
   NewCops: enable
+
+AllCops:
+  NewCops: enable
