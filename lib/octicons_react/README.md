@@ -158,20 +158,6 @@ export default () => (
 )
 ```
 
-
-```diff
-- <Octicon icon={AlertIcon} />
-+ <AlertIcon />
-```
-
-The `Octicon` component is wrapper that passes props to its icon component. To render a specific icon, you
-can pass it either via the `icon` prop, or as the only child:
-
-```jsx
-<Octicon icon={Icon} />
-<Octicon><Icon x={10}/></Octicon>
-```
-
 [octicons]: https://primer.style/octicons/
 [primer]: https://github.com/primer/primer
 [docs]: http://primercss.io/

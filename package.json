@@ -49,5 +49,6 @@
       "github/no-then": 0,
       "eslint-comments/no-use": 0
     }
-  }
+  },
+  "packageManager": "yarn@1.22.1"
 }
