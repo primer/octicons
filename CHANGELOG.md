@@ -1,5 +1,15 @@
 # Changelog
 
+## 19.9.0
+
+### Minor Changes
+
+- [#1008](https://github.com/primer/octicons/pull/1008) [`c5786ff2`](https://github.com/opf/openproject-octicons/commit/c5786ff2f3fb9ebca2405bb8d6cc53268b12674f) Thanks [@joshblack](https://github.com/joshblack)! - Update ESM import to use mjs extension when in parent CommonJS module
+
+### Patch Changes
+
+- [#1007](https://github.com/primer/octicons/pull/1007) [`79b93954`](https://github.com/opf/openproject-octicons/commit/79b93954c6857e81a685066c1b1205893e7161c5) Thanks [@joshblack](https://github.com/joshblack)! - Update octicons in React to no longer set `role="img"` if the icon is aria-hidden.
+
 ## 19.8.0
 
 ### Minor Changes
