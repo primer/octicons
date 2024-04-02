@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "rake/testtask"
 require "rubocop/rake_task"
 require "bundler/gem_tasks"
@@ -12,7 +14,7 @@ Rake::TestTask.new do |t|
 end
 
 task :version, [:v] do |t, args|
-  out = "module Octicons\n"\
+  out = "# frozen_string_literal: true\n\nmodule Octicons\n"\
     "  VERSION = \"#{args[:v]}\".freeze\n"\
     "end"
   File.open(File.expand_path("../lib/octicons/version.rb", __FILE__), "w") { |file| file.puts out }

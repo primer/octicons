@@ -1,4 +1,6 @@
-require_relative "./helper"
+# frozen_string_literal: true
+
+require_relative "helper"
 
 describe Octicons do
   it "loads all icons on initialization" do

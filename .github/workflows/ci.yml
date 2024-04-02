@@ -18,7 +18,7 @@ jobs:
       - name: Building
         run: yarn build
       - run: cp -r icons lib/build/svg
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: octicons-build
           path: ./lib/build
@@ -32,7 +32,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: octicons-build
           path: ./lib/build
@@ -54,7 +54,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: octicons-build
           path: ./lib/build
@@ -78,7 +78,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: octicons-build
           path: ./lib/build
@@ -102,8 +102,8 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7
-      - uses: actions/download-artifact@v3
+          ruby-version: 3.3
+      - uses: actions/download-artifact@v4
         with:
           name: octicons-build
           path: ./lib/octicons_gem/lib/build
@@ -114,7 +114,7 @@ jobs:
         run: bundle exec rake test
       - name: Build
         run: bundle exec rake build
-      - uses: actions/upload-artifact@master
+      - uses: actions/upload-artifact@v4
         with:
           name: octicons-gem
           path: ./lib/octicons_gem/pkg
@@ -131,12 +131,13 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7
-      - uses: actions/download-artifact@v3
+          ruby-version: 3.3
+      - uses: actions/download-artifact@v4
         with:
           name: octicons-gem
           path: ./lib/octicons_helper/vendor/cache
-      - run: bundle install
+      - name: Run bundle install
+        run: bundle config set --local disable_checksum_validation true && bundle install
       - name: Linting
         run: bundle exec rake lint
       - name: Testing
@@ -154,12 +155,13 @@ jobs:
 #      - name: Setup Ruby
 #        uses: ruby/setup-ruby@v1
 #        with:
-#          ruby-version: 2.7
-#      - uses: actions/download-artifact@v3
+#          ruby-version: 3.3
+#      - uses: actions/download-artifact@v4
 #        with:
 #          name: octicons-gem
 #          path: ./lib/octicons_jekyll/vendor/cache
-#      - run: bundle install
+#      - name: Run bundle install
+#        run: bundle config set --local disable_checksum_validation true && bundle install
 #      - name: Linting
 #        run: bundle exec rake lint
 #      - name: Testing

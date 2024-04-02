@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "rake/testtask"
 require "rubocop/rake_task"
 require "bundler/gem_tasks"
@@ -6,8 +8,8 @@ RuboCop::RakeTask.new(:lint) do |t|
   t.options = ["--display-cop-names"]
 end
 
-task :version, [:v] do |t, args|
-  out = "# Prevent bundler errors\n"\
+task :version, [:v] => :environment do |t, args|
+  out = "# frozen_string_literal: true\n\n# Prevent bundler errors\n"\
   "module Liquid; class Tag; end; end\n\n"\
   "module Jekyll\n"\
   "  class Octicons < Liquid::Tag\n"\
