@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require File.expand_path("../lib/jekyll-octicons/version", __FILE__)
 
 Gem::Specification.new do |s|
@@ -14,5 +16,5 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency "jekyll", ">= 3.6", "< 5.0"
-  s.add_dependency "openproject-octicons", "19.7.0"
+  s.add_dependency "openproject-octicons", "19.8.0"
 end
