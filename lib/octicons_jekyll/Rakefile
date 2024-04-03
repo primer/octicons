@@ -8,7 +8,7 @@ RuboCop::RakeTask.new(:lint) do |t|
 end
 
 task :version, [:v] => :environment do |t, args|
-  out = "# Prevent bundler errors\n"\
+  out = "# frozen_string_literal: true\n\n# Prevent bundler errors\n"\
   "module Liquid; class Tag; end; end\n\n"\
   "module Jekyll\n"\
   "  class Octicons < Liquid::Tag\n"\

@@ -1,15 +1,19 @@
 {
   "name": "@primer/octicons-react",
-  "version": "19.8.0",
+  "version": "19.9.0",
   "description": "A scalable set of icons handcrafted with <3 by GitHub.",
   "homepage": "https://primer.style/octicons",
   "author": "GitHub, Inc.",
   "license": "MIT",
+  "type": "commonjs",
   "main": "dist/index.umd.js",
-  "module": "dist/index.esm.js",
+  "module": "dist/index.esm.mjs",
   "exports": {
-    "types": "./dist/index.d.ts",
-    "import": "./dist/index.esm.js",
+    "types": {
+      "import": "./dist/index.d.mts",
+      "require": "./dist/index.d.ts"
+    },
+    "import": "./dist/index.esm.mjs",
     "require": "./dist/index.umd.js"
   },
   "sideEffects": false,
@@ -25,7 +29,6 @@
     "posttest": "yarn ts-test"
   },
   "files": [
-    "build",
     "dist"
   ],
   "keywords": [

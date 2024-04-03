@@ -101,7 +101,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2
+          ruby-version: 3.3
           bundler-cache: true
       - uses: actions/download-artifact@v4
         with:
@@ -131,13 +131,14 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2
+          ruby-version: 3.3
           bundler-cache: true
       - uses: actions/download-artifact@v4
         with:
           name: octicons-gem
           path: ./lib/octicons_helper/vendor/cache
-      - run: bundle install
+      - name: Run bundle install
+        run: bundle config set --local disable_checksum_validation true && bundle install
       - name: Linting
         run: bundle exec rake lint
       - name: Testing
@@ -155,13 +156,14 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2
+          ruby-version: 3.3
           bundler-cache: true
       - uses: actions/download-artifact@v4
         with:
           name: octicons-gem
           path: ./lib/octicons_jekyll/vendor/cache
-      - run: bundle install
+      - name: Run bundle install
+        run: bundle config set --local disable_checksum_validation true && bundle install
       - name: Linting
         run: bundle exec rake lint
       - name: Testing
