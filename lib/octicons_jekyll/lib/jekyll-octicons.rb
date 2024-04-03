@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "octicons"
 require "jekyll-octicons/version"
 require "liquid"

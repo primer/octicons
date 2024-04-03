@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Octicons
   class Octicon
     DEFAULT_HEIGHT = 16
