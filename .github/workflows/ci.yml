@@ -102,6 +102,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3
+          bundler-cache: true
       - uses: actions/download-artifact@v4
         with:
           name: octicons-build
@@ -131,6 +132,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3
+          bundler-cache: true
       - uses: actions/download-artifact@v4
         with:
           name: octicons-gem
@@ -155,6 +157,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3
+          bundler-cache: true
       - uses: actions/download-artifact@v4
         with:
           name: octicons-gem
