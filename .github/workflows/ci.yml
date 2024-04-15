@@ -90,11 +90,8 @@ jobs:
         run: yarn test
       - name: Types
         run: |
-          yarn pack
-          VERSION=$(jq -r '.version' package.json)
-
           # Run @arethetypeswrong/cli
-          npx @arethetypeswrong/cli --pack 'primer-octicons-react-v$VERSION.tgz'
+          npx @arethetypeswrong/cli --pack .
 
           # Run publint
           npx publint . --strict
