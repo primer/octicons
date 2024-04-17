@@ -8,6 +8,9 @@ node_modules
 vendor
 Gemfile.lock
 
+# Jetbrains IDE
+.idea/
+
 # Ignore build/export artifacts
 lib/**/build/
 
