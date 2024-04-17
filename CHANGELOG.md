@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.10.0
+
+### Minor Changes
+
+- [#48](https://github.com/opf/openproject-octicons/pull/48) [`8aa896a2`](https://github.com/opf/openproject-octicons/commit/8aa896a2b0d9a0111aa60640a9f2ede188fc2670) Thanks [@Kharonus](https://github.com/Kharonus)! - Add icons for xeokit toolbar
+
 ## 19.9.0
 
 ### Minor Changes
