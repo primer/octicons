@@ -37,6 +37,11 @@ git checkout -b <branch-name>
 
 ### 3. Add or update SVG files in the `/icons` directory
 
+Be sure to add SVG files with the correct naming (suffix `-16` required,
+suffixes `-12` and `-24` are optional). Check for the correct viewBox
+inside the SVG, but do not bother with `fill`, `fill-rule`, or `clip-rule`
+attributes, as those are removed by the CI step "Optimize SVGs".
+
 ### 4. Add or update keywords in `keywords.json`
 
 ```diff
