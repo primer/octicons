@@ -88,6 +88,13 @@ jobs:
         run: yarn lint
       - name: Test
         run: yarn test
+      - name: Types
+        run: |
+          # Run @arethetypeswrong/cli
+          npx @arethetypeswrong/cli --pack .
+
+          # Run publint
+          npx publint . --strict
 
   octicons_gem:
     name: 'gem:octicons'
