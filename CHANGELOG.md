@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.11.0
+
+### Minor Changes
+
+- [#50](https://github.com/opf/openproject-octicons/pull/50) [`3a6d629e`](https://github.com/opf/openproject-octicons/commit/3a6d629e97f26ec4eb5047f901d2542d3e288615) Thanks [@Kharonus](https://github.com/Kharonus)! - Added 5 new icons for 3d viewer actions
+
 ## 19.10.0
 
 ### Minor Changes
