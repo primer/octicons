@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.12.0
+
+### Minor Changes
+
+- [#52](https://github.com/opf/openproject-octicons/pull/52) [`0bab6d27`](https://github.com/opf/openproject-octicons/commit/0bab6d2788c06413a55f0bf2fe0535258b2e2afc) Thanks [@HDinger](https://github.com/HDinger)! - Add GitLab icons
+
 ## 19.11.0
 
 ### Minor Changes
