@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.13.0
+
+### Minor Changes
+
+- [#54](https://github.com/opf/openproject-octicons/pull/54) [`3c18878b`](https://github.com/opf/openproject-octicons/commit/3c18878bbebc4c75deabbbd07e071a1788525644) Thanks [@dominic-braeunlein](https://github.com/dominic-braeunlein)! - Add icon op-person-unassigned
+
 ## 19.12.0
 
 ### Minor Changes
