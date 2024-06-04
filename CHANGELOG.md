@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.14.0
+
+### Minor Changes
+
+- [#56](https://github.com/opf/openproject-octicons/pull/56) [`dd5eaced`](https://github.com/opf/openproject-octicons/commit/dd5eaced8f5d5fd7c9efa1017d157e17bc72d971) Thanks [@apfohl](https://github.com/apfohl)! - Added op-include-projects icon
+
 ## 19.13.0
 
 ### Minor Changes
