@@ -168,6 +168,7 @@
   "op-gitlab-pipeline-status-success": ["fulfilled"],
   "op-gitlab-pipeline-status-waiting": ["ready"],
   "op-person-unassigned": ["person", "human", "unassigned", "removed"],
+  "op-include-projects": ["include", "project", "projects"],
   "op-orthographic-perspective": ["3d", "threed", "camera", "view"],
   "op-scissors": ["cut", "snip", "slice", "clip"],
   "op-threed-return-default": ["reset", "cube"],
