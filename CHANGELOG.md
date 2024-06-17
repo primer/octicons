@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.14.1
+
+### Patch Changes
+
+- [#58](https://github.com/opf/openproject-octicons/pull/58) [`7342859d`](https://github.com/opf/openproject-octicons/commit/7342859d639e3ecf0c7f95dc9f96060d34a2a5e3) Thanks [@HDinger](https://github.com/HDinger)! - Increase the height of Gitlab pipeline waiting icon
+
 ## 19.14.0
 
 ### Minor Changes
