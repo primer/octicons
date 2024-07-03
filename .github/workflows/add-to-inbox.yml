@@ -1,0 +1,33 @@
+name: Add to Inbox 📥
+on:
+  issues:
+    types: [opened, reopened]
+
+jobs:
+  add-to-inbox:
+    if: ${{ github.repository == 'primer/behaviors' }}
+    runs-on: ubuntu-latest
+    env:
+      ISSUE_URL: ${{ github.event.issue.html_url }}
+      PROJECT_ID: 4503
+    steps:
+      - id: get-primer-access-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.PRIMER_ISSUE_TRIAGE_APP_ID }}
+          private-key: ${{ secrets.PRIMER_ISSUE_TRIAGE_APP_PRIVATE_KEY }}
+      - name: Add labels to issue
+        run: |
+          gh issue edit $ISSUE_URL --add-label 'rails,react'
+        env:
+          GH_TOKEN: ${{ steps.get-primer-access-token.outputs.token }}
+      - id: get-github-access-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.PRIMER_ISSUE_TRIAGE_APP_ID_FOR_GITHUB }}
+          private-key: ${{ secrets.PRIMER_ISSUE_TRIAGE_APP_PRIVATE_KEY_FOR_GITHUB }}
+          owner: github
+      - name: Add issue to project
+        run: gh project item-add $PROJECT_ID --url $ISSUE_URL --owner github
+        env:
+          GH_TOKEN: ${{ steps.get-github-access-token.outputs.token }}
