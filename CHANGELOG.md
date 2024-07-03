@@ -1,5 +1,15 @@
 # Changelog
 
+## 19.15.0
+
+### Minor Changes
+
+- [#983](https://github.com/primer/octicons/pull/983) [`30be326a`](https://github.com/opf/openproject-octicons/commit/30be326ae23b108fd31decfd7823171150421bc4) Thanks [@lukasoppermann](https://github.com/lukasoppermann)! - Add multiple missing icons
+
+### Patch Changes
+
+- [#1020](https://github.com/primer/octicons/pull/1020) [`449d81f1`](https://github.com/opf/openproject-octicons/commit/449d81f1b09bcbc0752ebc35d175a8b729022b55) Thanks [@joshblack](https://github.com/joshblack)! - Update types for @primer/octicons-react to explicitly include extensions for different moduleResolution settings
+
 ## 19.14.1
 
 ### Patch Changes
