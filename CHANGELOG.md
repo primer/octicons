@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.11.0
+
+### Minor Changes
+
+- [#1028](https://github.com/primer/octicons/pull/1028) [`d27ea2f6`](https://github.com/primer/octicons/commit/d27ea2f6b52c5d26d4118259c86e4c91e58cfd56) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Adding ai-model icon at 16 & 24px
+
 ## 19.10.0
 
 ### Minor Changes
