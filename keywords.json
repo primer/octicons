@@ -1,4 +1,5 @@
 {
+  "ai-model": ["ai", "model", "llm", "models", "copilot"],
   "alert": ["warning", "triangle", "exclamation", "point"],
   "archive": ["box", "catalog"],
   "arrow-both": ["point", "direction", "left", "right"],

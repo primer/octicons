@@ -1,6 +1,6 @@
 {
-  "version": "19.15.0",
   "name": "@openproject/octicons",
+  "version": "19.15.0",
   "publishConfig": {
     "registry": "no registry, don't publish from this package.json."
   },
