@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.17.0
+
+### Minor Changes
+
+- [#65](https://github.com/opf/openproject-octicons/pull/65) [`42fd602f`](https://github.com/opf/openproject-octicons/commit/42fd602f8ba39a2781eecff91359e3d209808c1e) Thanks [@HDinger](https://github.com/HDinger)! - Add 24px version of op-relations
+
 ## 19.16.0
 
 ### Minor Changes
