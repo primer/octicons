@@ -38,6 +38,12 @@ The octicons node.js library is the main JavaScript library. With [a JavaScript 
 | [octicons_helper](/lib/octicons_helper)<br />Rails helper for using octicons  | [![Gem version](https://img.shields.io/gem/v/octicons_helper.svg)](https://rubygems.org/gems/octicons_helper) |
 | [jekyll-octicons](/lib/octicons_jekyll)<br />Jekyll plugin for using octicons | [![Gem version](https://img.shields.io/gem/v/jekyll-octicons.svg)](https://rubygems.org/gems/jekyll-octicons) |
 
+### Laravel
+
+| Package                                                                       | Version                                                                                                       |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| **[laravel-octicons](/lib/octicons_laravel)** <br />Laravel package with Composer                | [![Gem version](https://img.shields.io/badge/2.7.7-composer-blue)](https://getcomposer.org/)    
+
 ## Contributing
 
 ### Feedback, ideas, and bug reports

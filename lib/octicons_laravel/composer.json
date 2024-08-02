@@ -1,0 +1,23 @@
+{
+    "name": "devzkhalil/laravel-primer-octicons",
+    "license": "MIT",
+    "authors": [{
+        "name": "devzkhalil",
+        "email": "devzkhalil@gmail.com"
+    }],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Devzkhalil\\LaravelPrimerOcticons\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Devzkhalil\\LaravelPrimerOcticons\\LaravelPrimerOcticonsServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
