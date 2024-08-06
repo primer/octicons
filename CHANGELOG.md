@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.18.0
+
+### Minor Changes
+
+- [#67](https://github.com/opf/openproject-octicons/pull/67) [`aef13cce`](https://github.com/opf/openproject-octicons/commit/aef13cce0167ab6bf952a86101e57a875c7ca267) Thanks [@HDinger](https://github.com/HDinger)! - Add 24px versions for multiple icons
+
 ## 19.17.0
 
 ### Minor Changes
