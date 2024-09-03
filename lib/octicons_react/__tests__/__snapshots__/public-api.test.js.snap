@@ -4,6 +4,7 @@ exports[`@primer/octicons-react should not update exports without a semver chang
 [
   "AccessibilityIcon",
   "AccessibilityInsetIcon",
+  "AiModelIcon",
   "AlertFillIcon",
   "AlertIcon",
   "AppsIcon",
