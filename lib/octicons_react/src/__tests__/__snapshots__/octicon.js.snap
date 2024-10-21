@@ -5,7 +5,6 @@ exports[`An icon component matches snapshot 1`] = `
   aria-hidden="true"
   class="octicon octicon-alert"
   fill="currentColor"
-  focusable="false"
   height="16"
   style="display: inline-block; user-select: none; vertical-align: text-bottom; overflow: visible;"
   viewBox="0 0 16 16"

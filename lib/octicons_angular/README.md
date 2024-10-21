@@ -91,24 +91,6 @@ You have the option of adding information to the icon with the
 ></svg>
 ```
 
-#### `tabIndex`
-
-You can add the `tabindex` attribute to an SVG element via the `tabIndex` input if the SVG element is intended to be interactive.
-`tabIndex` input also controls the `focusable` attribute of the SVG element which is defined by SVG Tiny 1.2 and only implemented in
-Internet Explorer and Microsoft Edge.
-
-If there is no `tabIndex` input is present (default behavior), it will set the `focusable` attribute to `false`. This is helpful
-for preventing the decorative SVG from being announced by some specialized assistive technology browsing modes which can get delayed
-while trying to parse the SVG markup.
-
-```html
-<svg
-  log-icon
-  aria-label="Interactive log icon"  
-  [tabIndex]="0" 
-></svg>
-```
-
 #### Sizes
 
 The `size` input takes `small`, `medium`, and `large` values that can be used to render octicons at standard sizes:
