@@ -15,12 +15,16 @@ export class OpOcticonComponentBase {
   @HostBinding('attr.role') role = 'img';
   @HostBinding('attr.fill') @Input() fill = 'currentColor';
   @HostBinding('attr.id') @Input() id = '';
+  @HostBinding('attr.tabindex') @Input() tabIndex?:number;
   @HostBinding('attr.aria-label') @Input('aria-label') ariaLabel = '';
   @HostBinding('attr.aria-labelledby') @Input('aria-labelledby') arialabelledby = '';
 
   @HostBinding('class.octicon') baseClassName = true;
   @HostBinding('attr.aria-hidden') get ariaHidden() {
     return !this.ariaLabel;
+  }
+  @HostBinding('attr.focusable') get focusable() {
+    return (this.tabIndex && this.tabIndex >= 0);
   }
   @HostBinding('style') get style () {
     return {

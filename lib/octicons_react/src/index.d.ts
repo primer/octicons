@@ -9,6 +9,7 @@ type Size = 'small' | 'medium' | 'large'
 export interface OcticonProps {
   'aria-label'?: string
   'aria-labelledby'?: string
+  tabIndex?: number
   children?: React.ReactElement<any>
   className?: string
   title?: string | React.ReactElement<any>
