@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.19.0
+
+### Minor Changes
+
+- [#1033](https://github.com/primer/octicons/pull/1033) [`7a5ac858`](https://github.com/opf/openproject-octicons/commit/7a5ac85800359eb1ee6c98c90533c5f344e6532d) Thanks [@colebemis](https://github.com/colebemis)! - Update `thumbsup` and `thumbsdown` icons
+
 ## 19.18.1
 
 ### Patch Changes
