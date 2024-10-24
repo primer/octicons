@@ -24,7 +24,7 @@ export class OpOcticonComponentBase {
     return !this.ariaLabel;
   }
   @HostBinding('attr.tabindex') get tabIndexAttr() {
-    return this.tabIndex != null ? this.tabIndex : null;
+    return this.tabIndex;
   }
   @HostBinding('attr.focusable') get focusable() {
     return (this.tabIndex && this.tabIndex >= 0);
