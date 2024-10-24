@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.18.1
+
+### Patch Changes
+
+- [#69](https://github.com/opf/openproject-octicons/pull/69) [`059f14ff`](https://github.com/opf/openproject-octicons/commit/059f14ff4b0bce841d33d15b1b9c6fc32f507279) Thanks [@bsatarnejad](https://github.com/bsatarnejad)! - remove tabindex from octicon svg
+
 ## 19.18.0
 
 ### Minor Changes
