@@ -8,11 +8,9 @@
 
 <p align="center">
   <a aria-label="build status" href="https://github.com/primer/octicons/actions/workflows/ci.yml">
-    <img alt="" src="https://github.com/primer/octicons/actions/workflows/ci.yml/badge.svg?branch=main&event=push">
-  </a>
+    <img alt="" src="https://github.com/primer/octicons/actions/workflows/ci.yml/badge.svg?branch=main&event=push"></a>
   <a aria-label="publish status" href="https://github.com/primer/octicons/actions/workflows/publish.yml">
-    <img alt="" src="https://github.com/primer/octicons/actions/workflows/publish.yml/badge.svg">
-  </a>
+    <img alt="" src="https://github.com/primer/octicons/actions/workflows/publish.yml/badge.svg"></a>
 </p>
 
 ## Libraries
