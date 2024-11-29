@@ -30,7 +30,9 @@ Thank you for your interest in contributing to Octicons! We are currently only a
 
 Follow these steps to add or update an icon.
 
-### 1. Clone the repository
+### Manually with SVG files
+
+#### 1. Clone the repository
 
 ```shell
 # Clone the repository
@@ -53,15 +55,15 @@ cd octicons
 git remote add upstream https://github.com/primer/octicons
 ```
 
-### 2. Create a new feature branch
+#### 2. Create a new feature branch
 
 ```shell
 git checkout -b <branch-name>
 ```
 
-### 3. Add or update SVG files in the `/icons` directory
+#### 3. Add or update SVG files in the `/icons` directory
 
-### 4. Add or update keywords in `keywords.json`
+#### 4. Add or update keywords in `keywords.json`
 
 ```diff
 {
@@ -70,7 +72,7 @@ git checkout -b <branch-name>
 }
 ```
 
-### 5. Commit and push changes
+#### 5. Commit and push changes
 
 ```shell
 git add .
@@ -78,11 +80,36 @@ git commit -m <message>
 git push
 ```
 
-### 6. Create a pull request
+#### 6. Create a pull request
 
 Use GitHub to [create a pull request](https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request) for your branch. In your pull request description, be sure to mention where the icon will be used and any relevant timeline information.
 
 If everything looks good, a maintainer will approve and merge the pull request when appropriate. After the pull request is merged, your icon will be available in the next Octicons release.
+
+### Using the Octicons Push Figma plugin
+
+If you work at GitHub, you can use the [Octicons Push](https://www.figma.com/community/plugin/825432045044458754/Octicons-Push) Figma plugin to start an Octicons pull request from Figma.
+
+Here's how it works:
+
+1. Select the icon frames you want to commit. Make sure the frames are either 16x16 or 24x24 and that you've outlined all strokes.
+2. Open the Octicons Push plugin.
+3. Select the branch you want to commit to. You can choose an existing branch or create a new branch.
+4. Press "Commit." The plugin will then export, commit, and push the selected icons to the branch you chose. If you chose to create a new branch, the plugin will give you a link to where you can start a new pull request with your branch.
+
+After you create a pull request, a member of the Design Infrastructure team will triage and review your contribution.
+
+![demo showing how to create a pull request using the Octicons Push Figma plugin](https://user-images.githubusercontent.com/4608155/77948730-b1a24600-727a-11ea-9c39-040be9a12963.gif)
+
+## How changes are reviewed
+
+Here are a few questions we'll ask when reviewing new octicons. Keep these in mind as you're designing:
+
+- Where will this icon be used in the context of GitHub UI?
+- Is an icon necessary in that context?
+- Could we use an existing icon?
+- Is the icon trying to represent too many ideas?
+- Does it follow the design guidelines?
 
 ## Releasing changes
 

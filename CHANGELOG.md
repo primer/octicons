@@ -1,5 +1,27 @@
 # Changelog
 
+## 19.12.0
+
+### Minor Changes
+
+- [#1033](https://github.com/primer/octicons/pull/1033) [`7a5ac858`](https://github.com/primer/octicons/commit/7a5ac85800359eb1ee6c98c90533c5f344e6532d) Thanks [@colebemis](https://github.com/colebemis)! - Update `thumbsup` and `thumbsdown` icons
+
+## 19.11.0
+
+### Minor Changes
+
+- [#1028](https://github.com/primer/octicons/pull/1028) [`d27ea2f6`](https://github.com/primer/octicons/commit/d27ea2f6b52c5d26d4118259c86e4c91e58cfd56) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Adding ai-model icon at 16 & 24px
+
+## 19.10.0
+
+### Minor Changes
+
+- [#983](https://github.com/primer/octicons/pull/983) [`30be326a`](https://github.com/primer/octicons/commit/30be326ae23b108fd31decfd7823171150421bc4) Thanks [@lukasoppermann](https://github.com/lukasoppermann)! - Add multiple missing icons
+
+### Patch Changes
+
+- [#1020](https://github.com/primer/octicons/pull/1020) [`449d81f1`](https://github.com/primer/octicons/commit/449d81f1b09bcbc0752ebc35d175a8b729022b55) Thanks [@joshblack](https://github.com/joshblack)! - Update types for @primer/octicons-react to explicitly include extensions for different moduleResolution settings
+
 ## 19.9.0
 
 ### Minor Changes
