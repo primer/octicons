@@ -7,7 +7,7 @@ test('builds an object with the correct shape', t => {
   return execa(
     path.resolve(__dirname, '../script/build.js'),
     ['--input', 'icons/icon-a-16.svg', './icons/icon-a-24.svg', './icons/icon-b-16.svg'],
-    {cwd: __dirname}
+    {cwd: __dirname},
   ).then(({stdout}) => {
     const icons = JSON.parse(stdout)
     t.snapshot(icons)
