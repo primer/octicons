@@ -1,6 +1,6 @@
 {
   "name": "@primer/octicons",
-  "version": "19.12.0",
+  "version": "19.13.0",
   "publishConfig": {
     "registry": "no registry, don't publish from this package.json."
   },
@@ -26,7 +26,7 @@
     "fs-extra": "7.0.1",
     "globby": "11.0.0",
     "js-yaml": "3.13.1",
-        "prettier": "3.4.1",
+    "prettier": "3.4.1",
     "lodash.merge": "4.6.2",
     "svgo": "3.0.2",
     "svgson": "5.2.1",

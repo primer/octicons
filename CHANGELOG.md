@@ -1,5 +1,13 @@
 # Changelog
 
+## 19.13.0
+
+### Minor Changes
+
+- [#1041](https://github.com/primer/octicons/pull/1041) [`ef89a78f`](https://github.com/primer/octicons/commit/ef89a78f9c0b92a32b7476b5680c327bcd8a6d64) Thanks [@lukasoppermann](https://github.com/lukasoppermann)! - Adds sparkles icon (3 sparkles)
+
+* [#1027](https://github.com/primer/octicons/pull/1027) [`12c6fb00`](https://github.com/primer/octicons/commit/12c6fb0033c8f9dd22b5e8f93ddf3dff9bb7acb1) Thanks [@joshblack](https://github.com/joshblack)! - Update the build output to reduce number of generated assets included in the package on npm
+
 ## 19.12.0
 
 ### Minor Changes
