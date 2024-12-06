@@ -6,7 +6,7 @@ import {Icon} from './__generated__/icons.js'
 
 type Size = 'small' | 'medium' | 'large'
 
-export interface OcticonProps {
+export interface OcticonProps extends React.ComponentPropsWithoutRef<'svg'> {
   'aria-label'?: string
   'aria-labelledby'?: string
   tabIndex?: number
