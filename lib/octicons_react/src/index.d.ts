@@ -17,6 +17,7 @@ export interface OcticonProps extends React.ComponentPropsWithoutRef<'svg'> {
   fill?: string
   icon?: Icon | React.ReactNode
   size?: number | Size
+  /** @deprecated use v-align utilities instead */
   verticalAlign?: 'middle' | 'text-bottom' | 'text-top' | 'top' | 'unset'
 }
 
