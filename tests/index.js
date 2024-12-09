@@ -33,7 +33,7 @@ for (const octicon of Object.values(octiconsData)) {
   test(`No duplicate ${octicon.name} icon`, t => {
     if (names[octicon.name]) {
       t.fail(
-        `Found duplicate '${octicon.name}' icons in the figma file. Please rename one of them. https://www.figma.com/file/${octicon.file}?node-id=${octicon.id}`
+        `Found duplicate '${octicon.name}' icons in the figma file. Please rename one of them. https://www.figma.com/file/${octicon.file}?node-id=${octicon.id}`,
       )
     } else {
       names[octicon.name] = octicon
