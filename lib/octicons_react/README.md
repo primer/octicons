@@ -158,6 +158,21 @@ export default () => (
 )
 ```
 
+### Style
+
+The `style` prop takes an object value that can be used to set inline styles for the icon.
+
+```js
+// Example usage
+import {SparkleFillIcon} from '@primer/octicons-react'
+export default () => (
+  <h1>
+    <SparkleFillIcon style={{color: 'blue', marginRight: '10px'}} />
+    Sparkle
+  </h1>
+)
+```
+
 [octicons]: https://primer.style/octicons/
 [primer]: https://github.com/primer/primer
 [docs]: http://primercss.io/
