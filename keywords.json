@@ -146,6 +146,8 @@
   "north-star": ["star", "snowflake", "asterisk"],
   "note": ["card", "paper", "ticket"],
   "octoface": ["octocat", "brand"],
+  "op-alarm": ["time", "hour", "minute", "clock", "watch"],
+  "op-alarm-set": ["time", "hour", "minute", "clock", "watch"],
   "op-cursor-rectangle-select": ["group", "select"],
   "op-cursor-select": ["pointer", "select", "mouse"],
   "op-erase": ["remove", "delete"],
