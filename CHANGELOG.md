@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.20.0
+
+### Minor Changes
+
+- [#73](https://github.com/opf/openproject-octicons/pull/73) [`a4696a84`](https://github.com/opf/openproject-octicons/commit/a4696a84ecd09a4a236cbe76b9773a3a72d8a18d) Thanks [@akabiru](https://github.com/akabiru)! - Add set reminders icons
+
 ## 19.19.0
 
 ### Minor Changes
