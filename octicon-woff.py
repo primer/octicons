@@ -4,15 +4,15 @@ from fontTools.ttLib import TTFont, newTable
 from fontTools.ttLib.tables.DefaultTable import DefaultTable
 #from fontTools.ttLib.woff import WOFFFlavor
 from svgpathtools import svg2paths
-
-def svg_to_glyph(svg_file, glyph_name):
+import math
+def svg_to_glyph(svg_file, glyph_name,glyph_uinicode):
     paths, attributes = svg2paths(svg_file)
     glyph_code = ''
     
     for path in paths:
         glyph_code += f'<path d="{path.d()}" />'
-        
-    return f'<glyph glyph-name="{glyph_name}" unicode="&#x{ord(glyph_name):04X};" d="{glyph_code}" />'
+    #unicode = math.round(math.random() * 10000)
+    return  f'<glyph glyph-name="{glyph_name}" unicode="{glyph_unicode}" d="{glyph_code}" />'
 
 def create_woff_font(svg_files, output_woff, output_json):
     font = TTFont()
@@ -130,7 +130,7 @@ def create_woff_font(svg_files, output_woff, output_json):
         svg_to_unicode[glyph_name] = f'U+{unicode_code:04X}'
         unicode_start += 1
         
-        glyph = svg_to_glyph(svg_file, glyph_name)
+        glyph = svg_to_glyph(svg_file, glyph_name, svg_to_unicode[glyph_name])
         glyph_table = DefaultTable(glyph_name)
         glyph_table.glyph = glyph
         glyf.glyphs[glyph_name] = glyph_table
