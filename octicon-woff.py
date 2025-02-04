@@ -1,7 +1,9 @@
 import os
 import json
+import defcon
 from fontTools.ttLib import TTFont, newTable
 from fontTools.ttLib.tables.DefaultTable import DefaultTable
+from fontTools.svgLib.path import SVGPath as svgPath
 #from fontTools.ttLib.woff import WOFFFlavor
 from svgpathtools import svg2paths
 import math
@@ -17,7 +19,16 @@ def svg_to_glyph(svg_file, glyph_name,glyph_uinicode):
 def create_woff_font(svg_files, output_woff, output_json):
     font = TTFont()
     cmap = newTable('cmap')
-    
+    unicode = 0x0EEE
+    for file in svg_files:
+        handle = open(file,"r")
+        svg = handle.text()
+        glyph = defcon.Glyph()
+        path = svgPath.fromString(svg)
+        path.draw()
+        
+        handle.close()
+        
     font.flavor("woff")
     font.save(output_woff)
     
