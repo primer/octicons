@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.15.0
+
+### Minor Changes
+
+- [#1063](https://github.com/primer/octicons/pull/1063) [`6481783a`](https://github.com/primer/octicons/commit/6481783a5a7258cc4d7981a0510de56be05a2dc3) Thanks [@dylanatsmith](https://github.com/dylanatsmith)! - Add square-circle icon
+
 ## 19.14.0
 
 ### Minor Changes
