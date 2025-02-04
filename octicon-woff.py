@@ -2,7 +2,7 @@ import os
 import json
 from fontTools.ttLib import TTFont, newTable
 from fontTools.ttLib.tables.DefaultTable import DefaultTable
-from fontTools.ttLib.woff import WOFFFlavor
+#from fontTools.ttLib.woff import WOFFFlavor
 from svgpathtools import svg2paths
 
 def svg_to_glyph(svg_file, glyph_name):
@@ -137,7 +137,7 @@ def create_woff_font(svg_files, output_woff, output_json):
         cmap_table.cmap[unicode_code] = glyph_name
         hmtx.metrics[glyph_name] = (1000, 0)
     
-    font.flavor = WOFFFlavor()
+    font #.flavor = WOFFFlavor()
     font.save(output_woff)
     
     with open(output_json, 'w') as json_file:
