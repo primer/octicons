@@ -1,5 +1,19 @@
 # Changelog
 
+## 19.15.0
+
+### Minor Changes
+
+- [#1063](https://github.com/primer/octicons/pull/1063) [`6481783a`](https://github.com/primer/octicons/commit/6481783a5a7258cc4d7981a0510de56be05a2dc3) Thanks [@dylanatsmith](https://github.com/dylanatsmith)! - Add square-circle icon
+
+## 19.14.0
+
+### Minor Changes
+
+- [#1037](https://github.com/primer/octicons/pull/1037) [`7402e69c`](https://github.com/primer/octicons/commit/7402e69c4d928b12340cb2430bb942ae7d96c6ba) Thanks [@jonrohan](https://github.com/jonrohan)! - Update octicons-react to use presentational attributes over inline styles for base styles
+
+* [#1047](https://github.com/primer/octicons/pull/1047) [`48198033`](https://github.com/primer/octicons/commit/481980330efce92501df9a388b27314a3f86f182) Thanks [@joshblack](https://github.com/joshblack)! - Add support for SVG props to base icons
+
 ## 19.13.0
 
 ### Minor Changes

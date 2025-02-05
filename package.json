@@ -1,6 +1,6 @@
 {
   "name": "@primer/octicons",
-  "version": "19.13.0",
+  "version": "19.15.0",
   "publishConfig": {
     "registry": "no registry, don't publish from this package.json."
   },
@@ -50,5 +50,6 @@
       "github/no-then": 0,
       "eslint-comments/no-use": 0
     }
-  }
+  },
+  "packageManager": "yarn@1.22.1"
 }
