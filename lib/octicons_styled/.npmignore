@@ -1,9 +1,0 @@
-*.config.js
-.*.sw?
-.*rc
-.cache
-.eslint*
-.gitignore
-.next
-script
-src
