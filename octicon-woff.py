@@ -2,6 +2,7 @@ import os
 import json
 import defcon
 from fontTools.ttLib import TTFont, newTable,getTableClass as gtc ,getTableModule as gtm,identifierToTag as idt
+from fontTools.ttLib.woff2 import compress as w2c
 from fontTools.ttLib.tables.DefaultTable import DefaultTable
 from fontTools.svgLib.path import SVGPath as svgPath
 #from fontTools.ttLib.woff import WOFFFlavor
@@ -47,8 +48,10 @@ def create_woff_font(svg_files, output_woff, output_json):
     font.cmap = cmap
     font.flavor = "woff"
     font.save(output_woff + ".woff")
-    font.flavor = "woff2"
-    font.save(output_woff + ".woff2")
+    #font.flavor = "woff2"
+    hndle = open(output_woff+".woff","rb")
+    #w2c(hndle,output_woff +".woff2",["cmap"])
+    #font.save(output_woff + ".woff2")
     #json.dump(jsn,json_file, indent=4)
     with open(output_json, 'w') as json_file:
        json.dump(jsn, json_file, indent=4)
@@ -80,7 +83,9 @@ def create_css(output_css,jsn):
         jso = json.loads(m)
         for i in jso.items():
             csstxt += ".oi-"+str(i[1]) + "::before { content: \"\\f"+i[0] + "\"; }\n"
-    handle = open(output_css,"w");handle.write(csstxt)
+    handle = open(output_css,"w");
+    handle.write(csstxt)
+    handle.close()
 if __name__ == "__main__":
     svg_directory = './icons'
     output_woff = './css/octicon'
