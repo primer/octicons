@@ -3,8 +3,7 @@
 
     font-display:block;
     font-family:"octicons";
-    src: url(./fonts/octicon.woff2) format("woff2"),
-    url(./fonts/octicon.woff) format("woff");
+    src: /*url(./fonts/octicon.woff2) format("woff2"),*/ url(./fonts/octicon.woff) format("woff");
 }
 .oi::before,
 [class^="oi-"]::before,
