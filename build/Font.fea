@@ -1,0 +1,6 @@
+languagesystem DFLT dflt;
+languagesystem latn dflt;
+
+feature ccmp {
+} ccmp;
+

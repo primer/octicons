@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <defs/>
+  <path d="M8,9.5 A1.5 1.5 0 1 0 8,6.5 A1.5 1.5 0 0 0 8,9.5 Z"/>
+  <path d="M8,0 A8 8 0 1 1 8,16 A8 8 0 0 1 8,0 Z M1.5,8 A6.5 6.5 0 1 0 14.5,8 A6.5 6.5 0 0 0 1.5,8 Z"/>
+</svg>

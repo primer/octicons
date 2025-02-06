@@ -1,1 +1,2 @@
 import nanoemoji
+nanoemoji.main()

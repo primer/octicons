@@ -1,0 +1,33 @@
+family = "An Emoji Family"
+output_file = "Font.ttf"
+color_format = "glyf_colr_1"
+upem = 1024
+width = 1275
+ascender = 950
+descender = -250
+linegap = 0
+transform = "translate(0, 0)"
+version_major = 1
+version_minor = 0
+reuse_tolerance = 0.1
+ignore_reuse_error = true
+keep_glyph_names = false
+clip_to_viewbox = true
+pretty_print = false
+fea_file = "features.fea"
+glyphmap_generator = "nanoemoji.write_glyphmap"
+bitmap_resolution = 128
+use_zopflipng = true
+use_pngquant = true
+pngquant_flags = "--speed 1 --skip-if-larger --quality 85-95"
+
+[axis.wght]
+name = "Weight"
+default = 400
+
+[master.regular]
+style_name = "Regular"
+srcs = []
+
+[master.regular.position]
+wght = 400

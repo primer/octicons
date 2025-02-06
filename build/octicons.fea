@@ -1,0 +1,28 @@
+languagesystem DFLT dflt;
+languagesystem latn dflt;
+
+feature ccmp {
+  sub b g_16 by b_16;
+  sub b g_24 by b_24;
+  sub c g_16 by c_16;
+  sub c g_24 by c_24;
+  sub d bad by d_bad;
+  sub e c by e_c;
+  sub e d by e_d;
+  sub e f by e_f;
+  sub e g_16 by e_16;
+  sub e g_24 by e_24;
+  sub ab e by ab_e;
+  sub ab g_16 by ab_16;
+  sub ab g_24 by ab_24;
+  sub ad g_16 by ad_16;
+  sub ad g_24 by ad_24;
+  sub be g_16 by be_16;
+  sub be g_24 by be_24;
+  sub ee ba by ee_ba;
+  sub ead g_16 by ead_16;
+  sub ead g_24 by ead_24;
+  sub feed d by feed_d;
+  sub feed f by feed_f;
+} ccmp;
+
