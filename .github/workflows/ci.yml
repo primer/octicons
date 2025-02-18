@@ -94,7 +94,7 @@ jobs:
           npx @arethetypeswrong/cli --pack .
 
           # Run publint
-          npx publint . --strict
+          npx publint@0.2.12 . --strict
 
   octicons_gem:
     name: 'gem:octicons'
