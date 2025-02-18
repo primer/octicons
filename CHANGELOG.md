@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.16.0
+
+### Minor Changes
+
+- [#1070](https://github.com/primer/octicons/pull/1070) Thanks [@smockle](https://github.com/smockle)! - Add `pause` icon
+
 ## 19.15.0
 
 ### Minor Changes
