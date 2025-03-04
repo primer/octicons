@@ -1,5 +1,13 @@
 # Changelog
 
+## 19.15.1
+
+### Patch Changes
+
+- [#1078](https://github.com/primer/octicons/pull/1078) [`8c9b6112`](https://github.com/primer/octicons/commit/8c9b611271805a436b306beebd8400b502f4f386) Thanks [@francinelucca](https://github.com/francinelucca)! - fix 24px id-badge asset [#1048](https://github.com/primer/octicons/pull/1048)
+
+* [`818a40c5`](https://github.com/primer/octicons/commit/818a40c5d5dec81ad048f3257f092f660b7c8ee5) Thanks [@jonrohan](https://github.com/jonrohan)! - Update mark-github-24 sizing [#1050](https://github.com/primer/octicons/pull/1050)
+
 ## 19.15.0
 
 ### Minor Changes
