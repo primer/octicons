@@ -19,7 +19,7 @@
     "test": "jest",
     "posttest": "npm run ts-test",
     "lint": "eslint src script",
-    "rollup": "rollup -c"
+    "rollup": "rollup -c --bundleConfigAsCjs"
   },
   "keywords": [
     "GitHub",
@@ -41,13 +41,14 @@
     "styled-components": "4.x || 5.x"
   },
   "devDependencies": {
+    "@babel/core": "7.24.7",
+    "@babel/preset-env": "7.24.7",
+    "@babel/preset-react": "7.24.7",
     "@github/prettier-config": "0.0.4",
+    "@rollup/plugin-babel": "6.0.4",
     "@testing-library/jest-dom": "^5.3.0",
     "@testing-library/react": "^10.0.2",
     "@types/react": "^16.4.6",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
     "eslint": "^6.5.1",
     "eslint-plugin-github": "4.1.3",
     "eslint-plugin-jest": "^21.17.0",
@@ -59,9 +60,7 @@
     "next": "^11.1.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.1",
-    "rollup": "^0.62.0",
-    "rollup-plugin-babel": "^3.0.5",
-    "rollup-plugin-commonjs": "^9.1.3",
+    "rollup": "^4.18.0",
     "styled-components": "^5.1.0",
     "typescript": "^3.7.5"
   },
