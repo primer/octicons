@@ -4,10 +4,12 @@ exports[`An icon component matches snapshot 1`] = `
 <svg
   aria-hidden="true"
   class="octicon octicon-alert"
+  display="inline-block"
   fill="currentColor"
   focusable="false"
   height="16"
-  style="display: inline-block; user-select: none; vertical-align: text-bottom; overflow: visible;"
+  overflow="visible"
+  style="vertical-align: text-bottom;"
   viewBox="0 0 16 16"
   width="16"
 >
