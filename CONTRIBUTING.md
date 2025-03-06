@@ -44,7 +44,7 @@ suffixes `-12` and `-24` are optional). Check for the correct viewBox
 inside the SVG, but do not bother with `fill`, `fill-rule`, or `clip-rule`
 attributes, as those are removed by the CI step "Optimize SVGs".
 
-### 4. Add or update keywords in `keywords.json`
+#### 4. Add or update keywords in `keywords.json`
 
 ```diff
 {
@@ -53,7 +53,7 @@ attributes, as those are removed by the CI step "Optimize SVGs".
 }
 ```
 
-### 5. Create and push a changeset
+#### 5. Create and push a changeset
 For release dependent Pull Requests, add a changeset file to your Pull Request. These files are needed for the release
 process managed by [Changesets](https://github.com/changesets/changesets#readme).
 
@@ -68,7 +68,7 @@ process managed by [Changesets](https://github.com/changesets/changesets#readme)
 3. Select version type (patch, minor, major)
 4. Type a message explaining your changes (equivalent to release notes)
 
-### 6. Commit and push changes
+#### 6. Commit and push changes
 
 ```shell
 git add .
@@ -76,7 +76,7 @@ git commit -m <message>
 git push
 ```
 
-### 7. Create a pull request
+#### 7. Create a pull request
 
 Use GitHub to [create a pull request](https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request) for your branch. In your pull request description, be sure to mention where
 the icon will be used and any relevant timeline information.
