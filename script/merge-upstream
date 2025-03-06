@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -e
+
+
+COMMIT=${1?"Usage: $0 <Upstream commit> <optional sed command>"}
+SED=${2:-sed}
+
+git config remote.upstream.url || git remote add upstream https://github.com/primer/view_components.git
+git fetch upstream
+
+git checkout main
+git branch -D bump/primer-upstream &>/dev/null || true
+git branch -D bump/primer-upstream-ref &>/dev/null || true
+
+git checkout -b bump/primer-upstream-ref
+git reset --hard $COMMIT
+
+git checkout -b bump/primer-upstream
+git reset --hard origin/main
+git merge bump/primer-upstream-ref
+
+find .changeset/ -name "*.md" -exec $SED -i "s/\@primer\/view-components/\@openproject\/primer-view-components/g" {} +
