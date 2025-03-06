@@ -1,5 +1,27 @@
 # Changelog
 
+## 19.21.0
+
+### Minor Changes
+
+- [#1037](https://github.com/primer/octicons/pull/1037) [`7402e69c`](https://github.com/opf/openproject-octicons/commit/7402e69c4d928b12340cb2430bb942ae7d96c6ba) Thanks [@jonrohan](https://github.com/jonrohan)! - Update octicons-react to use presentational attributes over inline styles for base styles
+
+* [#1047](https://github.com/primer/octicons/pull/1047) [`48198033`](https://github.com/opf/openproject-octicons/commit/481980330efce92501df9a388b27314a3f86f182) Thanks [@joshblack](https://github.com/joshblack)! - Add support for SVG props to base icons
+
+- [#1041](https://github.com/primer/octicons/pull/1041) [`ef89a78f`](https://github.com/opf/openproject-octicons/commit/ef89a78f9c0b92a32b7476b5680c327bcd8a6d64) Thanks [@lukasoppermann](https://github.com/lukasoppermann)! - Adds sparkles icon (3 sparkles)
+
+* [#1027](https://github.com/primer/octicons/pull/1027) [`12c6fb00`](https://github.com/opf/openproject-octicons/commit/12c6fb0033c8f9dd22b5e8f93ddf3dff9bb7acb1) Thanks [@joshblack](https://github.com/joshblack)! - Update the build output to reduce number of generated assets included in the package on npm
+
+- [#81](https://github.com/opf/openproject-octicons/pull/81) [`cd58084e`](https://github.com/opf/openproject-octicons/commit/cd58084ee6b0c9aebd83e22cca672116ea1d0ea2) Thanks [@bsatarnejad](https://github.com/bsatarnejad)! - add icon for automatic scheduling mode
+
+* [#1063](https://github.com/primer/octicons/pull/1063) [`6481783a`](https://github.com/opf/openproject-octicons/commit/6481783a5a7258cc4d7981a0510de56be05a2dc3) Thanks [@dylanatsmith](https://github.com/dylanatsmith)! - Add square-circle icon
+
+### Patch Changes
+
+- [#1078](https://github.com/primer/octicons/pull/1078) [`8c9b6112`](https://github.com/opf/openproject-octicons/commit/8c9b611271805a436b306beebd8400b502f4f386) Thanks [@francinelucca](https://github.com/francinelucca)! - fix 24px id-badge asset [#1048](https://github.com/primer/octicons/pull/1048)
+
+* [#80](https://github.com/opf/openproject-octicons/pull/80) [`818a40c5`](https://github.com/opf/openproject-octicons/commit/818a40c5d5dec81ad048f3257f092f660b7c8ee5) Thanks [@bsatarnejad](https://github.com/bsatarnejad)! - Update mark-github-24 sizing [#1050](https://github.com/primer/octicons/pull/1050)
+
 ## 19.20.0
 
 ### Minor Changes
