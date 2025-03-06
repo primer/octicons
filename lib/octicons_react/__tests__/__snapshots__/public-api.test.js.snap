@@ -280,6 +280,7 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "SortAscIcon",
   "SortDescIcon",
   "SparkleFillIcon",
+  "SparklesFillIcon",
   "SponsorTiersIcon",
   "SquareFillIcon",
   "SquareIcon",
