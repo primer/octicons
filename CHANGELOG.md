@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.22.0
+
+### Minor Changes
+
+- [#82](https://github.com/opf/openproject-octicons/pull/82) [`f02197c2`](https://github.com/opf/openproject-octicons/commit/f02197c214f2fb6b256f68365d26c2526f9a5720) Thanks [@bsatarnejad](https://github.com/bsatarnejad)! - make it possible to have xsmall icon in angular too
+
 ## 19.21.0
 
 ### Minor Changes
