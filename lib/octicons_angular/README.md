@@ -111,10 +111,11 @@ while trying to parse the SVG markup.
 
 #### Sizes
 
-The `size` input takes `small`, `medium`, and `large` values that can be used to render octicons at standard sizes:
+The `size` input takes `xsmall`, `small`, `medium`, and `large` values that can be used to render octicons at standard sizes:
 
 | Prop            | Rendered Size                   |
-| :-------------- | :------------------------------ |
+|:----------------|:--------------------------------|
+| `size='xsmall'` | 12px height by `computed` width |
 | `size='small'`  | 16px height by `computed` width |
 | `size='medium'` | 32px height by `computed` width |
 | `size='large'`  | 64px height by `computed` width |

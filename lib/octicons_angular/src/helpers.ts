@@ -1,4 +1,4 @@
-export type SVGSize = 'small'|'medium'|'large';
+export type SVGSize = 'xsmall' |'small'|'medium'|'large';
 
 export interface SVGData {
  [key: string]: {
@@ -8,6 +8,7 @@ export interface SVGData {
 };
 
 export const sizeMap = {
+  xsmall: 12,
   small: 16,
   medium: 32,
   large: 64
