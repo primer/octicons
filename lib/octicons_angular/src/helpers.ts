@@ -24,10 +24,10 @@ export function toDOMString(data:SVGData, size:SVGSize = 'medium', extraAttribut
   const height = sizeMap[size];
   const naturalHeight = closestNaturalHeight(Object.keys(data), height)
   const { width, paths } = data[naturalHeight.toString()];
-  const naturalWidth =  height * (width / naturalHeight);
+  const elWidth =  height * (width / naturalHeight);
   return `<svg
-    viewBox="0 0 ${width} ${height}"
-    style="'height: ${naturalHeight}px; width: ${naturalWidth}px;'"
+    viewBox="0 0 ${width} ${naturalHeight}"
+    style="height: ${height}px; width: ${elWidth}px;"
     ${Object.keys(extraAttributes).reduce((total, attr) => `${total} ${attr}="${extraAttributes[attr]}"`, '')}
   >
     ${paths.map(p => `<path d="${p}"></path>`)}
