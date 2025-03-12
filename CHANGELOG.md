@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.22.2
+
+### Patch Changes
+
+- [#86](https://github.com/opf/openproject-octicons/pull/86) [`1a5b6324`](https://github.com/opf/openproject-octicons/commit/1a5b63249ebbd8d45bdfa8238553df3f6b76a8d3) Thanks [@HDinger](https://github.com/HDinger)! - Fix height calculation for Angular DOMString creation
+
 ## 19.22.1
 
 ### Patch Changes
