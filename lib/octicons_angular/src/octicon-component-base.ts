@@ -34,10 +34,13 @@ export class OpOcticonComponentBase {
       display: 'inline-block',
       'user-select': 'none',
       'vertical-align': this.verticalAlign,
-      overflow: 'visible'
+      overflow: 'visible',
+      height: `${this.height}px`,
+      width: `${this.width}px`
     };
   };
-  @HostBinding('attr.viewBox') get viewBox() {
+  @HostBinding('attr.viewBox')
+  get viewBox() {
     return `0 0 ${this.naturalWidth} ${this.naturalHeight}`;
   }
 
@@ -45,7 +48,6 @@ export class OpOcticonComponentBase {
     return closestNaturalHeight(Object.keys(this.SVGData), this.height)
   }
 
-  @HostBinding('attr.height')
   get height() {
     return sizeMap[this.size];
   }
@@ -54,7 +56,6 @@ export class OpOcticonComponentBase {
     return this.SVGData[this.naturalHeight].width;
   }
 
-  @HostBinding('attr.width')
   get width() {
      return this.height * (this.naturalWidth / this.naturalHeight);
   }
