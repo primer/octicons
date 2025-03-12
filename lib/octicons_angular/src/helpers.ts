@@ -1,4 +1,4 @@
-export type SVGSize = 'xsmall' |'small'|'medium'|'large';
+export type SVGSize = 'xsmall'|'small'|'medium'|'large';
 
 export interface SVGData {
  [key: string]: {
@@ -26,8 +26,7 @@ export function toDOMString(data:SVGData, size:SVGSize = 'medium', extraAttribut
   const { width, paths } = data[naturalHeight.toString()];
   const elWidth =  height * (width / naturalHeight);
   return `<svg
-    height="${height}px"
-    width="${elWidth}px"
+    viewBox="0 0 ${elWidth} ${naturalHeight}"
     ${Object.keys(extraAttributes).reduce((total, attr) => `${total} ${attr}="${extraAttributes[attr]}"`, '')}
   >
     ${paths.map(p => `<path d="${p}"></path>`)}
