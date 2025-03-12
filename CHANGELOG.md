@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.22.3
+
+### Patch Changes
+
+- [#88](https://github.com/opf/openproject-octicons/pull/88) [`d299e1b6`](https://github.com/opf/openproject-octicons/commit/d299e1b6f0bf37814d6637abb46a1ed9f1f94358) Thanks [@HDinger](https://github.com/HDinger)! - Fix DomString creation
+
 ## 19.22.2
 
 ### Patch Changes
