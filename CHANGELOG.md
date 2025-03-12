@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.22.1
+
+### Patch Changes
+
+- [#84](https://github.com/opf/openproject-octicons/pull/84) [`255e1fc0`](https://github.com/opf/openproject-octicons/commit/255e1fc022c326bfbec1d11479aa77665019c937) Thanks [@HDinger](https://github.com/HDinger)! - Fix height adaption for angular based octicons
+
 ## 19.22.0
 
 ### Minor Changes
