@@ -1,5 +1,13 @@
 # Changelog
 
+## 19.23.0
+
+### Minor Changes
+
+- [#92](https://github.com/opf/openproject-octicons/pull/92) [`9807efab`](https://github.com/opf/openproject-octicons/commit/9807efab9b253376c6bfb750ba7b0ec0404fcbe2) Thanks [@ulferts](https://github.com/ulferts)! - Add op-gate icon
+
+* [#90](https://github.com/opf/openproject-octicons/pull/90) [`4064eea9`](https://github.com/opf/openproject-octicons/commit/4064eea9e9cb7eec3ade14658056185e6f1fe50b) Thanks [@ulferts](https://github.com/ulferts)! - Adding op-phase
+
 ## 19.22.3
 
 ### Patch Changes
