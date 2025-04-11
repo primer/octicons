@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.24.0
+
+### Minor Changes
+
+- [#93](https://github.com/opf/openproject-octicons/pull/93) [`617059d6`](https://github.com/opf/openproject-octicons/commit/617059d60f3ea36cb08b411d16cc1a1a75982bc6) Thanks [@klaustopher](https://github.com/klaustopher)! - Add `op-calendar-day` and `op-calendar-week` icons for changing calendar view
+
 ## 19.23.0
 
 ### Minor Changes
