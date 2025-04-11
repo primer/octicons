@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.24.2
+
+### Patch Changes
+
+- [#97](https://github.com/opf/openproject-octicons/pull/97) [`d428ff7a`](https://github.com/opf/openproject-octicons/commit/d428ff7a6c5254e9379a62ebeac71a6f4b70786d) Thanks [@HDinger](https://github.com/HDinger)! - Update dependency of helper gem
+
 ## 19.24.1
 
 ### Patch Changes
