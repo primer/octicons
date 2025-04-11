@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.24.1
+
+### Patch Changes
+
+- [#95](https://github.com/opf/openproject-octicons/pull/95) [`89ae4839`](https://github.com/opf/openproject-octicons/commit/89ae4839f335257be6d0ddf5d21ddba654c2ab42) Thanks [@HDinger](https://github.com/HDinger)! - Add keywords for new icons
+
 ## 19.24.0
 
 ### Minor Changes
