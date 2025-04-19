@@ -149,6 +149,7 @@
   "organization": ["people", "group", "team"],
   "package": ["box", "ship"],
   "paintcan": ["style", "theme", "art", "color"],
+  "pause": ["stop", "interupt", "block", "pause"],
   "pencil": ["edit", "change", "update", "write"],
   "person": ["people", "man", "woman", "human"],
   "pin": ["save", "star", "bookmark"],
