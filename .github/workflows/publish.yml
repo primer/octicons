@@ -57,20 +57,20 @@ jobs:
           RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
         with:
           args: octicons_helper
-  node:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - uses: actions/checkout@master
-      - uses: actions/download-artifact@v4
-        with:
-          name: octicons
-          path: ./lib/build
-      - uses: ./.github/actions/build_node
-        env:
-          NPM_AUTH_TOKEN_SHARED: ${{ secrets.NPM_AUTH_TOKEN_SHARED }}
-        with:
-          args: octicons_node
+#  node:
+#    runs-on: ubuntu-latest
+#    needs: setup
+#    steps:
+#      - uses: actions/checkout@master
+#      - uses: actions/download-artifact@v4
+#        with:
+#          name: octicons
+#          path: ./lib/build
+#      - uses: ./.github/actions/build_node
+#        env:
+#          NPM_AUTH_TOKEN_SHARED: ${{ secrets.NPM_AUTH_TOKEN_SHARED }}
+#        with:
+#          args: octicons_node
   angular:
     runs-on: ubuntu-latest
     needs: setup
