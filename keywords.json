@@ -111,7 +111,6 @@
   "italic": ["font", "italic", "style"],
   "jersey": ["team", "game", "basketball"],
   "kebab-horizontal": ["kebab", "dot", "menu", "more"],
-  "kebab-vertical": ["kebab", "dot", "menu", "more"],
   "key": ["key", "lock", "secure", "safe"],
   "keyboard": ["type", "keys", "write", "shortcuts"],
   "law": ["legal", "bill"],
