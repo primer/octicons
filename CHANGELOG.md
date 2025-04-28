@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.25.0
+
+### Minor Changes
+
+- [#99](https://github.com/opf/openproject-octicons/pull/99) [`eb99b868`](https://github.com/opf/openproject-octicons/commit/eb99b868d34aaa54212a9c8c866b843bd884c663) Thanks [@HDinger](https://github.com/HDinger)! - Delete op-kebab-vertical
+
 ## 19.24.2
 
 ### Patch Changes
