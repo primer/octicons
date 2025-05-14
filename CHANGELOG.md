@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.15.2
+
+### Patch Changes
+
+- [#1070](https://github.com/primer/octicons/pull/1070) [`795101e3`](https://github.com/primer/octicons/commit/795101e3a46d6835fb2e091384033d8962ab08d1) Thanks [@smockle](https://github.com/smockle)! - Add `pause` icon
+
 ## 19.15.1
 
 ### Patch Changes
