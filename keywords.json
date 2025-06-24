@@ -196,6 +196,7 @@
   "sign-out": ["door", "arrow", "direction", "leave", "log out"],
   "skip": ["skip", "slash"],
   "smiley": ["emoji", "smile", "mood", "emotion"],
+  "sparkle": ["spark", "ai", "generate", "shine"],
   "square-circle": ["stop", "interupt", "block", "pause"],
   "squirrel": ["ship", "shipit", "launch"],
   "star": ["save", "remember", "like"],
