@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.15.3
+
+### Patch Changes
+
+- [#1097](https://github.com/primer/octicons/pull/1097) [`ce04eca0`](https://github.com/primer/octicons/commit/ce04eca0b9c33cbc3586abd57386e63d97bff7fa) Thanks [@TylerJDev](https://github.com/TylerJDev)! - Add outlined sparkle icon
+
 ## 19.15.2
 
 ### Patch Changes
