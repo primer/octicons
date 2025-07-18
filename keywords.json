@@ -1,4 +1,5 @@
 {
+  "agent": ["agents", "ai", "cloud", "cloudecode", "code"],
   "ai-model": ["ai", "model", "llm", "models", "copilot"],
   "alert": ["warning", "triangle", "exclamation", "point"],
   "archive": ["box", "catalog"],
@@ -128,6 +129,7 @@
   "lock": ["secure", "safe", "protected"],
   "logo-gist": ["brand", "github", "logo"],
   "logo-github": ["brand", "github", "logo"],
+  "loop": ["loops", "automation", "repeat", "node", "actions", "copilot"],
   "mail": ["email", "unread"],
   "mail-read": ["email", "open"],
   "mark-github": ["octocat", "brand", "github", "logo"],
@@ -196,6 +198,7 @@
   "sign-out": ["door", "arrow", "direction", "leave", "log out"],
   "skip": ["skip", "slash"],
   "smiley": ["emoji", "smile", "mood", "emotion"],
+  "space": ["spaces", "context", "copilot", "attachment", "folder", "ai"],
   "sparkle": ["spark", "ai", "generate", "shine"],
   "square-circle": ["stop", "interupt", "block", "pause"],
   "squirrel": ["ship", "shipit", "launch"],
