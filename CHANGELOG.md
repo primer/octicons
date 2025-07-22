@@ -1,5 +1,23 @@
 # Changelog
 
+## 19.15.4
+
+### Patch Changes
+
+- [#1099](https://github.com/primer/octicons/pull/1099) [`239cdee1`](https://github.com/primer/octicons/commit/239cdee1b6a2b3ada569aa25e260bf5862b52621) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Add spaces, agents, loops, and adjust mention
+
+## 19.15.3
+
+### Patch Changes
+
+- [#1097](https://github.com/primer/octicons/pull/1097) [`ce04eca0`](https://github.com/primer/octicons/commit/ce04eca0b9c33cbc3586abd57386e63d97bff7fa) Thanks [@TylerJDev](https://github.com/TylerJDev)! - Add outlined sparkle icon
+
+## 19.15.2
+
+### Patch Changes
+
+- [#1070](https://github.com/primer/octicons/pull/1070) [`795101e3`](https://github.com/primer/octicons/commit/795101e3a46d6835fb2e091384033d8962ab08d1) Thanks [@smockle](https://github.com/smockle)! - Add `pause` icon
+
 ## 19.15.1
 
 ### Patch Changes
