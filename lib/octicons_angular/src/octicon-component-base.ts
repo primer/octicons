@@ -6,7 +6,9 @@ import {
 import { DomSanitizer } from '@angular/platform-browser';
 import { closestNaturalHeight, SVGData, SVGSize, sizeMap } from './helpers';
 
-@Directive({})
+@Directive({
+  standalone: false
+})
 export class OpOcticonComponentBase {
   @Input() size:SVGSize = 'medium';
   @Input() verticalAlign = 'text-bottom';
