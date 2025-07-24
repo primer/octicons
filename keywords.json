@@ -173,6 +173,7 @@
   "op-gitlab-pipeline-status-skipped": ["ignored"],
   "op-gitlab-pipeline-status-success": ["fulfilled"],
   "op-gitlab-pipeline-status-waiting": ["ready"],
+  "op-life-ring": ["life-ring", "help"],
   "op-person-unassigned": ["person", "human", "unassigned", "removed"],
   "op-phase": ["schedule", "project", "phase", "lifecycle"],
   "op-include-projects": ["include", "project", "projects"],
