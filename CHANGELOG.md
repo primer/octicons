@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.26.2
+
+### Patch Changes
+
+- [#1099](https://github.com/primer/octicons/pull/1099) [`239cdee1`](https://github.com/opf/openproject-octicons/commit/239cdee1b6a2b3ada569aa25e260bf5862b52621) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Add spaces, agents, loops, and adjust mention
+
 ## 19.26.1
 
 ### Patch Changes
