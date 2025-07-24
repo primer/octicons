@@ -1,5 +1,15 @@
 # Changelog
 
+## 19.26.0
+
+### Minor Changes
+
+- [#106](https://github.com/opf/openproject-octicons/pull/106) [`4fcff03e`](https://github.com/opf/openproject-octicons/commit/4fcff03e59036f438867d2efb4adc226aa2191ab) Thanks [@HDinger](https://github.com/HDinger)! - Add life-ring icon
+
+### Patch Changes
+
+- [#1070](https://github.com/primer/octicons/pull/1070) [`795101e3`](https://github.com/opf/openproject-octicons/commit/795101e3a46d6835fb2e091384033d8962ab08d1) Thanks [@smockle](https://github.com/smockle)! - Add `pause` icon
+
 ## 19.25.0
 
 ### Minor Changes
