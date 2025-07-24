@@ -1,5 +1,5 @@
 ---
-"@primer/octicons": patch
+"@openproject/octicons": patch
 ---
 
 Add spaces, agents, loops, and adjust mention
