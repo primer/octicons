@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.26.1
+
+### Patch Changes
+
+- [#1097](https://github.com/primer/octicons/pull/1097) [`ce04eca0`](https://github.com/opf/openproject-octicons/commit/ce04eca0b9c33cbc3586abd57386e63d97bff7fa) Thanks [@TylerJDev](https://github.com/TylerJDev)! - Add outlined sparkle icon
+
 ## 19.26.0
 
 ### Minor Changes
