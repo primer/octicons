@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.15.5
+
+### Patch Changes
+
+- [#1102](https://github.com/primer/octicons/pull/1102) [`02cdd0c2`](https://github.com/primer/octicons/commit/02cdd0c2229c5148380e64ae6fe9957efc9e06a2) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Update Loop icon for visual alignment
+
 ## 19.15.4
 
 ### Patch Changes
