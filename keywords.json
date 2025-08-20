@@ -177,6 +177,7 @@
   "op-gitlab-pipeline-status-waiting": ["ready"],
   "op-life-ring": ["life-ring", "help"],
   "op-person-unassigned": ["person", "human", "unassigned", "removed"],
+  "op-people-all-assigned": ["person", "people", "all", "assigned", "added"],
   "op-phase": ["schedule", "project", "phase", "lifecycle"],
   "op-include-projects": ["include", "project", "projects"],
   "op-orthographic-perspective": ["3d", "threed", "camera", "view"],
