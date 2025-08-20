@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.27.0
+
+### Minor Changes
+
+- [#115](https://github.com/opf/openproject-octicons/pull/115) [`f1724a9e`](https://github.com/opf/openproject-octicons/commit/f1724a9e5896930d814f892fa2661bc2fa5161d6) Thanks [@mrmir](https://github.com/mrmir)! - Add `people-all-assigned` icon
+
 ## 19.26.3
 
 ### Patch Changes
