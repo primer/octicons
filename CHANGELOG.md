@@ -1,5 +1,15 @@
 # Changelog
 
+## 19.16.0
+
+### Minor Changes
+
+- [#1107](https://github.com/primer/octicons/pull/1107) [`4073a521`](https://github.com/primer/octicons/commit/4073a52102527e8e894501314c38c6e100d4f5d0) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Add minimize-16.svg, maximize-16.svg, maximize-24.svg, minimize-24.svg
+
+### Patch Changes
+
+- [#1112](https://github.com/primer/octicons/pull/1112) [`36fd097f`](https://github.com/primer/octicons/commit/36fd097f885eb22118417458b6d7b5f4c8e8566c) Thanks [@lukasoppermann](https://github.com/lukasoppermann)! - Adjusted alignment of repo delete, locked and push icon in 16px and 24px
+
 ## 19.15.5
 
 ### Patch Changes
