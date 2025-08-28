@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.27.1
+
+### Patch Changes
+
+- [#117](https://github.com/opf/openproject-octicons/pull/117) [`f250d7ea`](https://github.com/opf/openproject-octicons/commit/f250d7ea35094488f5b2d9fdf3573df866fba24b) Thanks [@HDinger](https://github.com/HDinger)! - Update op-printer icon
+
 ## 19.27.0
 
 ### Minor Changes
