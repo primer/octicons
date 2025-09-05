@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.17.0
+
+### Minor Changes
+
+- [#1115](https://github.com/primer/octicons/pull/1115) [`59a4abf4`](https://github.com/primer/octicons/commit/59a4abf40334cbab7ec76e323255b44fd4ea4a95) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Save mcp-16.svg, mcp-24.svg
+
 ## 19.16.0
 
 ### Minor Changes
