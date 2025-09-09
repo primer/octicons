@@ -41,6 +41,7 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "CheckCircleFillIcon",
   "CheckCircleIcon",
   "CheckIcon",
+  "CheckboxFillIcon",
   "CheckboxIcon",
   "ChecklistIcon",
   "ChevronDownIcon",
