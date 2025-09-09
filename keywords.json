@@ -34,6 +34,8 @@
   "bug": ["insect", "issue"],
   "calendar": ["time", "day", "month", "year", "date", "appointment"],
   "check": ["mark", "yes", "confirm", "accept", "ok", "success"],
+  "checkbox": ["box", "checkbox", "check"],
+  "checkbox-fill": ["box", "checkbox", "check"],
   "checklist": ["todo", "tasks"],
   "chevron-down": ["triangle", "arrow"],
   "chevron-left": ["triangle", "arrow"],
