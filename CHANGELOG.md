@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.18.0
+
+### Minor Changes
+
+- [#1117](https://github.com/primer/octicons/pull/1117) [`13014409`](https://github.com/primer/octicons/commit/13014409ff2cc07191a0d98629d088a5f994a49a) Thanks [@arisacoba](https://github.com/arisacoba)! - Add checkbox-fill-16.svg and checkbox-fill-24.svg
+
 ## 19.17.0
 
 ### Minor Changes
