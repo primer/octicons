@@ -1,5 +1,13 @@
 # Changelog
 
+## 19.18.1
+
+### Patch Changes
+
+- [#1120](https://github.com/primer/octicons/pull/1120) [`370c72c8`](https://github.com/primer/octicons/commit/370c72c8cb511bceb4e096891ff2393e81f87fa3) Thanks [@langermank](https://github.com/langermank)! - Add vscode-32.svg, vscode-48.svg
+
+* [#1122](https://github.com/primer/octicons/pull/1122) [`dcf14c81`](https://github.com/primer/octicons/commit/dcf14c81ca32e4f1cee017a2815c66458a26b2fa) Thanks [@langermank](https://github.com/langermank)! - Add 16 vscode
+
 ## 19.18.0
 
 ### Minor Changes
