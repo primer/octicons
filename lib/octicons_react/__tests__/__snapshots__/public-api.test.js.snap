@@ -63,6 +63,7 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "CodespacesIcon",
   "ColumnsIcon",
   "CommandPaletteIcon",
+  "CommentAiIcon",
   "CommentDiscussionIcon",
   "CommentIcon",
   "ContainerIcon",
