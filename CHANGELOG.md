@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.19.0
+
+### Minor Changes
+
+- [#1123](https://github.com/primer/octicons/pull/1123) [`1d346555`](https://github.com/primer/octicons/commit/1d34655547b0ae59211967af830d30ae919e0257) Thanks [@mperrotti](https://github.com/mperrotti)! - Adds an icon for AI chat
+
 ## 19.18.1
 
 ### Patch Changes
