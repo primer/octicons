@@ -1,6 +1,1 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M22.875 21.375H1.125" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
-<rect x="3" y="10.5" width="4.5" height="10.5" rx="0.25" fill="black"/>
-<rect x="9" y="4.5" width="4.5" height="16.5" rx="0.25" fill="black"/>
-<rect x="15" y="13.5" width="4.5" height="7.5" rx="0.25" fill="black"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M22.875 22.125H1.125q-.311 0-.53-.22-.22-.219-.22-.53 0-.311.22-.53.219-.22.53-.22h21.75q.311 0 .53.22.22.219.22.53 0 .311-.22.53-.219.22-.53.22Z"/><path d="M3.25 10.5h4a.25.25 0 0 1 .25.25v10a.25.25 0 0 1-.25.25h-4a.25.25 0 0 1-.25-.25v-10a.25.25 0 0 1 .25-.25Zm6-6h4a.25.25 0 0 1 .25.25v16a.25.25 0 0 1-.25.25h-4a.25.25 0 0 1-.25-.25v-16a.25.25 0 0 1 .25-.25Zm6 9h4a.25.25 0 0 1 .25.25v7a.25.25 0 0 1-.25.25h-4a.25.25 0 0 1-.25-.25v-7a.25.25 0 0 1 .25-.25Z"/></svg>
