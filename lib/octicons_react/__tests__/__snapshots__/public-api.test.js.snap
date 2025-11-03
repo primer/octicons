@@ -169,6 +169,7 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "IdBadgeIcon",
   "ImageIcon",
   "InboxIcon",
+  "InboxFillIcon",
   "InfinityIcon",
   "InfoIcon",
   "IssueClosedIcon",
