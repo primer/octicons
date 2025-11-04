@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.20.0
+
+### Minor Changes
+
+- [#1129](https://github.com/primer/octicons/pull/1129) [`68ebe53b`](https://github.com/primer/octicons/commit/68ebe53ba972e391fa2b60458e37348636e202ad) Thanks [@lukasoppermann](https://github.com/lukasoppermann)! - Added InboxFill icon
+
 ## 19.19.0
 
 ### Minor Changes
