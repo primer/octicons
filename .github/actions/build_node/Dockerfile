@@ -1,4 +1,4 @@
-FROM node:18-slim
+FROM node:24-slim
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \

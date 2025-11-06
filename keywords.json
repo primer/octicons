@@ -112,6 +112,7 @@
   "horizontal-rule": ["hr"],
   "hubot": ["robot", "bot"],
   "inbox": ["mail", "todo", "new", "messages"],
+  "inbox-fill": ["mail", "todo", "new", "messages"],
   "infinity": ["unlimited", "infinite"],
   "info": ["help"],
   "internal-repo": ["internal, repo, repository"],
