@@ -155,6 +155,8 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "GlobeIcon",
   "GoalIcon",
   "GrabberIcon",
+  "GraphBarHorizontalIcon",
+  "GraphBarVerticalIcon",
   "GraphIcon",
   "HashIcon",
   "HeadingIcon",
