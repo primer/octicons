@@ -217,7 +217,7 @@
   "skip": ["skip", "slash"],
   "smiley": ["emoji", "smile", "mood", "emotion", "feedback", "happy", "4"],
   "smiley-frown": ["emoji", "frown", "sad", "negative", "unhappy", "mood", "emotion", "feedback", "2"],
-  "smiley-frustrated": ["emoji", "frustrated", "negatic", "angry", "mad", "pain", "mood", "emotion", "feedback", "1"],
+  "smiley-frustrated": ["emoji", "frustrated", "negative", "angry", "mad", "pain", "mood", "emotion", "feedback", "1"],
   "smiley-grin": ["emoji", "grin", "mood", "ecstatic", "elated", "thrilled", "happy", "emotion", "feedback", "5"],
   "smiley-neutral": ["emoji", "neutral", "meh", "expressionless", "mood", "emotion", "feedback", "3"],
   "space": ["spaces", "context", "copilot", "attachment", "folder", "ai"],
