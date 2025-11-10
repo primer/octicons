@@ -1,5 +1,19 @@
 # Changelog
 
+## 19.21.0
+
+### Minor Changes
+
+- [#1132](https://github.com/primer/octicons/pull/1132) [`c5411b04`](https://github.com/primer/octicons/commit/c5411b048090e13a0e6ffafaa10efdc24a8e05b5) Thanks [@mperrotti](https://github.com/mperrotti)! - Adds icons used for Copilot Loops
+
+* [#1134](https://github.com/primer/octicons/pull/1134) [`131fbedc`](https://github.com/primer/octicons/commit/131fbedc579b6ebc07716dc02ed947a168c560f2) Thanks [@mperrotti](https://github.com/mperrotti)! - Adds icons used for Copilot Markdown text wrapping options
+
+- [#1133](https://github.com/primer/octicons/pull/1133) [`94ceabb7`](https://github.com/primer/octicons/commit/94ceabb7e1371eefd8ba26ec8eb59cf6149e7a29) Thanks [@mperrotti](https://github.com/mperrotti)! - Adds icons used for feedback dialogs
+
+### Patch Changes
+
+- [#1135](https://github.com/primer/octicons/pull/1135) [`be5df35d`](https://github.com/primer/octicons/commit/be5df35d390439f972af3adbd9ec59d38ec4c624) Thanks [@mperrotti](https://github.com/mperrotti)! - Updates VS Code icon to closer match the real app icon
+
 ## 19.20.0
 
 ### Minor Changes
