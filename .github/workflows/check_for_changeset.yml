@@ -21,5 +21,5 @@ jobs:
         uses: brettcannon/check-for-changed-files@v1
         with:
           file-pattern: '.changeset/*.md'
-          skip-label: 'skip changeset'
+          skip-label: 'skip-changeset'
           failure-message: 'No changeset found. If these changes should not result in a new version, apply the ${skip-label} label to this pull request. If these changes should result in a version bump, please add a changeset https://git.io/J6QvQ'
