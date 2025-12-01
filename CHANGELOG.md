@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.21.1
+
+### Patch Changes
+
+- [#1137](https://github.com/primer/octicons/pull/1137) [`97cefc9f`](https://github.com/primer/octicons/commit/97cefc9fcb19f91133cffd557cc1f308e384ffb2) Thanks [@dependabot](https://github.com/apps/dependabot)! - Bump js-yaml from 3.13.1 to 4.1.1
+
 ## 19.21.0
 
 ### Minor Changes
