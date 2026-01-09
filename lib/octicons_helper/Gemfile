@@ -8,7 +8,7 @@ gem "octicons", "19.9.0"
 gem "rails"
 
 group :development, :test do
-  gem "minitest"
+  gem "minitest", "~> 5.0"
   gem "rake"
   gem "rubocop", "~> 1.0"
   gem "rubocop-github", "0.20.0"
