@@ -30,7 +30,7 @@ describe OcticonsHelper do
         raise "Octicon library called twice" if call_count > 1
         "foo"
       end
-      mock.define_singleton_method(:options) { }
+      mock.define_singleton_method(:options) {}
 
       Octicons::Octicon.stub :new, mock do
         octicon("alert")
