@@ -23,16 +23,14 @@ describe OcticonsHelper do
     it "caches SVGs for two calls with the same arguments" do
       OcticonsHelper.octicons_helper_cache = {}
 
-      mock = Minitest::Mock.new
-      def mock.path
-        @call_count ||= 0
-        @call_count += 1
-
-        raise "Octicon library called twice" if @call_count > 1
-
+      call_count = 0
+      mock = Object.new
+      mock.define_singleton_method(:path) do
+        call_count += 1
+        raise "Octicon library called twice" if call_count > 1
         "foo"
       end
-      def mock.options; end
+      mock.define_singleton_method(:options) { }
 
       Octicons::Octicon.stub :new, mock do
         octicon("alert")
