@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.21.2
+
+### Patch Changes
+
+- [#1146](https://github.com/primer/octicons/pull/1146) [`41c78057`](https://github.com/primer/octicons/commit/41c780575654fe4fef3fc4e91a46c8c0e91b233b) Thanks [@rezrah](https://github.com/rezrah)! - Updated GitHub brand logos (`mark-github` and `logo-github`) to 2026 versions.
+
 ## 19.21.1
 
 ### Patch Changes
