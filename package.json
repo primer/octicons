@@ -12,7 +12,7 @@
     "test": "ava -v tests/*.js",
     "version": "script/version"
   },
-  "dependencies": {
+  "devDependencies": {
     "@changesets/changelog-github": "0.4.1",
     "@changesets/cli": "2.17.0",
     "@github/prettier-config": "0.0.6",
