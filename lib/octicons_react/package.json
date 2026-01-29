@@ -63,7 +63,7 @@
     "fs-extra": "^6.0.1",
     "jest": "^29.0.3",
     "jest-environment-jsdom": "29.0.3",
-    "next": "^14.2.21",
+    "next": "^16.1.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rimraf": "3.0.2",
