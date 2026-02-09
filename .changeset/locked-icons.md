@@ -5,4 +5,4 @@
 Add book-locked icon
 Add comment-locked icon
 Add issue-locked icon
-Add pull-request-locked icon
+Add git-pull-request-locked icon
