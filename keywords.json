@@ -126,7 +126,7 @@
   "info": ["help"],
   "internal-repo": ["internal, repo, repository"],
   "issue-closed": ["done", "complete"],
-  "issue-locked": ["issue", "open", "lock", "new"],
+  "issue-locked": ["issue", "open", "new", "lock"],
   "issue-opened": ["new"],
   "issue-reopened": ["regression"],
   "italic": ["font", "italic", "style"],
