@@ -58,6 +58,8 @@ jobs:
           name: octicons_gem
           path: ./lib/octicons_helper/vendor/cache
       - uses: ./.github/actions/build_ruby
+        env:
+          RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
         with:
           args: octicons_helper
   jekyll:
@@ -74,6 +76,8 @@ jobs:
           name: octicons_gem
           path: ./lib/octicons_jekyll/vendor/cache
       - uses: ./.github/actions/build_ruby
+        env:
+          RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
         with:
           args: octicons_jekyll
   node:
