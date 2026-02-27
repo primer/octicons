@@ -33,4 +33,8 @@ bundle exec rake version\["$PACKAGE_VERSION"\]
 bundle update
 
 echo "**************** Building ****************"
-(bundle exec rake build; gem push pkg/*.gem) && wait
+bundle exec rake build
+GEM_PUSH_OUTPUT=$(gem push pkg/*.gem 2>&1) || {
+  echo "$GEM_PUSH_OUTPUT"
+  echo "$GEM_PUSH_OUTPUT" | grep -q "Repushing of gem versions is not allowed" || exit 1
+}
