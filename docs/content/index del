@@ -1,0 +1,12 @@
+---
+title: Octicons
+---
+
+import {HeroLayout} from '@primer/gatsby-theme-doctocat'
+import Icons from '../src/components/icons'
+import {Flash, Button, Flex, Link} from '@primer/components'
+import {Link as GatsbyLink} from 'gatsby'
+
+export default HeroLayout
+
+<Icons />
