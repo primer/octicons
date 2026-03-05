@@ -9,13 +9,15 @@ RuboCop::RakeTask.new(:lint) do |t|
 end
 
 task :version, [:v] => :environment do |t, args|
-  out = "# frozen_string_literal: true\n\n# Prevent bundler errors\n"\
+  out = "# frozen_string_literal: true\n\n# rubocop:disable Style/OneClassPerFile\n"\
+  "# Prevent bundler errors\n"\
   "module Liquid; class Tag; end; end\n\n"\
   "module Jekyll\n"\
   "  class Octicons < Liquid::Tag\n"\
   "    VERSION = \"#{args[:v]}\".freeze\n"\
   "  end\n"\
-  "end"
+  "end\n"\
+  "# rubocop:enable Style/OneClassPerFile"
   File.open(File.expand_path("../lib/jekyll-octicons/version.rb", __FILE__), "w") do |file|
     file.puts out
   end
