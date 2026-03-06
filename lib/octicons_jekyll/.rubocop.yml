@@ -5,5 +5,9 @@ inherit_gem:
 Naming/FileName:
   Enabled: false
 
+Style/OneClassPerFile:
+  Exclude:
+    - "lib/jekyll-octicons/version.rb"
+
 AllCops:
   NewCops: enable
