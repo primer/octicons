@@ -147,6 +147,7 @@
   "list-unordered": ["bullet", "point", "tasks", "todo", "items"],
   "location": ["here", "marker"],
   "lock": ["secure", "safe", "protected"],
+  "lockup-github": ["brand", "github", "logo"],
   "logo-gist": ["brand", "github", "logo"],
   "logo-github": ["brand", "github", "logo"],
   "loop": ["loops", "automation", "repeat", "node", "actions", "copilot"],

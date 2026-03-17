@@ -207,6 +207,7 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "ListUnorderedIcon",
   "LocationIcon",
   "LockIcon",
+  "LockupGithubIcon",
   "LogIcon",
   "LogoGistIcon",
   "LogoGithubIcon",
