@@ -23,7 +23,7 @@
     "build": "script/build.js && script/types.js && rollup -c",
     "clean": "rimraf .next dist src/__generated__",
     "develop": "next",
-    "lint": "eslint src pages script",
+    "lint": "eslint src pages/*.mjs script",
     "test": "jest",
     "ts-test": "tsc -P ts-tests",
     "posttest": "yarn ts-test"
