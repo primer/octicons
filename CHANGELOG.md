@@ -1,5 +1,14 @@
 # Changelog
 
+## 19.22.0
+
+### Minor Changes
+
+- [#1157](https://github.com/primer/octicons/pull/1157) [`18e3b9fd`](https://github.com/primer/octicons/commit/18e3b9fd74c4bc85b1add3624a082fc0f6fd36c2) Thanks [@janmaarten-a11y](https://github.com/janmaarten-a11y)! - Add book-locked icon
+  Add comment-locked icon
+  Add issue-locked icon
+  Add git-pull-request-locked icon
+
 ## 19.21.2
 
 ### Patch Changes
