@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.23.1
+
+### Patch Changes
+
+- [#1175](https://github.com/primer/octicons/pull/1175) [`ea8e6bb7`](https://github.com/primer/octicons/commit/ea8e6bb79894cc7e85564ee9b53d86b418738d04) Thanks [@kylewaynebenson](https://github.com/kylewaynebenson)! - - Remove set fill from svgs
+
 ## 19.23.0
 
 ### Minor Changes
