@@ -1,6 +1,5 @@
 ---
-"@primer/octicons": minor
+"@primer/octicons": patch
 ---
 
-- Addition of lockup icon
-- adjustments to logo and mark
+-  Remove set fill from svgs
