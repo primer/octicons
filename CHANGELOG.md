@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.22.1
+
+### Patch Changes
+
+- [#1169](https://github.com/primer/octicons/pull/1169) [`6567d755`](https://github.com/primer/octicons/commit/6567d755f30c18e44d8fd069abb974cf078bd2d4) Thanks [@francinelucca](https://github.com/francinelucca)! - various dep updates
+
 ## 19.22.0
 
 ### Minor Changes
