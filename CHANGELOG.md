@@ -1,5 +1,12 @@
 # Changelog
 
+## 19.23.0
+
+### Minor Changes
+
+- [#1165](https://github.com/primer/octicons/pull/1165) [`63bc8d01`](https://github.com/primer/octicons/commit/63bc8d01e4c51ebc34abdac1bdb861cf209f7cf0) Thanks [@kylewaynebenson](https://github.com/kylewaynebenson)! - - Addition of lockup icon
+  - adjustments to logo and mark
+
 ## 19.22.1
 
 ### Patch Changes
