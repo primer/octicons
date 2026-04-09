@@ -4,6 +4,7 @@ exports[`An icon component matches snapshot 1`] = `
 <svg
   aria-hidden="true"
   class="octicon octicon-alert"
+  data-component="Octicon"
   display="inline-block"
   fill="currentColor"
   focusable="false"
