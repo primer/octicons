@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.24.0
+
+### Minor Changes
+
+- [#1185](https://github.com/primer/octicons/pull/1185) [`25e257ff`](https://github.com/primer/octicons/commit/25e257ffb904ebe7d42b6c0f602acc1d30c3380f) Thanks [@francinelucca](https://github.com/francinelucca)! - Add `data-component="Octicon"` attribute to all SVG elements for easier identification and styling
+
 ## 19.23.1
 
 ### Patch Changes
