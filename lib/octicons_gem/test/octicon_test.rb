@@ -140,5 +140,11 @@ describe Octicons::Octicon do
       icon = octicon("x")
       assert_includes icon.to_svg, "data-component=\"Octicon\""
     end
+
+    it "allows data-component to be overridden" do
+      icon = octicon("x", "data-component": "CustomComponent")
+      assert_includes icon.to_svg, "data-component=\"CustomComponent\""
+      refute_includes icon.to_svg, "data-component=\"Octicon\""
+    end
   end
 end
