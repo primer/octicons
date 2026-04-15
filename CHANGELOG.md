@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.24.1
+
+### Patch Changes
+
+- [#1190](https://github.com/primer/octicons/pull/1190) [`38dfb0d4`](https://github.com/primer/octicons/commit/38dfb0d46c28432002c1b6053f7ebb86695817bb) Thanks [@francinelucca](https://github.com/francinelucca)! - Allow `data-component` attribute to be overridden by consumers
+
 ## 19.24.0
 
 ### Minor Changes
