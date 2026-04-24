@@ -209,6 +209,7 @@
   "rocket": ["staff", "stafftools", "blast", "off", "space", "launch", "ship"],
   "rss": ["broadcast", "feed", "atom"],
   "ruby": ["code", "language"],
+  "sandbox": ["sandbox", "box"],
   "saved": ["saved", "bookmark"],
   "screen-full": ["fullscreen", "expand"],
   "screen-normal": ["fullscreen", "expand", "exit"],
