@@ -1,5 +1,13 @@
 # Changelog
 
+## 19.25.0
+
+### Minor Changes
+
+- [#1193](https://github.com/primer/octicons/pull/1193) [`b6efea4a`](https://github.com/primer/octicons/commit/b6efea4a5c2cc7bb59f77e4ae2b6dd753149179e) Thanks [@kylewaynebenson](https://github.com/kylewaynebenson)! - Added StackRemove & StackCheck icons
+
+* [#1194](https://github.com/primer/octicons/pull/1194) [`7d7ca421`](https://github.com/primer/octicons/commit/7d7ca421a71d4c982d9b191befbe43a0a8752e60) Thanks [@kylewaynebenson](https://github.com/kylewaynebenson)! - Added Sandbox icon
+
 ## 19.24.1
 
 ### Patch Changes
