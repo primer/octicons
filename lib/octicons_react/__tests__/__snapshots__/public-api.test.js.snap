@@ -285,6 +285,7 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "RowsIcon",
   "RssIcon",
   "RubyIcon",
+  "SandboxIcon",
   "ScreenFullIcon",
   "ScreenNormalIcon",
   "SearchIcon",
