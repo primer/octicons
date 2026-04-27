@@ -5,25 +5,21 @@
   "homepage": "https://primer.style/octicons",
   "author": "GitHub, Inc.",
   "license": "MIT",
-  "type": "commonjs",
-  "main": "dist/index.umd.js",
-  "module": "dist/index.esm.mjs",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "exports": {
-    "types": {
-      "import": "./dist/index.d.mts",
-      "require": "./dist/index.d.ts"
-    },
-    "import": "./dist/index.esm.mjs",
-    "require": "./dist/index.umd.js"
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.js"
   },
   "sideEffects": false,
   "types": "dist/index.d.ts",
   "repository": "primer/octicons",
   "scripts": {
-    "build": "script/build.js && script/types.js && rollup -c",
+    "build": "rimraf dist && script/build.cjs && script/types.cjs && rollup -c",
     "clean": "rimraf .next dist src/__generated__",
     "develop": "next",
-    "lint": "eslint src pages/*.mjs script",
+    "lint": "eslint --ext .js,.mjs,.cjs src pages script",
     "test": "jest",
     "ts-test": "tsc -P ts-tests",
     "posttest": "yarn ts-test"
