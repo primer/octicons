@@ -1,5 +1,5 @@
 ---
-"@primer/octicons": patch
+"@primer/octicons": minor
 ---
 
 Add repo-forked-locked icon
