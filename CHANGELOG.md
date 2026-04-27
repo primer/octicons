@@ -1,5 +1,44 @@
 # Changelog
 
+## 19.25.0
+
+### Minor Changes
+
+- [#1193](https://github.com/primer/octicons/pull/1193) [`b6efea4a`](https://github.com/primer/octicons/commit/b6efea4a5c2cc7bb59f77e4ae2b6dd753149179e) Thanks [@kylewaynebenson](https://github.com/kylewaynebenson)! - Added StackRemove & StackCheck icons
+
+* [#1194](https://github.com/primer/octicons/pull/1194) [`7d7ca421`](https://github.com/primer/octicons/commit/7d7ca421a71d4c982d9b191befbe43a0a8752e60) Thanks [@kylewaynebenson](https://github.com/kylewaynebenson)! - Added Sandbox icon
+
+## 19.24.1
+
+### Patch Changes
+
+- [#1190](https://github.com/primer/octicons/pull/1190) [`38dfb0d4`](https://github.com/primer/octicons/commit/38dfb0d46c28432002c1b6053f7ebb86695817bb) Thanks [@francinelucca](https://github.com/francinelucca)! - Allow `data-component` attribute to be overridden by consumers
+
+## 19.24.0
+
+### Minor Changes
+
+- [#1185](https://github.com/primer/octicons/pull/1185) [`25e257ff`](https://github.com/primer/octicons/commit/25e257ffb904ebe7d42b6c0f602acc1d30c3380f) Thanks [@francinelucca](https://github.com/francinelucca)! - Add `data-component="Octicon"` attribute to all SVG elements for easier identification and styling
+
+## 19.23.1
+
+### Patch Changes
+
+- [#1175](https://github.com/primer/octicons/pull/1175) [`ea8e6bb7`](https://github.com/primer/octicons/commit/ea8e6bb79894cc7e85564ee9b53d86b418738d04) Thanks [@kylewaynebenson](https://github.com/kylewaynebenson)! - - Remove set fill from svgs
+
+## 19.23.0
+
+### Minor Changes
+
+- [#1165](https://github.com/primer/octicons/pull/1165) [`63bc8d01`](https://github.com/primer/octicons/commit/63bc8d01e4c51ebc34abdac1bdb861cf209f7cf0) Thanks [@kylewaynebenson](https://github.com/kylewaynebenson)! - - Addition of lockup icon
+  - adjustments to logo and mark
+
+## 19.22.1
+
+### Patch Changes
+
+- [#1169](https://github.com/primer/octicons/pull/1169) [`6567d755`](https://github.com/primer/octicons/commit/6567d755f30c18e44d8fd069abb974cf078bd2d4) Thanks [@francinelucca](https://github.com/francinelucca)! - various dep updates
+
 ## 19.22.0
 
 ### Minor Changes

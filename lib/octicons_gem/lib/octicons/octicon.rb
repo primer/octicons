@@ -13,7 +13,7 @@ module Octicons
         @width = octicon["width"]
         @height = octicon["height"]
         @keywords = octicon["keywords"]
-        @options = options.dup
+        @options = { "data-component": "Octicon" }.merge(options.dup)
         @options.merge!({
           class:   classes,
           viewBox: viewbox,
