@@ -182,6 +182,7 @@
   "op-cursor-select": ["pointer", "select", "mouse"],
   "op-erase": ["remove", "delete"],
   "op-first-person": ["person", "human", "ego-perspective"],
+  "op-flag": ["flag", "complete"],
   "op-gate": ["schedule", "project", "gate", "lifecycle"],
   "op-gitlab-issue-closed": ["done"],
   "op-gitlab-issue-open": ["new"],
