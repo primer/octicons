@@ -129,6 +129,6 @@ Once maintainers have agreed and are satisfied with the release. Merge the Relea
 
 ## Other contributions
 
-When contributing to Octicons outside of adding a new icon or release-dependent contribution, be sure to add the `skip-changeset` label to the pull request. This will allow for the pull request to skip the changeset check and have the ability to be merged into the main branch. 
+When contributing to Octicons outside of adding a new icon or release-dependent contribution, be sure to add the `skip changeset` label to the pull request. This will allow for the pull request to skip the changeset check and have the ability to be merged into the main branch. 
 
 Examples of other contributions include adding documentation or improving a GitHub Actions workflows.
