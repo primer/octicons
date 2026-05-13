@@ -11,6 +11,8 @@ updates:
       interval: "daily"
     allow:
       - dependency-name: "@primer/gatsby-theme-doctocat"
+    cooldown:
+      default-days: 7
 
   - package-ecosystem: "npm"
     directory: "/lib/octicons_angular"
@@ -22,3 +24,5 @@ updates:
           - '@angular*'
     ignore:
       - dependency-name: "@openproject/octicons"
+    cooldown:
+      default-days: 7

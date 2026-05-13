@@ -3,6 +3,8 @@ on:
   issues:
     types: [opened, reopened]
 
+permissions: {}
+
 jobs:
   add-to-inbox:
     if: ${{ github.repository == 'primer/behaviors' }}
@@ -12,7 +14,7 @@ jobs:
       PROJECT_ID: 4503
     steps:
       - id: get-primer-access-token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@d72941d797fd3113feb6b93fd0dec494b13a2547 # v1
         with:
           app-id: ${{ vars.PRIMER_ISSUE_TRIAGE_APP_ID }}
           private-key: ${{ secrets.PRIMER_ISSUE_TRIAGE_APP_PRIVATE_KEY }}
@@ -22,7 +24,7 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.get-primer-access-token.outputs.token }}
       - id: get-github-access-token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@d72941d797fd3113feb6b93fd0dec494b13a2547 # v1
         with:
           app-id: ${{ vars.PRIMER_ISSUE_TRIAGE_APP_ID_FOR_GITHUB }}
           private-key: ${{ secrets.PRIMER_ISSUE_TRIAGE_APP_PRIVATE_KEY_FOR_GITHUB }}

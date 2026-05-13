@@ -5,19 +5,26 @@ on:
       - main
   pull_request:
 
+permissions: {}
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: write
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@3235b876344d2a9aa001b8d1453c930bba69e610 # v3
         with:
           node-version: 22
       - run: yarn
       - name: Building
         run: yarn build
       - run: cp -r icons lib/build/svg
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: octicons-build
           path: ./lib/build
@@ -26,12 +33,17 @@ jobs:
     name: Main project
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@3235b876344d2a9aa001b8d1453c930bba69e610 # v3
         with:
           node-version: 22
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           name: octicons-build
           path: ./lib/build
@@ -45,15 +57,20 @@ jobs:
     name: 'npm:@openproject/octicons'
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
     defaults:
       run:
         working-directory: ./lib/octicons_node
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@3235b876344d2a9aa001b8d1453c930bba69e610 # v3
         with:
           node-version: 22
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           name: octicons-build
           path: ./lib/build
@@ -69,15 +86,20 @@ jobs:
     name: 'npm:@openproject/octicons-angular'
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
     defaults:
       run:
         working-directory: ./lib/octicons_angular
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@3235b876344d2a9aa001b8d1453c930bba69e610 # v3
         with:
           node-version: 22
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           name: octicons-build
           path: ./lib/build
@@ -93,17 +115,22 @@ jobs:
     name: 'gem:octicons'
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: write
     defaults:
       run:
         working-directory: ./lib/octicons_gem
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+        with:
+          persist-credentials: false
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@6aaa311d81eba98ae12eaffbcb63296ace0efcde # v1
         with:
           ruby-version: 3.3
           bundler-cache: true
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           name: octicons-build
           path: ./lib/octicons_gem/lib/build
@@ -114,7 +141,7 @@ jobs:
         run: bundle exec rake test
       - name: Build
         run: bundle exec rake build
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: octicons-gem
           path: ./lib/octicons_gem/pkg
@@ -123,17 +150,22 @@ jobs:
     name: 'gem:octicons_helper'
     needs: octicons_gem
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
     defaults:
       run:
         working-directory: ./lib/octicons_helper
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+        with:
+          persist-credentials: false
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@6aaa311d81eba98ae12eaffbcb63296ace0efcde # v1
         with:
           ruby-version: 3.3
           bundler-cache: true
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           name: octicons-gem
           path: ./lib/octicons_helper/vendor/cache
