@@ -91,6 +91,7 @@
   "file-zip": ["compress", "archive"],
   "filter-remove": ["funnel", "filter", "remove", "delete"],
   "fiscal-host": ["safe", "money"],
+  "flag": ["bool", "boolean", "feature", "flagged"],
   "flame": ["fire", "hot", "burn", "trending"],
   "flowchart": ["diagram", "chart", "process", "workflow", "loop", "nodes", "flow"],
   "focus-center": ["target", "focus", "center"],
