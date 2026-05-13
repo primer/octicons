@@ -10,26 +10,33 @@ on:
       - '.github/workflows/optimize.yml'
       - '.github/actions/python/requirements.txt'
 name: Optimize SVGs
+
+permissions: {}
+
 jobs:
   optimize:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+        with:
+          persist-credentials: false
 
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@7f4fc3e22c37d6ff65e88745f38bd3157c663f7c # v4
         with:
           python-version: '3.10' 
           cache: 'pip'
       - run: pip install -r .github/actions/python/requirements.txt
       - run: for icon in icons/*; do picosvg $icon --output_file $icon; done
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@3235b876344d2a9aa001b8d1453c930bba69e610 # v3
         with:
           node-version: 22
       - run: npm install
       - run: npm run svgo
 
-      - uses: EndBug/add-and-commit@v4
+      - uses: EndBug/add-and-commit@a988073222b8bd50f3ecfca9c0ab7dfbf0d08ceb # v4
         with:
           add: 'icons'
           message: 'Optimize SVGs'
