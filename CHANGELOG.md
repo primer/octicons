@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.35.0
+
+### Minor Changes
+
+- [#203](https://github.com/opf/openproject-octicons/pull/203) [`720f40e0`](https://github.com/opf/openproject-octicons/commit/720f40e0fa0725aaf3a63bdba25afcc1b35fe0cc) Thanks [@myabc](https://github.com/myabc)! - Add op-flag icon
+
 ## 19.34.0
 
 ### Minor Changes
