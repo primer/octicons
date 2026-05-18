@@ -91,6 +91,7 @@ jobs:
       - name: Types
         run: |
           # Run @arethetypeswrong/cli
+          # Pin fflate to 0.8.2 to avoid a transitive ATTW regression in 0.8.3 (`filename` crash)
           npx -p fflate@0.8.2 -p @arethetypeswrong/cli@0.18.2 attw --pack .
 
           # Run publint
