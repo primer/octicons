@@ -91,7 +91,7 @@ jobs:
       - name: Types
         run: |
           # Run @arethetypeswrong/cli
-          npx @arethetypeswrong/cli --pack .
+          npx -p fflate@0.8.2 -p @arethetypeswrong/cli@0.18.2 attw --pack .
 
           # Run publint
           npx publint@0.2.12 . --strict
