@@ -76,5 +76,8 @@
   },
   "engines": {
     "node": ">=8"
+  },
+  "overrides": {
+    "fflate": "0.8.2"
   }
 }
