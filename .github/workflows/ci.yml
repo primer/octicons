@@ -90,7 +90,9 @@ jobs:
         run: yarn test
       - name: Types
         run: |
-          # Run @arethetypeswrong/cli
+          # Run @arethetypeswrong/cli (pin fflate to work around https://github.com/arethetypeswrong/arethetypeswrong.github.io/issues/258)
+          npm pkg set overrides.fflate=0.8.2
+          npm install @arethetypeswrong/cli
           npx @arethetypeswrong/cli --pack .
 
           # Run publint
