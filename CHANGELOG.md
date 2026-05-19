@@ -1,5 +1,15 @@
 # Changelog
 
+## 19.26.0
+
+### Minor Changes
+
+- [#1197](https://github.com/primer/octicons/pull/1197) [`b45f1d35`](https://github.com/primer/octicons/commit/b45f1d35477402da4df64ae3a38dae8e95477dc4) Thanks [@lukasoppermann](https://github.com/lukasoppermann)! - Add repo-forked-locked icon
+
+### Patch Changes
+
+- [#1209](https://github.com/primer/octicons/pull/1209) [`9a7e2146`](https://github.com/primer/octicons/commit/9a7e2146907d2b0bf06d2dd65d2d17d4c3959108) Thanks [@siddharthkp](https://github.com/siddharthkp)! - fix: remove hardcoded fill from sandbox icon
+
 ## 19.25.0
 
 ### Minor Changes
