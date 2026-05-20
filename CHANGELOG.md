@@ -1,5 +1,15 @@
 # Changelog
 
+## 19.27.0
+
+### Minor Changes
+
+- [#1203](https://github.com/primer/octicons/pull/1203) [`a69618e4`](https://github.com/primer/octicons/commit/a69618e4b64988784c9c0a06bbf809a3fa343642) Thanks [@ericwbailey](https://github.com/ericwbailey)! - Add flag icon
+
+### Patch Changes
+
+- [#1212](https://github.com/primer/octicons/pull/1212) [`02bd1ef8`](https://github.com/primer/octicons/commit/02bd1ef8d15abffaa45be8e00c5fbc896e276c54) Thanks [@ericwbailey](https://github.com/ericwbailey)! - remove hardcoded fill from flag icon
+
 ## 19.26.0
 
 ### Minor Changes
