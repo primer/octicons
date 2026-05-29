@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.28.0
+
+### Minor Changes
+
+- [#1208](https://github.com/primer/octicons/pull/1208) [`eddab3ff`](https://github.com/primer/octicons/commit/eddab3ff19f1450eb1d60c78b1d20c2c4bc3fd15) Thanks [@dylanatsmith](https://github.com/dylanatsmith)! - Fix vscode icon: update 16px, add 24px, remove 32px and 48px
+
 ## 19.27.0
 
 ### Minor Changes
