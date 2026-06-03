@@ -14,7 +14,7 @@ jobs:
   optimize:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -22,9 +22,9 @@ jobs:
         id: changed
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
-            CHANGED=$(git diff --name-only --diff-filter=AM ${{ github.event.pull_request.base.sha }} -- 'icons/*.svg')
+            CHANGED=$(git diff --name-only --diff-filter=AMR ${{ github.event.pull_request.base.sha }} -- 'icons/**/*.svg')
           else
-            CHANGED=$(git diff --name-only --diff-filter=AM ${{ github.event.before }} -- 'icons/*.svg')
+            CHANGED=$(git diff --name-only --diff-filter=AMR ${{ github.event.before }} -- 'icons/**/*.svg')
           fi
           if [ -z "$CHANGED" ]; then
             echo "has_changes=false" >> $GITHUB_OUTPUT
@@ -60,6 +60,7 @@ jobs:
         run: npx svgo --config svgo.config.js ${{ steps.changed.outputs.files }}
 
       - uses: EndBug/add-and-commit@v4
+        if: steps.changed.outputs.has_changes == 'true'
         with:
           add: 'icons'
           message: 'Optimize SVGs'
