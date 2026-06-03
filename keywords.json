@@ -238,6 +238,8 @@
   "split-view": ["columns", "split", "view", "panes", "sidebar"],
   "square-circle": ["stop", "interupt", "block", "pause"],
   "squirrel": ["ship", "shipit", "launch"],
+  "stack": ["stack", "diff", "pull", "PR"],
+  "stack-add": ["stack", "plus", "add", "PR", "pull"],
   "stack-check": ["stack", "check", "approved", "verified"],
   "stack-remove": ["stack", "remove"],
   "star": ["save", "remember", "like"],
