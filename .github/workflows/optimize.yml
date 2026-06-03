@@ -22,9 +22,9 @@ jobs:
         id: changed
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
-            CHANGED=$(git diff --name-only --diff-filter=AMR ${{ github.event.pull_request.base.sha }} -- 'icons/**/*.svg')
+            CHANGED=$(git diff --name-only --diff-filter=AMR ${{ github.event.pull_request.base.sha }} -- 'icons/*.svg' 'icons/**/*.svg')
           else
-            CHANGED=$(git diff --name-only --diff-filter=AMR ${{ github.event.before }} -- 'icons/**/*.svg')
+            CHANGED=$(git diff --name-only --diff-filter=AMR ${{ github.event.before }} -- 'icons/*.svg' 'icons/**/*.svg')
           fi
           if [ -z "$CHANGED" ]; then
             echo "has_changes=false" >> $GITHUB_OUTPUT
