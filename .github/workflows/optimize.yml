@@ -15,19 +15,49 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+
+      - name: Get changed icons
+        id: changed
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            CHANGED=$(git diff --name-only --diff-filter=AM ${{ github.event.pull_request.base.sha }} -- 'icons/*.svg')
+          else
+            CHANGED=$(git diff --name-only --diff-filter=AM ${{ github.event.before }} -- 'icons/*.svg')
+          fi
+          if [ -z "$CHANGED" ]; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "files<<EOF" >> $GITHUB_OUTPUT
+            echo "$CHANGED" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          fi
 
       - uses: actions/setup-python@v4
+        if: steps.changed.outputs.has_changes == 'true'
         with:
           python-version: '3.10' 
           cache: 'pip'
       - run: pip install -r .github/actions/python/requirements.txt
-      - run: for icon in icons/*; do picosvg $icon --output_file $icon; done
+        if: steps.changed.outputs.has_changes == 'true'
+      - name: Run picosvg on changed icons
+        if: steps.changed.outputs.has_changes == 'true'
+        run: |
+          while IFS= read -r icon; do
+            picosvg "$icon" --output_file "$icon"
+          done <<< "${{ steps.changed.outputs.files }}"
 
       - uses: actions/setup-node@v3
+        if: steps.changed.outputs.has_changes == 'true'
         with:
           node-version: 18
       - run: npm install
-      - run: npm run svgo
+        if: steps.changed.outputs.has_changes == 'true'
+      - name: Run svgo on changed icons
+        if: steps.changed.outputs.has_changes == 'true'
+        run: npx svgo --config svgo.config.js ${{ steps.changed.outputs.files }}
 
       - uses: EndBug/add-and-commit@v4
         with:
