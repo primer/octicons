@@ -1,5 +1,13 @@
 # Changelog
 
+## 19.28.1
+
+### Patch Changes
+
+- [#1215](https://github.com/primer/octicons/pull/1215) [`378d7af0`](https://github.com/primer/octicons/commit/378d7af0e343d23fb7df31202d21032bfca0d2c7) Thanks [@ktravers](https://github.com/ktravers)! - Remove fill from StackRemove and StackCheck icons
+
+* [#1221](https://github.com/primer/octicons/pull/1221) [`9d7b366a`](https://github.com/primer/octicons/commit/9d7b366a6ecfbbf8d632053a639b5400a3aecbb9) Thanks [@CameronFoxly](https://github.com/CameronFoxly)! - Add stack-add-16.svg
+
 ## 19.28.0
 
 ### Minor Changes
