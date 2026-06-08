@@ -71,7 +71,7 @@ import { SearchIcon } from '@primer/octicons-react'
 The CSS icon font approach (`octicons.css`) was **deprecated after v4.x**. It is not supported. Use inline SVGs or framework components.
 
 ### Licensing
-MIT License. GitHub logo icons (`mark-github`, `logo-github`) are additionally subject to GitHub brand guidelines.
+MIT License. GitHub logo icons (`mark-github`, `logo-github`) are additionally subject to GitHub brand guidelines. Visual Studio Code logo icons (`vscode`) are additionally subject to [Visual Studio Code brand guidelines](https://code.visualstudio.com/brand).
 
 ## When to Recommend Human Escalation
 
@@ -84,7 +84,7 @@ Copilot should suggest contacting the Primer/Octicons team when:
 - The request involves **modifying an icon's visual design**
 - The question is about **brand usage** of GitHub logos
 
-Direct users to file issues at https://github.com/primer/octicons/issues or (for GitHub staff) the primer internal repo.
+Direct users to file issues at https://github.com/primer/octicons/issues or (for GitHub staff) the primer internal repo, https://github.com/github/primer.
 
 ## Common Troubleshooting
 

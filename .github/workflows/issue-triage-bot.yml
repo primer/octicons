@@ -29,87 +29,103 @@ jobs:
             let response = '';
             let labels = [];
 
-            // Fill/Color issues
+            // Fill/Color issues — likely a bug needing maintainer input
             if (combined.includes('fill') || combined.includes('currentcolor') || combined.includes('color') && combined.includes('svg')) {
-              response = `👋 Thanks for opening this issue!
-
-            **This looks like it might be related to SVG fill/color behavior.** Here are some quick things to check:
-
-            1. **Icons use \`currentColor\` by default** — they inherit the parent element's CSS \`color\` property
-            2. **If a \`<path>\` has \`fill="currentColor"\`**, setting \`fill\` on the \`<svg>\` element won't work. Instead, set the CSS \`color\` property on the container element
-            3. **Use Primer CSS variables** (e.g., \`var(--fgColor-attention)\`) rather than hardcoded colors for theme compatibility
-
-            If this doesn't resolve your issue, a maintainer will follow up. You can also check our [usage guidelines](https://primer.style/octicons/usage-guidelines) for more details.`;
+              response = [
+                `👋 Thanks for opening this issue!`,
+                ``,
+                `**This looks like it might be related to SVG fill/color behavior.** Here are some quick things to check:`,
+                ``,
+                `1. **Icons use \`currentColor\` by default** — they inherit the parent element's CSS \`color\` property`,
+                `2. **If a \`<path>\` has \`fill="currentColor"\`**, setting \`fill\` on the \`<svg>\` element won't work. Instead, set the CSS \`color\` property on the container element`,
+                `3. **Use Primer CSS variables** (e.g., \`var(--fgColor-attention)\`) rather than hardcoded colors for theme compatibility`,
+                ``,
+                `If this doesn't resolve your issue, a maintainer will follow up. You can also check our [usage guidelines](https://primer.style/octicons/usage-guidelines) for more details.`,
+              ].join('\n');
+              labels.push('needs-maintainer');
             }
 
             // ESM/Module/Build issues
             else if (combined.includes('esm') || combined.includes('module') || (combined.includes('import') && combined.includes('error')) || combined.includes('bundle')) {
-              response = `👋 Thanks for reporting this!
-
-            **This looks like a package/module issue.** A few things to try:
-
-            1. **Update to the latest version**: \`npm install @primer/octicons-react@latest\`
-            2. **If using strict ESM**: Some bundlers need configuration to resolve extensions. Try adding \`@primer/octicons-react\` to your bundler's transpile/resolve config
-            3. **Tree-shaking**: Use named imports (\`import { SearchIcon } from '@primer/octicons-react'\`) for optimal bundle size
-
-            If the issue persists on the latest version, please include your bundler name/version and Node.js version so we can investigate.`;
+              response = [
+                `👋 Thanks for reporting this!`,
+                ``,
+                `**This looks like a package/module issue.** A few things to try:`,
+                ``,
+                `1. **Update to the latest version**: \`npm install @primer/octicons-react@latest\``,
+                `2. **If using strict ESM**: Some bundlers need configuration to resolve extensions. Try adding \`@primer/octicons-react\` to your bundler's transpile/resolve config`,
+                `3. **Tree-shaking**: Use named imports (\`import { SearchIcon } from '@primer/octicons-react'\`) for optimal bundle size`,
+                ``,
+                `If the issue persists on the latest version, please include your bundler name/version and Node.js version so we can investigate.`,
+              ].join('\n');
             }
 
             // Size/alignment issues
             else if (combined.includes('size') || combined.includes('align') || combined.includes('center') || combined.includes('scale')) {
-              response = `👋 Thanks for opening this issue!
-
-            **Quick check on icon sizing:**
-
-            - Octicons are designed at specific sizes: **12px, 16px, and 24px**
-            - Each size has optimized stroke proportions — **never scale/resize** an icon (e.g., don't render a 16px icon at 24px)
-            - Use the \`size\` prop to select the correct variant: \`<Icon size={24} />\`
-            - Some icons are designed with optical (not mathematical) centering
-
-            If you've confirmed you're using the correct size and it still looks off, please share a screenshot and we'll investigate!`;
+              response = [
+                `👋 Thanks for opening this issue!`,
+                ``,
+                `**Quick check on icon sizing:**`,
+                ``,
+                `- Octicons are designed at specific sizes: **12px, 16px, and 24px**`,
+                `- Each size has optimized stroke proportions — **never scale/resize** an icon (e.g., don't render a 16px icon at 24px)`,
+                `- Use the \`size\` prop to select the correct variant: \`<Icon size={24} />\``,
+                `- Some icons are designed with optical (not mathematical) centering`,
+                ``,
+                `If you've confirmed you're using the correct size and it still looks off, please share a screenshot and we'll investigate!`,
+              ].join('\n');
             }
 
-            // Icon requests
+            // Icon requests — always need maintainer
             else if (combined.includes('icon request') || combined.includes('[icon request]') || (combined.includes('request') && combined.includes('icon')) || combined.includes('add icon') || combined.includes('new icon')) {
-              response = `👋 Thanks for the icon request!
-
-            A few things to note about new icons:
-
-            - Octicons only includes icons that are **used in GitHub's UI**
-            - New icon contributions are currently **limited to GitHub staff**
-            - If you're GitHub staff, please use the [internal icon request template](https://github.com/github/primer/issues/new?assignees=&labels=octicon%2C+request%2C+needs+triage&template=02-icon-request.md)
-            - If you can't find an icon, consider: could an existing icon work? Check [the full gallery](https://primer.style/octicons/) and try synonyms
-            - For user-customizable contexts, use **emoji** instead of Octicons
-
-            A maintainer will review this request. Thanks for your patience!`;
+              response = [
+                `👋 Thanks for the icon request!`,
+                ``,
+                `A few things to note about new icons:`,
+                ``,
+                `- Octicons only includes icons that are **used in GitHub's UI**`,
+                `- New icon contributions are currently **limited to GitHub staff**`,
+                `- If you're GitHub staff, please use the [internal icon request template](https://github.com/github/primer/issues/new?assignees=&labels=octicon%2C+request%2C+needs+triage&template=02-icon-request.md)`,
+                `- If you can't find an icon, consider: could an existing icon work? Check [the full gallery](https://primer.style/octicons/) and try synonyms`,
+                `- For user-customizable contexts, use **emoji** instead of Octicons`,
+                ``,
+                `A maintainer will review this request. Thanks for your patience!`,
+              ].join('\n');
               labels.push('octicon');
+              labels.push('needs-maintainer');
             }
 
-            // Figma discrepancy
+            // Figma discrepancy — needs designer review
             else if (combined.includes('figma') || combined.includes('discrepanc') || combined.includes('mismatch')) {
-              response = `👋 Thanks for reporting this!
-
-            **If you're seeing a difference between Figma and code:**
-
-            1. Check that you're on the **latest npm version** of \`@primer/octicons-react\`
-            2. The Figma library is the design source of truth — if code doesn't match, it may need an update
-            3. Please include: which icon, a screenshot comparing both, and your package version
-
-            A maintainer will investigate. These typically require a designer to review.`;
+              response = [
+                `👋 Thanks for reporting this!`,
+                ``,
+                `**If you're seeing a difference between Figma and code:**`,
+                ``,
+                `1. Check that you're on the **latest npm version** of \`@primer/octicons-react\``,
+                `2. The Figma library is the design source of truth — if code doesn't match, it may need an update`,
+                `3. Please include: which icon, a screenshot comparing both, and your package version`,
+                ``,
+                `A maintainer will investigate. These typically require a designer to review.`,
+              ].join('\n');
+              labels.push('needs-maintainer');
             }
 
-            // Accessibility
+            // Accessibility — prioritize if production
             else if (combined.includes('aria') || combined.includes('accessibility') || combined.includes('screen reader') || combined.includes('a11y')) {
-              response = `👋 Thanks for raising this accessibility concern!
-
-            **Quick reference for icon accessibility:**
-
-            - Icons are **decorative by default** (\`aria-hidden="true"\` is auto-applied)
-            - Add \`aria-label\` only when the icon **alone** conveys meaning (no adjacent text)
-            - For icon-only buttons, use the \`IconButton\` component (not a raw icon in a \`<button>\`)
-            - Icons must have **≥ 3:1 contrast ratio** against background
-
-            If this is a production accessibility issue, we'll prioritize it. Please share details about the context where the icon is used.`;
+              response = [
+                `👋 Thanks for raising this accessibility concern!`,
+                ``,
+                `**Quick reference for icon accessibility:**`,
+                ``,
+                `- Icons are **decorative by default** (\`aria-hidden="true"\` is auto-applied)`,
+                `- Add \`aria-label\` only when the icon **alone** conveys meaning (no adjacent text)`,
+                `- For icon-only buttons, use the Primer React \`IconButton\` component which handles accessible labeling`,
+                `- Icons must have **≥ 3:1 contrast ratio** against background`,
+                ``,
+                `If this is a production accessibility issue for GitHub, we'll prioritize it. Please share details about the context where the icon is used.`,
+              ].join('\n');
+              labels.push('needs-maintainer');
             }
 
             // Post comment if we have a response
