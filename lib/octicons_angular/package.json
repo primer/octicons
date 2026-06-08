@@ -14,7 +14,10 @@
     "test": "npm run generate && ng test --no-watch --no-progress",
     "watch": "script/build.js && ng build --watch --configuration development"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "@angular/core": ">=21.0.0 <23.0.0",
+    "@angular/common": ">=21.0.0 <23.0.0"
+  },
   "devDependencies": {
     "@angular/animations": "^22.0.0",
     "@angular/build": "^22.0.0",
