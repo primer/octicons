@@ -21,8 +21,13 @@
     "browser": true,
     "commonjs": true,
     "es6": true,
-    "jest": true,
     "node": true
+  },
+  "globals": {
+    "describe": "readonly",
+    "expect": "readonly",
+    "it": "readonly",
+    "test": "readonly"
   },
   "settings": {
     "react": {

@@ -16,7 +16,7 @@
     "lint:root": "eslint tests",
     "release": "script/release",
     "svgo": "svgo icons --config svgo.config.js",
-    "test": "turbo run test ts-test //#test:root",
+    "test": "vitest run && turbo run test ts-test //#test:root",
     "test:root": "ava -v tests/*.js",
     "version": "script/version"
   },
@@ -25,6 +25,7 @@
     "@changesets/cli": "2.17.0",
     "@github/prettier-config": "0.0.6",
     "ava": "2.1.0",
+    "@vitejs/plugin-react": "^5.1.1",
     "braces": "2.3.1",
     "cheerio": "1.0.0-rc.3",
     "eslint": "8.57.1",
@@ -41,6 +42,8 @@
     "trim-newlines": "3.0.1",
     "turbo": "2.10.0",
     "typescript": "4.8.3",
+    "vitest": "^4.1.5",
+    "jsdom": "^27.3.0",
     "yargs": "15.1.0"
   },
   "eslintConfig": {

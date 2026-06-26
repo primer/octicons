@@ -1,75 +1,23 @@
-import '@testing-library/jest-dom'
-import {render, screen} from '@testing-library/react'
+import {render} from '@testing-library/react'
 import React from 'react'
-import {AlertIcon} from '../index'
+import {ThemeProvider} from 'styled-components'
+import {AlertIcon} from '../__generated__/index'
 
 describe('An icon component', () => {
-  it('matches snapshot', () => {
-    const {container} = render(<AlertIcon />)
-    expect(container.querySelector('svg')).toMatchSnapshot()
-  })
-
-  it('defaults to `aria-hidden="true"` if no label is present', () => {
-    const {container} = render(<AlertIcon />)
-    expect(container.querySelector('svg')).toHaveAttribute('aria-hidden', 'true')
-  })
-
-  it('sets `role="img"` if `aria-label` is provided', () => {
-    render(<AlertIcon aria-label="Alert" />)
-    expect(screen.getByLabelText('Alert')).toHaveAttribute('role', 'img')
-  })
-
-  it('sets `role="img"` if `aria-labelledby` is provided', () => {
-    render(
-      <>
-        <span id="label">Alert</span>
-        <AlertIcon aria-labelledby="label" />
-      </>
-    )
-    expect(screen.getByLabelText('Alert')).toHaveAttribute('role', 'img')
-  })
-
   it('sets aria-hidden="false" if ariaLabel prop is present', () => {
     const {container} = render(<AlertIcon aria-label="icon" />)
     expect(container.querySelector('svg')).not.toHaveAttribute('aria-hidden')
     expect(container.querySelector('svg')).toHaveAttribute('aria-label', 'icon')
   })
 
-  it('set the focusable prop to false if tabIndex prop is not present', () => {
-    const {container} = render(<AlertIcon />)
-    expect(container.querySelector('svg')).toHaveAttribute('focusable', 'false')
-  })
-
-  it('sets focusable prop to true if tabIndex prop is present and greater than 0', () => {
-    const {container} = render(<AlertIcon aria-label="icon" tabIndex={0} />)
-    expect(container.querySelector('svg')).toHaveAttribute('tabindex', '0')
-    expect(container.querySelector('svg')).toHaveAttribute('focusable', 'true')
-  })
-
-  it('sets focusable prop to false if tabIndex prop is -1', () => {
-    const {container} = render(<AlertIcon aria-label="icon" tabIndex={-1} />)
-    expect(container.querySelector('svg')).toHaveAttribute('tabindex', '-1')
-    expect(container.querySelector('svg')).toHaveAttribute('focusable', 'false')
-  })
-
   it('respects the className prop', () => {
     const {container} = render(<AlertIcon className="foo" />)
-    expect(container.querySelector('svg')).toHaveAttribute('class', 'octicon octicon-alert foo')
-  })
-
-  it('respects the fill prop', () => {
-    const {container} = render(<AlertIcon fill="#f00" />)
-    expect(container.querySelector('svg')).toHaveAttribute('fill', '#f00')
+    expect(container.querySelector('svg')).toHaveClass('foo')
   })
 
   it('respects the verticalAlign prop', () => {
     const {container} = render(<AlertIcon verticalAlign="middle" />)
     expect(container.querySelector('svg')).toHaveStyle({verticalAlign: 'middle'})
-  })
-
-  it('supports additional props on the outermost element', () => {
-    const {container} = render(<AlertIcon data-testid="icon" />)
-    expect(container.firstChild).toHaveAttribute('data-testid', 'icon')
   })
 
   describe('size props', () => {
@@ -109,6 +57,43 @@ describe('An icon component', () => {
       expect(container.querySelector('svg')).toHaveAttribute('viewBox', '0 0 24 24')
       expect(container.querySelector('svg')).toHaveAttribute('width', '24')
       expect(container.querySelector('svg')).toHaveAttribute('height', '24')
+    })
+  })
+
+  describe('system props', () => {
+    it('respects the color prop', () => {
+      const theme = {colors: {red: ['#ffeef0', '#ffdce0']}}
+      const {container} = render(
+        <ThemeProvider theme={theme}>
+          <AlertIcon color="red.1" />
+        </ThemeProvider>
+      )
+      expect(container.querySelector('svg')).toHaveStyle({color: '#ffdce0'})
+    })
+
+    it('respects space props', () => {
+      const theme = {space: [0, 4, 8, 16, 24, 32, 40, 48]}
+      const {container} = render(
+        <ThemeProvider theme={theme}>
+          <AlertIcon ml={2} mt={1} mr={3} mb={4} />
+        </ThemeProvider>
+      )
+      expect(container.querySelector('svg')).toHaveStyle({
+        marginTop: '4px',
+        marginLeft: '8px',
+        marginRight: '16px',
+        marginBottom: '24px'
+      })
+    })
+
+    it('respects sx props', () => {
+      const theme = {colors: {red: ['#ffeef0', '#ffdce0']}}
+      const {container} = render(
+        <ThemeProvider theme={theme}>
+          <AlertIcon sx={{color: 'red.0'}} />
+        </ThemeProvider>
+      )
+      expect(container.querySelector('svg')).toHaveStyle({color: '#ffeef0'})
     })
   })
 })

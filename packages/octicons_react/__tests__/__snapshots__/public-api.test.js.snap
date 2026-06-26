@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`@primer/octicons-react should not update exports without a semver change 1`] = `
+exports[`@primer/octicons-react > should not update exports without a semver change 1`] = `
 [
   "AccessibilityIcon",
   "AccessibilityInsetIcon",
@@ -334,5 +334,6 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "ZapIcon",
   "ZoomInIcon",
   "ZoomOutIcon",
+  "default",
 ]
 `;
