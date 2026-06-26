@@ -7,8 +7,8 @@ const globby = require('globby')
 
 const year = new Date().getFullYear()
 const yearRegex = new RegExp(`Copyright \\(c\\) ${year} GitHub Inc\\.`)
-const octiconsLib = fs.readdirSync('./lib/build/svg')
-const octiconsData = require('../lib/build/data.json')
+const octiconsLib = fs.readdirSync('./packages/build/svg')
+const octiconsData = require('../packages/build/data.json')
 
 test(`LICENSE files have the current year ${year}`, t => {
   return globby(['**/LICENSE', '!**/node_modules/**/LICENSE', '!**/vendor/**/LICENSE']).then(paths => {

@@ -1,12 +1,12 @@
 #!/bin/bash
 
-PACKAGE_VERSION=$(jq '.version' --raw-output ./lib/octicons_node/package.json)
+PACKAGE_VERSION=$(jq '.version' --raw-output ./packages/octicons_node/package.json)
 
 echo $PACKAGE_VERSION
 
 echo "Versioning Octicons ruby gem"
 
-cd lib/octicons_gem/
+cd packages/octicons_gem/
 rake version\["$PACKAGE_VERSION"\]
 
 echo "Versioning Octicons rails helper gem"

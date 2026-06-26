@@ -9,7 +9,7 @@ Gemfile.lock
 .turbo
 
 # Ignore build/export artifacts
-lib/**/build/
+packages/**/build/
 
 # Gatsby
 public

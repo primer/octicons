@@ -3,15 +3,15 @@
   "version": "19.15.1",
   "private": true,
   "workspaces": [
-    "lib/octicons_node",
-    "lib/octicons_react",
-    "lib/octicons_styled"
+    "packages/octicons_node",
+    "packages/octicons_react",
+    "packages/octicons_styled"
   ],
   "scripts": {
     "build": "turbo run build",
-    "build:icons": "script/build.js --input icons/**/*.svg --output lib/build/data.json && rm -rf lib/build/svg && mkdir -p lib/build/svg && cp -R icons/. lib/build/svg",
+    "build:icons": "script/build.js --input icons/**/*.svg --output packages/build/data.json && rm -rf packages/build/svg && mkdir -p packages/build/svg && cp -R icons/. packages/build/svg",
     "changeset:version": "changeset version && script/version",
-    "clean": "npm run clean --workspaces --if-present && rm -rf lib/build .turbo",
+    "clean": "npm run clean --workspaces --if-present && rm -rf packages/build .turbo",
     "lint": "turbo run lint //#lint:root",
     "lint:root": "eslint tests",
     "release": "script/release",

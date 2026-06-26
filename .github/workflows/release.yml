@@ -96,7 +96,7 @@ jobs:
             npx changeset pre exit
             npx changeset version --snapshot
           else
-            for pkg_json_path in lib/octicons_node/package.json lib/octicons_react/package.json lib/octicons_styled/package.json; do
+            for pkg_json_path in packages/octicons_node/package.json packages/octicons_react/package.json packages/octicons_styled/package.json; do
               version=$(jq -r .version "$pkg_json_path")
               echo "$(jq ".version = \"$(echo "$version")-rc.$(git rev-parse --short HEAD)\"" "$pkg_json_path")" > "$pkg_json_path"
             done

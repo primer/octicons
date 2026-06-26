@@ -3,7 +3,7 @@
 set -euo pipefail
 
 PACKAGE_NAME=${1:?"Usage: script/publish-ruby <package-directory>"}
-PACKAGE_VERSION=$(jq '.version' --raw-output ./lib/octicons_node/package.json)
+PACKAGE_VERSION=$(jq '.version' --raw-output ./packages/octicons_node/package.json)
 
 RUBY_PACKAGE_VERSION=$(echo "$PACKAGE_VERSION" | sed -e 's/^0\.0\.0-/0.0.0.pre./g')
 RUBY_PACKAGE_VERSION=$(echo "$RUBY_PACKAGE_VERSION" | sed -e 's/-rc/.pre/g')

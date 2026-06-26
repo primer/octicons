@@ -8,8 +8,8 @@
         "$TURBO_ROOT$/script/build.js"
       ],
       "outputs": [
-        "$TURBO_ROOT$/lib/build/data.json",
-        "$TURBO_ROOT$/lib/build/svg/**"
+        "$TURBO_ROOT$/packages/build/data.json",
+        "$TURBO_ROOT$/packages/build/svg/**"
       ]
     },
     "//#lint:root": {

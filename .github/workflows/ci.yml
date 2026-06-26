@@ -90,7 +90,7 @@ jobs:
         run: |
           npx @arethetypeswrong/cli --pack .
           npx publint@0.2.12 . --strict
-        working-directory: lib/octicons_react
+        working-directory: packages/octicons_react
       - name: Pack public npm packages
         uses: actions/github-script@v7
         with:
@@ -155,24 +155,24 @@ jobs:
           bundler-cache: true
       - name: Copy shared assets
         run: cp -R ../build lib/
-        working-directory: lib/octicons_gem
+        working-directory: packages/octicons_gem
       - name: Install gem dependencies
         run: bundle install
-        working-directory: lib/octicons_gem
+        working-directory: packages/octicons_gem
       - name: Lint
         run: bundle exec rake lint
-        working-directory: lib/octicons_gem
+        working-directory: packages/octicons_gem
       - name: Test
         run: bundle exec rake test
-        working-directory: lib/octicons_gem
+        working-directory: packages/octicons_gem
       - name: Build
         run: bundle exec rake build
-        working-directory: lib/octicons_gem
+        working-directory: packages/octicons_gem
       - name: Upload octicons gem
         uses: actions/upload-artifact@v4
         with:
           name: octicons-gem
-          path: lib/octicons_gem/pkg
+          path: packages/octicons_gem/pkg
 
   octicons_helper:
     name: 'gem:octicons_helper'
@@ -190,16 +190,16 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: octicons-gem
-          path: lib/octicons_helper/vendor/cache
+          path: packages/octicons_helper/vendor/cache
       - name: Install gem dependencies
         run: bundle config set --local disable_checksum_validation true && bundle install
-        working-directory: lib/octicons_helper
+        working-directory: packages/octicons_helper
       - name: Lint
         run: bundle exec rake lint
-        working-directory: lib/octicons_helper
+        working-directory: packages/octicons_helper
       - name: Test
         run: bundle exec rake test
-        working-directory: lib/octicons_helper
+        working-directory: packages/octicons_helper
 
   octicons_jekyll:
     name: 'gem:octicons_jekyll'
@@ -217,13 +217,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: octicons-gem
-          path: lib/octicons_jekyll/vendor/cache
+          path: packages/octicons_jekyll/vendor/cache
       - name: Install gem dependencies
         run: bundle config set --local disable_checksum_validation true && bundle install
-        working-directory: lib/octicons_jekyll
+        working-directory: packages/octicons_jekyll
       - name: Lint
         run: bundle exec rake lint
-        working-directory: lib/octicons_jekyll
+        working-directory: packages/octicons_jekyll
       - name: Test
         run: bundle exec rake test
-        working-directory: lib/octicons_jekyll
+        working-directory: packages/octicons_jekyll
