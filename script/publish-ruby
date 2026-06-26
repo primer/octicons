@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set -euo pipefail
+
+PACKAGE_NAME=${1:?"Usage: script/publish-ruby <package-directory>"}
+PACKAGE_VERSION=$(jq '.version' --raw-output ./lib/octicons_node/package.json)
+
+RUBY_PACKAGE_VERSION=$(echo "$PACKAGE_VERSION" | sed -e 's/^0\.0\.0-/0.0.0.pre./g')
+RUBY_PACKAGE_VERSION=$(echo "$RUBY_PACKAGE_VERSION" | sed -e 's/-rc/.pre/g')
+
+mkdir -p ~/.gem
+cat << EOF > ~/.gem/credentials
+---
+:rubygems_api_key: ${RUBYGEMS_TOKEN}
+EOF
+chmod 0600 ~/.gem/credentials
+
+cd "./lib/$PACKAGE_NAME"
+
+cp -R ../build lib/
+
+if [ "$PACKAGE_NAME" != "octicons_gem" ]; then
+  mkdir -p vendor/cache
+  cp ../octicons_gem/pkg/*.gem vendor/cache/
+  bundle config set --local disable_checksum_validation true
+fi
+
+bundle install
+bundle exec rake version["$RUBY_PACKAGE_VERSION"]
+bundle update
+bundle exec rake build
+gem push pkg/*.gem

@@ -6,8 +6,6 @@
 version: 2
 updates:
   - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/docs" # Location of package manifests
+    directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
-    allow:
-      - dependency-name: "@primer/gatsby-theme-doctocat"

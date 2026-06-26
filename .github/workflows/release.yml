@@ -1,55 +1,146 @@
 name: Release
+
 on:
   push:
-    branches:
-      - 'main'
-      - 'next_major'
-jobs:
-  release:
-    name: Final
-    if: ${{ github.repository == 'primer/octicons' }}
+    branches-ignore:
+      - 'gh-readonly-queue/**'
+    tags-ignore:
+      - '**'
+  pull_request:
+    types: [labeled, synchronize]
+  workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  id-token: write
+  contents: read
+  checks: write
+  statuses: write
+
+jobs:
+  release-main:
+    if: github.event_name != 'pull_request' && github.ref_name == 'main'
+    name: Main
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
           persist-credentials: false
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version-file: '.nvmrc'
+          cache: npm
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2
+          ruby-version: 3.3
           bundler-cache: true
 
       - name: Install dependencies
         run: |
-          yarn
+          npm ci
           bundle install
 
-      - id: get-access-token
-        uses: camertron/github-app-installation-auth-action@v1
+      - uses: actions/create-github-app-token@v1
+        id: app-token
         with:
           app-id: ${{ vars.PRIMER_APP_ID_SHARED }}
           private-key: ${{ secrets.PRIMER_APP_PRIVATE_KEY_SHARED }}
-          client-id: ${{ vars.PRIMER_APP_CLIENT_ID_SHARED }}
-          client-secret: ${{ secrets.PRIMER_APP_CLIENT_SECRET_SHARED }}
-          installation-id: ${{ vars.PRIMER_APP_INSTALLATION_ID_SHARED }}
 
-      - name: Create release pull request or publish to npm
+      - name: Create release pull request or publish packages
         id: changesets
-        uses: changesets/action@master
+        uses: changesets/action@v1
         with:
-          title: Release Tracking
-          version: yarn changeset:version
-          publish: script/changeset-publish
+          title: Release tracking
+          commitMode: github-api
+          version: npm run changeset:version
+          publish: npm run release
         env:
-          GITHUB_TOKEN: ${{ steps.get-access-token.outputs.access-token }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN_SHARED }}
+          RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
+
+  release-candidate:
+    if: github.event_name != 'pull_request' && github.ref_name == 'changeset-release/main'
+    name: Candidate (@next)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish release candidate
+        run: |
+          if [[ -f '.changeset/pre.json' ]]; then
+            npx changeset pre exit
+            npx changeset version --snapshot
+          else
+            for pkg_json_path in lib/octicons_node/package.json lib/octicons_react/package.json lib/octicons_styled/package.json; do
+              version=$(jq -r .version "$pkg_json_path")
+              echo "$(jq ".version = \"$(echo "$version")-rc.$(git rev-parse --short HEAD)\"" "$pkg_json_path")" > "$pkg_json_path"
+            done
+          fi
+
+          npx changeset publish --tag next
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN_SHARED }}
+
+  release-canary:
+    name: Canary
+    if: >
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      (
+        (github.event.action == 'labeled' && github.event.label.name == 'Canary Release') ||
+        (github.event.action == 'synchronize' && contains(github.event.pull_request.labels.*.name, 'Canary Release'))
+      )
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Publish canary release
+        run: |
+          if [[ -f '.changeset/pre.json' ]]; then
+            npx changeset pre exit
+          fi
+
+          echo -e "---\n\"@primer/octicons\": patch\n\"@primer/octicons-react\": patch\n\"@primer/styled-octicons\": patch\n---\n\nFake entry to force publishing" > .changeset/force-snapshot-release.md
+          npx changeset version --snapshot
+          npx changeset publish --tag canary
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN_SHARED }}

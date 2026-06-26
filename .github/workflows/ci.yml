@@ -1,177 +1,229 @@
 name: CI
+
 on:
   push:
     branches:
       - main
   pull_request:
+  merge_group:
+    branches:
+      - main
+    types:
+      - checks_requested
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
-      - run: yarn
-      - name: Building
-        run: yarn build
-      - run: cp -r icons lib/build/svg
-      - uses: actions/upload-artifact@v4
+          node-version-file: '.nvmrc'
+          cache: npm
+      - name: Set up turbo cache
+        uses: actions/cache@v4
         with:
-          name: octicons-build
-          path: ./lib/build
-
-  main:
-    name: Main project
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - uses: actions/download-artifact@v4
-        with:
-          name: octicons-build
-          path: ./lib/build
-      - run: yarn
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.job }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-${{ github.job }}-
+            ${{ runner.os }}-turbo-
+      - name: Install dependencies
+        run: npm ci
       - name: Lint
-        run: yarn lint
-      - name: Test
-        run: yarn test
+        run: npm run lint
 
-  octicons_node:
-    name: 'npm:@primer/octicons'
-    needs: build
+  test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./lib/octicons_node
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
-      - uses: actions/download-artifact@v4
+          node-version-file: '.nvmrc'
+          cache: npm
+      - name: Set up turbo cache
+        uses: actions/cache@v4
         with:
-          name: octicons-build
-          path: ./lib/build
-      - run: yarn
-      - name: Building
-        run: yarn build
-      - name: Lint
-        run: yarn lint
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.job }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-${{ github.job }}-
+            ${{ runner.os }}-turbo-
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
       - name: Test
-        run: yarn test
+        run: npm test
 
-  octicons_react:
-    name: 'npm:@primer/octicons-react'
-    needs: build
+  npm:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./lib/octicons_react
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
-      - uses: actions/download-artifact@v4
+          node-version-file: '.nvmrc'
+          cache: npm
+      - name: Set up turbo cache
+        uses: actions/cache@v4
         with:
-          name: octicons-build
-          path: ./lib/build
-      - run: yarn
-      - name: Building
-        run: yarn build
-      - name: Lint
-        run: yarn lint
-      - name: Test
-        run: yarn test
-      - name: Types
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.job }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-${{ github.job }}-
+            ${{ runner.os }}-turbo-
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Check package types
         run: |
-          # Run @arethetypeswrong/cli
           npx @arethetypeswrong/cli --pack .
-
-          # Run publint
           npx publint@0.2.12 . --strict
+        working-directory: lib/octicons_react
+      - name: Pack public npm packages
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('node:fs')
+            const path = require('node:path')
+
+            const directory = path.resolve('packed')
+            fs.mkdirSync(directory, {recursive: true})
+
+            core.startGroup('Packing npm packages')
+
+            const {stdout: queryOutput} = await exec.getExecOutput('npm', ['query', '.workspace'])
+            const workspaces = JSON.parse(queryOutput)
+            const packages = workspaces.filter(pkg => pkg.private !== true).map(pkg => pkg.name)
+            core.info(`Packing: ${packages.join(' ')}`)
+
+            const args = ['pack', ...packages.map(name => `--workspace=${name}`), '--pack-destination', directory, '--json']
+            const {stdout: packOutput} = await exec.getExecOutput('npm', args)
+            const result = JSON.parse(packOutput)
+
+            core.endGroup()
+
+            const metadata = {
+              packages: result.map(pkg => ({
+                name: pkg.name,
+                version: pkg.version,
+                path: path.join('packed', pkg.filename),
+              })),
+            }
+
+            fs.writeFileSync(path.join(directory, 'metadata.json'), JSON.stringify(metadata, null, 2))
+            core.info(JSON.stringify(metadata, null, 2))
+      - name: Upload packed npm packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-packages
+          path: |
+            packed/*.tgz
+            packed/metadata.json
+          if-no-files-found: error
 
   octicons_gem:
     name: 'gem:octicons'
-    needs: build
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./lib/octicons_gem
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Build shared assets
+        run: npm run build:icons
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3
           bundler-cache: true
-      - uses: actions/download-artifact@v4
-        with:
-          name: octicons-build
-          path: ./lib/octicons_gem/lib/build
-      - run: bundle install
-      - name: Linting
+      - name: Copy shared assets
+        run: cp -R ../build lib/
+        working-directory: lib/octicons_gem
+      - name: Install gem dependencies
+        run: bundle install
+        working-directory: lib/octicons_gem
+      - name: Lint
         run: bundle exec rake lint
-      - name: Testing
+        working-directory: lib/octicons_gem
+      - name: Test
         run: bundle exec rake test
+        working-directory: lib/octicons_gem
       - name: Build
         run: bundle exec rake build
-      - uses: actions/upload-artifact@v4
+        working-directory: lib/octicons_gem
+      - name: Upload octicons gem
+        uses: actions/upload-artifact@v4
         with:
           name: octicons-gem
-          path: ./lib/octicons_gem/pkg
+          path: lib/octicons_gem/pkg
 
   octicons_helper:
     name: 'gem:octicons_helper'
-    needs: octicons_gem
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./lib/octicons_helper
+    needs: octicons_gem
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3
           bundler-cache: true
-      - uses: actions/download-artifact@v4
+      - name: Download octicons gem
+        uses: actions/download-artifact@v4
         with:
           name: octicons-gem
-          path: ./lib/octicons_helper/vendor/cache
-      - name: Run bundle install
+          path: lib/octicons_helper/vendor/cache
+      - name: Install gem dependencies
         run: bundle config set --local disable_checksum_validation true && bundle install
-      - name: Linting
+        working-directory: lib/octicons_helper
+      - name: Lint
         run: bundle exec rake lint
-      - name: Testing
+        working-directory: lib/octicons_helper
+      - name: Test
         run: bundle exec rake test
+        working-directory: lib/octicons_helper
 
   octicons_jekyll:
     name: 'gem:octicons_jekyll'
-    needs: octicons_gem
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./lib/octicons_jekyll
+    needs: octicons_gem
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3
           bundler-cache: true
-      - uses: actions/download-artifact@v4
+      - name: Download octicons gem
+        uses: actions/download-artifact@v4
         with:
           name: octicons-gem
-          path: ./lib/octicons_jekyll/vendor/cache
-      - name: Run bundle install
+          path: lib/octicons_jekyll/vendor/cache
+      - name: Install gem dependencies
         run: bundle config set --local disable_checksum_validation true && bundle install
-      - name: Linting
+        working-directory: lib/octicons_jekyll
+      - name: Lint
         run: bundle exec rake lint
-      - name: Testing
+        working-directory: lib/octicons_jekyll
+      - name: Test
         run: bundle exec rake test
+        working-directory: lib/octicons_jekyll

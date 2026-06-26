@@ -1,0 +1,74 @@
+name: npm
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: npm
+      - name: Set up turbo cache
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.job }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-${{ github.job }}-
+            ${{ runner.os }}-turbo-
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Pack public packages
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('node:fs')
+            const path = require('node:path')
+
+            const directory = path.resolve('packed')
+            fs.mkdirSync(directory, {recursive: true})
+
+            core.startGroup('Packing npm packages')
+
+            const {stdout: queryOutput} = await exec.getExecOutput('npm', ['query', '.workspace'])
+            const workspaces = JSON.parse(queryOutput)
+            const packages = workspaces.filter(pkg => pkg.private !== true).map(pkg => pkg.name)
+            core.info(`Packing: ${packages.join(' ')}`)
+
+            const args = ['pack', ...packages.map(name => `--workspace=${name}`), '--pack-destination', directory, '--json']
+            const {stdout: packOutput} = await exec.getExecOutput('npm', args)
+            const result = JSON.parse(packOutput)
+
+            core.endGroup()
+
+            const metadata = {
+              packages: result.map(pkg => ({
+                name: pkg.name,
+                version: pkg.version,
+                path: path.join('packed', pkg.filename),
+              })),
+            }
+
+            fs.writeFileSync(path.join(directory, 'metadata.json'), JSON.stringify(metadata, null, 2))
+            core.info(JSON.stringify(metadata, null, 2))
+      - name: Upload packed npm packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-packages
+          path: |
+            packed/*.tgz
+            packed/metadata.json
+          if-no-files-found: error

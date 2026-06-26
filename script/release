@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -euo pipefail
+
+npm run build
+changeset publish
+
+if [ -n "${RUBYGEMS_TOKEN:-}" ]; then
+  script/publish-ruby octicons_gem
+  script/publish-ruby octicons_helper
+  script/publish-ruby octicons_jekyll
+fi
