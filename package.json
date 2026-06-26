@@ -16,15 +16,13 @@
     "lint:root": "eslint tests",
     "release": "script/release",
     "svgo": "svgo icons --config svgo.config.js",
-    "test": "vitest run && turbo run test ts-test //#test:root",
-    "test:root": "ava -v tests/*.js",
+    "test": "npm run build && vitest run && turbo run ts-test",
     "version": "script/version"
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.4.1",
     "@changesets/cli": "2.17.0",
     "@github/prettier-config": "0.0.6",
-    "ava": "2.1.0",
     "@vitejs/plugin-react": "^5.1.1",
     "braces": "2.3.1",
     "cheerio": "1.0.0-rc.3",
@@ -56,12 +54,14 @@
       "node": true
     },
     "parserOptions": {
-      "ecmaVersion": 2017,
+      "ecmaVersion": 2020,
+      "sourceType": "module",
       "requireConfigFile": false
     },
     "rules": {
       "github/no-then": 0,
-      "eslint-comments/no-use": 0
+      "eslint-comments/no-use": 0,
+      "import/named": 0
     }
   },
   "engines": {

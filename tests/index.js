@@ -1,43 +1,42 @@
-/* eslint-disable import/no-commonjs */
 /* eslint-disable i18n-text/no-en */
 
-const test = require('ava')
-const fs = require('fs-extra')
-const globby = require('globby')
+import fs from 'fs-extra'
+import globby from 'globby'
+import {expect, test} from 'vitest'
 
 const year = new Date().getFullYear()
 const yearRegex = new RegExp(`Copyright \\(c\\) ${year} GitHub Inc\\.`)
-const octiconsLib = fs.readdirSync('./packages/build/svg')
-const octiconsData = require('../packages/build/data.json')
+const octiconsLib = fs.readdirSync(new URL('../packages/build/svg', import.meta.url))
+const octiconsData = fs.readJsonSync(new URL('../packages/build/data.json', import.meta.url))
 
-test(`LICENSE files have the current year ${year}`, t => {
-  return globby(['**/LICENSE', '!**/node_modules/**/LICENSE', '!**/vendor/**/LICENSE']).then(paths => {
-    t.plan(paths.length)
-    return paths.map(path => {
-      const license = fs.readFileSync(path, 'utf8')
-      return t.regex(license, yearRegex, `The license "${path}" does not include the current year ${year}`)
-    })
-  })
+test(`LICENSE files have the current year ${year}`, async () => {
+  const paths = await globby(['**/LICENSE', '!**/node_modules/**/LICENSE', '!**/vendor/**/LICENSE'])
+
+  expect.assertions(paths.length)
+
+  for (const filepath of paths) {
+    const license = fs.readFileSync(filepath, 'utf8')
+    expect(license, `The license "${filepath}" does not include the current year ${year}`).toMatch(yearRegex)
+  }
 })
 
-test('SVG icons exist', t => {
-  t.not(octiconsLib.length, 0, `We didn't find any svg files`)
+test('SVG icons exist', () => {
+  expect(octiconsLib.length, `We didn't find any svg files`).not.toBe(0)
 })
 
-test('Data file exist', t => {
-  t.not(octiconsData.length, 0, `We didn't find any data files`)
+test('Data file exist', () => {
+  expect(Object.keys(octiconsData).length, `We didn't find any data files`).not.toBe(0)
 })
 
 const names = {}
 for (const octicon of Object.values(octiconsData)) {
-  test(`No duplicate ${octicon.name} icon`, t => {
+  test(`No duplicate ${octicon.name} icon`, () => {
     if (names[octicon.name]) {
-      t.fail(
+      throw new Error(
         `Found duplicate '${octicon.name}' icons in the figma file. Please rename one of them. https://www.figma.com/file/${octicon.file}?node-id=${octicon.id}`,
       )
-    } else {
-      names[octicon.name] = octicon
-      t.pass()
     }
+
+    names[octicon.name] = octicon
   })
 }

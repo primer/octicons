@@ -2,6 +2,8 @@ import {defineConfig} from 'vitest/config'
 
 export default defineConfig({
   test: {
-    projects: ['vitest.root.config.mjs', 'packages/*/vitest.config.mjs']
+    name: 'octicons',
+    environment: 'node',
+    include: ['tests/*.js']
   }
 })

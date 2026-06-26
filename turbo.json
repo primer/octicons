@@ -15,19 +15,11 @@
     "//#lint:root": {
       "outputs": []
     },
-    "//#test:root": {
-      "dependsOn": ["//#build:icons"],
-      "outputs": []
-    },
     "build": {
       "dependsOn": ["//#build:icons", "^build"],
       "outputs": ["build/**", "dist/**", "src/__generated__/**"]
     },
     "lint": {
-      "outputs": []
-    },
-    "test": {
-      "dependsOn": ["build"],
       "outputs": []
     },
     "ts-test": {
