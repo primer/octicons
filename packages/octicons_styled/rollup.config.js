@@ -1,6 +1,6 @@
 import babel from '@rollup/plugin-babel'
 // eslint-disable-next-line import/no-namespace
-import * as octicons from '../octicons_react/dist/index.esm'
+import * as octicons from '../octicons_react/dist/index.js'
 
 const icons = Object.keys(octicons).filter(name => name !== 'default')
 
@@ -10,12 +10,12 @@ export default [
     plugins: [
       babel({
         babelrc: false,
-        presets: [[require.resolve('@babel/preset-env'), {modules: false}], require.resolve('@babel/preset-react')],
+        presets: [['@babel/preset-env', {modules: false}], '@babel/preset-react'],
         babelHelpers: 'inline'
       })
     ],
     output: {
-      file: 'dist/index.umd.js',
+      file: 'dist/index.cjs',
       format: 'umd',
       name: 'reocticons'
     }
@@ -25,7 +25,7 @@ export default [
     plugins: [
       babel({
         babelrc: false,
-        presets: [[require.resolve('@babel/preset-env'), {modules: false}], require.resolve('@babel/preset-react')],
+        presets: [['@babel/preset-env', {modules: false}], '@babel/preset-react'],
         babelHelpers: 'bundled'
       })
     ],

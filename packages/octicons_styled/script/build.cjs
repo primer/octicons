@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const path = require('path')
 const fs = require('fs-extra')
-const octicons = require('../../octicons_react')
+const octicons = require('../../octicons_react/dist/index.cjs')
 
 const GENERATED_HEADER = '/* THIS FILE IS GENERATED. DO NOT EDIT IT. */'
 
@@ -37,11 +37,12 @@ for (const name of icons) {
   const location = path.join(iconsDir, `${name}.js`)
 
   const code = `${GENERATED_HEADER}
-import styled from 'styled-components'
+import styledComponents from 'styled-components'
 import * as styledSystem from 'styled-system'
-import {${name}} from '../../../../octicons_react/dist/index.esm'
+import {${name}} from '../../../../octicons_react/dist/index.js'
 import {COMMON, sx} from '../../utils'
 
+const styled = styledComponents.default || styledComponents
 const Styled${name} = styled(${name})(COMMON, sx)
 
 export default Styled${name}
@@ -51,7 +52,7 @@ export default Styled${name}
 
   console.log('Successfully built', name)
 
-  const exportString = `export { default as ${name} } from './icons/${name}';\r\n`
+  const exportString = `export { default as ${name} } from './icons/${name}.js';\r\n`
   fs.appendFileSync(path.join(generatedDir, 'index.js'), exportString, 'utf-8')
 
   const exportTypeString = `export const ${name}: Icon;\n`

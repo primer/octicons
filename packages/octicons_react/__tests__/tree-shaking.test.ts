@@ -1,8 +1,11 @@
-const path = require('node:path')
-const commonjs = require('@rollup/plugin-commonjs')
-const {nodeResolve} = require('@rollup/plugin-node-resolve')
-const {rollup} = require('rollup')
-const virtual = require('@rollup/plugin-virtual')
+import path from 'node:path'
+import {fileURLToPath} from 'node:url'
+import commonjs from '@rollup/plugin-commonjs'
+import {nodeResolve} from '@rollup/plugin-node-resolve'
+import virtual from '@rollup/plugin-virtual'
+import {rollup} from 'rollup'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const packageImport = path.resolve(__dirname, '..')
 

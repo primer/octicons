@@ -4,8 +4,7 @@ import pkg from '../package.json'
 // eslint-disable-next-line import/no-namespace
 import * as Octicons from '../'
 
-// eslint-disable-next-line no-unused-vars
-const {default: _Octicon, ...iconsByName} = Octicons
+const iconsByName = Octicons
 
 export default function App() {
   const sizes = ['small', 'medium', 'large']

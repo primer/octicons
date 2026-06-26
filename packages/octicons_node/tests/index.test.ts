@@ -1,5 +1,5 @@
 import {expect, test} from 'vitest'
-import octicons from '../index.js'
+import octicons from '../index.cjs'
 
 test('Octicons are loaded', () => {
   expect(octicons, "Didn't find any octicons.").toBeTruthy()

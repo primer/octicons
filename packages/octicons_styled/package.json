@@ -5,8 +5,9 @@
   "homepage": "https://primer.style/octicons",
   "author": "GitHub, Inc.",
   "license": "MIT",
-  "main": "dist/index.umd.js",
-  "module": "dist/index.esm.js",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "sideEffects": false,
   "types": "dist/index.d.ts",
   "repository": "primer/octicons",
@@ -14,10 +15,11 @@
     "dist"
   ],
   "scripts": {
-    "build": "script/build.js && npm run rollup && script/copy.sh",
+    "build": "script/build.cjs && npm run rollup && script/copy.sh",
+    "clean": "rm -rf dist src/__generated__",
     "ts-test": "tsc -P ts-tests",
-    "lint": "eslint 'src/**/*.js' 'src/**/*.tsx' script",
-    "rollup": "rollup -c --bundleConfigAsCjs"
+    "lint": "eslint 'src/**/*.js' 'src/**/*.tsx' 'script/**/*.cjs'",
+    "rollup": "rollup -c"
   },
   "keywords": [
     "GitHub",

@@ -1,6 +1,9 @@
 import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
-import packageJson from './package.json'
+import {createRequire} from 'node:module'
+
+const require = createRequire(import.meta.url)
+const packageJson = require('./package.json')
 
 const dependencies = [
   ...Object.keys(packageJson.peerDependencies ?? {}),
@@ -37,14 +40,14 @@ export default [
   {
     ...baseConfig,
     output: {
-      file: `dist/index.esm.mjs`,
+      file: `dist/index.js`,
       format: 'esm'
     }
   },
   {
     ...baseConfig,
     output: {
-      file: `dist/index.umd.js`,
+      file: `dist/index.cjs`,
       format: 'umd',
       name: 'reocticons',
       globals: {

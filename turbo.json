@@ -5,7 +5,7 @@
       "inputs": [
         "$TURBO_ROOT$/icons/**/*.svg",
         "$TURBO_ROOT$/keywords.json",
-        "$TURBO_ROOT$/script/build.js"
+        "$TURBO_ROOT$/script/build.cjs"
       ],
       "outputs": [
         "$TURBO_ROOT$/packages/build/data.json",

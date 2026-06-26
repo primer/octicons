@@ -4,7 +4,7 @@ import execa from 'execa'
 import {expect, test} from 'vitest'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const buildScript = path.resolve(__dirname, '../script/build.js')
+const buildScript = path.resolve(__dirname, '../script/build.cjs')
 
 async function expectBuildToFail(args) {
   try {

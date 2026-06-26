@@ -5,25 +5,25 @@
   "homepage": "https://primer.style/octicons",
   "author": "GitHub, Inc.",
   "license": "MIT",
-  "type": "commonjs",
-  "main": "dist/index.umd.js",
-  "module": "dist/index.esm.mjs",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "exports": {
     "types": {
-      "import": "./dist/index.d.mts",
-      "require": "./dist/index.d.ts"
+      "import": "./dist/index.d.ts",
+      "require": "./dist/index.d.cts"
     },
-    "import": "./dist/index.esm.mjs",
-    "require": "./dist/index.umd.js"
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
   },
   "sideEffects": false,
   "types": "dist/index.d.ts",
   "repository": "primer/octicons",
   "scripts": {
-    "build": "script/build.js && script/types.js && rollup -c",
+    "build": "script/build.cjs && script/types.cjs && rollup -c",
     "clean": "rimraf .next dist src/__generated__",
     "develop": "next",
-    "lint": "eslint 'src/**/*.js' 'src/**/*.tsx' '__tests__/**/*.ts' pages script",
+    "lint": "eslint 'src/**/*.js' 'src/**/*.tsx' '__tests__/**/*.ts' pages 'script/**/*.cjs'",
     "ts-test": "tsc -P ts-tests"
   },
   "files": [
