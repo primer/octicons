@@ -10,7 +10,7 @@ export default defineConfig({
     name: '@primer/styled-octicons',
     environment: 'jsdom',
     globals: true,
-    include: ['src/__tests__/**/*.jsx'],
-    setupFiles: ['./vitest.setup.js']
+    include: ['src/__tests__/**/*.tsx'],
+    setupFiles: ['./vitest.setup.ts']
   }
 })

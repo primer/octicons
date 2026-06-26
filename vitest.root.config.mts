@@ -2,8 +2,8 @@ import {defineConfig} from 'vitest/config'
 
 export default defineConfig({
   test: {
-    name: '@primer/octicons',
+    name: 'octicons',
     environment: 'node',
-    include: ['tests/*.js']
+    include: ['tests/*.ts']
   }
 })

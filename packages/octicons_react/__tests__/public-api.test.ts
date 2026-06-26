@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-namespace
 import * as Octicons from '../'
 
 describe('@primer/octicons-react', () => {

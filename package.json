@@ -13,7 +13,7 @@
     "changeset:version": "changeset version && script/version",
     "clean": "npm run clean --workspaces --if-present && rm -rf packages/build .turbo",
     "lint": "turbo run lint //#lint:root",
-    "lint:root": "eslint tests",
+    "lint:root": "eslint --ext .ts tests",
     "release": "script/release",
     "svgo": "svgo icons --config svgo.config.js",
     "test": "npm run build && vitest run && turbo run ts-test",

@@ -18,7 +18,7 @@
   },
   "scripts": {
     "build": "\\cp -r ../build/. ./build && \\cp index.scss ./build/build.css",
-    "lint": "eslint index.js tests/*.js"
+    "lint": "eslint --ext .js,.ts index.js tests"
   },
   "keywords": [
     "GitHub",

@@ -27,7 +27,7 @@ export default defineConfig({
     name: '@primer/octicons-react',
     environment: 'jsdom',
     globals: true,
-    include: ['__tests__/**/*.js', 'src/__tests__/**/*.jsx'],
-    setupFiles: ['./vitest.setup.js']
+    include: ['__tests__/**/*.ts', 'src/__tests__/**/*.tsx'],
+    setupFiles: ['./vitest.setup.ts']
   }
 })
