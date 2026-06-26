@@ -1,0 +1,38 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "tasks": {
+    "//#build:icons": {
+      "inputs": [
+        "$TURBO_ROOT$/icons/**/*.svg",
+        "$TURBO_ROOT$/keywords.json",
+        "$TURBO_ROOT$/script/build.js"
+      ],
+      "outputs": [
+        "$TURBO_ROOT$/lib/build/data.json",
+        "$TURBO_ROOT$/lib/build/svg/**"
+      ]
+    },
+    "//#lint:root": {
+      "outputs": []
+    },
+    "//#test:root": {
+      "dependsOn": ["//#build:icons"],
+      "outputs": []
+    },
+    "build": {
+      "dependsOn": ["//#build:icons", "^build"],
+      "outputs": ["build/**", "dist/**", "src/__generated__/**"]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "outputs": []
+    },
+    "ts-test": {
+      "dependsOn": ["build"],
+      "outputs": []
+    }
+  }
+}

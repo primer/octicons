@@ -1,18 +1,26 @@
 {
-  "name": "@primer/octicons",
+  "name": "octicons",
   "version": "19.15.1",
-  "publishConfig": {
-    "registry": "no registry, don't publish from this package.json."
-  },
+  "private": true,
+  "workspaces": [
+    "lib/octicons_node",
+    "lib/octicons_react",
+    "lib/octicons_styled"
+  ],
   "scripts": {
-    "build": "script/build.js --input icons/**/*.svg --output lib/build/data.json",
+    "build": "turbo run build",
+    "build:icons": "script/build.js --input icons/**/*.svg --output lib/build/data.json && rm -rf lib/build/svg && mkdir -p lib/build/svg && cp -R icons/. lib/build/svg",
     "changeset:version": "changeset version && script/version",
-    "lint": "eslint tests",
+    "clean": "npm run clean --workspaces --if-present && rm -rf lib/build .turbo",
+    "lint": "turbo run lint //#lint:root",
+    "lint:root": "eslint tests",
+    "release": "script/release",
     "svgo": "svgo icons --config svgo.config.js",
-    "test": "ava -v tests/*.js",
+    "test": "turbo run test ts-test //#test:root",
+    "test:root": "ava -v tests/*.js",
     "version": "script/version"
   },
-  "dependencies": {
+  "devDependencies": {
     "@changesets/changelog-github": "0.4.1",
     "@changesets/cli": "2.17.0",
     "@github/prettier-config": "0.0.6",
@@ -31,6 +39,8 @@
     "svgo": "3.0.2",
     "svgson": "5.2.1",
     "trim-newlines": "3.0.1",
+    "turbo": "2.10.0",
+    "typescript": "4.8.3",
     "yargs": "15.1.0"
   },
   "eslintConfig": {
@@ -51,5 +61,9 @@
       "eslint-comments/no-use": 0
     }
   },
-  "packageManager": "yarn@1.22.1"
+  "engines": {
+    "node": ">=20.17",
+    "npm": ">=10"
+  },
+  "packageManager": "npm@11.17.0"
 }

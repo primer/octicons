@@ -1,5 +1,4 @@
 *.gem
-/package-lock.json
 *.log
 .DS_Store
 .bundle
@@ -7,6 +6,7 @@
 node_modules
 vendor
 Gemfile.lock
+.turbo
 
 # Ignore build/export artifacts
 lib/**/build/
