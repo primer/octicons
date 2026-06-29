@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.29.0
+
+### Minor Changes
+
+- [#1228](https://github.com/primer/octicons/pull/1228) [`2f1449f1`](https://github.com/primer/octicons/commit/2f1449f1567b966f6a144b84d8109401d8e7fd29) Thanks [@dylanatsmith](https://github.com/dylanatsmith)! - Add project-check, graph-stacked-area, and view-files icons (16px and 24px)
+
 ## 19.28.1
 
 ### Patch Changes
