@@ -16,7 +16,6 @@ jobs:
       - run: yarn
       - name: Building
         run: yarn build
-      - run: cp -r icons lib/build/svg
       - uses: actions/upload-artifact@v4
         with:
           name: octicons-build

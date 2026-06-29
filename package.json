@@ -5,10 +5,11 @@
     "registry": "no registry, don't publish from this package.json."
   },
   "scripts": {
-    "build": "script/build.js --input icons/**/*.svg --output lib/build/data.json",
+    "build": "yarn optimize && script/build.js --input lib/build/svg/**/*.svg --output lib/build/data.json",
     "changeset:version": "changeset version && script/version",
     "lint": "eslint tests",
-    "svgo": "svgo icons --config svgo.config.js",
+    "optimize": "svgo --quiet -f icons -o lib/build/svg --config svgo.config.js",
+    "svgo": "yarn optimize",
     "test": "ava -v tests/*.js",
     "version": "script/version"
   },

@@ -61,7 +61,9 @@ git remote add upstream https://github.com/primer/octicons
 git checkout -b <branch-name>
 ```
 
-#### 3. Add or update SVG files in the `/icons` directory
+#### 3. Add or update source SVG files in the `/icons` directory
+
+The `/icons` directory holds the **source** SVG files. You can commit your authorable (unoptimized) SVGs here — there's no need to optimize them by hand. The optimized SVGs that ship in the published packages are generated at build time (see [Building](#building) below), so the source files stay easy to edit.
 
 #### 4. Add or update keywords in `keywords.json`
 
@@ -110,6 +112,36 @@ Here are a few questions we'll ask when reviewing new octicons. Keep these in mi
 - Could we use an existing icon?
 - Is the icon trying to represent too many ideas?
 - Does it follow the design guidelines?
+
+## Building
+
+The source SVG files live in the `/icons` directory. The build optimizes those
+sources with [SVGO](https://github.com/svg/svgo) (using `svgo.config.js`) and
+emits the optimized assets into the generated `lib/build` directory, which is
+what the published packages and releases distribute:
+
+- `lib/build/svg/` — the optimized SVG files
+- `lib/build/data.json` — icon metadata generated from the optimized SVGs
+
+To run the full build locally:
+
+```shell
+# Install dependencies
+yarn
+
+# Optimize the source SVGs and generate the build data
+yarn build
+```
+
+You can also run just the optimization step on its own:
+
+```shell
+yarn optimize
+```
+
+The source SVGs in `/icons` are never modified by the build — optimization
+always writes to the generated `lib/build/svg` directory, so the authorable
+sources are preserved.
 
 ## Releasing changes
 
