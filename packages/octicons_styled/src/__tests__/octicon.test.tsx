@@ -66,7 +66,7 @@ describe('An icon component', () => {
       const {container} = render(
         <ThemeProvider theme={theme}>
           <AlertIcon color="red.1" />
-        </ThemeProvider>
+        </ThemeProvider>,
       )
       expect(container.querySelector('svg')).toHaveStyle({color: '#ffdce0'})
     })
@@ -76,13 +76,13 @@ describe('An icon component', () => {
       const {container} = render(
         <ThemeProvider theme={theme}>
           <AlertIcon ml={2} mt={1} mr={3} mb={4} />
-        </ThemeProvider>
+        </ThemeProvider>,
       )
       expect(container.querySelector('svg')).toHaveStyle({
         marginTop: '4px',
         marginLeft: '8px',
         marginRight: '16px',
-        marginBottom: '24px'
+        marginBottom: '24px',
       })
     })
 
@@ -91,7 +91,7 @@ describe('An icon component', () => {
       const {container} = render(
         <ThemeProvider theme={theme}>
           <AlertIcon sx={{color: 'red.0'}} />
-        </ThemeProvider>
+        </ThemeProvider>,
       )
       expect(container.querySelector('svg')).toHaveStyle({color: '#ffeef0'})
     })

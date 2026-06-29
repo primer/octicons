@@ -7,9 +7,17 @@
   "license": "MIT",
   "type": "module",
   "style": "index.scss",
-  "main": "index.cjs",
+  "main": "index.js",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "default": "./index.js"
+    },
+    "./index.scss": "./index.scss",
+    "./build/*": "./build/*"
+  },
   "files": [
-    "index.cjs",
+    "index.js",
     "index.scss",
     "build"
   ],
@@ -17,10 +25,18 @@
   "bugs": {
     "url": "https://github.com/primer/octicons/issues"
   },
+  "prettier": {
+    "printWidth": 120,
+    "semi": false,
+    "singleQuote": true,
+    "bracketSpacing": false,
+    "trailingComma": "all",
+    "arrowParens": "avoid"
+  },
   "scripts": {
     "build": "\\cp -r ../build/. ./build && \\cp index.scss ./build/build.css",
     "clean": "rm -rf build",
-    "lint": "eslint --ext .cjs,.js,.ts index.cjs tests"
+    "lint": "eslint --ext .js,.ts index.js tests"
   },
   "keywords": [
     "GitHub",
@@ -28,11 +44,7 @@
     "svg",
     "octicons"
   ],
-  "dependencies": {
-    "object-assign": "^4.1.1"
-  },
   "devDependencies": {
-    "@github/prettier-config": "0.0.4",
     "eslint": "^6.5.1",
     "eslint-plugin-github": "4.1.3"
   },
@@ -46,7 +58,8 @@
       "node": true
     },
     "parserOptions": {
-      "ecmaVersion": 2017,
+      "ecmaVersion": 2020,
+      "sourceType": "module",
       "requireConfigFile": false
     },
     "rules": {

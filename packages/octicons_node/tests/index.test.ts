@@ -1,5 +1,5 @@
 import {expect, test} from 'vitest'
-import octicons from '../index.cjs'
+import octicons from '../index.js'
 
 test('Octicons are loaded', () => {
   expect(octicons, "Didn't find any octicons.").toBeTruthy()
@@ -23,7 +23,7 @@ test('Octicons have default html attributes', () => {
     expect(svg, `The octicon "${point}" doesn't have the height attribute`).toMatch(/height=/)
     expect(svg, `The octicon "${point}" doesn't have the viewBox attribute`).toMatch(/viewBox=/)
     expect(svg, `The octicon "${point}" doesn't have the class attribute`).toMatch(
-      new RegExp(`class="octicon octicon-${octicons[point].symbol}"`)
+      new RegExp(`class="octicon octicon-${octicons[point].symbol}"`),
     )
   }
 })
@@ -33,7 +33,7 @@ test('Passing in classnames will be included in output', () => {
   for (const point of Object.keys(octicons)) {
     const svg = octicons[point].toSVG({class: 'new-class another-class'})
     expect(svg, `The octicon "${point}" doesn't have the class attribute`).toMatch(
-      new RegExp(`class="octicon octicon-${octicons[point].symbol} new-class another-class"`)
+      new RegExp(`class="octicon octicon-${octicons[point].symbol} new-class another-class"`),
     )
   }
 })

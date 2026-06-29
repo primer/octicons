@@ -6,24 +6,31 @@
   "author": "GitHub, Inc.",
   "license": "MIT",
   "type": "module",
-  "main": "dist/index.cjs",
+  "main": "dist/index.js",
   "module": "dist/index.js",
   "exports": {
-    "types": {
-      "import": "./dist/index.d.ts",
-      "require": "./dist/index.d.cts"
-    },
-    "import": "./dist/index.js",
-    "require": "./dist/index.cjs"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
   },
   "sideEffects": false,
   "types": "dist/index.d.ts",
   "repository": "primer/octicons",
+  "prettier": {
+    "printWidth": 120,
+    "semi": false,
+    "singleQuote": true,
+    "bracketSpacing": false,
+    "trailingComma": "all",
+    "arrowParens": "avoid"
+  },
   "scripts": {
-    "build": "script/build.cjs && script/types.cjs && rollup -c",
+    "build": "script/build.js && script/types.js && rollup -c",
     "clean": "rimraf .next dist src/__generated__",
     "develop": "next",
-    "lint": "eslint 'src/**/*.js' 'src/**/*.tsx' '__tests__/**/*.ts' pages 'script/**/*.cjs'",
+    "lint": "eslint 'src/**/*.js' 'src/**/*.tsx' '__tests__/**/*.ts' pages script",
     "ts-test": "tsc -P ts-tests"
   },
   "files": [
@@ -43,7 +50,6 @@
     "@babel/preset-env": "7.19.1",
     "@babel/preset-react": "7.18.6",
     "@babel/types": "7.19.0",
-    "@github/prettier-config": "0.0.4",
     "@primer/components": "27.0.0",
     "@rollup/plugin-babel": "5.3.1",
     "@rollup/plugin-commonjs": "22.0.2",

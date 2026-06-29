@@ -1,5 +1,6 @@
-const data = require('./build/data.json')
-const objectAssign = require('object-assign')
+import fs from 'node:fs'
+
+const data = JSON.parse(fs.readFileSync(new URL('./build/data.json', import.meta.url), 'utf8'))
 
 const DEFAULT_HEIGHT = 16
 
@@ -7,7 +8,7 @@ for (const key of Object.keys(data)) {
   // Returns a string representation of html attributes
   const htmlAttributes = (icon, defaultOptions, options) => {
     const attributes = []
-    const attrObj = objectAssign({}, defaultOptions, options)
+    const attrObj = Object.assign({}, defaultOptions, options)
 
     // If the user passed in options
     if (options) {
@@ -55,7 +56,7 @@ for (const key of Object.keys(data)) {
       height: parseInt(height),
       viewBox: `0 0 ${data[key].heights[height].width} ${height}`,
       class: `octicon octicon-${key}`,
-      'aria-hidden': 'true'
+      'aria-hidden': 'true',
     }
   }
 
@@ -69,8 +70,7 @@ for (const key of Object.keys(data)) {
   }
 }
 
-// Import data into exports
-module.exports = data
+export default data
 
 function closestNaturalHeight(naturalHeights, height) {
   return naturalHeights

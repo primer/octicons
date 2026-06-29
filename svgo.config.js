@@ -1,6 +1,4 @@
-/* eslint-disable import/no-commonjs,filenames/match-regex */
-
-module.exports = {
+export default {
   multipass: true,
   plugins: [
     {

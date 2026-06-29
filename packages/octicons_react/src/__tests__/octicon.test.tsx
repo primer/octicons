@@ -23,7 +23,7 @@ describe('An icon component', () => {
       <>
         <span id="label">Alert</span>
         <AlertIcon aria-labelledby="label" />
-      </>
+      </>,
     )
     expect(screen.getByLabelText('Alert')).toHaveAttribute('role', 'img')
   })

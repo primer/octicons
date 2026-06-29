@@ -18,7 +18,8 @@ For all the usages, we recommend using the CSS located in [`build/build.css`](ht
 After installing `@primer/octicons` you can access the icons like this:
 
 ```js
-var octicons = require("@primer/octicons")
+import octicons from '@primer/octicons'
+
 octicons.alert
 // {
 //     symbol: 'alert',

@@ -1,7 +1,9 @@
 #!/usr/bin/env node
-const fse = require('fs-extra')
-const {join, resolve} = require('path')
+import fse from 'fs-extra'
+import {fileURLToPath} from 'node:url'
+import {dirname, join, resolve} from 'node:path'
 
+const __dirname = dirname(fileURLToPath(import.meta.url))
 const srcDir = resolve(__dirname, '../src/__generated__')
 const iconsSrc = join(srcDir, 'icons.d.ts')
 const indexSrc = join(srcDir, '../index.d.ts')
@@ -15,9 +17,8 @@ async function main() {
 
   let contents = await fse.readFile(indexSrc, 'utf8')
   contents = contents.replace(/.\/__generated__\//g, './')
-
   await fse.writeFile(indexDest, contents, 'utf8')
-  await fse.writeFile(join(destDir, 'index.d.cts'), contents, 'utf8')
+  await fse.writeFile(indexDest, contents, 'utf8')
 }
 
 main().catch(error => {

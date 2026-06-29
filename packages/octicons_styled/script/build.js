@@ -1,10 +1,13 @@
 #!/usr/bin/env node
-const path = require('path')
-const fs = require('fs-extra')
-const octicons = require('../../octicons_react/dist/index.cjs')
+import fs from 'fs-extra'
+import path from 'node:path'
+import {fileURLToPath} from 'node:url'
+// eslint-disable-next-line import/no-namespace
+import * as octicons from '../../octicons_react/dist/index.js'
 
 const GENERATED_HEADER = '/* THIS FILE IS GENERATED. DO NOT EDIT IT. */'
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const generatedDir = path.join(__dirname, '../src/__generated__')
 const iconsDir = path.join(generatedDir, 'icons')
 

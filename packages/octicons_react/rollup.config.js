@@ -1,9 +1,8 @@
 import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
-import {createRequire} from 'node:module'
+import {readFileSync} from 'node:fs'
 
-const require = createRequire(import.meta.url)
-const packageJson = require('./package.json')
+const packageJson = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8'))
 
 const dependencies = [
   ...Object.keys(packageJson.peerDependencies ?? {}),
@@ -42,17 +41,6 @@ export default [
     output: {
       file: `dist/index.js`,
       format: 'esm'
-    }
-  },
-  {
-    ...baseConfig,
-    output: {
-      file: `dist/index.cjs`,
-      format: 'umd',
-      name: 'reocticons',
-      globals: {
-        react: 'React'
-      }
     }
   }
 ]

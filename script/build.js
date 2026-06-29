@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 /* eslint-env node */
-const fs = require('fs-extra')
-const path = require('path')
-const globby = require('globby')
-const cheerio = require('cheerio')
-const {parseSync} = require('svgson')
-const trimNewlines = require('trim-newlines')
-const yargs = require('yargs')
-const merge = require('lodash.merge')
-const keywords = require('../keywords.json')
+import fs from 'fs-extra'
+import path from 'node:path'
+import globby from 'globby'
+import cheerio from 'cheerio'
+import {parseSync} from 'svgson'
+import trimNewlines from 'trim-newlines'
+import yargs from 'yargs'
+import merge from 'lodash.merge'
+
+const keywords = fs.readJsonSync(new URL('../keywords.json', import.meta.url))
 
 // This script generates a JSON file that contains
 // information about input SVG files.

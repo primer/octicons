@@ -3,7 +3,7 @@ import React from 'react'
 const sizeMap = {
   small: 16,
   medium: 32,
-  large: 64
+  large: 64,
 }
 
 export function createIconComponent(name, defaultClassName, getSVGData) {
@@ -25,7 +25,7 @@ export function createIconComponent(name, defaultClassName, getSVGData) {
         style,
         ...rest
       },
-      forwardedRef
+      forwardedRef,
     ) => {
       const height = sizeMap[size] || size
       const naturalHeight = closestNaturalHeight(heights, height)
@@ -55,14 +55,14 @@ export function createIconComponent(name, defaultClassName, getSVGData) {
           overflow="visible"
           style={{
             verticalAlign,
-            ...style
+            ...style,
           }}
         >
           {title ? <title>{title}</title> : null}
           {path}
         </svg>
       )
-    }
+    },
   )
 
   Icon.displayName = name

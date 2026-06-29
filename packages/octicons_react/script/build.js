@@ -1,11 +1,35 @@
 #!/usr/bin/env node
 
-const octicons = require('../../build/data.json')
-const {default: generate} = require('@babel/generator')
-const t = require('@babel/types')
-const fse = require('fs-extra')
-const {join, resolve} = require('path')
+import generator from '@babel/generator'
+import {
+  objectExpression,
+  objectProperty,
+  stringLiteral,
+  numericLiteral,
+  variableDeclaration,
+  variableDeclarator,
+  identifier,
+  addComment,
+  callExpression,
+  arrowFunctionExpression,
+  blockStatement,
+  returnStatement,
+  jsxFragment,
+  jsxOpeningFragment,
+  jsxClosingFragment,
+  jsxAttribute,
+  jsxIdentifier,
+  jsxOpeningElement,
+  jsxClosingElement,
+  jsxElement,
+} from '@babel/types'
+import fse from 'fs-extra'
+import {fileURLToPath} from 'node:url'
+import {dirname, join, resolve} from 'node:path'
 
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const generate = generator.default
+const octicons = fse.readJsonSync(new URL('../../build/data.json', import.meta.url))
 const srcDir = resolve(__dirname, '../src/__generated__')
 const iconsFile = join(srcDir, 'icons.js')
 const typesFile = join(srcDir, 'icons.d.ts')
@@ -28,16 +52,16 @@ const icons = Object.entries(octicons)
     //   },
     // }
     //
-    const svgData = t.objectExpression(
+    const svgData = objectExpression(
       Object.entries(octicon.heights).map(([height, icon]) => {
-        return t.objectProperty(
-          t.stringLiteral(height),
-          t.objectExpression([
-            t.objectProperty(t.stringLiteral('width'), t.numericLiteral(icon.width)),
-            t.objectProperty(t.stringLiteral('path'), svgToJSX(icon.ast))
-          ])
+        return objectProperty(
+          stringLiteral(height),
+          objectExpression([
+            objectProperty(stringLiteral('width'), numericLiteral(icon.width)),
+            objectProperty(stringLiteral('path'), svgToJSX(icon.ast)),
+          ]),
         )
-      })
+      }),
     )
     // Define the icon by using the `createIconComponent` helper and the svgData
     // defined above. This generates the following:
@@ -47,29 +71,29 @@ const icons = Object.entries(octicons)
     // }));
     //
     const {code} = generate(
-      t.variableDeclaration('const', [
-        t.variableDeclarator(
-          t.identifier(name),
-          t.addComment(
-            t.callExpression(t.identifier('createIconComponent'), [
+      variableDeclaration('const', [
+        variableDeclarator(
+          identifier(name),
+          addComment(
+            callExpression(identifier('createIconComponent'), [
               // The name of the generated icon
-              t.stringLiteral(name),
+              stringLiteral(name),
               // The className used on the underlying <svg> element
-              t.stringLiteral(`octicon octicon-${key}`),
-              t.arrowFunctionExpression([], t.blockStatement([t.returnStatement(svgData)]))
+              stringLiteral(`octicon octicon-${key}`),
+              arrowFunctionExpression([], blockStatement([returnStatement(svgData)])),
             ]),
             'leading',
-            '#__PURE__'
-          )
-        )
-      ])
+            '#__PURE__',
+          ),
+        ),
+      ]),
     )
 
     return {
       key,
       name,
       octicon,
-      code
+      code,
     }
   })
   .sort((a, b) => a.key.localeCompare(b.key))
@@ -143,7 +167,7 @@ function svgToJSX(node) {
       }
 
       if (children.length > 1) {
-        return t.jsxFragment(t.jsxOpeningFragment(), t.jsxClosingFragment(), children)
+        return jsxFragment(jsxOpeningFragment(), jsxClosingFragment(), children)
       }
 
       return children[0]
@@ -153,16 +177,16 @@ function svgToJSX(node) {
       if (typeof value !== 'string') {
         throw new Error(`Unknown value type: ${value}`)
       }
-      return t.jsxAttribute(t.jsxIdentifier(key), t.stringLiteral(value))
+      return jsxAttribute(jsxIdentifier(key), stringLiteral(value))
     })
-    const openingElement = t.jsxOpeningElement(t.jsxIdentifier(node.name), attrs, children.length === 0)
-    const closingElement = t.jsxClosingElement(t.jsxIdentifier(node.name))
+    const openingElement = jsxOpeningElement(jsxIdentifier(node.name), attrs, children.length === 0)
+    const closingElement = jsxClosingElement(jsxIdentifier(node.name))
 
     if (children.length > 0) {
-      return t.jsxElement(openingElement, closingElement, children, false)
+      return jsxElement(openingElement, closingElement, children, false)
     }
 
-    return t.jsxElement(openingElement, closingElement, [], true)
+    return jsxElement(openingElement, closingElement, [], true)
   }
 
   throw new Error(`Unknown type: ${node.type}`)

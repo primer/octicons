@@ -17,18 +17,18 @@ test('tree shaking', async () => {
       nodeResolve(),
       commonjs(),
       virtual({
-        __entrypoint__: `import { AlertIcon } from '${packageImport}'`
-      })
+        __entrypoint__: `import { AlertIcon } from '${packageImport}'`,
+      }),
     ],
 
     onwarn: ({code, message}) => {
       if (code !== 'EMPTY_BUNDLE') {
         throw new Error(message)
       }
-    }
+    },
   })
   const {output} = await bundle.generate({
-    format: 'esm'
+    format: 'esm',
   })
 
   for (const {code} of output) {
@@ -44,12 +44,12 @@ test('tree shaking single export', async () => {
       nodeResolve(),
       commonjs(),
       virtual({
-        __entrypoint__: `export { XIcon } from '${packageImport}'`
-      })
-    ]
+        __entrypoint__: `export { XIcon } from '${packageImport}'`,
+      }),
+    ],
   })
   const {output} = await bundle.generate({
-    format: 'esm'
+    format: 'esm',
   })
 
   const bundleSize = Buffer.byteLength(output[0].code.trim()) / 1000

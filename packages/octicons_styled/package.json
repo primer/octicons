@@ -6,19 +6,34 @@
   "author": "GitHub, Inc.",
   "license": "MIT",
   "type": "module",
-  "main": "dist/index.cjs",
+  "main": "dist/index.js",
   "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
   "sideEffects": false,
   "types": "dist/index.d.ts",
   "repository": "primer/octicons",
+  "prettier": {
+    "printWidth": 120,
+    "semi": false,
+    "singleQuote": true,
+    "bracketSpacing": false,
+    "trailingComma": "all",
+    "arrowParens": "avoid"
+  },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "script/build.cjs && npm run rollup && script/copy.sh",
+    "build": "script/build.js && npm run rollup && script/copy.sh",
     "clean": "rm -rf dist src/__generated__",
     "ts-test": "tsc -P ts-tests",
-    "lint": "eslint 'src/**/*.js' 'src/**/*.tsx' 'script/**/*.cjs'",
+    "lint": "eslint 'src/**/*.js' 'src/**/*.tsx' script",
     "rollup": "rollup -c"
   },
   "keywords": [
@@ -44,7 +59,6 @@
     "@babel/core": "7.24.7",
     "@babel/preset-env": "7.24.7",
     "@babel/preset-react": "7.24.7",
-    "@github/prettier-config": "0.0.4",
     "@primer/octicons-react": "19.15.1",
     "@rollup/plugin-babel": "6.0.4",
     "@testing-library/jest-dom": "^6.6.3",
