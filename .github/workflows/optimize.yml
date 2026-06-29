@@ -57,7 +57,10 @@ jobs:
         if: steps.changed.outputs.has_changes == 'true'
       - name: Run svgo on changed icons
         if: steps.changed.outputs.has_changes == 'true'
-        run: npx svgo --config svgo.config.js ${{ steps.changed.outputs.files }}
+        run: |
+          while IFS= read -r icon; do
+            npx svgo --config svgo.config.js "$icon"
+          done <<< "${{ steps.changed.outputs.files }}"
 
       - uses: EndBug/add-and-commit@v4
         if: steps.changed.outputs.has_changes == 'true'
