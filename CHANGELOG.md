@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.29.1
+
+### Patch Changes
+
+- [#1238](https://github.com/primer/octicons/pull/1238) [`91db6df3`](https://github.com/primer/octicons/commit/91db6df30c4c1fc708a57a9d7e2ef3719fae9cfc) Thanks [@liuliu-dev](https://github.com/liuliu-dev)! - Fix `repo-forked-locked-16` rendering mangled
+
 ## 19.29.0
 
 ### Minor Changes
