@@ -192,7 +192,7 @@
   "primitive-dot-stroke": ["circle", "dot", "unread"],
   "primitive-square": ["box"],
   "project": ["board", "kanban", "columns", "scrum"],
-  "project-template": ["board", "kanban", "columns", "scrum", "template"]
+  "project-template": ["board", "kanban", "columns", "scrum", "template"],
   "pulse": ["graph", "trend", "line", "activity"],
   "question": ["help", "explain"],
   "quote": ["quotation"],
