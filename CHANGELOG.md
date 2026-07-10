@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.29.2
+
+### Patch Changes
+
+- [#1232](https://github.com/primer/octicons/pull/1232) [`71e1709e`](https://github.com/primer/octicons/commit/71e1709efe0b9c8869b618fac7d2671101b45d76) Thanks [@alexislucio](https://github.com/alexislucio)! - Add keywords for `project-template` icon
+
 ## 19.29.1
 
 ### Patch Changes
