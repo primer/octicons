@@ -1,6 +1,12 @@
 {
   "name": "@primer/octicons",
   "version": "19.29.2",
+  "private": true,
+  "workspaces": [
+    "lib/octicons_node",
+    "lib/octicons_react",
+    "lib/octicons_styled"
+  ],
   "publishConfig": {
     "registry": "no registry, don't publish from this package.json."
   },
@@ -51,5 +57,5 @@
       "eslint-comments/no-use": 0
     }
   },
-  "packageManager": "yarn@1.22.1"
+  "packageManager": "npm@11.16.0"
 }

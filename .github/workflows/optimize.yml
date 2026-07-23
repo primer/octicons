@@ -53,7 +53,7 @@ jobs:
         if: steps.changed.outputs.has_changes == 'true'
         with:
           node-version: 18
-      - run: npm install
+      - run: npm ci
         if: steps.changed.outputs.has_changes == 'true'
       - name: Run svgo on changed icons
         if: steps.changed.outputs.has_changes == 'true'
