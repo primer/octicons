@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-      - run: npm install
+      - run: npm ci
       - run: npm run build
       - run: cp -r icons lib/build/svg
       - uses: actions/upload-artifact@v4

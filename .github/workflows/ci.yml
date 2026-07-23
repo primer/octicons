@@ -13,9 +13,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 20
-      - run: yarn
+      - run: npm ci
       - name: Building
-        run: yarn build
+        run: npm run build
       - run: cp -r icons lib/build/svg
       - uses: actions/upload-artifact@v4
         with:
@@ -35,11 +35,11 @@ jobs:
         with:
           name: octicons-build
           path: ./lib/build
-      - run: yarn
+      - run: npm ci
       - name: Lint
-        run: yarn lint
+        run: npm run lint
       - name: Test
-        run: yarn test
+        run: npm test
 
   octicons_node:
     name: 'npm:@primer/octicons'
@@ -57,13 +57,13 @@ jobs:
         with:
           name: octicons-build
           path: ./lib/build
-      - run: yarn
+      - run: npm ci --include-workspace-root
       - name: Building
-        run: yarn build
+        run: npm run build
       - name: Lint
-        run: yarn lint
+        run: npm run lint
       - name: Test
-        run: yarn test
+        run: npm test
 
   octicons_react:
     name: 'npm:@primer/octicons-react'
@@ -81,13 +81,13 @@ jobs:
         with:
           name: octicons-build
           path: ./lib/build
-      - run: yarn
+      - run: npm ci --include-workspace-root
       - name: Building
-        run: yarn build
+        run: npm run build
       - name: Lint
-        run: yarn lint
+        run: npm run lint
       - name: Test
-        run: yarn test
+        run: npm test
       - name: Types
         run: |
           # Run @arethetypeswrong/cli
