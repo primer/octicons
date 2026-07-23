@@ -38,43 +38,43 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.0
-      - name: Build and publish octicons gem
-        env:
-          RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
-          PACKAGE_NAME: octicons_gem
+      - name: Determine package version
+        id: package
         run: |
-          set -e
-
           PACKAGE_VERSION=$(ruby -rjson -e "puts JSON.parse(File.read('package.json'))['version']")
           PACKAGE_VERSION=$(echo "$PACKAGE_VERSION" | sed -e 's/^0\.0\.0./0.0.0.pre./g')
-          PACKAGE_VERSION=$(echo "$PACKAGE_VERSION" | sed -e 's/-rc/.pre/g')
-
-          echo "************* Building v$PACKAGE_VERSION *************"
-
+          echo "version=$(echo "$PACKAGE_VERSION" | sed -e 's/-rc/.pre/g')" >> "$GITHUB_OUTPUT"
+      - name: Configure RubyGems credentials
+        env:
+          RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
+        run: |
           mkdir -p ~/.gem
-          cat << EOF > ~/.gem/credentials
-          ---
-          :rubygems_api_key: ${RUBYGEMS_TOKEN}
-          EOF
+          printf -- "---\n:rubygems_api_key: %s\n" "$RUBYGEMS_TOKEN" > ~/.gem/credentials
           chmod 0600 ~/.gem/credentials
-
-          cd "./lib/$PACKAGE_NAME"
-
-          echo "**************** Copying assets files to build directory ****************"
+      - name: Prepare octicons gem
+        working-directory: ./lib/octicons_gem
+        env:
+          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
+        run: |
           cp -R ../build lib/
-
           perl -pi -e "s/\"octicons\", \"[^\"]+\"/\"octicons\", \"${PACKAGE_VERSION}\"/" ./Gemfile ./*.gemspec
-
-          echo "**************** Installing ****************"
-          bundle install
-
-          echo "**************** Versioning ****************"
-          bundle exec rake version\["$PACKAGE_VERSION"\]
-
-          bundle update
-
-          echo "**************** Building ****************"
-          bundle exec rake build
+      - name: Install dependencies
+        working-directory: ./lib/octicons_gem
+        run: bundle install
+      - name: Version octicons gem
+        working-directory: ./lib/octicons_gem
+        env:
+          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
+        run: bundle exec rake version\["$PACKAGE_VERSION"\]
+      - name: Update dependencies
+        working-directory: ./lib/octicons_gem
+        run: bundle update
+      - name: Build octicons gem
+        working-directory: ./lib/octicons_gem
+        run: bundle exec rake build
+      - name: Publish octicons gem
+        working-directory: ./lib/octicons_gem
+        run: |
           GEM_PUSH_OUTPUT=$(gem push pkg/*.gem 2>&1) || {
             echo "$GEM_PUSH_OUTPUT"
             echo "$GEM_PUSH_OUTPUT" | grep -q "Repushing of gem versions is not allowed" || exit 1
@@ -101,43 +101,43 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.0
-      - name: Build and publish octicons helper gem
-        env:
-          RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
-          PACKAGE_NAME: octicons_helper
+      - name: Determine package version
+        id: package
         run: |
-          set -e
-
           PACKAGE_VERSION=$(ruby -rjson -e "puts JSON.parse(File.read('package.json'))['version']")
           PACKAGE_VERSION=$(echo "$PACKAGE_VERSION" | sed -e 's/^0\.0\.0./0.0.0.pre./g')
-          PACKAGE_VERSION=$(echo "$PACKAGE_VERSION" | sed -e 's/-rc/.pre/g')
-
-          echo "************* Building v$PACKAGE_VERSION *************"
-
+          echo "version=$(echo "$PACKAGE_VERSION" | sed -e 's/-rc/.pre/g')" >> "$GITHUB_OUTPUT"
+      - name: Configure RubyGems credentials
+        env:
+          RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
+        run: |
           mkdir -p ~/.gem
-          cat << EOF > ~/.gem/credentials
-          ---
-          :rubygems_api_key: ${RUBYGEMS_TOKEN}
-          EOF
+          printf -- "---\n:rubygems_api_key: %s\n" "$RUBYGEMS_TOKEN" > ~/.gem/credentials
           chmod 0600 ~/.gem/credentials
-
-          cd "./lib/$PACKAGE_NAME"
-
-          echo "**************** Copying assets files to build directory ****************"
+      - name: Prepare octicons helper gem
+        working-directory: ./lib/octicons_helper
+        env:
+          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
+        run: |
           cp -R ../build lib/
-
           perl -pi -e "s/\"octicons\", \"[^\"]+\"/\"octicons\", \"${PACKAGE_VERSION}\"/" ./Gemfile ./*.gemspec
-
-          echo "**************** Installing ****************"
-          bundle install
-
-          echo "**************** Versioning ****************"
-          bundle exec rake version\["$PACKAGE_VERSION"\]
-
-          bundle update
-
-          echo "**************** Building ****************"
-          bundle exec rake build
+      - name: Install dependencies
+        working-directory: ./lib/octicons_helper
+        run: bundle install
+      - name: Version octicons helper gem
+        working-directory: ./lib/octicons_helper
+        env:
+          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
+        run: bundle exec rake version\["$PACKAGE_VERSION"\]
+      - name: Update dependencies
+        working-directory: ./lib/octicons_helper
+        run: bundle update
+      - name: Build octicons helper gem
+        working-directory: ./lib/octicons_helper
+        run: bundle exec rake build
+      - name: Publish octicons helper gem
+        working-directory: ./lib/octicons_helper
+        run: |
           GEM_PUSH_OUTPUT=$(gem push pkg/*.gem 2>&1) || {
             echo "$GEM_PUSH_OUTPUT"
             echo "$GEM_PUSH_OUTPUT" | grep -q "Repushing of gem versions is not allowed" || exit 1
@@ -159,43 +159,43 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.0
-      - name: Build and publish octicons jekyll gem
-        env:
-          RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
-          PACKAGE_NAME: octicons_jekyll
+      - name: Determine package version
+        id: package
         run: |
-          set -e
-
           PACKAGE_VERSION=$(ruby -rjson -e "puts JSON.parse(File.read('package.json'))['version']")
           PACKAGE_VERSION=$(echo "$PACKAGE_VERSION" | sed -e 's/^0\.0\.0./0.0.0.pre./g')
-          PACKAGE_VERSION=$(echo "$PACKAGE_VERSION" | sed -e 's/-rc/.pre/g')
-
-          echo "************* Building v$PACKAGE_VERSION *************"
-
+          echo "version=$(echo "$PACKAGE_VERSION" | sed -e 's/-rc/.pre/g')" >> "$GITHUB_OUTPUT"
+      - name: Configure RubyGems credentials
+        env:
+          RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
+        run: |
           mkdir -p ~/.gem
-          cat << EOF > ~/.gem/credentials
-          ---
-          :rubygems_api_key: ${RUBYGEMS_TOKEN}
-          EOF
+          printf -- "---\n:rubygems_api_key: %s\n" "$RUBYGEMS_TOKEN" > ~/.gem/credentials
           chmod 0600 ~/.gem/credentials
-
-          cd "./lib/$PACKAGE_NAME"
-
-          echo "**************** Copying assets files to build directory ****************"
+      - name: Prepare octicons jekyll gem
+        working-directory: ./lib/octicons_jekyll
+        env:
+          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
+        run: |
           cp -R ../build lib/
-
           perl -pi -e "s/\"octicons\", \"[^\"]+\"/\"octicons\", \"${PACKAGE_VERSION}\"/" ./Gemfile ./*.gemspec
-
-          echo "**************** Installing ****************"
-          bundle install
-
-          echo "**************** Versioning ****************"
-          bundle exec rake version\["$PACKAGE_VERSION"\]
-
-          bundle update
-
-          echo "**************** Building ****************"
-          bundle exec rake build
+      - name: Install dependencies
+        working-directory: ./lib/octicons_jekyll
+        run: bundle install
+      - name: Version octicons jekyll gem
+        working-directory: ./lib/octicons_jekyll
+        env:
+          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
+        run: bundle exec rake version\["$PACKAGE_VERSION"\]
+      - name: Update dependencies
+        working-directory: ./lib/octicons_jekyll
+        run: bundle update
+      - name: Build octicons jekyll gem
+        working-directory: ./lib/octicons_jekyll
+        run: bundle exec rake build
+      - name: Publish octicons jekyll gem
+        working-directory: ./lib/octicons_jekyll
+        run: |
           GEM_PUSH_OUTPUT=$(gem push pkg/*.gem 2>&1) || {
             echo "$GEM_PUSH_OUTPUT"
             echo "$GEM_PUSH_OUTPUT" | grep -q "Repushing of gem versions is not allowed" || exit 1
@@ -212,38 +212,33 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-      - name: Build and publish @primer/octicons
-        env:
-          PACKAGE_NAME: octicons_node
+      - name: Determine publish metadata
+        id: package
         run: |
-          set -e
-
           PACKAGE_VERSION=$(node -p "require('./package.json').version")
-
-          echo "************* Building v$PACKAGE_VERSION *************"
-
           PUBLISH_TAG=latest
           if [[ "$PACKAGE_VERSION" =~ ^0\.0\.0\- ]]; then
             PUBLISH_TAG=canary
           elif [[ "$PACKAGE_VERSION" =~ \-rc ]]; then
             PUBLISH_TAG=next
           fi
-
-          cd "./lib/$PACKAGE_NAME"
-
-          echo "**************** Copying assets files to build directory ****************"
-          cp -R ../build/ .
-
-          echo "**************** Installing ****************"
-          npm install --legacy-peer-deps
-
-          echo "**************** Building ****************"
-          npm run build
-
-          {
-            echo "**************** Publishing ****************"
-            npm version --allow-same-version "$PACKAGE_VERSION" && npm publish --tag "$PUBLISH_TAG" --access public
-          } || exit 0
+          echo "version=$PACKAGE_VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=$PUBLISH_TAG" >> "$GITHUB_OUTPUT"
+      - name: Copy build assets
+        working-directory: ./lib/octicons_node
+        run: cp -R ../build/ .
+      - name: Install dependencies
+        working-directory: ./lib/octicons_node
+        run: npm install --legacy-peer-deps
+      - name: Build @primer/octicons
+        working-directory: ./lib/octicons_node
+        run: npm run build
+      - name: Publish @primer/octicons
+        working-directory: ./lib/octicons_node
+        env:
+          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
+          PUBLISH_TAG: ${{ steps.package.outputs.tag }}
+        run: npm version --allow-same-version "$PACKAGE_VERSION" && npm publish --tag "$PUBLISH_TAG" --access public || exit 0
   react:
     runs-on: ubuntu-latest
     needs: setup
@@ -256,67 +251,45 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
+      - name: Determine publish metadata
+        id: package
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          PUBLISH_TAG=latest
+          if [[ "$PACKAGE_VERSION" =~ ^0\.0\.0\- ]]; then
+            PUBLISH_TAG=canary
+          elif [[ "$PACKAGE_VERSION" =~ \-rc ]]; then
+            PUBLISH_TAG=next
+          fi
+          echo "version=$PACKAGE_VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=$PUBLISH_TAG" >> "$GITHUB_OUTPUT"
+      - name: Copy React build assets
+        working-directory: ./lib/octicons_react
+        run: cp -R ../build/ .
+      - name: Install React dependencies
+        working-directory: ./lib/octicons_react
+        run: npm install --legacy-peer-deps
       - name: Build @primer/octicons-react
+        working-directory: ./lib/octicons_react
+        run: npm run build
+      - name: Publish @primer/octicons-react
+        working-directory: ./lib/octicons_react
         env:
-          PACKAGE_NAME: octicons_react
-        run: |
-          set -e
-
-          PACKAGE_VERSION=$(node -p "require('./package.json').version")
-
-          echo "************* Building v$PACKAGE_VERSION *************"
-
-          PUBLISH_TAG=latest
-          if [[ "$PACKAGE_VERSION" =~ ^0\.0\.0\- ]]; then
-            PUBLISH_TAG=canary
-          elif [[ "$PACKAGE_VERSION" =~ \-rc ]]; then
-            PUBLISH_TAG=next
-          fi
-
-          cd "./lib/$PACKAGE_NAME"
-
-          echo "**************** Copying assets files to build directory ****************"
-          cp -R ../build/ .
-
-          echo "**************** Installing ****************"
-          npm install --legacy-peer-deps
-
-          echo "**************** Building ****************"
-          npm run build
-
-          {
-            echo "**************** Publishing ****************"
-            npm version --allow-same-version "$PACKAGE_VERSION" && npm publish --tag "$PUBLISH_TAG" --access public
-          } || exit 0
+          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
+          PUBLISH_TAG: ${{ steps.package.outputs.tag }}
+        run: npm version --allow-same-version "$PACKAGE_VERSION" && npm publish --tag "$PUBLISH_TAG" --access public || exit 0
+      - name: Copy styled build assets
+        working-directory: ./lib/octicons_styled
+        run: cp -R ../build/ .
+      - name: Install styled dependencies
+        working-directory: ./lib/octicons_styled
+        run: npm install --legacy-peer-deps
       - name: Build @primer/styled-octicons
+        working-directory: ./lib/octicons_styled
+        run: npm run build
+      - name: Publish @primer/styled-octicons
+        working-directory: ./lib/octicons_styled
         env:
-          PACKAGE_NAME: octicons_styled
-        run: |
-          set -e
-
-          PACKAGE_VERSION=$(node -p "require('./package.json').version")
-
-          echo "************* Building v$PACKAGE_VERSION *************"
-
-          PUBLISH_TAG=latest
-          if [[ "$PACKAGE_VERSION" =~ ^0\.0\.0\- ]]; then
-            PUBLISH_TAG=canary
-          elif [[ "$PACKAGE_VERSION" =~ \-rc ]]; then
-            PUBLISH_TAG=next
-          fi
-
-          cd "./lib/$PACKAGE_NAME"
-
-          echo "**************** Copying assets files to build directory ****************"
-          cp -R ../build/ .
-
-          echo "**************** Installing ****************"
-          npm install --legacy-peer-deps
-
-          echo "**************** Building ****************"
-          npm run build
-
-          {
-            echo "**************** Publishing ****************"
-            npm version --allow-same-version "$PACKAGE_VERSION" && npm publish --tag "$PUBLISH_TAG" --access public
-          } || exit 0
+          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
+          PUBLISH_TAG: ${{ steps.package.outputs.tag }}
+        run: npm version --allow-same-version "$PACKAGE_VERSION" && npm publish --tag "$PUBLISH_TAG" --access public || exit 0
