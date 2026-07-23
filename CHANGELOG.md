@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.30.0
+
+### Minor Changes
+
+- [#1245](https://github.com/primer/octicons/pull/1245) [`b6bfb8bd`](https://github.com/primer/octicons/commit/b6bfb8bd8169d8c47f5884a78d4049e81603f647) Thanks [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent)! - Optimize `@primer/octicons-react` for codesplitting and tree-shaking. Each icon is now emitted as its own module and exposed via a `./*` subpath export, so icons can be dynamically imported and code-split (e.g. `import('@primer/octicons-react/AlertIcon')`). The generated icons are now finished `React.forwardRef` components built on a shared `renderOcticon` runtime instead of runtime `createIconComponent` factory calls. Existing `import {AlertIcon}` and `import * as Octicons` usage continues to work unchanged.
+
 ## 19.29.2
 
 ### Patch Changes
