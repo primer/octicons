@@ -3,12 +3,12 @@ on:
     paths:
       - 'icons/**'
       - '.github/workflows/optimize.yml'
-      - '.github/actions/python/requirements.txt'
+      - '.github/optimize-requirements.txt'
   pull_request:
     paths:
       - 'icons/**'
       - '.github/workflows/optimize.yml'
-      - '.github/actions/python/requirements.txt'
+      - '.github/optimize-requirements.txt'
 name: Optimize SVGs
 jobs:
   optimize:
@@ -40,7 +40,7 @@ jobs:
         with:
           python-version: '3.10' 
           cache: 'pip'
-      - run: pip install -r .github/actions/python/requirements.txt
+      - run: pip install -r .github/optimize-requirements.txt
         if: steps.changed.outputs.has_changes == 'true'
       - name: Run picosvg on changed icons
         if: steps.changed.outputs.has_changes == 'true'

@@ -34,11 +34,51 @@ jobs:
         with:
           name: octicons
           path: ./lib/build
-      - uses: ./.github/actions/build_ruby
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+      - name: Build and publish octicons gem
         env:
           RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
-        with:
-          args: octicons_gem
+          PACKAGE_NAME: octicons_gem
+        run: |
+          set -e
+
+          PACKAGE_VERSION=$(ruby -rjson -e "puts JSON.parse(File.read('package.json'))['version']")
+          PACKAGE_VERSION=$(echo "$PACKAGE_VERSION" | sed -e 's/^0\.0\.0./0.0.0.pre./g')
+          PACKAGE_VERSION=$(echo "$PACKAGE_VERSION" | sed -e 's/-rc/.pre/g')
+
+          echo "************* Building v$PACKAGE_VERSION *************"
+
+          mkdir -p ~/.gem
+          cat << EOF > ~/.gem/credentials
+          ---
+          :rubygems_api_key: ${RUBYGEMS_TOKEN}
+          EOF
+          chmod 0600 ~/.gem/credentials
+
+          cd "./lib/$PACKAGE_NAME"
+
+          echo "**************** Copying assets files to build directory ****************"
+          cp -R ../build lib/
+
+          perl -pi -e "s/\"octicons\", \"[^\"]+\"/\"octicons\", \"${PACKAGE_VERSION}\"/" ./Gemfile ./*.gemspec
+
+          echo "**************** Installing ****************"
+          bundle install
+
+          echo "**************** Versioning ****************"
+          bundle exec rake version\["$PACKAGE_VERSION"\]
+
+          bundle update
+
+          echo "**************** Building ****************"
+          bundle exec rake build
+          GEM_PUSH_OUTPUT=$(gem push pkg/*.gem 2>&1) || {
+            echo "$GEM_PUSH_OUTPUT"
+            echo "$GEM_PUSH_OUTPUT" | grep -q "Repushing of gem versions is not allowed" || exit 1
+          }
       - run: ls ./lib/octicons_gem/pkg
       - uses: actions/upload-artifact@v4
         with:
@@ -57,11 +97,51 @@ jobs:
         with:
           name: octicons_gem
           path: ./lib/octicons_helper/vendor/cache
-      - uses: ./.github/actions/build_ruby
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+      - name: Build and publish octicons helper gem
         env:
           RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
-        with:
-          args: octicons_helper
+          PACKAGE_NAME: octicons_helper
+        run: |
+          set -e
+
+          PACKAGE_VERSION=$(ruby -rjson -e "puts JSON.parse(File.read('package.json'))['version']")
+          PACKAGE_VERSION=$(echo "$PACKAGE_VERSION" | sed -e 's/^0\.0\.0./0.0.0.pre./g')
+          PACKAGE_VERSION=$(echo "$PACKAGE_VERSION" | sed -e 's/-rc/.pre/g')
+
+          echo "************* Building v$PACKAGE_VERSION *************"
+
+          mkdir -p ~/.gem
+          cat << EOF > ~/.gem/credentials
+          ---
+          :rubygems_api_key: ${RUBYGEMS_TOKEN}
+          EOF
+          chmod 0600 ~/.gem/credentials
+
+          cd "./lib/$PACKAGE_NAME"
+
+          echo "**************** Copying assets files to build directory ****************"
+          cp -R ../build lib/
+
+          perl -pi -e "s/\"octicons\", \"[^\"]+\"/\"octicons\", \"${PACKAGE_VERSION}\"/" ./Gemfile ./*.gemspec
+
+          echo "**************** Installing ****************"
+          bundle install
+
+          echo "**************** Versioning ****************"
+          bundle exec rake version\["$PACKAGE_VERSION"\]
+
+          bundle update
+
+          echo "**************** Building ****************"
+          bundle exec rake build
+          GEM_PUSH_OUTPUT=$(gem push pkg/*.gem 2>&1) || {
+            echo "$GEM_PUSH_OUTPUT"
+            echo "$GEM_PUSH_OUTPUT" | grep -q "Repushing of gem versions is not allowed" || exit 1
+          }
   jekyll:
     runs-on: ubuntu-latest
     needs: gem
@@ -75,11 +155,51 @@ jobs:
         with:
           name: octicons_gem
           path: ./lib/octicons_jekyll/vendor/cache
-      - uses: ./.github/actions/build_ruby
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+      - name: Build and publish octicons jekyll gem
         env:
           RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
-        with:
-          args: octicons_jekyll
+          PACKAGE_NAME: octicons_jekyll
+        run: |
+          set -e
+
+          PACKAGE_VERSION=$(ruby -rjson -e "puts JSON.parse(File.read('package.json'))['version']")
+          PACKAGE_VERSION=$(echo "$PACKAGE_VERSION" | sed -e 's/^0\.0\.0./0.0.0.pre./g')
+          PACKAGE_VERSION=$(echo "$PACKAGE_VERSION" | sed -e 's/-rc/.pre/g')
+
+          echo "************* Building v$PACKAGE_VERSION *************"
+
+          mkdir -p ~/.gem
+          cat << EOF > ~/.gem/credentials
+          ---
+          :rubygems_api_key: ${RUBYGEMS_TOKEN}
+          EOF
+          chmod 0600 ~/.gem/credentials
+
+          cd "./lib/$PACKAGE_NAME"
+
+          echo "**************** Copying assets files to build directory ****************"
+          cp -R ../build lib/
+
+          perl -pi -e "s/\"octicons\", \"[^\"]+\"/\"octicons\", \"${PACKAGE_VERSION}\"/" ./Gemfile ./*.gemspec
+
+          echo "**************** Installing ****************"
+          bundle install
+
+          echo "**************** Versioning ****************"
+          bundle exec rake version\["$PACKAGE_VERSION"\]
+
+          bundle update
+
+          echo "**************** Building ****************"
+          bundle exec rake build
+          GEM_PUSH_OUTPUT=$(gem push pkg/*.gem 2>&1) || {
+            echo "$GEM_PUSH_OUTPUT"
+            echo "$GEM_PUSH_OUTPUT" | grep -q "Repushing of gem versions is not allowed" || exit 1
+          }
   node:
     runs-on: ubuntu-latest
     needs: setup
@@ -89,9 +209,41 @@ jobs:
         with:
           name: octicons
           path: ./lib/build
-      - uses: ./.github/actions/build_node
+      - uses: actions/setup-node@v6
         with:
-          args: octicons_node
+          node-version: 24
+      - name: Build and publish @primer/octicons
+        env:
+          PACKAGE_NAME: octicons_node
+        run: |
+          set -e
+
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+
+          echo "************* Building v$PACKAGE_VERSION *************"
+
+          PUBLISH_TAG=latest
+          if [[ "$PACKAGE_VERSION" =~ ^0\.0\.0\- ]]; then
+            PUBLISH_TAG=canary
+          elif [[ "$PACKAGE_VERSION" =~ \-rc ]]; then
+            PUBLISH_TAG=next
+          fi
+
+          cd "./lib/$PACKAGE_NAME"
+
+          echo "**************** Copying assets files to build directory ****************"
+          cp -R ../build/ .
+
+          echo "**************** Installing ****************"
+          npm install --legacy-peer-deps
+
+          echo "**************** Building ****************"
+          npm run build
+
+          {
+            echo "**************** Publishing ****************"
+            npm version --allow-same-version "$PACKAGE_VERSION" && npm publish --tag "$PUBLISH_TAG" --access public
+          } || exit 0
   react:
     runs-on: ubuntu-latest
     needs: setup
@@ -101,11 +253,70 @@ jobs:
         with:
           name: octicons
           path: ./lib/build
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
       - name: Build @primer/octicons-react
-        uses: ./.github/actions/build_node
-        with:
-          args: octicons_react
+        env:
+          PACKAGE_NAME: octicons_react
+        run: |
+          set -e
+
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+
+          echo "************* Building v$PACKAGE_VERSION *************"
+
+          PUBLISH_TAG=latest
+          if [[ "$PACKAGE_VERSION" =~ ^0\.0\.0\- ]]; then
+            PUBLISH_TAG=canary
+          elif [[ "$PACKAGE_VERSION" =~ \-rc ]]; then
+            PUBLISH_TAG=next
+          fi
+
+          cd "./lib/$PACKAGE_NAME"
+
+          echo "**************** Copying assets files to build directory ****************"
+          cp -R ../build/ .
+
+          echo "**************** Installing ****************"
+          npm install --legacy-peer-deps
+
+          echo "**************** Building ****************"
+          npm run build
+
+          {
+            echo "**************** Publishing ****************"
+            npm version --allow-same-version "$PACKAGE_VERSION" && npm publish --tag "$PUBLISH_TAG" --access public
+          } || exit 0
       - name: Build @primer/styled-octicons
-        uses: ./.github/actions/build_node
-        with:
-          args: octicons_styled
+        env:
+          PACKAGE_NAME: octicons_styled
+        run: |
+          set -e
+
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+
+          echo "************* Building v$PACKAGE_VERSION *************"
+
+          PUBLISH_TAG=latest
+          if [[ "$PACKAGE_VERSION" =~ ^0\.0\.0\- ]]; then
+            PUBLISH_TAG=canary
+          elif [[ "$PACKAGE_VERSION" =~ \-rc ]]; then
+            PUBLISH_TAG=next
+          fi
+
+          cd "./lib/$PACKAGE_NAME"
+
+          echo "**************** Copying assets files to build directory ****************"
+          cp -R ../build/ .
+
+          echo "**************** Installing ****************"
+          npm install --legacy-peer-deps
+
+          echo "**************** Building ****************"
+          npm run build
+
+          {
+            echo "**************** Publishing ****************"
+            npm version --allow-same-version "$PACKAGE_VERSION" && npm publish --tag "$PUBLISH_TAG" --access public
+          } || exit 0
