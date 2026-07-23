@@ -9,12 +9,18 @@
   "main": "dist/index.umd.js",
   "module": "dist/index.esm.mjs",
   "exports": {
-    "types": {
-      "import": "./dist/index.d.mts",
-      "require": "./dist/index.d.ts"
+    ".": {
+      "types": {
+        "import": "./dist/index.d.mts",
+        "require": "./dist/index.d.ts"
+      },
+      "import": "./dist/index.esm.mjs",
+      "require": "./dist/index.umd.js"
     },
-    "import": "./dist/index.esm.mjs",
-    "require": "./dist/index.umd.js"
+    "./*": {
+      "types": "./dist/icons/*.d.ts",
+      "import": "./dist/icons/*.mjs"
+    }
   },
   "sideEffects": false,
   "types": "dist/index.d.ts",
