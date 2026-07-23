@@ -57,7 +57,7 @@ jobs:
         with:
           name: octicons-build
           path: ./lib/build
-      - run: npm ci
+      - run: npm ci --include-workspace-root
       - name: Building
         run: npm run build
       - name: Lint
@@ -81,7 +81,7 @@ jobs:
         with:
           name: octicons-build
           path: ./lib/build
-      - run: npm ci
+      - run: npm ci --include-workspace-root
       - name: Building
         run: npm run build
       - name: Lint
