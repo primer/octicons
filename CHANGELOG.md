@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.31.0
+
+### Minor Changes
+
+- [#1257](https://github.com/primer/octicons/pull/1257) [`3088ce65`](https://github.com/primer/octicons/commit/3088ce652878e0835ea133b2060d5d6c91dcd994) Thanks [@dylanatsmith](https://github.com/dylanatsmith)! - Add question-bubble icon (16px and 24px)
+
 ## 19.30.0
 
 ### Minor Changes
