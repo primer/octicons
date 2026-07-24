@@ -195,6 +195,7 @@
   "project-template": ["board", "kanban", "columns", "scrum", "template"],
   "pulse": ["graph", "trend", "line", "activity"],
   "question": ["help", "explain"],
+  "question-bubble": ["explain", "ask", "question", "answer", "bubble", "comment", "message"],
   "quote": ["quotation"],
   "radio-tower": ["broadcast"],
   "reply": ["reply all", "back"],

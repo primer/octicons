@@ -1,6 +1,6 @@
 {
   "name": "@primer/octicons",
-  "version": "19.29.2",
+  "version": "19.31.0",
   "private": true,
   "workspaces": [
     "lib/octicons_node",

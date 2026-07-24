@@ -2,7 +2,7 @@
 import * as React from 'react'
 
 // eslint-disable-next-line prettier/prettier
-import {Icon} from './__generated__/icons.js'
+import {Icon} from './__generated__/icons/index.js'
 
 type Size = 'small' | 'medium' | 'large'
 
@@ -21,4 +21,4 @@ export interface OcticonProps extends React.ComponentPropsWithoutRef<'svg'> {
   verticalAlign?: 'middle' | 'text-bottom' | 'text-top' | 'top' | 'unset'
 }
 
-export * from './__generated__/icons.js'
+export * from './__generated__/icons/index.js'
