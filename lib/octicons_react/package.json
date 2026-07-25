@@ -18,8 +18,12 @@
       "require": "./dist/index.umd.js"
     },
     "./*": {
-      "types": "./dist/icons/*.d.ts",
-      "import": "./dist/icons/*.mjs"
+      "types": {
+        "import": "./dist/icons/*.d.ts",
+        "require": "./dist/icons/*.d.ts"
+      },
+      "import": "./dist/icons/*.mjs",
+      "require": "./dist/icons/*.js"
     }
   },
   "sideEffects": false,
