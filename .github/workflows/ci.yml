@@ -36,6 +36,7 @@ jobs:
           name: octicons-build
           path: ./lib/build
       - run: npm ci
+      - run: npx playwright install --with-deps chromium
       - name: Build workspaces
         run: npm run build --workspaces
       - name: Lint
