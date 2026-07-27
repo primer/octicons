@@ -37,6 +37,7 @@
     "eslint-plugin-github": "4.1.3"
   },
   "eslintConfig": {
+    "root": true,
     "extends": [
       "plugin:github/internal",
       "plugin:github/recommended"

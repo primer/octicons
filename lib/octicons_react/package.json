@@ -32,7 +32,7 @@
     "lint": "eslint src pages/*.mjs script",
     "test": "jest",
     "ts-test": "tsc -P ts-tests",
-    "posttest": "yarn ts-test"
+    "posttest": "npm run ts-test"
   },
   "files": [
     "dist"
@@ -68,6 +68,7 @@
     "eslint-plugin-react": "7.23.2",
     "fs-extra": "^6.0.1",
     "jest": "^29.0.3",
+    "jest-cli": "29.7.0",
     "jest-environment-jsdom": "29.0.3",
     "next": "^16.1.5",
     "react": "^18.2.0",
