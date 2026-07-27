@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  lint:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -17,52 +17,96 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
-      - name: lint main project
-        run: npm run lint
-      - name: lint @primer/octicons
-        working-directory: ./lib/octicons_node
-        run: npm run lint
-      - name: lint @primer/octicons-react
-        working-directory: ./lib/octicons_react
-        run: npm run lint
-      - name: lint @primer/styled-octicons
-        working-directory: ./lib/octicons_styled
+      - run: |
+          npm run build
+          cp -r icons lib/build/svg
+      - uses: actions/upload-artifact@v4
+        with:
+          name: octicons-build
+          path: ./lib/build
+
+  lint:
+    name: lint (${{ matrix.name }})
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - name: main project
+            directory: .
+            workspace: false
+            build: false
+          - name: npm:@primer/octicons
+            directory: ./lib/octicons_node
+            workspace: true
+            build: true
+          - name: npm:@primer/octicons-react
+            directory: ./lib/octicons_react
+            workspace: true
+            build: true
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - uses: actions/download-artifact@v4
+        with:
+          name: octicons-build
+          path: ./lib/build
+      - if: matrix.workspace
+        working-directory: ${{ matrix.directory }}
+        run: npm ci --include-workspace-root
+      - if: ${{ !matrix.workspace }}
+        run: npm ci
+      - if: matrix.build
+        working-directory: ${{ matrix.directory }}
+        run: npm run build
+      - working-directory: ${{ matrix.directory }}
         run: npm run lint
 
   test:
+    name: test (${{ matrix.name }})
+    needs: build
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - name: main project
+            directory: .
+            workspace: false
+            build: false
+            validate: false
+          - name: npm:@primer/octicons
+            directory: ./lib/octicons_node
+            workspace: true
+            build: true
+            validate: false
+          - name: npm:@primer/octicons-react
+            directory: ./lib/octicons_react
+            workspace: true
+            build: true
+            validate: true
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 20
-      - run: npm ci
-      - name: build main project
-        run: |
-          npm run build
-          cp -r icons lib/build/svg
-      - name: build @primer/octicons
-        working-directory: ./lib/octicons_node
+      - uses: actions/download-artifact@v4
+        with:
+          name: octicons-build
+          path: ./lib/build
+      - if: matrix.workspace
+        working-directory: ${{ matrix.directory }}
+        run: npm ci --include-workspace-root
+      - if: ${{ !matrix.workspace }}
+        run: npm ci
+      - if: matrix.build
+        working-directory: ${{ matrix.directory }}
         run: npm run build
-      - name: build @primer/octicons-react
-        working-directory: ./lib/octicons_react
-        run: npm run build
-      - name: build @primer/styled-octicons
-        working-directory: ./lib/octicons_styled
-        run: npm run build
-      - name: test main project
+      - working-directory: ${{ matrix.directory }}
         run: npm test
-      - name: test @primer/octicons
-        working-directory: ./lib/octicons_node
-        run: npm test
-      - name: test @primer/octicons-react
-        working-directory: ./lib/octicons_react
-        run: npm test
-      - name: test @primer/styled-octicons
-        working-directory: ./lib/octicons_styled
-        run: npm test
-      - name: validate @primer/octicons-react package
-        working-directory: ./lib/octicons_react
+      - if: matrix.validate
+        working-directory: ${{ matrix.directory }}
         run: |
           # Run @arethetypeswrong/cli
           npx -p fflate@0.8.2 -p @arethetypeswrong/cli@0.18.2 attw --pack .
