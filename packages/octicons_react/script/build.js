@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const octicons = require('../../build/data.json')
+const octicons = require('../../../lib/build/data.json')
 const {default: generate} = require('@babel/generator')
 const t = require('@babel/types')
 const fse = require('fs-extra')

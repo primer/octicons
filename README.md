@@ -17,17 +17,17 @@
 
 ## Libraries
 
-This repository contains several libraries. Each of them is in the `lib/` folder and gives access to Octicons on a different platform/language.
+This repository contains several libraries. JavaScript packages are in the `packages/` folder, while Ruby packages are in the `lib/` folder.
 
 ### JavaScript
 
-The octicons node.js library is the main JavaScript library. With [a JavaScript API](/lib/octicons_node/README.md) that can be used in a variety of applications.
+The octicons node.js library is the main JavaScript library. With [a JavaScript API](/packages/octicons_node/README.md) that can be used in a variety of applications.
 
 | Package                                                                              | Version                                                                                                                         |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| **[@primer/octicons](/lib/octicons_node)** <br />Node.js package with JavaScript API | [![npm version](https://img.shields.io/npm/v/@primer/octicons.svg)](https://www.npmjs.org/package/@primer/octicons)             |
-| **[@primer/octicons-react](/lib/octicons_react)** <br />React Octicons components    | [![npm version](https://img.shields.io/npm/v/@primer/octicons-react.svg)](https://www.npmjs.org/package/@primer/octicons-react) |
-| **[@primer/styled-octicons](/lib/octicons_styled)** <br />React Octicons components with Styled System props    | [![npm version](https://img.shields.io/npm/v/@primer/styled-octicons.svg)](https://www.npmjs.org/package/@primer/styled-octicons) |
+| **[@primer/octicons](/packages/octicons_node)** <br />Node.js package with JavaScript API | [![npm version](https://img.shields.io/npm/v/@primer/octicons.svg)](https://www.npmjs.org/package/@primer/octicons)             |
+| **[@primer/octicons-react](/packages/octicons_react)** <br />React Octicons components    | [![npm version](https://img.shields.io/npm/v/@primer/octicons-react.svg)](https://www.npmjs.org/package/@primer/octicons-react) |
+| **[@primer/styled-octicons](/packages/octicons_styled)** <br />React Octicons components with Styled System props    | [![npm version](https://img.shields.io/npm/v/@primer/styled-octicons.svg)](https://www.npmjs.org/package/@primer/styled-octicons) |
 
 
 ### Ruby

@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./lib/octicons_node
+        working-directory: ./packages/octicons_node
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -71,7 +71,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./lib/octicons_react
+        working-directory: ./packages/octicons_react
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3

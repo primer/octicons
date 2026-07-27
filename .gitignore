@@ -9,6 +9,7 @@ Gemfile.lock
 
 # Ignore build/export artifacts
 lib/**/build/
+packages/**/build/
 
 # Gatsby
 public

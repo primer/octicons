@@ -3,9 +3,7 @@
   "version": "19.31.0",
   "private": true,
   "workspaces": [
-    "lib/octicons_node",
-    "lib/octicons_react",
-    "lib/octicons_styled"
+    "packages/*"
   ],
   "publishConfig": {
     "registry": "no registry, don't publish from this package.json."

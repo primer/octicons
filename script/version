@@ -6,7 +6,7 @@ echo $PACKAGE_VERSION
 
 echo "Versioning Octicons node package"
 
-cd lib/octicons_node/
+cd packages/octicons_node/
 npm -f --no-git-tag-version --allow-same-version version $PACKAGE_VERSION
 
 echo "Versioning Octicons react package"
@@ -16,7 +16,7 @@ npm -f --no-git-tag-version --allow-same-version version $PACKAGE_VERSION
 
 echo "Versioning Octicons ruby gem"
 
-cd ../octicons_gem/
+cd ../../lib/octicons_gem/
 rake version\["$PACKAGE_VERSION"\]
 
 echo "Versioning Octicons rails helper gem"
@@ -30,4 +30,4 @@ cd ../octicons_jekyll/
 rake version\["$PACKAGE_VERSION"\]
 
 cd ../../
-git add lib/
+git add lib/ packages/

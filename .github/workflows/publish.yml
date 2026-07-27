@@ -225,16 +225,16 @@ jobs:
           echo "version=$PACKAGE_VERSION" >> "$GITHUB_OUTPUT"
           echo "tag=$PUBLISH_TAG" >> "$GITHUB_OUTPUT"
       - name: Copy build assets
-        working-directory: ./lib/octicons_node
-        run: cp -R ../build/ .
+        working-directory: ./packages/octicons_node
+        run: cp -R ../../lib/build/ .
       - name: Install dependencies
-        working-directory: ./lib/octicons_node
+        working-directory: ./packages/octicons_node
         run: npm install --legacy-peer-deps
       - name: Build @primer/octicons
-        working-directory: ./lib/octicons_node
+        working-directory: ./packages/octicons_node
         run: npm run build
       - name: Publish @primer/octicons
-        working-directory: ./lib/octicons_node
+        working-directory: ./packages/octicons_node
         env:
           PACKAGE_VERSION: ${{ steps.package.outputs.version }}
           PUBLISH_TAG: ${{ steps.package.outputs.tag }}
@@ -264,31 +264,31 @@ jobs:
           echo "version=$PACKAGE_VERSION" >> "$GITHUB_OUTPUT"
           echo "tag=$PUBLISH_TAG" >> "$GITHUB_OUTPUT"
       - name: Copy React build assets
-        working-directory: ./lib/octicons_react
-        run: cp -R ../build/ .
+        working-directory: ./packages/octicons_react
+        run: cp -R ../../lib/build/ .
       - name: Install React dependencies
-        working-directory: ./lib/octicons_react
+        working-directory: ./packages/octicons_react
         run: npm install --legacy-peer-deps
       - name: Build @primer/octicons-react
-        working-directory: ./lib/octicons_react
+        working-directory: ./packages/octicons_react
         run: npm run build
       - name: Publish @primer/octicons-react
-        working-directory: ./lib/octicons_react
+        working-directory: ./packages/octicons_react
         env:
           PACKAGE_VERSION: ${{ steps.package.outputs.version }}
           PUBLISH_TAG: ${{ steps.package.outputs.tag }}
         run: npm version --allow-same-version "$PACKAGE_VERSION" && npm publish --tag "$PUBLISH_TAG" --access public || exit 0
       - name: Copy styled build assets
-        working-directory: ./lib/octicons_styled
-        run: cp -R ../build/ .
+        working-directory: ./packages/octicons_styled
+        run: cp -R ../../lib/build/ .
       - name: Install styled dependencies
-        working-directory: ./lib/octicons_styled
+        working-directory: ./packages/octicons_styled
         run: npm install --legacy-peer-deps
       - name: Build @primer/styled-octicons
-        working-directory: ./lib/octicons_styled
+        working-directory: ./packages/octicons_styled
         run: npm run build
       - name: Publish @primer/styled-octicons
-        working-directory: ./lib/octicons_styled
+        working-directory: ./packages/octicons_styled
         env:
           PACKAGE_VERSION: ${{ steps.package.outputs.version }}
           PUBLISH_TAG: ${{ steps.package.outputs.tag }}
