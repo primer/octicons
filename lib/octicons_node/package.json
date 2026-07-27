@@ -33,25 +33,5 @@
   "devDependencies": {
     "@github/prettier-config": "0.0.4",
     "ava": "^0.22.0"
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "plugin:github/internal",
-      "plugin:github/recommended"
-    ],
-    "env": {
-      "es6": true,
-      "node": true
-    },
-    "parserOptions": {
-      "ecmaVersion": 2017,
-      "requireConfigFile": false
-    },
-    "rules": {
-      "github/no-then": 0,
-      "i18n-text/no-en": 0,
-      "import/no-commonjs": 0
-    }
   }
 }
