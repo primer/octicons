@@ -20,8 +20,15 @@ jobs:
       - run: npm ci
       - name: Lint main project
         run: npm run lint
-      - name: Lint npm packages
-        run: npm run lint --workspaces --if-present
+      - name: Lint @primer/octicons
+        working-directory: ./lib/octicons_node
+        run: npm run lint
+      - name: Lint @primer/octicons-react
+        working-directory: ./lib/octicons_react
+        run: npm run lint
+      - name: Lint @primer/styled-octicons
+        working-directory: ./lib/octicons_styled
+        run: npm run lint
 
   test:
     name: Test
@@ -32,15 +39,30 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
-      - name: Build
+      - name: Build main project
         run: |
           npm run build
           cp -r icons lib/build/svg
-          npm run build --workspaces --if-present
+      - name: Build @primer/octicons
+        working-directory: ./lib/octicons_node
+        run: npm run build
+      - name: Build @primer/octicons-react
+        working-directory: ./lib/octicons_react
+        run: npm run build
+      - name: Build @primer/styled-octicons
+        working-directory: ./lib/octicons_styled
+        run: npm run build
       - name: Test main project
         run: npm test
-      - name: Test npm packages
-        run: npm test --workspaces --if-present
+      - name: Test @primer/octicons
+        working-directory: ./lib/octicons_node
+        run: npm test
+      - name: Test @primer/octicons-react
+        working-directory: ./lib/octicons_react
+        run: npm test
+      - name: Test @primer/styled-octicons
+        working-directory: ./lib/octicons_styled
+        run: npm test
       - name: Validate @primer/octicons-react package
         working-directory: ./lib/octicons_react
         run: |
