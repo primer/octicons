@@ -1,4 +1,4 @@
-name: JavaScript
+name: js
 on:
   push:
     branches:
@@ -10,7 +10,6 @@ permissions:
 
 jobs:
   lint:
-    name: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -18,20 +17,19 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
-      - name: Lint main project
+      - name: lint main project
         run: npm run lint
-      - name: Lint @primer/octicons
+      - name: lint @primer/octicons
         working-directory: ./lib/octicons_node
         run: npm run lint
-      - name: Lint @primer/octicons-react
+      - name: lint @primer/octicons-react
         working-directory: ./lib/octicons_react
         run: npm run lint
-      - name: Lint @primer/styled-octicons
+      - name: lint @primer/styled-octicons
         working-directory: ./lib/octicons_styled
         run: npm run lint
 
   test:
-    name: Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -39,31 +37,31 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
-      - name: Build main project
+      - name: build main project
         run: |
           npm run build
           cp -r icons lib/build/svg
-      - name: Build @primer/octicons
+      - name: build @primer/octicons
         working-directory: ./lib/octicons_node
         run: npm run build
-      - name: Build @primer/octicons-react
+      - name: build @primer/octicons-react
         working-directory: ./lib/octicons_react
         run: npm run build
-      - name: Build @primer/styled-octicons
+      - name: build @primer/styled-octicons
         working-directory: ./lib/octicons_styled
         run: npm run build
-      - name: Test main project
+      - name: test main project
         run: npm test
-      - name: Test @primer/octicons
+      - name: test @primer/octicons
         working-directory: ./lib/octicons_node
         run: npm test
-      - name: Test @primer/octicons-react
+      - name: test @primer/octicons-react
         working-directory: ./lib/octicons_react
         run: npm test
-      - name: Test @primer/styled-octicons
+      - name: test @primer/styled-octicons
         working-directory: ./lib/octicons_styled
         run: npm test
-      - name: Validate @primer/octicons-react package
+      - name: validate @primer/octicons-react package
         working-directory: ./lib/octicons_react
         run: |
           # Run @arethetypeswrong/cli

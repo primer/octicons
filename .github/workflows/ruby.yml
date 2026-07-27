@@ -1,4 +1,4 @@
-name: Ruby
+name: ruby
 on:
   push:
     branches:
@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   lint:
-    name: Lint (${{ matrix.name }})
+    name: lint (${{ matrix.name }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -26,7 +26,7 @@ jobs:
         working-directory: ${{ matrix.directory }}
     steps:
       - uses: actions/checkout@v3
-      - name: Setup Ruby
+      - name: setup ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3
@@ -35,7 +35,6 @@ jobs:
       - run: bundle exec rake lint
 
   test:
-    name: Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -43,39 +42,39 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
-      - name: Build Octicons assets
+      - name: build octicons assets
         run: |
           npm run build
           cp -r icons lib/build/svg
           cp -r lib/build lib/octicons_gem/lib/
-      - name: Setup Ruby
+      - name: setup ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3
           bundler-cache: true
-      - name: Install octicons dependencies
+      - name: install octicons dependencies
         working-directory: ./lib/octicons_gem
         run: bundle install
-      - name: Test octicons
+      - name: test octicons
         working-directory: ./lib/octicons_gem
         run: bundle exec rake test
-      - name: Build octicons
+      - name: build octicons
         working-directory: ./lib/octicons_gem
         run: bundle exec rake build
-      - name: Prepare dependent gems
+      - name: prepare dependent gems
         run: |
           mkdir -p lib/octicons_helper/vendor/cache lib/octicons_jekyll/vendor/cache
           cp lib/octicons_gem/pkg/*.gem lib/octicons_helper/vendor/cache/
           cp lib/octicons_gem/pkg/*.gem lib/octicons_jekyll/vendor/cache/
-      - name: Install octicons_helper dependencies
+      - name: install octicons_helper dependencies
         working-directory: ./lib/octicons_helper
         run: bundle config set --local disable_checksum_validation true && bundle install
-      - name: Test octicons_helper
+      - name: test octicons_helper
         working-directory: ./lib/octicons_helper
         run: bundle exec rake test
-      - name: Install octicons_jekyll dependencies
+      - name: install octicons_jekyll dependencies
         working-directory: ./lib/octicons_jekyll
         run: bundle config set --local disable_checksum_validation true && bundle install
-      - name: Test octicons_jekyll
+      - name: test octicons_jekyll
         working-directory: ./lib/octicons_jekyll
         run: bundle exec rake test
