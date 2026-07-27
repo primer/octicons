@@ -1,5 +1,6 @@
 {
   "rules": {
-    "github/unescaped-html-literal": 0
+    "github/unescaped-html-literal": 0,
+    "i18n-text/no-en": 0
   }
 }

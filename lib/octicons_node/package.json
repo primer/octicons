@@ -49,7 +49,9 @@
       "requireConfigFile": false
     },
     "rules": {
-      "github/no-then": 0
+      "github/no-then": 0,
+      "i18n-text/no-en": 0,
+      "import/no-commonjs": 0
     }
   }
 }
