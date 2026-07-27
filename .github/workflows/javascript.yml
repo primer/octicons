@@ -26,24 +26,8 @@ jobs:
           path: ./lib/build
 
   lint:
-    name: lint (${{ matrix.name }})
     needs: build
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-          - name: main project
-            directory: .
-            workspace: false
-            build: false
-          - name: npm:@primer/octicons
-            directory: ./lib/octicons_node
-            workspace: true
-            build: true
-          - name: npm:@primer/octicons-react
-            directory: ./lib/octicons_react
-            workspace: true
-            build: true
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -53,39 +37,14 @@ jobs:
         with:
           name: octicons-build
           path: ./lib/build
-      - if: matrix.workspace
-        working-directory: ${{ matrix.directory }}
-        run: npm ci --include-workspace-root
-      - if: ${{ !matrix.workspace }}
-        run: npm ci
-      - if: matrix.build
-        working-directory: ${{ matrix.directory }}
-        run: npm run build
-      - working-directory: ${{ matrix.directory }}
-        run: npm run lint
+      - run: npm ci
+      - run: npm run build --workspaces
+      - run: npm run lint
+      - run: npm run lint --workspaces
 
   test:
-    name: test (${{ matrix.name }})
     needs: build
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-          - name: main project
-            directory: .
-            workspace: false
-            build: false
-            validate: false
-          - name: npm:@primer/octicons
-            directory: ./lib/octicons_node
-            workspace: true
-            build: true
-            validate: false
-          - name: npm:@primer/octicons-react
-            directory: ./lib/octicons_react
-            workspace: true
-            build: true
-            validate: true
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -95,18 +54,11 @@ jobs:
         with:
           name: octicons-build
           path: ./lib/build
-      - if: matrix.workspace
-        working-directory: ${{ matrix.directory }}
-        run: npm ci --include-workspace-root
-      - if: ${{ !matrix.workspace }}
-        run: npm ci
-      - if: matrix.build
-        working-directory: ${{ matrix.directory }}
-        run: npm run build
-      - working-directory: ${{ matrix.directory }}
-        run: npm test
-      - if: matrix.validate
-        working-directory: ${{ matrix.directory }}
+      - run: npm ci
+      - run: npm run build --workspaces
+      - run: npm test
+      - run: npm test --workspace=@primer/octicons --workspace=@primer/octicons-react
+      - working-directory: ./lib/octicons_react
         run: |
           # Run @arethetypeswrong/cli
           npx -p fflate@0.8.2 -p @arethetypeswrong/cli@0.18.2 attw --pack .
