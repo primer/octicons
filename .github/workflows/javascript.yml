@@ -1,0 +1,48 @@
+name: JavaScript
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: Lint main project
+        run: npm run lint
+      - name: Lint npm packages
+        run: npm run lint --workspaces --if-present
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: Build
+        run: |
+          npm run build
+          cp -r icons lib/build/svg
+          npm run build --workspaces --if-present
+      - name: Test main project
+        run: npm test
+      - name: Test npm packages
+        run: npm test --workspaces --if-present
+      - name: Validate @primer/octicons-react package
+        working-directory: ./lib/octicons_react
+        run: |
+          # Run @arethetypeswrong/cli
+          npx -p fflate@0.8.2 -p @arethetypeswrong/cli@0.18.2 attw --pack .
+
+          # Run publint
+          npx publint@0.2.12 . --strict
