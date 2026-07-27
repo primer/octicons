@@ -22,6 +22,7 @@
     "@changesets/changelog-github": "0.4.1",
     "@changesets/cli": "2.17.0",
     "@github/prettier-config": "0.0.6",
+    "@types/node": "20.19.0",
     "@vitejs/plugin-react": "4.7.0",
     "braces": "3.0.3",
     "cheerio": "1.0.0-rc.3",
