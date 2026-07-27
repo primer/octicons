@@ -15,14 +15,14 @@
     "changeset:version": "changeset version && script/version",
     "lint": "eslint tests",
     "svgo": "svgo icons --config svgo.config.js",
-    "test": "ava -v tests/*.js",
+    "test": "vitest run",
     "version": "script/version"
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.4.1",
     "@changesets/cli": "2.17.0",
     "@github/prettier-config": "0.0.6",
-    "ava": "2.1.0",
+    "@vitejs/plugin-react": "4.7.0",
     "braces": "3.0.3",
     "cheerio": "1.0.0-rc.3",
     "eslint": "8.57.1",
@@ -32,11 +32,13 @@
     "fs-extra": "7.0.1",
     "globby": "11.0.0",
     "js-yaml": "4.2.0",
-    "prettier": "3.4.1",
+    "jsdom": "26.1.0",
     "lodash.merge": "4.6.2",
+    "prettier": "3.4.1",
     "svgo": "3.3.4",
     "svgson": "5.2.1",
     "trim-newlines": "3.0.1",
+    "vitest": "3.2.7",
     "yargs": "15.1.0"
   },
   "eslintConfig": {

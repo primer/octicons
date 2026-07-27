@@ -1,0 +1,6 @@
+{
+  "globals": {
+    "expect": "readonly",
+    "test": "readonly"
+  }
+}
