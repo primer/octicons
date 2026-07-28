@@ -15,14 +15,16 @@
     "changeset:version": "changeset version && script/version lib/octicons_node/package.json",
     "lint": "eslint tests",
     "svgo": "svgo icons --config svgo.config.js",
-    "test": "ava -v tests/*.js",
-    "version": "script/version package.json"
+    "test": "vitest",
+    "version": "script/version"
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.4.1",
     "@changesets/cli": "2.17.0",
     "@github/prettier-config": "0.0.6",
-    "ava": "2.1.0",
+    "@types/node": "20.19.0",
+    "@vitejs/plugin-react": "4.7.0",
+    "@vitest/browser": "3.2.7",
     "braces": "3.0.3",
     "cheerio": "1.0.0-rc.3",
     "eslint": "10.8.0",
@@ -32,11 +34,13 @@
     "globals": "17.8.0",
     "globby": "11.0.0",
     "js-yaml": "4.3.0",
-    "prettier": "3.4.1",
     "lodash.merge": "4.6.2",
+    "playwright": "1.62.0",
+    "prettier": "3.4.1",
     "svgo": "3.3.4",
     "svgson": "5.2.1",
     "trim-newlines": "3.0.1",
+    "vitest": "3.2.7",
     "yargs": "15.1.0"
   },
   "packageManager": "npm@11.16.0"
