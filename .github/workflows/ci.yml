@@ -36,6 +36,9 @@ jobs:
           name: octicons-build
           path: ./lib/build
       - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Build workspaces
+        run: npm run build --workspaces
       - name: Lint
         run: npm run lint
       - name: Test
@@ -62,9 +65,6 @@ jobs:
         run: npm run build
       - name: Lint
         run: npm run lint
-      - name: Test
-        run: npm test
-
   octicons_react:
     name: 'npm:@primer/octicons-react'
     needs: build
@@ -86,10 +86,10 @@ jobs:
         run: npm run build
       - name: Lint
         run: npm run lint
-      - name: Test
-        run: npm test
       - name: Types
         run: |
+          npm run ts-test
+
           # Run @arethetypeswrong/cli
           npx -p fflate@0.8.2 -p @arethetypeswrong/cli@0.18.2 attw --pack .
 
