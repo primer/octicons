@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
       - run: npm ci
@@ -209,7 +209,7 @@ jobs:
         with:
           name: octicons
           path: ./lib/build
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
       - name: Determine publish metadata
@@ -248,7 +248,7 @@ jobs:
         with:
           name: octicons
           path: ./lib/build
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
       - name: Determine publish metadata

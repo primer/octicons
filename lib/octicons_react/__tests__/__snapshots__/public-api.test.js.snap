@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`@primer/octicons-react should not update exports without a semver change 1`] = `
 [
@@ -385,5 +385,6 @@ exports[`@primer/octicons-react should not update exports without a semver chang
   "ZapIcon",
   "ZoomInIcon",
   "ZoomOutIcon",
+  "default",
 ]
 `;

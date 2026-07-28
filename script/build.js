@@ -2,18 +2,19 @@
 /* eslint-env node */
 const fs = require('fs-extra')
 const path = require('path')
-const globby = require('globby')
+const {globbySync} = require('globby')
 const cheerio = require('cheerio')
 const {parseSync} = require('svgson')
-const trimNewlines = require('trim-newlines')
-const yargs = require('yargs')
+const {trimNewlines} = require('trim-newlines')
+const yargs = require('yargs/yargs')
+const {hideBin} = require('yargs/helpers')
 const merge = require('lodash.merge')
 const keywords = require('../keywords.json')
 
 // This script generates a JSON file that contains
 // information about input SVG files.
 
-const {argv} = yargs
+const argv = yargs(hideBin(process.argv))
   .usage('Usage: $0 --input <input filepaths> --output <output filepath>')
   .example('$0 --input icons/**/*.svg --output build/data.json')
   .option('input', {
@@ -27,9 +28,10 @@ const {argv} = yargs
     type: 'string',
     describe: 'Output JSON file. Defaults to stdout if no output file is provided.'
   })
+  .parse()
 
 // The `argv.input` array could contain globs (e.g. "**/*.svg").
-const filepaths = globby.sync(argv.input)
+const filepaths = globbySync(argv.input)
 const svgFilepaths = filepaths.filter(filepath => path.parse(filepath).ext === '.svg')
 
 if (svgFilepaths.length === 0) {

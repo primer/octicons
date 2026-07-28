@@ -1,7 +1,7 @@
 /* eslint-disable import/no-commonjs */
 const path = require('path')
-const test = require('ava')
-const execa = require('execa')
+const test = require('ava').default
+const {execa} = require('execa')
 
 test('builds an object with the correct shape', t => {
   return execa(
@@ -21,7 +21,7 @@ test('fails when input argument is missing', t => {
     })
     .catch(error => {
       t.is(error.exitCode, 1)
-      t.false(error.killed)
+      t.false(error.isCanceled)
     })
 })
 
@@ -32,7 +32,7 @@ test('fails when input file does not exist', t => {
     })
     .catch(error => {
       t.is(error.exitCode, 1)
-      t.false(error.killed)
+      t.false(error.isCanceled)
     })
 })
 
@@ -43,7 +43,7 @@ test('fails when filename is missing a height', t => {
     })
     .catch(error => {
       t.is(error.exitCode, 1)
-      t.false(error.killed)
+      t.false(error.isCanceled)
     })
 })
 
@@ -54,7 +54,7 @@ test('fails when height in filename does not match height attribute of SVG', t =
     })
     .catch(error => {
       t.is(error.exitCode, 1)
-      t.false(error.killed)
+      t.false(error.isCanceled)
     })
 })
 
@@ -65,7 +65,7 @@ test('fails when height attribute is missing', t => {
     })
     .catch(error => {
       t.is(error.exitCode, 1)
-      t.false(error.killed)
+      t.false(error.isCanceled)
     })
 })
 
@@ -76,7 +76,7 @@ test('fails when width attribute is missing', t => {
     })
     .catch(error => {
       t.is(error.exitCode, 1)
-      t.false(error.killed)
+      t.false(error.isCanceled)
     })
 })
 
@@ -87,7 +87,7 @@ test('fails when viewBox attribute is missing', t => {
     })
     .catch(error => {
       t.is(error.exitCode, 1)
-      t.false(error.killed)
+      t.false(error.isCanceled)
     })
 })
 
@@ -98,7 +98,7 @@ test('fails when height attribute is invalid', t => {
     })
     .catch(error => {
       t.is(error.exitCode, 1)
-      t.false(error.killed)
+      t.false(error.isCanceled)
     })
 })
 
@@ -109,7 +109,7 @@ test('fails when width attribute is invalid', t => {
     })
     .catch(error => {
       t.is(error.exitCode, 1)
-      t.false(error.killed)
+      t.false(error.isCanceled)
     })
 })
 
@@ -120,7 +120,7 @@ test('fails when viewBox attribute is invalid', t => {
     })
     .catch(error => {
       t.is(error.exitCode, 1)
-      t.false(error.killed)
+      t.false(error.isCanceled)
     })
 })
 
@@ -131,7 +131,7 @@ test('fails when viewBox width does not match width attribute', t => {
     })
     .catch(error => {
       t.is(error.exitCode, 1)
-      t.false(error.killed)
+      t.false(error.isCanceled)
     })
 })
 
@@ -142,7 +142,7 @@ test('fails when viewBox height does not match height attribute', t => {
     })
     .catch(error => {
       t.is(error.exitCode, 1)
-      t.false(error.killed)
+      t.false(error.isCanceled)
     })
 })
 
@@ -153,6 +153,6 @@ test('ignores non-SVG input files', t => {
     })
     .catch(error => {
       t.is(error.exitCode, 1)
-      t.false(error.killed)
+      t.false(error.isCanceled)
     })
 })
