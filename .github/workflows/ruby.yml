@@ -17,10 +17,8 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3
-      - run: |
-          for directory in lib/octicons_gem lib/octicons_helper lib/octicons_jekyll; do
-            (cd "$directory" && bundle install && bundle exec rake lint)
-          done
+          bundler-cache: true
+      - run: bundle exec rake lint
 
   test:
     runs-on: ubuntu-latest
@@ -40,29 +38,4 @@ jobs:
         with:
           ruby-version: 3.3
           bundler-cache: true
-      - name: install octicons dependencies
-        working-directory: ./lib/octicons_gem
-        run: bundle install
-      - name: test octicons
-        working-directory: ./lib/octicons_gem
-        run: bundle exec rake test
-      - name: build octicons
-        working-directory: ./lib/octicons_gem
-        run: bundle exec rake build
-      - name: prepare dependent gems
-        run: |
-          mkdir -p lib/octicons_helper/vendor/cache lib/octicons_jekyll/vendor/cache
-          cp lib/octicons_gem/pkg/*.gem lib/octicons_helper/vendor/cache/
-          cp lib/octicons_gem/pkg/*.gem lib/octicons_jekyll/vendor/cache/
-      - name: install octicons_helper dependencies
-        working-directory: ./lib/octicons_helper
-        run: bundle config set --local disable_checksum_validation true && bundle install
-      - name: test octicons_helper
-        working-directory: ./lib/octicons_helper
-        run: bundle exec rake test
-      - name: install octicons_jekyll dependencies
-        working-directory: ./lib/octicons_jekyll
-        run: bundle config set --local disable_checksum_validation true && bundle install
-      - name: test octicons_jekyll
-        working-directory: ./lib/octicons_jekyll
-        run: bundle exec rake test
+      - run: bundle exec rake test
