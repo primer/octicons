@@ -41,7 +41,7 @@
     "svgson": "5.2.1",
     "trim-newlines": "3.0.1",
     "vitest": "3.2.7",
-    "yargs": "15.1.0"
+    "yargs": "15.4.1"
   },
   "packageManager": "npm@11.16.0"
 }
