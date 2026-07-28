@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version-file: '.nvmrc'
       - run: npm ci
       - run: |
           npm run build
@@ -32,7 +32,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version-file: '.nvmrc'
       - uses: actions/download-artifact@v4
         with:
           name: octicons-build
@@ -41,7 +41,7 @@ jobs:
       - run: |
           npm run build --workspaces
           npm run lint
-          npm run lint --workspaces
+          npm run lint:npm --if-present --workspaces
 
   test:
     needs: build
@@ -50,20 +50,14 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version-file: '.nvmrc'
       - uses: actions/download-artifact@v4
         with:
           name: octicons-build
           path: ./lib/build
       - run: npm ci
+      - run: npx playwright install --with-deps chromium
       - run: |
           npm run build --workspaces
           npm test
-          npm test --workspace=@primer/octicons --workspace=@primer/octicons-react
-      - working-directory: ./lib/octicons_react
-        run: |
-          # Run @arethetypeswrong/cli
-          npx -p fflate@0.8.2 -p @arethetypeswrong/cli@0.18.2 attw --pack .
-
-          # Run publint
-          npx publint@0.2.12 . --strict
+          npm run ts-test --if-present --workspaces
