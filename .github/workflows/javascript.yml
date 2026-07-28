@@ -38,9 +38,10 @@ jobs:
           name: octicons-build
           path: ./lib/build
       - run: npm ci
-      - run: npm run build --workspaces
-      - run: npm run lint
-      - run: npm run lint --workspaces
+      - run: |
+          npm run build --workspaces
+          npm run lint
+          npm run lint --workspaces
 
   test:
     needs: build
@@ -55,9 +56,10 @@ jobs:
           name: octicons-build
           path: ./lib/build
       - run: npm ci
-      - run: npm run build --workspaces
-      - run: npm test
-      - run: npm test --workspace=@primer/octicons --workspace=@primer/octicons-react
+      - run: |
+          npm run build --workspaces
+          npm test
+          npm test --workspace=@primer/octicons --workspace=@primer/octicons-react
       - working-directory: ./lib/octicons_react
         run: |
           # Run @arethetypeswrong/cli

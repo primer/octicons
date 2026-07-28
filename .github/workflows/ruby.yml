@@ -10,29 +10,17 @@ permissions:
 
 jobs:
   lint:
-    name: lint (${{ matrix.name }})
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-          - name: gem:octicons
-            directory: ./lib/octicons_gem
-          - name: gem:octicons_helper
-            directory: ./lib/octicons_helper
-          - name: gem:octicons_jekyll
-            directory: ./lib/octicons_jekyll
-    defaults:
-      run:
-        working-directory: ${{ matrix.directory }}
     steps:
       - uses: actions/checkout@v3
       - name: setup ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3
-          bundler-cache: true
-      - run: bundle install
-      - run: bundle exec rake lint
+      - run: |
+          for directory in lib/octicons_gem lib/octicons_helper lib/octicons_jekyll; do
+            (cd "$directory" && bundle install && bundle exec rake lint)
+          done
 
   test:
     runs-on: ubuntu-latest
