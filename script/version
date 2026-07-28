@@ -61,4 +61,4 @@ cd ../octicons_jekyll/
 rake version\["$PACKAGE_VERSION"\]
 
 cd ../../
-git add lib/
+git add package.json package-lock.json lib/
