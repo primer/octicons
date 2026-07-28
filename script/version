@@ -1,22 +1,53 @@
 #!/bin/bash
 
-PACKAGE_VERSION=$(jq '.version' --raw-output ./package.json)
+set -euo pipefail
 
-echo $PACKAGE_VERSION
+SOURCE_PACKAGE=${1:-package.json}
+PACKAGE_VERSION=$(node -p "require('./$SOURCE_PACKAGE').version")
+
+echo "$PACKAGE_VERSION"
+
+sync_package_version() {
+  node - "$1" "$PACKAGE_VERSION" <<'NODE'
+const fs = require('fs')
+
+const [path, version] = process.argv.slice(2)
+const packageJson = JSON.parse(fs.readFileSync(path, 'utf8'))
+packageJson.version = version
+fs.writeFileSync(path, `${JSON.stringify(packageJson, null, 2)}\n`)
+NODE
+}
+
+echo "Versioning Octicons root package"
+sync_package_version package.json
 
 echo "Versioning Octicons node package"
-
-cd lib/octicons_node/
-npm -f --no-git-tag-version --allow-same-version version $PACKAGE_VERSION
+sync_package_version lib/octicons_node/package.json
 
 echo "Versioning Octicons react package"
+sync_package_version lib/octicons_react/package.json
 
-cd ../octicons_react/
-npm -f --no-git-tag-version --allow-same-version version $PACKAGE_VERSION
+node - "$PACKAGE_VERSION" <<'NODE'
+const fs = require('fs')
+
+const version = process.argv[2]
+const path = 'package-lock.json'
+const packageLock = JSON.parse(fs.readFileSync(path, 'utf8'))
+
+packageLock.version = version
+for (const packagePath of ['', 'lib/octicons_node', 'lib/octicons_react']) {
+  if (!packageLock.packages?.[packagePath]) {
+    throw new Error(`Missing ${packagePath || 'root'} package in ${path}`)
+  }
+  packageLock.packages[packagePath].version = version
+}
+
+fs.writeFileSync(path, `${JSON.stringify(packageLock, null, 2)}\n`)
+NODE
 
 echo "Versioning Octicons ruby gem"
 
-cd ../octicons_gem/
+cd lib/octicons_gem/
 rake version\["$PACKAGE_VERSION"\]
 
 echo "Versioning Octicons rails helper gem"

@@ -20,10 +20,17 @@ jobs:
         id: changed
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
-            CHANGED=$(git diff --name-only --diff-filter=AMR ${{ github.event.pull_request.base.sha }} -- 'icons/*.svg' 'icons/**/*.svg')
+            BASE_SHA="${{ github.event.pull_request.base.sha }}"
+            FALLBACK_REF="${{ github.event.pull_request.base.ref }}"
           else
-            CHANGED=$(git diff --name-only --diff-filter=AMR ${{ github.event.before }} -- 'icons/*.svg' 'icons/**/*.svg')
+            BASE_SHA="${{ github.event.before }}"
+            FALLBACK_REF="${{ github.event.repository.default_branch }}"
           fi
+          if ! git cat-file -e "$BASE_SHA^{commit}" 2>/dev/null; then
+            git fetch --no-tags origin "$FALLBACK_REF"
+            BASE_SHA=$(git merge-base HEAD FETCH_HEAD)
+          fi
+          CHANGED=$(git diff --name-only --diff-filter=AMR "$BASE_SHA" HEAD -- 'icons/*.svg' 'icons/**/*.svg')
           if [ -z "$CHANGED" ]; then
             echo "has_changes=false" >> $GITHUB_OUTPUT
           else
