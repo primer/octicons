@@ -39,5 +39,11 @@
     "trim-newlines": "3.0.1",
     "yargs": "15.1.0"
   },
-  "packageManager": "npm@11.16.0"
+  "packageManager": "npm@11.16.0",
+  "allowScripts": {
+    "core-js@2.6.12": true,
+    "core-js-pure@3.49.0": true,
+    "sharp@0.34.5": true,
+    "styled-components@4.4.1": true
+  }
 }
