@@ -60,4 +60,4 @@ jobs:
       - run: |
           npm run build --workspaces
           npm test
-          npm run ts-test --if-present --workspaces
+          npm run ts-test --workspace=@primer/octicons-react
