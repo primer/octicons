@@ -11,3 +11,7 @@ Style/OneClassPerFile:
 
 AllCops:
   NewCops: enable
+
+Rails/RakeEnvironment:
+  Exclude:
+    - "Rakefile"
