@@ -27,7 +27,7 @@ jobs:
             FALLBACK_REF="${{ github.event.repository.default_branch }}"
           fi
           if ! git cat-file -e "$BASE_SHA^{commit}" 2>/dev/null; then
-            git fetch --no-tags origin "$FALLBACK_REF"
+            git fetch --no-tags origin -- "$FALLBACK_REF"
             BASE_SHA=$(git merge-base HEAD FETCH_HEAD)
           fi
           CHANGED=$(git diff --name-only --diff-filter=AMR "$BASE_SHA" HEAD -- 'icons/*.svg' 'icons/**/*.svg')
