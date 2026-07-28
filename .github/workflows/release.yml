@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
@@ -45,7 +45,7 @@ jobs:
 
       - name: Create release pull request or publish to npm
         id: changesets
-        uses: changesets/action@master
+        uses: changesets/action@v1
         with:
           title: Release Tracking
           version: npm run changeset:version

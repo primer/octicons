@@ -12,7 +12,7 @@ jobs:
   optimize:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -33,10 +33,10 @@ jobs:
             echo "EOF" >> $GITHUB_OUTPUT
           fi
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v7
         if: steps.changed.outputs.has_changes == 'true'
         with:
-          node-version: 20.19.0
+          node-version: 24
       - run: npm ci
         if: steps.changed.outputs.has_changes == 'true'
       - name: Run svgo on changed icons
@@ -46,7 +46,7 @@ jobs:
             npx svgo --config svgo.config.js "$icon"
           done <<< "${{ steps.changed.outputs.files }}"
 
-      - uses: EndBug/add-and-commit@v4
+      - uses: EndBug/add-and-commit@v10
         if: steps.changed.outputs.has_changes == 'true'
         with:
           add: 'icons'

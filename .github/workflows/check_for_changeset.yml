@@ -16,7 +16,7 @@ jobs:
     name: Check for changeset
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
       - name: 'Check for changeset'
         uses: brettcannon/check-for-changed-files@v1
         with:

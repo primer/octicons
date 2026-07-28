@@ -19,25 +19,25 @@
     "version": "script/version"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "0.4.1",
-    "@changesets/cli": "2.17.0",
+    "@changesets/changelog-github": "0.7.0",
+    "@changesets/cli": "2.31.1",
     "@github/prettier-config": "0.0.6",
-    "ava": "2.1.0",
+    "ava": "8.0.1",
     "braces": "3.0.3",
-    "cheerio": "1.0.0-rc.3",
+    "cheerio": "1.2.0",
     "eslint": "10.8.0",
     "eslint-plugin-github": "6.1.1",
-    "execa": "4.0.0",
-    "fs-extra": "7.0.1",
+    "execa": "10.0.0",
+    "fs-extra": "11.4.0",
     "globals": "17.8.0",
-    "globby": "11.0.0",
-    "js-yaml": "4.3.0",
-    "prettier": "3.4.1",
+    "globby": "16.2.2",
+    "js-yaml": "5.2.2",
+    "prettier": "3.9.6",
     "lodash.merge": "4.6.2",
-    "svgo": "3.3.4",
-    "svgson": "5.2.1",
-    "trim-newlines": "3.0.1",
-    "yargs": "15.1.0"
+    "svgo": "4.0.2",
+    "svgson": "5.3.1",
+    "trim-newlines": "5.0.0",
+    "yargs": "18.1.0"
   },
-  "packageManager": "npm@11.16.0"
+  "packageManager": "npm@12.0.1"
 }
