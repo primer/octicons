@@ -1,6 +1,5 @@
 /* eslint-disable import/no-commonjs */
 /* eslint-disable i18n-text/no-en */
-/* global expect, test */
 
 const fs = require('fs-extra')
 const globby = require('globby')

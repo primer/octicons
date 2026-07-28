@@ -1,5 +1,4 @@
 /* eslint-disable import/no-commonjs */
-/* global expect, test */
 const path = require('path')
 const execa = require('execa')
 
