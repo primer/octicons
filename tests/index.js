@@ -29,7 +29,7 @@ const names = {}
 for (const octicon of Object.values(octiconsData)) {
   test(`No duplicate ${octicon.name} icon`, () => {
     if (names[octicon.name]) {
-      expect.unreachable(
+      throw new Error(
         `Found duplicate '${octicon.name}' icons in the figma file. Please rename one of them. https://www.figma.com/file/${octicon.file}?node-id=${octicon.id}`,
       )
     } else {
