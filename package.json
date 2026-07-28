@@ -25,11 +25,11 @@
     "ava": "2.1.0",
     "braces": "3.0.3",
     "cheerio": "1.0.0-rc.3",
-    "eslint": "8.57.1",
-    "eslint-plugin-github": "5.0.2",
-    "eslint-plugin-prettier": "5.2.1",
+    "eslint": "10.8.0",
+    "eslint-plugin-github": "6.1.1",
     "execa": "4.0.0",
     "fs-extra": "7.0.1",
+    "globals": "17.8.0",
     "globby": "11.0.0",
     "js-yaml": "4.3.0",
     "prettier": "3.4.1",
@@ -38,24 +38,6 @@
     "svgson": "5.2.1",
     "trim-newlines": "3.0.1",
     "yargs": "15.1.0"
-  },
-  "eslintConfig": {
-    "extends": [
-      "plugin:github/internal",
-      "plugin:github/recommended"
-    ],
-    "env": {
-      "es6": true,
-      "node": true
-    },
-    "parserOptions": {
-      "ecmaVersion": 2017,
-      "requireConfigFile": false
-    },
-    "rules": {
-      "github/no-then": 0,
-      "eslint-comments/no-use": 0
-    }
   },
   "packageManager": "npm@11.16.0"
 }
