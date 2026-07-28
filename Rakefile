@@ -28,7 +28,10 @@ desc "Test all gems"
 task :test do
   run_tasks("lib/octicons_gem", "test", "build")
 
-  gem = Dir["lib/octicons_gem/pkg/*.gem"].first
+  gems = Dir["lib/octicons_gem/pkg/*.gem"]
+  raise "No built gem found in lib/octicons_gem/pkg/" if gems.empty?
+
+  gem = gems.max_by { |f| File.mtime(f) }
   %w[lib/octicons_helper lib/octicons_jekyll].each do |directory|
     cache = File.join(directory, "vendor/cache")
     FileUtils.mkdir_p(cache)
