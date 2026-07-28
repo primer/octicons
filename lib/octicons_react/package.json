@@ -46,7 +46,7 @@
     "primer"
   ],
   "devDependencies": {
-    "@babel/core": "^7.22.0",
+    "@babel/core": "7.29.6",
     "@babel/generator": "^7.22.0",
     "@babel/preset-env": "^7.22.0",
     "@babel/preset-react": "^7.22.0",
