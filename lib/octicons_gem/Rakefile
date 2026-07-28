@@ -1,11 +1,15 @@
 # frozen_string_literal: true
 
 require "rake/testtask"
-require "rubocop/rake_task"
 require "bundler/gem_tasks"
 
-RuboCop::RakeTask.new(:lint) do |t|
-  t.options = ["--display-cop-names"]
+begin
+  require "rubocop/rake_task"
+  RuboCop::RakeTask.new(:lint) do |t|
+    t.options = ["--display-cop-names"]
+  end
+rescue LoadError
+  # rubocop not available in this context
 end
 
 Rake::TestTask.new do |t|
