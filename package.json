@@ -15,7 +15,7 @@
     "changeset:version": "changeset version && script/version",
     "lint": "eslint tests",
     "svgo": "svgo icons --config svgo.config.js",
-    "test": "vitest run",
+    "test": "vitest",
     "version": "script/version"
   },
   "devDependencies": {
