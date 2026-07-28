@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@v6
         with:
-          node-version: 24
+          node-version-file: '.nvmrc'
       - run: npm ci
       - run: npm run build
       - run: cp -r icons lib/build/svg
@@ -211,7 +211,7 @@ jobs:
           path: ./lib/build
       - uses: actions/setup-node@v6
         with:
-          node-version: 24
+          node-version-file: '.nvmrc'
       - name: Determine publish metadata
         id: package
         run: |
@@ -250,7 +250,7 @@ jobs:
           path: ./lib/build
       - uses: actions/setup-node@v6
         with:
-          node-version: 24
+          node-version-file: '.nvmrc'
       - name: Determine publish metadata
         id: package
         run: |

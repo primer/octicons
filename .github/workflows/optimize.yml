@@ -36,7 +36,7 @@ jobs:
       - uses: actions/setup-node@v3
         if: steps.changed.outputs.has_changes == 'true'
         with:
-          node-version: 20.19.0
+          node-version-file: '.nvmrc'
       - run: npm ci
         if: steps.changed.outputs.has_changes == 'true'
       - name: Run svgo on changed icons
