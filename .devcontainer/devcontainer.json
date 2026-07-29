@@ -17,10 +17,8 @@
     "ghcr.io/devcontainers/features/node:1": {
       "version": "26.4.0"
     },
-    "ghcr.io/devcontainers/features/sshd:1": {
-      "version": "latest"
-    },
-    "ghcr.io/devcontainers/features/github-cli": {
+    "ghcr.io/devcontainers/features/sshd:1": {}
+    "ghcr.io/devcontainers/features/github-cli:1": {
       "version": "latest"
     }
   },
