@@ -1,16 +1,25 @@
 import github from 'eslint-plugin-github'
 import globals from 'globals'
 
-const {browser, internal, react, recommended} = github.getFlatConfigs()
+const {browser, internal, react, recommended, typescript} = github.getFlatConfigs()
+const javascriptFiles = ['**/*.{js,mjs,cjs,jsx}']
+const typescriptFiles = ['**/*.{ts,mts,cts,tsx}']
 const nodeFiles = ['tests/**/*.js', 'lib/octicons_node/{index.js,tests/**/*.js}']
-const reactFiles = ['lib/octicons_{react,styled}/{pages,script,src}/**/*.{js,mjs}']
-const lintFiles = [...nodeFiles, ...reactFiles]
+const reactFiles = ['lib/octicons_{react,styled}/{pages,script,src,ts-tests}/**/*.{js,mjs,jsx,ts,tsx}']
+const lintFiles = [...javascriptFiles, ...typescriptFiles]
 
 export default [
   {
-    ignores: ['lib/octicons_react/src/__generated__/**', 'lib/octicons_styled/src/__generated__/**'],
+    ignores: [
+      '**/__generated__/**',
+      '**/{build,coverage,dist}/**',
+      '**/.{cache,next}/**',
+      'public/**',
+      'vendor/**',
+    ],
   },
   {...recommended, files: lintFiles},
+  ...typescript.map(config => ({...config, files: typescriptFiles})),
   {...internal, files: nodeFiles},
   {...browser, files: reactFiles},
   {...react, files: reactFiles},

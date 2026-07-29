@@ -13,7 +13,7 @@
   "scripts": {
     "build": "script/build.js --input icons/**/*.svg --output lib/build/data.json",
     "changeset:version": "changeset version && script/version lib/octicons_node/package.json",
-    "lint": "eslint tests",
+    "lint": "eslint .",
     "svgo": "svgo icons --config svgo.config.js",
     "test": "vitest",
     "version": "script/version"
