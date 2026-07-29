@@ -1,6 +1,6 @@
 {
   "name": "Octicons",
-  "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:26",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu24.04",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -12,13 +12,15 @@
     }
   },
   "onCreateCommand": ["/bin/bash", "-c", "npm ci && npm run build && npx playwright install --with-deps chromium"],
-  "remoteUser": "node",
+  "remoteUser": "vscode",
   "features": {
-    "ghcr.io/devcontainers/features/node:1": {
+    "ghcr.io/devcontainers/features/node:2.1.0": {
       "version": "26.4.0"
     },
-    "ghcr.io/devcontainers/features/sshd:1": {}
-    "ghcr.io/devcontainers/features/github-cli:1": {
+    "ghcr.io/devcontainers/features/sshd:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/github-cli": {
       "version": "latest"
     }
   },
