@@ -44,13 +44,6 @@ jobs:
           PACKAGE_VERSION=$(ruby -rjson -e "puts JSON.parse(File.read('package.json'))['version']")
           PACKAGE_VERSION=$(echo "$PACKAGE_VERSION" | sed -e 's/^0\.0\.0./0.0.0.pre./g')
           echo "version=$(echo "$PACKAGE_VERSION" | sed -e 's/-rc/.pre/g')" >> "$GITHUB_OUTPUT"
-      - name: Configure RubyGems credentials
-        env:
-          RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
-        run: |
-          mkdir -p ~/.gem
-          printf -- "---\n:rubygems_api_key: %s\n" "$RUBYGEMS_TOKEN" > ~/.gem/credentials
-          chmod 0600 ~/.gem/credentials
       - name: Prepare octicons gem
         working-directory: ./lib/octicons_gem
         env:
@@ -72,6 +65,7 @@ jobs:
       - name: Build octicons gem
         working-directory: ./lib/octicons_gem
         run: bundle exec rake build
+      - uses: rubygems/configure-rubygems-credentials@dc5a8d8553e6ee01fc26761a49e99e733d17954a # v2.1.0
       - name: Publish octicons gem
         working-directory: ./lib/octicons_gem
         run: |
@@ -107,13 +101,6 @@ jobs:
           PACKAGE_VERSION=$(ruby -rjson -e "puts JSON.parse(File.read('package.json'))['version']")
           PACKAGE_VERSION=$(echo "$PACKAGE_VERSION" | sed -e 's/^0\.0\.0./0.0.0.pre./g')
           echo "version=$(echo "$PACKAGE_VERSION" | sed -e 's/-rc/.pre/g')" >> "$GITHUB_OUTPUT"
-      - name: Configure RubyGems credentials
-        env:
-          RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
-        run: |
-          mkdir -p ~/.gem
-          printf -- "---\n:rubygems_api_key: %s\n" "$RUBYGEMS_TOKEN" > ~/.gem/credentials
-          chmod 0600 ~/.gem/credentials
       - name: Prepare octicons helper gem
         working-directory: ./lib/octicons_helper
         env:
@@ -135,6 +122,7 @@ jobs:
       - name: Build octicons helper gem
         working-directory: ./lib/octicons_helper
         run: bundle exec rake build
+      - uses: rubygems/configure-rubygems-credentials@dc5a8d8553e6ee01fc26761a49e99e733d17954a # v2.1.0
       - name: Publish octicons helper gem
         working-directory: ./lib/octicons_helper
         run: |
@@ -165,13 +153,6 @@ jobs:
           PACKAGE_VERSION=$(ruby -rjson -e "puts JSON.parse(File.read('package.json'))['version']")
           PACKAGE_VERSION=$(echo "$PACKAGE_VERSION" | sed -e 's/^0\.0\.0./0.0.0.pre./g')
           echo "version=$(echo "$PACKAGE_VERSION" | sed -e 's/-rc/.pre/g')" >> "$GITHUB_OUTPUT"
-      - name: Configure RubyGems credentials
-        env:
-          RUBYGEMS_TOKEN: ${{ secrets.RUBYGEMS_TOKEN }}
-        run: |
-          mkdir -p ~/.gem
-          printf -- "---\n:rubygems_api_key: %s\n" "$RUBYGEMS_TOKEN" > ~/.gem/credentials
-          chmod 0600 ~/.gem/credentials
       - name: Prepare octicons jekyll gem
         working-directory: ./lib/octicons_jekyll
         env:
@@ -193,6 +174,7 @@ jobs:
       - name: Build octicons jekyll gem
         working-directory: ./lib/octicons_jekyll
         run: bundle exec rake build
+      - uses: rubygems/configure-rubygems-credentials@dc5a8d8553e6ee01fc26761a49e99e733d17954a # v2.1.0
       - name: Publish octicons jekyll gem
         working-directory: ./lib/octicons_jekyll
         run: |
