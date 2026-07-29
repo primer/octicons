@@ -1,0 +1,32 @@
+{
+  "name": "Octicons",
+  "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:26",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "DavidAnson.vscode-markdownlint",
+        "ZixuanChen.vitest-explorer"
+      ]
+    }
+  },
+  "onCreateCommand": ["/bin/bash", "-c", "npm ci && npm run build && npx playwright install --with-deps chromium"],
+  "remoteUser": "node",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "26.4.0"
+    },
+    "ghcr.io/devcontainers/features/sshd:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/github-cli": {
+      "version": "latest"
+    }
+  },
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "8gb",
+    "storage": "32gb"
+  }
+}
