@@ -12,7 +12,7 @@ jobs:
   optimize:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
 
@@ -40,7 +40,7 @@ jobs:
             echo "EOF" >> $GITHUB_OUTPUT
           fi
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         if: steps.changed.outputs.has_changes == 'true'
         with:
           node-version-file: '.nvmrc'
@@ -53,7 +53,7 @@ jobs:
             npx svgo --config svgo.config.js "$icon"
           done <<< "${{ steps.changed.outputs.files }}"
 
-      - uses: EndBug/add-and-commit@v4
+      - uses: EndBug/add-and-commit@290ea2c423ad77ca9c62ae0f5b224379612c0321 # v10.0.0
         if: steps.changed.outputs.has_changes == 'true'
         with:
           add: 'icons'
