@@ -1,0 +1,202 @@
+name: report workflow failures
+
+on:
+  workflow_run:
+    workflows:
+      - Octicons Publish
+    types:
+      - completed
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.workflow_run.workflow_id }}
+
+jobs:
+  create-or-update-issue:
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      issues: write
+    steps:
+      - name: create or update issue
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const workflowRun = context.payload.workflow_run;
+            const latestRuns = await github.rest.actions.listWorkflowRuns({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: workflowRun.workflow_id,
+              status: 'completed',
+              per_page: 1,
+            });
+            const latestRun = latestRuns.data.workflow_runs[0];
+
+            if (
+              latestRun?.id !== workflowRun.id ||
+              latestRun?.run_attempt !== workflowRun.run_attempt
+            ) {
+              return;
+            }
+
+            const workflow = await github.rest.actions.getWorkflow({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: workflowRun.workflow_id,
+            });
+            const title = `Investigate ${workflow.data.name} workflow failure`;
+            const issueMarkerText = `workflow-failure:${workflowRun.workflow_id}`;
+            const issueMarker = `<!-- ${issueMarkerText} -->`;
+            const issues = await github.paginate(github.rest.search.issuesAndPullRequests, {
+              q: [
+                `repo:${context.repo.owner}/${context.repo.repo}`,
+                'is:issue',
+                'is:open',
+                `"${issueMarkerText}"`,
+                'in:body',
+              ].join(' '),
+              per_page: 100,
+            });
+            const failureIssues = issues
+              .filter(
+                (issue) =>
+                  !issue.pull_request && issue.body?.includes(issueMarker),
+              )
+              .sort((a, b) => a.number - b.number);
+
+            const jobs = await github.paginate(
+              github.rest.actions.listJobsForWorkflowRun,
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: workflowRun.id,
+                filter: 'latest',
+                per_page: 100,
+              },
+            );
+            const failedJobs = jobs.filter((job) => job.conclusion === 'failure');
+            const escapeHtml = (text) =>
+              text
+                .replaceAll('&', '&amp;')
+                .replaceAll('<', '&lt;')
+                .replaceAll('>', '&gt;')
+                .replaceAll('"', '&quot;')
+                .replaceAll("'", '&#39;');
+            const failedJobListItems = failedJobs.map(
+              (job) =>
+                `- <a href="${job.html_url}">${escapeHtml(job.name)}</a>`,
+            );
+
+            if (failedJobListItems.length === 0) {
+              failedJobListItems.push(`- <a href="${workflowRun.html_url}">Failed run</a>`);
+            }
+
+            const body = [
+              issueMarker,
+              'The following jobs are failing in this workflow:',
+              '',
+              ...failedJobListItems,
+              '',
+              'cc @github/primer-engineering to investigate and fix',
+            ].join('\n');
+
+            const issue = {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body,
+            };
+
+            let issueNumber;
+
+            if (failureIssues.length > 0) {
+              await github.rest.issues.update({
+                ...issue,
+                issue_number: failureIssues[0].number,
+              });
+              issueNumber = failureIssues[0].number;
+              await Promise.all(
+                failureIssues.slice(1).map((duplicate) =>
+                  github.rest.issues.update({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: duplicate.number,
+                    state: 'closed',
+                    state_reason: 'not_planned',
+                  }),
+                ),
+              );
+            } else {
+              const createdIssue = await github.rest.issues.create(issue);
+              issueNumber = createdIssue.data.number;
+            }
+
+            try {
+              await github.rest.issues.addAssignees({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                assignees: ['copilot'],
+              });
+            } catch (error) {
+              core.warning(
+                `Failed to assign @copilot to issue #${issueNumber}. This is expected if Copilot assignment is not enabled for this repository. Error: ${error?.message ?? String(error)}`,
+              );
+            }
+
+  close-issue:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      issues: write
+    steps:
+      - name: close issue
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const workflowRun = context.payload.workflow_run;
+            const latestRuns = await github.rest.actions.listWorkflowRuns({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: workflowRun.workflow_id,
+              status: 'completed',
+              per_page: 1,
+            });
+            const latestRun = latestRuns.data.workflow_runs[0];
+
+            if (
+              latestRun?.id !== workflowRun.id ||
+              latestRun?.run_attempt !== workflowRun.run_attempt
+            ) {
+              return;
+            }
+
+            const issueMarkerText = `workflow-failure:${workflowRun.workflow_id}`;
+            const issueMarker = `<!-- ${issueMarkerText} -->`;
+            const issues = await github.paginate(github.rest.search.issuesAndPullRequests, {
+              q: [
+                `repo:${context.repo.owner}/${context.repo.repo}`,
+                'is:issue',
+                'is:open',
+                `"${issueMarkerText}"`,
+                'in:body',
+              ].join(' '),
+              per_page: 100,
+            });
+            const failureIssues = issues.filter(
+              (issue) =>
+                !issue.pull_request && issue.body?.includes(issueMarker),
+            );
+
+            for (const issue of failureIssues) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                state: 'closed',
+                state_reason: 'completed',
+              });
+            }
