@@ -228,8 +228,7 @@ jobs:
         working-directory: ./lib/octicons_node
         run: cp -R ../build/ .
       - name: Install dependencies
-        working-directory: ./lib/octicons_node
-        run: npm install --legacy-peer-deps
+        run: npm ci
       - name: Build @primer/octicons
         working-directory: ./lib/octicons_node
         run: npm run build
@@ -266,9 +265,8 @@ jobs:
       - name: Copy React build assets
         working-directory: ./lib/octicons_react
         run: cp -R ../build/ .
-      - name: Install React dependencies
-        working-directory: ./lib/octicons_react
-        run: npm install --legacy-peer-deps
+      - name: Install dependencies
+        run: npm ci
       - name: Build @primer/octicons-react
         working-directory: ./lib/octicons_react
         run: npm run build
@@ -281,9 +279,6 @@ jobs:
       - name: Copy styled build assets
         working-directory: ./lib/octicons_styled
         run: cp -R ../build/ .
-      - name: Install styled dependencies
-        working-directory: ./lib/octicons_styled
-        run: npm install --legacy-peer-deps
       - name: Build @primer/styled-octicons
         working-directory: ./lib/octicons_styled
         run: npm run build
