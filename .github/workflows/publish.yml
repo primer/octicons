@@ -267,7 +267,6 @@ jobs:
         working-directory: ./lib/octicons_react
         run: cp -R ../build/ .
       - name: Install React dependencies
-        working-directory: ./lib/octicons_react
         run: npm install --legacy-peer-deps
       - name: Build @primer/octicons-react
         working-directory: ./lib/octicons_react
