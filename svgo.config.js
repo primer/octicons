@@ -1,5 +1,3 @@
-/* eslint-disable import/no-commonjs,filenames/match-regex */
-
 module.exports = {
   multipass: true,
   plugins: [
@@ -7,16 +5,16 @@ module.exports = {
       name: 'preset-default',
       params: {
         overrides: {
-          removeViewBox: false
-        }
-      }
+          removeViewBox: false,
+        },
+      },
     },
     'removeStyleElement',
     {
       name: 'removeAttrs',
       params: {
-        attrs: ['xmlns:xlink', 'id', 'class', 'data-name', 'fill', 'transform', 'href', 'clip-path', 'clip-rule']
-      }
-    }
-  ]
+        attrs: ['xmlns:xlink', 'id', 'class', 'data-name', 'fill', 'transform', 'href', 'clip-path', 'clip-rule'],
+      },
+    },
+  ],
 }
