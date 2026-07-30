@@ -4,6 +4,7 @@ on:
   workflow_run:
     workflows:
       - Octicons Publish
+      - Codespaces Prebuilds
     types:
       - completed
 
