@@ -10,7 +10,7 @@
       "outputs": ["dist/**", "src/__generated__/**"]
     },
     "//#build": {
-      "outputs": ["lib/build/**"]
+      "outputs": ["lib/build/data.json"]
     },
     "lint": {
       "outputs": []
