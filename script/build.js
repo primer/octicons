@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-env node */
 const fs = require('fs-extra')
 const path = require('path')
 const globby = require('globby')
@@ -20,12 +19,12 @@ const {argv} = yargs
     alias: 'i',
     type: 'array',
     demandOption: true,
-    describe: 'Input SVG files'
+    describe: 'Input SVG files',
   })
   .option('output', {
     alias: 'o',
     type: 'string',
-    describe: 'Output JSON file. Defaults to stdout if no output file is provided.'
+    describe: 'Output JSON file. Defaults to stdout if no output file is provided.',
   })
 
 // The `argv.input` array could contain globs (e.g. "**/*.svg").
@@ -33,7 +32,6 @@ const filepaths = globby.sync(argv.input)
 const svgFilepaths = filepaths.filter(filepath => path.parse(filepath).ext === '.svg')
 
 if (svgFilepaths.length === 0) {
-  // eslint-disable-next-line no-console
   console.error('No input SVG file(s) found')
   process.exit(1)
 }
@@ -47,7 +45,7 @@ const icons = svgFilepaths.map(filepath => {
 
     if (!filenamePattern.test(filename)) {
       throw new Error(
-        `${filename}: Invalid filename. Please append the height of the SVG to the end of the filename (e.g. alert-16.svg).`
+        `${filename}: Invalid filename. Please append the height of the SVG to the end of the filename (e.g. alert-16.svg).`,
       )
     }
 
@@ -59,7 +57,7 @@ const icons = svgFilepaths.map(filepath => {
     const svgViewBox = svgElement.attr('viewBox')
     const svgPath = trimNewlines(svgElement.html()).trim()
     const ast = parseSync(svg, {
-      camelcase: true
+      camelcase: true,
     })
 
     if (!svgWidth) {
@@ -82,7 +80,7 @@ const icons = svgFilepaths.map(filepath => {
 
     if (!viewBoxPattern.test(svgViewBox)) {
       throw new Error(
-        `${filename}: Invalid viewBox attribute. The viewBox attribute should be in the following format: "0 0 <width> <height>"`
+        `${filename}: Invalid viewBox attribute. The viewBox attribute should be in the following format: "0 0 <width> <height>"`,
       )
     }
 
@@ -102,10 +100,9 @@ const icons = svgFilepaths.map(filepath => {
       width: svgWidth,
       height: svgHeight,
       path: svgPath,
-      ast
+      ast,
     }
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error(error)
     // Instead of exiting immediately, we set exitCode to 1 and continue
     // iterating through the rest of the SVGs. This allows us to identify all
@@ -132,12 +129,12 @@ const iconsByName = icons.reduce(
           [icon.height]: {
             width: icon.width,
             path: icon.path,
-            ast: icon.ast
-          }
-        }
-      }
+            ast: icon.ast,
+          },
+        },
+      },
     }),
-  {}
+  {},
 )
 
 if (argv.output) {
