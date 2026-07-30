@@ -54,7 +54,7 @@
     "react-dom": "^16.4.1",
     "rollup": "^4.18.0",
     "styled-components": "^5.1.0",
-    "typescript": "^3.7.5"
+    "typescript": "^6.0.3"
   },
   "engines": {
     "node": ">=8"
