@@ -13,7 +13,16 @@ const typeTestFiles = ['**/ts-tests/**/*.{ts,mts,cts,tsx}']
 const lintFiles = [...javascriptFiles, ...typescriptFiles]
 
 export default [
-  {ignores: ['**/__generated__/**', '**/{build,coverage,dist}/**', '**/.{cache,next}/**', 'public/**', 'vendor/**']},
+  {
+    ignores: [
+      '**/.agents/**',
+      '**/.{cache,next}/**',
+      '**/__generated__/**',
+      '**/{build,coverage,dist}/**',
+      'public/**',
+      'vendor/**',
+    ],
+  },
   {...recommended, files: lintFiles},
   ...typescript.map(config => ({...config, files: typescriptFiles})),
   {...internal, files: nodeFiles},
