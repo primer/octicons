@@ -51,7 +51,7 @@ jobs:
           path: ./lib/build
       - run: npm ci
       - run: npx turbo run build
-      - run: npx turbo run run lint
+      - run: npx turbo run lint
       - run: npx turbo run lint:npm
 
   test:
