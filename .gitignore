@@ -4,6 +4,7 @@
 .bundle
 .env
 node_modules
+.turbo
 vendor
 Gemfile.lock
 
