@@ -16,7 +16,6 @@
   "scripts": {
     "build": "script/build.js && npm run rollup && script/copy.sh",
     "ts-test": "tsc -P ts-tests",
-    "lint": "eslint src script",
     "rollup": "rollup -c --bundleConfigAsCjs"
   },
   "keywords": [

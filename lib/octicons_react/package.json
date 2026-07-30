@@ -29,8 +29,8 @@
     "build": "script/build.js && script/types.js && rollup -c",
     "clean": "rimraf .next dist src/__generated__",
     "develop": "next",
-    "lint": "eslint src pages/*.mjs script",
-    "ts-test": "tsc -P ts-tests"
+    "ts-test": "tsc -P ts-tests",
+    "lint:npm": "publint --strict"
   },
   "files": [
     "dist"
@@ -60,6 +60,7 @@
     "@types/react": "^18.2.0",
     "fs-extra": "^6.0.1",
     "next": "^16.1.5",
+    "publint": "0.2.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rimraf": "3.0.2",
