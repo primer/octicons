@@ -1,4 +1,3 @@
-/* eslint-disable import/no-commonjs */
 /* eslint-disable i18n-text/no-en */
 
 const fs = require('fs-extra')
