@@ -38,10 +38,9 @@ jobs:
           name: octicons-build
           path: ./lib/build
       - run: npm ci
-      - run: |
-          npm run build --workspaces
-          npm run lint
-          npm run lint:npm --if-present --workspaces
+      - run: npm run --if-present --workspaces build
+      - run: npm run lint
+      - run: npm run --if-present --workspaces lint:npm
 
   test:
     needs: build
@@ -57,7 +56,6 @@ jobs:
           path: ./lib/build
       - run: npm ci
       - run: npx playwright install --with-deps chromium
-      - run: |
-          npm run build --workspaces
-          npm test
-          npm run ts-test --workspace=@primer/octicons-react
+      - run: npm run --if-present --workspaces build
+      - run: npm test
+      - run: npm run --workspaces --if-present ts-test
