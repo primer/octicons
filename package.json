@@ -22,7 +22,7 @@
     "@changesets/changelog-github": "0.4.1",
     "@changesets/cli": "2.17.0",
     "@github/prettier-config": "0.0.6",
-    "@types/node": "20.19.0",
+    "@types/node": "^26.1.2",
     "@vitejs/plugin-react": "4.7.0",
     "@vitest/browser": "3.2.7",
     "braces": "3.0.3",
@@ -40,6 +40,7 @@
     "svgo": "3.3.4",
     "svgson": "5.2.1",
     "trim-newlines": "3.0.1",
+    "typescript": "^6.0.3",
     "vitest": "3.2.7",
     "yargs": "15.4.1"
   },
