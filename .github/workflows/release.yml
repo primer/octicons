@@ -1,4 +1,4 @@
-name: Release
+name: release
 on:
   push:
     branches:
@@ -12,7 +12,6 @@ permissions:
 
 jobs:
   release:
-    name: Final
     if: ${{ github.repository == 'primer/octicons' }}
 
     runs-on: ubuntu-latest
