@@ -42,10 +42,10 @@
     "primer"
   ],
   "devDependencies": {
-    "@babel/core": "7.29.6",
+    "@babel/core": "8.0.1",
     "@babel/generator": "^7.29.8",
-    "@babel/preset-env": "^7.22.0",
-    "@babel/preset-react": "^7.22.0",
+    "@babel/preset-env": "^8.0.2",
+    "@babel/preset-react": "^8.0.1",
     "@babel/types": "^7.29.8",
     "@github/prettier-config": "0.0.6",
     "@rolldown/plugin-babel": "^0.2.3",
