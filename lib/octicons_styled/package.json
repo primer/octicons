@@ -17,7 +17,7 @@
     "build": "script/build.ts && npm run rollup && script/copy.sh",
     "clean": "rimraf dist",
     "rollup": "rollup -c rollup.config.mts --bundleConfigAsCjs",
-    "typecheck": "tsc -p tsconfig.json"
+    "type-check": "tsc -p tsconfig.json"
   },
   "keywords": [
     "GitHub",

@@ -17,7 +17,7 @@
     "lint": "eslint --cache --flag unstable_native_nodejs_ts_config .",
     "svgo": "svgo icons --config svgo.config.mts",
     "test": "vitest",
-    "typecheck": "tsc -p tsconfig.json",
+    "type-check": "tsc -p tsconfig.json",
     "version": "script/version"
   },
   "prettier": "@github/prettier-config",

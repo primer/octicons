@@ -52,7 +52,7 @@ jobs:
       - run: npm ci
       - run: npx turbo run build
       - run: npx turbo run lint
-      - run: npx turbo run typecheck
+      - run: npx turbo run type-check
       - run: npx turbo run lint:npm
 
   test:

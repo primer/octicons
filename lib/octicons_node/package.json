@@ -19,7 +19,7 @@
   "scripts": {
     "build": "rm -f index.js && tsc -p tsconfig.build.json && cp -r ../build/. ./build && cp index.scss ./build/build.css",
     "clean": "rimraf build",
-    "typecheck": "tsc -p tsconfig.json"
+    "type-check": "tsc -p tsconfig.json"
   },
   "keywords": [
     "GitHub",

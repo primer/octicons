@@ -29,7 +29,7 @@
     "build": "script/build.ts && script/types.ts && rollup -c rollup.config.mts",
     "clean": "rimraf .next dist src/__generated__",
     "develop": "next",
-    "typecheck": "tsc -p tsconfig.json",
+    "type-check": "tsc -p tsconfig.json",
     "lint:npm": "publint --strict"
   },
   "babel": {
