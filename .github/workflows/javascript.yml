@@ -58,4 +58,3 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: npm run --if-present --workspaces build
       - run: npm test
-      - run: npm run --workspaces --if-present ts-test

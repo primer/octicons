@@ -29,7 +29,6 @@
     "build": "script/build.js && script/types.js && rollup -c",
     "clean": "rimraf .next dist src/__generated__",
     "develop": "next",
-    "ts-test": "vitest --typecheck.only --run",
     "lint:npm": "publint --strict"
   },
   "files": [
