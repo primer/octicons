@@ -112,7 +112,7 @@ export default [
     },
   },
   {
-    files: ['lib/octicons_{react,styled}/src/__tests__/**/*.js'],
+    files: ['lib/octicons_{react,styled}/src/__tests__/**/*.{js,jsx}'],
     rules: {
       'github/unescaped-html-literal': 'off',
       'i18n-text/no-en': 'off',
