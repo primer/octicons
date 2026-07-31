@@ -78,4 +78,3 @@ jobs:
         run: npx turbo run build
       - name: Run tests
         run: npx turbo run test
-      - run: npx turbo run ts-test

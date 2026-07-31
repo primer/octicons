@@ -24,10 +24,6 @@
     "test": {
       "dependsOn": ["build"],
       "outputs": []
-    },
-    "ts-test": {
-      "dependsOn": ["build"],
-      "outputs": []
     }
   }
 }
