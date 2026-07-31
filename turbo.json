@@ -11,6 +11,11 @@
       "outputs": ["dist/**", "build/**"]
     },
     "//#lint": {
+      "dependsOn": [
+        "@primer/octicons#build",
+        "@primer/octicons-react#build",
+        "@primer/styled-octicons#build"
+      ],
       "outputs": [".eslintcache"]
     },
     "lint:npm": {
@@ -18,7 +23,11 @@
       "outputs": []
     },
     "//#test": {
-      "dependsOn": ["//#build"],
+      "dependsOn": [
+        "@primer/octicons#build",
+        "@primer/octicons-react#build",
+        "@primer/styled-octicons#build"
+      ],
       "outputs": []
     },
     "test": {
