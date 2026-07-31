@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const fs = require('fs-extra')
+const fs = require('fs')
 const path = require('path')
 const globby = require('globby')
 const cheerio = require('cheerio')
@@ -143,13 +143,15 @@ const iconsByName = icons.reduce(
 )
 
 if (argv.output) {
-  fs.outputJsonSync(path.resolve(argv.output), iconsByName)
+  const outputPath = path.resolve(argv.output)
+  fs.mkdirSync(path.dirname(outputPath), {recursive: true})
+  fs.writeFileSync(outputPath, JSON.stringify(iconsByName))
 } else {
   process.stdout.write(JSON.stringify(iconsByName))
 }
 
 if (argv.svgOutput) {
   const svgOutputDir = path.resolve(argv.svgOutput)
-  fs.removeSync(svgOutputDir)
-  fs.copySync(path.resolve('icons'), svgOutputDir)
+  fs.rmSync(svgOutputDir, {recursive: true, force: true})
+  fs.cpSync(path.resolve('icons'), svgOutputDir, {recursive: true})
 }
