@@ -11,6 +11,7 @@
       "outputs": ["dist/**", "build/**"]
     },
     "//#lint": {
+      "dependsOn": ["//#build"],
       "outputs": [".eslintcache"]
     },
     "lint:npm": {
