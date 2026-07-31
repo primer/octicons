@@ -20,20 +20,6 @@
   npx turbo run test
   ```
 
-- Run the npm package check:
-
-  ```sh
-  npx turbo run build
-  rm -rf packed
-  mkdir packed
-  npm pack \
-    --workspace=@primer/octicons \
-    --workspace=@primer/octicons-react \
-    --workspace=@primer/styled-octicons \
-    --pack-destination packed \
-    --json
-  ```
-
 - Run the Ruby checks:
 
   ```sh
