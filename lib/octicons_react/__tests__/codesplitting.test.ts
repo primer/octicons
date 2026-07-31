@@ -1,8 +1,8 @@
 const path = require('node:path')
 const fs = require('node:fs')
-const {rollup} = require('rollup')
+const {rolldown} = require('rolldown')
 
-type Output = import('rollup').OutputAsset | import('rollup').OutputChunk
+type Output = import('rolldown').OutputAsset | import('rolldown').OutputChunk
 
 const packageRoot = path.resolve(__dirname, '..')
 const iconsDir = path.join(packageRoot, 'dist', 'icons')
@@ -20,7 +20,8 @@ test('emits one pre-transformed module per icon', () => {
 
 test('the barrel is a pure re-export of the per-icon modules', () => {
   const barrel = fs.readFileSync(path.join(packageRoot, 'dist', 'index.esm.mjs'), 'utf8')
-  expect(barrel).toContain("export { AlertIcon } from './icons/AlertIcon.mjs'")
+  expect(barrel).toContain('import { AlertIcon } from "./icons/AlertIcon.mjs"')
+  expect(barrel).toMatch(/export \{[^}]*\bAlertIcon\b[^}]*\}/)
   // A pure re-export barrel contains no rendering logic of its own.
   expect(barrel).not.toContain('forwardRef')
 })
@@ -34,7 +35,7 @@ test('package.json exports expose the "." barrel and a per-icon "./*" subpath', 
 })
 
 test('dynamic subpath imports are code-split into separate chunks', async () => {
-  const bundle = await rollup({
+  const bundle = await rolldown({
     input: path.join(__dirname, '__fixtures__', 'dynamic-imports.mts'),
     external: ['react'],
   })

@@ -5,6 +5,6 @@
     "noEmit": true,
     "types": ["node", "react", "vitest/globals", "@testing-library/jest-dom"]
   },
-  "include": ["rollup.config.mts", "script/**/*.ts", "src/**/*.ts", "src/**/*.tsx", "vitest.config.mts"],
+  "include": ["rolldown.config.mts", "script/**/*.ts", "src/**/*.ts", "src/**/*.tsx", "vitest.config.mts"],
   "exclude": ["src/__generated__"]
 }

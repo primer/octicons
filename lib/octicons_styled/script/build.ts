@@ -39,8 +39,8 @@ for (const name of icons) {
   const code = `${GENERATED_HEADER}
 import styled from 'styled-components'
 import * as styledSystem from 'styled-system'
-import {${name}} from '../../../../octicons_react/dist/index.esm'
-import {COMMON, sx} from '../../utils.ts'
+import {${name}} from '../../../../octicons_react/dist/index.esm.mjs'
+import {COMMON, sx} from '../../utils'
 
 const Styled${name} = styled(${name})(COMMON, sx)
 

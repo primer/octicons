@@ -1,6 +1,6 @@
 // Fixture for the code-splitting test: static dynamic imports of per-icon
-// subpaths so Rollup emits one chunk per icon.
-export function load(name) {
+// subpaths so Rolldown emits one chunk per icon.
+export function load(name: string) {
   switch (name) {
     case 'AlertIcon':
       return import('../../dist/icons/AlertIcon.mjs')

@@ -1,24 +1,30 @@
 const path = require('node:path')
-const commonjs = require('@rollup/plugin-commonjs')
-const {nodeResolve} = require('@rollup/plugin-node-resolve')
-const {rollup} = require('rollup')
-const virtual = require('@rollup/plugin-virtual')
+const {rolldown} = require('rolldown')
 
 const packageImport = path.resolve(__dirname, '..')
 
-test('tree shaking', async () => {
-  const bundle = await rollup({
-    input: '__entrypoint__',
-    external: [],
-    plugins: [
-      nodeResolve(),
-      commonjs(),
-      virtual({
-        __entrypoint__: `import { AlertIcon } from '${packageImport}'`,
-      }),
-    ],
+function virtual(code: string) {
+  return {
+    name: 'virtual',
+    resolveId(id: string) {
+      if (id === '__entrypoint__') return id
+    },
+    load(id: string) {
+      if (id === '__entrypoint__') return code
+    },
+  }
+}
 
-    onwarn: ({code, message}: import('rollup').RollupWarning) => {
+test('tree shaking', async () => {
+  const bundle = await rolldown({
+    input: '__entrypoint__',
+    experimental: {
+      attachDebugInfo: 'none',
+    },
+    external: [],
+    plugins: [virtual(`import { AlertIcon } from '${packageImport}'`)],
+
+    onwarn: ({code, message}: import('rolldown').RollupLog) => {
       if (code !== 'EMPTY_BUNDLE') {
         throw new Error(message)
       }
@@ -34,21 +40,18 @@ test('tree shaking', async () => {
 })
 
 test('tree shaking single export', async () => {
-  const bundle = await rollup({
+  const bundle = await rolldown({
     input: '__entrypoint__',
+    experimental: {
+      attachDebugInfo: 'none',
+    },
     external: ['react'],
-    plugins: [
-      nodeResolve(),
-      commonjs(),
-      virtual({
-        __entrypoint__: `export { XIcon } from '${packageImport}'`,
-      }),
-    ],
+    plugins: [virtual(`export { XIcon } from '${packageImport}'`)],
   })
   const {output} = await bundle.generate({
     format: 'esm',
   })
 
   const bundleSize = Buffer.byteLength(output[0].code.trim()) / 1000
-  expect(`${bundleSize}kB`).toMatchInlineSnapshot(`"6.482kB"`)
+  expect(`${bundleSize}kB`).toMatchInlineSnapshot(`"6.127kB"`)
 })

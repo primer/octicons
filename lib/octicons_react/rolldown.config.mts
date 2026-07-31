@@ -1,9 +1,7 @@
 import fs from 'fs'
 import path from 'path'
-import babel from '@rollup/plugin-babel'
-// @ts-expect-error -- Package exports do not expose its bundled types.
-import commonjs from '@rollup/plugin-commonjs'
-import packageJson from './package.json'
+import babel from '@rolldown/plugin-babel'
+import packageJson from './package.json' with {type: 'json'}
 
 const dependencies = [
   ...Object.keys(packageJson.peerDependencies ?? {}),
@@ -11,7 +9,11 @@ const dependencies = [
   ...Object.keys(packageJson.devDependencies ?? {}),
 ]
 
-const iconsDir = path.resolve(__dirname, 'src/__generated__/icons')
+function createPackageRegex(name: string) {
+  return new RegExp(`^${name}(/.*)?`)
+}
+
+const iconsDir = path.resolve(import.meta.dirname, 'src/__generated__/icons')
 
 // One entry per generated icon module (plus the barrel) so `dist/` mirrors the
 // source tree: `dist/index.esm.mjs`, `dist/icons/AlertIcon.mjs`, etc. This
@@ -25,7 +27,6 @@ const iconInputs = Object.fromEntries(
 )
 
 const babelPlugin = babel({
-  babelrc: false,
   presets: [
     [
       '@babel/preset-env',
@@ -36,11 +37,9 @@ const babelPlugin = babel({
     '@babel/preset-react',
     '@babel/preset-typescript',
   ],
-  extensions: ['.js', '.jsx', '.ts', '.tsx'],
-  babelHelpers: 'bundled',
 })
 
-const external = dependencies.map(name => new RegExp(`^${name}(/.*)?`))
+const external = dependencies.map(createPackageRegex)
 
 export default [
   {
@@ -48,8 +47,11 @@ export default [
       'index.esm': 'src/index.ts',
       ...iconInputs,
     },
+    experimental: {
+      attachDebugInfo: 'none',
+    },
     external,
-    plugins: [babelPlugin, commonjs()],
+    plugins: [babelPlugin],
     output: {
       dir: 'dist',
       format: 'esm',
@@ -59,8 +61,11 @@ export default [
   },
   {
     input: 'src/index.ts',
+    experimental: {
+      attachDebugInfo: 'none',
+    },
     external,
-    plugins: [babelPlugin, commonjs()],
+    plugins: [babelPlugin],
     output: {
       file: `dist/index.umd.js`,
       format: 'umd',
