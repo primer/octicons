@@ -15,9 +15,10 @@ const lintFiles = [...javascriptFiles, ...typescriptFiles]
 export default [
   {
     ignores: [
+      '**/.agents/**',
+      '**/.{cache,next,ts-build}/**',
       '**/__generated__/**',
       '**/{build,coverage,dist}/**',
-      '**/.{cache,next,ts-build}/**',
       'lib/octicons_node/index.js',
       'public/**',
       'vendor/**',

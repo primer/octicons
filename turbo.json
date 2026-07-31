@@ -1,0 +1,37 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "globalDependencies": [],
+  "tasks": {
+    "//#build": {
+      "inputs": ["icons/**/*.svg"],
+      "outputs": ["lib/build/data.json"]
+    },
+    "build": {
+      "dependsOn": ["//#build", "^build"],
+      "outputs": ["dist/**", "build/**"]
+    },
+    "//#lint": {
+      "outputs": [".eslintcache"]
+    },
+    "lint:npm": {
+      "dependsOn": ["build"],
+      "outputs": []
+    },
+    "//#test": {
+      "dependsOn": ["//#build"],
+      "outputs": []
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "outputs": []
+    },
+    "typecheck": {
+      "dependsOn": ["build"],
+      "outputs": []
+    },
+    "ts-test": {
+      "dependsOn": ["build"],
+      "outputs": []
+    }
+  }
+}

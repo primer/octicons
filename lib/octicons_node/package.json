@@ -18,6 +18,7 @@
   },
   "scripts": {
     "build": "rm -f index.js && tsc -p tsconfig.build.json && cp -r ../build/. ./build && cp index.scss ./build/build.css",
+    "clean": "rimraf build",
     "typecheck": "tsc -p tsconfig.json"
   },
   "keywords": [
@@ -31,6 +32,7 @@
     "object-assign": "^4.1.1"
   },
   "devDependencies": {
-    "@github/prettier-config": "0.0.4"
+    "@github/prettier-config": "0.0.4",
+    "rimraf": "^6.1.3"
   }
 }

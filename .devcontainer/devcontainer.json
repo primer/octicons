@@ -11,7 +11,7 @@
       ]
     }
   },
-  "onCreateCommand": ["/bin/bash", "-c", "npm ci && npm run build && npx playwright install --with-deps chromium"],
+  "onCreateCommand": "script/setup",
   "remoteUser": "vscode",
   "features": {
     "ghcr.io/devcontainers/features/node:2.1.0": {
