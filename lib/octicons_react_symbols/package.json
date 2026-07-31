@@ -37,7 +37,6 @@
   "devDependencies": {
     "@babel/core": "7.29.6",
     "@babel/generator": "^7.22.0",
-    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",

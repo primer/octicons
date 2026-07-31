@@ -22,7 +22,7 @@ type IconProps = OcticonReferenceProps & {
   >
 }
 
-const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon(
+const Icon = forwardRef<SVGSVGElement, IconProps>(function IconComponent(
   {
     'aria-label': ariaLabel,
     'aria-labelledby': ariaLabelledBy,
@@ -74,7 +74,7 @@ const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon(
   )
 })
 
-function closestNaturalHeight(naturalHeights: Array<string>, height: number): number {
+function closestNaturalHeight(naturalHeights: string[], height: number): number {
   const parsed = naturalHeights.map(naturalHeight => parseInt(naturalHeight, 10))
 
   return parsed.reduce((acc, naturalHeight) => {

@@ -71,7 +71,7 @@ function createIconReference({id, name, sizes}: CreateIconReferenceOptions): Ico
     }),
   )
 
-  const IconReference = forwardRef<SVGSVGElement, OcticonReferenceProps>(function IconReference(props, ref) {
+  const IconReference = forwardRef<SVGSVGElement, OcticonReferenceProps>(function IconReferenceComponent(props, ref) {
     return <Icon {...props} ref={ref} sizes={iconSizes} />
   })
   IconReference.displayName = name

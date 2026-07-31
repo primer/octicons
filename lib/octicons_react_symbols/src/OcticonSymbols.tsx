@@ -4,7 +4,7 @@ import type {OcticonSymbol} from './IconReference.js'
 
 interface OcticonSymbolsProps {
   children?: ReactNode
-  symbols: ReadonlyArray<OcticonSymbol>
+  symbols: readonly OcticonSymbol[]
 }
 
 const OcticonSymbolsContext = createContext<ReadonlySet<string>>(new Set())
@@ -12,7 +12,7 @@ const OcticonSymbolsContext = createContext<ReadonlySet<string>>(new Set())
 function OcticonSymbols({children, symbols}: OcticonSymbolsProps) {
   const inheritedSymbolIds = useContext(OcticonSymbolsContext)
   const registeredSymbolIds = new Set(inheritedSymbolIds)
-  const symbolsToRender: Array<OcticonSymbol> = []
+  const symbolsToRender: OcticonSymbol[] = []
 
   for (const symbol of symbols) {
     if (!registeredSymbolIds.has(symbol.id)) {

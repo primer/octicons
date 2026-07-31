@@ -13,7 +13,15 @@ const typeTestFiles = ['**/ts-tests/**/*.{ts,mts,cts,tsx}']
 const lintFiles = [...javascriptFiles, ...typescriptFiles]
 
 export default [
-  {ignores: ['**/__generated__/**', '**/{build,coverage,dist}/**', '**/.{cache,next}/**', 'public/**', 'vendor/**']},
+  {
+    ignores: [
+      '**/{__generated__,generated}/**',
+      '**/{build,coverage,dist}/**',
+      '**/.{cache,next}/**',
+      'public/**',
+      'vendor/**',
+    ],
+  },
   {...recommended, files: lintFiles},
   ...typescript.map(config => ({...config, files: typescriptFiles})),
   {...internal, files: nodeFiles},
@@ -100,7 +108,20 @@ export default [
     },
   },
   {
-    files: ['lib/octicons_{react,styled}/src/__tests__/**/*.js'],
+    files: ['lib/octicons_react_symbols/script/**/*.js'],
+    rules: {
+      'i18n-text/no-en': 'off',
+    },
+  },
+  {
+    files: ['lib/octicons_react_symbols/src/**/*.{ts,tsx}'],
+    rules: {
+      'import/extensions': 'off',
+      'import/no-unresolved': 'off',
+    },
+  },
+  {
+    files: ['lib/octicons_{react,react_symbols,styled}/src/__tests__/**/*.{js,ts,tsx}'],
     rules: {
       'github/unescaped-html-literal': 'off',
       'i18n-text/no-en': 'off',
