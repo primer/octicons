@@ -1,6 +1,7 @@
+// eslint-disable-next-line import/no-namespace
 import * as Octicons from '@primer/octicons-react'
 
-const {default: _Octicon, ...iconsByName} = Octicons
+const iconsByName = Octicons
 const sizes = ['small', 'medium', 'large']
 
 export default function Page() {

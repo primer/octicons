@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Octicons React',
-  description: 'A Next.js example using @primer/octicons-react'
+  description: 'A Next.js example using @primer/octicons-react',
 }
 
 export default function RootLayout({children}) {
