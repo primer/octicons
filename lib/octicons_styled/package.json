@@ -15,11 +15,7 @@
   ],
   "scripts": {
     "build": "script/build.js && npm run rollup && script/copy.sh",
-<<<<<<< HEAD
-=======
     "clean": "rimraf dist",
-    "ts-test": "tsc -P ts-tests",
->>>>>>> origin/main
     "rollup": "rollup -c --bundleConfigAsCjs"
   },
   "keywords": [

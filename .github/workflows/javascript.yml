@@ -74,13 +74,7 @@ jobs:
           path: ./lib/build
       - run: npm ci
       - run: npx playwright install --with-deps chromium
-<<<<<<< HEAD
-      - run: npm run --if-present --workspaces build
-      - run: npm test
-=======
       - name: Build workspace
         run: npx turbo run build
       - name: Run tests
         run: npx turbo run test
-      - run: npx turbo run ts-test
->>>>>>> origin/main
