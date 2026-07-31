@@ -12,6 +12,10 @@ on:
 jobs:
   copilot-setup-steps:
     runs-on: ubuntu-latest
+    # When updating Playwright in package.json, update this image to the same version.
+    container:
+      image: mcr.microsoft.com/playwright:v1.62.0-noble
+      options: --ipc=host
     permissions:
       contents: read
     steps:

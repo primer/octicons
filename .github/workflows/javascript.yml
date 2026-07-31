@@ -57,6 +57,10 @@ jobs:
   test:
     needs: build
     runs-on: ubuntu-latest
+    # When updating Playwright in package.json, update this image to the same version.
+    container:
+      image: mcr.microsoft.com/playwright:v1.62.0-noble
+      options: --ipc=host
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
@@ -73,7 +77,6 @@ jobs:
           name: octicons-build
           path: ./lib/build
       - run: npm ci
-      - run: npx playwright install --with-deps chromium
       - name: Build workspace
         run: npx turbo run build
       - name: Run tests
