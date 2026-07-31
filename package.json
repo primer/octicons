@@ -26,6 +26,7 @@
     "@changesets/cli": "2.31.1",
     "@github/prettier-config": "0.0.6",
     "@types/node": "^26.1.2",
+    "@typescript/native": "npm:typescript@^7.0.2",
     "@vitejs/plugin-react": "6.0.5",
     "@vitest/browser": "4.1.10",
     "@vitest/browser-playwright": "4.1.10",
@@ -48,7 +49,7 @@
     "svgson": "5.3.1",
     "trim-newlines": "5.0.0",
     "turbo": "^2.10.8",
-    "typescript": "^6.0.3",
+    "typescript": "npm:@typescript/typescript6@^6.0.2",
     "vitest": "4.1.10",
     "yargs": "18.1.0"
   },
