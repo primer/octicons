@@ -38,6 +38,17 @@ Include every package whose shipped public API or output changes:
 - `@primer/octicons-react`
 - `@primer/styled-octicons`
 
+Ruby gems are represented by private Changesets workspaces named after their
+folders:
+
+- `octicons_gem`
+- `octicons_helper`
+- `octicons_jekyll`
+
+Select a gem workspace when its corresponding gem changes independently.
+Workspace dependencies propagate icon updates through the gems, so do not
+select gem workspaces only because their dependency versions will change.
+
 Do not select a package only because its internal source or build process
 changed. Select it when users of that package will observe the change.
 

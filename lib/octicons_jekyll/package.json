@@ -1,8 +1,8 @@
 {
-  "name": "jekyll-octicons",
+  "name": "octicons_jekyll",
   "version": "19.32.0",
   "private": true,
   "dependencies": {
-    "octicons": "19.32.0"
+    "octicons_gem": "19.32.0"
   }
 }
