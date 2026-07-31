@@ -16,7 +16,6 @@
   "scripts": {
     "build": "script/build.ts && npm run rollup && script/copy.sh",
     "clean": "rimraf dist",
-    "ts-test": "tsc -P ts-tests",
     "rollup": "rollup -c rollup.config.mts --bundleConfigAsCjs",
     "typecheck": "tsc -p tsconfig.json"
   },

@@ -27,6 +27,10 @@ export default defineProject({
       instances: [{browser: 'chromium'}]
     },
     globals: true,
-    include: ['src/__tests__/*.tsx']
+    include: ['src/__tests__/*.tsx'],
+    typecheck: {
+      enabled: true,
+      tsconfig: './ts-tests/tsconfig.json'
+    }
   }
 })

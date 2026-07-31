@@ -29,7 +29,6 @@
     "build": "script/build.ts && script/types.ts && rollup -c rollup.config.mts",
     "clean": "rimraf .next dist src/__generated__",
     "develop": "next",
-    "ts-test": "tsc -P ts-tests",
     "typecheck": "tsc -p tsconfig.json",
     "lint:npm": "publint --strict"
   },

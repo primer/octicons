@@ -5,5 +5,5 @@
     "jsx": "react",
     "lib": ["es2015"]
   },
-  "include": ["index.tsx"]
+  "include": ["index.test-d.tsx"]
 }
