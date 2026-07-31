@@ -5,21 +5,17 @@
   "homepage": "https://primer.style/octicons",
   "author": "GitHub, Inc.",
   "license": "MIT",
-  "type": "commonjs",
-  "main": "dist/index.umd.js",
-  "module": "dist/index.esm.mjs",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "exports": {
     ".": {
-      "types": {
-        "import": "./dist/index.d.mts",
-        "require": "./dist/index.d.ts"
-      },
-      "import": "./dist/index.esm.mjs",
-      "require": "./dist/index.umd.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
     },
     "./*": {
       "types": "./dist/icons/*.d.ts",
-      "import": "./dist/icons/*.mjs"
+      "import": "./dist/icons/*.js"
     }
   },
   "sideEffects": false,
@@ -52,7 +48,6 @@
     "@github/prettier-config": "0.0.4",
     "@primer/components": "27.0.0",
     "@rollup/plugin-babel": "5.3.1",
-    "@rollup/plugin-commonjs": "22.0.2",
     "@rollup/plugin-node-resolve": "14.1.0",
     "@rollup/plugin-virtual": "2.1.0",
     "@testing-library/jest-dom": "^5.16.5",

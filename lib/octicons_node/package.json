@@ -5,6 +5,7 @@
   "homepage": "https://primer.style/octicons",
   "author": "GitHub Inc.",
   "license": "MIT",
+  "type": "module",
   "style": "index.scss",
   "main": "index.js",
   "files": [
