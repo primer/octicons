@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const fs = require('fs-extra')
+const fs = require('fs')
 const path = require('path')
 const globby = require('globby')
 const cheerio = require('cheerio')
@@ -25,6 +25,11 @@ const {argv} = yargs
     alias: 'o',
     type: 'string',
     describe: 'Output JSON file. Defaults to stdout if no output file is provided.',
+  })
+  .option('svg-output', {
+    alias: 's',
+    type: 'string',
+    describe: 'Output directory for SVG files.',
   })
 
 // The `argv.input` array could contain globs (e.g. "**/*.svg").
@@ -138,7 +143,15 @@ const iconsByName = icons.reduce(
 )
 
 if (argv.output) {
-  fs.outputJsonSync(path.resolve(argv.output), iconsByName)
+  const outputPath = path.resolve(argv.output)
+  fs.mkdirSync(path.dirname(outputPath), {recursive: true})
+  fs.writeFileSync(outputPath, JSON.stringify(iconsByName))
 } else {
   process.stdout.write(JSON.stringify(iconsByName))
+}
+
+if (argv.svgOutput) {
+  const svgOutputDir = path.resolve(argv.svgOutput)
+  fs.rmSync(svgOutputDir, {recursive: true, force: true})
+  fs.cpSync(path.resolve('icons'), svgOutputDir, {recursive: true})
 }

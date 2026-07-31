@@ -4,7 +4,7 @@
   "tasks": {
     "//#build": {
       "inputs": ["icons/**/*.svg"],
-      "outputs": ["lib/build/data.json"]
+      "outputs": ["lib/build/data.json", "lib/build/svg/**"]
     },
     "build": {
       "dependsOn": ["//#build", "^build"],

@@ -31,7 +31,6 @@ jobs:
       - name: build octicons assets
         run: |
           npm run build
-          cp -r icons lib/build/svg
           cp -r lib/build lib/octicons_gem/lib/
       - name: setup ruby
         uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1.321.0
