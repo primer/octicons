@@ -25,7 +25,7 @@ jobs:
           restore-keys: |
             turbo-${{ runner.os }}-${{ github.job }}-
       - run: npm ci
-      - run: npx turbo run build
+      - run: npx turbo run build --filter=//
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: octicons
@@ -223,7 +223,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build @primer/octicons
-        run: npx turbo run build --filter=@primer/octicons
+        run: npx turbo run build --filter=./lib/octicons_node
       - name: Publish @primer/octicons
         working-directory: ./lib/octicons_node
         env:
