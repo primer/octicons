@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react",
+    "noEmit": true,
+    "typeRoots": ["../../node_modules/@types", "../../node_modules", "../../@types"],
+    "types": ["node", "react", "rollup-plugin-commonjs", "vitest/globals", "@testing-library/jest-dom"]
+  },
+  "include": [
+    "__tests__/**/*.ts",
+    "next.config.ts",
+    "pages/**/*.tsx",
+    "rollup.config.mts",
+    "script/**/*.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "vitest.config.mts",
+    "vitest.browser.config.mts"
+  ],
+  "exclude": ["src/__generated__"]
+}

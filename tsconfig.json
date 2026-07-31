@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "typeRoots": ["./node_modules/@types", "./node_modules"],
+    "types": ["node", "vitest/globals"]
+  },
+  "include": [
+    "@types/**/*.d.ts",
+    "eslint.config.mts",
+    "script/**/*.ts",
+    "svgo.config.mts",
+    "tests/**/*.ts",
+    "vitest.config.mts"
+  ]
+}

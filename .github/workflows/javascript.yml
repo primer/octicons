@@ -40,6 +40,8 @@ jobs:
       - run: npm ci
       - run: npm run --if-present --workspaces build
       - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run --if-present --workspaces typecheck
       - run: npm run --if-present --workspaces lint:npm
 
   test:

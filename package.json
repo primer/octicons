@@ -11,13 +11,15 @@
     "registry": "no registry, don't publish from this package.json."
   },
   "scripts": {
-    "build": "script/build.js --input icons/**/*.svg --output lib/build/data.json",
+    "build": "script/build.ts --input icons/**/*.svg --output lib/build/data.json",
     "changeset:version": "changeset version && script/version lib/octicons_node/package.json",
-    "lint": "eslint .",
-    "svgo": "svgo icons --config svgo.config.js",
+    "lint": "eslint --flag unstable_native_nodejs_ts_config .",
+    "svgo": "svgo icons --config svgo.config.mts",
     "test": "vitest",
+    "typecheck": "tsc -p tsconfig.json",
     "version": "script/version"
   },
+  "prettier": "@github/prettier-config",
   "devDependencies": {
     "@changesets/changelog-github": "0.4.1",
     "@changesets/cli": "2.17.0",

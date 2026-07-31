@@ -6,18 +6,18 @@
   "author": "GitHub Inc.",
   "license": "MIT",
   "style": "index.scss",
-  "main": "index.js",
+  "main": "dist/index.js",
   "files": [
-    "index.js",
-    "index.scss",
-    "build"
+    "dist",
+    "index.scss"
   ],
   "repository": "https://github.com/primer/octicons.git",
   "bugs": {
     "url": "https://github.com/primer/octicons/issues"
   },
   "scripts": {
-    "build": "\\cp -r ../build/. ./build && \\cp index.scss ./build/build.css"
+    "build": "rm -rf dist && tsc -p tsconfig.build.json && cp -r ../build dist/build && cp index.scss dist/build/build.css",
+    "typecheck": "tsc -p tsconfig.json"
   },
   "keywords": [
     "GitHub",
@@ -25,6 +25,7 @@
     "svg",
     "octicons"
   ],
+  "prettier": "@github/prettier-config",
   "dependencies": {
     "object-assign": "^4.1.1"
   },

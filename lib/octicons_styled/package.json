@@ -14,9 +14,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "script/build.js && npm run rollup && script/copy.sh",
+    "build": "script/build.ts && tsc -p tsconfig.build.json && cp src/__generated__/index.js .ts-build/__generated__/index.js && npm run rollup && script/copy.sh",
     "ts-test": "tsc -P ts-tests",
-    "rollup": "rollup -c --bundleConfigAsCjs"
+    "rollup": "rollup -c rollup.config.mts --bundleConfigAsCjs",
+    "typecheck": "tsc -p tsconfig.json"
   },
   "keywords": [
     "GitHub",
@@ -26,6 +27,7 @@
     "react",
     "primer"
   ],
+  "prettier": "@github/prettier-config",
   "dependencies": {
     "@styled-system/css": "^5.1.5",
     "@styled-system/prop-types": "^5.1.5",

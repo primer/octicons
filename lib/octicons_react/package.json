@@ -26,12 +26,32 @@
   "types": "dist/index.d.ts",
   "repository": "primer/octicons",
   "scripts": {
-    "build": "script/build.js && script/types.js && rollup -c",
-    "clean": "rimraf .next dist src/__generated__",
+    "build": "script/build.ts && tsc -p tsconfig.build.json && script/types.ts && rollup -c rollup.config.mts",
+    "clean": "rimraf .next .ts-build dist src/__generated__",
     "develop": "next",
     "ts-test": "tsc -P ts-tests",
+    "typecheck": "tsc -p tsconfig.json",
     "lint:npm": "publint --strict"
   },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      "@babel/preset-react"
+    ],
+    "env": {
+      "production": {
+        "presets": ["next/babel"]
+      }
+    }
+  },
+  "prettier": "@github/prettier-config",
   "files": [
     "dist"
   ],
