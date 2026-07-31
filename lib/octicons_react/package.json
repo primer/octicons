@@ -26,8 +26,8 @@
   "types": "dist/index.d.ts",
   "repository": "primer/octicons",
   "scripts": {
-    "build": "script/build.ts && tsc -p tsconfig.build.json && script/types.ts && rollup -c rollup.config.mts",
-    "clean": "rimraf .next .ts-build dist src/__generated__",
+    "build": "script/build.ts && script/types.ts && rollup -c rollup.config.mts",
+    "clean": "rimraf .next dist src/__generated__",
     "develop": "next",
     "ts-test": "tsc -P ts-tests",
     "typecheck": "tsc -p tsconfig.json",
@@ -47,7 +47,9 @@
     ],
     "env": {
       "production": {
-        "presets": ["next/babel"]
+        "presets": [
+          "next/babel"
+        ]
       }
     }
   },
@@ -68,6 +70,7 @@
     "@babel/generator": "^7.22.0",
     "@babel/preset-env": "^7.22.0",
     "@babel/preset-react": "^7.22.0",
+    "@babel/preset-typescript": "^7.29.7",
     "@babel/types": "^7.22.0",
     "@github/prettier-config": "0.0.4",
     "@primer/components": "27.0.0",

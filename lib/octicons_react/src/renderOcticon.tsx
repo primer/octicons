@@ -8,7 +8,7 @@ export type IconProps = Omit<React.SVGProps<SVGSVGElement>, 'size'> & {
 }
 export type SVGData = Record<string, {path: React.ReactNode; width: number}>
 
-const sizeMap = {
+const sizeMap: Record<string, number> = {
   small: 16,
   medium: 32,
   large: 64
@@ -39,7 +39,7 @@ export function renderOcticon(
   svgDataByHeight: SVGData,
   heights: string[]
 ) {
-  const height = typeof size === 'number' ? size : sizeMap[size]
+  const height = sizeMap[size] || (size as number)
   const naturalHeight = closestNaturalHeight(heights, height)
   const naturalWidth = svgDataByHeight[naturalHeight].width
   const width = height * (naturalWidth / naturalHeight)
@@ -55,7 +55,7 @@ export function renderOcticon(
       {...rest}
       aria-hidden={computedAriaHidden}
       tabIndex={tabIndex}
-      focusable={tabIndex !== undefined && tabIndex >= 0 ? 'true' : 'false'}
+      focusable={tabIndex! >= 0 ? 'true' : 'false'}
       aria-label={ariaLabel}
       aria-labelledby={arialabelledby}
       className={`${defaultClassName} ${className}`.trim()}
@@ -81,5 +81,8 @@ export function renderOcticon(
 function closestNaturalHeight(naturalHeights: string[], height: number) {
   return naturalHeights
     .map(naturalHeight => parseInt(naturalHeight, 10))
-    .reduce((acc, naturalHeight) => (naturalHeight <= height ? naturalHeight : acc), Number(naturalHeights[0]))
+    .reduce(
+      (acc, naturalHeight) => (naturalHeight <= height ? naturalHeight : acc),
+      naturalHeights[0] as unknown as number
+    )
 }

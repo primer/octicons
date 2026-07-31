@@ -6,11 +6,16 @@ const icons = Object.keys(octicons).filter(name => name !== 'default')
 
 export default [
   {
-    input: '.ts-build/__generated__/index.js',
+    input: 'src/__generated__/index.js',
     plugins: [
       babel({
         babelrc: false,
-        presets: [[require.resolve('@babel/preset-env'), {modules: false}], require.resolve('@babel/preset-react')],
+        presets: [
+          [require.resolve('@babel/preset-env'), {modules: false}],
+          require.resolve('@babel/preset-react'),
+          require.resolve('@babel/preset-typescript')
+        ],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
         babelHelpers: 'inline'
       })
     ],
@@ -21,11 +26,16 @@ export default [
     }
   },
   {
-    input: Object.fromEntries(icons.map(name => [`icons/${name}`, `.ts-build/__generated__/icons/${name}.js`])),
+    input: Object.fromEntries(icons.map(name => [`icons/${name}`, `src/__generated__/icons/${name}.js`])),
     plugins: [
       babel({
         babelrc: false,
-        presets: [[require.resolve('@babel/preset-env'), {modules: false}], require.resolve('@babel/preset-react')],
+        presets: [
+          [require.resolve('@babel/preset-env'), {modules: false}],
+          require.resolve('@babel/preset-react'),
+          require.resolve('@babel/preset-typescript')
+        ],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
         babelHelpers: 'bundled'
       })
     ],

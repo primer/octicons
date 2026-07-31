@@ -10,7 +10,7 @@ const dependencies = [
   ...Object.keys(packageJson.devDependencies ?? {})
 ]
 
-const iconsDir = path.resolve(__dirname, '.ts-build/__generated__/icons')
+const iconsDir = path.resolve(__dirname, 'src/__generated__/icons')
 
 // One entry per generated icon module (plus the barrel) so `dist/` mirrors the
 // source tree: `dist/index.esm.mjs`, `dist/icons/AlertIcon.mjs`, etc. This
@@ -32,8 +32,10 @@ const babelPlugin = babel({
         modules: false
       }
     ],
-    '@babel/preset-react'
+    '@babel/preset-react',
+    '@babel/preset-typescript'
   ],
+  extensions: ['.js', '.jsx', '.ts', '.tsx'],
   babelHelpers: 'bundled'
 })
 
@@ -42,7 +44,7 @@ const external = dependencies.map(name => new RegExp(`^${name}(/.*)?`))
 export default [
   {
     input: {
-      'index.esm': '.ts-build/index.js',
+      'index.esm': 'src/index.ts',
       ...iconInputs
     },
     external,
@@ -55,7 +57,7 @@ export default [
     }
   },
   {
-    input: '.ts-build/index.js',
+    input: 'src/index.ts',
     external,
     plugins: [babelPlugin, commonjs()],
     output: {

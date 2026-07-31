@@ -40,7 +40,7 @@ for (const name of icons) {
 import styled from 'styled-components'
 import * as styledSystem from 'styled-system'
 import {${name}} from '../../../../octicons_react/dist/index.esm'
-import {COMMON, sx} from '../../utils'
+import {COMMON, sx} from '../../utils.ts'
 
 const Styled${name} = styled(${name})(COMMON, sx)
 

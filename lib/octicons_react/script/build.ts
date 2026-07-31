@@ -82,7 +82,7 @@ const icons = Object.entries(octicons)
       t.importDeclaration([t.importDefaultSpecifier(t.identifier('React'))], t.stringLiteral('react')),
       t.importDeclaration(
         [t.importSpecifier(t.identifier('renderOcticon'), t.identifier('renderOcticon'))],
-        t.stringLiteral('../../renderOcticon')
+        t.stringLiteral('../../renderOcticon.tsx')
       ),
       t.variableDeclaration('const', [
         t.variableDeclarator(t.identifier('heights'), t.arrayExpression(heights.map(height => t.stringLiteral(height))))

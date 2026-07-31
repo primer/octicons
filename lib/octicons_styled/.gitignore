@@ -1,5 +1,4 @@
 .cache
 .next
 dist/
-.ts-build/
 src/__generated__/

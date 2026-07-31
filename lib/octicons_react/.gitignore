@@ -1,6 +1,5 @@
 .cache
 .next
 dist/
-.ts-build/
 src/__generated__/
 .tool-versions

@@ -14,7 +14,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "script/build.ts && tsc -p tsconfig.build.json && cp src/__generated__/index.js .ts-build/__generated__/index.js && npm run rollup && script/copy.sh",
+    "build": "script/build.ts && npm run rollup && script/copy.sh",
     "ts-test": "tsc -P ts-tests",
     "rollup": "rollup -c rollup.config.mts --bundleConfigAsCjs",
     "typecheck": "tsc -p tsconfig.json"
@@ -43,6 +43,7 @@
     "@babel/core": "7.29.6",
     "@babel/preset-env": "7.24.7",
     "@babel/preset-react": "7.24.7",
+    "@babel/preset-typescript": "^7.29.7",
     "@github/prettier-config": "0.0.4",
     "@rollup/plugin-babel": "6.0.4",
     "@testing-library/jest-dom": "^5.3.0",

@@ -6,17 +6,18 @@
   "author": "GitHub Inc.",
   "license": "MIT",
   "style": "index.scss",
-  "main": "dist/index.js",
+  "main": "index.js",
   "files": [
-    "dist",
-    "index.scss"
+    "index.js",
+    "index.scss",
+    "build"
   ],
   "repository": "https://github.com/primer/octicons.git",
   "bugs": {
     "url": "https://github.com/primer/octicons/issues"
   },
   "scripts": {
-    "build": "rm -rf dist && tsc -p tsconfig.build.json && cp -r ../build dist/build && cp index.scss dist/build/build.css",
+    "build": "rm -f index.js && tsc -p tsconfig.build.json && cp -r ../build/. ./build && cp index.scss ./build/build.css",
     "typecheck": "tsc -p tsconfig.json"
   },
   "keywords": [
