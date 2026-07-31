@@ -1,4 +1,4 @@
 declare module '@rollup/plugin-commonjs' {
-  const commonjs: (...args: any[]) => any
+  const commonjs: (...args: Array<any>) => any
   export default commonjs
 }

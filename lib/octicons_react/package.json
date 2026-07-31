@@ -29,30 +29,9 @@
     "build": "script/build.ts && script/types.ts && rollup -c rollup.config.mts",
     "clean": "rimraf .next dist src/__generated__",
     "develop": "next",
-    "type-check": "tsc -p tsconfig.json",
+    "type-check": "tsc --noEmit",
     "lint:npm": "publint --strict"
   },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ],
-      "@babel/preset-react"
-    ],
-    "env": {
-      "production": {
-        "presets": [
-          "next/babel"
-        ]
-      }
-    }
-  },
-  "prettier": "@github/prettier-config",
   "files": [
     "dist"
   ],

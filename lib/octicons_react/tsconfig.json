@@ -3,10 +3,10 @@
   "compilerOptions": {
     "jsx": "react",
     "noEmit": true,
-    "typeRoots": ["../../node_modules/@types", "../../node_modules", "../../@types"],
-    "types": ["node", "react", "rollup-plugin-commonjs", "vitest/globals", "@testing-library/jest-dom"]
+    "types": ["node", "react", "vitest/globals", "@testing-library/jest-dom"]
   },
   "include": [
+    "../../@types/rollup-plugin-commonjs/**/*.d.ts",
     "__tests__/**/*.ts",
     "next.config.ts",
     "pages/**/*.tsx",
@@ -17,5 +17,5 @@
     "vitest.config.mts",
     "vitest.browser.config.mts"
   ],
-  "exclude": ["src/__generated__"]
+  "exclude": ["babel.config.js", "src/__generated__"]
 }

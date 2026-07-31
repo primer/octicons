@@ -36,7 +36,7 @@ test('package.json exports expose the "." barrel and a per-icon "./*" subpath', 
 test('dynamic subpath imports are code-split into separate chunks', async () => {
   const bundle = await rollup({
     input: path.join(__dirname, '__fixtures__', 'dynamic-imports.mts'),
-    external: ['react']
+    external: ['react'],
   })
   const {output} = await bundle.generate({format: 'esm'})
 

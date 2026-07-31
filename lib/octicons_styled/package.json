@@ -17,7 +17,7 @@
     "build": "script/build.ts && npm run rollup && script/copy.sh",
     "clean": "rimraf dist",
     "rollup": "rollup -c rollup.config.mts --bundleConfigAsCjs",
-    "type-check": "tsc -p tsconfig.json"
+    "type-check": "tsc --noEmit"
   },
   "keywords": [
     "GitHub",
@@ -27,7 +27,6 @@
     "react",
     "primer"
   ],
-  "prettier": "@github/prettier-config",
   "dependencies": {
     "@styled-system/css": "^5.1.5",
     "@styled-system/prop-types": "^5.1.5",

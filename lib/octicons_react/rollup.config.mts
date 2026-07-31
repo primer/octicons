@@ -7,7 +7,7 @@ import packageJson from './package.json'
 const dependencies = [
   ...Object.keys(packageJson.peerDependencies ?? {}),
   ...Object.keys(Reflect.get(packageJson, 'dependencies') ?? {}),
-  ...Object.keys(packageJson.devDependencies ?? {})
+  ...Object.keys(packageJson.devDependencies ?? {}),
 ]
 
 const iconsDir = path.resolve(__dirname, 'src/__generated__/icons')
@@ -20,7 +20,7 @@ const iconInputs = Object.fromEntries(
   fs
     .readdirSync(iconsDir)
     .filter(file => file.endsWith('.js') && file !== 'index.js')
-    .map(file => [`icons/${path.basename(file, '.js')}`, path.join(iconsDir, file)])
+    .map(file => [`icons/${path.basename(file, '.js')}`, path.join(iconsDir, file)]),
 )
 
 const babelPlugin = babel({
@@ -29,14 +29,14 @@ const babelPlugin = babel({
     [
       '@babel/preset-env',
       {
-        modules: false
-      }
+        modules: false,
+      },
     ],
     '@babel/preset-react',
-    '@babel/preset-typescript'
+    '@babel/preset-typescript',
   ],
   extensions: ['.js', '.jsx', '.ts', '.tsx'],
-  babelHelpers: 'bundled'
+  babelHelpers: 'bundled',
 })
 
 const external = dependencies.map(name => new RegExp(`^${name}(/.*)?`))
@@ -45,7 +45,7 @@ export default [
   {
     input: {
       'index.esm': 'src/index.ts',
-      ...iconInputs
+      ...iconInputs,
     },
     external,
     plugins: [babelPlugin, commonjs()],
@@ -53,8 +53,8 @@ export default [
       dir: 'dist',
       format: 'esm',
       entryFileNames: '[name].mjs',
-      chunkFileNames: '[name]-[hash].mjs'
-    }
+      chunkFileNames: '[name]-[hash].mjs',
+    },
   },
   {
     input: 'src/index.ts',
@@ -65,8 +65,8 @@ export default [
       format: 'umd',
       name: 'reocticons',
       globals: {
-        react: 'React'
-      }
-    }
-  }
+        react: 'React',
+      },
+    },
+  },
 ]

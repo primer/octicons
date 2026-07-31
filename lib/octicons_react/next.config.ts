@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   transpilePackages: ['@primer/components'],
-  pageExtensions: ['ts', 'tsx']
+  pageExtensions: ['ts', 'tsx'],
 }
 
 export default nextConfig

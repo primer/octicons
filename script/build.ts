@@ -11,7 +11,7 @@ const keywords = require('../keywords.json')
 
 type IconData = {
   name: string
-  keywords: string[]
+  keywords: Array<string>
   width: number
   height: number
   path: string
@@ -37,7 +37,7 @@ const {argv} = yargs
   })
 
 // The `argv.input` array could contain globs (e.g. "**/*.svg").
-const filepaths: string[] = globby.sync(argv.input)
+const filepaths: Array<string> = globby.sync(argv.input)
 const svgFilepaths = filepaths.filter((filepath: string) => path.parse(filepath).ext === '.svg')
 
 if (svgFilepaths.length === 0) {

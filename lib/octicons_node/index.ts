@@ -70,7 +70,7 @@ for (const key of Object.keys(octicons)) {
       viewBox: `0 0 ${octicons[key].heights[height].width} ${height}`,
       class: `octicon octicon-${key}`,
       'aria-hidden': 'true',
-      'data-component': 'Octicon'
+      'data-component': 'Octicon',
     }
   }
 
@@ -87,7 +87,7 @@ for (const key of Object.keys(octicons)) {
 // Import data into exports
 module.exports = octicons
 
-function closestNaturalHeight(naturalHeights: string[], height: string | number) {
+function closestNaturalHeight(naturalHeights: Array<string>, height: string | number) {
   const requestedHeight = Number(height)
   return naturalHeights
     .map(naturalHeight => parseInt(naturalHeight, 10))

@@ -7,7 +7,7 @@ export default defineProject({
     include: ['__tests__/*.test.ts'],
     typecheck: {
       enabled: true,
-      tsconfig: './ts-tests/tsconfig.json'
-    }
-  }
+      tsconfig: './ts-tests/tsconfig.json',
+    },
+  },
 })

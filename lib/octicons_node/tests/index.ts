@@ -27,7 +27,7 @@ test('Octicons have default html attributes', () => {
     expect(svg, `The octicon "${point}" doesn't have the height attribute`).toMatch(/height=/)
     expect(svg, `The octicon "${point}" doesn't have the viewBox attribute`).toMatch(/viewBox=/)
     expect(svg, `The octicon "${point}" doesn't have the class attribute`).toMatch(
-      new RegExp(`class="octicon octicon-${octicons[point].symbol}"`)
+      new RegExp(`class="octicon octicon-${octicons[point].symbol}"`),
     )
     expect(svg, `The octicon "${point}" doesn't have the data-component attribute`).toMatch(/data-component="Octicon"/)
   }
@@ -38,7 +38,7 @@ test('Passing in classnames will be included in output', () => {
   for (const point of Object.keys(octicons)) {
     const svg = octicons[point].toSVG({class: 'new-class another-class'})
     expect(svg, `The octicon "${point}" doesn't have the class attribute`).toMatch(
-      new RegExp(`class="octicon octicon-${octicons[point].symbol} new-class another-class"`)
+      new RegExp(`class="octicon octicon-${octicons[point].symbol} new-class another-class"`),
     )
   }
 })

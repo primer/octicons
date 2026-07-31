@@ -13,7 +13,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "typeRoots": ["./node_modules/@types", "./@types", "@vitest/browser/matchers"],
     "types": ["node"],
     "isolatedModules": true,
     "moduleDetection": "force",

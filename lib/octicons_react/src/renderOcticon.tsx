@@ -11,7 +11,7 @@ export type SVGData = Record<string, {path: React.ReactNode; width: number}>
 const sizeMap: Record<string, number> = {
   small: 16,
   medium: 32,
-  large: 64
+  large: 64,
 }
 
 // Shared render runtime for every generated icon. Extracting this from
@@ -37,7 +37,7 @@ export function renderOcticon(
   forwardedRef: React.ForwardedRef<SVGSVGElement>,
   defaultClassName: string,
   svgDataByHeight: SVGData,
-  heights: string[]
+  heights: Array<string>,
 ) {
   const height = sizeMap[size] || (size as number)
   const naturalHeight = closestNaturalHeight(heights, height)
@@ -69,7 +69,7 @@ export function renderOcticon(
       overflow="visible"
       style={{
         verticalAlign,
-        ...style
+        ...style,
       }}
     >
       {title ? <title>{title}</title> : null}
@@ -78,11 +78,11 @@ export function renderOcticon(
   )
 }
 
-function closestNaturalHeight(naturalHeights: string[], height: number) {
+function closestNaturalHeight(naturalHeights: Array<string>, height: number) {
   return naturalHeights
     .map(naturalHeight => parseInt(naturalHeight, 10))
     .reduce(
       (acc, naturalHeight) => (naturalHeight <= height ? naturalHeight : acc),
-      naturalHeights[0] as unknown as number
+      naturalHeights[0] as unknown as number,
     )
 }

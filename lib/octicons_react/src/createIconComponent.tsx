@@ -6,7 +6,7 @@ export function createIconComponent(name: string, defaultClassName: string, getS
   const heights = Object.keys(svgDataByHeight)
 
   const Icon = React.forwardRef<SVGSVGElement, IconProps>((props, forwardedRef) =>
-    renderOcticon(props, forwardedRef, defaultClassName, svgDataByHeight, heights)
+    renderOcticon(props, forwardedRef, defaultClassName, svgDataByHeight, heights),
   )
 
   Icon.displayName = name

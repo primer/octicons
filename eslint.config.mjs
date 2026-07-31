@@ -25,7 +25,14 @@ export default [
     ],
   },
   {...recommended, files: lintFiles},
-  ...typescript.map(config => ({...config, files: typescriptFiles})),
+  ...typescript.map(config => ({
+    ...config,
+    files: typescriptFiles,
+    rules: {
+      ...config.rules,
+      '@typescript-eslint/array-type': ['error', {default: 'generic'}],
+    },
+  })),
   {...internal, files: nodeFiles},
   {...browser, files: reactFiles},
   {...react, files: reactFiles},

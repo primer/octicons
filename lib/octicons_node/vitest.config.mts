@@ -4,6 +4,6 @@ export default defineProject({
   test: {
     name: 'octicons-node',
     globals: true,
-    include: ['tests/*.ts']
-  }
+    include: ['tests/*.ts'],
+  },
 })

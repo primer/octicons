@@ -19,7 +19,7 @@
   "scripts": {
     "build": "rm -f index.js && tsc -p tsconfig.build.json && cp -r ../build/. ./build && cp index.scss ./build/build.css",
     "clean": "rimraf build",
-    "type-check": "tsc -p tsconfig.json"
+    "type-check": "tsc --noEmit"
   },
   "keywords": [
     "GitHub",
@@ -27,7 +27,6 @@
     "svg",
     "octicons"
   ],
-  "prettier": "@github/prettier-config",
   "dependencies": {
     "object-assign": "^4.1.1"
   },

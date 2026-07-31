@@ -13,17 +13,17 @@ export default [
         presets: [
           [require.resolve('@babel/preset-env'), {modules: false}],
           require.resolve('@babel/preset-react'),
-          require.resolve('@babel/preset-typescript')
+          require.resolve('@babel/preset-typescript'),
         ],
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
-        babelHelpers: 'inline'
-      })
+        babelHelpers: 'inline',
+      }),
     ],
     output: {
       file: 'dist/index.umd.js',
       format: 'umd',
-      name: 'reocticons'
-    }
+      name: 'reocticons',
+    },
   },
   {
     input: Object.fromEntries(icons.map(name => [`icons/${name}`, `src/__generated__/icons/${name}.js`])),
@@ -33,15 +33,15 @@ export default [
         presets: [
           [require.resolve('@babel/preset-env'), {modules: false}],
           require.resolve('@babel/preset-react'),
-          require.resolve('@babel/preset-typescript')
+          require.resolve('@babel/preset-typescript'),
         ],
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
-        babelHelpers: 'bundled'
-      })
+        babelHelpers: 'bundled',
+      }),
     ],
     output: {
       dir: 'dist',
-      format: 'esm'
-    }
-  }
+      format: 'esm',
+    },
+  },
 ]
