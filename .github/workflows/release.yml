@@ -60,3 +60,11 @@ jobs:
           publish: npm run changeset:publish
         env:
           GITHUB_TOKEN: ${{ steps.get-access-token.outputs.token }}
+
+  publish:
+    needs: release
+    if: ${{ github.repository == 'primer/octicons' }}
+    permissions:
+      contents: read
+      id-token: write
+    uses: ./.github/workflows/publish.yml

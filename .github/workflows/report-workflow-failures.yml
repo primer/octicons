@@ -3,7 +3,7 @@ name: report workflow failures
 on:
   workflow_run:
     workflows:
-      - publish
+      - release
       - Codespaces Prebuilds
     types:
       - completed
