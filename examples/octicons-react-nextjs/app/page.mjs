@@ -1,16 +1,11 @@
-import React from 'react'
-import {Box, Text} from '@primer/components'
-import pkg from '../package.json'
-// eslint-disable-next-line import/no-namespace
-import * as Octicons from '../'
+import * as Octicons from '@primer/octicons-react'
 
-// eslint-disable-next-line no-unused-vars, import/namespace
 const {default: _Octicon, ...iconsByName} = Octicons
+const sizes = ['small', 'medium', 'large']
 
-export default function App() {
-  const sizes = ['small', 'medium', 'large']
+export default function Page() {
   return (
-    <Box p={4}>
+    <main className="p-4">
       <table className="data-table">
         <thead>
           <tr>
@@ -26,29 +21,21 @@ export default function App() {
             const iconName = Icon.displayName || key
             return (
               <tr key={key}>
-                <td>
-                  <Text mono nowrap>
-                    {key}
-                  </Text>
-                </td>
-                <td>
-                  <Text mono nowrap>
-                    {iconName}
-                  </Text>
-                </td>
+                <td className="text-mono text-nowrap">{key}</td>
+                <td className="text-mono text-nowrap">{iconName}</td>
                 <td>
                   {sizes.map(size => (
-                    <Text mr={4} key={size}>
+                    <span className="mr-4" key={size}>
                       <Icon size={size} verticalAlign="middle" />
-                    </Text>
+                    </span>
                   ))}
                 </td>
                 <td>
                   <pre>
                     {`
-import {${iconName}} from '${pkg.name}'
+import {${iconName}} from '@primer/octicons-react'
 export default () => <${iconName} />
-                  `.trim()}
+                    `.trim()}
                   </pre>
                 </td>
               </tr>
@@ -56,6 +43,6 @@ export default () => <${iconName} />
           })}
         </tbody>
       </table>
-    </Box>
+    </main>
   )
 }
