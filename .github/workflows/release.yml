@@ -4,6 +4,12 @@ on:
     branches:
       - "main"
       - "next_major"
+
+permissions:
+  contents: write
+  id-token: write
+  pull-requests: write
+
 jobs:
   release:
     name: Final
@@ -34,18 +40,24 @@ jobs:
           npm ci
           bundle install
 
+      - name: Build packages
+        run: |
+          npm run build
+          cp -r icons lib/build/svg
+          npm run build --workspaces --if-present
+
       - id: get-access-token
         uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
         with:
           client-id: ${{ vars.PRIMER_APP_CLIENT_ID_SHARED }}
           private-key: ${{ secrets.PRIMER_APP_PRIVATE_KEY_SHARED }}
 
-      - name: Create release pull request or publish to npm
+      - name: Create release pull request or publish packages
         id: changesets
         uses: changesets/action@a45c4d594aa4e2c509dc14a9f2b3b67ba3780d0d # v1.9.0
         with:
           title: Release Tracking
           version: npm run changeset:version
-          publish: script/changeset-publish
+          publish: npm run changeset:publish
         env:
           GITHUB_TOKEN: ${{ steps.get-access-token.outputs.token }}

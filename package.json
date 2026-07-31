@@ -3,6 +3,9 @@
   "version": "19.32.0",
   "private": true,
   "workspaces": [
+    "lib/octicons_gem",
+    "lib/octicons_helper",
+    "lib/octicons_jekyll",
     "lib/octicons_node",
     "lib/octicons_react",
     "lib/octicons_styled"
@@ -12,7 +15,8 @@
   },
   "scripts": {
     "build": "script/build.js --input icons/**/*.svg --output lib/build/data.json",
-    "changeset:version": "changeset version && script/version lib/octicons_node/package.json",
+    "changeset:publish": "changeset publish",
+    "changeset:version": "changeset version && script/version",
     "lint": "eslint .",
     "svgo": "svgo icons --config svgo.config.js",
     "test": "vitest",
@@ -20,7 +24,7 @@
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.4.1",
-    "@changesets/cli": "2.17.0",
+    "@changesets/cli": "2.31.1",
     "@github/prettier-config": "0.0.6",
     "@types/node": "^26.1.2",
     "@vitejs/plugin-react": "4.7.0",

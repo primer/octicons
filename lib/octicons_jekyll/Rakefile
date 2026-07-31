@@ -8,7 +8,7 @@ RuboCop::RakeTask.new(:lint) do |t|
   t.options = ["--display-cop-names"]
 end
 
-task :version, [:v] do |t, args|
+task :version, [:v, :octicons_version] do |t, args|
   out = "# frozen_string_literal: true\n\n# Prevent bundler errors\n"\
   "module Liquid; class Tag; end; end\n\n"\
   "module Jekyll\n"\
@@ -23,7 +23,7 @@ task :version, [:v] do |t, args|
   ["jekyll-octicons.gemspec", "Gemfile"].each do |filename|
     gs = File.read(File.expand_path("../#{filename}", __FILE__))
     File.open(File.expand_path("../#{filename}", __FILE__), "w") do |file|
-      file.puts gs.gsub(/"octicons", "[^"]+"/, "\"octicons\", \"#{args[:v]}\"")
+      file.puts gs.gsub(/"octicons", "[^"]+"/, "\"octicons\", \"#{args[:octicons_version] || args[:v]}\"")
     end
   end
 end

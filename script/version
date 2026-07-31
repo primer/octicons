@@ -2,10 +2,7 @@
 
 set -euo pipefail
 
-SOURCE_PACKAGE=${1:-package.json}
-PACKAGE_VERSION=$(node -p "require('./$SOURCE_PACKAGE').version")
-
-echo "$PACKAGE_VERSION"
+PACKAGE_VERSION=$(node -p "require('./lib/octicons_node/package.json').version")
 
 sync_package_version() {
   node - "$1" "$PACKAGE_VERSION" <<'NODE'
@@ -21,40 +18,60 @@ NODE
 echo "Versioning Octicons root package"
 sync_package_version package.json
 
-echo "Versioning Octicons node package"
-sync_package_version lib/octicons_node/package.json
-
-echo "Versioning Octicons react package"
-sync_package_version lib/octicons_react/package.json
-
 node - "$PACKAGE_VERSION" <<'NODE'
 const fs = require('fs')
 
-const version = process.argv[2]
+const rootVersion = process.argv[2]
 const path = 'package-lock.json'
 const packageLock = JSON.parse(fs.readFileSync(path, 'utf8'))
 
-packageLock.version = version
-for (const packagePath of ['', 'lib/octicons_node', 'lib/octicons_react']) {
-  if (!packageLock.packages?.[packagePath]) {
-    throw new Error(`Missing ${packagePath || 'root'} package in ${path}`)
+packageLock.version = rootVersion
+for (const packagePath of Object.keys(packageLock.packages)) {
+  if (packagePath === '' || packagePath.startsWith('lib/') && !packagePath.includes('/node_modules/')) {
+    const manifestPath = packagePath === '' ? 'package.json' : `${packagePath}/package.json`
+    if (!fs.existsSync(manifestPath)) {
+      continue
+    }
+    const packageJson = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+    packageLock.packages[packagePath].version = packageJson.version
+    for (const dependencyType of ['dependencies', 'devDependencies', 'peerDependencies']) {
+      if (packageJson[dependencyType]) {
+        packageLock.packages[packagePath][dependencyType] = packageJson[dependencyType]
+      } else {
+        delete packageLock.packages[packagePath][dependencyType]
+      }
+    }
   }
-  packageLock.packages[packagePath].version = version
 }
 
 fs.writeFileSync(path, `${JSON.stringify(packageLock, null, 2)}\n`)
 NODE
 
-echo "Versioning Octicons ruby gem"
+to_ruby_version() {
+  if [[ "$1" == 0.0.0-* ]]; then
+    echo "${1/0.0.0-/0.0.0.pre.}"
+  else
+    echo "${1/-rc/.pre}"
+  fi
+}
 
-bundle exec rake -C lib/octicons_gem version\["$PACKAGE_VERSION"\]
+OCTICONS_VERSION=$(node -p "require('./lib/octicons_gem/package.json').version")
+OCTICONS_HELPER_VERSION=$(node -p "require('./lib/octicons_helper/package.json').version")
+JEKYLL_OCTICONS_VERSION=$(node -p "require('./lib/octicons_jekyll/package.json').version")
+
+OCTICONS_RUBY_VERSION=$(to_ruby_version "$OCTICONS_VERSION")
+OCTICONS_HELPER_RUBY_VERSION=$(to_ruby_version "$OCTICONS_HELPER_VERSION")
+JEKYLL_OCTICONS_RUBY_VERSION=$(to_ruby_version "$JEKYLL_OCTICONS_VERSION")
+
+echo "Versioning Octicons ruby gem"
+bundle exec rake -C lib/octicons_gem version\["$OCTICONS_RUBY_VERSION"\]
 
 echo "Versioning Octicons rails helper gem"
-
-bundle exec rake -C lib/octicons_helper version\["$PACKAGE_VERSION"\]
+bundle exec rake -C lib/octicons_helper \
+  version\["$OCTICONS_HELPER_RUBY_VERSION","$OCTICONS_RUBY_VERSION"\]
 
 echo "Versioning Octicons jekyll plugin gem"
-
-bundle exec rake -C lib/octicons_jekyll version\["$PACKAGE_VERSION"\]
+bundle exec rake -C lib/octicons_jekyll \
+  version\["$JEKYLL_OCTICONS_RUBY_VERSION","$OCTICONS_RUBY_VERSION"\]
 
 git add package.json package-lock.json lib/
