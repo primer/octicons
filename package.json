@@ -11,7 +11,7 @@
     "registry": "no registry, don't publish from this package.json."
   },
   "scripts": {
-    "build": "script/build.js --input icons/**/*.svg --output lib/build/data.json && rimraf lib/build/svg && cp -r icons lib/build/svg",
+    "build": "script/build.js --input icons/**/*.svg --output lib/build/data.json --svg-output lib/build/svg",
     "clean": "npm run clean --workspaces --if-present && rimraf lib/build",
     "changeset:version": "changeset version && script/version lib/octicons_node/package.json",
     "lint": "eslint --cache .",

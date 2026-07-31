@@ -26,6 +26,11 @@ const {argv} = yargs
     type: 'string',
     describe: 'Output JSON file. Defaults to stdout if no output file is provided.',
   })
+  .option('svg-output', {
+    alias: 's',
+    type: 'string',
+    describe: 'Output directory for SVG files.',
+  })
 
 // The `argv.input` array could contain globs (e.g. "**/*.svg").
 const filepaths = globby.sync(argv.input)
@@ -141,4 +146,10 @@ if (argv.output) {
   fs.outputJsonSync(path.resolve(argv.output), iconsByName)
 } else {
   process.stdout.write(JSON.stringify(iconsByName))
+}
+
+if (argv.svgOutput) {
+  const svgOutputDir = path.resolve(argv.svgOutput)
+  fs.removeSync(svgOutputDir)
+  fs.copySync(path.resolve('icons'), svgOutputDir)
 }
