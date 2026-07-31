@@ -266,7 +266,12 @@ jobs:
         env:
           PACKAGE_VERSION: ${{ steps.package.outputs.version }}
           PUBLISH_TAG: ${{ steps.package.outputs.tag }}
-        run: npm version --allow-same-version "$PACKAGE_VERSION" && npm publish --tag "$PUBLISH_TAG" --access public || exit 0
+        run: |
+          npm version --allow-same-version "$PACKAGE_VERSION"
+          if ! npm publish --tag "$PUBLISH_TAG" --access public; then
+            PUBLISHED_VERSION=$(npm view "@primer/octicons-react-symbols@$PACKAGE_VERSION" version 2>/dev/null || true)
+            [[ "$PUBLISHED_VERSION" == "$PACKAGE_VERSION" ]] || exit 1
+          fi
       - name: Copy styled build assets
         working-directory: ./lib/octicons_styled
         run: cp -R ../build/ .
