@@ -36,7 +36,7 @@ jobs:
       - run: npm ci
       - name: build octicons assets
         run: |
-          npx turbo run build
+          npx turbo run build --filter=//
           cp -r icons lib/build/svg
           cp -r lib/build lib/octicons_gem/lib/
       - name: setup ruby
