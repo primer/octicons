@@ -47,7 +47,7 @@
     "@babel/preset-env": "^7.22.0",
     "@babel/preset-react": "^7.22.0",
     "@babel/types": "^7.29.8",
-    "@github/prettier-config": "0.0.4",
+    "@github/prettier-config": "0.0.6",
     "@rolldown/plugin-babel": "^0.2.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
