@@ -61,13 +61,13 @@ describe('An icon component', () => {
   })
 
   it('sets focusable prop to true if tabIndex prop is present and greater than 0', () => {
-    const {container} = render(<AlertIcon aria-label="icon" tabIndex={0} />)
+    const {container} = render(<AlertIcon aria-label="icon" {...{tabIndex: 0}} />)
     expect(container.querySelector('svg')).toHaveAttribute('tabindex', '0')
     expect(container.querySelector('svg')).toHaveAttribute('focusable', 'true')
   })
 
   it('sets focusable prop to false if tabIndex prop is -1', () => {
-    const {container} = render(<AlertIcon aria-label="icon" tabIndex={-1} />)
+    const {container} = render(<AlertIcon aria-label="icon" {...{tabIndex: -1}} />)
     expect(container.querySelector('svg')).toHaveAttribute('tabindex', '-1')
     expect(container.querySelector('svg')).toHaveAttribute('focusable', 'false')
   })

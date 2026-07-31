@@ -18,6 +18,7 @@ export default [
       '**/__generated__/**',
       '**/{build,coverage,dist}/**',
       '**/.{cache,next,ts-build}/**',
+      'lib/octicons_node/index.js',
       'public/**',
       'vendor/**',
     ],

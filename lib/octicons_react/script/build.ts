@@ -140,12 +140,11 @@ import * as React from 'react'
 
 type Size = 'small' | 'medium' | 'large'
 
-type IconProps = Omit<React.SVGProps<SVGSVGElement>, 'size'> & {
+interface IconProps {
   'aria-label'?: string
   className?: string
   fill?: string
   size?: number | Size
-  title?: string
   verticalAlign?: 'middle' | 'text-bottom' | 'text-top' | 'top' | 'unset'
 }
 
