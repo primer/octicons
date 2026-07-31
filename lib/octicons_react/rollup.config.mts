@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import babel from '@rollup/plugin-babel'
+// @ts-expect-error -- Package exports do not expose its bundled types.
 import commonjs from '@rollup/plugin-commonjs'
 import packageJson from './package.json'
 

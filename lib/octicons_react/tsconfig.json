@@ -6,7 +6,6 @@
     "types": ["node", "react", "vitest/globals", "@testing-library/jest-dom"]
   },
   "include": [
-    "../../@types/rollup-plugin-commonjs/**/*.d.ts",
     "__tests__/**/*.ts",
     "next.config.ts",
     "pages/**/*.tsx",
