@@ -26,15 +26,9 @@
   "types": "dist/index.d.ts",
   "repository": "primer/octicons",
   "scripts": {
-<<<<<<< HEAD
     "build": "script/build.ts && script/types.ts && rolldown -c",
-    "clean": "rimraf .next dist src/__generated__",
-    "develop": "next",
-    "type-check": "tsc --noEmit",
-=======
-    "build": "script/build.js && script/types.js && rolldown -c",
     "clean": "rimraf dist src/__generated__",
->>>>>>> origin/main
+    "type-check": "tsc --noEmit",
     "lint:npm": "publint --strict"
   },
   "files": [

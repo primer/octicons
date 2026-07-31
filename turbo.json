@@ -8,11 +8,7 @@
     },
     "build": {
       "dependsOn": ["//#build", "^build"],
-<<<<<<< HEAD
       "outputs": ["dist/**", "build/**", "src/__generated__/**", "index.js"]
-=======
-      "outputs": [".next/**", "dist/**", "build/**", "src/__generated__/**"]
->>>>>>> origin/main
     },
     "//#lint": {
       "dependsOn": [

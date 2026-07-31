@@ -6,16 +6,11 @@ const javascriptFiles = ['**/*.{js,mjs,cjs,jsx}']
 const typescriptFiles = ['**/*.{ts,mts,cts,tsx}']
 const configFiles = ['**/*.config.{js,mjs,cjs,ts,mts,cts}']
 const declarationFiles = ['**/*.d.{ts,mts,cts}']
-<<<<<<< HEAD
 const nodeFiles = ['tests/**/*.ts', 'lib/octicons_node/{index.ts,tests/**/*.ts}']
-const reactFiles = ['lib/octicons_{react,styled}/{pages,script,src,ts-tests}/**/*.{js,mjs,jsx,ts,tsx}']
-=======
-const nodeFiles = ['tests/**/*.js', 'lib/octicons_node/{index.js,tests/**/*.js}']
 const reactFiles = [
   'examples/**/*.{js,mjs,jsx,ts,tsx}',
   'lib/octicons_{react,styled}/{pages,script,src,ts-tests}/**/*.{js,mjs,jsx,ts,tsx}',
 ]
->>>>>>> origin/main
 const testFiles = ['**/{__tests__,tests,ts-tests}/**/*.{js,mjs,cjs,jsx,ts,tsx}']
 const typeTestFiles = ['**/ts-tests/**/*.{ts,mts,cts,tsx}']
 const lintFiles = [...javascriptFiles, ...typescriptFiles]
