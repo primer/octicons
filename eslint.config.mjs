@@ -80,6 +80,7 @@ export default [
     rules: {
       'github/a11y-aria-label-is-well-formatted': 'off',
       'github/filenames-match-regex': 'off',
+      'import/extensions': 'off',
       'import/named': 'off',
       'no-unused-vars': ['error', {varsIgnorePattern: '^React$'}],
     },

@@ -8,6 +8,7 @@
   "type": "module",
   "style": "index.scss",
   "main": "index.js",
+  "exports": "./index.js",
   "files": [
     "index.js",
     "index.scss",
