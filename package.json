@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "script/build.js --input icons/**/*.svg --output lib/build/data.json",
-    "changeset:publish": "changeset publish",
+    "changeset:publish": "script/changeset-publish",
     "changeset:version": "changeset version && script/version",
     "lint": "eslint .",
     "svgo": "svgo icons --config svgo.config.js",

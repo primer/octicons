@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -euo pipefail
+
+PUBLISH_TAG=$(node <<'NODE'
+const fs = require('fs')
+
+const root = JSON.parse(fs.readFileSync('package.json', 'utf8'))
+const workspaces = root.workspaces.map(workspace =>
+  JSON.parse(fs.readFileSync(`${workspace}/package.json`, 'utf8'))
+)
+const versions = workspaces.filter(pkg => !pkg.private).map(pkg => pkg.version)
+
+if (versions.some(version => version.startsWith('0.0.0-'))) {
+  process.stdout.write('canary')
+} else if (versions.some(version => version.includes('-rc'))) {
+  process.stdout.write('next')
+} else {
+  process.stdout.write('latest')
+}
+NODE
+)
+
+npx changeset publish --tag "$PUBLISH_TAG"
