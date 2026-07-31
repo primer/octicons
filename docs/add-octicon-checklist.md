@@ -32,5 +32,5 @@ Use this checklist to add a new/updated octicon to the Figma library and the Oct
     - [ ] Link to icon request issue for tracking
 - [ ] Request reviewers
   - [ ] Original requestor (from issue)
-  - [ ] Member of octicons team (@ashygee, @colebemis, @edokoa, @juliusschaeper)
+  - [ ] Member of octicons team
 - [ ] Submit pull request
