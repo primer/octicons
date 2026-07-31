@@ -13,6 +13,7 @@ export default defineConfig({
       './lib/octicons_node/vitest.config.mjs',
       './lib/octicons_react/vitest.config.mjs',
       './lib/octicons_react/vitest.browser.config.mjs',
+      './lib/octicons_react_symbols/vitest.browser.config.mjs',
       './lib/octicons_styled/vitest.config.mjs',
     ],
   },

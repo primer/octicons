@@ -258,6 +258,15 @@ jobs:
           PACKAGE_VERSION: ${{ steps.package.outputs.version }}
           PUBLISH_TAG: ${{ steps.package.outputs.tag }}
         run: npm version --allow-same-version "$PACKAGE_VERSION" && npm publish --tag "$PUBLISH_TAG" --access public || exit 0
+      - name: Build @primer/octicons-react-symbols
+        working-directory: ./lib/octicons_react_symbols
+        run: npm run build
+      - name: Publish @primer/octicons-react-symbols
+        working-directory: ./lib/octicons_react_symbols
+        env:
+          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
+          PUBLISH_TAG: ${{ steps.package.outputs.tag }}
+        run: npm version --allow-same-version "$PACKAGE_VERSION" && npm publish --tag "$PUBLISH_TAG" --access public || exit 0
       - name: Copy styled build assets
         working-directory: ./lib/octicons_styled
         run: cp -R ../build/ .

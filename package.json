@@ -5,6 +5,7 @@
   "workspaces": [
     "lib/octicons_node",
     "lib/octicons_react",
+    "lib/octicons_react_symbols",
     "lib/octicons_styled"
   ],
   "publishConfig": {

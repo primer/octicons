@@ -1,0 +1,51 @@
+{
+  "name": "@primer/octicons-react-symbols",
+  "version": "19.32.0",
+  "description": "Optimized React components for rendering Octicons with shared SVG symbols.",
+  "homepage": "https://primer.style/octicons",
+  "author": "GitHub, Inc.",
+  "license": "MIT",
+  "type": "module",
+  "types": "./dist/generated/index.d.ts",
+  "exports": {
+    "types": "./dist/generated/index.d.ts",
+    "default": "./dist/generated/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node script/build.js && tsc -p tsconfig.build.json",
+    "clean": "rimraf dist src/generated",
+    "lint:npm": "publint --strict",
+    "ts-test": "tsc --noEmit -p tsconfig.json"
+  },
+  "peerDependencies": {
+    "@types/react": "18.x || 19.x",
+    "@types/react-dom": "18.x || 19.x",
+    "react": "18.x || 19.x",
+    "react-dom": "18.x || 19.x"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "@types/react-dom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "7.29.6",
+    "@babel/generator": "^7.22.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "publint": "0.2.12",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "3.0.2",
+    "typescript": "^6.0.3"
+  },
+  "sideEffects": false
+}
