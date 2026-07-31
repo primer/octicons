@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "build": "script/build.js && npm run rollup && script/copy.sh",
-    "ts-test": "tsc -P ts-tests",
+    "ts-test": "vitest --typecheck.only --run",
     "rollup": "rollup -c --bundleConfigAsCjs"
   },
   "keywords": [
