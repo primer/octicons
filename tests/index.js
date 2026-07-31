@@ -1,7 +1,6 @@
 /* eslint-disable i18n-text/no-en */
 
 const fs = require('fs-extra')
-const globby = require('globby')
 
 const year = new Date().getFullYear()
 const yearRegex = new RegExp(`Copyright \\(c\\) ${year} GitHub Inc\\.`)
@@ -9,6 +8,7 @@ const octiconsLib = fs.readdirSync('./lib/build/svg')
 const octiconsData = require('../lib/build/data.json')
 
 test(`LICENSE files have the current year ${year}`, async () => {
+  const {globby} = await import('globby')
   const paths = await globby(['**/LICENSE', '!**/node_modules/**/LICENSE', '!**/vendor/**/LICENSE'])
   for (const path of paths) {
     const license = fs.readFileSync(path, 'utf8')
