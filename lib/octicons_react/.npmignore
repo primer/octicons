@@ -4,9 +4,7 @@
 .cache
 .eslint*
 .gitignore
-.next
 script
 src
-**/pages/**
 **/__tests__/**
 **/ts-tests/**

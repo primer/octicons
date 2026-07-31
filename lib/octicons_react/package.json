@@ -26,10 +26,15 @@
   "types": "dist/index.d.ts",
   "repository": "primer/octicons",
   "scripts": {
+<<<<<<< HEAD
     "build": "script/build.ts && script/types.ts && rolldown -c",
     "clean": "rimraf .next dist src/__generated__",
     "develop": "next",
     "type-check": "tsc --noEmit",
+=======
+    "build": "script/build.js && script/types.js && rolldown -c",
+    "clean": "rimraf dist src/__generated__",
+>>>>>>> origin/main
     "lint:npm": "publint --strict"
   },
   "files": [
@@ -51,13 +56,11 @@
     "@babel/preset-typescript": "^7.29.7",
     "@babel/types": "^7.22.0",
     "@github/prettier-config": "0.0.4",
-    "@primer/components": "27.0.0",
     "@rolldown/plugin-babel": "^0.2.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@types/react": "^18.2.0",
     "fs-extra": "^6.0.1",
-    "next": "^16.1.5",
     "publint": "0.2.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

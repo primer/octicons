@@ -3,6 +3,7 @@
   "version": "19.32.0",
   "private": true,
   "workspaces": [
+    "examples/*",
     "lib/octicons_node",
     "lib/octicons_react",
     "lib/octicons_styled"

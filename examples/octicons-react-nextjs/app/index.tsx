@@ -1,15 +1,18 @@
-import React from 'react'
-import {Box, Text} from '@primer/components'
-import pkg from '../package.json'
 // eslint-disable-next-line import/no-namespace
-import * as Octicons from '../'
+import * as Octicons from '@primer/octicons-react'
 
 const iconsByName = Octicons
+<<<<<<<< HEAD:examples/octicons-react-nextjs/app/index.tsx
 
 export default function App() {
   const sizes = ['small', 'medium', 'large'] as const
+========
+const sizes = ['small', 'medium', 'large']
+
+export default function Page() {
+>>>>>>>> origin/main:examples/octicons-react-nextjs/app/page.js
   return (
-    <Box p={4}>
+    <main className="p-4">
       <table className="data-table">
         <thead>
           <tr>
@@ -25,6 +28,7 @@ export default function App() {
             const iconName = Icon.displayName || key
             return (
               <tr key={key}>
+<<<<<<<< HEAD:examples/octicons-react-nextjs/app/index.tsx
                 <td>
                   <Text fontFamily="mono" whiteSpace="nowrap">
                     {key}
@@ -35,19 +39,23 @@ export default function App() {
                     {iconName}
                   </Text>
                 </td>
+========
+                <td className="text-mono text-nowrap">{key}</td>
+                <td className="text-mono text-nowrap">{iconName}</td>
+>>>>>>>> origin/main:examples/octicons-react-nextjs/app/page.js
                 <td>
                   {sizes.map(size => (
-                    <Text mr={4} key={size}>
+                    <span className="mr-4" key={size}>
                       <Icon size={size} verticalAlign="middle" />
-                    </Text>
+                    </span>
                   ))}
                 </td>
                 <td>
                   <pre>
                     {`
-import {${iconName}} from '${pkg.name}'
+import {${iconName}} from '@primer/octicons-react'
 export default () => <${iconName} />
-                  `.trim()}
+                    `.trim()}
                   </pre>
                 </td>
               </tr>
@@ -55,6 +63,6 @@ export default () => <${iconName} />
           })}
         </tbody>
       </table>
-    </Box>
+    </main>
   )
 }
