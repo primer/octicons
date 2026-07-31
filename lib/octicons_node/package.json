@@ -30,7 +30,7 @@
     "object-assign": "^4.1.1"
   },
   "devDependencies": {
-    "@github/prettier-config": "0.0.4",
+    "@github/prettier-config": "0.0.6",
     "rimraf": "^6.1.3"
   }
 }
