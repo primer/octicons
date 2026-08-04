@@ -193,6 +193,7 @@ exports[`@primer/octicons-react > should not update exports without a semver cha
   "IssueDraftIcon",
   "IssueLockedIcon",
   "IssueOpenedIcon",
+  "IssueRelatesIcon",
   "IssueReopenedIcon",
   "IssueTrackedByIcon",
   "IssueTracksIcon",
