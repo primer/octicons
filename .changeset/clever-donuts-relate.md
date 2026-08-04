@@ -1,5 +1,7 @@
 ---
 '@primer/octicons': minor
+'@primer/octicons-react': minor
+'@primer/styled-octicons': minor
 ---
 
-Add issue-relates icon
+Add the `issue-relates` icon and corresponding `IssueRelatesIcon` export.
