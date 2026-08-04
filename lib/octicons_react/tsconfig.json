@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react",
+    "noEmit": true,
+    "types": ["node", "react", "vitest/globals", "@testing-library/jest-dom"]
+  },
+  "include": [
+    "__tests__/**/*.ts",
+    "next.config.ts",
+    "pages/**/*.tsx",
+    "rolldown.config.mts",
+    "script/**/*.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "vitest.config.mts",
+    "vitest.browser.config.mts"
+  ],
+  "exclude": ["babel.config.js", "src/__generated__"]
+}

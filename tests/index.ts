@@ -6,7 +6,13 @@ const globby = require('globby')
 const year = new Date().getFullYear()
 const yearRegex = new RegExp(`Copyright \\(c\\) ${year} GitHub Inc\\.`)
 const octiconsLib = fs.readdirSync('./lib/build/svg')
-const octiconsData = require('../lib/build/data.json')
+type OcticonData = {
+  name: string
+  file?: string
+  id?: string
+}
+
+const octiconsData = require('../lib/build/data.json') as Record<string, OcticonData>
 
 test(`LICENSE files have the current year ${year}`, async () => {
   const paths = await globby(['**/LICENSE', '!**/node_modules/**/LICENSE', '!**/vendor/**/LICENSE'])
@@ -24,7 +30,7 @@ test('Data file exist', () => {
   expect(octiconsData.length, `We didn't find any data files`).not.toBe(0)
 })
 
-const names = {}
+const names: Record<string, OcticonData> = {}
 for (const octicon of Object.values(octiconsData)) {
   test(`No duplicate ${octicon.name} icon`, () => {
     if (names[octicon.name]) {

@@ -50,7 +50,7 @@ jobs:
         if: steps.changed.outputs.has_changes == 'true'
         run: |
           while IFS= read -r icon; do
-            npx svgo --config svgo.config.js "$icon"
+            npx svgo --config svgo.config.mts "$icon"
           done <<< "${{ steps.changed.outputs.files }}"
 
       - uses: EndBug/add-and-commit@290ea2c423ad77ca9c62ae0f5b224379612c0321 # v10.0.0

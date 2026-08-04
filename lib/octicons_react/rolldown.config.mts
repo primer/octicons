@@ -5,11 +5,11 @@ import packageJson from './package.json' with {type: 'json'}
 
 const dependencies = [
   ...Object.keys(packageJson.peerDependencies ?? {}),
-  ...Object.keys(packageJson.dependencies ?? {}),
-  ...Object.keys(packageJson.devDependencies ?? {})
+  ...Object.keys(Reflect.get(packageJson, 'dependencies') ?? {}),
+  ...Object.keys(packageJson.devDependencies ?? {}),
 ]
 
-function createPackageRegex(name) {
+function createPackageRegex(name: string) {
   return new RegExp(`^${name}(/.*)?`)
 }
 
@@ -23,7 +23,7 @@ const iconInputs = Object.fromEntries(
   fs
     .readdirSync(iconsDir)
     .filter(file => file.endsWith('.js') && file !== 'index.js')
-    .map(file => [`icons/${path.basename(file, '.js')}`, path.join(iconsDir, file)])
+    .map(file => [`icons/${path.basename(file, '.js')}`, path.join(iconsDir, file)]),
 )
 
 const babelPlugin = babel({
@@ -31,11 +31,12 @@ const babelPlugin = babel({
     [
       '@babel/preset-env',
       {
-        modules: false
-      }
+        modules: false,
+      },
     ],
-    '@babel/preset-react'
-  ]
+    '@babel/preset-react',
+    '@babel/preset-typescript',
+  ],
 })
 
 const external = dependencies.map(createPackageRegex)
@@ -43,11 +44,11 @@ const external = dependencies.map(createPackageRegex)
 export default [
   {
     input: {
-      'index.esm': 'src/index.js',
-      ...iconInputs
+      'index.esm': 'src/index.ts',
+      ...iconInputs,
     },
     experimental: {
-      attachDebugInfo: 'none'
+      attachDebugInfo: 'none',
     },
     external,
     plugins: [babelPlugin],
@@ -55,13 +56,13 @@ export default [
       dir: 'dist',
       format: 'esm',
       entryFileNames: '[name].mjs',
-      chunkFileNames: '[name]-[hash].mjs'
-    }
+      chunkFileNames: '[name]-[hash].mjs',
+    },
   },
   {
-    input: 'src/index.js',
+    input: 'src/index.ts',
     experimental: {
-      attachDebugInfo: 'none'
+      attachDebugInfo: 'none',
     },
     external,
     plugins: [babelPlugin],
@@ -70,8 +71,8 @@ export default [
       format: 'umd',
       name: 'reocticons',
       globals: {
-        react: 'React'
-      }
-    }
-  }
+        react: 'React',
+      },
+    },
+  },
 ]

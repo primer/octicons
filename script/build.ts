@@ -9,6 +9,15 @@ const yargs = require('yargs')
 const merge = require('lodash.merge')
 const keywords = require('../keywords.json')
 
+type IconData = {
+  name: string
+  keywords: Array<string>
+  width: number
+  height: number
+  path: string
+  ast: ReturnType<typeof parseSync>
+}
+
 // This script generates a JSON file that contains
 // information about input SVG files.
 
@@ -33,8 +42,8 @@ const {argv} = yargs
   })
 
 // The `argv.input` array could contain globs (e.g. "**/*.svg").
-const filepaths = globby.sync(argv.input)
-const svgFilepaths = filepaths.filter(filepath => path.parse(filepath).ext === '.svg')
+const filepaths: Array<string> = globby.sync(argv.input)
+const svgFilepaths = filepaths.filter((filepath: string) => path.parse(filepath).ext === '.svg')
 
 if (svgFilepaths.length === 0) {
   console.error('No input SVG file(s) found')
@@ -43,7 +52,7 @@ if (svgFilepaths.length === 0) {
 
 let exitCode = 0
 
-const icons = svgFilepaths.map(filepath => {
+const icons = svgFilepaths.map((filepath: string): IconData | null => {
   try {
     const filename = path.parse(filepath).base
     const filenamePattern = /(.+)-([0-9]+).svg$/
@@ -124,23 +133,25 @@ if (exitCode !== 0) {
   process.exit(exitCode)
 }
 
-const iconsByName = icons.reduce(
-  (acc, icon) =>
-    merge(acc, {
-      [icon.name]: {
-        name: icon.name,
-        keywords: icon.keywords,
-        heights: {
-          [icon.height]: {
-            width: icon.width,
-            path: icon.path,
-            ast: icon.ast,
+const iconsByName = icons
+  .filter((icon): icon is IconData => icon !== null)
+  .reduce<Record<string, unknown>>(
+    (acc, icon) =>
+      merge(acc, {
+        [icon.name]: {
+          name: icon.name,
+          keywords: icon.keywords,
+          heights: {
+            [icon.height]: {
+              width: icon.width,
+              path: icon.path,
+              ast: icon.ast,
+            },
           },
         },
-      },
-    }),
-  {},
-)
+      }),
+    {},
+  )
 
 if (argv.output) {
   const outputPath = path.resolve(argv.output)

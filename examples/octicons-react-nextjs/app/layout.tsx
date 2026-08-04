@@ -3,7 +3,7 @@ export const metadata = {
   description: 'A Next.js example using @primer/octicons-react',
 }
 
-export default function RootLayout({children}) {
+export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
       <head>

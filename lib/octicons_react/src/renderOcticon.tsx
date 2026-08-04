@@ -1,9 +1,17 @@
 import React from 'react'
 
-const sizeMap = {
+type IconSize = number | 'small' | 'medium' | 'large'
+export type IconProps = Omit<React.SVGProps<SVGSVGElement>, 'size'> & {
+  size?: IconSize
+  title?: string
+  verticalAlign?: React.CSSProperties['verticalAlign']
+}
+export type SVGData = Record<string, {path: React.ReactNode; width: number}>
+
+const sizeMap: Record<string, number> = {
   small: 16,
   medium: 32,
-  large: 64
+  large: 64,
 }
 
 // Shared render runtime for every generated icon. Extracting this from
@@ -25,13 +33,13 @@ export function renderOcticon(
     title,
     style,
     ...rest
-  },
-  forwardedRef,
-  defaultClassName,
-  svgDataByHeight,
-  heights
+  }: IconProps,
+  forwardedRef: React.ForwardedRef<SVGSVGElement>,
+  defaultClassName: string,
+  svgDataByHeight: SVGData,
+  heights: Array<string>,
 ) {
-  const height = sizeMap[size] || size
+  const height = sizeMap[size] || (size as number)
   const naturalHeight = closestNaturalHeight(heights, height)
   const naturalWidth = svgDataByHeight[naturalHeight].width
   const width = height * (naturalWidth / naturalHeight)
@@ -47,7 +55,7 @@ export function renderOcticon(
       {...rest}
       aria-hidden={computedAriaHidden}
       tabIndex={tabIndex}
-      focusable={tabIndex >= 0 ? 'true' : 'false'}
+      focusable={tabIndex! >= 0 ? 'true' : 'false'}
       aria-label={ariaLabel}
       aria-labelledby={arialabelledby}
       className={`${defaultClassName} ${className}`.trim()}
@@ -61,7 +69,7 @@ export function renderOcticon(
       overflow="visible"
       style={{
         verticalAlign,
-        ...style
+        ...style,
       }}
     >
       {title ? <title>{title}</title> : null}
@@ -70,8 +78,11 @@ export function renderOcticon(
   )
 }
 
-function closestNaturalHeight(naturalHeights, height) {
+function closestNaturalHeight(naturalHeights: Array<string>, height: number) {
   return naturalHeights
     .map(naturalHeight => parseInt(naturalHeight, 10))
-    .reduce((acc, naturalHeight) => (naturalHeight <= height ? naturalHeight : acc), naturalHeights[0])
+    .reduce(
+      (acc, naturalHeight) => (naturalHeight <= height ? naturalHeight : acc),
+      naturalHeights[0] as unknown as number,
+    )
 }

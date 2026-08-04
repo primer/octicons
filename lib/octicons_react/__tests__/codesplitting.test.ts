@@ -2,6 +2,8 @@ const path = require('node:path')
 const fs = require('node:fs')
 const {rolldown} = require('rolldown')
 
+type Output = import('rolldown').OutputAsset | import('rolldown').OutputChunk
+
 const packageRoot = path.resolve(__dirname, '..')
 const iconsDir = path.join(packageRoot, 'dist', 'icons')
 
@@ -34,8 +36,8 @@ test('package.json exports expose the "." barrel and a per-icon "./*" subpath', 
 
 test('dynamic subpath imports are code-split into separate chunks', async () => {
   const bundle = await rolldown({
-    input: path.join(__dirname, '__fixtures__', 'dynamic-imports.mjs'),
-    external: ['react']
+    input: path.join(__dirname, '__fixtures__', 'dynamic-imports.mts'),
+    external: ['react'],
   })
   const {output} = await bundle.generate({format: 'esm'})
 
@@ -44,7 +46,11 @@ test('dynamic subpath imports are code-split into separate chunks', async () => 
   // rather than bundled into the entry.
   expect(output.length).toBeGreaterThan(1)
 
-  const entry = output.find(chunk => chunk.isEntry)
+  const entry = output.find((chunk: Output) => chunk.type === 'chunk' && chunk.isEntry)
+  expect(entry).toBeDefined()
+  if (!entry || entry.type !== 'chunk') {
+    throw new Error('Expected an entry chunk')
+  }
   // The entry itself must not inline any icon path data.
   expect(entry.code).not.toContain('octicon octicon-alert')
   expect(entry.code).not.toContain('octicon octicon-repo')

@@ -1,6 +1,13 @@
 #!/usr/bin/env node
 
-const octicons = require('../../build/data.json')
+import type {INode} from 'svgson'
+
+type Octicon = {
+  heights: Record<string, {ast: INode; width: number}>
+}
+type JSXElement = import('@babel/types').JSXElement | import('@babel/types').JSXFragment
+
+const octicons = require('../../build/data.json') as Record<string, Octicon>
 const {default: generate} = require('@babel/generator')
 const t = require('@babel/types')
 const fse = require('fs-extra')
@@ -11,8 +18,10 @@ const iconsDir = join(srcDir, 'icons')
 
 const GENERATED_HEADER = '/* THIS FILE IS GENERATED. DO NOT EDIT IT. */'
 
-function pascalCase(str) {
-  return str.replace(/(^|-)([a-z])/g, (_, __, c) => c.toUpperCase())
+function pascalCase(str: string) {
+  return str.replace(/(^|-)([a-z])/g, (_match: string, _separator: string, character: string) =>
+    character.toUpperCase(),
+  )
 }
 
 const icons = Object.entries(octicons)
@@ -34,10 +43,10 @@ const icons = Object.entries(octicons)
           t.stringLiteral(height),
           t.objectExpression([
             t.objectProperty(t.stringLiteral('width'), t.numericLiteral(icon.width)),
-            t.objectProperty(t.stringLiteral('path'), svgToJSX(icon.ast))
-          ])
+            t.objectProperty(t.stringLiteral('path'), svgToJSX(icon.ast)),
+          ]),
         )
-      })
+      }),
     )
 
     // Emit a finished, pre-transformed component instead of a runtime
@@ -61,35 +70,38 @@ const icons = Object.entries(octicons)
             t.identifier('ref'),
             t.stringLiteral(`octicon octicon-${key}`),
             t.identifier('svgDataByHeight'),
-            t.identifier('heights')
-          ])
-        )
+            t.identifier('heights'),
+          ]),
+        ),
       ]),
       'leading',
-      '#__PURE__'
+      '#__PURE__',
     )
 
     const program = t.program([
       t.importDeclaration([t.importDefaultSpecifier(t.identifier('React'))], t.stringLiteral('react')),
       t.importDeclaration(
         [t.importSpecifier(t.identifier('renderOcticon'), t.identifier('renderOcticon'))],
-        t.stringLiteral('../../renderOcticon')
+        t.stringLiteral('../../renderOcticon.tsx'),
       ),
       t.variableDeclaration('const', [
-        t.variableDeclarator(t.identifier('heights'), t.arrayExpression(heights.map(height => t.stringLiteral(height))))
+        t.variableDeclarator(
+          t.identifier('heights'),
+          t.arrayExpression(heights.map(height => t.stringLiteral(height))),
+        ),
       ]),
       t.variableDeclaration('const', [t.variableDeclarator(t.identifier('svgDataByHeight'), svgData)]),
       t.exportNamedDeclaration(
-        t.variableDeclaration('const', [t.variableDeclarator(t.identifier(name), forwardRefCall)])
+        t.variableDeclaration('const', [t.variableDeclarator(t.identifier(name), forwardRefCall)]),
       ),
       t.expressionStatement(
         t.assignmentExpression(
           '=',
           t.memberExpression(t.identifier(name), t.identifier('displayName')),
-          t.stringLiteral(name)
-        )
+          t.stringLiteral(name),
+        ),
       ),
-      t.exportDefaultDeclaration(t.identifier(name))
+      t.exportDefaultDeclaration(t.identifier(name)),
     ])
 
     const {code} = generate(program)
@@ -98,7 +110,7 @@ const icons = Object.entries(octicons)
       key,
       name,
       octicon,
-      code: `${GENERATED_HEADER}\n${code}\n`
+      code: `${GENERATED_HEADER}\n${code}\n`,
     }
   })
   .sort((a, b) => a.key.localeCompare(b.key))
@@ -166,7 +178,7 @@ ${icons.map(({name}) => `export {${name}} from './${name}'`).join('\n')}
   return Promise.all([
     fse.writeFile(join(iconsDir, 'types.d.ts'), sharedTypes, 'utf8'),
     ...typeWrites,
-    fse.writeFile(join(iconsDir, 'index.d.ts'), barrel, 'utf8')
+    fse.writeFile(join(iconsDir, 'index.d.ts'), barrel, 'utf8'),
   ]).then(() => {
     console.warn('wrote %d icon type modules + barrel to %s', count, iconsDir)
     return icons
@@ -177,7 +189,7 @@ fse
   .emptyDir(iconsDir)
   .then(() => writeIcons())
   .then(() => writeTypes())
-  .catch(error => {
+  .catch((error: unknown) => {
     console.error(error)
     process.exit(1)
   })
@@ -185,7 +197,7 @@ fse
 /**
  * Convert a given node from an svg AST into a JS AST of JSX Elements
  */
-function svgToJSX(node) {
+function svgToJSX(node: INode): JSXElement {
   if (node.type === 'element') {
     const children = node.children.map(svgToJSX)
 

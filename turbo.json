@@ -8,14 +8,10 @@
     },
     "build": {
       "dependsOn": ["//#build", "^build"],
-      "outputs": [".next/**", "dist/**", "build/**", "src/__generated__/**"]
+      "outputs": ["dist/**", "build/**", "src/__generated__/**", "index.js", ".next/**"]
     },
     "//#lint": {
-      "dependsOn": [
-        "@primer/octicons#build",
-        "@primer/octicons-react#build",
-        "@primer/styled-octicons#build"
-      ],
+      "dependsOn": ["@primer/octicons#build", "@primer/octicons-react#build", "@primer/styled-octicons#build"],
       "outputs": [".eslintcache"]
     },
     "lint:npm": {
@@ -23,14 +19,14 @@
       "outputs": []
     },
     "//#test": {
-      "dependsOn": [
-        "@primer/octicons#build",
-        "@primer/octicons-react#build",
-        "@primer/styled-octicons#build"
-      ],
+      "dependsOn": ["@primer/octicons#build", "@primer/octicons-react#build", "@primer/styled-octicons#build"],
       "outputs": []
     },
     "test": {
+      "dependsOn": ["build"],
+      "outputs": []
+    },
+    "type-check": {
       "dependsOn": ["build"],
       "outputs": []
     }

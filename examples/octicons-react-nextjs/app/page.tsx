@@ -2,7 +2,7 @@
 import * as Octicons from '@primer/octicons-react'
 
 const iconsByName = Octicons
-const sizes = ['small', 'medium', 'large']
+const sizes = ['small', 'medium', 'large'] as const
 
 export default function Page() {
   return (
@@ -17,7 +17,7 @@ export default function Page() {
           </tr>
         </thead>
         <tbody>
-          {Object.keys(iconsByName).map(key => {
+          {(Object.keys(iconsByName) as Array<keyof typeof iconsByName>).map(key => {
             const Icon = iconsByName[key]
             const iconName = Icon.displayName || key
             return (

@@ -5,7 +5,7 @@ export default defineProject({
   plugins: [react({babel: {presets: ['@babel/preset-react']}})],
   optimizeDeps: {
     include: ['@testing-library/jest-dom', '@testing-library/react'],
-    noDiscovery: true
+    noDiscovery: true,
   },
   test: {
     name: 'octicons-react-browser',
@@ -13,9 +13,9 @@ export default defineProject({
       enabled: true,
       headless: true,
       provider: 'playwright',
-      instances: [{browser: 'chromium'}]
+      instances: [{browser: 'chromium'}],
     },
     globals: true,
-    include: ['src/__tests__/*.js']
-  }
+    include: ['src/__tests__/*.tsx'],
+  },
 })
