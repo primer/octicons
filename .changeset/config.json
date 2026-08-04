@@ -10,5 +10,5 @@
     "version": true,
     "tag": true
   },
-  "ignore": []
+  "ignore": ["@primer/octicons-react-nextjs-example"]
 }

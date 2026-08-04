@@ -1,0 +1,88 @@
+import React from 'react'
+
+type IconSize = number | 'small' | 'medium' | 'large'
+export type IconProps = Omit<React.SVGProps<SVGSVGElement>, 'size'> & {
+  size?: IconSize
+  title?: string
+  verticalAlign?: React.CSSProperties['verticalAlign']
+}
+export type SVGData = Record<string, {path: React.ReactNode; width: number}>
+
+const sizeMap: Record<string, number> = {
+  small: 16,
+  medium: 32,
+  large: 64,
+}
+
+// Shared render runtime for every generated icon. Extracting this from
+// `createIconComponent` lets the generated icons ship as finished
+// `React.forwardRef` components instead of runtime factory calls, while the
+// size/`viewBox`/`closestNaturalHeight` math that depends on the runtime `size`
+// prop stays here.
+export function renderOcticon(
+  {
+    'aria-hidden': ariaHidden,
+    'aria-label': ariaLabel,
+    'aria-labelledby': arialabelledby,
+    tabIndex,
+    className = '',
+    fill = 'currentColor',
+    size = 16,
+    verticalAlign = 'text-bottom',
+    id,
+    title,
+    style,
+    ...rest
+  }: IconProps,
+  forwardedRef: React.ForwardedRef<SVGSVGElement>,
+  defaultClassName: string,
+  svgDataByHeight: SVGData,
+  heights: Array<string>,
+) {
+  const height = sizeMap[size] || (size as number)
+  const naturalHeight = closestNaturalHeight(heights, height)
+  const naturalWidth = svgDataByHeight[naturalHeight].width
+  const width = height * (naturalWidth / naturalHeight)
+  const path = svgDataByHeight[naturalHeight].path
+  const labelled = ariaLabel || arialabelledby
+  const computedAriaHidden = ariaHidden === undefined ? (labelled ? undefined : 'true') : ariaHidden
+  const role = labelled && computedAriaHidden !== 'true' ? 'img' : undefined
+
+  return (
+    <svg
+      ref={forwardedRef}
+      data-component="Octicon"
+      {...rest}
+      aria-hidden={computedAriaHidden}
+      tabIndex={tabIndex}
+      focusable={tabIndex! >= 0 ? 'true' : 'false'}
+      aria-label={ariaLabel}
+      aria-labelledby={arialabelledby}
+      className={`${defaultClassName} ${className}`.trim()}
+      role={role}
+      viewBox={`0 0 ${naturalWidth} ${naturalHeight}`}
+      width={width}
+      height={height}
+      fill={fill}
+      id={id}
+      display="inline-block"
+      overflow="visible"
+      style={{
+        verticalAlign,
+        ...style,
+      }}
+    >
+      {title ? <title>{title}</title> : null}
+      {path}
+    </svg>
+  )
+}
+
+function closestNaturalHeight(naturalHeights: Array<string>, height: number) {
+  return naturalHeights
+    .map(naturalHeight => parseInt(naturalHeight, 10))
+    .reduce(
+      (acc, naturalHeight) => (naturalHeight <= height ? naturalHeight : acc),
+      naturalHeights[0] as unknown as number,
+    )
+}

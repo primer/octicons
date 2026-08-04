@@ -6,16 +6,37 @@ const javascriptFiles = ['**/*.{js,mjs,cjs,jsx}']
 const typescriptFiles = ['**/*.{ts,mts,cts,tsx}']
 const configFiles = ['**/*.config.{js,mjs,cjs,ts,mts,cts}']
 const declarationFiles = ['**/*.d.{ts,mts,cts}']
-const nodeFiles = ['tests/**/*.js', 'lib/octicons_node/{index.js,tests/**/*.js}']
-const reactFiles = ['lib/octicons_{react,styled}/{pages,script,src,ts-tests}/**/*.{js,mjs,jsx,ts,tsx}']
+const nodeFiles = ['tests/**/*.ts', 'lib/octicons_node/{index.ts,tests/**/*.ts}']
+const reactFiles = [
+  'examples/**/*.{js,mjs,jsx,ts,tsx}',
+  'lib/octicons_{react,styled}/{pages,script,src,ts-tests}/**/*.{js,mjs,jsx,ts,tsx}',
+]
 const testFiles = ['**/{__tests__,tests,ts-tests}/**/*.{js,mjs,cjs,jsx,ts,tsx}']
 const typeTestFiles = ['**/ts-tests/**/*.{ts,mts,cts,tsx}']
 const lintFiles = [...javascriptFiles, ...typescriptFiles]
 
 export default [
-  {ignores: ['**/__generated__/**', '**/{build,coverage,dist}/**', '**/.{cache,next}/**', 'public/**', 'vendor/**']},
+  {
+    ignores: [
+      '**/.agents/**',
+      '**/.{cache,next,ts-build}/**',
+      '**/__generated__/**',
+      '**/{build,coverage,dist}/**',
+      'lib/octicons_node/index.js',
+      'public/**',
+      'vendor/**',
+      '**/next-env.d.ts',
+    ],
+  },
   {...recommended, files: lintFiles},
-  ...typescript.map(config => ({...config, files: typescriptFiles})),
+  ...typescript.map(config => ({
+    ...config,
+    files: typescriptFiles,
+    rules: {
+      ...config.rules,
+      '@typescript-eslint/array-type': ['error', {default: 'generic'}],
+    },
+  })),
   {...internal, files: nodeFiles},
   {...browser, files: reactFiles},
   {...react, files: reactFiles},
@@ -34,17 +55,18 @@ export default [
     },
   },
   {
-    files: ['tests/**/*.js'],
+    files: ['tests/**/*.ts'],
     rules: {
       'eslint-comments/no-use': 'off',
     },
   },
   {
-    files: ['lib/octicons_node/{index.js,tests/**/*.js}'],
+    files: ['lib/octicons_node/{index.ts,tests/**/*.ts}'],
     rules: {
       'i18n-text/no-en': 'off',
       'import/extensions': 'off',
       'import/no-commonjs': 'off',
+      '@typescript-eslint/no-require-imports': 'off',
     },
   },
   {
@@ -65,6 +87,7 @@ export default [
       'import/no-dynamic-require': 'off',
       'import/no-named-as-default': 'off',
       'import/no-namespace': 'off',
+      '@typescript-eslint/no-require-imports': 'off',
     },
   },
   {
@@ -81,26 +104,28 @@ export default [
       'github/a11y-aria-label-is-well-formatted': 'off',
       'github/filenames-match-regex': 'off',
       'import/named': 'off',
+      'import/no-unresolved': 'off',
       'no-unused-vars': ['error', {varsIgnorePattern: '^React$'}],
     },
   },
   {
-    files: ['**/script/**/*.js'],
+    files: ['**/script/**/*.ts'],
     rules: {
       'import/extensions': 'off',
       'import/no-commonjs': 'off',
       'import/no-nodejs-modules': 'off',
+      '@typescript-eslint/no-require-imports': 'off',
       'no-console': 'off',
     },
   },
   {
-    files: ['lib/octicons_react/script/**/*.js'],
+    files: ['lib/octicons_react/script/**/*.ts'],
     rules: {
       'no-shadow': 'off',
     },
   },
   {
-    files: ['lib/octicons_{react,styled}/src/__tests__/**/*.js'],
+    files: ['lib/octicons_{react,styled}/src/__tests__/**/*.tsx'],
     rules: {
       'github/unescaped-html-literal': 'off',
       'i18n-text/no-en': 'off',

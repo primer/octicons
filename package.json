@@ -3,6 +3,7 @@
   "version": "19.32.0",
   "private": true,
   "workspaces": [
+    "examples/*",
     "lib/octicons_gem",
     "lib/octicons_helper",
     "lib/octicons_jekyll",
@@ -14,12 +15,14 @@
     "registry": "no registry, don't publish from this package.json."
   },
   "scripts": {
-    "build": "script/build.js --input icons/**/*.svg --output lib/build/data.json",
+    "build": "script/build.ts --input icons/**/*.svg --output lib/build/data.json --svg-output lib/build/svg",
+    "clean": "npm run clean --workspaces --if-present && rimraf lib/build",
     "changeset:publish": "script/changeset-publish",
     "changeset:version": "changeset version && script/version",
-    "lint": "eslint .",
-    "svgo": "svgo icons --config svgo.config.js",
+    "lint": "eslint --cache .",
+    "svgo": "svgo icons --config svgo.config.mts",
     "test": "vitest",
+    "type-check": "tsc --noEmit",
     "version": "script/version"
   },
   "devDependencies": {
@@ -41,9 +44,13 @@
     "lodash.merge": "4.6.2",
     "playwright": "1.62.0",
     "prettier": "3.4.1",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "rimraf": "^6.1.3",
     "svgo": "3.3.4",
     "svgson": "5.2.1",
     "trim-newlines": "3.0.1",
+    "turbo": "^2.10.7",
     "typescript": "^6.0.3",
     "vitest": "3.2.7",
     "yargs": "15.4.1"
