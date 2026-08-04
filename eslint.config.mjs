@@ -25,6 +25,7 @@ export default [
       'lib/octicons_node/index.js',
       'public/**',
       'vendor/**',
+      '**/next-env.d.ts',
     ],
   },
   {...recommended, files: lintFiles},
