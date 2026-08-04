@@ -1,5 +1,11 @@
 # @primer/octicons
 
+## 19.33.0
+
+### Minor Changes
+
+- [#1329](https://github.com/primer/octicons/pull/1329) [`5214037a`](https://github.com/primer/octicons/commit/5214037a15e8b59c12373b4f57f91366776fa236) Thanks [@skw](https://github.com/skw)! - Add the `issue-relates-to` icon
+
 ## 19.32.0
 
 ### Minor Changes
