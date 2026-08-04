@@ -2,15 +2,9 @@
 import * as Octicons from '@primer/octicons-react'
 
 const iconsByName = Octicons
-<<<<<<<< HEAD:examples/octicons-react-nextjs/app/index.tsx
-
-export default function App() {
-  const sizes = ['small', 'medium', 'large'] as const
-========
 const sizes = ['small', 'medium', 'large']
 
 export default function Page() {
->>>>>>>> origin/main:examples/octicons-react-nextjs/app/page.js
   return (
     <main className="p-4">
       <table className="data-table">
@@ -28,21 +22,8 @@ export default function Page() {
             const iconName = Icon.displayName || key
             return (
               <tr key={key}>
-<<<<<<<< HEAD:examples/octicons-react-nextjs/app/index.tsx
-                <td>
-                  <Text fontFamily="mono" whiteSpace="nowrap">
-                    {key}
-                  </Text>
-                </td>
-                <td>
-                  <Text fontFamily="mono" whiteSpace="nowrap">
-                    {iconName}
-                  </Text>
-                </td>
-========
                 <td className="text-mono text-nowrap">{key}</td>
                 <td className="text-mono text-nowrap">{iconName}</td>
->>>>>>>> origin/main:examples/octicons-react-nextjs/app/page.js
                 <td>
                   {sizes.map(size => (
                     <span className="mr-4" key={size}>
