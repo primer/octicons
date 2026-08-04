@@ -129,7 +129,7 @@
   "issue-closed": ["done", "complete"],
   "issue-locked": ["issue", "open", "new", "lock"],
   "issue-opened": ["new"],
-  "issue-relates": ["related", "relationship", "link", "linked", "reference", "connection"],
+  "issue-relates-to": ["related", "relationship", "link", "linked", "reference", "connection"],
   "issue-reopened": ["regression"],
   "italic": ["font", "italic", "style"],
   "jersey": ["team", "game", "basketball"],
