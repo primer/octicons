@@ -2,7 +2,7 @@
 import * as Octicons from '@primer/octicons-react'
 
 const iconsByName = Octicons
-const sizes = ['small', 'medium', 'large']
+const sizes = ['small', 'medium', 'large'] as const
 
 export default function Page() {
   return (
