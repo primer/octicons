@@ -22,6 +22,10 @@ task :version do
     "  VERSION = \"#{version}\".freeze\n"\
     "end"
   File.open(File.expand_path("../lib/octicons/version.rb", __FILE__), "w") { |file| file.puts out }
+
+  gemfile_path = File.expand_path("../Gemfile", __FILE__)
+  gemfile = File.read(gemfile_path)
+  File.write(gemfile_path, gemfile.gsub(/gem "octicons", "[^"]+"/, "gem \"octicons\", \"#{version}\""))
 end
 
 desc "Run tests"
