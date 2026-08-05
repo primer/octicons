@@ -5,7 +5,10 @@
   "linked": [],
   "access": "public",
   "baseBranch": "main",
-  "updateInternalDependencies": "patch",
+  "updateInternalDependencies": "minor",
+  "__experimentalUnsafeOptions": {
+    "updateInternalDependents": "always"
+  },
   "ignore": ["@primer/octicons-react-nextjs-example"],
   "privatePackages": {
     "version": true,
