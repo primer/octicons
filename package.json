@@ -1,9 +1,9 @@
 {
-  "name": "@primer/octicons",
-  "version": "19.32.0",
+  "name": "octicons",
   "private": true,
   "workspaces": [
     "examples/*",
+    "lib/*",
     "lib/octicons_node",
     "lib/octicons_react",
     "lib/octicons_styled"
@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.4.1",
-    "@changesets/cli": "2.17.0",
+    "@changesets/cli": "^2.31.0",
     "@github/prettier-config": "0.0.6",
     "@types/node": "^26.1.2",
     "@vitejs/plugin-react": "4.7.0",
