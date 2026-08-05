@@ -59,8 +59,5 @@
     "rolldown": "^1.2.1",
     "styled-components": "^5.1.0",
     "typescript": "^6.0.3"
-  },
-  "engines": {
-    "node": ">=8"
   }
 }
