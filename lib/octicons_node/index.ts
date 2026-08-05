@@ -1,11 +1,10 @@
-const data = require('./build/data.json')
-const objectAssign = require('object-assign')
+import data from './build/data.json' with {type: 'json'}
 
 const DEFAULT_HEIGHT = 16
 
 type Options = Record<string, string | number>
 type HeightData = {
-  options: Options
+  options?: Options
   path: string
   width: number
 }
@@ -15,13 +14,13 @@ type IconData = {
   toSVG?: (options?: Options) => string
 }
 
-const octicons = data as Record<string, IconData>
+const octicons: Record<string, IconData> = data
 
 for (const key of Object.keys(octicons)) {
   // Returns a string representation of html attributes
   const htmlAttributes = (_icon: IconData, defaultOptions: Options, options?: Options) => {
     const attributes = []
-    const attrObj = objectAssign({}, defaultOptions, options)
+    const attrObj = Object.assign({}, defaultOptions, options)
 
     // If the user passed in options
     if (options) {
@@ -78,14 +77,15 @@ for (const key of Object.keys(octicons)) {
   octicons[key].toSVG = function (options: Options = {}) {
     const {height, width} = options
     const naturalHeight = closestNaturalHeight(Object.keys(octicons[key].heights), height || width || DEFAULT_HEIGHT)
-    return `<svg ${htmlAttributes(octicons[key], octicons[key].heights[naturalHeight].options, options)}>${
-      octicons[key].heights[naturalHeight].path
-    }</svg>`
+    const naturalHeightData = octicons[key].heights[naturalHeight]
+    if (!naturalHeightData.options) {
+      throw new Error(`Missing options for ${key} at height ${naturalHeight}`)
+    }
+    return `<svg ${htmlAttributes(octicons[key], naturalHeightData.options, options)}>${naturalHeightData.path}</svg>`
   }
 }
 
-// Import data into exports
-module.exports = octicons
+export default octicons
 
 function closestNaturalHeight(naturalHeights: Array<string>, height: string | number) {
   const requestedHeight = Number(height)

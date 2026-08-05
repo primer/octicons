@@ -5,6 +5,7 @@
   "homepage": "https://primer.style/octicons",
   "author": "GitHub Inc.",
   "license": "MIT",
+  "type": "module",
   "style": "index.scss",
   "main": "index.js",
   "files": [
@@ -17,7 +18,7 @@
     "url": "https://github.com/primer/octicons/issues"
   },
   "scripts": {
-    "build": "rm -f index.js && tsc -p tsconfig.build.json && cp -r ../build/. ./build && cp index.scss ./build/build.css",
+    "build": "rm -f index.js && cp -r ../build/. ./build && tsc -p tsconfig.build.json && cp index.scss ./build/build.css",
     "clean": "rimraf build",
     "type-check": "tsc --noEmit"
   },
@@ -27,9 +28,6 @@
     "svg",
     "octicons"
   ],
-  "dependencies": {
-    "object-assign": "^4.1.1"
-  },
   "devDependencies": {
     "@github/prettier-config": "0.0.4",
     "rimraf": "^6.1.3"

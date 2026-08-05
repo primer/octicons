@@ -1,13 +1,13 @@
 #!/usr/bin/env node
-const fs = require('fs')
-const path = require('path')
-const globby = require('globby')
-const cheerio = require('cheerio')
-const {parseSync} = require('svgson')
-const trimNewlines = require('trim-newlines')
-const yargs = require('yargs')
-const merge = require('lodash.merge')
-const keywords = require('../keywords.json')
+import fs from 'node:fs'
+import path from 'node:path'
+import cheerio from 'cheerio'
+import globby from 'globby'
+import merge from 'lodash.merge'
+import {parseSync} from 'svgson'
+import trimNewlines from 'trim-newlines'
+import yargs from 'yargs'
+import keywords from '../keywords.json' with {type: 'json'}
 
 type IconData = {
   name: string

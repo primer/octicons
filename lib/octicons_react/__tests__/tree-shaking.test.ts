@@ -1,7 +1,7 @@
-const path = require('node:path')
-const {rolldown} = require('rolldown')
+import path from 'node:path'
+import {rolldown} from 'rolldown'
 
-const packageImport = path.resolve(__dirname, '..')
+const packageImport = path.resolve(import.meta.dirname, '..')
 
 function virtual(code: string) {
   return {
@@ -34,8 +34,10 @@ test('tree shaking', async () => {
     format: 'esm',
   })
 
-  for (const {code} of output) {
-    expect(code.trim()).toBe('')
+  for (const result of output) {
+    if (result.type === 'chunk') {
+      expect(result.code.trim()).toBe('')
+    }
   }
 })
 

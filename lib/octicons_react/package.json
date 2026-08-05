@@ -5,17 +5,17 @@
   "homepage": "https://primer.style/octicons",
   "author": "GitHub, Inc.",
   "license": "MIT",
-  "type": "commonjs",
-  "main": "dist/index.umd.js",
+  "type": "module",
+  "main": "dist/index.umd.cjs",
   "module": "dist/index.esm.mjs",
   "exports": {
     ".": {
       "types": {
         "import": "./dist/index.d.mts",
-        "require": "./dist/index.d.ts"
+        "require": "./dist/index.d.cts"
       },
       "import": "./dist/index.esm.mjs",
-      "require": "./dist/index.umd.js"
+      "require": "./dist/index.umd.cjs"
     },
     "./*": {
       "types": "./dist/icons/*.d.ts",
@@ -54,7 +54,6 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@types/react": "^18.2.0",
-    "fs-extra": "^6.0.1",
     "publint": "0.2.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

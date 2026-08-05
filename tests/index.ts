@@ -1,7 +1,8 @@
 /* eslint-disable i18n-text/no-en */
 
-const fs = require('fs-extra')
-const globby = require('globby')
+import fs from 'node:fs'
+import globby from 'globby'
+import octiconsData from '../lib/build/data.json' with {type: 'json'}
 
 const year = new Date().getFullYear()
 const yearRegex = new RegExp(`Copyright \\(c\\) ${year} GitHub Inc\\.`)
@@ -11,8 +12,7 @@ type OcticonData = {
   file?: string
   id?: string
 }
-
-const octiconsData = require('../lib/build/data.json') as Record<string, OcticonData>
+const typedOcticonsData = octiconsData as Record<string, OcticonData>
 
 test(`LICENSE files have the current year ${year}`, async () => {
   const paths = await globby(['**/LICENSE', '!**/node_modules/**/LICENSE', '!**/vendor/**/LICENSE'])
@@ -27,11 +27,11 @@ test('SVG icons exist', () => {
 })
 
 test('Data file exist', () => {
-  expect(octiconsData.length, `We didn't find any data files`).not.toBe(0)
+  expect(Object.keys(typedOcticonsData).length, `We didn't find any data files`).not.toBe(0)
 })
 
 const names: Record<string, OcticonData> = {}
-for (const octicon of Object.values(octiconsData)) {
+for (const octicon of Object.values(typedOcticonsData)) {
   test(`No duplicate ${octicon.name} icon`, () => {
     if (names[octicon.name]) {
       throw new Error(
