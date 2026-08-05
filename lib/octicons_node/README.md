@@ -14,10 +14,23 @@ npm install @primer/octicons
 
 For all the usages, we recommend using the CSS located in [`build/build.css`](https://unpkg.com/@primer/octicons/build/build.css). This is some simple CSS to normalize the icons and inherit colors.
 
-After installing `@primer/octicons` you can access the icons like this:
+After installing `@primer/octicons` you can access the icons with ESM:
 
 ```js
 import octicons from '@primer/octicons'
+octicons.alert
+```
+
+CommonJS projects can continue to use `require()`:
+
+```js
+const octicons = require('@primer/octicons')
+octicons.alert
+```
+
+Both module formats expose the same icon data:
+
+```js
 octicons.alert
 // {
 //     symbol: 'alert',

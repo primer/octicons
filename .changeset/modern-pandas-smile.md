@@ -1,5 +1,5 @@
 ---
-'@primer/octicons': major
+'@primer/octicons': minor
 ---
 
-Publish `@primer/octicons` as an ES module with a default export.
+Add an ES module entry point while retaining CommonJS support for `@primer/octicons`.

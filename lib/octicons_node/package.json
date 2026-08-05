@@ -7,9 +7,20 @@
   "license": "MIT",
   "type": "module",
   "style": "index.scss",
-  "main": "index.js",
+  "main": "index.cjs",
+  "module": "index.js",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "require": "./index.cjs"
+    },
+    "./build/*": "./build/*",
+    "./index.scss": "./index.scss",
+    "./package.json": "./package.json"
+  },
   "files": [
     "index.js",
+    "index.cjs",
     "index.scss",
     "build"
   ],
@@ -18,7 +29,7 @@
     "url": "https://github.com/primer/octicons/issues"
   },
   "scripts": {
-    "build": "rm -f index.js && cp -r ../build/. ./build && tsc -p tsconfig.build.json && cp index.scss ./build/build.css",
+    "build": "rm -f index.js index.cjs && cp -r ../build/. ./build && rolldown -c && cp index.scss ./build/build.css",
     "clean": "rimraf build",
     "type-check": "tsc --noEmit"
   },
@@ -30,6 +41,7 @@
   ],
   "devDependencies": {
     "@github/prettier-config": "0.0.4",
-    "rimraf": "^6.1.3"
+    "rimraf": "^6.1.3",
+    "rolldown": "^1.2.1"
   }
 }

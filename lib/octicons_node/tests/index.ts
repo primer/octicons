@@ -1,3 +1,4 @@
+import {createRequire} from 'node:module'
 import octicons from '../index.js'
 
 type Octicon = {
@@ -6,6 +7,12 @@ type Octicon = {
 }
 
 const typedOcticons = octicons as Record<string, Octicon>
+const require = createRequire(import.meta.url)
+const commonjsOcticons = require('../index.cjs') as Record<string, Octicon>
+
+test('supports ESM and CommonJS consumers', () => {
+  expect(typedOcticons['x'].toSVG()).toBe(commonjsOcticons['x'].toSVG())
+})
 
 test('Octicons are loaded', () => {
   expect(typedOcticons, "Didn't find any octicons.").toBeTruthy()

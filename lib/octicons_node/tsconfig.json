@@ -4,5 +4,5 @@
     "noEmit": true,
     "types": ["node", "vitest/globals"]
   },
-  "include": ["index.ts", "tests/**/*.ts", "vitest.config.mts"]
+  "include": ["index.ts", "rolldown.config.mts", "tests/**/*.ts", "vitest.config.mts"]
 }
