@@ -5,7 +5,7 @@
   "linked": [],
   "access": "public",
   "baseBranch": "main",
-  "updateInternalDependencies": "minor",
+  "updateInternalDependencies": "patch",
   "ignore": ["@primer/octicons-react-nextjs-example"],
   "privatePackages": {
     "version": true,
