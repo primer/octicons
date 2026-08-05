@@ -14,7 +14,8 @@
   "scripts": {
     "build": "script/build.ts --input icons/**/*.svg --output lib/build/data.json --svg-output lib/build/svg",
     "clean": "npm run clean --workspaces --if-present && rimraf lib/build",
-    "changeset:version": "changeset version && script/version lib/octicons_node/package.json",
+    "changeset:publish": "script/changeset-publish",
+    "changeset:version": "script/version",
     "lint": "eslint --cache .",
     "svgo": "svgo icons --config svgo.config.mts",
     "test": "vitest",

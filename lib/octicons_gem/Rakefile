@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "json"
 require "rake/testtask"
 require "rubocop/rake_task"
 require "bundler/gem_tasks"
@@ -13,9 +14,12 @@ Rake::TestTask.new do |t|
   t.test_files = FileList["test/*_test.rb"]
 end
 
-task :version, [:v] do |t, args|
+task :version do
+  version = JSON.parse(File.read(File.expand_path("package.json", __dir__))).fetch("version")
+  version = version.sub(/\A0\.0\.0./, "0.0.0.pre.").sub("-rc", ".pre")
+
   out = "# frozen_string_literal: true\n\nmodule Octicons\n"\
-    "  VERSION = \"#{args[:v]}\".freeze\n"\
+    "  VERSION = \"#{version}\".freeze\n"\
     "end"
   File.open(File.expand_path("../lib/octicons/version.rb", __FILE__), "w") { |file| file.puts out }
 end

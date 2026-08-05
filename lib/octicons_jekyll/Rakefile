@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "json"
 require "rake/testtask"
 require "rubocop/rake_task"
 require "bundler/gem_tasks"
@@ -8,12 +9,17 @@ RuboCop::RakeTask.new(:lint) do |t|
   t.options = ["--display-cop-names"]
 end
 
-task :version, [:v, :octicons_version] do |t, args|
+task :version do
+  package_json = JSON.parse(File.read(File.expand_path("package.json", __dir__)))
+  version = package_json.fetch("version").sub(/\A0\.0\.0./, "0.0.0.pre.").sub("-rc", ".pre")
+  octicons_version = package_json.fetch("dependencies").fetch("octicons_gem")
+    .sub(/\A0\.0\.0./, "0.0.0.pre.").sub("-rc", ".pre")
+
   out = "# frozen_string_literal: true\n\n# Prevent bundler errors\n"\
   "module Liquid; class Tag; end; end\n\n"\
   "module Jekyll\n"\
   "  class Octicons < Liquid::Tag\n"\
-  "    VERSION = \"#{args[:v]}\".freeze\n"\
+  "    VERSION = \"#{version}\".freeze\n"\
   "  end\n"\
   "end"
   File.open(File.expand_path("../lib/jekyll-octicons/version.rb", __FILE__), "w") do |file|
@@ -23,7 +29,7 @@ task :version, [:v, :octicons_version] do |t, args|
   ["jekyll-octicons.gemspec", "Gemfile"].each do |filename|
     gs = File.read(File.expand_path("../#{filename}", __FILE__))
     File.open(File.expand_path("../#{filename}", __FILE__), "w") do |file|
-      file.puts gs.gsub(/"octicons", "[^"]+"/, "\"octicons\", \"#{args[:octicons_version] || args[:v]}\"")
+      file.puts gs.gsub(/"octicons", "[^"]+"/, "\"octicons\", \"#{octicons_version}\"")
     end
   end
 end

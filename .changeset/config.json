@@ -21,6 +21,6 @@
   "ignore": ["@primer/octicons-react-nextjs-example"],
   "privatePackages": {
     "version": true,
-    "tag": true
+    "tag": false
   }
 }
