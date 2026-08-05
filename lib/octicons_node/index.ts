@@ -1,4 +1,4 @@
-import data from './build/data.json' with {type: 'json'}
+import data from '../build/data.json' with {type: 'json'}
 
 const DEFAULT_HEIGHT = 16
 

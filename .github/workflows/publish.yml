@@ -217,9 +217,6 @@ jobs:
           fi
           echo "version=$PACKAGE_VERSION" >> "$GITHUB_OUTPUT"
           echo "tag=$PUBLISH_TAG" >> "$GITHUB_OUTPUT"
-      - name: Copy build assets
-        working-directory: ./lib/octicons_node
-        run: cp -R ../build/ .
       - name: Install dependencies
         run: npm ci
       - name: Build @primer/octicons

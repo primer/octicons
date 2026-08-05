@@ -6,31 +6,29 @@
   "author": "GitHub Inc.",
   "license": "MIT",
   "type": "module",
-  "style": "index.scss",
-  "main": "index.cjs",
-  "module": "index.js",
+  "style": "dist/index.scss",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "exports": {
     ".": {
-      "import": "./index.js",
-      "require": "./index.cjs"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
-    "./build/*": "./build/*",
-    "./index.scss": "./index.scss",
+    "./build/*": "./dist/*",
+    "./dist/*": "./dist/*",
+    "./index.scss": "./dist/index.scss",
     "./package.json": "./package.json"
   },
   "files": [
-    "index.js",
-    "index.cjs",
-    "index.scss",
-    "build"
+    "dist"
   ],
   "repository": "https://github.com/primer/octicons.git",
   "bugs": {
     "url": "https://github.com/primer/octicons/issues"
   },
   "scripts": {
-    "build": "rm -f index.js index.cjs && cp -r ../build/. ./build && rolldown -c && cp index.scss ./build/build.css",
-    "clean": "rimraf build",
+    "build": "rimraf dist build index.js index.cjs && mkdir dist && cp -r ../build/. ./dist && rolldown -c && cp index.scss dist/index.scss && cp index.scss dist/build.css",
+    "clean": "rimraf dist build index.js index.cjs",
     "type-check": "tsc --noEmit"
   },
   "keywords": [

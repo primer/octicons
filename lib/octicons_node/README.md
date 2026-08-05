@@ -12,7 +12,7 @@ npm install @primer/octicons
 
 ## Usage
 
-For all the usages, we recommend using the CSS located in [`build/build.css`](https://unpkg.com/@primer/octicons/build/build.css). This is some simple CSS to normalize the icons and inherit colors.
+For all the usages, we recommend using the CSS located in [`dist/build.css`](https://unpkg.com/@primer/octicons/dist/build.css). This is some simple CSS to normalize the icons and inherit colors.
 
 After installing `@primer/octicons` you can access the icons with ESM:
 

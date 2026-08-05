@@ -6,9 +6,12 @@ type Octicon = {
   toSVG(options?: Record<string, string | number>): string
 }
 
-const typedOcticons = octicons as Record<string, Octicon>
+const typedOcticons: unknown = octicons
 const require = createRequire(import.meta.url)
-const commonjsOcticons = require('../index.cjs') as Record<string, Octicon>
+const commonjsOcticons: unknown = require('../dist/index.cjs')
+
+assertOcticons(typedOcticons)
+assertOcticons(commonjsOcticons)
 
 test('supports ESM and CommonJS consumers', () => {
   expect(typedOcticons['x'].toSVG()).toBe(commonjsOcticons['x'].toSVG())
@@ -90,3 +93,22 @@ test('Chooses the correct svg given a width and height', () => {
   expect(svg).toMatch(/height="24"/)
   expect(svg).toMatch(/viewBox="0 0 24 24"/)
 })
+
+function assertOcticons(value: unknown): asserts value is Record<string, Octicon> {
+  if (typeof value !== 'object' || value === null) {
+    throw new Error('Expected an octicons object')
+  }
+
+  for (const icon of Object.values(value)) {
+    if (
+      typeof icon !== 'object' ||
+      icon === null ||
+      !('symbol' in icon) ||
+      typeof icon.symbol !== 'string' ||
+      !('toSVG' in icon) ||
+      typeof icon.toSVG !== 'function'
+    ) {
+      throw new Error('Expected every octicon to include a symbol and toSVG function')
+    }
+  }
+}

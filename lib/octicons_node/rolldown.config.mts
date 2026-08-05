@@ -4,14 +4,14 @@ export default defineConfig([
   {
     input: 'index.ts',
     output: {
-      file: 'index.js',
+      file: 'dist/index.js',
       format: 'esm',
     },
   },
   {
     input: 'index.ts',
     output: {
-      file: 'index.cjs',
+      file: 'dist/index.cjs',
       format: 'cjs',
       exports: 'default',
     },
