@@ -1,114 +1,83 @@
-import {createRequire} from 'node:module'
-import octicons from '../index'
-
 type Octicon = {
   symbol: string
   toSVG(options?: Record<string, string | number>): string
 }
 
-const typedOcticons: unknown = octicons
-const require = createRequire(import.meta.url)
-const commonjsOcticons: unknown = require('../dist/index.cjs')
-
-assertOcticons(typedOcticons)
-assertOcticons(commonjsOcticons)
-
-test('supports ESM and CommonJS consumers', () => {
-  expect(typedOcticons['x'].toSVG()).toBe(commonjsOcticons['x'].toSVG())
-})
+const octicons = require('../') as Record<string, Octicon>
 
 test('Octicons are loaded', () => {
-  expect(typedOcticons, "Didn't find any octicons.").toBeTruthy()
-  expect(Object.keys(typedOcticons).length, "Didn't find any octicons.").not.toBe(0)
+  expect(octicons, "Didn't find any octicons.").toBeTruthy()
+  expect(Object.keys(octicons).length, "Didn't find any octicons.").not.toBe(0)
 })
 
 test('Octicons have svg', () => {
-  expect(typedOcticons, "Didn't find any octicons.").toBeTruthy()
-  for (const point of Object.keys(typedOcticons)) {
-    expect(typedOcticons[point].toSVG(), `The octicon "${point}" doesn't have svg`).toBeTruthy()
+  expect(octicons, "Didn't find any octicons.").toBeTruthy()
+  for (const point of Object.keys(octicons)) {
+    expect(octicons[point].toSVG(), `The octicon "${point}" doesn't have svg`).toBeTruthy()
   }
 })
 
 test('Octicons have default html attributes', () => {
-  expect(typedOcticons, "Didn't find any octicons.").toBeTruthy()
-  for (const point of Object.keys(typedOcticons)) {
-    const svg = typedOcticons[point].toSVG()
+  expect(octicons, "Didn't find any octicons.").toBeTruthy()
+  for (const point of Object.keys(octicons)) {
+    const svg = octicons[point].toSVG()
     expect(svg, `The octicon "${point}" doesn't have the version attribute`).toMatch(/version="1\.1"/)
     expect(svg, `The octicon "${point}" doesn't have the aria-hidden attribute`).toMatch(/aria-hidden="true"/)
     expect(svg, `The octicon "${point}" doesn't have the width attribute`).toMatch(/width=/)
     expect(svg, `The octicon "${point}" doesn't have the height attribute`).toMatch(/height=/)
     expect(svg, `The octicon "${point}" doesn't have the viewBox attribute`).toMatch(/viewBox=/)
     expect(svg, `The octicon "${point}" doesn't have the class attribute`).toMatch(
-      new RegExp(`class="octicon octicon-${typedOcticons[point].symbol}"`),
+      new RegExp(`class="octicon octicon-${octicons[point].symbol}"`),
     )
     expect(svg, `The octicon "${point}" doesn't have the data-component attribute`).toMatch(/data-component="Octicon"/)
   }
 })
 
 test('Passing in classnames will be included in output', () => {
-  expect(typedOcticons, "Didn't find any octicons.").toBeTruthy()
-  for (const point of Object.keys(typedOcticons)) {
-    const svg = typedOcticons[point].toSVG({class: 'new-class another-class'})
+  expect(octicons, "Didn't find any octicons.").toBeTruthy()
+  for (const point of Object.keys(octicons)) {
+    const svg = octicons[point].toSVG({class: 'new-class another-class'})
     expect(svg, `The octicon "${point}" doesn't have the class attribute`).toMatch(
-      new RegExp(`class="octicon octicon-${typedOcticons[point].symbol} new-class another-class"`),
+      new RegExp(`class="octicon octicon-${octicons[point].symbol} new-class another-class"`),
     )
   }
 })
 
 test('Passing in aria-label will update the a11y options', () => {
-  expect(typedOcticons, "Didn't find any octicons.").toBeTruthy()
-  for (const point of Object.keys(typedOcticons)) {
-    const svg = typedOcticons[point].toSVG({'aria-label': 'This is an icon'})
+  expect(octicons, "Didn't find any octicons.").toBeTruthy()
+  for (const point of Object.keys(octicons)) {
+    const svg = octicons[point].toSVG({'aria-label': 'This is an icon'})
     expect(svg, `The octicon "${point}" doesn't have the aria-label attribute`).toMatch(/aria-label="This is an icon"/)
   }
 })
 
 test('Passing in width will size properly', () => {
-  const svg = typedOcticons['x'].toSVG({height: 60})
+  const svg = octicons['x'].toSVG({height: 60})
   expect(svg, 'The octicon "x" doesn\'t have the width attribute scaled properly').toMatch(/width="60"/)
 })
 
 test('Passing in height will size properly', () => {
-  const svg = typedOcticons['x'].toSVG({width: 45})
+  const svg = octicons['x'].toSVG({width: 45})
   expect(svg, 'The octicon "x" doesn\'t have the height attribute scaled properly').toMatch(/height="45"/)
 })
 
 test('Chooses the correct svg given a height', () => {
-  const svg = typedOcticons['x'].toSVG({height: 32})
+  const svg = octicons['x'].toSVG({height: 32})
   expect(svg).toMatch(/width="32"/)
   expect(svg).toMatch(/height="32"/)
   expect(svg).toMatch(/viewBox="0 0 24 24"/)
 })
 
 test('Chooses the correct svg given a width', () => {
-  const svg = typedOcticons['x'].toSVG({width: 24})
+  const svg = octicons['x'].toSVG({width: 24})
   expect(svg).toMatch(/width="24"/)
   expect(svg).toMatch(/height="24"/)
   expect(svg).toMatch(/viewBox="0 0 24 24"/)
 })
 
 test('Chooses the correct svg given a width and height', () => {
-  const svg = typedOcticons['x'].toSVG({width: 16, height: 24})
+  const svg = octicons['x'].toSVG({width: 16, height: 24})
   expect(svg).toMatch(/width="16"/)
   expect(svg).toMatch(/height="24"/)
   expect(svg).toMatch(/viewBox="0 0 24 24"/)
 })
-
-function assertOcticons(value: unknown): asserts value is Record<string, Octicon> {
-  if (typeof value !== 'object' || value === null) {
-    throw new Error('Expected an octicons object')
-  }
-
-  for (const icon of Object.values(value)) {
-    if (
-      typeof icon !== 'object' ||
-      icon === null ||
-      !('symbol' in icon) ||
-      typeof icon.symbol !== 'string' ||
-      !('toSVG' in icon) ||
-      typeof icon.toSVG !== 'function'
-    ) {
-      throw new Error('Expected every octicon to include a symbol and toSVG function')
-    }
-  }
-}

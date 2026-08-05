@@ -1,5 +1,6 @@
 # @primer/octicons
 
+
 [![npm version](https://img.shields.io/npm/v/@primer/octicons.svg)](https://www.npmjs.org/package/@primer/octicons)
 
 ## Install
@@ -12,25 +13,12 @@ npm install @primer/octicons
 
 ## Usage
 
-For all the usages, we recommend using the CSS located in [`dist/build.css`](https://unpkg.com/@primer/octicons/dist/build.css). This is some simple CSS to normalize the icons and inherit colors.
+For all the usages, we recommend using the CSS located in [`build/build.css`](https://unpkg.com/@primer/octicons/build/build.css). This is some simple CSS to normalize the icons and inherit colors.
 
-After installing `@primer/octicons` you can access the icons with ESM:
-
-```js
-import octicons from '@primer/octicons'
-octicons.alert
-```
-
-CommonJS projects can continue to use `require()`:
+After installing `@primer/octicons` you can access the icons like this:
 
 ```js
-const octicons = require('@primer/octicons')
-octicons.alert
-```
-
-Both module formats expose the same icon data:
-
-```js
+var octicons = require("@primer/octicons")
 octicons.alert
 // {
 //     symbol: 'alert',
@@ -80,6 +68,7 @@ octicons.x.keywords
 
 Each icon can have multiple SVGs that are designed for different sizes. The `heights` property allows you to access all the SVGs for an icon using the natural height of the SVG.
 
+
 ```js
 octicons.x.heights
 // {
@@ -109,6 +98,7 @@ octicons.x.heights
 //     },
 // }
 ```
+
 
 ### `octicons[name].heights[height].width`
 
@@ -148,7 +138,7 @@ The `.toSVG()` method accepts an optional `options` object. This is used to add 
 Add more CSS classes to the `<svg>` tag.
 
 ```js
-octicons.x.toSVG({class: 'close'})
+octicons.x.toSVG({ "class": "close" })
 // <svg version="1.1" width="12" height="16" viewBox="0 0 12 16" class="octicon octicon-x close" aria-hidden="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
 ```
 
@@ -157,7 +147,7 @@ octicons.x.toSVG({class: 'close'})
 Add accessibility `aria-label` to the icon.
 
 ```js
-octicons.x.toSVG({'aria-label': 'Close the window'})
+octicons.x.toSVG({ "aria-label": "Close the window" })
 // <svg version="1.1" width="12" height="16" viewBox="0 0 12 16" class="octicon octicon-x" aria-label="Close the window" role="img"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
 ```
 
@@ -166,7 +156,7 @@ octicons.x.toSVG({'aria-label': 'Close the window'})
 Size the SVG icon larger using `width` and `height` independently or together. `.toSVG()` will automatically choose the best SVG to render based on the width or height passed in.
 
 ```js
-octicons.x.toSVG({width: 45})
+octicons.x.toSVG({ "width": 45 })
 // <svg version="1.1" width="45" height="45" viewBox="0 0 24 24" class="octicon octicon-x" aria-hidden="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
 ```
 
