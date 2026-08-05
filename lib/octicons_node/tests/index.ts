@@ -1,5 +1,5 @@
 import {createRequire} from 'node:module'
-import octicons from '../index.js'
+import octicons from '../index'
 
 type Octicon = {
   symbol: string
