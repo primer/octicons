@@ -3,6 +3,6 @@
   "version": "19.32.0",
   "private": true,
   "dependencies": {
-    "@primer/octicons": "19.32.0"
+    "@primer/octicons": "19.33.0"
   }
 }
