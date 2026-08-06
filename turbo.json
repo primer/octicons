@@ -1,0 +1,34 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "globalDependencies": [],
+  "tasks": {
+    "//#build": {
+      "inputs": ["icons/**/*.svg"],
+      "outputs": ["lib/build/data.json", "lib/build/svg/**"]
+    },
+    "build": {
+      "dependsOn": ["//#build", "^build"],
+      "outputs": ["dist/**", "build/**", "src/__generated__/**", "index.js", ".next/**"]
+    },
+    "//#lint": {
+      "dependsOn": ["@primer/octicons#build", "@primer/octicons-react#build", "@primer/styled-octicons#build"],
+      "outputs": [".eslintcache"]
+    },
+    "lint:npm": {
+      "dependsOn": ["build"],
+      "outputs": []
+    },
+    "//#test": {
+      "dependsOn": ["@primer/octicons#build", "@primer/octicons-react#build", "@primer/styled-octicons#build"],
+      "outputs": []
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "outputs": []
+    },
+    "type-check": {
+      "dependsOn": ["build"],
+      "outputs": []
+    }
+  }
+}

@@ -5,7 +5,8 @@
   "homepage": "https://primer.style/octicons",
   "author": "GitHub, Inc.",
   "license": "MIT",
-  "main": "dist/index.umd.js",
+  "type": "module",
+  "main": "dist/index.umd.cjs",
   "module": "dist/index.esm.js",
   "sideEffects": false,
   "types": "dist/index.d.ts",
@@ -14,12 +15,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "script/build.js && npm run rollup && script/copy.sh",
-    "ts-test": "tsc -P ts-tests",
-    "test": "jest",
-    "posttest": "npm run ts-test",
-    "lint": "eslint src script",
-    "rollup": "rollup -c --bundleConfigAsCjs"
+    "build": "script/build.ts && npm run rolldown && script/copy.sh",
+    "clean": "rimraf dist",
+    "rolldown": "rolldown -c",
+    "type-check": "tsc --noEmit"
   },
   "keywords": [
     "GitHub",
@@ -41,30 +40,24 @@
     "styled-components": "4.x || 5.x"
   },
   "devDependencies": {
-    "@babel/core": "7.24.7",
+    "@babel/core": "7.29.6",
     "@babel/preset-env": "7.24.7",
     "@babel/preset-react": "7.24.7",
+    "@babel/preset-typescript": "^7.29.7",
     "@github/prettier-config": "0.0.4",
-    "@rollup/plugin-babel": "6.0.4",
+    "@primer/octicons-react": "^19.32.0",
+    "@rolldown/plugin-babel": "^0.2.3",
     "@testing-library/jest-dom": "^5.3.0",
     "@testing-library/react": "^10.0.2",
     "@types/react": "^16.4.6",
-    "eslint": "^6.5.1",
-    "eslint-plugin-github": "4.1.3",
-    "eslint-plugin-jest": "^21.17.0",
-    "eslint-plugin-jsx-a11y": "6.4.1",
-    "eslint-plugin-react": "7.23.2",
-    "fs-extra": "^6.0.1",
-    "jest": "^23.2.0",
-    "jest-styled-components": "^7.0.2",
+    "@types/styled-components": "^5.1.36",
+    "jest-styled-components": "7.4.0",
     "next": "^16.1.7",
     "react": "^16.4.0",
     "react-dom": "^16.4.1",
-    "rollup": "^4.18.0",
+    "rimraf": "^6.1.3",
+    "rolldown": "^1.2.1",
     "styled-components": "^5.1.0",
-    "typescript": "^3.7.5"
-  },
-  "engines": {
-    "node": ">=8"
+    "typescript": "^6.0.3"
   }
 }

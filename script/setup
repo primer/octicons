@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+echo "Installing dependencies"
+npm ci
+
+echo "Setting up turbo build cache"
+npx turbo run build
+
+PLAYWRIGHT_CHROMIUM_PATH=$(node -p "require('playwright').chromium.executablePath()")
+
+if [[ -x "$PLAYWRIGHT_CHROMIUM_PATH" ]]; then
+  echo "Playwright Chromium is already installed"
+else
+  echo "Installing Playwright Chromium"
+  npx playwright install --with-deps chromium
+fi

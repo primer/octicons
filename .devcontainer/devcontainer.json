@@ -1,0 +1,32 @@
+{
+  "name": "Octicons",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu24.04",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "DavidAnson.vscode-markdownlint",
+        "ZixuanChen.vitest-explorer"
+      ]
+    }
+  },
+  "onCreateCommand": "script/setup",
+  "remoteUser": "vscode",
+  "features": {
+    "ghcr.io/devcontainers/features/node:2.1.0": {
+      "version": "26.4.0"
+    },
+    "ghcr.io/devcontainers/features/sshd:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/github-cli": {
+      "version": "latest"
+    }
+  },
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "8gb",
+    "storage": "32gb"
+  }
+}

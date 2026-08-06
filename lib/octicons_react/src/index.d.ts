@@ -1,7 +1,5 @@
-// eslint-disable-next-line import/no-namespace
 import * as React from 'react'
 
-// eslint-disable-next-line prettier/prettier
 import {Icon} from './__generated__/icons/index.js'
 
 type Size = 'small' | 'medium' | 'large'

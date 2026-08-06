@@ -1,5 +1,4 @@
 *.gem
-/package-lock.json
 *.log
 .DS_Store
 .bundle
@@ -11,9 +10,8 @@ Gemfile.lock
 # Ignore build/export artifacts
 lib/**/build/
 
-# Gatsby
-public
-.cache
+# Turbo
+.turbo
 
-# Now
-.now
+# ESLint
+.eslintcache

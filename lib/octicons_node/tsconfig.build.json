@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": false,
+    "declarationMap": false,
+    "noEmit": false,
+    "moduleDetection": "auto",
+    "types": ["node"]
+  },
+  "include": ["index.ts"]
+}
