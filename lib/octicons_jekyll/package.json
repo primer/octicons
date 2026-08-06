@@ -1,5 +1,6 @@
 {
   "name": "jekyll-octicons",
+  "type": "module",
   "version": "19.33.0",
   "private": true,
   "dependencies": {

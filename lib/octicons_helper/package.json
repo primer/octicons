@@ -1,5 +1,6 @@
 {
   "name": "octicons_helper",
+  "type": "module",
   "version": "19.33.0",
   "private": true,
   "dependencies": {
