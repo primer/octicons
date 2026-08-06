@@ -5,7 +5,8 @@
   "homepage": "https://primer.style/octicons",
   "author": "GitHub, Inc.",
   "license": "MIT",
-  "main": "dist/index.umd.js",
+  "type": "module",
+  "main": "dist/index.umd.cjs",
   "module": "dist/index.esm.js",
   "sideEffects": false,
   "types": "dist/index.d.ts",
@@ -50,7 +51,6 @@
     "@testing-library/react": "^10.0.2",
     "@types/react": "^16.4.6",
     "@types/styled-components": "^5.1.36",
-    "fs-extra": "^6.0.1",
     "jest-styled-components": "7.4.0",
     "next": "^16.1.7",
     "react": "^16.4.0",
@@ -59,8 +59,5 @@
     "rolldown": "^1.2.1",
     "styled-components": "^5.1.0",
     "typescript": "^6.0.3"
-  },
-  "engines": {
-    "node": ">=8"
   }
 }

@@ -1,14 +1,15 @@
 #!/usr/bin/env node
-const path = require('path')
-const fs = require('fs-extra')
-const octicons = require('../../octicons_react')
+import path from 'node:path'
+import fs from 'node:fs'
+// eslint-disable-next-line import/no-namespace
+import * as octicons from '../../octicons_react/dist/index.esm.mjs'
 
 const GENERATED_HEADER = '/* THIS FILE IS GENERATED. DO NOT EDIT IT. */'
 
-const generatedDir = path.join(__dirname, '../src/__generated__')
+const generatedDir = path.join(import.meta.dirname, '../src/__generated__')
 const iconsDir = path.join(generatedDir, 'icons')
 
-fs.ensureDirSync(iconsDir)
+fs.mkdirSync(iconsDir, {recursive: true})
 
 const icons = Object.keys(octicons).filter(name => name !== 'default')
 
@@ -51,7 +52,7 @@ export default Styled${name}
 
   console.log('Successfully built', name)
 
-  const exportString = `export { default as ${name} } from './icons/${name}';\r\n`
+  const exportString = `export { default as ${name} } from './icons/${name}.js';\r\n`
   fs.appendFileSync(path.join(generatedDir, 'index.js'), exportString, 'utf-8')
 
   const exportTypeString = `export const ${name}: Icon;\n`

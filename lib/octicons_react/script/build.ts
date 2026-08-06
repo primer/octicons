@@ -1,20 +1,21 @@
 #!/usr/bin/env node
 
 import type {INode} from 'svgson'
+import {generate} from '@babel/generator'
+// eslint-disable-next-line import/no-namespace
+import * as t from '@babel/types'
+import fs from 'node:fs'
+import {join, resolve} from 'node:path'
+import octicons from '../../build/data.json' with {type: 'json'}
 
 type Octicon = {
   heights: Record<string, {ast: INode; width: number}>
 }
 type JSXElement = import('@babel/types').JSXElement | import('@babel/types').JSXFragment
 
-const octicons = require('../../build/data.json') as Record<string, Octicon>
-const {default: generate} = require('@babel/generator')
-const t = require('@babel/types')
-const fse = require('fs-extra')
-const {join, resolve} = require('path')
-
-const srcDir = resolve(__dirname, '../src/__generated__')
+const srcDir = resolve(import.meta.dirname, '../src/__generated__')
 const iconsDir = join(srcDir, 'icons')
+const typedOcticons = octicons as Record<string, Octicon>
 
 const GENERATED_HEADER = '/* THIS FILE IS GENERATED. DO NOT EDIT IT. */'
 
@@ -24,7 +25,7 @@ function pascalCase(str: string) {
   )
 }
 
-const icons = Object.entries(octicons)
+const icons = Object.entries(typedOcticons)
   .map(([key, octicon]) => {
     const name = `${pascalCase(key)}Icon`
     const heights = Object.keys(octicon.heights)
@@ -119,7 +120,7 @@ function writeIcons() {
   const count = icons.length
 
   // One module per icon so consumers can codesplit / dynamically import icons.
-  const iconWrites = icons.map(({name, code}) => fse.writeFile(join(iconsDir, `${name}.js`), code, 'utf8'))
+  const iconWrites = icons.map(({name, code}) => fs.promises.writeFile(join(iconsDir, `${name}.js`), code, 'utf8'))
 
   // A pure re-export barrel. Combined with `"sideEffects": false` and the
   // `/*#__PURE__*/`-annotated per-icon modules, static named imports
@@ -128,7 +129,7 @@ function writeIcons() {
 ${icons.map(({name}) => `export {${name}} from './${name}'`).join('\n')}
 `
 
-  return Promise.all([...iconWrites, fse.writeFile(join(iconsDir, 'index.js'), barrel, 'utf8')]).then(() => {
+  return Promise.all([...iconWrites, fs.promises.writeFile(join(iconsDir, 'index.js'), barrel, 'utf8')]).then(() => {
     console.warn('wrote %d icon modules + barrel to %s', count, iconsDir)
     return icons
   })
@@ -167,7 +168,7 @@ declare const ${name}: Icon
 export {${name}}
 export default ${name}
 `
-    return fse.writeFile(join(iconsDir, `${name}.d.ts`), dts, 'utf8')
+    return fs.promises.writeFile(join(iconsDir, `${name}.d.ts`), dts, 'utf8')
   })
 
   const barrel = `${GENERATED_HEADER}
@@ -176,17 +177,18 @@ ${icons.map(({name}) => `export {${name}} from './${name}'`).join('\n')}
 `
 
   return Promise.all([
-    fse.writeFile(join(iconsDir, 'types.d.ts'), sharedTypes, 'utf8'),
+    fs.promises.writeFile(join(iconsDir, 'types.d.ts'), sharedTypes, 'utf8'),
     ...typeWrites,
-    fse.writeFile(join(iconsDir, 'index.d.ts'), barrel, 'utf8'),
+    fs.promises.writeFile(join(iconsDir, 'index.d.ts'), barrel, 'utf8'),
   ]).then(() => {
     console.warn('wrote %d icon type modules + barrel to %s', count, iconsDir)
     return icons
   })
 }
 
-fse
-  .emptyDir(iconsDir)
+fs.promises
+  .rm(iconsDir, {recursive: true, force: true})
+  .then(() => fs.promises.mkdir(iconsDir, {recursive: true}))
   .then(() => writeIcons())
   .then(() => writeTypes())
   .catch((error: unknown) => {

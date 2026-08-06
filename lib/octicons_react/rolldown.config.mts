@@ -67,7 +67,7 @@ export default [
     external,
     plugins: [babelPlugin],
     output: {
-      file: `dist/index.umd.js`,
+      file: `dist/index.umd.cjs`,
       format: 'umd',
       name: 'reocticons',
       globals: {
