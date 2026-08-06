@@ -7,6 +7,7 @@ trap 'rm -f "$RELEASE_PLAN"' EXIT
 
 npx changeset status --output="$RELEASE_PLAN"
 npx changeset version
+npm install --package-lock-only --ignore-scripts
 
 RELEASED_GEMS=$(jq -r '
   .releases[]
