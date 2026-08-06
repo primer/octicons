@@ -2,6 +2,7 @@
   "name": "@primer/octicons",
   "version": "19.33.0",
   "private": true,
+  "type": "module",
   "workspaces": [
     "examples/*",
     "lib/octicons_node",
@@ -33,7 +34,6 @@
     "eslint": "10.8.0",
     "eslint-plugin-github": "6.1.1",
     "execa": "4.0.0",
-    "fs-extra": "7.0.1",
     "globals": "17.8.0",
     "globby": "11.0.0",
     "js-yaml": "4.3.0",

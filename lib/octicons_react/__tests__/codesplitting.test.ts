@@ -1,10 +1,10 @@
-const path = require('node:path')
-const fs = require('node:fs')
-const {rolldown} = require('rolldown')
+import fs from 'node:fs'
+import path from 'node:path'
+import {rolldown} from 'rolldown'
 
 type Output = import('rolldown').OutputAsset | import('rolldown').OutputChunk
 
-const packageRoot = path.resolve(__dirname, '..')
+const packageRoot = path.resolve(import.meta.dirname, '..')
 const iconsDir = path.join(packageRoot, 'dist', 'icons')
 
 test('emits one pre-transformed module per icon', () => {
@@ -27,16 +27,18 @@ test('the barrel is a pure re-export of the per-icon modules', () => {
 })
 
 test('package.json exports expose the "." barrel and a per-icon "./*" subpath', () => {
-  const pkg = require(path.join(packageRoot, 'package.json'))
+  const pkg = JSON.parse(fs.readFileSync(path.join(packageRoot, 'package.json'), 'utf8'))
+  expect(pkg.exports['.'].types.import).toBe('./dist/index.d.mts')
+  expect(pkg.exports['.'].types.require).toBe('./dist/index.d.cts')
   expect(pkg.exports['.'].import).toBe('./dist/index.esm.mjs')
-  expect(pkg.exports['.'].require).toBe('./dist/index.umd.js')
+  expect(pkg.exports['.'].require).toBe('./dist/index.umd.cjs')
   expect(pkg.exports['./*'].import).toBe('./dist/icons/*.mjs')
   expect(pkg.exports['./*'].types).toBe('./dist/icons/*.d.ts')
 })
 
 test('dynamic subpath imports are code-split into separate chunks', async () => {
   const bundle = await rolldown({
-    input: path.join(__dirname, '__fixtures__', 'dynamic-imports.mts'),
+    input: path.join(import.meta.dirname, '__fixtures__', 'dynamic-imports.mts'),
     external: ['react'],
   })
   const {output} = await bundle.generate({format: 'esm'})
