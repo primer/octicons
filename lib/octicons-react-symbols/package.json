@@ -37,8 +37,6 @@
     "@testing-library/react": "^13.4.0",
     "@types/babel__core": "^7.20.5",
     "@types/babel__generator": "^7.27.0",
-    "@vitejs/plugin-react": "^6.0.2",
-    "@vitest/browser-playwright": "^4.1.10",
     "babel-plugin-react-compiler": "^1.0.0",
     "change-case": "^5.4.4",
     "publint": "^0.3.16",

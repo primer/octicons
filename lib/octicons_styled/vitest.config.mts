@@ -1,4 +1,5 @@
 import react from '@vitejs/plugin-react'
+import {playwright} from '@vitest/browser-playwright'
 import {defineProject} from 'vitest/config'
 
 export default defineProject({
@@ -6,7 +7,7 @@ export default defineProject({
     global: 'globalThis',
     'process.env': '{}',
   },
-  plugins: [react({babel: {presets: ['@babel/preset-react']}})],
+  plugins: [react()],
   optimizeDeps: {
     include: [
       '@styled-system/css',
@@ -23,7 +24,7 @@ export default defineProject({
     browser: {
       enabled: true,
       headless: true,
-      provider: 'playwright',
+      provider: playwright(),
       instances: [{browser: 'chromium'}],
     },
     globals: true,
