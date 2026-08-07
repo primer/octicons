@@ -1,286 +1,51 @@
+name: publish
 on:
-  release:
-    types: [published]
-  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 permissions:
-  id-token: write # Required for OIDC
-  contents: read
-  checks: write
-  statuses: write
+  contents: write
+  id-token: write
 
-name: Octicons Publish
 jobs:
-  setup:
+  release:
+    if: ${{ github.repository == 'primer/octicons' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version-file: '.nvmrc'
-      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          path: .turbo
-          key: turbo-${{ runner.os }}-${{ github.job }}-${{ github.sha }}
-          restore-keys: |
-            turbo-${{ runner.os }}-${{ github.job }}-
-      - run: npm ci
-      - run: npx turbo run build --filter=//
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        with:
-          name: octicons
-          path: ./lib/build
-  gem:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: octicons
-          path: ./lib/build
       - name: Setup Ruby
         uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1.321.0
         with:
           ruby-version: 3.3
-      - name: Determine package version
-        id: package
-        run: |
-          PACKAGE_VERSION=$(ruby -rjson -e "puts JSON.parse(File.read('package.json'))['version']")
-          PACKAGE_VERSION=$(echo "$PACKAGE_VERSION" | sed -e 's/^0\.0\.0./0.0.0.pre./g')
-          echo "version=$(echo "$PACKAGE_VERSION" | sed -e 's/-rc/.pre/g')" >> "$GITHUB_OUTPUT"
-      - name: Prepare octicons gem
-        working-directory: ./lib/octicons_gem
-        env:
-          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
-        run: |
-          cp -R ../build lib/
-          perl -pi -e "s/\"octicons\", \"[^\"]+\"/\"octicons\", \"${PACKAGE_VERSION}\"/" ./Gemfile ./*.gemspec
+          bundler-cache: true
       - name: Install dependencies
-        working-directory: ./lib/octicons_gem
-        run: bundle install
-      - name: Version octicons gem
-        working-directory: ./lib/octicons_gem
-        env:
-          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
-        run: bundle exec rake version\["$PACKAGE_VERSION"\]
-      - name: Update dependencies
-        working-directory: ./lib/octicons_gem
-        run: bundle update
-      - name: Build octicons gem
-        working-directory: ./lib/octicons_gem
-        run: bundle exec rake build
+        run: |
+          npm ci
+          bundle install
+      - id: get-access-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          client-id: ${{ vars.PRIMER_APP_CLIENT_ID_SHARED }}
+          private-key: ${{ secrets.PRIMER_APP_PRIVATE_KEY_SHARED }}
       - uses: rubygems/configure-rubygems-credentials@dc5a8d8553e6ee01fc26761a49e99e733d17954a # v2.1.0
-      - name: Publish octicons gem
-        working-directory: ./lib/octicons_gem
-        run: |
-          GEM_PUSH_OUTPUT=$(gem push pkg/*.gem 2>&1) || {
-            echo "$GEM_PUSH_OUTPUT"
-            echo "$GEM_PUSH_OUTPUT" | grep -q "Repushing of gem versions is not allowed" || exit 1
-          }
-      - run: ls ./lib/octicons_gem/pkg
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      - name: Create release pull request or publish packages
+        id: changesets
+        uses: changesets/action@a45c4d594aa4e2c509dc14a9f2b3b67ba3780d0d # v1.9.0
         with:
-          name: octicons_gem
-          path: ./lib/octicons_gem/pkg
-  helper:
-    runs-on: ubuntu-latest
-    needs: gem
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: octicons
-          path: ./lib/build
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: octicons_gem
-          path: ./lib/octicons_helper/vendor/cache
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1.321.0
-        with:
-          ruby-version: 3.3
-      - name: Determine package version
-        id: package
-        run: |
-          PACKAGE_VERSION=$(ruby -rjson -e "puts JSON.parse(File.read('package.json'))['version']")
-          PACKAGE_VERSION=$(echo "$PACKAGE_VERSION" | sed -e 's/^0\.0\.0./0.0.0.pre./g')
-          echo "version=$(echo "$PACKAGE_VERSION" | sed -e 's/-rc/.pre/g')" >> "$GITHUB_OUTPUT"
-      - name: Prepare octicons helper gem
-        working-directory: ./lib/octicons_helper
+          title: Release Tracking
+          version: npm run changeset:version
+          publish: npm run changeset:publish
         env:
-          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
-        run: |
-          cp -R ../build lib/
-          perl -pi -e "s/\"octicons\", \"[^\"]+\"/\"octicons\", \"${PACKAGE_VERSION}\"/" ./Gemfile ./*.gemspec
-      - name: Install dependencies
-        working-directory: ./lib/octicons_helper
-        run: bundle install
-      - name: Version octicons helper gem
-        working-directory: ./lib/octicons_helper
-        env:
-          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
-        run: bundle exec rake version\["$PACKAGE_VERSION"\]
-      - name: Update dependencies
-        working-directory: ./lib/octicons_helper
-        run: bundle update
-      - name: Build octicons helper gem
-        working-directory: ./lib/octicons_helper
-        run: bundle exec rake build
-      - uses: rubygems/configure-rubygems-credentials@dc5a8d8553e6ee01fc26761a49e99e733d17954a # v2.1.0
-      - name: Publish octicons helper gem
-        working-directory: ./lib/octicons_helper
-        run: |
-          GEM_PUSH_OUTPUT=$(gem push pkg/*.gem 2>&1) || {
-            echo "$GEM_PUSH_OUTPUT"
-            echo "$GEM_PUSH_OUTPUT" | grep -q "Repushing of gem versions is not allowed" || exit 1
-          }
-  jekyll:
-    runs-on: ubuntu-latest
-    needs: gem
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: octicons
-          path: ./lib/build
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: octicons_gem
-          path: ./lib/octicons_jekyll/vendor/cache
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1.321.0
-        with:
-          ruby-version: 3.3
-      - name: Determine package version
-        id: package
-        run: |
-          PACKAGE_VERSION=$(ruby -rjson -e "puts JSON.parse(File.read('package.json'))['version']")
-          PACKAGE_VERSION=$(echo "$PACKAGE_VERSION" | sed -e 's/^0\.0\.0./0.0.0.pre./g')
-          echo "version=$(echo "$PACKAGE_VERSION" | sed -e 's/-rc/.pre/g')" >> "$GITHUB_OUTPUT"
-      - name: Prepare octicons jekyll gem
-        working-directory: ./lib/octicons_jekyll
-        env:
-          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
-        run: |
-          cp -R ../build lib/
-          perl -pi -e "s/\"octicons\", \"[^\"]+\"/\"octicons\", \"${PACKAGE_VERSION}\"/" ./Gemfile ./*.gemspec
-      - name: Install dependencies
-        working-directory: ./lib/octicons_jekyll
-        run: bundle install
-      - name: Version octicons jekyll gem
-        working-directory: ./lib/octicons_jekyll
-        env:
-          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
-        run: bundle exec rake version\["$PACKAGE_VERSION"\]
-      - name: Update dependencies
-        working-directory: ./lib/octicons_jekyll
-        run: bundle update
-      - name: Build octicons jekyll gem
-        working-directory: ./lib/octicons_jekyll
-        run: bundle exec rake build
-      - uses: rubygems/configure-rubygems-credentials@dc5a8d8553e6ee01fc26761a49e99e733d17954a # v2.1.0
-      - name: Publish octicons jekyll gem
-        working-directory: ./lib/octicons_jekyll
-        run: |
-          GEM_PUSH_OUTPUT=$(gem push pkg/*.gem 2>&1) || {
-            echo "$GEM_PUSH_OUTPUT"
-            echo "$GEM_PUSH_OUTPUT" | grep -q "Repushing of gem versions is not allowed" || exit 1
-          }
-  node:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: octicons
-          path: ./lib/build
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-        with:
-          node-version-file: '.nvmrc'
-      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          path: .turbo
-          key: turbo-${{ runner.os }}-${{ github.job }}-${{ github.sha }}
-          restore-keys: |
-            turbo-${{ runner.os }}-${{ github.job }}-
-      - name: Determine publish metadata
-        id: package
-        run: |
-          PACKAGE_VERSION=$(node -p "require('./package.json').version")
-          PUBLISH_TAG=latest
-          if [[ "$PACKAGE_VERSION" =~ ^0\.0\.0\- ]]; then
-            PUBLISH_TAG=canary
-          elif [[ "$PACKAGE_VERSION" =~ \-rc ]]; then
-            PUBLISH_TAG=next
-          fi
-          echo "version=$PACKAGE_VERSION" >> "$GITHUB_OUTPUT"
-          echo "tag=$PUBLISH_TAG" >> "$GITHUB_OUTPUT"
-      - name: Copy build assets
-        working-directory: ./lib/octicons_node
-        run: cp -R ../build/ .
-      - name: Install dependencies
-        run: npm ci
-      - name: Build @primer/octicons
-        run: npx turbo run build --filter=./lib/octicons_node
-      - name: Publish @primer/octicons
-        working-directory: ./lib/octicons_node
-        env:
-          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
-          PUBLISH_TAG: ${{ steps.package.outputs.tag }}
-        run: npm version --allow-same-version "$PACKAGE_VERSION" && npm publish --tag "$PUBLISH_TAG" --access public || exit 0
-  react:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: octicons
-          path: ./lib/build
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-        with:
-          node-version-file: '.nvmrc'
-      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          path: .turbo
-          key: turbo-${{ runner.os }}-${{ github.job }}-${{ github.sha }}
-          restore-keys: |
-            turbo-${{ runner.os }}-${{ github.job }}-
-      - name: Determine publish metadata
-        id: package
-        run: |
-          PACKAGE_VERSION=$(node -p "require('./package.json').version")
-          PUBLISH_TAG=latest
-          if [[ "$PACKAGE_VERSION" =~ ^0\.0\.0\- ]]; then
-            PUBLISH_TAG=canary
-          elif [[ "$PACKAGE_VERSION" =~ \-rc ]]; then
-            PUBLISH_TAG=next
-          fi
-          echo "version=$PACKAGE_VERSION" >> "$GITHUB_OUTPUT"
-          echo "tag=$PUBLISH_TAG" >> "$GITHUB_OUTPUT"
-      - name: Copy React build assets
-        working-directory: ./lib/octicons_react
-        run: cp -R ../build/ .
-      - name: Install dependencies
-        run: npm ci
-      - name: Build @primer/octicons-react
-        run: npx turbo run build --filter=@primer/octicons-react
-      - name: Publish @primer/octicons-react
-        working-directory: ./lib/octicons_react
-        env:
-          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
-          PUBLISH_TAG: ${{ steps.package.outputs.tag }}
-        run: npm version --allow-same-version "$PACKAGE_VERSION" && npm publish --tag "$PUBLISH_TAG" --access public || exit 0
-      - name: Copy styled build assets
-        working-directory: ./lib/octicons_styled
-        run: cp -R ../build/ .
-      - name: Build @primer/styled-octicons
-        run: npx turbo run build --filter=@primer/styled-octicons
-      - name: Publish @primer/styled-octicons
-        working-directory: ./lib/octicons_styled
-        env:
-          PACKAGE_VERSION: ${{ steps.package.outputs.version }}
-          PUBLISH_TAG: ${{ steps.package.outputs.tag }}
-        run: npm version --allow-same-version "$PACKAGE_VERSION" && npm publish --tag "$PUBLISH_TAG" --access public || exit 0
+          GITHUB_TOKEN: ${{ steps.get-access-token.outputs.token }}

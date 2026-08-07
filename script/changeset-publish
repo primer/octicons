@@ -1,37 +1,98 @@
 #!/bin/bash
 
-PACKAGE_VERSION=$(jq '.version' --raw-output ./package.json)
-TAG="v$PACKAGE_VERSION"
+set -euo pipefail
 
-if gh release view "$TAG" >/dev/null 2>&1; then
-  exit
+declare -a GEM_TAGS=()
+
+tag_exists() {
+  local tag=$1
+
+  git rev-parse --quiet --verify "refs/tags/$tag" >/dev/null ||
+    git ls-remote --exit-code --tags origin "refs/tags/$tag" >/dev/null 2>&1
+}
+
+publish_gem() {
+  local package_name=$1
+  local package_dir=$2
+  local gem_name=$3
+  local package_version
+  local gem_version
+  local tag
+  local push_output
+
+  package_version=$(jq --raw-output '.version' "$package_dir/package.json")
+  gem_version=${package_version/#0.0.0-/0.0.0.pre.}
+  gem_version=${gem_version/-rc/.pre}
+  tag="$package_name@$package_version"
+
+  mkdir -p "$package_dir/pkg"
+  rm -f "$package_dir"/pkg/*.gem
+
+  if gem dependency "$gem_name" --remote --version "$gem_version" >/dev/null 2>&1; then
+    echo "$gem_name $gem_version is already published"
+    (
+      cd "$package_dir/pkg"
+      gem fetch "$gem_name" --version "$gem_version" --prerelease
+    )
+  else
+    (
+      cd "$package_dir"
+      bundle install
+      bundle exec rake build
+
+      push_output=$(gem push pkg/*.gem 2>&1) || {
+        echo "$push_output"
+        if echo "$push_output" | grep --quiet "Repushing of gem versions is not allowed"; then
+          rm -f pkg/*.gem
+          (
+            cd pkg
+            gem fetch "$gem_name" --version "$gem_version" --prerelease
+          )
+        else
+          exit 1
+        fi
+      }
+      echo "$push_output"
+    )
+  fi
+
+  if ! tag_exists "$tag"; then
+    GEM_TAGS+=("$tag")
+  fi
+}
+
+npx turbo run build \
+  --filter=@primer/octicons \
+  --filter=@primer/octicons-react \
+  --filter=@primer/styled-octicons
+
+cp -R lib/build lib/octicons_gem/lib/
+publish_gem "octicons_gem" "lib/octicons_gem" "octicons"
+
+mkdir -p lib/octicons_helper/vendor/cache lib/octicons_jekyll/vendor/cache
+cp lib/octicons_gem/pkg/*.gem lib/octicons_helper/vendor/cache/
+cp lib/octicons_gem/pkg/*.gem lib/octicons_jekyll/vendor/cache/
+
+cp -R lib/build lib/octicons_helper/lib/
+publish_gem "octicons_helper" "lib/octicons_helper" "octicons_helper"
+
+cp -R lib/build lib/octicons_jekyll/lib/
+publish_gem "jekyll-octicons" "lib/octicons_jekyll" "jekyll-octicons"
+
+PACKAGE_VERSION=$(jq --raw-output '.version' lib/octicons_node/package.json)
+CHANGESET_PUBLISH_ARGS=()
+
+if [[ "$PACKAGE_VERSION" == 0.0.0-* ]]; then
+  CHANGESET_PUBLISH_ARGS+=(--tag canary)
+elif [[ "$PACKAGE_VERSION" == *-rc* ]]; then
+  CHANGESET_PUBLISH_ARGS+=(--tag next)
 fi
 
-RELEASE_NOTES=$(mktemp)
-trap 'rm -f "$RELEASE_NOTES"' EXIT
+# Changesets publishes npm packages and creates their local package tags.
+npx changeset publish "${CHANGESET_PUBLISH_ARGS[@]}"
 
-awk -v version="$PACKAGE_VERSION" '
-  $0 == "## " version {
-    found = 1
-    next
-  }
-  found && /^## / {
-    exit
-  }
-  found {
-    print
-  }
-' lib/octicons_node/CHANGELOG.md > "$RELEASE_NOTES"
-
-RELEASE_ARGS=(
-  "$TAG"
-  --target "${GITHUB_SHA:-$(git rev-parse HEAD)}"
-  --title "$TAG"
-  --notes-file "$RELEASE_NOTES"
-)
-
-if [[ "$PACKAGE_VERSION" == *-* ]]; then
-  RELEASE_ARGS+=(--prerelease)
-fi
-
-gh release create "${RELEASE_ARGS[@]}"
+# The action pushes tags reported in this format and creates package releases.
+for tag in "${GEM_TAGS[@]}"; do
+  git tag "$tag"
+  echo "New tag: $tag"
+done

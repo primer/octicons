@@ -2,9 +2,25 @@
   "$schema": "https://unpkg.com/@changesets/config@1.6.1/schema.json",
   "changelog": ["@changesets/changelog-github", {"repo": "primer/octicons"}],
   "commit": false,
-  "linked": [],
+  "linked": [
+    [
+      "@primer/octicons",
+      "@primer/octicons-react",
+      "@primer/styled-octicons",
+      "jekyll-octicons",
+      "octicons_gem",
+      "octicons_helper"
+    ]
+  ],
   "access": "public",
   "baseBranch": "main",
-  "updateInternalDependencies": "patch",
-  "ignore": ["@primer/octicons-react-nextjs-example"]
+  "updateInternalDependencies": "minor",
+  "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
+    "updateInternalDependents": "always"
+  },
+  "ignore": ["@primer/octicons-react-nextjs-example"],
+  "privatePackages": {
+    "version": true,
+    "tag": false
+  }
 }

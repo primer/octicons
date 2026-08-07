@@ -2,59 +2,35 @@
 
 set -euo pipefail
 
-SOURCE_PACKAGE=${1:-package.json}
-PACKAGE_VERSION=$(node -p "require('./$SOURCE_PACKAGE').version")
+RELEASE_PLAN=$(mktemp)
+trap 'rm -f "$RELEASE_PLAN"' EXIT
 
-echo "$PACKAGE_VERSION"
+npx changeset status --output="$RELEASE_PLAN"
+npx changeset version
+npm install --package-lock-only --ignore-scripts
 
-sync_package_version() {
-  node - "$1" "$PACKAGE_VERSION" <<'NODE'
-const fs = require('fs')
+RELEASED_GEMS=$(jq -r '
+  .releases[]
+  | select(.type != "none")
+  | .name
+  | select(. == "octicons_gem" or . == "octicons_helper" or . == "jekyll-octicons")
+' "$RELEASE_PLAN")
 
-const [path, version] = process.argv.slice(2)
-const packageJson = JSON.parse(fs.readFileSync(path, 'utf8'))
-packageJson.version = version
-fs.writeFileSync(path, `${JSON.stringify(packageJson, null, 2)}\n`)
-NODE
-}
-
-echo "Versioning Octicons root package"
-sync_package_version package.json
-
-echo "Versioning Octicons node package"
-sync_package_version lib/octicons_node/package.json
-
-echo "Versioning Octicons react package"
-sync_package_version lib/octicons_react/package.json
-
-node - "$PACKAGE_VERSION" <<'NODE'
-const fs = require('fs')
-
-const version = process.argv[2]
-const path = 'package-lock.json'
-const packageLock = JSON.parse(fs.readFileSync(path, 'utf8'))
-
-packageLock.version = version
-for (const packagePath of ['', 'lib/octicons_node', 'lib/octicons_react']) {
-  if (!packageLock.packages?.[packagePath]) {
-    throw new Error(`Missing ${packagePath || 'root'} package in ${path}`)
-  }
-  packageLock.packages[packagePath].version = version
-}
-
-fs.writeFileSync(path, `${JSON.stringify(packageLock, null, 2)}\n`)
-NODE
-
-echo "Versioning Octicons ruby gem"
-
-bundle exec rake -C lib/octicons_gem version\["$PACKAGE_VERSION"\]
-
-echo "Versioning Octicons rails helper gem"
-
-bundle exec rake -C lib/octicons_helper version\["$PACKAGE_VERSION"\]
-
-echo "Versioning Octicons jekyll plugin gem"
-
-bundle exec rake -C lib/octicons_jekyll version\["$PACKAGE_VERSION"\]
+for package in $RELEASED_GEMS; do
+  case "$package" in
+    octicons_gem)
+      echo "Versioning Octicons ruby gem"
+      bundle exec rake -C lib/octicons_gem version
+      ;;
+    octicons_helper)
+      echo "Versioning Octicons rails helper gem"
+      bundle exec rake -C lib/octicons_helper version
+      ;;
+    jekyll-octicons)
+      echo "Versioning Octicons jekyll plugin gem"
+      bundle exec rake -C lib/octicons_jekyll version
+      ;;
+  esac
+done
 
 git add package.json package-lock.json lib/
