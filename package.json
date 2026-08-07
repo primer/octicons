@@ -7,7 +7,8 @@
     "lib/*",
     "lib/octicons_node",
     "lib/octicons_react",
-    "lib/octicons_styled"
+    "lib/octicons_styled",
+    "lib/octicons-react-symbols"
   ],
   "publishConfig": {
     "registry": "no registry, don't publish from this package.json."
