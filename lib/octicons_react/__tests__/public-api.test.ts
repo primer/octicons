@@ -1,4 +1,4 @@
-import * as Octicons from '../'
+import * as Octicons from '../dist/index.esm.mjs'
 
 describe('@primer/octicons-react', () => {
   it('should not update exports without a semver change', () => {

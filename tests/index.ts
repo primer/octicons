@@ -1,5 +1,3 @@
-/* eslint-disable i18n-text/no-en */
-
 import fs from 'node:fs'
 import globby from 'globby'
 import octiconsData from '../lib/build/data.json' with {type: 'json'}

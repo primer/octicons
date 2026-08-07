@@ -15,3 +15,8 @@ lib/**/build/
 
 # ESLint
 .eslintcache
+
+# Generated files
+**/generated/**
+**/__generated__/**
+**/dist/**
