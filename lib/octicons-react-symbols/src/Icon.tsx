@@ -24,9 +24,9 @@ type IconProps = OcticonReferenceProps & {
 
 const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon(
   {
+    'aria-hidden': ariaHidden,
     'aria-label': ariaLabel,
     'aria-labelledby': ariaLabelledBy,
-    className = '',
     fill = 'currentColor',
     id,
     size = 16,
@@ -52,12 +52,11 @@ const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon(
       {...rest}
       ref={ref}
       data-component="Octicon"
-      aria-hidden={labelled ? undefined : 'true'}
+      aria-hidden={ariaHidden !== undefined ? ariaHidden : labelled ? undefined : 'true'}
       tabIndex={tabIndex}
       focusable={tabIndex !== undefined && tabIndex >= 0 ? 'true' : 'false'}
       aria-label={ariaLabel}
       aria-labelledby={ariaLabelledBy}
-      className={className}
       role={role}
       viewBox={`0 0 ${naturalWidth} ${naturalHeight}`}
       width={width}

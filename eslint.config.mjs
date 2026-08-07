@@ -22,6 +22,7 @@ export default [
       '**/.agents/**',
       '**/.{cache,next,ts-build}/**',
       '**/__generated__/**',
+      '**/generated/**',
       '**/{build,coverage,dist}/**',
       'lib/octicons_node/index.js',
       'public/**',

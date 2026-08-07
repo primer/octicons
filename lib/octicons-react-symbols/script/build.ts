@@ -26,10 +26,14 @@ const modules = Object.values(data).map(icon => {
   const referenceName = `${pascalCase(icon.name)}IconReference`
   const symbols = Object.entries(icon.heights).map(([height, size]) => {
     const jsx = t.jsxElement(
-      t.jsxOpeningElement(t.jsxIdentifier('symbol'), [
-        t.jsxAttribute(t.jsxIdentifier('id'), t.stringLiteral(`symbol-octicon-${icon.name}-${height}`)),
-        t.jsxAttribute(t.jsxIdentifier('viewBox'), t.stringLiteral(`0 0 ${size.width} ${height}`)),
-      ]),
+      t.jsxOpeningElement(
+        t.jsxIdentifier('symbol'),
+        [
+          t.jsxAttribute(t.jsxIdentifier('id'), t.stringLiteral(`symbol-octicon-${icon.name}-${height}`)),
+          t.jsxAttribute(t.jsxIdentifier('viewBox'), t.stringLiteral(`0 0 ${size.width} ${height}`)),
+        ],
+        false,
+      ),
       t.jsxClosingElement(t.jsxIdentifier('symbol')),
       svgToJSX(size.ast),
     )
