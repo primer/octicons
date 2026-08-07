@@ -9,6 +9,7 @@ const declarationFiles = ['**/*.d.{ts,mts,cts}']
 const nodeFiles = ['tests/**/*.ts', 'lib/octicons_node/{index.ts,tests/**/*.ts}']
 const reactFiles = [
   'examples/**/*.{js,mjs,jsx,ts,tsx}',
+  'lib/octicons-react-symbols/**/*.{js,mjs,jsx,ts,tsx}',
   'lib/octicons_{react,styled}/{pages,script,src,ts-tests}/**/*.{js,mjs,jsx,ts,tsx}',
 ]
 const testFiles = ['**/{__tests__,tests,ts-tests}/**/*.{js,mjs,cjs,jsx,ts,tsx}']
@@ -52,6 +53,8 @@ export default [
     },
     rules: {
       'github/no-then': 'off',
+      'github/filenames-match-regex': 'off',
+      'i18n-text/no-en': 'off',
     },
   },
   {
@@ -88,6 +91,7 @@ export default [
       'import/no-named-as-default': 'off',
       'import/no-namespace': 'off',
       '@typescript-eslint/no-require-imports': 'off',
+      'i18n-text/no-en': 'off',
     },
   },
   {
@@ -105,6 +109,7 @@ export default [
       'github/filenames-match-regex': 'off',
       'import/named': 'off',
       'import/no-unresolved': 'off',
+      '@typescript-eslint/no-shadow': 'off',
       'no-unused-vars': ['error', {varsIgnorePattern: '^React$'}],
     },
   },
