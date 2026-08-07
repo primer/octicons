@@ -19,3 +19,4 @@ lib/**/build/
 # Generated files
 **/generated/**
 **/__generated__/**
+**/dist/**
