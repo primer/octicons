@@ -89,7 +89,17 @@ elif [[ "$PACKAGE_VERSION" == *-rc* ]]; then
 fi
 
 # Changesets publishes npm packages and creates their local package tags.
-npx changeset publish "${CHANGESET_PUBLISH_ARGS[@]}"
+#
+# A brand new package cannot be published through npm's OIDC trusted publishing
+# until it has been published at least once using a classic auth token, since
+# trusted publishers can only be configured for packages that already exist on
+# the registry (see https://docs.npmjs.com/trusted-publishers). Treat a publish
+# failure as non-fatal so gem releases/tags still complete for the rest of the
+# packages; once a blocked package has been bootstrapped manually this step
+# will go back to publishing (and tagging) it automatically.
+if ! npx changeset publish "${CHANGESET_PUBLISH_ARGS[@]}"; then
+  echo "::warning::npx changeset publish exited with a non-zero status. See the log above for the packages that failed to publish; a new package may need to be published manually once before npm trusted publishing can take over."
+fi
 
 # The action pushes tags reported in this format and creates package releases.
 for tag in "${GEM_TAGS[@]}"; do
