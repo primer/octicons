@@ -2,4 +2,4 @@
 '@primer/octicons': minor
 ---
 
-Add bubble icon (16px and 24px)
+Add chat bubble icon (16px and 24px)
