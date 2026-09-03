@@ -4,7 +4,7 @@ require "minitest/autorun"
 require "jekyll-octicons"
 
 # Parse a string into a liquid template
-# rubocop:disable-next-line Rails/Delegate
+# rubocop:disable-next Rails/Delegate
 def parse(string)
   Liquid::Template.parse(string)
 end
