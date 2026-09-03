@@ -5,4 +5,4 @@
 '@primer/octicons-react-symbols': minor
 ---
 
-Add the `legacy-chat-locked` icon for locked legacy chat experiences.
+Add the `chat-locked` icon for representing locked chat experiences.
