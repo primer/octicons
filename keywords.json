@@ -36,6 +36,7 @@
   "browser": ["window", "web"],
   "bug": ["insect", "issue"],
   "chat": ["speak", "chat", "conversation", "message", "comment", "bubble"],
+  "chat-question": ["explain", "ask", "question", "answer", "chat", "bubble", "comment", "message"],
   "calendar": ["time", "day", "month", "year", "date", "appointment"],
   "check": ["mark", "yes", "confirm", "accept", "ok", "success"],
   "checkbox": ["box", "checkbox", "check"],
