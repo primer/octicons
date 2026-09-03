@@ -18,6 +18,7 @@ publish_gem() {
   local package_version
   local gem_version
   local tag
+  local fetch_output
   local push_output
 
   package_version=$(jq --raw-output '.version' "$package_dir/package.json")
@@ -28,13 +29,15 @@ publish_gem() {
   mkdir -p "$package_dir/pkg"
   rm -f "$package_dir"/pkg/*.gem
 
-  if gem dependency "$gem_name" --remote --version "$gem_version" >/dev/null 2>&1; then
+  if fetch_output=$(
+    cd "$package_dir/pkg"
+    gem fetch "$gem_name" --version "$gem_version" --prerelease 2>&1
+  ); then
+    echo "$fetch_output"
     echo "$gem_name $gem_version is already published"
-    (
-      cd "$package_dir/pkg"
-      gem fetch "$gem_name" --version "$gem_version" --prerelease
-    )
   else
+    echo "$fetch_output"
+    echo "$gem_name $gem_version could not be fetched, building and pushing it"
     (
       cd "$package_dir"
       bundle install
