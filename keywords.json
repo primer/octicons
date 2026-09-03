@@ -139,6 +139,7 @@
   "key": ["key", "lock", "secure", "safe"],
   "keyboard": ["type", "keys", "write", "shortcuts"],
   "law": ["legal", "bill"],
+  "legacy-chat-locked": ["legacy", "chat", "conversation", "message", "bubble", "lock"],
   "light-bulb": ["idea"],
   "line-arrow-down": ["arrow", "point", "direction", "down"],
   "line-arrow-left": ["arrow", "point", "direction", "left"],
