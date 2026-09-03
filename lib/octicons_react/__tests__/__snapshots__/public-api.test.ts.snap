@@ -204,6 +204,7 @@ exports[`@primer/octicons-react > should not update exports without a semver cha
   "KeyAsteriskIcon",
   "KeyIcon",
   "LawIcon",
+  "LibraryIcon",
   "LightBulbIcon",
   "LinkExternalIcon",
   "LinkIcon",
