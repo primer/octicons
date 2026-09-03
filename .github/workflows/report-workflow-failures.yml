@@ -3,7 +3,7 @@ name: report workflow failures
 on:
   workflow_run:
     workflows:
-      - Octicons Publish
+      - publish
       - Codespaces Prebuilds
     types:
       - completed
