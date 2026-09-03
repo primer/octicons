@@ -28,13 +28,13 @@ publish_gem() {
   mkdir -p "$package_dir/pkg"
   rm -f "$package_dir"/pkg/*.gem
 
-  if gem dependency "$gem_name" --remote --version "$gem_version" >/dev/null 2>&1; then
+  if (
+    cd "$package_dir/pkg"
+    gem fetch "$gem_name" --version "$gem_version" --prerelease >/dev/null 2>&1
+  ); then
     echo "$gem_name $gem_version is already published"
-    (
-      cd "$package_dir/pkg"
-      gem fetch "$gem_name" --version "$gem_version" --prerelease
-    )
   else
+    echo "$gem_name $gem_version is not published yet"
     (
       cd "$package_dir"
       bundle install
