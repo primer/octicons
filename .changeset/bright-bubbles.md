@@ -1,5 +1,7 @@
 ---
 '@primer/octicons': minor
+'@primer/octicons-react': minor
+'@primer/styled-octicons': minor
 ---
 
-Add chat bubble icon (16px and 24px)
+Add the `chat-bubble` icon and its `ChatBubbleIcon` React exports for AI chat affordances.
