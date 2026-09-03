@@ -1,5 +1,11 @@
 # @primer/octicons
 
+## 19.34.0
+
+### Minor Changes
+
+- [#1337](https://github.com/primer/octicons/pull/1337) [`60ef3db18fef094aa042535a1f1fca59ed6208ff`](https://github.com/primer/octicons/commit/60ef3db18fef094aa042535a1f1fca59ed6208ff) Thanks [@edokoa](https://github.com/edokoa)! - Add the `chat` icon and its `ChatIcon` React exports for AI chat affordances.
+
 ## 19.33.0
 
 ### Minor Changes

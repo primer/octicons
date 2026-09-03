@@ -4,11 +4,10 @@ require "minitest/autorun"
 require "jekyll-octicons"
 
 # Parse a string into a liquid template
-# rubocop:disable Rails/Delegate
+# rubocop:disable-next Rails/Delegate
 def parse(string)
   Liquid::Template.parse(string)
 end
-# rubocop:enable Rails/Delegate
 
 # Parse and render a string
 def render(string, assigns = {})
