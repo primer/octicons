@@ -42,6 +42,7 @@ exports[`@primer/octicons-react > should not update exports without a semver cha
   "CacheIcon",
   "CalendarIcon",
   "ChatIcon",
+  "ChatQuestionIcon",
   "CheckCircleFillIcon",
   "CheckCircleIcon",
   "CheckIcon",
