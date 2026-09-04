@@ -1,4 +1,4 @@
-# @primer/octicons-react
+# @primer/styled-octicons
 
 ## 19.35.0
 
@@ -7,9 +7,3 @@
 - [#1339](https://github.com/primer/octicons/pull/1339) [`6220ff87f3ddd923b05ffdac7e2d9cb714213205`](https://github.com/primer/octicons/commit/6220ff87f3ddd923b05ffdac7e2d9cb714213205) Thanks [@edokoa](https://github.com/edokoa)! - Add the `chat-question` icon and `ChatQuestionIcon` export as the preferred names for `question-bubble` and `QuestionBubbleIcon`, which remain available as deprecated aliases for compatibility.
 
 - [#1345](https://github.com/primer/octicons/pull/1345) [`9175c58a5b3f77d6ca10c99aee26de1c709f3e12`](https://github.com/primer/octicons/commit/9175c58a5b3f77d6ca10c99aee26de1c709f3e12) Thanks [@janmaarten-a11y](https://github.com/janmaarten-a11y)! - Add the `library` icon and its React exports for representing collections of resources.
-
-## 19.31.1
-
-### Patch Changes
-
-- [#1275](https://github.com/primer/octicons/pull/1275) [`110c506a`](https://github.com/primer/octicons/commit/110c506a2573458515e2bb8c1e9c69bf3b0a10e0) Thanks [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent)! - Preserve an explicitly provided `aria-hidden` value on React icon components.
