@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "jsx": "react",
     "noEmit": true,
     "types": ["node", "react", "vitest/globals", "@testing-library/jest-dom"]

@@ -86,6 +86,18 @@ Use GitHub to [create a pull request](https://help.github.com/en/desktop/contrib
 
 If everything looks good, a maintainer will approve and merge the pull request when appropriate. After the pull request is merged, your icon will be available in the next Octicons release.
 
+### Renaming an icon
+
+A name change must not silently replace an existing glyph. Compare the published drawing with the Figma component and record its identity before exporting. Use canonical source filenames and define compatibility names in `icon-metadata.json`; the build generates legacy data records and SVG copies.
+
+Alias metadata records the natural heights that each old name retains. Deprecation is separate from aliasing: `play` remains a supported circled alias of `triangle-circle`, while `bookmark-filled` and `repo-deleted` are deprecated. Preserve existing helper defaults when adding a previously missing natural size.
+
+The circled `triangle-circle` drawings have protected geometry fingerprints. The build rejects replacements that change the `play` glyph. Update those fingerprints only as part of an explicitly reviewed drawing change, not to bypass a failed build.
+
+The automatic SVG optimizer preserves source heights used by compatibility aliases or protected fingerprints. Other changed SVGs still pass through SVGO. This keeps a rename from rewriting existing drawings or their published SVG bytes.
+
+Run repository builds through `npx turbo run build` so the configured metadata applies. Direct fixture builds can use `script/build.ts --input ...` without metadata; pass `--metadata <file>` when the selected canonical inputs need aliases or protected geometry.
+
 ### Using the Octicons Push Figma plugin
 
 If you work at GitHub, you can use the [Octicons Push](https://www.figma.com/community/plugin/825432045044458754/Octicons-Push) Figma plugin to start an Octicons pull request from Figma.
@@ -96,6 +108,8 @@ Here's how it works:
 2. Open the Octicons Push plugin.
 3. Select the branch you want to commit to. You can choose an existing branch or create a new branch.
 4. Press "Commit." The plugin will then export, commit, and push the selected icons to the branch you chose. If you chose to create a new branch, the plugin will give you a link to where you can start a new pull request with your branch.
+
+For renamed icons, update the existing Figma components in place and inspect the exported filenames before committing. Each filename must contain the canonical name and one size suffix, such as `triangle-circle-24.svg`. The plugin does not remove old filenames automatically; the repository build rejects source files that collide with compatibility aliases.
 
 After you create a pull request, a member of the Design Infrastructure team will triage and review your contribution.
 

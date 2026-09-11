@@ -11,6 +11,7 @@ type HeightData = {
 }
 type IconData = {
   heights: Record<string, HeightData>
+  defaultHeight?: number
   symbol?: string
   toSVG?: (options?: Options) => string
 }
@@ -77,7 +78,10 @@ for (const key of Object.keys(octicons)) {
   // Function to return an SVG object
   octicons[key].toSVG = function (options: Options = {}) {
     const {height, width} = options
-    const naturalHeight = closestNaturalHeight(Object.keys(octicons[key].heights), height || width || DEFAULT_HEIGHT)
+    const naturalHeight = closestNaturalHeight(
+      Object.keys(octicons[key].heights),
+      height || width || octicons[key].defaultHeight || DEFAULT_HEIGHT,
+    )
     return `<svg ${htmlAttributes(octicons[key], octicons[key].heights[naturalHeight].options, options)}>${
       octicons[key].heights[naturalHeight].path
     }</svg>`

@@ -1,0 +1,31 @@
+{
+  "bookmark-fill": {
+    "defaultHeight": 24,
+    "aliases": {
+      "bookmark-filled": {
+        "heights": [16],
+        "deprecated": true
+      }
+    }
+  },
+  "repo-delete": {
+    "defaultHeight": 24,
+    "aliases": {
+      "repo-deleted": {
+        "heights": [16],
+        "deprecated": true
+      }
+    }
+  },
+  "triangle-circle": {
+    "aliases": {
+      "play": {
+        "heights": [16, 24]
+      }
+    },
+    "protectedGeometry": {
+      "16": "2a2b39e73e4dd5bdc3110c53ce7fc2104054751de77d3f80567013f0ef217308",
+      "24": "5dce705b824e3fbc816196c49c89732770dc8830d68d936d54418fbaef7ae6b9"
+    }
+  }
+}

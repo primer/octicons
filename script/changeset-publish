@@ -67,6 +67,7 @@ publish_gem() {
 npx turbo run build \
   --filter=@primer/octicons \
   --filter=@primer/octicons-react \
+  --filter=@primer/octicons-react-symbols \
   --filter=@primer/styled-octicons
 
 cp -R lib/build lib/octicons_gem/lib/

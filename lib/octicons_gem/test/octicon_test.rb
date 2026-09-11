@@ -3,6 +3,46 @@
 require_relative "helper"
 
 describe Octicons::Octicon do
+  describe "compatibility names" do
+    {
+      "bookmark-filled" => ["bookmark-fill", [16]],
+      "repo-deleted" => ["repo-delete", [16]],
+      "play" => ["triangle-circle", [16, 24]]
+    }.each do |name, (canonical, heights)|
+      it "preserves #{name} artwork, classes, and sizing" do
+        [16, 20, 24, 32, 64].each do |height|
+          natural_height = heights.include?(24) && height >= 24 ? 24 : 16
+          icon = octicon(name, height: height, class: "custom")
+          assert_equal name, icon.symbol
+          assert_equal natural_height, icon.height
+          assert_equal octicon(canonical, height: natural_height).path, icon.path
+          assert_includes icon.to_svg, "octicon-#{name} custom"
+          assert_includes icon.to_svg, "height=\"#{height}\""
+        end
+      end
+    end
+
+    %w[bookmark-fill repo-delete].each do |name|
+      it "preserves the unsized #{name} default" do
+        assert_equal 24, octicon(name).height
+        assert_equal 24, octicon(name, class: "custom").height
+        assert_equal 16, octicon(name, height: 16).height
+        assert_equal 16, octicon(name, width: 16).height
+      end
+    end
+
+    it "keeps play circled and exposes the new icons" do
+      assert_equal 16, octicon("play").height
+      assert_equal octicon("triangle-circle").path, octicon("play").path
+      refute_equal octicon("triangle").path, octicon("play").path
+      %w[triangle triangle-circle triangle-fill].each do |name|
+        assert_equal 16, octicon(name, height: 16).height
+        assert_equal 24, octicon(name, height: 24).height
+      end
+      assert_equal 16, octicon("git-pull-request-unlisted", height: 24).height
+    end
+  end
+
   it "fails when the octicon doesn't exist" do
     assert_raises(RuntimeError) do
       octicon("octicon")

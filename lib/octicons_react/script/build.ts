@@ -7,9 +7,12 @@ import * as t from '@babel/types'
 import fs from 'node:fs'
 import {join, resolve} from 'node:path'
 import octicons from '../../build/data.json' with {type: 'json'}
+import {pascalCase} from '../../../script/icon-metadata.ts'
 
 type Octicon = {
   heights: Record<string, {ast: INode; width: number}>
+  aliasOf?: string
+  deprecated?: boolean
 }
 type JSXElement = import('@babel/types').JSXElement | import('@babel/types').JSXFragment
 
@@ -19,15 +22,11 @@ const typedOcticons = octicons as Record<string, Octicon>
 
 const GENERATED_HEADER = '/* THIS FILE IS GENERATED. DO NOT EDIT IT. */'
 
-function pascalCase(str: string) {
-  return str.replace(/(^|-)([a-z])/g, (_match: string, _separator: string, character: string) =>
-    character.toUpperCase(),
-  )
-}
-
 const icons = Object.entries(typedOcticons)
   .map(([key, octicon]) => {
     const name = `${pascalCase(key)}Icon`
+    const deprecation =
+      octicon.deprecated && octicon.aliasOf ? `@deprecated Use ${pascalCase(octicon.aliasOf)}Icon instead.` : ''
     const heights = Object.keys(octicon.heights)
     // Build an object with the following structure:
     //
@@ -79,6 +78,11 @@ const icons = Object.entries(typedOcticons)
       '#__PURE__',
     )
 
+    const declaration = t.exportNamedDeclaration(
+      t.variableDeclaration('const', [t.variableDeclarator(t.identifier(name), forwardRefCall)]),
+    )
+    if (deprecation) t.addComment(declaration, 'leading', `* ${deprecation} `)
+
     const program = t.program([
       t.importDeclaration([t.importDefaultSpecifier(t.identifier('React'))], t.stringLiteral('react')),
       t.importDeclaration(
@@ -92,9 +96,7 @@ const icons = Object.entries(typedOcticons)
         ),
       ]),
       t.variableDeclaration('const', [t.variableDeclarator(t.identifier('svgDataByHeight'), svgData)]),
-      t.exportNamedDeclaration(
-        t.variableDeclaration('const', [t.variableDeclarator(t.identifier(name), forwardRefCall)]),
-      ),
+      declaration,
       t.expressionStatement(
         t.assignmentExpression(
           '=',
@@ -111,6 +113,7 @@ const icons = Object.entries(typedOcticons)
       key,
       name,
       octicon,
+      deprecation,
       code: `${GENERATED_HEADER}\n${code}\n`,
     }
   })
@@ -159,11 +162,11 @@ export {Icon, IconProps}
 
   // Per-icon declaration file so subpath imports (`import('.../AlertIcon')`)
   // resolve their own types.
-  const typeWrites = icons.map(({name}) => {
+  const typeWrites = icons.map(({name, deprecation}) => {
     const dts = `${GENERATED_HEADER}
 import {Icon} from './types'
 
-declare const ${name}: Icon
+${deprecation ? `/** ${deprecation} */\n` : ''}declare const ${name}: Icon
 
 export {${name}}
 export default ${name}

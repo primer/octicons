@@ -47,6 +47,12 @@ function Status() {
 }
 ```
 
+### Compatibility names
+
+`PlaySymbol` and `PlayIconReference` remain supported circled aliases of the `TriangleCircle` pair. Alias symbols retain their own SVG IDs, so register `PlaySymbol` when rendering `PlayIconReference`. Migrate the symbol and reference names together.
+
+The `BookmarkFilled` and `RepoDeleted` pairs remain available with deprecation guidance and their original 16px artwork. Their canonical `BookmarkFill` and `RepoDelete` pairs provide both natural sizes.
+
 ### Custom symbols
 
 Use `createIconReference` to create a custom symbol and its matching icon
