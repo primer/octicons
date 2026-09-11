@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import path from 'node:path'
 import fs from 'node:fs'
+import data from '../../build/data.json' with {type: 'json'}
+import {pascalCase} from '../../../script/icon-metadata.ts'
 // eslint-disable-next-line import/no-namespace
 import * as octicons from '../../octicons_react/dist/index.esm.mjs'
 
@@ -12,6 +14,13 @@ const iconsDir = path.join(generatedDir, 'icons')
 fs.mkdirSync(iconsDir, {recursive: true})
 
 const icons = Object.keys(octicons).filter(name => name !== 'default')
+const iconData: Record<string, {name: string; aliasOf?: string; deprecated?: boolean}> = data
+const deprecatedIcons = new Map<string, string>()
+for (const icon of Object.values(iconData)) {
+  if (icon.deprecated && icon.aliasOf) {
+    deprecatedIcons.set(`${pascalCase(icon.name)}Icon`, `${pascalCase(icon.aliasOf)}Icon`)
+  }
+}
 
 const initialTypeDefinitions = `${GENERATED_HEADER}
 import * as React from 'react'
@@ -55,6 +64,8 @@ export default Styled${name}
   const exportString = `export { default as ${name} } from './icons/${name}.js';\r\n`
   fs.appendFileSync(path.join(generatedDir, 'index.js'), exportString, 'utf-8')
 
-  const exportTypeString = `export const ${name}: Icon;\n`
+  const replacement = deprecatedIcons.get(name)
+  const deprecation = replacement ? `/** @deprecated Use ${replacement} instead. */\n` : ''
+  const exportTypeString = `${deprecation}export const ${name}: Icon;\n`
   fs.appendFileSync(path.join(generatedDir, 'index.d.ts'), exportTypeString, 'utf-8')
 }

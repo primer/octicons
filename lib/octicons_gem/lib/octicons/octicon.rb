@@ -88,7 +88,7 @@ module Octicons
     def get_octicon(symbol, options = {})
       if octicon = Octicons::OCTICON_SYMBOLS[symbol]
         # We're using width as an approximation for height if the height option is not passed in
-        height = options[:height] || options[:width] || DEFAULT_HEIGHT
+        height = options[:height] || options[:width] || octicon["defaultHeight"] || DEFAULT_HEIGHT
         natural_height = closest_natural_height(octicon["heights"].keys, height)
         return {
           "name" => octicon["name"],

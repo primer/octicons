@@ -57,12 +57,25 @@ octicons.x.symbol
 
 ### `octicons[name].keywords`
 
-Returns an array of keywords for the icon. The data comes from [keywords.json](https://github.com/primer/octicons/blob/main/keywords.json). Consider contributing more aliases for the icons.
+Returns an array of keywords for the icon. The data comes from [keywords.json](https://github.com/primer/octicons/blob/main/keywords.json). Consider contributing more search terms for the icons.
 
 ```js
 octicons.x.keywords
 // ["remove", "close", "delete"]
 ```
+
+### Compatibility names
+
+An optional `aliasOf` property identifies an icon's canonical name. `play` remains a supported alias of `triangle-circle`, while `bookmark-filled` and `repo-deleted` also carry `deprecated: true`. Aliases retain their names, CSS classes, natural drawings, and published SVG paths.
+
+```js
+octicons.play.aliasOf
+// "triangle-circle"
+
+const canonicalIcons = Object.values(octicons).filter(icon => !icon.aliasOf)
+```
+
+The published `build/data.json` contains the same alias metadata and keeps legacy keys. Filter aliases only when listing canonical icons, not when resolving names used by existing callers.
 
 ### `octicons[name].heights`
 
@@ -132,6 +145,8 @@ octicons.x.toSVG()
 ```
 
 The `.toSVG()` method accepts an optional `options` object. This is used to add CSS class names, accessibility options, and sizes.
+
+`bookmark-fill` and `repo-delete` retain their 24px output without size options. Pass `{height: 16}` or `{width: 16}` to select their 16px drawings. Other existing defaults, including `play`, stay unchanged.
 
 #### class
 

@@ -8,8 +8,9 @@ import {parseSync} from 'svgson'
 import trimNewlines from 'trim-newlines'
 import yargs from 'yargs'
 import keywords from '../keywords.json' with {type: 'json'}
+import {applyIconMetadata, type IconData} from './icon-metadata.ts'
 
-type IconData = {
+type InputIcon = {
   name: string
   keywords: Array<string>
   width: number
@@ -40,6 +41,10 @@ const {argv} = yargs
     type: 'string',
     describe: 'Output directory for SVG files.',
   })
+  .option('metadata', {
+    type: 'string',
+    describe: 'Metadata for canonical icons in the input, including aliases and protected geometry.',
+  })
 
 // The `argv.input` array could contain globs (e.g. "**/*.svg").
 const filepaths: Array<string> = globby.sync(argv.input)
@@ -52,7 +57,7 @@ if (svgFilepaths.length === 0) {
 
 let exitCode = 0
 
-const icons = svgFilepaths.map((filepath: string): IconData | null => {
+const icons = svgFilepaths.map((filepath: string): InputIcon | null => {
   try {
     const filename = path.parse(filepath).base
     const filenamePattern = /(.+)-([0-9]+).svg$/
@@ -133,9 +138,9 @@ if (exitCode !== 0) {
   process.exit(exitCode)
 }
 
-const iconsByName = icons
-  .filter((icon): icon is IconData => icon !== null)
-  .reduce<Record<string, unknown>>(
+const sourceIcons = icons
+  .filter((icon): icon is InputIcon => icon !== null)
+  .reduce<Record<string, IconData>>(
     (acc, icon) =>
       merge(acc, {
         [icon.name]: {
@@ -153,6 +158,10 @@ const iconsByName = icons
     {},
   )
 
+const iconsByName = argv.metadata
+  ? applyIconMetadata(sourceIcons, JSON.parse(fs.readFileSync(path.resolve(argv.metadata), 'utf8')), keywords)
+  : sourceIcons
+
 if (argv.output) {
   const outputPath = path.resolve(argv.output)
   fs.mkdirSync(path.dirname(outputPath), {recursive: true})
@@ -165,4 +174,13 @@ if (argv.svgOutput) {
   const svgOutputDir = path.resolve(argv.svgOutput)
   fs.rmSync(svgOutputDir, {recursive: true, force: true})
   fs.cpSync(path.resolve('icons'), svgOutputDir, {recursive: true})
+  for (const icon of Object.values(iconsByName)) {
+    if (!icon.aliasOf) continue
+    for (const height of Object.keys(icon.heights)) {
+      fs.copyFileSync(
+        path.join(svgOutputDir, `${icon.aliasOf}-${height}.svg`),
+        path.join(svgOutputDir, `${icon.name}-${height}.svg`),
+      )
+    }
+  }
 }

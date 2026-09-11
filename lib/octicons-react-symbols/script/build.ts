@@ -14,7 +14,17 @@ const GENERATED_DIRECTORY = path.join(SOURCE_DIRECTORY, 'generated')
 
 await fs.mkdir(GENERATED_DIRECTORY, {recursive: true})
 
-const modules = Object.values(data).map(icon => {
+const iconData: Record<
+  string,
+  {
+    name: string
+    heights: Record<string, {width: number; ast: SVGASTNode}>
+    aliasOf?: string
+    deprecated?: boolean
+  }
+> = data
+
+const modules = Object.values(iconData).map(icon => {
   const imports = [
     // import {createIconReference} from '../IconReference'
     t.importDeclaration(
@@ -77,7 +87,16 @@ const modules = Object.values(data).map(icon => {
     ),
   ])
   const filepath = path.join(GENERATED_DIRECTORY, `${pascalCase(icon.name)}.tsx`)
-  const body = [...imports, t.exportNamedDeclaration(iconReference)]
+  const declaration = t.exportNamedDeclaration(iconReference)
+  if (icon.deprecated && icon.aliasOf) {
+    const replacement = pascalCase(icon.aliasOf)
+    t.addComment(
+      declaration,
+      'leading',
+      `* @deprecated Use ${replacement}Symbol and ${replacement}IconReference instead. `,
+    )
+  }
+  const body = [...imports, declaration]
   const program = t.addComment(
     t.program(body),
     'leading',
@@ -155,7 +174,7 @@ await fs.writeFile(indexFilePath, generate(index).code)
 type SVGASTNode = {
   type: string
   name: string
-  attributes: Record<string, string>
+  attributes: Record<string, string | undefined>
   children: Array<SVGASTNode>
 }
 

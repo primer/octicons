@@ -3,7 +3,7 @@
   "globalDependencies": [],
   "tasks": {
     "//#build": {
-      "inputs": ["icons/**/*.svg"],
+      "inputs": ["icons/**/*.svg", "script/**/*.ts", "keywords.json", "icon-metadata.json"],
       "outputs": ["lib/build/data.json", "lib/build/svg/**"]
     },
     "build": {

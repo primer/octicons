@@ -18,6 +18,25 @@ describe Jekyll::Octicons do
   end
 
   describe "rendering" do
+    %w[bookmark-filled repo-deleted play].each do |name|
+      it "renders the #{name} compatibility name" do
+        output = render("{% octicon #{name} height:24 %}")
+        natural_height = name == "play" ? 24 : 16
+        assert_match /octicon-#{name}/, output
+        assert_match /height="24"/, output
+        assert_match /viewBox="0 0 #{natural_height} #{natural_height}"/, output
+      end
+    end
+
+    it "supports the new names without changing existing defaults" do
+      %w[triangle triangle-circle triangle-fill git-pull-request-unlisted].each do |name|
+        assert_match /octicon-#{name}/, render("{% octicon #{name} %}")
+      end
+      %w[bookmark-fill repo-delete].each do |name|
+        assert_match /height="24"/, render("{% octicon #{name} %}")
+      end
+    end
+
     it "renders the svg" do
       output = render("{% octicon mark-github height:32 %}")
       assert_match /<svg.*octicon-mark-github.*/, output

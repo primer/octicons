@@ -4,6 +4,23 @@ require_relative "helper"
 
 describe OcticonsHelper do
   describe "rendering" do
+    %w[bookmark-filled repo-deleted play].each do |name|
+      it "renders the #{name} compatibility name" do
+        output = octicon(name, height: 24)
+        natural_height = name == "play" ? 24 : 16
+        assert_match /octicon-#{name}/, output
+        assert_match /height="24"/, output
+        assert_match /viewBox="0 0 #{natural_height} #{natural_height}"/, output
+      end
+    end
+
+    it "preserves unsized canonical helper defaults" do
+      %w[bookmark-fill repo-delete].each do |name|
+        assert_match /height="24"/, octicon(name)
+        assert_match /viewBox="0 0 16 16"/, octicon(name, height: 16)
+      end
+    end
+
     it "renders nothing when no symbol is passed in" do
       assert_equal "", octicon(nil)
     end

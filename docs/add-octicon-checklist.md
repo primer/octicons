@@ -24,6 +24,9 @@ Use this checklist to add a new/updated octicon to the Figma library and the Oct
   - Example: The `bookmark` icon's keywords are "icon: favorite, save, bookmark"
 
 ## Octicons package
+- [ ] Compare the glyph with any existing published icon of the same name; a matching name alone does not establish compatibility
+- [ ] For a rename, preserve the existing Figma component identity and define the old package name in `icon-metadata.json`
+- [ ] Confirm exported filenames use the canonical name and exactly one size suffix
 - [ ] Use the [Octicons Push plugin](https://www.figma.com/community/plugin/825432045044458754/Octicons-Push) to create a pull request from Figma
 - [ ] Open created pull request in the browser and add details
   - Pull request should include

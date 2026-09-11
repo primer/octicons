@@ -38,6 +38,20 @@ The octicons node.js library is the main JavaScript library. With [a JavaScript 
 | [octicons_helper](/lib/octicons_helper)<br />Rails helper for using octicons  | [![Gem version](https://img.shields.io/gem/v/octicons_helper.svg)](https://rubygems.org/gems/octicons_helper) |
 | [jekyll-octicons](/lib/octicons_jekyll)<br />Jekyll plugin for using octicons | [![Gem version](https://img.shields.io/gem/v/jekyll-octicons.svg)](https://rubygems.org/gems/jekyll-octicons) |
 
+## Icon names and compatibility
+
+The shape-based `triangle`, `triangle-circle`, and `triangle-fill` names follow the `square` family. Each provides 16px and 24px artwork. `git-pull-request-unlisted` provides 16px artwork.
+
+| Canonical name | Compatibility name | Preserved behavior |
+| --- | --- | --- |
+| `bookmark-fill` | `bookmark-filled` (deprecated) | The old name retains its 16px drawing at every display size. |
+| `repo-delete` | `repo-deleted` (deprecated) | The old name retains its 16px drawing at every display size. |
+| `triangle-circle` | `play` (supported) | The old name retains both original circled drawings, not the bare triangle. |
+
+Compatibility names retain their exports, CSS classes, symbol IDs, and published `build/svg` paths. An `aliasOf` property identifies the canonical name in icon data; `deprecated: true` separately marks a deprecated alias. Catalogues can filter `aliasOf` entries without removing legacy lookups.
+
+The canonical `bookmark-fill` and `repo-delete` names now provide both natural sizes. JavaScript and Ruby helpers retain their existing 24px output when callers omit width and height; an explicit 16px request selects the 16px drawing.
+
 ## Contributing
 
 ### Feedback, ideas, and bug reports
