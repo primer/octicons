@@ -94,6 +94,8 @@ Alias metadata records the natural heights that each old name retains. Deprecati
 
 The circled `triangle-circle` drawings have protected geometry fingerprints. The build rejects replacements that change the `play` glyph. Update those fingerprints only as part of an explicitly reviewed drawing change, not to bypass a failed build.
 
+The automatic SVG optimizer preserves source heights used by compatibility aliases or protected fingerprints. Other changed SVGs still pass through SVGO. This keeps a rename from rewriting existing drawings or their published SVG bytes.
+
 Run repository builds through `npx turbo run build` so the configured metadata applies. Direct fixture builds can use `script/build.ts --input ...` without metadata; pass `--metadata <file>` when the selected canonical inputs need aliases or protected geometry.
 
 ### Using the Octicons Push Figma plugin
