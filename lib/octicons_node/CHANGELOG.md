@@ -1,5 +1,26 @@
 # @primer/octicons
 
+## 19.37.0
+
+### Minor Changes
+
+- [#1355](https://github.com/primer/octicons/pull/1355) [`0b52df259a3e4df4396f7741e53438e9a022d46f`](https://github.com/primer/octicons/commit/0b52df259a3e4df4396f7741e53438e9a022d46f) Thanks [@janmaarten-a11y](https://github.com/janmaarten-a11y)! - Add `triangle`, `triangle-circle`, `triangle-fill`, and `git-pull-request-unlisted`, and provide both 16px and 24px artwork for `bookmark-fill` and `repo-delete`. Preserve `play` as a supported circled alias, retain the deprecated `bookmark-filled` and `repo-deleted` names with their existing artwork, and keep existing helper defaults.
+
+- [#1354](https://github.com/primer/octicons/pull/1354) [`82b8e0639baabd45e63696a95deca007cff59235`](https://github.com/primer/octicons/commit/82b8e0639baabd45e63696a95deca007cff59235) Thanks [@janmaarten-a11y](https://github.com/janmaarten-a11y)! - Add the `comment-fill` icon in 16px and 24px sizes for representing comments with
+  a filled speech bubble. React and styled Octicons provide `CommentFillIcon`;
+  `@primer/octicons-react-symbols` provides `CommentFillSymbol` and
+  `CommentFillIconReference`.
+
+- [#1356](https://github.com/primer/octicons/pull/1356) [`d5d6d581a1f8ff88971979321e4953a23e08bbca`](https://github.com/primer/octicons/commit/d5d6d581a1f8ff88971979321e4953a23e08bbca) Thanks [@janmaarten-a11y](https://github.com/janmaarten-a11y)! - Add the `terminal-locked` and `chat-add` icons in 16px and 24px sizes for
+  representing locked terminal access and adding chats or messages. React and
+  styled Octicons provide `TerminalLockedIcon` and `ChatAddIcon`;
+  `@primer/octicons-react-symbols` provides `TerminalLockedSymbol` and
+  `ChatAddSymbol`.
+
+### Patch Changes
+
+- [#1349](https://github.com/primer/octicons/pull/1349) [`d51f4f18bcda23f5063b211b2156900eb27e961b`](https://github.com/primer/octicons/commit/d51f4f18bcda23f5063b211b2156900eb27e961b) Thanks [@dependabot](https://github.com/apps/dependabot)! - Update SVG optimization tooling to SVGO 3.3.5 for the security update.
+
 ## 19.36.0
 
 ### Minor Changes
