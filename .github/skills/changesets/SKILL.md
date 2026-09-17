@@ -31,23 +31,20 @@ changeset. Add the `skip changeset` label to those pull requests.
 
 ## Identify affected packages
 
-Review the change from the perspective of users of each independently
-versioned npm package. Select every package whose shipped public API or output
-changes:
+Review the change from the perspective of users of each package. For a new
+icon, select the linked npm packages whose generated public APIs change:
 
 - `@primer/octicons`
 - `@primer/octicons-react`
-- `@primer/octicons-react-symbols`
 - `@primer/styled-octicons`
 
 Do not select a package only because its internal source or build process
 changed. Select it when users of that package will observe the change.
 
-A new icon changes all four npm package APIs, so select
-`@primer/octicons`, `@primer/octicons-react`,
-`@primer/octicons-react-symbols`, and `@primer/styled-octicons` explicitly.
 `@primer/octicons-react-symbols` keeps an independent `0.x` version and sits
-outside the linked release group.
+outside the linked release group. Until the repository defines a standard
+release policy for this package, confirm with a maintainer whether an icon
+change should select it rather than treating it as part of the default set.
 
 The Changesets workspace graph adds `octicons_gem`, `octicons_helper`, and
 `jekyll-octicons` to a shared icon-data release. Confirm that the changeset bot
@@ -84,7 +81,6 @@ with YAML frontmatter for all affected packages:
 ---
 '@primer/octicons': minor
 '@primer/octicons-react': minor
-'@primer/octicons-react-symbols': minor
 '@primer/styled-octicons': minor
 ---
 

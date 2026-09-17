@@ -38,9 +38,9 @@ Use this checklist to add a new/updated octicon to the Figma library and the Oct
 - [ ] Add or update the canonical name in `keywords.json`
 - [ ] For a rename, preserve the existing Figma component identity and define the old package name in `icon-metadata.json`
 - [ ] Update the React public API snapshot for added or renamed exports
-- [ ] Add one user-focused changeset for every affected package
-  - Note: Select `@primer/octicons`, `@primer/octicons-react`, `@primer/octicons-react-symbols`, and `@primer/styled-octicons` for a new icon
-  - Note: `@primer/octicons-react-symbols` has an independent version and must be selected explicitly
+- [ ] Add one user-focused changeset for the icon change and select every affected package
+  - Note: Select `@primer/octicons`, `@primer/octicons-react`, and `@primer/styled-octicons` for a new icon
+  - Note: `@primer/octicons-react-symbols` has an independent version; confirm with a maintainer whether to include it until the repository defines a standard policy
   - Note: Confirm that the changeset bot adds the linked `octicons_gem`, `octicons_helper`, and `jekyll-octicons` releases
   - Note: Do not add a separate changeset for generated files or snapshot updates
 - [ ] Open created pull request in the browser and add details
