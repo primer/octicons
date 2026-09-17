@@ -2,6 +2,7 @@
 ![octicons cover dark](https://user-images.githubusercontent.com/54012/138925203-80e1afa1-ba54-4731-9525-3c41186663f9.png#gh-dark-mode-only)
 <br>
 <br>
+
 <h1 align="center">Primer Octicons</h1>
 
 <p align="center">Octicons are a set of SVG icons built by GitHub for GitHub.</p>
@@ -23,12 +24,11 @@ This repository contains several libraries. Each of them is in the `lib/` folder
 
 The octicons node.js library is the main JavaScript library. With [a JavaScript API](/lib/octicons_node/README.md) that can be used in a variety of applications.
 
-| Package                                                                              | Version                                                                                                                         |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| **[@primer/octicons](/lib/octicons_node)** <br />Node.js package with JavaScript API | [![npm version](https://img.shields.io/npm/v/@primer/octicons.svg)](https://www.npmjs.org/package/@primer/octicons)             |
-| **[@primer/octicons-react](/lib/octicons_react)** <br />React Octicons components    | [![npm version](https://img.shields.io/npm/v/@primer/octicons-react.svg)](https://www.npmjs.org/package/@primer/octicons-react) |
-| **[@primer/styled-octicons](/lib/octicons_styled)** <br />React Octicons components with Styled System props    | [![npm version](https://img.shields.io/npm/v/@primer/styled-octicons.svg)](https://www.npmjs.org/package/@primer/styled-octicons) |
-
+| Package                                                                                                      | Version                                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| **[@primer/octicons](/lib/octicons_node)** <br />Node.js package with JavaScript API                         | [![npm version](https://img.shields.io/npm/v/@primer/octicons.svg)](https://www.npmjs.org/package/@primer/octicons)               |
+| **[@primer/octicons-react](/lib/octicons_react)** <br />React Octicons components                            | [![npm version](https://img.shields.io/npm/v/@primer/octicons-react.svg)](https://www.npmjs.org/package/@primer/octicons-react)   |
+| **[@primer/styled-octicons](/lib/octicons_styled)** <br />React Octicons components with Styled System props | [![npm version](https://img.shields.io/npm/v/@primer/styled-octicons.svg)](https://www.npmjs.org/package/@primer/styled-octicons) |
 
 ### Ruby
 
@@ -42,11 +42,11 @@ The octicons node.js library is the main JavaScript library. With [a JavaScript 
 
 The shape-based `triangle`, `triangle-circle`, and `triangle-fill` names follow the `square` family. Each provides 16px and 24px artwork. `git-pull-request-unlisted` provides 16px artwork.
 
-| Canonical name | Compatibility name | Preserved behavior |
-| --- | --- | --- |
-| `bookmark-fill` | `bookmark-filled` (deprecated) | The old name retains its 16px drawing at every display size. |
-| `repo-delete` | `repo-deleted` (deprecated) | The old name retains its 16px drawing at every display size. |
-| `triangle-circle` | `play` (supported) | The old name retains both original circled drawings, not the bare triangle. |
+| Canonical name    | Compatibility name             | Preserved behavior                                                          |
+| ----------------- | ------------------------------ | --------------------------------------------------------------------------- |
+| `bookmark-fill`   | `bookmark-filled` (deprecated) | The old name retains its 16px drawing at every display size.                |
+| `repo-delete`     | `repo-deleted` (deprecated)    | The old name retains its 16px drawing at every display size.                |
+| `triangle-circle` | `play` (supported)             | The old name retains both original circled drawings, not the bare triangle. |
 
 Compatibility names retain their exports, CSS classes, symbol IDs, and published `build/svg` paths. An `aliasOf` property identifies the canonical name in icon data; `deprecated: true` separately marks a deprecated alias. Catalogues can filter `aliasOf` entries without removing legacy lookups.
 
@@ -60,7 +60,7 @@ If you found a bug, have feedback about our Octicon Library, or an idea on how t
 
 ### Request an Icon Review (GitHub staff only)
 
-To request an icon review for inclusion in the Octicons Library, open an issue using the [icon review request](https://github.com/github/primer/issues/new?assignees=&labels=octicon%2C+request%2C+needs+triage&template=03-icon-request.md&title=%5BIcon+request%5D+) template in github/primer.
+To request an icon review for inclusion in the Octicons Library, open the [github/primer issue template chooser](https://github.com/github/primer/issues/new/choose) and select **Icon request**.
 
 ### Adding or updating an icon
 

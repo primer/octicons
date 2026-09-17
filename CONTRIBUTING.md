@@ -6,13 +6,13 @@ Thank you for your interest in contributing to Octicons! We are currently only a
 
 ### 1. Icon review request is made
 
-- Icon review requests are made using the [icon request template](https://github.com/github/primer/issues/new?assignees=&labels=octicon%2C+request%2C+needs+triage&template=02-icon-request.md&title=%5BIcon+request%5D+) in the github/primer repo (visible to GitHub staff only).
+- Icon review requests are made from the [github/primer issue template chooser](https://github.com/github/primer/issues/new/choose) by selecting **Icon request** (visible to GitHub staff only).
 - Icons in the Primer Roadmap inbox will be triaged by a maintainer from the Octicons team. Maintainers should reply with a comment on the issue and then move the issue to Primer Teams Backlog.
 
 ### 2. Working on icons
 
 - If an icon recommendation can be made async, we will discuss it in #primer-octicons or directly in the issue.
-- Icon review requests require a working session, we will send an invitation. 
+- Icon review requests require a working session, we will send an invitation.
   - Once an icon has been assigned, it's up to assigned designer to be responsible for communicating the icon's status and drive the work forward.
 
 ### 3. Icon design, review, and communication
@@ -22,13 +22,13 @@ Thank you for your interest in contributing to Octicons! We are currently only a
   - After a PR is created link to the PR in the icon request issue. PRs need approval from the icon requestor (stakeholder) and at least one designer on the octicons maintainer team.
 
 ### 4. Icon request completed
+
 - When an icon request PR has been approved, communicate that in the issue.
 - After the Octicons release, the new icons that were added will have their request issues moved to the **Done** column
 
-
 ## Adding or updating an icon
 
-Follow these steps to add or update an icon.
+Follow the [add an octicon checklist](/docs/add-octicon-checklist.md) and these steps to add or update an icon.
 
 ### Manually with SVG files
 
@@ -63,6 +63,10 @@ git checkout -b <branch-name>
 
 #### 3. Add or update SVG files in the `/icons` directory
 
+Choose one canonical base name before exporting the icon. Follow the naming convention of related icons, including established family prefixes such as `git-pull-request-*`. Use the exact same base name for every natural size. The Figma 16px component uses the bare name, while other natural sizes add one numeric suffix, such as `alert-24`. Source SVG filenames always include one size suffix, such as `alert-16.svg` and `alert-24.svg`.
+
+Check the published package and the Figma library before reusing a name. The same name must identify the same glyph. Use a distinct name when the artwork represents a different glyph.
+
 #### 4. Add or update keywords in `keywords.json`
 
 ```diff
@@ -72,7 +76,17 @@ git checkout -b <branch-name>
 }
 ```
 
-#### 5. Commit and push changes
+Use the canonical base name as the `keywords.json` key.
+
+#### 5. Add a changeset
+
+Run `npx changeset` and add one user-focused changeset for the icon change. A new icon changes the generated API of `@primer/octicons`, `@primer/octicons-react`, `@primer/octicons-react-symbols`, and `@primer/styled-octicons`, so select all four packages.
+
+`@primer/octicons-react-symbols` keeps an independent `0.x` version and sits outside the linked release group, so select it explicitly. Changesets adds the linked `octicons_gem`, `octicons_helper`, and `jekyll-octicons` releases through the workspace dependency graph. Confirm that the changeset bot lists those Ruby packages, but do not select them solely because shared icon data changed.
+
+Do not add a separate changeset for generated files or snapshot updates.
+
+#### 6. Commit and push changes
 
 ```shell
 git add .
@@ -80,15 +94,24 @@ git commit -m <message>
 git push
 ```
 
-#### 6. Create a pull request
+#### 7. Create a pull request
 
-Use GitHub to [create a pull request](https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request) for your branch. In your pull request description, be sure to mention where the icon will be used and any relevant timeline information.
+Use GitHub to [create a pull request](https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request) for your branch. Include:
+
+- The icon's use case and relevant timeline
+- The canonical name and intended natural sizes
+- The icon request issue
+- A direct Figma component link for each natural size
+- A preview with descriptive alt text
+- Any intentional single-size coverage or compatibility behavior
 
 If everything looks good, a maintainer will approve and merge the pull request when appropriate. After the pull request is merged, your icon will be available in the next Octicons release.
 
 ### Renaming an icon
 
 A name change must not silently replace an existing glyph. Compare the published drawing with the Figma component and record its identity before exporting. Use canonical source filenames and define compatibility names in `icon-metadata.json`; the build generates legacy data records and SVG copies.
+
+Use one canonical base name for every natural size. Rename the existing Figma components in place so their node identities remain stable. Do not create replacement components with new node identities for a naming-only change.
 
 Alias metadata records the natural heights that each old name retains. Deprecation is separate from aliasing: `play` remains a supported circled alias of `triangle-circle`, while `bookmark-filled` and `repo-deleted` are deprecated. Preserve existing helper defaults when adding a previously missing natural size.
 
@@ -114,6 +137,15 @@ For renamed icons, update the existing Figma components in place and inspect the
 After you create a pull request, a member of the Design Infrastructure team will triage and review your contribution.
 
 ![demo showing how to create a pull request using the Octicons Push Figma plugin](https://user-images.githubusercontent.com/4608155/77948730-b1a24600-727a-11ea-9c39-040be9a12963.gif)
+
+### Automated naming and Figma coverage monitoring
+
+Primer Docs runs two weekly workflows against the published `@primer/octicons` data and the live Figma library:
+
+- [`figma-categories`](https://github.com/github/primer-docs/blob/main/.github/workflows/figma-categories.yml) reports canonical npm icons without a Figma category and detects suspected naming drift when similar names ship as separate single-size icons.
+- [`figma-node-map`](https://github.com/github/primer-docs/blob/main/.github/workflows/figma-node-map.yml) reports duplicate Figma component names and published icon sizes without an identity-aware Figma component match.
+
+These workflows provide monitoring after publication. They do not block an Octicons pull request, compare the geometry of different natural sizes, or prove that Figma and npm SVG paths match. Complete the naming, source, and repository checks before merge.
 
 ## How changes are reviewed
 
@@ -143,6 +175,6 @@ Once maintainers have agreed and are satisfied with the release. Merge the Relea
 
 ## Other contributions
 
-When contributing to Octicons outside of adding a new icon or release-dependent contribution, be sure to add the `skip changeset` label to the pull request. This will allow for the pull request to skip the changeset check and have the ability to be merged into the main branch. 
+When contributing to Octicons outside of adding a new icon or release-dependent contribution, be sure to add the `skip changeset` label to the pull request. This will allow for the pull request to skip the changeset check and have the ability to be merged into the main branch.
 
 Examples of other contributions include adding documentation or improving a GitHub Actions workflows.
