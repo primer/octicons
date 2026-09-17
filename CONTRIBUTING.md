@@ -145,7 +145,7 @@ Primer Docs runs two weekly workflows against the published `@primer/octicons` d
 - [`figma-categories`](https://github.com/github/primer-docs/blob/main/.github/workflows/figma-categories.yml) reports canonical npm icons without a Figma category and detects suspected naming drift when similar names ship as separate single-size icons.
 - [`figma-node-map`](https://github.com/github/primer-docs/blob/main/.github/workflows/figma-node-map.yml) reports duplicate Figma component names and published icon sizes without an identity-aware Figma component match.
 
-These workflows provide monitoring after publication. They do not block an Octicons pull request, compare the geometry of different natural sizes, or prove that Figma and npm SVG paths match. Complete the naming, source, and repository checks before merge.
+These workflows provide monitoring after publication. They do not block an Octicons pull request, compare the geometry of different natural sizes, or prove that Figma and npm SVG paths match. Complete the naming, source, and repository checks before merging.
 
 ## How changes are reviewed
 
