@@ -3,6 +3,7 @@
 Use this checklist to add a new/updated octicon to the Figma library and the Octicons package. Read the [contributing guidelines](/CONTRIBUTING.md) for more information on the entire contribution process.
 
 ## Figma
+
 - [ ] Remove white background from icon frame
 - [ ] Outline all strokes of vector shape
 - [ ] Union shapes
@@ -10,12 +11,17 @@ Use this checklist to add a new/updated octicon to the Figma library and the Oct
 - [ ] Remove any unused points
 - [ ] Rename vector layer "Icon"
 - [ ] Vector layer color set to `text/primary`
-- [ ] Name the icon frame to the correct icon name
+- [ ] Name each icon frame with the canonical icon name
   - Note: Octicon names should be written lower case and use `-` to separate descriptors
-  - Note: If the icon is related to another icon or is part of a set, check the naming convention of the other icons to be consistent. (e.g. the issue icons are all prefixed as `issue-(something)`, `issue-opened`/`issue-closed`)
-  - Note: 24px icons will end with `-24` (e.g. `issue-opened-24`)
+  - Note: Follow established family prefixes, such as `issue-*` and `git-pull-request-*`
+  - Note: Use the exact same base name for every natural size
+  - Note: The 16px component uses the bare name; other sizes add one numeric suffix, such as `issue-opened-24`
+- [ ] Check the Figma library and published package before reusing a name
+  - Note: The same name must identify the same glyph; different artwork needs a distinct name
+- [ ] If renaming, rename the existing components in place to preserve their node identities
 - [ ] Copy/paste into [Octicons library file](https://www.figma.com/file/1ljgTFkT5NKNRfq5hw07JQ/Octicons?node-id=0%3A1)
 - [ ] Convert the icons into components
+- [ ] Place each component in the matching category frame on its size page
 - [ ] Set constraints of vectors to Scale/Scale
   - Note: If adding multiple icons, use the ["All Constraints" plugin](https://www.figma.com/community/plugin/847224511609531534/All-Constraints) for bulk editing
 - [ ] Add keywords to icon component
@@ -24,16 +30,34 @@ Use this checklist to add a new/updated octicon to the Figma library and the Oct
   - Example: The `bookmark` icon's keywords are "icon: favorite, save, bookmark"
 
 ## Octicons package
+
 - [ ] Compare the glyph with any existing published icon of the same name; a matching name alone does not establish compatibility
-- [ ] For a rename, preserve the existing Figma component identity and define the old package name in `icon-metadata.json`
-- [ ] Confirm exported filenames use the canonical name and exactly one size suffix
 - [ ] Use the [Octicons Push plugin](https://www.figma.com/community/plugin/825432045044458754/Octicons-Push) to create a pull request from Figma
+- [ ] Confirm exported filenames use the canonical base name and exactly one size suffix
+- [ ] Confirm every intended natural size is present and document intentional single-size coverage
+- [ ] Add or update the canonical name in `keywords.json`
+- [ ] For a rename, preserve the existing Figma component identity and define the old package name in `icon-metadata.json`
+- [ ] Update the React public API snapshot for added or renamed exports
+- [ ] Add one user-focused changeset for the icon change and select every affected package
+  - Note: Select `@primer/octicons`, `@primer/octicons-react`, and `@primer/styled-octicons` for a new icon
+  - Note: `@primer/octicons-react-symbols` has an independent version; confirm with a maintainer whether to include it until the repository defines a standard policy
+  - Note: Confirm that the changeset bot adds the linked `octicons_gem`, `octicons_helper`, and `jekyll-octicons` releases
+  - Note: Do not add a separate changeset for generated files or snapshot updates
 - [ ] Open created pull request in the browser and add details
-  - Pull request should include
-    - [ ] Small description with the names of the new icons
-    - [ ] Screenshot
+  - Pull request should include:
+    - [ ] Use case and relevant timeline
+    - [ ] Canonical names and intended natural sizes
+    - [ ] Screenshot with descriptive alt text
     - [ ] Link to icon request issue for tracking
+    - [ ] Direct Figma component link for each natural size
+    - [ ] Compatibility behavior or intentional single-size coverage
 - [ ] Request reviewers
   - [ ] Original requestor (from issue)
   - [ ] Member of octicons team
 - [ ] Submit pull request
+
+## Automated monitoring
+
+The weekly Primer Docs [`figma-categories`](https://github.com/github/primer-docs/blob/main/.github/workflows/figma-categories.yml) and [`figma-node-map`](https://github.com/github/primer-docs/blob/main/.github/workflows/figma-node-map.yml) workflows report suspected cross-size naming drift, missing Figma categories or component matches, and duplicate Figma component names.
+
+These workflows provide monitoring after publication. They do not block the Octicons pull request, compare artwork between natural sizes, or prove Figma and npm SVG path parity. Complete every applicable check above before merging.

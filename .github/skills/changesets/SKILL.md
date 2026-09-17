@@ -31,8 +31,8 @@ changeset. Add the `skip changeset` label to those pull requests.
 
 ## Identify affected packages
 
-Review the change from the perspective of users of each published package.
-Include every package whose shipped public API or output changes:
+Review the change from the perspective of users of each package. For a new
+icon, select the linked npm packages whose generated public APIs change:
 
 - `@primer/octicons`
 - `@primer/octicons-react`
@@ -41,14 +41,26 @@ Include every package whose shipped public API or output changes:
 Do not select a package only because its internal source or build process
 changed. Select it when users of that package will observe the change.
 
+`@primer/octicons-react-symbols` keeps an independent `0.x` version and sits
+outside the linked release group. Until the repository defines a standard
+release policy for this package, confirm with a maintainer whether an icon
+change should select it rather than treating it as part of the default set.
+
+The Changesets workspace graph adds `octicons_gem`, `octicons_helper`, and
+`jekyll-octicons` to a shared icon-data release. Confirm that the changeset bot
+lists them, but do not select them solely because shared icon data changed.
+Select a Ruby workspace directly when the pull request makes a Ruby-specific
+public change.
+
 ## Choose the version impact
 
 - `patch`: A backwards-compatible fix to existing public behavior or icon
   output
 - `minor`: A backwards-compatible public API addition, such as a new icon or
-  export
+  export, or a canonical rename that preserves the old name as a compatibility
+  alias
 - `major`: A breaking public API change, such as removing or renaming an icon
-  or export
+  or export without backwards compatibility
 
 Choose the impact independently for each affected package.
 
@@ -57,6 +69,10 @@ Choose the impact independently for each affected package.
 Run `npx changeset` and follow the prompts to select every affected package,
 choose its version impact, and enter the description. Commit the generated
 markdown file in `.changeset/` to the pull request branch.
+
+Use one changeset for one user-facing change. Do not add a second changeset for
+generated files, snapshots, or a follow-up that only completes the same public
+API change.
 
 To create one manually, add a uniquely named markdown file in `.changeset/`
 with YAML frontmatter for all affected packages:
