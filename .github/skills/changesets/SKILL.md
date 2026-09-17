@@ -60,7 +60,7 @@ public change.
   export, or a canonical rename that preserves the old name as a compatibility
   alias
 - `major`: A breaking public API change, such as removing or renaming an icon
-  or export without compatibility
+  or export without backwards compatibility
 
 Choose the impact independently for each affected package.
 

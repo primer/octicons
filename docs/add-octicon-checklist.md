@@ -18,7 +18,7 @@ Use this checklist to add a new/updated octicon to the Figma library and the Oct
   - Note: The 16px component uses the bare name; other sizes add one numeric suffix, such as `issue-opened-24`
 - [ ] Check the Figma library and published package before reusing a name
   - Note: The same name must identify the same glyph; different artwork needs a distinct name
-- [ ] For a rename, rename the existing components in place to preserve their node identities
+- [ ] If renaming, rename the existing components in place to preserve their node identities
 - [ ] Copy/paste into [Octicons library file](https://www.figma.com/file/1ljgTFkT5NKNRfq5hw07JQ/Octicons?node-id=0%3A1)
 - [ ] Convert the icons into components
 - [ ] Place each component in the matching category frame on its size page
@@ -44,7 +44,7 @@ Use this checklist to add a new/updated octicon to the Figma library and the Oct
   - Note: Confirm that the changeset bot adds the linked `octicons_gem`, `octicons_helper`, and `jekyll-octicons` releases
   - Note: Do not add a separate changeset for generated files or snapshot updates
 - [ ] Open created pull request in the browser and add details
-  - Pull request should include
+  - Pull request should include:
     - [ ] Use case and relevant timeline
     - [ ] Canonical names and intended natural sizes
     - [ ] Screenshot with descriptive alt text
@@ -60,4 +60,4 @@ Use this checklist to add a new/updated octicon to the Figma library and the Oct
 
 The weekly Primer Docs [`figma-categories`](https://github.com/github/primer-docs/blob/main/.github/workflows/figma-categories.yml) and [`figma-node-map`](https://github.com/github/primer-docs/blob/main/.github/workflows/figma-node-map.yml) workflows report suspected cross-size naming drift, missing Figma categories or component matches, and duplicate Figma component names.
 
-These workflows provide monitoring after publication. They do not block the Octicons pull request, compare artwork between natural sizes, or prove Figma and npm SVG path parity. Complete every applicable check above before merge.
+These workflows provide monitoring after publication. They do not block the Octicons pull request, compare artwork between natural sizes, or prove Figma and npm SVG path parity. Complete every applicable check above before merging.

@@ -12,8 +12,8 @@ Thank you for your interest in contributing to Octicons! We are currently only a
 ### 2. Working on icons
 
 - If an icon recommendation can be made async, we will discuss it in #primer-octicons or directly in the issue.
-- Icon review requests require a working session, we will send an invitation.
-  - Once an icon has been assigned, it's up to assigned designer to be responsible for communicating the icon's status and drive the work forward.
+- Icon review requests require a working session—we will send an invitation.
+  - Once an icon has been assigned, it's the responsibility of the assigned designer to communicate the icon's status and drive the work forward.
 
 ### 3. Icon design, review, and communication
 
@@ -28,7 +28,7 @@ Thank you for your interest in contributing to Octicons! We are currently only a
 
 ## Adding or updating an icon
 
-Follow the [add an octicon checklist](/docs/add-octicon-checklist.md) and these steps to add or update an icon.
+Complete the [add an octicon checklist](/docs/add-octicon-checklist.md) and follow the steps below to add or update an icon.
 
 ### Manually with SVG files
 
@@ -80,7 +80,7 @@ Use the canonical base name as the `keywords.json` key.
 
 #### 5. Add a changeset
 
-Run `npx changeset` and add one user-focused changeset for the icon change. Select `@primer/octicons`, `@primer/octicons-react`, and `@primer/styled-octicons` for a new icon.
+Run `npx changeset` and add one user-focused changeset for the icon change. Select `@primer/octicons`, `@primer/octicons-react`, and `@primer/styled-octicons` if adding a new icon.
 
 `@primer/octicons-react-symbols` keeps an independent `0.x` version and sits outside the linked release group. Until the repository defines a standard release policy for this package, confirm with a maintainer whether the icon change should include it. Changesets adds the linked `octicons_gem`, `octicons_helper`, and `jekyll-octicons` releases through the workspace dependency graph. Confirm that the changeset bot lists those Ruby packages, but do not select them solely because shared icon data changed.
 
