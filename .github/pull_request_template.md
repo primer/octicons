@@ -24,5 +24,5 @@
 - [ ] The preview uses descriptive alt text.
 - [ ] Every natural size uses the same canonical base name.
 - [ ] SVG filenames, keywords, exports, snapshots, and release notes use the canonical name.
-- [ ] One changeset selects every affected npm package, and the changeset bot lists the linked Ruby releases.
+- [ ] For a new icon, one changeset selects all four npm packages with `minor` bumps, and the changeset bot lists the linked Ruby releases.
 - [ ] The original requestor and an Octicons maintainer have been requested for review.

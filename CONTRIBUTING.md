@@ -80,9 +80,9 @@ Use the canonical base name as the `keywords.json` key.
 
 #### 5. Add a changeset
 
-Run `npx changeset` and add one user-focused changeset for the icon change. Select `@primer/octicons`, `@primer/octicons-react`, and `@primer/styled-octicons` if adding a new icon.
+Run `npx changeset` and add one user-focused changeset for the icon change. For a new icon, select `minor` for `@primer/octicons`, `@primer/octicons-react`, `@primer/octicons-react-symbols`, and `@primer/styled-octicons`. Each package exposes the new icon through its public API.
 
-`@primer/octicons-react-symbols` keeps an independent `0.x` version and sits outside the linked release group. Until the repository defines a standard release policy for this package, confirm with a maintainer whether the icon change should include it. Changesets adds the linked `octicons_gem`, `octicons_helper`, and `jekyll-octicons` releases through the workspace dependency graph. Confirm that the changeset bot lists those Ruby packages, but do not select them solely because shared icon data changed.
+`@primer/octicons-react-symbols` keeps an independent `0.x` version and sits outside the linked release group, so select it explicitly. Adding it to the linked group would version it from the highest current version in that group instead of preserving its independent version line. Changesets adds the linked `octicons_gem`, `octicons_helper`, and `jekyll-octicons` releases through the workspace dependency graph. Confirm that the changeset bot lists those Ruby packages, but do not select them solely because shared icon data changed.
 
 Do not add a separate changeset for generated files or snapshot updates.
 
