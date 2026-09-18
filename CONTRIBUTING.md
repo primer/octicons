@@ -12,8 +12,8 @@ Thank you for your interest in contributing to Octicons! We are currently only a
 ### 2. Working on icons
 
 - If an icon recommendation can be made async, we will discuss it in #primer-octicons or directly in the issue.
-- Icon review requests require a working session, we will send an invitation.
-  - Once an icon has been assigned, it's up to assigned designer to be responsible for communicating the icon's status and drive the work forward.
+- Icon review requests require a working session—we will send an invitation.
+  - Once an icon has been assigned, it's the responsibility of the assigned designer to communicate the icon's status and drive the work forward.
 
 ### 3. Icon design, review, and communication
 
@@ -28,7 +28,7 @@ Thank you for your interest in contributing to Octicons! We are currently only a
 
 ## Adding or updating an icon
 
-Follow the [add an octicon checklist](/docs/add-octicon-checklist.md) and these steps to add or update an icon.
+Complete the [add an octicon checklist](/docs/add-octicon-checklist.md) and follow the steps below to add or update an icon.
 
 ### Manually with SVG files
 
@@ -80,9 +80,9 @@ Use the canonical base name as the `keywords.json` key.
 
 #### 5. Add a changeset
 
-Run `npx changeset` and add one user-focused changeset for the icon change. Select `@primer/octicons`, `@primer/octicons-react`, and `@primer/styled-octicons` for a new icon.
+Run `npx changeset` and add one user-focused changeset for the icon change. For a new icon, select `minor` for `@primer/octicons`, `@primer/octicons-react`, `@primer/octicons-react-symbols`, and `@primer/styled-octicons`. Each package exposes the new icon through its public API.
 
-`@primer/octicons-react-symbols` keeps an independent `0.x` version and sits outside the linked release group. Until the repository defines a standard release policy for this package, confirm with a maintainer whether the icon change should include it. Changesets adds the linked `octicons_gem`, `octicons_helper`, and `jekyll-octicons` releases through the workspace dependency graph. Confirm that the changeset bot lists those Ruby packages, but do not select them solely because shared icon data changed.
+`@primer/octicons-react-symbols` keeps an independent `0.x` version and sits outside the linked release group, so select it explicitly. Adding it to the linked group would version it from the highest current version in that group instead of preserving its independent version line. Changesets adds the linked `octicons_gem`, `octicons_helper`, and `jekyll-octicons` releases through the workspace dependency graph. Confirm that the changeset bot lists those Ruby packages, but do not select them solely because shared icon data changed.
 
 Do not add a separate changeset for generated files or snapshot updates.
 
@@ -145,7 +145,7 @@ Primer Docs runs two weekly workflows against the published `@primer/octicons` d
 - [`figma-categories`](https://github.com/github/primer-docs/blob/main/.github/workflows/figma-categories.yml) reports canonical npm icons without a Figma category and detects suspected naming drift when similar names ship as separate single-size icons.
 - [`figma-node-map`](https://github.com/github/primer-docs/blob/main/.github/workflows/figma-node-map.yml) reports duplicate Figma component names and published icon sizes without an identity-aware Figma component match.
 
-These workflows provide monitoring after publication. They do not block an Octicons pull request, compare the geometry of different natural sizes, or prove that Figma and npm SVG paths match. Complete the naming, source, and repository checks before merge.
+These workflows provide monitoring after publication. They do not block an Octicons pull request, compare the geometry of different natural sizes, or prove that Figma and npm SVG paths match. Complete the naming, source, and repository checks before merging.
 
 ## How changes are reviewed
 
