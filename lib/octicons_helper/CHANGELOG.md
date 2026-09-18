@@ -1,5 +1,12 @@
 # octicons_helper
 
+## 19.38.0
+
+### Patch Changes
+
+- Updated dependencies []:
+  - octicons_gem@19.38.0
+
 ## 19.37.0
 
 ### Minor Changes

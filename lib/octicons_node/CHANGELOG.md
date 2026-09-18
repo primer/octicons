@@ -1,5 +1,12 @@
 # @primer/octicons
 
+## 19.38.0
+
+### Minor Changes
+
+- [#1361](https://github.com/primer/octicons/pull/1361) [`fa688a1e2e8ba89e6afd07190592714b9aa28e0e`](https://github.com/primer/octicons/commit/fa688a1e2e8ba89e6afd07190592714b9aa28e0e) Thanks [@kinaj](https://github.com/kinaj)! - Add the `CursorIcon`, `PersonCursorIcon`, `CursorSymbol`, and `PersonCursorSymbol`
+  exports in 16px and 24px sizes for representing agentic interactions.
+
 ## 19.37.0
 
 ### Minor Changes
