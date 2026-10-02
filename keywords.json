@@ -284,6 +284,7 @@
   "unwrap": ["lines", "text", "paragraph", "wordwrap", "wrap", "flow"],
   "verified": ["trusted", "secure", "trustworthy", "signed"],
   "versions": ["history", "commits"],
+  "wall": ["firewall", "brick", "gate", "block"],
   "watch": ["wait", "hourglass", "time", "date"],
   "workflow": ["workflow", "actions"],
   "workflow-all": ["workflow", "actions"],
