@@ -1,5 +1,11 @@
 # @primer/styled-octicons
 
+## 19.39.0
+
+### Minor Changes
+
+- [#1364](https://github.com/primer/octicons/pull/1364) [`923a31b34542702800cb90a0fd390e2e60dd92ac`](https://github.com/primer/octicons/commit/923a31b34542702800cb90a0fd390e2e60dd92ac) Thanks [@rickyzhangca](https://github.com/rickyzhangca)! - Add a `release` icon in 16px and 24px sizes to represent releases and release notes.
+
 ## 19.38.0
 
 ### Minor Changes
