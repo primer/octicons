@@ -1,5 +1,11 @@
 # @primer/styled-octicons
 
+## 19.40.0
+
+### Minor Changes
+
+- [#1365](https://github.com/primer/octicons/pull/1365) [`e7e03d50b03b5d303c550a1152f43b063c8bd798`](https://github.com/primer/octicons/commit/e7e03d50b03b5d303c550a1152f43b063c8bd798) Thanks [@kinaj](https://github.com/kinaj)! - Add the `wall` icon in 16px and 24px sizes for representing walls and firewalls.
+
 ## 19.39.0
 
 ### Minor Changes
