@@ -345,6 +345,7 @@ exports[`@primer/octicons-react > should not update exports without a semver cha
   "StackCheckIcon",
   "StackIcon",
   "StackRemoveIcon",
+  "StackSlashIcon",
   "StarFillIcon",
   "StarIcon",
   "StopIcon",
