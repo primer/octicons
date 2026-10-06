@@ -284,6 +284,7 @@ exports[`@primer/octicons-react > should not update exports without a semver cha
   "ReadIcon",
   "RedoIcon",
   "RelFilePathIcon",
+  "ReleaseIcon",
   "ReplyIcon",
   "RepoCloneIcon",
   "RepoDeleteIcon",

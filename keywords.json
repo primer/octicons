@@ -209,6 +209,7 @@
   "question-bubble": ["explain", "ask", "question", "answer", "bubble", "comment", "message"],
   "quote": ["quotation"],
   "radio-tower": ["broadcast"],
+  "release": ["release", "release notes", "tag", "version", "changelog"],
   "reply": ["reply all", "back"],
   "repo": ["book", "journal", "repository"],
   "repo-clone": ["book", "journal", "repository"],
