@@ -1,5 +1,5 @@
 ---
-name: icon-requests
+name: icon-request-review
 description: 'Use when triaging a new Octicons icon request, recommending an existing icon, facilitating an icon design review, or reviewing an icon contribution pull request.'
 ---
 
