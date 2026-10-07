@@ -1,5 +1,12 @@
 # jekyll-octicons
 
+## 19.40.0
+
+### Patch Changes
+
+- Updated dependencies []:
+  - octicons_gem@19.40.0
+
 ## 19.39.0
 
 ### Patch Changes
