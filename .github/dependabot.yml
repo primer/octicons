@@ -5,19 +5,12 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    open-pull-requests-limit: 0
-    labels:
-      - "dependencies"
-      - "skip changeset"
-
   - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/docs" # Location of package manifests
+    directories:
+      - "/"
+      - "/docs"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     cooldown:
       default-days: 7
     allow:
