@@ -2,10 +2,9 @@
 
 ## Octicon contribution reviews
 
-When reviewing a pull request that adds, updates, renames, or removes an
-Octicon, load and follow
-`.github/skills/icon-request-review/SKILL.md`. Use its contribution review
-phase and load only the references that phase requires.
+When reviewing a pull request that adds, updates, or renames an Octicon, load
+and follow `.github/skills/icon-request-review/SKILL.md`. Use its contribution
+review phase and load only the references that phase requires.
 
 Treat a pull request as an Octicon contribution when its stated purpose or diff
 includes icon source files, icon naming or compatibility metadata, icon

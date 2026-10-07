@@ -19,6 +19,9 @@ component. Review both the concept and each natural-size drawing.
 - Add a 12px drawing only for a specific use case where 16px cannot work.
 - Use a consistent 1.5px stroke width at 16px and 24px.
 - Use round caps and joins.
+- Use a 1px corner radius unless another radius makes the icon more
+  recognizable.
+- Use a 0.25px radius for small filled elements, such as filled arrowheads.
 - Compare optical volume with the guideline's circle, square, and rectangle
   reference shapes.
 - Use a 1px gap between overlapping objects.

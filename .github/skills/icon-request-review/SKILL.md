@@ -1,6 +1,6 @@
 ---
 name: icon-request-review
-description: 'Use when triaging a new Octicons icon request, recommending an existing icon, facilitating an icon design review, or reviewing an icon contribution pull request.'
+description: 'Use when triaging a new Octicons icon request, recommending an existing icon, facilitating an icon design review, or reviewing a pull request that adds, updates, or renames an icon.'
 ---
 
 # Icon requests and reviews
@@ -13,15 +13,15 @@ case. A requested name or drawing does not establish that a new icon is needed.
 
 Load only the reference for the current task:
 
-| Task                                                   | Reference                                                  |
-| ------------------------------------------------------ | ---------------------------------------------------------- |
-| Triage an issue or recommend an existing icon          | [Request triage](./references/request-triage.md)           |
-| Review a metaphor, drawing, or Figma component         | [Design review](./references/design-review.md)             |
-| Create or review an Octicons contribution pull request | [Contribution review](./references/contribution-review.md) |
+| Task                                                              | Reference                                                  |
+| ----------------------------------------------------------------- | ---------------------------------------------------------- |
+| Triage an issue or recommend an existing icon                     | [Request triage](./references/request-triage.md)           |
+| Review a metaphor, drawing, or Figma component                    | [Design review](./references/design-review.md)             |
+| Create or review an icon addition, update, or rename pull request | [Contribution review](./references/contribution-review.md) |
 
 For work that crosses phases, load the next reference only after completing the
 current phase. Also use the repository's `changesets` skill when the work adds,
-changes, renames, or removes a published icon.
+changes, or renames a published icon.
 
 ## Establish the evidence
 
