@@ -6,13 +6,15 @@
 version: 2
 updates:
   - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/docs" # Location of package manifests
+    directories:
+      - "/"
+      - "/docs"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     cooldown:
       default-days: 7
     allow:
       - dependency-name: "@primer/gatsby-theme-doctocat"
     labels:
-    - 'dependencies'
-    - 'skip changeset'
+      - 'dependencies'
+      - 'skip changeset'
