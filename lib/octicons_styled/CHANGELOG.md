@@ -1,5 +1,11 @@
 # @primer/styled-octicons
 
+## 19.41.0
+
+### Minor Changes
+
+- [#1373](https://github.com/primer/octicons/pull/1373) [`3a495c8af586010ea7514f6b60ade1b229700b03`](https://github.com/primer/octicons/commit/3a495c8af586010ea7514f6b60ade1b229700b03) Thanks [@joeoak](https://github.com/joeoak)! - Add the `stack-slash` icon in 16px for unstacking.
+
 ## 19.40.0
 
 ### Minor Changes

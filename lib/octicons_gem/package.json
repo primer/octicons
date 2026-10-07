@@ -1,9 +1,9 @@
 {
   "name": "octicons_gem",
-  "version": "19.40.0",
+  "version": "19.41.0",
   "private": true,
   "type": "module",
   "dependencies": {
-    "@primer/octicons": "19.40.0"
+    "@primer/octicons": "19.41.0"
   }
 }
