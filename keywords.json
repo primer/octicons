@@ -257,6 +257,7 @@
   "stack-add": ["stacked", "pull", "add", "plus"],
   "stack-check": ["stack", "check", "approved", "verified"],
   "stack-remove": ["stack", "remove"],
+  "stack-slash": ["stack", "stacked", "pull", "unstack", "slash"],
   "star": ["save", "remember", "like"],
   "stop": ["block", "spam", "report"],
   "sync": ["cycle", "refresh", "loop"],
