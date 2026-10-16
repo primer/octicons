@@ -1,5 +1,12 @@
 # octicons_gem
 
+## 19.41.0
+
+### Patch Changes
+
+- Updated dependencies [[`ab05d0e8bbf64ecd6b08375044b016ecdac9ef6d`](https://github.com/primer/octicons/commit/ab05d0e8bbf64ecd6b08375044b016ecdac9ef6d), [`3a495c8af586010ea7514f6b60ade1b229700b03`](https://github.com/primer/octicons/commit/3a495c8af586010ea7514f6b60ade1b229700b03)]:
+  - @primer/octicons@19.41.0
+
 ## 19.40.0
 
 ### Patch Changes
