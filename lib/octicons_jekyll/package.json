@@ -1,9 +1,9 @@
 {
   "name": "jekyll-octicons",
   "type": "module",
-  "version": "19.40.0",
+  "version": "19.41.0",
   "private": true,
   "dependencies": {
-    "octicons_gem": "19.40.0"
+    "octicons_gem": "19.41.0"
   }
 }

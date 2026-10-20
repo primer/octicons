@@ -1,5 +1,13 @@
 # @primer/styled-octicons
 
+## 19.41.0
+
+### Minor Changes
+
+- [#1377](https://github.com/primer/octicons/pull/1377) [`ab05d0e8bbf64ecd6b08375044b016ecdac9ef6d`](https://github.com/primer/octicons/commit/ab05d0e8bbf64ecd6b08375044b016ecdac9ef6d) Thanks [@kinaj](https://github.com/kinaj)! - Add `code-badge` and `dashboard` icons at 16px and 24px for code quality and dashboard layouts. Update the 16px and 24px `graph-bar-horizontal`, `graph-bar-vertical`, and `codescan` drawings and the 16px `code-square` drawing.
+
+- [#1373](https://github.com/primer/octicons/pull/1373) [`3a495c8af586010ea7514f6b60ade1b229700b03`](https://github.com/primer/octicons/commit/3a495c8af586010ea7514f6b60ade1b229700b03) Thanks [@joeoak](https://github.com/joeoak)! - Add the `stack-slash` icon in 16px for unstacking.
+
 ## 19.40.0
 
 ### Minor Changes
