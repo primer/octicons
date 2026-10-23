@@ -1,5 +1,11 @@
 # @primer/styled-octicons
 
+## 19.42.0
+
+### Minor Changes
+
+- [#1381](https://github.com/primer/octicons/pull/1381) [`d25ce68df9d08abd65431a8a48b45446432f1b45`](https://github.com/primer/octicons/commit/d25ce68df9d08abd65431a8a48b45446432f1b45) Thanks [@edokoa](https://github.com/edokoa)! - Add the 16px `git-draft-agent`, `git-pull-request-agent`, `check-agent`, `git-que-merge-agent`, `git-closed-agent`, and `git-merge-agent` icons for agent-assisted draft, open, ready-to-merge, queued, closed, and merged pull request states.
+
 ## 19.41.0
 
 ### Minor Changes
