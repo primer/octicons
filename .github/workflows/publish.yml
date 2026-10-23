@@ -21,14 +21,29 @@ jobs:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
           persist-credentials: false
-      # Read the version from the release commit so reruns can retry after the package is already published.
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: '.nvmrc'
+      # Check both the commit and npm so a later push can recover a package that did not publish on the release commit.
       - name: Get Octicons release version
         id: octicons-version
         run: |
+          set -euo pipefail
+
           previous_version=$(git show "${GITHUB_SHA}^:lib/octicons_node/package.json" | jq --raw-output --exit-status '.version')
           current_version=$(jq --raw-output --exit-status '.version' lib/octicons_node/package.json)
 
-          if [[ "$current_version" != "$previous_version" ]]; then
+          if npm_output=$(npm view "@primer/octicons@$current_version" version 2>&1); then
+            package_is_published=true
+          elif grep --quiet 'E404' <<<"$npm_output"; then
+            package_is_published=false
+          else
+            printf '%s\n' "$npm_output" >&2
+            exit 1
+          fi
+
+          if [[ "$current_version" != "$previous_version" || "$package_is_published" == false ]]; then
             printf 'version=%s\n' "$current_version" >> "$GITHUB_OUTPUT"
           fi
       # Fail before publishing if the app cannot reach primer-docs.
@@ -42,10 +57,6 @@ jobs:
           owner: github
           repositories: primer-docs
           permission-contents: write
-      - name: Set up Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-        with:
-          node-version-file: '.nvmrc'
       - name: Setup Ruby
         uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1.321.0
         with:
@@ -70,11 +81,20 @@ jobs:
           publish: npm run changeset:publish
         env:
           GITHUB_TOKEN: ${{ steps.get-access-token.outputs.token }}
+      # Keep the Changesets result as a fallback when publication happens on a later push.
+      - name: Get published Octicons version
+        if: steps.changesets.outputs.published == 'true'
+        id: published-octicons-version
+        env:
+          PUBLISHED_PACKAGES: ${{ steps.changesets.outputs.publishedPackages }}
+        run: |
+          version=$(jq -r '.[] | select(.name == "@primer/octicons") | .version' <<<"$PUBLISHED_PACKAGES")
+          printf 'version=%s\n' "$version" >> "$GITHUB_OUTPUT"
       - name: Update Octicon dates in primer-docs
-        if: steps.octicons-version.outputs.version != ''
+        if: steps.published-octicons-version.outputs.version != '' || steps.octicons-version.outputs.version != ''
         env:
           GH_TOKEN: ${{ steps.get-primer-docs-access-token.outputs.token }}
-          OCTICONS_VERSION: ${{ steps.octicons-version.outputs.version }}
+          OCTICONS_VERSION: ${{ steps.published-octicons-version.outputs.version || steps.octicons-version.outputs.version }}
         run: |
           jq --null-input \
             --arg version "$OCTICONS_VERSION" \
