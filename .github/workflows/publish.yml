@@ -21,6 +21,27 @@ jobs:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
           persist-credentials: false
+      # Read the version from the release commit so reruns can retry after the package is already published.
+      - name: Get Octicons release version
+        id: octicons-version
+        run: |
+          previous_version=$(git show "${GITHUB_SHA}^:lib/octicons_node/package.json" | jq --raw-output --exit-status '.version')
+          current_version=$(jq --raw-output --exit-status '.version' lib/octicons_node/package.json)
+
+          if [[ "$current_version" != "$previous_version" ]]; then
+            printf 'version=%s\n' "$current_version" >> "$GITHUB_OUTPUT"
+          fi
+      # Fail before publishing if the app cannot reach primer-docs.
+      - name: Get primer-docs access token
+        if: steps.octicons-version.outputs.version != ''
+        id: get-primer-docs-access-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          client-id: ${{ vars.PRIMER_APP_CLIENT_ID_SHARED }}
+          private-key: ${{ secrets.PRIMER_APP_PRIVATE_KEY_SHARED }}
+          owner: github
+          repositories: primer-docs
+          permission-contents: write
       - name: Set up Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -49,24 +70,6 @@ jobs:
           publish: npm run changeset:publish
         env:
           GITHUB_TOKEN: ${{ steps.get-access-token.outputs.token }}
-      - name: Get published Octicons version
-        if: steps.changesets.outputs.published == 'true'
-        id: octicons-version
-        env:
-          PUBLISHED_PACKAGES: ${{ steps.changesets.outputs.publishedPackages }}
-        run: |
-          version=$(jq -r '.[] | select(.name == "@primer/octicons") | .version' <<<"$PUBLISHED_PACKAGES")
-          printf 'version=%s\n' "$version" >> "$GITHUB_OUTPUT"
-      - name: Get primer-docs access token
-        if: steps.octicons-version.outputs.version != ''
-        id: get-primer-docs-access-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        with:
-          client-id: ${{ vars.PRIMER_APP_CLIENT_ID_SHARED }}
-          private-key: ${{ secrets.PRIMER_APP_PRIVATE_KEY_SHARED }}
-          owner: github
-          repositories: primer-docs
-          permission-contents: write
       - name: Update Octicon dates in primer-docs
         if: steps.octicons-version.outputs.version != ''
         env:
