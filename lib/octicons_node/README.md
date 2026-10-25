@@ -29,7 +29,6 @@ octicons.alert
 //             width: 16,
 //             path: '<path d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"/>',
 //             options: {
-//                 version: '1.1',
 //                 width: '16',
 //                 height: '16',
 //                 viewBox: '0 0 16 16',
@@ -89,7 +88,6 @@ octicons.x.heights
 //         width: 16,
 //         path: '<path d="..."/>',
 //         options: {
-//             version: '1.1',
 //             width: '16',
 //             height: '16',
 //             viewBox: '0 0 16 16',
@@ -101,7 +99,6 @@ octicons.x.heights
 //         width: 24,
 //         path: '<path d="..."/>',
 //         options: {
-//             version: '1.1',
 //             width: '24',
 //             height: '24',
 //             viewBox: '0 0 24 24',
@@ -132,7 +129,7 @@ This is an object of all the attributes that will be added to the output tag.
 
 ```js
 octicons.x.heights[16].options
-// { version: '1.1', width: '12', height: '16', viewBox: '0 0 12 16', class: 'octicon octicon-x', 'aria-hidden': 'true' }
+// { width: '12', height: '16', viewBox: '0 0 12 16', class: 'octicon octicon-x', 'aria-hidden': 'true' }
 ```
 
 ### `octicons[name].toSVG()`
@@ -141,7 +138,7 @@ Returns a string of the `<svg>` tag.
 
 ```js
 octicons.x.toSVG()
-// <svg version="1.1" width="12" height="16" viewBox="0 0 12 16" class="octicon octicon-x" aria-hidden="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+// <svg width="12" height="16" viewBox="0 0 12 16" class="octicon octicon-x" aria-hidden="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
 ```
 
 The `.toSVG()` method accepts an optional `options` object. This is used to add CSS class names, accessibility options, and sizes.
@@ -154,7 +151,7 @@ Add more CSS classes to the `<svg>` tag.
 
 ```js
 octicons.x.toSVG({ "class": "close" })
-// <svg version="1.1" width="12" height="16" viewBox="0 0 12 16" class="octicon octicon-x close" aria-hidden="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+// <svg width="12" height="16" viewBox="0 0 12 16" class="octicon octicon-x close" aria-hidden="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
 ```
 
 #### aria-label
@@ -163,7 +160,7 @@ Add accessibility `aria-label` to the icon.
 
 ```js
 octicons.x.toSVG({ "aria-label": "Close the window" })
-// <svg version="1.1" width="12" height="16" viewBox="0 0 12 16" class="octicon octicon-x" aria-label="Close the window" role="img"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+// <svg width="12" height="16" viewBox="0 0 12 16" class="octicon octicon-x" aria-label="Close the window" role="img"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
 ```
 
 #### width and height
@@ -172,7 +169,7 @@ Size the SVG icon larger using `width` and `height` independently or together. `
 
 ```js
 octicons.x.toSVG({ "width": 45 })
-// <svg version="1.1" width="45" height="45" viewBox="0 0 24 24" class="octicon octicon-x" aria-hidden="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+// <svg width="45" height="45" viewBox="0 0 24 24" class="octicon octicon-x" aria-hidden="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
 ```
 
 [primer]: https://github.com/primer/primer

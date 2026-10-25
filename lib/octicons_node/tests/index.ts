@@ -21,7 +21,7 @@ test('Octicons have default html attributes', () => {
   expect(octicons, "Didn't find any octicons.").toBeTruthy()
   for (const point of Object.keys(octicons)) {
     const svg = octicons[point].toSVG()
-    expect(svg, `The octicon "${point}" doesn't have the version attribute`).toMatch(/version="1\.1"/)
+    expect(svg, `The octicon "${point}" has the obsolete version attribute`).not.toMatch(/version=/)
     expect(svg, `The octicon "${point}" doesn't have the aria-hidden attribute`).toMatch(/aria-hidden="true"/)
     expect(svg, `The octicon "${point}" doesn't have the width attribute`).toMatch(/width=/)
     expect(svg, `The octicon "${point}" doesn't have the height attribute`).toMatch(/height=/)

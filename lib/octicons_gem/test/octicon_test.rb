@@ -80,6 +80,13 @@ describe Octicons::Octicon do
     end
   end
 
+  describe "version" do
+    it "does not render an SVG version attribute" do
+      icon = octicon("x")
+      refute_includes icon.to_svg, "version"
+    end
+  end
+
   describe "html_attributes" do
     it "includes other html attributes" do
       icon = octicon("x", foo: "bar", disabled: "true")
