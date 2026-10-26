@@ -32,9 +32,8 @@ Use this checklist to add a new/updated octicon to the Figma library and the Oct
 ## Octicons package
 
 - [ ] Compare the glyph with any existing published icon of the same name; a matching name alone does not establish compatibility
-- [ ] Before pushing, confirm that the artwork, icon names, keywords, commit messages, pull request description, and release notes are safe to make public
-  - Note: Octicons is public, including contribution branches. The Octicons Push plugin commits and pushes SVGs before a pull request is opened; changes are visible before merge or package release
-  - Note: For unannounced features, use generic names and wording where appropriate. If the artwork or context could reveal the feature, pause and check with the feature owner before pushing
+- [ ] Before pushing, confirm that the artwork, names, keywords, commit messages, pull request details, and release notes are safe to share publicly
+  - Note: Public branches are visible before a pull request is opened. Use generic wording for unannounced features where appropriate. If the artwork or context could reveal the feature, pause and check with the feature owner
 - [ ] Use the [Octicons Push plugin](https://www.figma.com/community/plugin/825432045044458754/Octicons-Push) to create a pull request from Figma
 - [ ] Confirm exported filenames use the canonical base name and exactly one size suffix
 - [ ] Confirm every intended natural size is present and document intentional single-size coverage
@@ -48,7 +47,7 @@ Use this checklist to add a new/updated octicon to the Figma library and the Oct
   - Note: Do not add a separate changeset for generated files or snapshot updates
 - [ ] Open created pull request in the browser and add details
   - Pull request should include:
-    - [ ] Use case and relevant timeline that are safe to share publicly
+    - [ ] Use case and relevant timeline
     - [ ] Canonical names and intended natural sizes
     - [ ] Screenshot with descriptive alt text
     - [ ] Link to icon request issue for tracking

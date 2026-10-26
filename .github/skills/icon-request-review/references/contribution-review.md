@@ -8,7 +8,7 @@ updates, or renames an Octicon.
 Confirm that the pull request includes:
 
 - The linked icon request issue
-- The use case and relevant timeline, with only context that is safe to share publicly
+- The use case and relevant timeline
 - The canonical name and intended natural sizes
 - A direct Figma component link for each natural size
 - A rendered preview with descriptive alt text
@@ -24,10 +24,9 @@ stakeholder confirmation that the icon works in the requested product context.
 Use the Octicons Push plugin after completing the Figma section of
 `docs/add-octicon-checklist.md`.
 
-Before committing through the plugin, complete the
-[public-sharing check](../../../../docs/add-octicon-checklist.md#octicons-package).
-This check must happen before the plugin pushes to a public branch, not when
-the pull request is opened.
+Complete the
+[public-sharing check](../../../../docs/add-octicon-checklist.md#octicons-package)
+before the plugin commits to a public branch.
 
 Follow these steps:
 

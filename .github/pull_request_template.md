@@ -16,7 +16,7 @@
 ## Icon contribution
 
 - Icon request:
-- Use case and timeline (safe to share publicly):
+- Use case and timeline:
 - Canonical name and natural sizes:
 - Figma components:
 - Preview:
