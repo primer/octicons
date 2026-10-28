@@ -32,6 +32,8 @@ Use this checklist to add a new/updated octicon to the Figma library and the Oct
 ## Octicons package
 
 - [ ] Compare the glyph with any existing published icon of the same name; a matching name alone does not establish compatibility
+- [ ] Before pushing, confirm that the artwork, names, keywords, commit messages, pull request details, and release notes are safe to share publicly
+  - Note: Public branches are visible before a pull request is opened. Use generic wording for unannounced features where appropriate. If the artwork or context could reveal the feature, pause and check with the feature owner
 - [ ] Use the [Octicons Push plugin](https://www.figma.com/community/plugin/825432045044458754/Octicons-Push) to create a pull request from Figma
 - [ ] Confirm exported filenames use the canonical base name and exactly one size suffix
 - [ ] Confirm every intended natural size is present and document intentional single-size coverage

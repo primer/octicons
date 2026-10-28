@@ -21,6 +21,7 @@
 - Figma components:
 - Preview:
 
+- [ ] I completed the [public-sharing check](https://github.com/primer/octicons/blob/main/docs/add-octicon-checklist.md#octicons-package) before pushing.
 - [ ] The preview uses descriptive alt text.
 - [ ] Every natural size uses the same canonical base name.
 - [ ] SVG filenames, keywords, exports, snapshots, and release notes use the canonical name.
