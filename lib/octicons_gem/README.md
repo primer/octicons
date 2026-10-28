@@ -20,7 +20,7 @@ If using a framework like Rails, please follow the [installation instructions](h
 require 'octicons'
 icon = Octicons::Octicon.new("x")
 icon.to_svg
-# <svg class="octicon octicon-x" viewBox="0 0 16 16" width="16" height="16" version="1.1" "aria-hidden"="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg>
+# <svg class="octicon octicon-x" viewBox="0 0 16 16" width="16" height="16" "aria-hidden"="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg>
 ```
 
 ## Documentation
@@ -69,7 +69,7 @@ This is a hash of all the `options` that will be added to the output tag.
 ```rb
 icon = Octicons::Octicon.new("x")
 icon.options
-# {:class=>"octicon octicon-x", :viewBox=>"0 0 12 16", :version=>"1.1", :width=>12, :height=>16, :"aria-hidden"=>"true"}
+# {:class=>"octicon octicon-x", :viewBox=>"0 0 12 16", :width=>12, :height=>16, :"aria-hidden"=>"true"}
 ```
 
 #### `width`
@@ -99,5 +99,5 @@ Returns a string of the svg tag
 ```rb
 icon = Octicons::Octicon.new("x")
 icon.to_svg
-# <svg class="octicon octicon-x" viewBox="0 0 16 16" width="16" height="16" version="1.1" "aria-hidden"="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg>
+# <svg class="octicon octicon-x" viewBox="0 0 16 16" width="16" height="16" "aria-hidden"="true"><path d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg>
 ```

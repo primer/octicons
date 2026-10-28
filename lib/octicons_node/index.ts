@@ -65,7 +65,6 @@ for (const key of Object.keys(octicons)) {
   // Set options for each icon height
   for (const height of Object.keys(octicons[key].heights)) {
     octicons[key].heights[height].options = {
-      version: '1.1',
       width: octicons[key].heights[height].width,
       height: parseInt(height),
       viewBox: `0 0 ${octicons[key].heights[height].width} ${height}`,

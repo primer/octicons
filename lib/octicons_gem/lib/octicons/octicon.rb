@@ -16,8 +16,7 @@ module Octicons
         @options = { "data-component": "Octicon" }.merge(options.dup)
         @options.merge!({
           class:   classes,
-          viewBox: viewbox,
-          version: "1.1"
+          viewBox: viewbox
         })
         @options.merge!(size)
         @options.merge!(a11y)
