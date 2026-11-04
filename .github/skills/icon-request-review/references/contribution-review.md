@@ -22,7 +22,13 @@ stakeholder confirmation that the icon works in the requested product context.
 ## Create the pull request from Figma
 
 Use the Octicons Push plugin after completing the Figma section of
-`docs/add-octicon-checklist.md`:
+`docs/add-octicon-checklist.md`.
+
+Complete the
+[public-sharing check](../../../../docs/add-octicon-checklist.md#octicons-package)
+before the plugin commits to a public branch.
+
+Follow these steps:
 
 1. Select every intended natural-size icon frame and confirm that all strokes
    are outlined.
