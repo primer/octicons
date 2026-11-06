@@ -56,9 +56,9 @@ const icons = Object.entries(typedOcticons)
     //
     //   const heights = ["16"]
     //   const svgDataByHeight = { "16": { width: 16, path: <path d="..." /> } }
-    //   export const IconName = /*#__PURE__*/ React.forwardRef((props, ref) =>
+    //   export const IconName = /*#__PURE__*/ markOcticon(React.forwardRef((props, ref) =>
     //     renderOcticon(props, ref, 'octicon octicon-name', svgDataByHeight, heights)
-    //   )
+    //   ))
     //   IconName.displayName = "IconName"
     //
     const forwardRefCall = t.addComment(
@@ -79,7 +79,12 @@ const icons = Object.entries(typedOcticons)
     )
 
     const declaration = t.exportNamedDeclaration(
-      t.variableDeclaration('const', [t.variableDeclarator(t.identifier(name), forwardRefCall)]),
+      t.variableDeclaration('const', [
+        t.variableDeclarator(
+          t.identifier(name),
+          t.addComment(t.callExpression(t.identifier('markOcticon'), [forwardRefCall]), 'leading', '#__PURE__'),
+        ),
+      ]),
     )
     if (deprecation) t.addComment(declaration, 'leading', `* ${deprecation} `)
 
@@ -88,6 +93,10 @@ const icons = Object.entries(typedOcticons)
       t.importDeclaration(
         [t.importSpecifier(t.identifier('renderOcticon'), t.identifier('renderOcticon'))],
         t.stringLiteral('../../renderOcticon.tsx'),
+      ),
+      t.importDeclaration(
+        [t.importSpecifier(t.identifier('markOcticon'), t.identifier('markOcticon'))],
+        t.stringLiteral('../../isOcticon.ts'),
       ),
       t.variableDeclaration('const', [
         t.variableDeclarator(

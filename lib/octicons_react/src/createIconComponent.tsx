@@ -1,5 +1,6 @@
 import React from 'react'
 import {renderOcticon, type IconProps, type SVGData} from './renderOcticon'
+import {markOcticon} from './isOcticon'
 
 export function createIconComponent(name: string, defaultClassName: string, getSVGData: () => SVGData) {
   const svgDataByHeight = getSVGData()
@@ -11,5 +12,5 @@ export function createIconComponent(name: string, defaultClassName: string, getS
 
   Icon.displayName = name
 
-  return Icon
+  return markOcticon(Icon)
 }

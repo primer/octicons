@@ -30,6 +30,23 @@ If you were to compile this example with a tool that supports [tree-shaking][]
 (such as Webpack, Rollup, or Parcel) the resulting bundle would only include
 the "zap" and "beaker" icons.
 
+### Identifying Octicons
+
+Use `isOcticon` to identify a standard Octicon component without importing the
+entire icon set or relying on component names. Pass the component itself, or the
+`type` of a React element:
+
+```jsx
+import {isOcticon, SearchIcon} from '@primer/octicons-react'
+
+isOcticon(SearchIcon) // true
+const element = <SearchIcon />
+isOcticon(element.type) // true
+```
+
+Custom components and wrappers are not treated as Octicons, even when they share
+an Octicon's display name.
+
 ### Vertical alignment
 
 By default the octicons have `vertical-align: text-bottom;` applied as inline

@@ -410,5 +410,6 @@ exports[`@primer/octicons-react > should not update exports without a semver cha
   "ZapIcon",
   "ZoomInIcon",
   "ZoomOutIcon",
+  "isOcticon",
 ]
 `;

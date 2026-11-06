@@ -55,5 +55,21 @@ test('tree shaking single export', async () => {
   })
 
   const bundleSize = Buffer.byteLength(output[0].code.trim()) / 1000
-  expect(`${bundleSize}kB`).toMatchInlineSnapshot(`"6.127kB"`)
+  expect(`${bundleSize}kB`).toMatchInlineSnapshot(`"6.354kB"`)
+})
+
+test('identifying icons does not retain unused icon exports', async () => {
+  const bundle = await rolldown({
+    input: '__entrypoint__',
+    experimental: {
+      attachDebugInfo: 'none',
+    },
+    external: ['react'],
+    plugins: [virtual(`export { isOcticon } from '${packageImport}'`)],
+  })
+  const {output} = await bundle.generate({format: 'esm'})
+
+  expect(Buffer.byteLength(output[0].code)).toBeLessThan(1500)
+  expect(output[0].code).not.toContain('renderOcticon')
+  expect(output[0].code).not.toContain('forwardRef')
 })

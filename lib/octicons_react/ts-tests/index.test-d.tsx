@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {
+  isOcticon,
   BookmarkFilledIcon,
   GitPullRequestUnlistedIcon,
   MarkGithubIcon,
@@ -13,6 +14,14 @@ import {
 } from '../src'
 import AlertIcon from '../src/__generated__/icons/AlertIcon'
 import PlayIconDefault from '../src/__generated__/icons/PlayIcon'
+
+function TestOcticonIdentification({component}: {component: unknown}) {
+  if (isOcticon(component)) {
+    const Icon = component
+    return <Icon size={14} />
+  }
+  return null
+}
 
 function TestOcticons() {
   return (

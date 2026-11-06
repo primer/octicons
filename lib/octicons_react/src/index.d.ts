@@ -2,6 +2,8 @@ import * as React from 'react'
 
 import {Icon} from './__generated__/icons/index.js'
 
+export function isOcticon(component: unknown): component is Icon
+
 type Size = 'small' | 'medium' | 'large'
 
 export interface OcticonProps extends React.ComponentPropsWithoutRef<'svg'> {
