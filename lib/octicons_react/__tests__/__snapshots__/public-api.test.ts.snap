@@ -273,6 +273,7 @@ exports[`@primer/octicons-react > should not update exports without a semver cha
   "PersonCursorIcon",
   "PersonFillIcon",
   "PersonIcon",
+  "PinFillIcon",
   "PinIcon",
   "PinSlashIcon",
   "PivotColumnIcon",
