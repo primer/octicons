@@ -200,6 +200,7 @@
   "person": ["people", "man", "woman", "human"],
   "person-cursor": ["person with agent", "user with agent", "agentic", "ai"],
   "pin": ["save", "star", "bookmark"],
+  "pin-fill": ["pinned", "pin-filled", "save", "star", "bookmark"],
   "pin-slash": ["unpin", "unsave", "unstar", "unbookmark"],
   "pivot-column": ["pivot", "column", "table", "project", "filter"],
   "play": ["play", "start", "begin", "action"],
