@@ -403,6 +403,7 @@ exports[`@primer/octicons-react > should not update exports without a semver cha
   "VscodeIcon",
   "WallIcon",
   "WebhookIcon",
+  "WindowMinimizeIcon",
   "WorkflowIcon",
   "WrapIcon",
   "XCircleFillIcon",
