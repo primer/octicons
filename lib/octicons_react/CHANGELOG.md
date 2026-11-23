@@ -1,5 +1,11 @@
 # @primer/octicons-react
 
+## 19.43.0
+
+### Minor Changes
+
+- [#1390](https://github.com/primer/octicons/pull/1390) [`e6626e159c4ba786d512e252182b62617014c752`](https://github.com/primer/octicons/commit/e6626e159c4ba786d512e252182b62617014c752) Thanks [@kinaj](https://github.com/kinaj)! - Add the 16px and 24px `pin-fill` icons, a filled variant of `pin` for representing pinned items.
+
 ## 19.42.0
 
 ### Minor Changes
