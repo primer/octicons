@@ -46,10 +46,11 @@ jobs:
           if [[ "$current_version" != "$previous_version" || "$package_is_published" == false ]]; then
             printf 'version=%s\n' "$current_version" >> "$GITHUB_OUTPUT"
           fi
-      # Fail before publishing if the app cannot reach primer-docs.
+      # Temporary: keep releases unblocked until the app can access primer-docs.
       - name: Get primer-docs access token
         if: steps.octicons-version.outputs.version != ''
         id: get-primer-docs-access-token
+        continue-on-error: true
         uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
         with:
           client-id: ${{ vars.PRIMER_APP_CLIENT_ID_SHARED }}
@@ -57,6 +58,9 @@ jobs:
           owner: github
           repositories: primer-docs
           permission-contents: write
+      - name: Warn when primer-docs access is unavailable
+        if: steps.get-primer-docs-access-token.outcome == 'failure'
+        run: echo "::warning::Could not obtain the primer-docs token. Continuing the release without updating Octicon dates in primer-docs."
       - name: Setup Ruby
         uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1.321.0
         with:
@@ -91,7 +95,9 @@ jobs:
           version=$(jq -r '.[] | select(.name == "@primer/octicons") | .version' <<<"$PUBLISHED_PACKAGES")
           printf 'version=%s\n' "$version" >> "$GITHUB_OUTPUT"
       - name: Update Octicon dates in primer-docs
-        if: steps.published-octicons-version.outputs.version != '' || steps.octicons-version.outputs.version != ''
+        if: >-
+          steps.get-primer-docs-access-token.outcome == 'success' &&
+          (steps.published-octicons-version.outputs.version != '' || steps.octicons-version.outputs.version != '')
         env:
           GH_TOKEN: ${{ steps.get-primer-docs-access-token.outputs.token }}
           OCTICONS_VERSION: ${{ steps.published-octicons-version.outputs.version || steps.octicons-version.outputs.version }}
