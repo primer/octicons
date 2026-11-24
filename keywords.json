@@ -63,6 +63,7 @@
   "comment-fill": ["speak", "bubble", "chat"],
   "comment-locked": ["comment", "discussion", "conversation", "bubbles", "lock"],
   "compose": ["write", "new", "create", "pencil", "post"],
+  "cpu": ["chip"],
   "credit-card": ["money", "billing", "payments", "transactions"],
   "crosshairs": ["target", "focus", "center", "trigger", "aim"],
   "cursor": ["agent", "agentic", "ai"],
